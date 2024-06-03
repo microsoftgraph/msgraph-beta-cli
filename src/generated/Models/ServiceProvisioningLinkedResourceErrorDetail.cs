@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServiceProvisioningLinkedResourceErrorDetail : ServiceProvisioningResourceErrorDetail, IParsable 
+    public class ServiceProvisioningLinkedResourceErrorDetail : ServiceProvisioningResourceErrorDetail, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The propertyName property</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"propertyName", n => { PropertyName = n.GetStringValue(); } },
-                {"target", n => { Target = n.GetStringValue(); } },
+                { "propertyName", n => { PropertyName = n.GetStringValue(); } },
+                { "target", n => { Target = n.GetStringValue(); } },
             };
         }
         /// <summary>

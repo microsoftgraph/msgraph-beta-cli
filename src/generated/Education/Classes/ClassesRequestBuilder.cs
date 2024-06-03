@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes {
+namespace ApiSdk.Education.Classes
+{
     /// <summary>
     /// Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
     /// </summary>
-    public class ClassesRequestBuilder : BaseCliRequestBuilder 
+    public class ClassesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
@@ -64,13 +65,14 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to classes for education
+        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to classes for education";
+            command.Description = "Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-post-classes?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -126,13 +128,14 @@ namespace ApiSdk.Education.Classes {
             return command;
         }
         /// <summary>
-        /// Get classes from education
+        /// Retrieve a list of all class objects. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get classes from education";
+            command.Description = "Retrieve a list of all class objects. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationroot-list-classes?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -208,7 +211,9 @@ namespace ApiSdk.Education.Classes {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -234,7 +239,7 @@ namespace ApiSdk.Education.Classes {
         {
         }
         /// <summary>
-        /// Get classes from education
+        /// Retrieve a list of all class objects. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -253,7 +258,7 @@ namespace ApiSdk.Education.Classes {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to classes for education
+        /// Create a new class. This will also create a universal group. When you use this API to create a class, it will add special properties to the group, which willadd features such as assignments and special handling within Microsoft Teams when teams are created using the group. Please note that this API only creates the universal group and does not create a team. Microsoft Teams provides a user interface for teachers to create teams for their own classes using the groups created by this API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -274,7 +279,7 @@ namespace ApiSdk.Education.Classes {
             return requestInfo;
         }
         /// <summary>
-        /// Get classes from education
+        /// Retrieve a list of all class objects. 
         /// </summary>
         public class ClassesRequestBuilderGetQueryParameters 
         {

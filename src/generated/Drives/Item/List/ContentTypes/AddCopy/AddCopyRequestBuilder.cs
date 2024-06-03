@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.List.ContentTypes.AddCopy {
+namespace ApiSdk.Drives.Item.List.ContentTypes.AddCopy
+{
     /// <summary>
     /// Provides operations to call the addCopy method.
     /// </summary>
-    public class AddCopyRequestBuilder : BaseCliRequestBuilder 
+    public class AddCopyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action addCopy

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceAppPerformances.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceAppPerformances.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceAppPerformances property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class DeviceAppPerformanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceAppPerformanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceAppPerformances for tenantRelationships

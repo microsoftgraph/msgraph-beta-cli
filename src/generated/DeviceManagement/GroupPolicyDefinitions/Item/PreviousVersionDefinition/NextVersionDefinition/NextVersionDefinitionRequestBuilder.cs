@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.PreviousVersionDefinition.NextVersionDefinition {
+namespace ApiSdk.DeviceManagement.GroupPolicyDefinitions.Item.PreviousVersionDefinition.NextVersionDefinition
+{
     /// <summary>
     /// Provides operations to manage the nextVersionDefinition property of the microsoft.graph.groupPolicyDefinition entity.
     /// </summary>
-    public class NextVersionDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class NextVersionDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the category property of the microsoft.graph.groupPolicyDefinition entity.

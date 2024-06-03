@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Admin : IAdditionalDataHolder, IParsable 
+    public class Admin : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -132,18 +133,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appsAndServices", n => { AppsAndServices = n.GetObjectValue<AdminAppsAndServices>(AdminAppsAndServices.CreateFromDiscriminatorValue); } },
-                {"dynamics", n => { Dynamics = n.GetObjectValue<AdminDynamics>(AdminDynamics.CreateFromDiscriminatorValue); } },
-                {"edge", n => { Edge = n.GetObjectValue<ApiSdk.Models.Edge>(ApiSdk.Models.Edge.CreateFromDiscriminatorValue); } },
-                {"forms", n => { Forms = n.GetObjectValue<AdminForms>(AdminForms.CreateFromDiscriminatorValue); } },
-                {"microsoft365Apps", n => { Microsoft365Apps = n.GetObjectValue<AdminMicrosoft365Apps>(AdminMicrosoft365Apps.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"people", n => { People = n.GetObjectValue<PeopleAdminSettings>(PeopleAdminSettings.CreateFromDiscriminatorValue); } },
-                {"reportSettings", n => { ReportSettings = n.GetObjectValue<AdminReportSettings>(AdminReportSettings.CreateFromDiscriminatorValue); } },
-                {"serviceAnnouncement", n => { ServiceAnnouncement = n.GetObjectValue<ApiSdk.Models.ServiceAnnouncement>(ApiSdk.Models.ServiceAnnouncement.CreateFromDiscriminatorValue); } },
-                {"sharepoint", n => { Sharepoint = n.GetObjectValue<ApiSdk.Models.Sharepoint>(ApiSdk.Models.Sharepoint.CreateFromDiscriminatorValue); } },
-                {"todo", n => { Todo = n.GetObjectValue<AdminTodo>(AdminTodo.CreateFromDiscriminatorValue); } },
-                {"windows", n => { Windows = n.GetObjectValue<AdminWindows>(AdminWindows.CreateFromDiscriminatorValue); } },
+                { "appsAndServices", n => { AppsAndServices = n.GetObjectValue<AdminAppsAndServices>(AdminAppsAndServices.CreateFromDiscriminatorValue); } },
+                { "dynamics", n => { Dynamics = n.GetObjectValue<AdminDynamics>(AdminDynamics.CreateFromDiscriminatorValue); } },
+                { "edge", n => { Edge = n.GetObjectValue<ApiSdk.Models.Edge>(ApiSdk.Models.Edge.CreateFromDiscriminatorValue); } },
+                { "forms", n => { Forms = n.GetObjectValue<AdminForms>(AdminForms.CreateFromDiscriminatorValue); } },
+                { "microsoft365Apps", n => { Microsoft365Apps = n.GetObjectValue<AdminMicrosoft365Apps>(AdminMicrosoft365Apps.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "people", n => { People = n.GetObjectValue<PeopleAdminSettings>(PeopleAdminSettings.CreateFromDiscriminatorValue); } },
+                { "reportSettings", n => { ReportSettings = n.GetObjectValue<AdminReportSettings>(AdminReportSettings.CreateFromDiscriminatorValue); } },
+                { "serviceAnnouncement", n => { ServiceAnnouncement = n.GetObjectValue<ApiSdk.Models.ServiceAnnouncement>(ApiSdk.Models.ServiceAnnouncement.CreateFromDiscriminatorValue); } },
+                { "sharepoint", n => { Sharepoint = n.GetObjectValue<ApiSdk.Models.Sharepoint>(ApiSdk.Models.Sharepoint.CreateFromDiscriminatorValue); } },
+                { "todo", n => { Todo = n.GetObjectValue<AdminTodo>(AdminTodo.CreateFromDiscriminatorValue); } },
+                { "windows", n => { Windows = n.GetObjectValue<AdminWindows>(AdminWindows.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

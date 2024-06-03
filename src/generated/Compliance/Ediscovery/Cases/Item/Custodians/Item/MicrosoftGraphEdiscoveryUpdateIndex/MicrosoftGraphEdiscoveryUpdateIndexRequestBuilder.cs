@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryUpdateIndex {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryUpdateIndex
+{
     /// <summary>
     /// Provides operations to call the updateIndex method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateIndex

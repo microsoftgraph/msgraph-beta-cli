@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Complete {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.Complete
+{
     /// <summary>
     /// Provides operations to call the complete method.
     /// </summary>
-    public class CompleteRequestBuilder : BaseCliRequestBuilder 
+    public class CompleteRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Complete a recommendation object and update its status to completedByUser.

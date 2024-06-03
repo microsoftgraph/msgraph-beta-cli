@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item
+{
     /// <summary>
     /// Provides operations to manage the channels property of the microsoft.graph.team entity.
     /// </summary>
-    public class ChannelItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChannelItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the archive method.

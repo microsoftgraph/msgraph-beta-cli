@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365GroupsActivityStorage : Entity, IParsable 
+    public class Office365GroupsActivityStorage : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The storage used in group mailbox.</summary>
@@ -44,11 +45,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"mailboxStorageUsedInBytes", n => { MailboxStorageUsedInBytes = n.GetLongValue(); } },
-                {"reportDate", n => { ReportDate = n.GetDateValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"siteStorageUsedInBytes", n => { SiteStorageUsedInBytes = n.GetLongValue(); } },
+                { "mailboxStorageUsedInBytes", n => { MailboxStorageUsedInBytes = n.GetLongValue(); } },
+                { "reportDate", n => { ReportDate = n.GetDateValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "siteStorageUsedInBytes", n => { SiteStorageUsedInBytes = n.GetLongValue(); } },
             };
         }
         /// <summary>

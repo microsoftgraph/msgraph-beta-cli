@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item
+{
     /// <summary>
     /// Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class ManagedAppRegistrationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedAppRegistrationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.

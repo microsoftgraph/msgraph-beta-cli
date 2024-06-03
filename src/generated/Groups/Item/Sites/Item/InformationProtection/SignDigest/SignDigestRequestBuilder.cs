@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.SignDigest {
+namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection.SignDigest
+{
     /// <summary>
     /// Provides operations to call the signDigest method.
     /// </summary>
-    public class SignDigestRequestBuilder : BaseCliRequestBuilder 
+    public class SignDigestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action signDigest

@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.Exchange.TransitiveRoleAssignments.Item {
+namespace ApiSdk.RoleManagement.Exchange.TransitiveRoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.unifiedRbacApplication entity.
     /// </summary>
-    public class UnifiedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity.

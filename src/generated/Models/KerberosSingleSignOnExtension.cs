@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a Kerberos-type Single Sign-On extension profile.
     /// </summary>
-    public class KerberosSingleSignOnExtension : SingleSignOnExtension, IParsable 
+    public class KerberosSingleSignOnExtension : SingleSignOnExtension, IParsable
     {
         /// <summary>Gets or sets the Active Directory site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -131,27 +132,27 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeDirectorySiteCode", n => { ActiveDirectorySiteCode = n.GetStringValue(); } },
-                {"blockActiveDirectorySiteAutoDiscovery", n => { BlockActiveDirectorySiteAutoDiscovery = n.GetBoolValue(); } },
-                {"blockAutomaticLogin", n => { BlockAutomaticLogin = n.GetBoolValue(); } },
-                {"cacheName", n => { CacheName = n.GetStringValue(); } },
-                {"credentialBundleIdAccessControlList", n => { CredentialBundleIdAccessControlList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"domainRealms", n => { DomainRealms = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isDefaultRealm", n => { IsDefaultRealm = n.GetBoolValue(); } },
-                {"passwordBlockModification", n => { PasswordBlockModification = n.GetBoolValue(); } },
-                {"passwordChangeUrl", n => { PasswordChangeUrl = n.GetStringValue(); } },
-                {"passwordEnableLocalSync", n => { PasswordEnableLocalSync = n.GetBoolValue(); } },
-                {"passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
-                {"passwordExpirationNotificationDays", n => { PasswordExpirationNotificationDays = n.GetIntValue(); } },
-                {"passwordMinimumAgeDays", n => { PasswordMinimumAgeDays = n.GetIntValue(); } },
-                {"passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
-                {"passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
-                {"passwordRequireActiveDirectoryComplexity", n => { PasswordRequireActiveDirectoryComplexity = n.GetBoolValue(); } },
-                {"passwordRequirementsDescription", n => { PasswordRequirementsDescription = n.GetStringValue(); } },
-                {"realm", n => { Realm = n.GetStringValue(); } },
-                {"requireUserPresence", n => { RequireUserPresence = n.GetBoolValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "activeDirectorySiteCode", n => { ActiveDirectorySiteCode = n.GetStringValue(); } },
+                { "blockActiveDirectorySiteAutoDiscovery", n => { BlockActiveDirectorySiteAutoDiscovery = n.GetBoolValue(); } },
+                { "blockAutomaticLogin", n => { BlockAutomaticLogin = n.GetBoolValue(); } },
+                { "cacheName", n => { CacheName = n.GetStringValue(); } },
+                { "credentialBundleIdAccessControlList", n => { CredentialBundleIdAccessControlList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "domainRealms", n => { DomainRealms = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isDefaultRealm", n => { IsDefaultRealm = n.GetBoolValue(); } },
+                { "passwordBlockModification", n => { PasswordBlockModification = n.GetBoolValue(); } },
+                { "passwordChangeUrl", n => { PasswordChangeUrl = n.GetStringValue(); } },
+                { "passwordEnableLocalSync", n => { PasswordEnableLocalSync = n.GetBoolValue(); } },
+                { "passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
+                { "passwordExpirationNotificationDays", n => { PasswordExpirationNotificationDays = n.GetIntValue(); } },
+                { "passwordMinimumAgeDays", n => { PasswordMinimumAgeDays = n.GetIntValue(); } },
+                { "passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
+                { "passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
+                { "passwordRequireActiveDirectoryComplexity", n => { PasswordRequireActiveDirectoryComplexity = n.GetBoolValue(); } },
+                { "passwordRequirementsDescription", n => { PasswordRequirementsDescription = n.GetStringValue(); } },
+                { "realm", n => { Realm = n.GetStringValue(); } },
+                { "requireUserPresence", n => { RequireUserPresence = n.GetBoolValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

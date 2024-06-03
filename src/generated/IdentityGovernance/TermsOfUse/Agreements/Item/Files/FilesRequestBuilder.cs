@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
+namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item.Files
+{
     /// <summary>
     /// Provides operations to manage the files property of the microsoft.graph.agreement entity.
     /// </summary>
-    public class FilesRequestBuilder : BaseCliRequestBuilder 
+    public class FilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the files property of the microsoft.graph.agreement entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to files for identityGovernance
+        /// Create a new localized agreement file.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/agreement-post-files?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to files for identityGovernance";
+            command.Description = "Create a new localized agreement file.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/agreement-post-files?view=graph-rest-beta";
             var agreementIdOption = new Option<string>("--agreement-id", description: "The unique identifier of agreement") {
             };
             agreementIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -239,7 +243,7 @@ namespace ApiSdk.IdentityGovernance.TermsOfUse.Agreements.Item.Files {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to files for identityGovernance
+        /// Create a new localized agreement file.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

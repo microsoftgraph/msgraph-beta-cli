@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties {
+namespace ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties
+{
     #pragma warning disable CS1591
-    public class GetSupportedPropertiesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetSupportedPropertiesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties 
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AssignmentFilterSupportedProperty>(AssignmentFilterSupportedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AssignmentFilterSupportedProperty>(AssignmentFilterSupportedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

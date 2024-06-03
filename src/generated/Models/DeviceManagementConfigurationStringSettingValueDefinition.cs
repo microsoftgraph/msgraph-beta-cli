@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// String constraints
     /// </summary>
-    public class DeviceManagementConfigurationStringSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable 
+    public class DeviceManagementConfigurationStringSettingValueDefinition : DeviceManagementConfigurationSettingValueDefinition, IParsable
     {
         /// <summary>Supported file types for this setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -18,7 +19,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> FileTypes { get; set; }
 #endif
-        /// <summary>Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub, bashScript, unknownFutureValue.</summary>
+        /// <summary>Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.</summary>
         public DeviceManagementConfigurationStringFormat? Format { get; set; }
         /// <summary>Regular expression or any xml or json schema that the input string should match</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,9 +31,9 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.</summary>
         public bool? IsSecret { get; set; }
-        /// <summary>Maximum length of string. Valid values 0 to 87516</summary>
+        /// <summary>Maximum length of string</summary>
         public long? MaximumLength { get; set; }
-        /// <summary>Minimum length of string. Valid values 0 to 87516</summary>
+        /// <summary>Minimum length of string</summary>
         public long? MinimumLength { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="DeviceManagementConfigurationStringSettingValueDefinition"/> and sets the default values.
@@ -59,12 +60,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"fileTypes", n => { FileTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"format", n => { Format = n.GetEnumValue<DeviceManagementConfigurationStringFormat>(); } },
-                {"inputValidationSchema", n => { InputValidationSchema = n.GetStringValue(); } },
-                {"isSecret", n => { IsSecret = n.GetBoolValue(); } },
-                {"maximumLength", n => { MaximumLength = n.GetLongValue(); } },
-                {"minimumLength", n => { MinimumLength = n.GetLongValue(); } },
+                { "fileTypes", n => { FileTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "format", n => { Format = n.GetEnumValue<DeviceManagementConfigurationStringFormat>(); } },
+                { "inputValidationSchema", n => { InputValidationSchema = n.GetStringValue(); } },
+                { "isSecret", n => { IsSecret = n.GetBoolValue(); } },
+                { "maximumLength", n => { MaximumLength = n.GetLongValue(); } },
+                { "minimumLength", n => { MinimumLength = n.GetLongValue(); } },
             };
         }
         /// <summary>

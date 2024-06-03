@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for windows autopilot deployment profile PolicySetItem.
     /// </summary>
-    public class WindowsAutopilotDeploymentProfilePolicySetItem : PolicySetItem, IParsable 
+    public class WindowsAutopilotDeploymentProfilePolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="WindowsAutopilotDeploymentProfilePolicySetItem"/> and sets the default values.

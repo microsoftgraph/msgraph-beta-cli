@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeOffRequests.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeOffRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class TimeOffRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property timeOffRequests for teamTemplateDefinition

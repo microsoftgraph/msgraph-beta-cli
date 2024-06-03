@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthorizationSystem : Entity, IParsable 
+    public class AuthorizationSystem : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>ID of the authorization system retrieved from the customer cloud environment. Supports $filter(eq, contains) and $orderBy.</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizationSystemId", n => { AuthorizationSystemId = n.GetStringValue(); } },
-                {"authorizationSystemName", n => { AuthorizationSystemName = n.GetStringValue(); } },
-                {"authorizationSystemType", n => { AuthorizationSystemType = n.GetStringValue(); } },
-                {"dataCollectionInfo", n => { DataCollectionInfo = n.GetObjectValue<ApiSdk.Models.DataCollectionInfo>(ApiSdk.Models.DataCollectionInfo.CreateFromDiscriminatorValue); } },
+                { "authorizationSystemId", n => { AuthorizationSystemId = n.GetStringValue(); } },
+                { "authorizationSystemName", n => { AuthorizationSystemName = n.GetStringValue(); } },
+                { "authorizationSystemType", n => { AuthorizationSystemType = n.GetStringValue(); } },
+                { "dataCollectionInfo", n => { DataCollectionInfo = n.GetObjectValue<ApiSdk.Models.DataCollectionInfo>(ApiSdk.Models.DataCollectionInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

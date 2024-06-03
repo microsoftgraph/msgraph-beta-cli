@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// BitLocker Encryption Base Policies.
     /// </summary>
-    public class BitLockerSystemDrivePolicy : IAdditionalDataHolder, IParsable 
+    public class BitLockerSystemDrivePolicy : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -87,19 +88,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<BitLockerEncryptionMethod>(); } },
-                {"minimumPinLength", n => { MinimumPinLength = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"prebootRecoveryEnableMessageAndUrl", n => { PrebootRecoveryEnableMessageAndUrl = n.GetBoolValue(); } },
-                {"prebootRecoveryMessage", n => { PrebootRecoveryMessage = n.GetStringValue(); } },
-                {"prebootRecoveryUrl", n => { PrebootRecoveryUrl = n.GetStringValue(); } },
-                {"recoveryOptions", n => { RecoveryOptions = n.GetObjectValue<BitLockerRecoveryOptions>(BitLockerRecoveryOptions.CreateFromDiscriminatorValue); } },
-                {"startupAuthenticationBlockWithoutTpmChip", n => { StartupAuthenticationBlockWithoutTpmChip = n.GetBoolValue(); } },
-                {"startupAuthenticationRequired", n => { StartupAuthenticationRequired = n.GetBoolValue(); } },
-                {"startupAuthenticationTpmKeyUsage", n => { StartupAuthenticationTpmKeyUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"startupAuthenticationTpmPinAndKeyUsage", n => { StartupAuthenticationTpmPinAndKeyUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"startupAuthenticationTpmPinUsage", n => { StartupAuthenticationTpmPinUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                {"startupAuthenticationTpmUsage", n => { StartupAuthenticationTpmUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<BitLockerEncryptionMethod>(); } },
+                { "minimumPinLength", n => { MinimumPinLength = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "prebootRecoveryEnableMessageAndUrl", n => { PrebootRecoveryEnableMessageAndUrl = n.GetBoolValue(); } },
+                { "prebootRecoveryMessage", n => { PrebootRecoveryMessage = n.GetStringValue(); } },
+                { "prebootRecoveryUrl", n => { PrebootRecoveryUrl = n.GetStringValue(); } },
+                { "recoveryOptions", n => { RecoveryOptions = n.GetObjectValue<BitLockerRecoveryOptions>(BitLockerRecoveryOptions.CreateFromDiscriminatorValue); } },
+                { "startupAuthenticationBlockWithoutTpmChip", n => { StartupAuthenticationBlockWithoutTpmChip = n.GetBoolValue(); } },
+                { "startupAuthenticationRequired", n => { StartupAuthenticationRequired = n.GetBoolValue(); } },
+                { "startupAuthenticationTpmKeyUsage", n => { StartupAuthenticationTpmKeyUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "startupAuthenticationTpmPinAndKeyUsage", n => { StartupAuthenticationTpmPinAndKeyUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "startupAuthenticationTpmPinUsage", n => { StartupAuthenticationTpmPinUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "startupAuthenticationTpmUsage", n => { StartupAuthenticationTpmUsage = n.GetEnumValue<ConfigurationUsage>(); } },
             };
         }
         /// <summary>

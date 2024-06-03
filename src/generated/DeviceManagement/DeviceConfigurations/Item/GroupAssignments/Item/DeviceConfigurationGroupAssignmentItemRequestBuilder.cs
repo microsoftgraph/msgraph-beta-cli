@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.GroupAssignments.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.GroupAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the groupAssignments property of the microsoft.graph.deviceConfiguration entity.
     /// </summary>
-    public class DeviceConfigurationGroupAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationGroupAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groupAssignments for deviceManagement

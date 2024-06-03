@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class DurationDrivenRolloutSettings : GradualRolloutSettings, IParsable 
+    public class DurationDrivenRolloutSettings : GradualRolloutSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The target duration of the rollout. Given durationBetweenOffers and durationUntilDeploymentEnd, the system will automatically calculate how many devices are in each offering.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"durationUntilDeploymentEnd", n => { DurationUntilDeploymentEnd = n.GetTimeSpanValue(); } },
+                { "durationUntilDeploymentEnd", n => { DurationUntilDeploymentEnd = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.TranslateExchangeIds {
+namespace ApiSdk.Users.Item.TranslateExchangeIds
+{
     #pragma warning disable CS1591
-    public class TranslateExchangeIdsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class TranslateExchangeIdsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.TranslateExchangeIds {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ConvertIdResult>(ConvertIdResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ConvertIdResult>(ConvertIdResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

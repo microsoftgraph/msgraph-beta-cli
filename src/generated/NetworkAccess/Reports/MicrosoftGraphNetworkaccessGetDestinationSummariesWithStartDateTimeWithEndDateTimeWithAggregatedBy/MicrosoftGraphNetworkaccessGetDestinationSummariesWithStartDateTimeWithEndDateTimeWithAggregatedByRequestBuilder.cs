@@ -13,25 +13,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy
+{
     /// <summary>
     /// Provides operations to call the getDestinationSummaries method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke function getDestinationSummaries
+        /// Get counts of the visits to the top destination aggregations.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getDestinationSummaries";
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            command.Description = "Get counts of the visits to the top destination aggregations.";
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);
@@ -99,7 +100,9 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestination
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -125,7 +128,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestination
         {
         }
         /// <summary>
-        /// Invoke function getDestinationSummaries
+        /// Get counts of the visits to the top destination aggregations.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -144,7 +147,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestination
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getDestinationSummaries
+        /// Get counts of the visits to the top destination aggregations.
         /// </summary>
         public class MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilderGetQueryParameters 
         {

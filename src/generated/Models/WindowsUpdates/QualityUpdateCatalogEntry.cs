@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class QualityUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable 
+    public class QualityUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The catalog name of the content. Read-only.</summary>
@@ -72,13 +73,13 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"catalogName", n => { CatalogName = n.GetStringValue(); } },
-                {"cveSeverityInformation", n => { CveSeverityInformation = n.GetObjectValue<QualityUpdateCveSeverityInformation>(QualityUpdateCveSeverityInformation.CreateFromDiscriminatorValue); } },
-                {"isExpeditable", n => { IsExpeditable = n.GetBoolValue(); } },
-                {"productRevisions", n => { ProductRevisions = n.GetCollectionOfObjectValues<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"qualityUpdateCadence", n => { QualityUpdateCadence = n.GetEnumValue<QualityUpdateCadence>(); } },
-                {"qualityUpdateClassification", n => { QualityUpdateClassification = n.GetEnumValue<QualityUpdateClassification>(); } },
-                {"shortName", n => { ShortName = n.GetStringValue(); } },
+                { "catalogName", n => { CatalogName = n.GetStringValue(); } },
+                { "cveSeverityInformation", n => { CveSeverityInformation = n.GetObjectValue<QualityUpdateCveSeverityInformation>(QualityUpdateCveSeverityInformation.CreateFromDiscriminatorValue); } },
+                { "isExpeditable", n => { IsExpeditable = n.GetBoolValue(); } },
+                { "productRevisions", n => { ProductRevisions = n.GetCollectionOfObjectValues<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "qualityUpdateCadence", n => { QualityUpdateCadence = n.GetEnumValue<QualityUpdateCadence>(); } },
+                { "qualityUpdateClassification", n => { QualityUpdateClassification = n.GetEnumValue<QualityUpdateClassification>(); } },
+                { "shortName", n => { ShortName = n.GetStringValue(); } },
             };
         }
         /// <summary>

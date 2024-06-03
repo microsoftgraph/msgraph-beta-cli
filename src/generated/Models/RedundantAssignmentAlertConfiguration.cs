@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RedundantAssignmentAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable 
+    public class RedundantAssignmentAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of days without activation to look back on from current timestamp.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

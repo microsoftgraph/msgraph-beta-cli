@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.
     /// </summary>
-    public class ExactMatchSessionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExactMatchSessionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancel method.

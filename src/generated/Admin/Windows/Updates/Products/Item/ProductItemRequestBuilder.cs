@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item
+{
     /// <summary>
     /// Provides operations to manage the products property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class ProductItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProductItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property products for admin

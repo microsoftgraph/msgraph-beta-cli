@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quartile_Exc {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quartile_Exc
+{
     #pragma warning disable CS1591
-    public class Quartile_ExcPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class Quartile_ExcPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quartile_Exc {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"array", n => { Array = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"quart", n => { Quart = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "array", n => { Array = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "quart", n => { Quart = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

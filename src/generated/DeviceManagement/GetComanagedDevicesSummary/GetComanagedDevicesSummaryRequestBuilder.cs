@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GetComanagedDevicesSummary {
+namespace ApiSdk.DeviceManagement.GetComanagedDevicesSummary
+{
     /// <summary>
     /// Provides operations to call the getComanagedDevicesSummary method.
     /// </summary>
-    public class GetComanagedDevicesSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class GetComanagedDevicesSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getComanagedDevicesSummary

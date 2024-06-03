@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsImpactingProcess.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsImpactingProcess.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsImpactingProcess property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsImpactingProcessItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsImpactingProcessItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsImpactingProcess for deviceManagement

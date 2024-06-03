@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
+namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item
+{
     /// <summary>
     /// Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
     /// </summary>
-    public class UserScopeTeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserScopeTeamsAppInstallationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the chat property of the microsoft.graph.userScopeTeamsAppInstallation entity.
@@ -41,13 +42,14 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property installedApps for users
+        /// Uninstall an app from the personal scope of the specified user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property installedApps for users";
+            command.Description = "Uninstall an app from the personal scope of the specified user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -82,13 +84,14 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
             return command;
         }
         /// <summary>
-        /// The apps installed in the personal scope of this user.
+        /// Retrieve the app installed in the personal scope of the specified user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The apps installed in the personal scope of this user.";
+            command.Description = "Retrieve the app installed in the personal scope of the specified user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -245,7 +248,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property installedApps for users
+        /// Uninstall an app from the personal scope of the specified user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +267,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The apps installed in the personal scope of this user.
+        /// Retrieve the app installed in the personal scope of the specified user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -304,7 +307,7 @@ namespace ApiSdk.Users.Item.Teamwork.InstalledApps.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The apps installed in the personal scope of this user.
+        /// Retrieve the app installed in the personal scope of the specified user.
         /// </summary>
         public class UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParameters 
         {

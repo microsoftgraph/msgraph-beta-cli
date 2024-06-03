@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate {
+namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
+{
     #pragma warning disable CS1591
-    public class MigrateToTemplatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MigrateToTemplatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,8 +47,8 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"newTemplateId", n => { NewTemplateId = n.GetStringValue(); } },
-                {"preserveCustomValues", n => { PreserveCustomValues = n.GetBoolValue(); } },
+                { "newTemplateId", n => { NewTemplateId = n.GetStringValue(); } },
+                { "preserveCustomValues", n => { PreserveCustomValues = n.GetBoolValue(); } },
             };
         }
         /// <summary>

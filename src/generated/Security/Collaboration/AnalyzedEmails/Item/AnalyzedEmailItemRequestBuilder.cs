@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
+namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item
+{
     /// <summary>
     /// Provides operations to manage the analyzedEmails property of the microsoft.graph.security.collaborationRoot entity.
     /// </summary>
-    public class AnalyzedEmailItemRequestBuilder : BaseCliRequestBuilder 
+    public class AnalyzedEmailItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property analyzedEmails for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
             return command;
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-analyzedemail-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Contains metadata for analyzed emails.";
+            command.Description = "Read the properties and relationships of an analyzedEmail object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-analyzedemail-get?view=graph-rest-beta";
             var analyzedEmailIdOption = new Option<string>("--analyzed-email-id", description: "The unique identifier of analyzedEmail") {
             };
             analyzedEmailIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Contains metadata for analyzed emails.
+        /// Read the properties and relationships of an analyzedEmail object.
         /// </summary>
         public class AnalyzedEmailItemRequestBuilderGetQueryParameters 
         {

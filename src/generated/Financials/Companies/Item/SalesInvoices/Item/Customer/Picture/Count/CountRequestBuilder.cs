@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.Picture.Count {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.Picture.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.Picture.C
         {
             var command = new Command("get");
             command.Description = "Get the number of the resource";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);

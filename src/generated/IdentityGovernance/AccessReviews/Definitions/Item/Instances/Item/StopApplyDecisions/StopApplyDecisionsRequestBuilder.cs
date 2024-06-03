@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.StopApplyDecisions {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.StopApplyDecisions
+{
     /// <summary>
     /// Provides operations to call the stopApplyDecisions method.
     /// </summary>
-    public class StopApplyDecisionsRequestBuilder : BaseCliRequestBuilder 
+    public class StopApplyDecisionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action stopApplyDecisions

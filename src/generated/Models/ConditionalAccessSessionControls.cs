@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConditionalAccessSessionControls : IAdditionalDataHolder, IParsable 
+    public class ConditionalAccessSessionControls : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applicationEnforcedRestrictions", n => { ApplicationEnforcedRestrictions = n.GetObjectValue<ApplicationEnforcedRestrictionsSessionControl>(ApplicationEnforcedRestrictionsSessionControl.CreateFromDiscriminatorValue); } },
-                {"cloudAppSecurity", n => { CloudAppSecurity = n.GetObjectValue<CloudAppSecuritySessionControl>(CloudAppSecuritySessionControl.CreateFromDiscriminatorValue); } },
-                {"continuousAccessEvaluation", n => { ContinuousAccessEvaluation = n.GetObjectValue<ContinuousAccessEvaluationSessionControl>(ContinuousAccessEvaluationSessionControl.CreateFromDiscriminatorValue); } },
-                {"disableResilienceDefaults", n => { DisableResilienceDefaults = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"persistentBrowser", n => { PersistentBrowser = n.GetObjectValue<PersistentBrowserSessionControl>(PersistentBrowserSessionControl.CreateFromDiscriminatorValue); } },
-                {"secureSignInSession", n => { SecureSignInSession = n.GetObjectValue<SecureSignInSessionControl>(SecureSignInSessionControl.CreateFromDiscriminatorValue); } },
-                {"signInFrequency", n => { SignInFrequency = n.GetObjectValue<SignInFrequencySessionControl>(SignInFrequencySessionControl.CreateFromDiscriminatorValue); } },
+                { "applicationEnforcedRestrictions", n => { ApplicationEnforcedRestrictions = n.GetObjectValue<ApplicationEnforcedRestrictionsSessionControl>(ApplicationEnforcedRestrictionsSessionControl.CreateFromDiscriminatorValue); } },
+                { "cloudAppSecurity", n => { CloudAppSecurity = n.GetObjectValue<CloudAppSecuritySessionControl>(CloudAppSecuritySessionControl.CreateFromDiscriminatorValue); } },
+                { "continuousAccessEvaluation", n => { ContinuousAccessEvaluation = n.GetObjectValue<ContinuousAccessEvaluationSessionControl>(ContinuousAccessEvaluationSessionControl.CreateFromDiscriminatorValue); } },
+                { "disableResilienceDefaults", n => { DisableResilienceDefaults = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "persistentBrowser", n => { PersistentBrowser = n.GetObjectValue<PersistentBrowserSessionControl>(PersistentBrowserSessionControl.CreateFromDiscriminatorValue); } },
+                { "secureSignInSession", n => { SecureSignInSession = n.GetObjectValue<SecureSignInSessionControl>(SecureSignInSessionControl.CreateFromDiscriminatorValue); } },
+                { "signInFrequency", n => { SignInFrequency = n.GetObjectValue<SignInFrequencySessionControl>(SignInFrequencySessionControl.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

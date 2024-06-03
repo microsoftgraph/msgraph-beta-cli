@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagementEligibleDevices.Item {
+namespace ApiSdk.DeviceManagement.ComanagementEligibleDevices.Item
+{
     /// <summary>
     /// Provides operations to manage the comanagementEligibleDevices property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ComanagementEligibleDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ComanagementEligibleDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property comanagementEligibleDevices for deviceManagement

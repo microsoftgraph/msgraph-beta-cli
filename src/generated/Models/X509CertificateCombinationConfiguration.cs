@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class X509CertificateCombinationConfiguration : AuthenticationCombinationConfiguration, IParsable 
+    public class X509CertificateCombinationConfiguration : AuthenticationCombinationConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A list of allowed subject key identifier values.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowedIssuerSkis", n => { AllowedIssuerSkis = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"allowedPolicyOIDs", n => { AllowedPolicyOIDs = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowedIssuerSkis", n => { AllowedIssuerSkis = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowedPolicyOIDs", n => { AllowedPolicyOIDs = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

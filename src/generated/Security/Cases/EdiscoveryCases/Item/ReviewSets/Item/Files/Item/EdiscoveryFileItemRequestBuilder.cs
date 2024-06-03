@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item
+{
     /// <summary>
     /// Provides operations to manage the files property of the microsoft.graph.security.ediscoveryReviewSet entity.
     /// </summary>
-    public class EdiscoveryFileItemRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryFileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the security entity.
@@ -34,6 +35,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item 
             command.Description = "Provides operations to manage the media for the security entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -116,6 +118,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.ReviewSets.Item.Files.Item 
             command.Description = "Provides operations to manage the media for the security entity.";
             var builder = new ExtractedTextContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

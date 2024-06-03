@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDeviceEnrollmentProgram {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDeviceEnrollmentProgram
+{
     /// <summary>
     /// Provides operations to call the syncWithAppleDeviceEnrollmentProgram method.
     /// </summary>
-    public class SyncWithAppleDeviceEnrollmentProgramRequestBuilder : BaseCliRequestBuilder 
+    public class SyncWithAppleDeviceEnrollmentProgramRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Synchronizes between Apple Device Enrollment Program and Intune

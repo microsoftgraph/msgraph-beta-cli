@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item
+{
     /// <summary>
     /// Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
     /// </summary>
-    public class TeamTemplateDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamTemplateDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property definitions for teamwork
@@ -63,13 +64,14 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item {
             return command;
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamtemplatedefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A generic representation of a team template definition for a team with a specific structure and configuration.";
+            command.Description = "Read the properties and relationships of a teamTemplateDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamtemplatedefinition-get?view=graph-rest-beta";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -255,7 +257,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -295,7 +297,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
         /// </summary>
         public class TeamTemplateDefinitionItemRequestBuilderGetQueryParameters 
         {

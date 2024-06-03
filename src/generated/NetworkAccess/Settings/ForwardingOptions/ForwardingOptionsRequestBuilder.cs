@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
+namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions
+{
     /// <summary>
     /// Provides operations to manage the forwardingOptions property of the microsoft.graph.networkaccess.settings entity.
     /// </summary>
-    public class ForwardingOptionsRequestBuilder : BaseCliRequestBuilder 
+    public class ForwardingOptionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property forwardingOptions for networkAccess
@@ -50,13 +51,14 @@ namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
             return command;
         }
         /// <summary>
-        /// Get forwardingOptions from networkAccess
+        /// Retrieve the forwarding options for the tenant, with a specific focus on the &apos;skipDnsLookupState&apos; flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingoptions-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get forwardingOptions from networkAccess";
+            command.Description = "Retrieve the forwarding options for the tenant, with a specific focus on the 'skipDnsLookupState' flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingoptions-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
             return command;
         }
         /// <summary>
-        /// Update the navigation property forwardingOptions in networkAccess
+        /// the forwarding options for the tenant, with a specific focus on the skipDnsLookupState flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-forwardingoptions-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property forwardingOptions in networkAccess";
+            command.Description = "the forwarding options for the tenant, with a specific focus on the skipDnsLookupState flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-forwardingoptions-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
             return requestInfo;
         }
         /// <summary>
-        /// Get forwardingOptions from networkAccess
+        /// Retrieve the forwarding options for the tenant, with a specific focus on the &apos;skipDnsLookupState&apos; flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property forwardingOptions in networkAccess
+        /// the forwarding options for the tenant, with a specific focus on the skipDnsLookupState flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.NetworkAccess.Settings.ForwardingOptions {
             return requestInfo;
         }
         /// <summary>
-        /// Get forwardingOptions from networkAccess
+        /// Retrieve the forwarding options for the tenant, with a specific focus on the &apos;skipDnsLookupState&apos; flag. This flag determines whether DNS lookup will be skipped, allowing Microsoft 365 traffic to be forwarded directly to the Front Door using the client-resolved destination.
         /// </summary>
         public class ForwardingOptionsRequestBuilderGetQueryParameters 
         {

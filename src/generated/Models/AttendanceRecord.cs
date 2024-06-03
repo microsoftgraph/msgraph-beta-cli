@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AttendanceRecord : Entity, IParsable 
+    public class AttendanceRecord : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of time periods between joining and leaving a meeting.</summary>
@@ -69,12 +70,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"attendanceIntervals", n => { AttendanceIntervals = n.GetCollectionOfObjectValues<AttendanceInterval>(AttendanceInterval.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                {"identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
-                {"registrantId", n => { RegistrantId = n.GetStringValue(); } },
-                {"role", n => { Role = n.GetStringValue(); } },
-                {"totalAttendanceInSeconds", n => { TotalAttendanceInSeconds = n.GetIntValue(); } },
+                { "attendanceIntervals", n => { AttendanceIntervals = n.GetCollectionOfObjectValues<AttendanceInterval>(AttendanceInterval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
+                { "registrantId", n => { RegistrantId = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "totalAttendanceInSeconds", n => { TotalAttendanceInSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>

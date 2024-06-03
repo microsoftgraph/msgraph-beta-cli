@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime {
+namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTime
+{
     #pragma warning disable CS1591
-    public class GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetPstnOnlineMeetingDialoutReportWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnOnli
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<PstnOnlineMeetingDialoutReport>(PstnOnlineMeetingDialoutReport.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<PstnOnlineMeetingDialoutReport>(PstnOnlineMeetingDialoutReport.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

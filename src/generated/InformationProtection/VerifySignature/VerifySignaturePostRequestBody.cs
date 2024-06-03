@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.InformationProtection.VerifySignature {
+namespace ApiSdk.InformationProtection.VerifySignature
+{
     #pragma warning disable CS1591
-    public class VerifySignaturePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class VerifySignaturePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.InformationProtection.VerifySignature {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"digest", n => { Digest = n.GetByteArrayValue(); } },
-                {"signature", n => { Signature = n.GetByteArrayValue(); } },
-                {"signingKeyId", n => { SigningKeyId = n.GetStringValue(); } },
+                { "digest", n => { Digest = n.GetByteArrayValue(); } },
+                { "signature", n => { Signature = n.GetByteArrayValue(); } },
+                { "signingKeyId", n => { SigningKeyId = n.GetStringValue(); } },
             };
         }
         /// <summary>

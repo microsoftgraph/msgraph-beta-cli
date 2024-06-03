@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRoleAssignmentMultiple : Entity, IParsable 
+    public class UnifiedRoleAssignmentMultiple : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.</summary>
@@ -115,17 +116,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appScopeIds", n => { AppScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"appScopes", n => { AppScopes = n.GetCollectionOfObjectValues<AppScope>(AppScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"condition", n => { Condition = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"directoryScopeIds", n => { DirectoryScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"directoryScopes", n => { DirectoryScopes = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"principalIds", n => { PrincipalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"principals", n => { Principals = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
-                {"roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
+                { "appScopeIds", n => { AppScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "appScopes", n => { AppScopes = n.GetCollectionOfObjectValues<AppScope>(AppScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "condition", n => { Condition = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "directoryScopeIds", n => { DirectoryScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "directoryScopes", n => { DirectoryScopes = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "principalIds", n => { PrincipalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "principals", n => { Principals = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
             };
         }
         /// <summary>

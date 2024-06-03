@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.Clone {
+namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.Clone
+{
     /// <summary>
     /// Provides operations to call the clone method.
     /// </summary>
-    public class CloneRequestBuilder : BaseCliRequestBuilder 
+    public class CloneRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action clone

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible {
+namespace ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible
+{
     /// <summary>
     /// Provides operations to call the makeEligible method.
     /// </summary>
-    public class MakeEligibleRequestBuilder : BaseCliRequestBuilder 
+    public class MakeEligibleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action makeEligible

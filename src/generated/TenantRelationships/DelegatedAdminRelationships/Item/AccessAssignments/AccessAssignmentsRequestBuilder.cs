@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssignments {
+namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssignments
+{
     /// <summary>
     /// Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
     /// </summary>
-    public class AccessAssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class AccessAssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
             return command;
         }
         /// <summary>
-        /// Create new navigation property to accessAssignments for tenantRelationships
+        /// Create a new delegatedAdminAccessAssignment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-post-accessassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to accessAssignments for tenantRelationships";
+            command.Description = "Create a new delegatedAdminAccessAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationship-post-accessassignments?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
             return command;
         }
         /// <summary>
-        /// The access assignments associated with the delegated admin relationship.
+        /// Get a list of the delegatedAdminAccessAssignment objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-accessassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The access assignments associated with the delegated admin relationship.";
+            command.Description = "Get a list of the delegatedAdminAccessAssignment objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-accessassignments?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -192,7 +195,9 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +223,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
         {
         }
         /// <summary>
-        /// The access assignments associated with the delegated admin relationship.
+        /// Get a list of the delegatedAdminAccessAssignment objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -237,7 +242,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to accessAssignments for tenantRelationships
+        /// Create a new delegatedAdminAccessAssignment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -258,7 +263,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.AccessAssi
             return requestInfo;
         }
         /// <summary>
-        /// The access assignments associated with the delegated admin relationship.
+        /// Get a list of the delegatedAdminAccessAssignment objects and their properties.
         /// </summary>
         public class AccessAssignmentsRequestBuilderGetQueryParameters 
         {

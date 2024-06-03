@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceTimelineEvent.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceTimelineEvent.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsDeviceTimelineEvent property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsDeviceTimelineEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsDeviceTimelineEvent for deviceManagement

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions
+{
     /// <summary>
     /// Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
     /// </summary>
-    public class ResourceActionsRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceActionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
@@ -107,13 +108,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
             return command;
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Get a list of the unifiedRbacResourceAction objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Operations that an authorized principal is allowed to perform.";
+            command.Description = "Get a list of the unifiedRbacResourceAction objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacresourcenamespace-list-resourceactions?view=graph-rest-beta";
             var unifiedRbacResourceNamespaceIdOption = new Option<string>("--unified-rbac-resource-namespace-id", description: "The unique identifier of unifiedRbacResourceNamespace") {
             };
             unifiedRbacResourceNamespaceIdOption.IsRequired = true;
@@ -195,7 +197,9 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +225,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
         {
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Get a list of the unifiedRbacResourceAction objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
             return requestInfo;
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Get a list of the unifiedRbacResourceAction objects and their properties.
         /// </summary>
         public class ResourceActionsRequestBuilderGetQueryParameters 
         {

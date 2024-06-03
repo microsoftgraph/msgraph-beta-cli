@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EvaluateAssignmentFilter {
+namespace ApiSdk.DeviceManagement.EvaluateAssignmentFilter
+{
     /// <summary>
     /// Provides operations to call the evaluateAssignmentFilter method.
     /// </summary>
-    public class EvaluateAssignmentFilterRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateAssignmentFilterRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action evaluateAssignmentFilter

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone {
+namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone
+{
     /// <summary>
     /// Provides operations to call the postpone method.
     /// </summary>
-    public class PostponeRequestBuilder : BaseCliRequestBuilder 
+    public class PostponeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Postpone action on an impactedResource object to a specified future date and time by marking its status as postponed. On the specified date and time, Microsoft Entra ID will automatically mark the status of the impactedResource object to active.

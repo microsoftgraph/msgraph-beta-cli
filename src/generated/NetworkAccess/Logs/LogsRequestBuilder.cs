@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Logs {
+namespace ApiSdk.NetworkAccess.Logs
+{
     /// <summary>
     /// Provides operations to manage the logs property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class LogsRequestBuilder : BaseCliRequestBuilder 
+    public class LogsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property logs for networkAccess

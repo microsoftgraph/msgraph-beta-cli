@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.MicrosoftGraphEdiscoveryEstimateStatistics {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.MicrosoftGraphEdiscoveryEstimateStatistics
+{
     /// <summary>
     /// Provides operations to call the estimateStatistics method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryEstimateStatisticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Run an estimate of the number of emails and documents in the source collection. To learn more about source collections (also known as searches in eDiscovery), see Collect data for a case in Advanced eDiscovery.

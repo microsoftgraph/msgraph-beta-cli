@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getEmailAppUsageVersionsUserCounts method.
     /// </summary>
-    public class GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getEmailAppUsageVersionsUserCounts

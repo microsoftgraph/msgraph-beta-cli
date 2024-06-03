@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportReport {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportReport
+{
     /// <summary>
     /// Provides operations to call the exportReport method.
     /// </summary>
-    public class MicrosoftGraphSecurityExportReportRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphSecurityExportReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action exportReport

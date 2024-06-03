@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Channels.Item.Tabs.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Channels.Item.Tabs.Item
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.channel entity.
     /// </summary>
-    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tabs for teamwork

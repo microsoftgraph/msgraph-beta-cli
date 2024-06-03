@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.IsManagedAppUserBlocked {
+namespace ApiSdk.Users.Item.IsManagedAppUserBlocked
+{
     /// <summary>
     /// Provides operations to call the isManagedAppUserBlocked method.
     /// </summary>
-    public class IsManagedAppUserBlockedRequestBuilder : BaseCliRequestBuilder 
+    public class IsManagedAppUserBlockedRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets the blocked state of a managed app user.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class EnrichedAuditLogs : ApiSdk.Models.Entity, IParsable 
+    public class EnrichedAuditLogs : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Exchange Online enriched audit logs settings.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exchange", n => { Exchange = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
-                {"sharepoint", n => { Sharepoint = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
-                {"teams", n => { Teams = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "exchange", n => { Exchange = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "sharepoint", n => { Sharepoint = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "teams", n => { Teams = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

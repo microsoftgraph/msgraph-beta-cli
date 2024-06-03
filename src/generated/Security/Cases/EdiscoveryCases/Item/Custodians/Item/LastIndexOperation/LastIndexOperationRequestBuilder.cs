@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item.LastIndexOperation {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Custodians.Item.LastIndexOperation
+{
     /// <summary>
     /// Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity.
     /// </summary>
-    public class LastIndexOperationRequestBuilder : BaseCliRequestBuilder 
+    public class LastIndexOperationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Operation entity that represents the latest indexing for the custodian.

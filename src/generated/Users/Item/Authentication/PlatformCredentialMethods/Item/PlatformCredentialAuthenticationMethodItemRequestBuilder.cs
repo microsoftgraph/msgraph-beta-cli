@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
+namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item
+{
     /// <summary>
     /// Provides operations to manage the platformCredentialMethods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class PlatformCredentialAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlatformCredentialAuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property platformCredentialMethods for users
+        /// Delete a platformCredentialAuthenticationMethod object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property platformCredentialMethods for users";
+            command.Description = "Delete a platformCredentialAuthenticationMethod object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/platformcredentialauthenticationmethod-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -152,7 +154,7 @@ namespace ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property platformCredentialMethods for users
+        /// Delete a platformCredentialAuthenticationMethod object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -24,11 +24,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Items.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.Lists.Item.Items.Item
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.list entity.
     /// </summary>
-    public class ListItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class ListItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.listItem entity.

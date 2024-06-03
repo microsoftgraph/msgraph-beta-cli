@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AuditLogQuery : ApiSdk.Models.Entity, IParsable 
+    public class AuditLogQuery : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The administrative units tagged to an audit log record.</summary>
@@ -113,19 +114,19 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"administrativeUnitIdFilters", n => { AdministrativeUnitIdFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"filterEndDateTime", n => { FilterEndDateTime = n.GetDateTimeOffsetValue(); } },
-                {"filterStartDateTime", n => { FilterStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"ipAddressFilters", n => { IpAddressFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"keywordFilter", n => { KeywordFilter = n.GetStringValue(); } },
-                {"objectIdFilters", n => { ObjectIdFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"operationFilters", n => { OperationFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"recordTypeFilters", n => { RecordTypeFilters = n.GetCollectionOfEnumValues<AuditLogRecordType>()?.ToList(); } },
-                {"records", n => { Records = n.GetCollectionOfObjectValues<AuditLogRecord>(AuditLogRecord.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"serviceFilters", n => { ServiceFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"status", n => { Status = n.GetEnumValue<AuditLogQueryStatus>(); } },
-                {"userPrincipalNameFilters", n => { UserPrincipalNameFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "administrativeUnitIdFilters", n => { AdministrativeUnitIdFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "filterEndDateTime", n => { FilterEndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "filterStartDateTime", n => { FilterStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "ipAddressFilters", n => { IpAddressFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "keywordFilter", n => { KeywordFilter = n.GetStringValue(); } },
+                { "objectIdFilters", n => { ObjectIdFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "operationFilters", n => { OperationFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "recordTypeFilters", n => { RecordTypeFilters = n.GetCollectionOfEnumValues<AuditLogRecordType>()?.ToList(); } },
+                { "records", n => { Records = n.GetCollectionOfObjectValues<AuditLogRecord>(AuditLogRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "serviceFilters", n => { ServiceFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<AuditLogQueryStatus>(); } },
+                { "userPrincipalNameFilters", n => { UserPrincipalNameFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

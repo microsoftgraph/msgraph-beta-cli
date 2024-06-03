@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatSubmission.FileThreats.Item {
+namespace ApiSdk.Security.ThreatSubmission.FileThreats.Item
+{
     /// <summary>
     /// Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class FileThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class FileThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property fileThreats for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.ThreatSubmission.FileThreats.Item {
             return command;
         }
         /// <summary>
-        /// Get fileThreats from security
+        /// Read the properties and relationships of a fileThreatSubmission object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-filethreatsubmission-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get fileThreats from security";
+            command.Description = "Read the properties and relationships of a fileThreatSubmission object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-filethreatsubmission-get?view=graph-rest-beta";
             var fileThreatSubmissionIdOption = new Option<string>("--file-threat-submission-id", description: "The unique identifier of fileThreatSubmission") {
             };
             fileThreatSubmissionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.ThreatSubmission.FileThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get fileThreats from security
+        /// Read the properties and relationships of a fileThreatSubmission object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.ThreatSubmission.FileThreats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get fileThreats from security
+        /// Read the properties and relationships of a fileThreatSubmission object.
         /// </summary>
         public class FileThreatSubmissionItemRequestBuilderGetQueryParameters 
         {

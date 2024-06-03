@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Shares.Item.AllowedGroups {
+namespace ApiSdk.Print.Shares.Item.AllowedGroups
+{
     /// <summary>
     /// Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.
     /// </summary>
-    public class AllowedGroupsRequestBuilder : BaseCliRequestBuilder 
+    public class AllowedGroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.print.shares.item.allowedGroups.item collection
@@ -53,13 +54,14 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups {
             return command;
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The groups whose users have access to print using the printer.";
+            command.Description = "Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-beta";
             var printerShareIdOption = new Option<string>("--printer-share-id", description: "The unique identifier of printerShare") {
             };
             printerShareIdOption.IsRequired = true;
@@ -141,7 +143,9 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -186,7 +190,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups {
         {
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -205,7 +209,7 @@ namespace ApiSdk.Print.Shares.Item.AllowedGroups {
             return requestInfo;
         }
         /// <summary>
-        /// The groups whose users have access to print using the printer.
+        /// Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
         /// </summary>
         public class AllowedGroupsRequestBuilderGetQueryParameters 
         {

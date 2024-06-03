@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.FindByMethodModeWithAuthenticationMethodModes {
+namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.FindByMethodModeWithAuthenticationMethodModes
+{
     #pragma warning disable CS1591
-    public class FindByMethodModeWithAuthenticationMethodModesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FindByMethodModeWithAuthenticationMethodModesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Fin
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

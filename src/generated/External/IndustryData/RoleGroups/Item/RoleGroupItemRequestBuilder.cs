@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.RoleGroups.Item {
+namespace ApiSdk.External.IndustryData.RoleGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the roleGroups property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class RoleGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class RoleGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleGroups for external
@@ -56,13 +57,14 @@ namespace ApiSdk.External.IndustryData.RoleGroups.Item {
             return command;
         }
         /// <summary>
-        /// Set of groups of individual roles that makes role-based admin simpler.
+        /// Read the properties and relationships of a roleGroup object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-rolegroup-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of groups of individual roles that makes role-based admin simpler.";
+            command.Description = "Read the properties and relationships of a roleGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-rolegroup-get?view=graph-rest-beta";
             var roleGroupIdOption = new Option<string>("--role-group-id", description: "The unique identifier of roleGroup") {
             };
             roleGroupIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.External.IndustryData.RoleGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of groups of individual roles that makes role-based admin simpler.
+        /// Read the properties and relationships of a roleGroup object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.External.IndustryData.RoleGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of groups of individual roles that makes role-based admin simpler.
+        /// Read the properties and relationships of a roleGroup object.
         /// </summary>
         public class RoleGroupItemRequestBuilderGetQueryParameters 
         {

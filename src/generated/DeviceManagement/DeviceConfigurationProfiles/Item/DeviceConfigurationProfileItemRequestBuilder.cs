@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurationProfiles.Item {
+namespace ApiSdk.DeviceManagement.DeviceConfigurationProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceConfigurationProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceConfigurationProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceConfigurationProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceConfigurationProfiles for deviceManagement

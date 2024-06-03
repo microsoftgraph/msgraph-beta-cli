@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The listing service profile entity contains the meta data of an Intune configuration profile 
     /// </summary>
-    public class DeviceConfigurationProfile : Entity, IParsable 
+    public class DeviceConfigurationProfile : Entity, IParsable
     {
         /// <summary>Account Id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,15 +71,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accountId", n => { AccountId = n.GetStringValue(); } },
-                {"configurationTechnologies", n => { ConfigurationTechnologies = n.GetIntValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"platformType", n => { PlatformType = n.GetEnumValue<PlatformType>(); } },
-                {"profileName", n => { ProfileName = n.GetStringValue(); } },
-                {"profileType", n => { ProfileType = n.GetEnumValue<ProfileType>(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"templateId", n => { TemplateId = n.GetStringValue(); } },
+                { "accountId", n => { AccountId = n.GetStringValue(); } },
+                { "configurationTechnologies", n => { ConfigurationTechnologies = n.GetIntValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<PlatformType>(); } },
+                { "profileName", n => { ProfileName = n.GetStringValue(); } },
+                { "profileType", n => { ProfileType = n.GetEnumValue<ProfileType>(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class WindowsProtectionStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsProtectionStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsProtectionStates for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.Item
             return command;
         }
         /// <summary>
-        /// The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
+        /// Read the properties and relationships of a windowsProtectionState object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-windowsprotectionstate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.";
+            command.Description = "Read the properties and relationships of a windowsProtectionState object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-windowsprotectionstate-get?view=graph-rest-beta";
             var windowsProtectionStateIdOption = new Option<string>("--windows-protection-state-id", description: "The unique identifier of windowsProtectionState") {
             };
             windowsProtectionStateIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.Item
             return requestInfo;
         }
         /// <summary>
-        /// The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
+        /// Read the properties and relationships of a windowsProtectionState object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.Item
             return requestInfo;
         }
         /// <summary>
-        /// The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.
+        /// Read the properties and relationships of a windowsProtectionState object.
         /// </summary>
         public class WindowsProtectionStateItemRequestBuilderGetQueryParameters 
         {

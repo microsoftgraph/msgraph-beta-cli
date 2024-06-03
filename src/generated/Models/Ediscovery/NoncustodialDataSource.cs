@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class NoncustodialDataSource : DataSourceContainer, IParsable 
+    public class NoncustodialDataSource : DataSourceContainer, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates if hold is applied to noncustodial data source (such as mailbox or site).</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applyHoldToSource", n => { ApplyHoldToSource = n.GetBoolValue(); } },
-                {"dataSource", n => { DataSource = n.GetObjectValue<ApiSdk.Models.Ediscovery.DataSource>(ApiSdk.Models.Ediscovery.DataSource.CreateFromDiscriminatorValue); } },
+                { "applyHoldToSource", n => { ApplyHoldToSource = n.GetBoolValue(); } },
+                { "dataSource", n => { DataSource = n.GetObjectValue<ApiSdk.Models.Ediscovery.DataSource>(ApiSdk.Models.Ediscovery.DataSource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

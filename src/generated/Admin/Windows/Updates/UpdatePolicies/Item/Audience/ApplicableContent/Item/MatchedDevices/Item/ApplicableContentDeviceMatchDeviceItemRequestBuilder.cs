@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.ApplicableContent.Item.MatchedDevices.Item {
+namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.ApplicableContent.Item.MatchedDevices.Item
+{
     /// <summary>
     /// Provides operations to manage the matchedDevices property of the microsoft.graph.windowsUpdates.applicableContent entity.
     /// </summary>
-    public class ApplicableContentDeviceMatchDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicableContentDeviceMatchDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property matchedDevices for admin

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item.RecordDecisions {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item.RecordDecisions
+{
     #pragma warning disable CS1591
-    public class RecordDecisionsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RecordDecisionsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitin
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"reviewResult", n => { ReviewResult = n.GetStringValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "reviewResult", n => { ReviewResult = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryRelease {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryRelease
+{
     /// <summary>
     /// Provides operations to call the release method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryReleaseRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryReleaseRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Releases the non-custodial data source from the case.

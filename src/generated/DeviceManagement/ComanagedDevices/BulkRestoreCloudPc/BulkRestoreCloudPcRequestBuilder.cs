@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.BulkRestoreCloudPc {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.BulkRestoreCloudPc
+{
     /// <summary>
     /// Provides operations to call the bulkRestoreCloudPc method.
     /// </summary>
-    public class BulkRestoreCloudPcRequestBuilder : BaseCliRequestBuilder 
+    public class BulkRestoreCloudPcRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Restore multiple Cloud PC devices with a single request that includes the IDs of Intune managed devices and a restore point date and time.

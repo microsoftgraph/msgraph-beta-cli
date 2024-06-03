@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Monitoring.AlertRecords.Item {
+namespace ApiSdk.Monitoring.AlertRecords.Item
+{
     /// <summary>
     /// Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
     /// </summary>
-    public class AlertRecordItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertRecordItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertRecords for monitoring

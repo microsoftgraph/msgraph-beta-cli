@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ServiceActivity {
+namespace ApiSdk.Reports.ServiceActivity
+{
     /// <summary>
     /// Provides operations to manage the serviceActivity property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class ServiceActivityRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceActivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property serviceActivity for reports

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate {
+namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate
+{
     #pragma warning disable CS1591
-    public class RemediatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class RemediatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -21,14 +22,6 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
 #nullable restore
 #else
         public List<AnalyzedEmail> AnalyzedEmails { get; set; }
-#endif
-        /// <summary>The approverUpn property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ApproverUpn { get; set; }
-#nullable restore
-#else
-        public string ApproverUpn { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,13 +68,12 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<RemediationAction>(); } },
-                {"analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<AnalyzedEmail>(AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"approverUpn", n => { ApproverUpn = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"remediateSendersCopy", n => { RemediateSendersCopy = n.GetBoolValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<RemediationSeverity>(); } },
+                { "action", n => { Action = n.GetEnumValue<RemediationAction>(); } },
+                { "analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<AnalyzedEmail>(AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "remediateSendersCopy", n => { RemediateSendersCopy = n.GetBoolValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<RemediationSeverity>(); } },
             };
         }
         /// <summary>
@@ -93,7 +85,6 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<RemediationAction>("action", Action);
             writer.WriteCollectionOfObjectValues<AnalyzedEmail>("analyzedEmails", AnalyzedEmails);
-            writer.WriteStringValue("approverUpn", ApproverUpn);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("remediateSendersCopy", RemediateSendersCopy);

@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item {
+namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsDriverUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsDriverUpdateProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDriverUpdateProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.windowsDriverUpdateProfile entity.

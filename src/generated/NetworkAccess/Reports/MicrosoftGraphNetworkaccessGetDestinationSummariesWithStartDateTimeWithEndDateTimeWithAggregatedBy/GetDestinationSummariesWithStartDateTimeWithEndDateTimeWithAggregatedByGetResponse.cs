@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy
+{
     #pragma warning disable CS1591
-    public class GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestination
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<DestinationSummary>(DestinationSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<DestinationSummary>(DestinationSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

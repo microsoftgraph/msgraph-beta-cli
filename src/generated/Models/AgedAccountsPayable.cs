@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AgedAccountsPayable : IAdditionalDataHolder, IParsable 
+    public class AgedAccountsPayable : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -99,19 +100,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"agedAsOfDate", n => { AgedAsOfDate = n.GetDateValue(); } },
-                {"balanceDue", n => { BalanceDue = n.GetDecimalValue(); } },
-                {"currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
-                {"currentAmount", n => { CurrentAmount = n.GetDecimalValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"period1Amount", n => { Period1Amount = n.GetDecimalValue(); } },
-                {"period2Amount", n => { Period2Amount = n.GetDecimalValue(); } },
-                {"period3Amount", n => { Period3Amount = n.GetDecimalValue(); } },
-                {"periodLengthFilter", n => { PeriodLengthFilter = n.GetStringValue(); } },
-                {"vendorId", n => { VendorId = n.GetStringValue(); } },
-                {"vendorNumber", n => { VendorNumber = n.GetStringValue(); } },
+                { "agedAsOfDate", n => { AgedAsOfDate = n.GetDateValue(); } },
+                { "balanceDue", n => { BalanceDue = n.GetDecimalValue(); } },
+                { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
+                { "currentAmount", n => { CurrentAmount = n.GetDecimalValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "period1Amount", n => { Period1Amount = n.GetDecimalValue(); } },
+                { "period2Amount", n => { Period2Amount = n.GetDecimalValue(); } },
+                { "period3Amount", n => { Period3Amount = n.GetDecimalValue(); } },
+                { "periodLengthFilter", n => { PeriodLengthFilter = n.GetStringValue(); } },
+                { "vendorId", n => { VendorId = n.GetStringValue(); } },
+                { "vendorNumber", n => { VendorNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>

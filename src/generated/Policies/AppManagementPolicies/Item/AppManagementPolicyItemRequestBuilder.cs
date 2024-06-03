@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AppManagementPolicies.Item {
+namespace ApiSdk.Policies.AppManagementPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class AppManagementPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppManagementPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
@@ -48,13 +49,14 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property appManagementPolicies for policies
+        /// Delete an appManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property appManagementPolicies for policies";
+            command.Description = "Delete an appManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-delete?view=graph-rest-beta";
             var appManagementPolicyIdOption = new Option<string>("--app-management-policy-id", description: "The unique identifier of appManagementPolicy") {
             };
             appManagementPolicyIdOption.IsRequired = true;
@@ -83,13 +85,14 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+        /// Read the properties of an appManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.";
+            command.Description = "Read the properties of an appManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-beta";
             var appManagementPolicyIdOption = new Option<string>("--app-management-policy-id", description: "The unique identifier of appManagementPolicy") {
             };
             appManagementPolicyIdOption.IsRequired = true;
@@ -135,13 +138,14 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property appManagementPolicies in policies
+        /// Update an appManagementPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appmanagementpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property appManagementPolicies in policies";
+            command.Description = "Update an appManagementPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appmanagementpolicy-update?view=graph-rest-beta";
             var appManagementPolicyIdOption = new Option<string>("--app-management-policy-id", description: "The unique identifier of appManagementPolicy") {
             };
             appManagementPolicyIdOption.IsRequired = true;
@@ -200,7 +204,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property appManagementPolicies for policies
+        /// Delete an appManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -219,7 +223,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+        /// Read the properties of an appManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property appManagementPolicies in policies
+        /// Update an appManagementPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -259,7 +263,7 @@ namespace ApiSdk.Policies.AppManagementPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+        /// Read the properties of an appManagementPolicy object.
         /// </summary>
         public class AppManagementPolicyItemRequestBuilderGetQueryParameters 
         {

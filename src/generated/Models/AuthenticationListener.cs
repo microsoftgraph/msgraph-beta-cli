@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationListener : Entity, IParsable 
+    public class AuthenticationListener : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The priority of the listener. Determines the order of evaluation when an event has multiple listeners. The priority is evaluated from low to high.</summary>
@@ -42,8 +43,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"sourceFilter", n => { SourceFilter = n.GetObjectValue<AuthenticationSourceFilter>(AuthenticationSourceFilter.CreateFromDiscriminatorValue); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "sourceFilter", n => { SourceFilter = n.GetObjectValue<AuthenticationSourceFilter>(AuthenticationSourceFilter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

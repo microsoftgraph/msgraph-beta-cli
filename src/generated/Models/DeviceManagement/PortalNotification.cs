@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.DeviceManagement {
+namespace ApiSdk.Models.DeviceManagement
+{
     #pragma warning disable CS1591
-    public class PortalNotification : IAdditionalDataHolder, IParsable 
+    public class PortalNotification : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -90,15 +91,15 @@ namespace ApiSdk.Models.DeviceManagement {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"alertImpact", n => { AlertImpact = n.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>(ApiSdk.Models.DeviceManagement.AlertImpact.CreateFromDiscriminatorValue); } },
-                {"alertRecordId", n => { AlertRecordId = n.GetStringValue(); } },
-                {"alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
-                {"alertRuleName", n => { AlertRuleName = n.GetStringValue(); } },
-                {"alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"isPortalNotificationSent", n => { IsPortalNotificationSent = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
+                { "alertImpact", n => { AlertImpact = n.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>(ApiSdk.Models.DeviceManagement.AlertImpact.CreateFromDiscriminatorValue); } },
+                { "alertRecordId", n => { AlertRecordId = n.GetStringValue(); } },
+                { "alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
+                { "alertRuleName", n => { AlertRuleName = n.GetStringValue(); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "isPortalNotificationSent", n => { IsPortalNotificationSent = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
             };
         }
         /// <summary>

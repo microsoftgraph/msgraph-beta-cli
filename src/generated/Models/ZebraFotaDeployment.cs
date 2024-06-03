@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Zebra FOTA deployment entity that describes settings, deployment device groups required to create a FOTA deployment, and deployment status.
     /// </summary>
-    public class ZebraFotaDeployment : Entity, IParsable 
+    public class ZebraFotaDeployment : Entity, IParsable
     {
         /// <summary>Collection of Android FOTA Assignment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,12 +77,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deploymentAssignments", n => { DeploymentAssignments = n.GetCollectionOfObjectValues<AndroidFotaDeploymentAssignment>(AndroidFotaDeploymentAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ZebraFotaDeploymentSettings>(ZebraFotaDeploymentSettings.CreateFromDiscriminatorValue); } },
-                {"deploymentStatus", n => { DeploymentStatus = n.GetObjectValue<ZebraFotaDeploymentStatus>(ZebraFotaDeploymentStatus.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deploymentAssignments", n => { DeploymentAssignments = n.GetCollectionOfObjectValues<AndroidFotaDeploymentAssignment>(AndroidFotaDeploymentAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ZebraFotaDeploymentSettings>(ZebraFotaDeploymentSettings.CreateFromDiscriminatorValue); } },
+                { "deploymentStatus", n => { DeploymentStatus = n.GetObjectValue<ZebraFotaDeploymentStatus>(ZebraFotaDeploymentStatus.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

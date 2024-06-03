@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime
+{
     /// <summary>
     /// Provides operations to call the getExpiringVppTokenCount method.
     /// </summary>
-    public class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class GetExpiringVppTokenCountWithExpiringBeforeDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getExpiringVppTokenCount

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OpenTypeExtension : Extension, IParsable 
+    public class OpenTypeExtension : Extension, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A unique text identifier for an open type data extension. Required.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"extensionName", n => { ExtensionName = n.GetStringValue(); } },
+                { "extensionName", n => { ExtensionName = n.GetStringValue(); } },
             };
         }
         /// <summary>

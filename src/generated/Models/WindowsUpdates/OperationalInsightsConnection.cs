@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class OperationalInsightsConnection : ResourceConnection, IParsable 
+    public class OperationalInsightsConnection : ResourceConnection, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the Azure resource group that contains the Log Analytics workspace.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureResourceGroupName", n => { AzureResourceGroupName = n.GetStringValue(); } },
-                {"azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
-                {"workspaceName", n => { WorkspaceName = n.GetStringValue(); } },
+                { "azureResourceGroupName", n => { AzureResourceGroupName = n.GetStringValue(); } },
+                { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
+                { "workspaceName", n => { WorkspaceName = n.GetStringValue(); } },
             };
         }
         /// <summary>

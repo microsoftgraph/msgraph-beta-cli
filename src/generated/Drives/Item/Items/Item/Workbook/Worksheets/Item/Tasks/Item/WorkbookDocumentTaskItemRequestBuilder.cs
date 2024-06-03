@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Tasks.Item
+{
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.workbookWorksheet entity.
     /// </summary>
-    public class WorkbookDocumentTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookDocumentTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.

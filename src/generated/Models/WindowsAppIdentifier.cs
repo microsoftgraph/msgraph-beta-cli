@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The identifier for a Windows app.
     /// </summary>
-    public class WindowsAppIdentifier : MobileAppIdentifier, IParsable 
+    public class WindowsAppIdentifier : MobileAppIdentifier, IParsable
     {
         /// <summary>The identifier for an app, as specified in the app store.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"windowsAppId", n => { WindowsAppId = n.GetStringValue(); } },
+                { "windowsAppId", n => { WindowsAppId = n.GetStringValue(); } },
             };
         }
         /// <summary>

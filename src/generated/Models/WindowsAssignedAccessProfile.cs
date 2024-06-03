@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Assigned Access profile for Windows.
     /// </summary>
-    public class WindowsAssignedAccessProfile : Entity, IParsable 
+    public class WindowsAssignedAccessProfile : Entity, IParsable
     {
         /// <summary>These are the only Windows Store Apps that will be available to launch from the Start menu.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appUserModelIds", n => { AppUserModelIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"desktopAppPaths", n => { DesktopAppPaths = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"profileName", n => { ProfileName = n.GetStringValue(); } },
-                {"showTaskBar", n => { ShowTaskBar = n.GetBoolValue(); } },
-                {"startMenuLayoutXml", n => { StartMenuLayoutXml = n.GetByteArrayValue(); } },
-                {"userAccounts", n => { UserAccounts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "appUserModelIds", n => { AppUserModelIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "desktopAppPaths", n => { DesktopAppPaths = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "profileName", n => { ProfileName = n.GetStringValue(); } },
+                { "showTaskBar", n => { ShowTaskBar = n.GetBoolValue(); } },
+                { "startMenuLayoutXml", n => { StartMenuLayoutXml = n.GetByteArrayValue(); } },
+                { "userAccounts", n => { UserAccounts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PersonName : ItemFacet, IParsable 
+    public class PersonName : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device.</summary>
@@ -122,17 +123,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"first", n => { First = n.GetStringValue(); } },
-                {"initials", n => { Initials = n.GetStringValue(); } },
-                {"languageTag", n => { LanguageTag = n.GetStringValue(); } },
-                {"last", n => { Last = n.GetStringValue(); } },
-                {"maiden", n => { Maiden = n.GetStringValue(); } },
-                {"middle", n => { Middle = n.GetStringValue(); } },
-                {"nickname", n => { Nickname = n.GetStringValue(); } },
-                {"pronunciation", n => { Pronunciation = n.GetObjectValue<PersonNamePronounciation>(PersonNamePronounciation.CreateFromDiscriminatorValue); } },
-                {"suffix", n => { Suffix = n.GetStringValue(); } },
-                {"title", n => { Title = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "first", n => { First = n.GetStringValue(); } },
+                { "initials", n => { Initials = n.GetStringValue(); } },
+                { "languageTag", n => { LanguageTag = n.GetStringValue(); } },
+                { "last", n => { Last = n.GetStringValue(); } },
+                { "maiden", n => { Maiden = n.GetStringValue(); } },
+                { "middle", n => { Middle = n.GetStringValue(); } },
+                { "nickname", n => { Nickname = n.GetStringValue(); } },
+                { "pronunciation", n => { Pronunciation = n.GetObjectValue<PersonNamePronounciation>(PersonNamePronounciation.CreateFromDiscriminatorValue); } },
+                { "suffix", n => { Suffix = n.GetStringValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
             };
         }
         /// <summary>

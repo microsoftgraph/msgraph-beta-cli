@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls
+{
     /// <summary>
     /// Provides operations to call the windowsPrivacyAccessControls method.
     /// </summary>
-    public class WindowsPrivacyAccessControlsRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsPrivacyAccessControlsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action windowsPrivacyAccessControls

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BookingCurrencies {
+namespace ApiSdk.Solutions.BookingCurrencies
+{
     /// <summary>
     /// Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
     /// </summary>
-    public class BookingCurrenciesRequestBuilder : BaseCliRequestBuilder 
+    public class BookingCurrenciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Solutions.BookingCurrencies {
             return command;
         }
         /// <summary>
-        /// Get bookingCurrencies from solutions
+        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get bookingCurrencies from solutions";
+            command.Description = "Get a list of bookingCurrency objects available to a Microsoft Bookings business.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Solutions.BookingCurrencies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Solutions.BookingCurrencies {
         {
         }
         /// <summary>
-        /// Get bookingCurrencies from solutions
+        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Solutions.BookingCurrencies {
             return requestInfo;
         }
         /// <summary>
-        /// Get bookingCurrencies from solutions
+        /// Get a list of bookingCurrency objects available to a Microsoft Bookings business.
         /// </summary>
         public class BookingCurrenciesRequestBuilderGetQueryParameters 
         {

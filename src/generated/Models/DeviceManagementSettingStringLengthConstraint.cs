@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint enforcing a given string length range
     /// </summary>
-    public class DeviceManagementSettingStringLengthConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingStringLengthConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>The maximum permitted string length</summary>
         public int? MaximumLength { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumLength", n => { MaximumLength = n.GetIntValue(); } },
-                {"minimumLength", n => { MinimumLength = n.GetIntValue(); } },
+                { "maximumLength", n => { MaximumLength = n.GetIntValue(); } },
+                { "minimumLength", n => { MinimumLength = n.GetIntValue(); } },
             };
         }
         /// <summary>

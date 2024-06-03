@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.FeatureRolloutPolicies {
+namespace ApiSdk.Policies.FeatureRolloutPolicies
+{
     /// <summary>
     /// Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class FeatureRolloutPoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class FeatureRolloutPoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to featureRolloutPolicies for policies
+        /// Create a new featureRolloutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/post-featurerolloutpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to featureRolloutPolicies for policies";
+            command.Description = "Create a new featureRolloutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/post-featurerolloutpolicies?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
             return command;
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve a list of featureRolloutPolicy objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/list-featurerolloutpolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The feature rollout policy associated with a directory object.";
+            command.Description = "Retrieve a list of featureRolloutPolicy objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/list-featurerolloutpolicies?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
         {
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve a list of featureRolloutPolicy objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to featureRolloutPolicies for policies
+        /// Create a new featureRolloutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve a list of featureRolloutPolicy objects.
         /// </summary>
         public class FeatureRolloutPoliciesRequestBuilderGetQueryParameters 
         {

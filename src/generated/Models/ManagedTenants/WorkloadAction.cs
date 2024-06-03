@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class WorkloadAction : IAdditionalDataHolder, IParsable 
+    public class WorkloadAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the workload action. Required. Read-only.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionId", n => { ActionId = n.GetStringValue(); } },
-                {"category", n => { Category = n.GetEnumValue<WorkloadActionCategory>(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"licenses", n => { Licenses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"service", n => { Service = n.GetStringValue(); } },
-                {"settings", n => { Settings = n.GetCollectionOfObjectValues<Setting>(Setting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actionId", n => { ActionId = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetEnumValue<WorkloadActionCategory>(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "licenses", n => { Licenses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "service", n => { Service = n.GetStringValue(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<Setting>(Setting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.Reorder {
+namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.Reorder
+{
     /// <summary>
     /// Provides operations to call the reorder method.
     /// </summary>
-    public class ReorderRequestBuilder : BaseCliRequestBuilder 
+    public class ReorderRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action reorder

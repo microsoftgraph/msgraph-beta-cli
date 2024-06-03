@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Journal : IAdditionalDataHolder, IParsable 
+    public class Journal : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -90,15 +91,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
-                {"balancingAccountId", n => { BalancingAccountId = n.GetGuidValue(); } },
-                {"balancingAccountNumber", n => { BalancingAccountNumber = n.GetStringValue(); } },
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"journalLines", n => { JournalLines = n.GetCollectionOfObjectValues<JournalLine>(JournalLine.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
+                { "balancingAccountId", n => { BalancingAccountId = n.GetGuidValue(); } },
+                { "balancingAccountNumber", n => { BalancingAccountNumber = n.GetStringValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "journalLines", n => { JournalLines = n.GetCollectionOfObjectValues<JournalLine>(JournalLine.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

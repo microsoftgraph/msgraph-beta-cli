@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.Exchange {
+namespace ApiSdk.RoleManagement.Exchange
+{
     /// <summary>
     /// Provides operations to manage the exchange property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class ExchangeRequestBuilder : BaseCliRequestBuilder 
+    public class ExchangeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.

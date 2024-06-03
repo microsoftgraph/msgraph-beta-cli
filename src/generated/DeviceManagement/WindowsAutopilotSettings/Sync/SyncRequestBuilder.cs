@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings.Sync {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings.Sync
+{
     /// <summary>
     /// Provides operations to call the sync method.
     /// </summary>
-    public class SyncRequestBuilder : BaseCliRequestBuilder 
+    public class SyncRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Initiates a sync of all AutoPilot registered devices from Store for Business and other portals. If the sync successful, this action returns a 204 No Content response code. If a sync is already in progress, the action returns a 409 Conflict response code.  If this sync action is called within 10 minutes of the previous sync, the action returns a 429 Too Many Requests response code.

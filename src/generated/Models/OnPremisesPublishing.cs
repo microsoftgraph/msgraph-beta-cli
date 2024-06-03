@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesPublishing : IAdditionalDataHolder, IParsable 
+    public class OnPremisesPublishing : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -81,7 +82,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The onPremisesApplicationSegments property</summary>
+        /// <summary>Represents the application segment collection for an on-premises wildcard application. This property is deprecated and will stop returning data on June 1, 2023. Use segmentsConfiguration instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OnPremisesApplicationSegment>? OnPremisesApplicationSegments { get; set; }
@@ -156,30 +157,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
-                {"applicationServerTimeout", n => { ApplicationServerTimeout = n.GetStringValue(); } },
-                {"applicationType", n => { ApplicationType = n.GetStringValue(); } },
-                {"externalAuthenticationType", n => { ExternalAuthenticationType = n.GetEnumValue<ExternalAuthenticationType>(); } },
-                {"externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
-                {"internalUrl", n => { InternalUrl = n.GetStringValue(); } },
-                {"isAccessibleViaZTNAClient", n => { IsAccessibleViaZTNAClient = n.GetBoolValue(); } },
-                {"isBackendCertificateValidationEnabled", n => { IsBackendCertificateValidationEnabled = n.GetBoolValue(); } },
-                {"isDnsResolutionEnabled", n => { IsDnsResolutionEnabled = n.GetBoolValue(); } },
-                {"isHttpOnlyCookieEnabled", n => { IsHttpOnlyCookieEnabled = n.GetBoolValue(); } },
-                {"isOnPremPublishingEnabled", n => { IsOnPremPublishingEnabled = n.GetBoolValue(); } },
-                {"isPersistentCookieEnabled", n => { IsPersistentCookieEnabled = n.GetBoolValue(); } },
-                {"isSecureCookieEnabled", n => { IsSecureCookieEnabled = n.GetBoolValue(); } },
-                {"isStateSessionEnabled", n => { IsStateSessionEnabled = n.GetBoolValue(); } },
-                {"isTranslateHostHeaderEnabled", n => { IsTranslateHostHeaderEnabled = n.GetBoolValue(); } },
-                {"isTranslateLinksInBodyEnabled", n => { IsTranslateLinksInBodyEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"onPremisesApplicationSegments", n => { OnPremisesApplicationSegments = n.GetCollectionOfObjectValues<OnPremisesApplicationSegment>(OnPremisesApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"segmentsConfiguration", n => { SegmentsConfiguration = n.GetObjectValue<SegmentConfiguration>(SegmentConfiguration.CreateFromDiscriminatorValue); } },
-                {"singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<OnPremisesPublishingSingleSignOn>(OnPremisesPublishingSingleSignOn.CreateFromDiscriminatorValue); } },
-                {"useAlternateUrlForTranslationAndRedirect", n => { UseAlternateUrlForTranslationAndRedirect = n.GetBoolValue(); } },
-                {"verifiedCustomDomainCertificatesMetadata", n => { VerifiedCustomDomainCertificatesMetadata = n.GetObjectValue<ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata>(ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata.CreateFromDiscriminatorValue); } },
-                {"verifiedCustomDomainKeyCredential", n => { VerifiedCustomDomainKeyCredential = n.GetObjectValue<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue); } },
-                {"verifiedCustomDomainPasswordCredential", n => { VerifiedCustomDomainPasswordCredential = n.GetObjectValue<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue); } },
+                { "alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
+                { "applicationServerTimeout", n => { ApplicationServerTimeout = n.GetStringValue(); } },
+                { "applicationType", n => { ApplicationType = n.GetStringValue(); } },
+                { "externalAuthenticationType", n => { ExternalAuthenticationType = n.GetEnumValue<ExternalAuthenticationType>(); } },
+                { "externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
+                { "internalUrl", n => { InternalUrl = n.GetStringValue(); } },
+                { "isAccessibleViaZTNAClient", n => { IsAccessibleViaZTNAClient = n.GetBoolValue(); } },
+                { "isBackendCertificateValidationEnabled", n => { IsBackendCertificateValidationEnabled = n.GetBoolValue(); } },
+                { "isDnsResolutionEnabled", n => { IsDnsResolutionEnabled = n.GetBoolValue(); } },
+                { "isHttpOnlyCookieEnabled", n => { IsHttpOnlyCookieEnabled = n.GetBoolValue(); } },
+                { "isOnPremPublishingEnabled", n => { IsOnPremPublishingEnabled = n.GetBoolValue(); } },
+                { "isPersistentCookieEnabled", n => { IsPersistentCookieEnabled = n.GetBoolValue(); } },
+                { "isSecureCookieEnabled", n => { IsSecureCookieEnabled = n.GetBoolValue(); } },
+                { "isStateSessionEnabled", n => { IsStateSessionEnabled = n.GetBoolValue(); } },
+                { "isTranslateHostHeaderEnabled", n => { IsTranslateHostHeaderEnabled = n.GetBoolValue(); } },
+                { "isTranslateLinksInBodyEnabled", n => { IsTranslateLinksInBodyEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "onPremisesApplicationSegments", n => { OnPremisesApplicationSegments = n.GetCollectionOfObjectValues<OnPremisesApplicationSegment>(OnPremisesApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "segmentsConfiguration", n => { SegmentsConfiguration = n.GetObjectValue<SegmentConfiguration>(SegmentConfiguration.CreateFromDiscriminatorValue); } },
+                { "singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<OnPremisesPublishingSingleSignOn>(OnPremisesPublishingSingleSignOn.CreateFromDiscriminatorValue); } },
+                { "useAlternateUrlForTranslationAndRedirect", n => { UseAlternateUrlForTranslationAndRedirect = n.GetBoolValue(); } },
+                { "verifiedCustomDomainCertificatesMetadata", n => { VerifiedCustomDomainCertificatesMetadata = n.GetObjectValue<ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata>(ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata.CreateFromDiscriminatorValue); } },
+                { "verifiedCustomDomainKeyCredential", n => { VerifiedCustomDomainKeyCredential = n.GetObjectValue<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue); } },
+                { "verifiedCustomDomainPasswordCredential", n => { VerifiedCustomDomainPasswordCredential = n.GetObjectValue<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

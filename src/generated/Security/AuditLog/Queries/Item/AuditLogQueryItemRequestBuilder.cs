@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AuditLog.Queries.Item {
+namespace ApiSdk.Security.AuditLog.Queries.Item
+{
     /// <summary>
     /// Provides operations to manage the queries property of the microsoft.graph.security.auditCoreRoot entity.
     /// </summary>
-    public class AuditLogQueryItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuditLogQueryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property queries for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
             return command;
         }
         /// <summary>
-        /// Get queries from security
+        /// Read the properties and relationships of an auditLogQuery object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get queries from security";
+            command.Description = "Read the properties and relationships of an auditLogQuery object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-auditlogquery-get?view=graph-rest-beta";
             var auditLogQueryIdOption = new Option<string>("--audit-log-query-id", description: "The unique identifier of auditLogQuery") {
             };
             auditLogQueryIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get queries from security
+        /// Read the properties and relationships of an auditLogQuery object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Security.AuditLog.Queries.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get queries from security
+        /// Read the properties and relationships of an auditLogQuery object.
         /// </summary>
         public class AuditLogQueryItemRequestBuilderGetQueryParameters 
         {

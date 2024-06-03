@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Modules.Item.Resources.Item {
+namespace ApiSdk.Education.Classes.Item.Modules.Item.Resources.Item
+{
     /// <summary>
     /// Provides operations to manage the resources property of the microsoft.graph.educationModule entity.
     /// </summary>
-    public class EducationModuleResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationModuleResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resources for education

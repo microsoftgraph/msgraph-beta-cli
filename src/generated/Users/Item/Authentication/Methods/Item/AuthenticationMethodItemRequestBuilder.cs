@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Authentication.Methods.Item {
+namespace ApiSdk.Users.Item.Authentication.Methods.Item
+{
     /// <summary>
     /// Provides operations to manage the methods property of the microsoft.graph.authentication entity.
     /// </summary>
-    public class AuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationMethodItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the disableSmsSignIn method.

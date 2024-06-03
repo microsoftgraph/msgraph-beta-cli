@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnlineMeetingBase : Entity, IParsable 
+    public class OnlineMeetingBase : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether attendees can turn on their camera.</summary>
@@ -103,7 +104,7 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Indicates whether to record the meeting automatically.</summary>
         public bool? RecordAutomatically { get; set; }
-        /// <summary>The shareMeetingChatHistoryDefault property</summary>
+        /// <summary>Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.</summary>
         public MeetingChatHistoryDefaultMode? ShareMeetingChatHistoryDefault { get; set; }
         /// <summary>The subject of the online meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -153,30 +154,30 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowAttendeeToEnableCamera", n => { AllowAttendeeToEnableCamera = n.GetBoolValue(); } },
-                {"allowAttendeeToEnableMic", n => { AllowAttendeeToEnableMic = n.GetBoolValue(); } },
-                {"allowMeetingChat", n => { AllowMeetingChat = n.GetEnumValue<MeetingChatMode>(); } },
-                {"allowParticipantsToChangeName", n => { AllowParticipantsToChangeName = n.GetBoolValue(); } },
-                {"allowRecording", n => { AllowRecording = n.GetBoolValue(); } },
-                {"allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
-                {"allowTranscription", n => { AllowTranscription = n.GetBoolValue(); } },
-                {"allowedPresenters", n => { AllowedPresenters = n.GetEnumValue<OnlineMeetingPresenters>(); } },
-                {"anonymizeIdentityForRoles", n => { AnonymizeIdentityForRoles = n.GetCollectionOfEnumValues<OnlineMeetingRole>()?.ToList(); } },
-                {"attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"audioConferencing", n => { AudioConferencing = n.GetObjectValue<ApiSdk.Models.AudioConferencing>(ApiSdk.Models.AudioConferencing.CreateFromDiscriminatorValue); } },
-                {"chatInfo", n => { ChatInfo = n.GetObjectValue<ApiSdk.Models.ChatInfo>(ApiSdk.Models.ChatInfo.CreateFromDiscriminatorValue); } },
-                {"chatRestrictions", n => { ChatRestrictions = n.GetObjectValue<ApiSdk.Models.ChatRestrictions>(ApiSdk.Models.ChatRestrictions.CreateFromDiscriminatorValue); } },
-                {"isEndToEndEncryptionEnabled", n => { IsEndToEndEncryptionEnabled = n.GetBoolValue(); } },
-                {"isEntryExitAnnounced", n => { IsEntryExitAnnounced = n.GetBoolValue(); } },
-                {"joinInformation", n => { JoinInformation = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"joinMeetingIdSettings", n => { JoinMeetingIdSettings = n.GetObjectValue<ApiSdk.Models.JoinMeetingIdSettings>(ApiSdk.Models.JoinMeetingIdSettings.CreateFromDiscriminatorValue); } },
-                {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
-                {"lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<ApiSdk.Models.LobbyBypassSettings>(ApiSdk.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
-                {"recordAutomatically", n => { RecordAutomatically = n.GetBoolValue(); } },
-                {"shareMeetingChatHistoryDefault", n => { ShareMeetingChatHistoryDefault = n.GetEnumValue<MeetingChatHistoryDefaultMode>(); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"videoTeleconferenceId", n => { VideoTeleconferenceId = n.GetStringValue(); } },
-                {"watermarkProtection", n => { WatermarkProtection = n.GetObjectValue<WatermarkProtectionValues>(WatermarkProtectionValues.CreateFromDiscriminatorValue); } },
+                { "allowAttendeeToEnableCamera", n => { AllowAttendeeToEnableCamera = n.GetBoolValue(); } },
+                { "allowAttendeeToEnableMic", n => { AllowAttendeeToEnableMic = n.GetBoolValue(); } },
+                { "allowMeetingChat", n => { AllowMeetingChat = n.GetEnumValue<MeetingChatMode>(); } },
+                { "allowParticipantsToChangeName", n => { AllowParticipantsToChangeName = n.GetBoolValue(); } },
+                { "allowRecording", n => { AllowRecording = n.GetBoolValue(); } },
+                { "allowTeamworkReactions", n => { AllowTeamworkReactions = n.GetBoolValue(); } },
+                { "allowTranscription", n => { AllowTranscription = n.GetBoolValue(); } },
+                { "allowedPresenters", n => { AllowedPresenters = n.GetEnumValue<OnlineMeetingPresenters>(); } },
+                { "anonymizeIdentityForRoles", n => { AnonymizeIdentityForRoles = n.GetCollectionOfEnumValues<OnlineMeetingRole>()?.ToList(); } },
+                { "attendanceReports", n => { AttendanceReports = n.GetCollectionOfObjectValues<MeetingAttendanceReport>(MeetingAttendanceReport.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "audioConferencing", n => { AudioConferencing = n.GetObjectValue<ApiSdk.Models.AudioConferencing>(ApiSdk.Models.AudioConferencing.CreateFromDiscriminatorValue); } },
+                { "chatInfo", n => { ChatInfo = n.GetObjectValue<ApiSdk.Models.ChatInfo>(ApiSdk.Models.ChatInfo.CreateFromDiscriminatorValue); } },
+                { "chatRestrictions", n => { ChatRestrictions = n.GetObjectValue<ApiSdk.Models.ChatRestrictions>(ApiSdk.Models.ChatRestrictions.CreateFromDiscriminatorValue); } },
+                { "isEndToEndEncryptionEnabled", n => { IsEndToEndEncryptionEnabled = n.GetBoolValue(); } },
+                { "isEntryExitAnnounced", n => { IsEntryExitAnnounced = n.GetBoolValue(); } },
+                { "joinInformation", n => { JoinInformation = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "joinMeetingIdSettings", n => { JoinMeetingIdSettings = n.GetObjectValue<ApiSdk.Models.JoinMeetingIdSettings>(ApiSdk.Models.JoinMeetingIdSettings.CreateFromDiscriminatorValue); } },
+                { "joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
+                { "lobbyBypassSettings", n => { LobbyBypassSettings = n.GetObjectValue<ApiSdk.Models.LobbyBypassSettings>(ApiSdk.Models.LobbyBypassSettings.CreateFromDiscriminatorValue); } },
+                { "recordAutomatically", n => { RecordAutomatically = n.GetBoolValue(); } },
+                { "shareMeetingChatHistoryDefault", n => { ShareMeetingChatHistoryDefault = n.GetEnumValue<MeetingChatHistoryDefaultMode>(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "videoTeleconferenceId", n => { VideoTeleconferenceId = n.GetStringValue(); } },
+                { "watermarkProtection", n => { WatermarkProtection = n.GetObjectValue<WatermarkProtectionValues>(WatermarkProtectionValues.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

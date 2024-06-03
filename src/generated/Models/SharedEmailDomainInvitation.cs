@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharedEmailDomainInvitation : Entity, IParsable 
+    public class SharedEmailDomainInvitation : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The expiryTime property</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"expiryTime", n => { ExpiryTime = n.GetDateTimeOffsetValue(); } },
-                {"invitationDomain", n => { InvitationDomain = n.GetStringValue(); } },
-                {"invitationStatus", n => { InvitationStatus = n.GetStringValue(); } },
+                { "expiryTime", n => { ExpiryTime = n.GetDateTimeOffsetValue(); } },
+                { "invitationDomain", n => { InvitationDomain = n.GetStringValue(); } },
+                { "invitationStatus", n => { InvitationStatus = n.GetStringValue(); } },
             };
         }
         /// <summary>

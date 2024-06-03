@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item {
+namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the servicePrincipalCreationPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class ServicePrincipalCreationPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalCreationPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property servicePrincipalCreationPolicies for policies

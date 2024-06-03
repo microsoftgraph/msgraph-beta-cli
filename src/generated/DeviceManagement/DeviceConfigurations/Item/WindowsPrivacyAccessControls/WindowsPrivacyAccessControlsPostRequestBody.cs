@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls {
+namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls
+{
     #pragma warning disable CS1591
-    public class WindowsPrivacyAccessControlsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class WindowsPrivacyAccessControlsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"windowsPrivacyAccessControls", n => { WindowsPrivacyAccessControls = n.GetCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>(WindowsPrivacyDataAccessControlItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "windowsPrivacyAccessControls", n => { WindowsPrivacyAccessControls = n.GetCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>(WindowsPrivacyDataAccessControlItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

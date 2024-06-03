@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.EncryptBuffer {
+namespace ApiSdk.InformationProtection.EncryptBuffer
+{
     /// <summary>
     /// Provides operations to call the encryptBuffer method.
     /// </summary>
-    public class EncryptBufferRequestBuilder : BaseCliRequestBuilder 
+    public class EncryptBufferRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action encryptBuffer

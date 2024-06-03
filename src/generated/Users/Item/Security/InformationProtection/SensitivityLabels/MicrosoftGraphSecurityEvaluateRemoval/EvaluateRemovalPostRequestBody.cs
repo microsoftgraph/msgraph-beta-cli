@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval {
+namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval
+{
     #pragma warning disable CS1591
-    public class EvaluateRemovalPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluateRemovalPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.Mic
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.Security.ContentInfo>(ApiSdk.Models.Security.ContentInfo.CreateFromDiscriminatorValue); } },
-                {"downgradeJustification", n => { DowngradeJustification = n.GetObjectValue<ApiSdk.Models.Security.DowngradeJustification>(ApiSdk.Models.Security.DowngradeJustification.CreateFromDiscriminatorValue); } },
+                { "contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.Security.ContentInfo>(ApiSdk.Models.Security.ContentInfo.CreateFromDiscriminatorValue); } },
+                { "downgradeJustification", n => { DowngradeJustification = n.GetObjectValue<ApiSdk.Models.Security.DowngradeJustification>(ApiSdk.Models.Security.DowngradeJustification.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

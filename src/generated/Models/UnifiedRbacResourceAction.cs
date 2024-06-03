@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedRbacResourceAction : Entity, IParsable 
+    public class UnifiedRbacResourceAction : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.</summary>
@@ -87,15 +88,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionVerb", n => { ActionVerb = n.GetStringValue(); } },
-                {"authenticationContext", n => { AuthenticationContext = n.GetObjectValue<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue); } },
-                {"authenticationContextId", n => { AuthenticationContextId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"isAuthenticationContextSettable", n => { IsAuthenticationContextSettable = n.GetBoolValue(); } },
-                {"isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"resourceScope", n => { ResourceScope = n.GetObjectValue<UnifiedRbacResourceScope>(UnifiedRbacResourceScope.CreateFromDiscriminatorValue); } },
-                {"resourceScopeId", n => { ResourceScopeId = n.GetStringValue(); } },
+                { "actionVerb", n => { ActionVerb = n.GetStringValue(); } },
+                { "authenticationContext", n => { AuthenticationContext = n.GetObjectValue<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue); } },
+                { "authenticationContextId", n => { AuthenticationContextId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "isAuthenticationContextSettable", n => { IsAuthenticationContextSettable = n.GetBoolValue(); } },
+                { "isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "resourceScope", n => { ResourceScope = n.GetObjectValue<UnifiedRbacResourceScope>(UnifiedRbacResourceScope.CreateFromDiscriminatorValue); } },
+                { "resourceScopeId", n => { ResourceScopeId = n.GetStringValue(); } },
             };
         }
         /// <summary>

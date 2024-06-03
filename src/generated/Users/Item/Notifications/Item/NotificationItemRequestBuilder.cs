@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Notifications.Item {
+namespace ApiSdk.Users.Item.Notifications.Item
+{
     /// <summary>
     /// Provides operations to manage the notifications property of the microsoft.graph.user entity.
     /// </summary>
-    public class NotificationItemRequestBuilder : BaseCliRequestBuilder 
+    public class NotificationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property notifications for users

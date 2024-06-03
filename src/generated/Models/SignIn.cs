@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SignIn : Entity, IParsable 
+    public class SignIn : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).</summary>
@@ -41,7 +42,7 @@ namespace ApiSdk.Models {
 #else
         public List<AppliedAuthenticationEventListener> AppliedEventListeners { get; set; }
 #endif
-        /// <summary>The appTokenProtectionStatus property</summary>
+        /// <summary>Token protection creates a cryptographically secure tie between the token and the device it&apos;s issued to. This field indicates whether the app token was bound to the device.</summary>
         public TokenProtectionStatus? AppTokenProtectionStatus { get; set; }
         /// <summary>Provides details about the app and device used during a Microsoft Entra authentication step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -129,6 +130,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>Describes the credential type that a user client or service principal provided to Microsoft Entra ID to authenticate itself. You can review this property to track and eliminate less secure credential types or to watch for clients and service principals using anomalous credential types. The possible values are: none, clientSecret, clientAssertion, federatedIdentityCredential, managedIdentity, certificate, unknownFutureValue.</summary>
         public ApiSdk.Models.ClientCredentialType? ClientCredentialType { get; set; }
+        /// <summary>A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ConditionalAccessAudience>? ConditionalAccessAudiences { get; set; }
+#nullable restore
+#else
+        public List<ConditionalAccessAudience> ConditionalAccessAudiences { get; set; }
+#endif
         /// <summary>The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).</summary>
         public ApiSdk.Models.ConditionalAccessStatus? ConditionalAccessStatus { get; set; }
         /// <summary>The identifier the client sends when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).</summary>
@@ -161,6 +170,14 @@ namespace ApiSdk.Models {
 #endif
         /// <summary>During a failed sign-in, a user can select a button in the Azure portal to mark the failed event for tenant admins. If a user selects the button to flag the failed sign-in, this value is true.</summary>
         public bool? FlaggedForReview { get; set; }
+        /// <summary>The Global Secure Access IP address that the sign-in was initiated from.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? GlobalSecureAccessIpAddress { get; set; }
+#nullable restore
+#else
+        public string GlobalSecureAccessIpAddress { get; set; }
+#endif
         /// <summary>The tenant identifier of the user initiating the sign-in. Not applicable in Managed Identity or service principal sign ins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -199,6 +216,8 @@ namespace ApiSdk.Models {
         public bool? IsInteractive { get; set; }
         /// <summary>Shows whether the sign in event was subject to a Microsoft Entra tenant restriction policy.</summary>
         public bool? IsTenantRestricted { get; set; }
+        /// <summary>Indicates whether a user came through Global Secure Access service.</summary>
+        public bool? IsThroughGlobalSecureAccess { get; set; }
         /// <summary>The city, state, and two letter country code from where the sign-in occurred.  Supports $filter (eq, startsWith) on city, state, and countryOrRegion properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -215,7 +234,7 @@ namespace ApiSdk.Models {
 #else
         public ManagedIdentity ManagedServiceIdentity { get; set; }
 #endif
-        /// <summary>The mfaDetail property</summary>
+        /// <summary>This property is deprecated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.MfaDetail? MfaDetail { get; set; }
@@ -437,73 +456,76 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appTokenProtectionStatus", n => { AppTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
-                {"appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"appliedEventListeners", n => { AppliedEventListeners = n.GetCollectionOfObjectValues<AppliedAuthenticationEventListener>(AppliedAuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationAppDeviceDetails", n => { AuthenticationAppDeviceDetails = n.GetObjectValue<ApiSdk.Models.AuthenticationAppDeviceDetails>(ApiSdk.Models.AuthenticationAppDeviceDetails.CreateFromDiscriminatorValue); } },
-                {"authenticationAppPolicyEvaluationDetails", n => { AuthenticationAppPolicyEvaluationDetails = n.GetCollectionOfObjectValues<AuthenticationAppPolicyDetails>(AuthenticationAppPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContext>(AuthenticationContext.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationDetails", n => { AuthenticationDetails = n.GetCollectionOfObjectValues<AuthenticationDetail>(AuthenticationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationMethodsUsed", n => { AuthenticationMethodsUsed = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"authenticationProcessingDetails", n => { AuthenticationProcessingDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"authenticationProtocol", n => { AuthenticationProtocol = n.GetEnumValue<ProtocolType>(); } },
-                {"authenticationRequirement", n => { AuthenticationRequirement = n.GetStringValue(); } },
-                {"authenticationRequirementPolicies", n => { AuthenticationRequirementPolicies = n.GetCollectionOfObjectValues<AuthenticationRequirementPolicy>(AuthenticationRequirementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"autonomousSystemNumber", n => { AutonomousSystemNumber = n.GetIntValue(); } },
-                {"azureResourceId", n => { AzureResourceId = n.GetStringValue(); } },
-                {"clientAppUsed", n => { ClientAppUsed = n.GetStringValue(); } },
-                {"clientCredentialType", n => { ClientCredentialType = n.GetEnumValue<ClientCredentialType>(); } },
-                {"conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
-                {"correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"crossTenantAccessType", n => { CrossTenantAccessType = n.GetEnumValue<SignInAccessType>(); } },
-                {"deviceDetail", n => { DeviceDetail = n.GetObjectValue<ApiSdk.Models.DeviceDetail>(ApiSdk.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
-                {"federatedCredentialId", n => { FederatedCredentialId = n.GetStringValue(); } },
-                {"flaggedForReview", n => { FlaggedForReview = n.GetBoolValue(); } },
-                {"homeTenantId", n => { HomeTenantId = n.GetStringValue(); } },
-                {"homeTenantName", n => { HomeTenantName = n.GetStringValue(); } },
-                {"incomingTokenType", n => { IncomingTokenType = n.GetEnumValue<IncomingTokenType>(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"ipAddressFromResourceProvider", n => { IpAddressFromResourceProvider = n.GetStringValue(); } },
-                {"isInteractive", n => { IsInteractive = n.GetBoolValue(); } },
-                {"isTenantRestricted", n => { IsTenantRestricted = n.GetBoolValue(); } },
-                {"location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
-                {"managedServiceIdentity", n => { ManagedServiceIdentity = n.GetObjectValue<ManagedIdentity>(ManagedIdentity.CreateFromDiscriminatorValue); } },
-                {"mfaDetail", n => { MfaDetail = n.GetObjectValue<ApiSdk.Models.MfaDetail>(ApiSdk.Models.MfaDetail.CreateFromDiscriminatorValue); } },
-                {"networkLocationDetails", n => { NetworkLocationDetails = n.GetCollectionOfObjectValues<NetworkLocationDetail>(NetworkLocationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"originalRequestId", n => { OriginalRequestId = n.GetStringValue(); } },
-                {"originalTransferMethod", n => { OriginalTransferMethod = n.GetEnumValue<OriginalTransferMethods>(); } },
-                {"privateLinkDetails", n => { PrivateLinkDetails = n.GetObjectValue<ApiSdk.Models.PrivateLinkDetails>(ApiSdk.Models.PrivateLinkDetails.CreateFromDiscriminatorValue); } },
-                {"processingTimeInMilliseconds", n => { ProcessingTimeInMilliseconds = n.GetIntValue(); } },
-                {"resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"resourceServicePrincipalId", n => { ResourceServicePrincipalId = n.GetStringValue(); } },
-                {"resourceTenantId", n => { ResourceTenantId = n.GetStringValue(); } },
-                {"riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
-                {"riskEventTypes_v2", n => { RiskEventTypesV2 = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
-                {"riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
-                {"riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
-                {"servicePrincipalCredentialKeyId", n => { ServicePrincipalCredentialKeyId = n.GetStringValue(); } },
-                {"servicePrincipalCredentialThumbprint", n => { ServicePrincipalCredentialThumbprint = n.GetStringValue(); } },
-                {"servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
-                {"servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
-                {"sessionLifetimePolicies", n => { SessionLifetimePolicies = n.GetCollectionOfObjectValues<SessionLifetimePolicy>(SessionLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"signInEventTypes", n => { SignInEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"signInIdentifier", n => { SignInIdentifier = n.GetStringValue(); } },
-                {"signInIdentifierType", n => { SignInIdentifierType = n.GetEnumValue<SignInIdentifierType>(); } },
-                {"signInTokenProtectionStatus", n => { SignInTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
-                {"status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
-                {"tokenIssuerName", n => { TokenIssuerName = n.GetStringValue(); } },
-                {"tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<TokenIssuerType>(); } },
-                {"uniqueTokenIdentifier", n => { UniqueTokenIdentifier = n.GetStringValue(); } },
-                {"userAgent", n => { UserAgent = n.GetStringValue(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<SignInUserType>(); } },
+                { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "appTokenProtectionStatus", n => { AppTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
+                { "appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appliedEventListeners", n => { AppliedEventListeners = n.GetCollectionOfObjectValues<AppliedAuthenticationEventListener>(AppliedAuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationAppDeviceDetails", n => { AuthenticationAppDeviceDetails = n.GetObjectValue<ApiSdk.Models.AuthenticationAppDeviceDetails>(ApiSdk.Models.AuthenticationAppDeviceDetails.CreateFromDiscriminatorValue); } },
+                { "authenticationAppPolicyEvaluationDetails", n => { AuthenticationAppPolicyEvaluationDetails = n.GetCollectionOfObjectValues<AuthenticationAppPolicyDetails>(AuthenticationAppPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContext>(AuthenticationContext.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationDetails", n => { AuthenticationDetails = n.GetCollectionOfObjectValues<AuthenticationDetail>(AuthenticationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationMethodsUsed", n => { AuthenticationMethodsUsed = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "authenticationProcessingDetails", n => { AuthenticationProcessingDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationProtocol", n => { AuthenticationProtocol = n.GetEnumValue<ProtocolType>(); } },
+                { "authenticationRequirement", n => { AuthenticationRequirement = n.GetStringValue(); } },
+                { "authenticationRequirementPolicies", n => { AuthenticationRequirementPolicies = n.GetCollectionOfObjectValues<AuthenticationRequirementPolicy>(AuthenticationRequirementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "autonomousSystemNumber", n => { AutonomousSystemNumber = n.GetIntValue(); } },
+                { "azureResourceId", n => { AzureResourceId = n.GetStringValue(); } },
+                { "clientAppUsed", n => { ClientAppUsed = n.GetStringValue(); } },
+                { "clientCredentialType", n => { ClientCredentialType = n.GetEnumValue<ClientCredentialType>(); } },
+                { "conditionalAccessAudiences", n => { ConditionalAccessAudiences = n.GetCollectionOfObjectValues<ConditionalAccessAudience>(ConditionalAccessAudience.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
+                { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "crossTenantAccessType", n => { CrossTenantAccessType = n.GetEnumValue<SignInAccessType>(); } },
+                { "deviceDetail", n => { DeviceDetail = n.GetObjectValue<ApiSdk.Models.DeviceDetail>(ApiSdk.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
+                { "federatedCredentialId", n => { FederatedCredentialId = n.GetStringValue(); } },
+                { "flaggedForReview", n => { FlaggedForReview = n.GetBoolValue(); } },
+                { "globalSecureAccessIpAddress", n => { GlobalSecureAccessIpAddress = n.GetStringValue(); } },
+                { "homeTenantId", n => { HomeTenantId = n.GetStringValue(); } },
+                { "homeTenantName", n => { HomeTenantName = n.GetStringValue(); } },
+                { "incomingTokenType", n => { IncomingTokenType = n.GetEnumValue<IncomingTokenType>(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "ipAddressFromResourceProvider", n => { IpAddressFromResourceProvider = n.GetStringValue(); } },
+                { "isInteractive", n => { IsInteractive = n.GetBoolValue(); } },
+                { "isTenantRestricted", n => { IsTenantRestricted = n.GetBoolValue(); } },
+                { "isThroughGlobalSecureAccess", n => { IsThroughGlobalSecureAccess = n.GetBoolValue(); } },
+                { "location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
+                { "managedServiceIdentity", n => { ManagedServiceIdentity = n.GetObjectValue<ManagedIdentity>(ManagedIdentity.CreateFromDiscriminatorValue); } },
+                { "mfaDetail", n => { MfaDetail = n.GetObjectValue<ApiSdk.Models.MfaDetail>(ApiSdk.Models.MfaDetail.CreateFromDiscriminatorValue); } },
+                { "networkLocationDetails", n => { NetworkLocationDetails = n.GetCollectionOfObjectValues<NetworkLocationDetail>(NetworkLocationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "originalRequestId", n => { OriginalRequestId = n.GetStringValue(); } },
+                { "originalTransferMethod", n => { OriginalTransferMethod = n.GetEnumValue<OriginalTransferMethods>(); } },
+                { "privateLinkDetails", n => { PrivateLinkDetails = n.GetObjectValue<ApiSdk.Models.PrivateLinkDetails>(ApiSdk.Models.PrivateLinkDetails.CreateFromDiscriminatorValue); } },
+                { "processingTimeInMilliseconds", n => { ProcessingTimeInMilliseconds = n.GetIntValue(); } },
+                { "resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "resourceServicePrincipalId", n => { ResourceServicePrincipalId = n.GetStringValue(); } },
+                { "resourceTenantId", n => { ResourceTenantId = n.GetStringValue(); } },
+                { "riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
+                { "riskEventTypes_v2", n => { RiskEventTypesV2 = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
+                { "riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
+                { "riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
+                { "servicePrincipalCredentialKeyId", n => { ServicePrincipalCredentialKeyId = n.GetStringValue(); } },
+                { "servicePrincipalCredentialThumbprint", n => { ServicePrincipalCredentialThumbprint = n.GetStringValue(); } },
+                { "servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
+                { "servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
+                { "sessionLifetimePolicies", n => { SessionLifetimePolicies = n.GetCollectionOfObjectValues<SessionLifetimePolicy>(SessionLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "signInEventTypes", n => { SignInEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "signInIdentifier", n => { SignInIdentifier = n.GetStringValue(); } },
+                { "signInIdentifierType", n => { SignInIdentifierType = n.GetEnumValue<SignInIdentifierType>(); } },
+                { "signInTokenProtectionStatus", n => { SignInTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
+                { "tokenIssuerName", n => { TokenIssuerName = n.GetStringValue(); } },
+                { "tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<TokenIssuerType>(); } },
+                { "uniqueTokenIdentifier", n => { UniqueTokenIdentifier = n.GetStringValue(); } },
+                { "userAgent", n => { UserAgent = n.GetStringValue(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<SignInUserType>(); } },
             };
         }
         /// <summary>
@@ -532,6 +554,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("azureResourceId", AzureResourceId);
             writer.WriteStringValue("clientAppUsed", ClientAppUsed);
             writer.WriteEnumValue<ClientCredentialType>("clientCredentialType", ClientCredentialType);
+            writer.WriteCollectionOfObjectValues<ConditionalAccessAudience>("conditionalAccessAudiences", ConditionalAccessAudiences);
             writer.WriteEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", ConditionalAccessStatus);
             writer.WriteStringValue("correlationId", CorrelationId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
@@ -539,6 +562,7 @@ namespace ApiSdk.Models {
             writer.WriteObjectValue<ApiSdk.Models.DeviceDetail>("deviceDetail", DeviceDetail);
             writer.WriteStringValue("federatedCredentialId", FederatedCredentialId);
             writer.WriteBoolValue("flaggedForReview", FlaggedForReview);
+            writer.WriteStringValue("globalSecureAccessIpAddress", GlobalSecureAccessIpAddress);
             writer.WriteStringValue("homeTenantId", HomeTenantId);
             writer.WriteStringValue("homeTenantName", HomeTenantName);
             writer.WriteEnumValue<IncomingTokenType>("incomingTokenType", IncomingTokenType);
@@ -546,6 +570,7 @@ namespace ApiSdk.Models {
             writer.WriteStringValue("ipAddressFromResourceProvider", IpAddressFromResourceProvider);
             writer.WriteBoolValue("isInteractive", IsInteractive);
             writer.WriteBoolValue("isTenantRestricted", IsTenantRestricted);
+            writer.WriteBoolValue("isThroughGlobalSecureAccess", IsThroughGlobalSecureAccess);
             writer.WriteObjectValue<SignInLocation>("location", Location);
             writer.WriteObjectValue<ManagedIdentity>("managedServiceIdentity", ManagedServiceIdentity);
             writer.WriteObjectValue<ApiSdk.Models.MfaDetail>("mfaDetail", MfaDetail);

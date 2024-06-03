@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthenticationStrengthRoot : Entity, IParsable 
+    public class AuthenticationStrengthRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of all valid authentication method combinations in the system.</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationCombinations", n => { AuthenticationCombinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
-                {"authenticationMethodModes", n => { AuthenticationMethodModes = n.GetCollectionOfObjectValues<AuthenticationMethodModeDetail>(AuthenticationMethodModeDetail.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"combinations", n => { Combinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
-                {"policies", n => { Policies = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationCombinations", n => { AuthenticationCombinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
+                { "authenticationMethodModes", n => { AuthenticationMethodModes = n.GetCollectionOfObjectValues<AuthenticationMethodModeDetail>(AuthenticationMethodModeDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "combinations", n => { Combinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item {
+namespace ApiSdk.Users.Item.Chats.Item.Tabs.Item
+{
     /// <summary>
     /// Provides operations to manage the tabs property of the microsoft.graph.chat entity.
     /// </summary>
-    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsTabItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tabs for users

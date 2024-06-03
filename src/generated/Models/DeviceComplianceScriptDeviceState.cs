@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for device run state of the device compliance script.
     /// </summary>
-    public class DeviceComplianceScriptDeviceState : Entity, IParsable 
+    public class DeviceComplianceScriptDeviceState : Entity, IParsable
     {
         /// <summary>Indicates the type of execution status of the device management script.</summary>
         public RunState? DetectionState { get; set; }
@@ -60,13 +61,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
-                {"expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
-                {"scriptError", n => { ScriptError = n.GetStringValue(); } },
-                {"scriptOutput", n => { ScriptOutput = n.GetStringValue(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
+                { "scriptError", n => { ScriptError = n.GetStringValue(); } },
+                { "scriptOutput", n => { ScriptOutput = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item {
+namespace ApiSdk.PrivilegedAccess.Item.RoleSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.
     /// </summary>
-    public class GovernanceRoleSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleSettings for privilegedAccess

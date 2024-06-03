@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// These are elevation approval requests for EPM support arbitrated scenario initiated by IW user that admins can take action on.
     /// </summary>
-    public class PrivilegeManagementElevationRequest : Entity, IParsable 
+    public class PrivilegeManagementElevationRequest : Entity, IParsable
     {
         /// <summary>Details of the application which is being requested to elevate, allowing the admin to understand the identity of the application. It includes file info such as FilePath, FileHash, FilePublisher, and etc. Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ApiSdk.Models.ApplicationDetail? ApplicationDetail { get; set; }
+        public ElevationRequestApplicationDetail? ApplicationDetail { get; set; }
 #nullable restore
 #else
-        public ApiSdk.Models.ApplicationDetail ApplicationDetail { get; set; }
+        public ElevationRequestApplicationDetail ApplicationDetail { get; set; }
 #endif
         /// <summary>The device name used to initiate the elevation request. For example: &apos;cotonso-laptop&apos;. Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,20 +111,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicationDetail", n => { ApplicationDetail = n.GetObjectValue<ApiSdk.Models.ApplicationDetail>(ApiSdk.Models.ApplicationDetail.CreateFromDiscriminatorValue); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"requestCreatedDateTime", n => { RequestCreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestExpiryDateTime", n => { RequestExpiryDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestJustification", n => { RequestJustification = n.GetStringValue(); } },
-                {"requestLastModifiedDateTime", n => { RequestLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestedByUserId", n => { RequestedByUserId = n.GetStringValue(); } },
-                {"requestedByUserPrincipalName", n => { RequestedByUserPrincipalName = n.GetStringValue(); } },
-                {"requestedOnDeviceId", n => { RequestedOnDeviceId = n.GetStringValue(); } },
-                {"reviewCompletedByUserId", n => { ReviewCompletedByUserId = n.GetStringValue(); } },
-                {"reviewCompletedByUserPrincipalName", n => { ReviewCompletedByUserPrincipalName = n.GetStringValue(); } },
-                {"reviewCompletedDateTime", n => { ReviewCompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewerJustification", n => { ReviewerJustification = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<ElevationRequestState>(); } },
+                { "applicationDetail", n => { ApplicationDetail = n.GetObjectValue<ElevationRequestApplicationDetail>(ElevationRequestApplicationDetail.CreateFromDiscriminatorValue); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "requestCreatedDateTime", n => { RequestCreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestExpiryDateTime", n => { RequestExpiryDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestJustification", n => { RequestJustification = n.GetStringValue(); } },
+                { "requestLastModifiedDateTime", n => { RequestLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestedByUserId", n => { RequestedByUserId = n.GetStringValue(); } },
+                { "requestedByUserPrincipalName", n => { RequestedByUserPrincipalName = n.GetStringValue(); } },
+                { "requestedOnDeviceId", n => { RequestedOnDeviceId = n.GetStringValue(); } },
+                { "reviewCompletedByUserId", n => { ReviewCompletedByUserId = n.GetStringValue(); } },
+                { "reviewCompletedByUserPrincipalName", n => { ReviewCompletedByUserPrincipalName = n.GetStringValue(); } },
+                { "reviewCompletedDateTime", n => { ReviewCompletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewerJustification", n => { ReviewerJustification = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<ElevationRequestState>(); } },
             };
         }
         /// <summary>
@@ -134,7 +135,7 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ApiSdk.Models.ApplicationDetail>("applicationDetail", ApplicationDetail);
+            writer.WriteObjectValue<ElevationRequestApplicationDetail>("applicationDetail", ApplicationDetail);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteDateTimeOffsetValue("requestCreatedDateTime", RequestCreatedDateTime);
             writer.WriteStringValue("requestedByUserId", RequestedByUserId);

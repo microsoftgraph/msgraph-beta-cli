@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
+namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess
+{
     /// <summary>
     /// Provides operations to manage the microsoftApplicationDataAccess property of the microsoft.graph.organizationSettings entity.
     /// </summary>
-    public class MicrosoftApplicationDataAccessRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftApplicationDataAccessRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property microsoftApplicationDataAccess for organization
@@ -56,13 +57,14 @@ namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
             return command;
         }
         /// <summary>
-        /// Get microsoftApplicationDataAccess from organization
+        /// Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organizationsettings-list-microsoftapplicationdataaccess?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get microsoftApplicationDataAccess from organization";
+            command.Description = "Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organizationsettings-list-microsoftapplicationdataaccess?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
             return command;
         }
         /// <summary>
-        /// Update the navigation property microsoftApplicationDataAccess in organization
+        /// Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/microsoftapplicationdataaccesssettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property microsoftApplicationDataAccess in organization";
+            command.Description = "Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/microsoftapplicationdataaccesssettings-update?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Get microsoftApplicationDataAccess from organization
+        /// Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property microsoftApplicationDataAccess in organization
+        /// Update the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess {
             return requestInfo;
         }
         /// <summary>
-        /// Get microsoftApplicationDataAccess from organization
+        /// Get the settings in a microsoftApplicationDataAccessSettings object that specify access from Microsoft applications to Microsoft 365 user data in an organization.
         /// </summary>
         public class MicrosoftApplicationDataAccessRequestBuilderGetQueryParameters 
         {

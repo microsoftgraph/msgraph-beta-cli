@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.OnlineMeetings.Item.MeetingAttendanceReport {
+namespace ApiSdk.Users.Item.OnlineMeetings.Item.MeetingAttendanceReport
+{
     /// <summary>
     /// Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.
     /// </summary>
-    public class MeetingAttendanceReportRequestBuilder : BaseCliRequestBuilder 
+    public class MeetingAttendanceReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -90,13 +91,13 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.MeetingAttendanceReport {
             return command;
         }
         /// <summary>
-        /// Get meetingAttendanceReport from users
+        /// The attendance report of the latest online meeting session. Read-only.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get meetingAttendanceReport from users";
+            command.Description = "The attendance report of the latest online meeting session. Read-only.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -238,7 +239,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.MeetingAttendanceReport {
             return requestInfo;
         }
         /// <summary>
-        /// Get meetingAttendanceReport from users
+        /// The attendance report of the latest online meeting session. Read-only.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -278,7 +279,7 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.MeetingAttendanceReport {
             return requestInfo;
         }
         /// <summary>
-        /// Get meetingAttendanceReport from users
+        /// The attendance report of the latest online meeting session. Read-only.
         /// </summary>
         public class MeetingAttendanceReportRequestBuilderGetQueryParameters 
         {

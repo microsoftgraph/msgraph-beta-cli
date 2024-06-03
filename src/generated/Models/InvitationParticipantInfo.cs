@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InvitationParticipantInfo : IAdditionalDataHolder, IParsable 
+    public class InvitationParticipantInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -74,13 +75,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"endpointType", n => { EndpointType = n.GetEnumValue<EndpointType>(); } },
-                {"hidden", n => { Hidden = n.GetBoolValue(); } },
-                {"identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"participantId", n => { ParticipantId = n.GetStringValue(); } },
-                {"removeFromDefaultAudioRoutingGroup", n => { RemoveFromDefaultAudioRoutingGroup = n.GetBoolValue(); } },
-                {"replacesCallId", n => { ReplacesCallId = n.GetStringValue(); } },
+                { "endpointType", n => { EndpointType = n.GetEnumValue<EndpointType>(); } },
+                { "hidden", n => { Hidden = n.GetBoolValue(); } },
+                { "identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "participantId", n => { ParticipantId = n.GetStringValue(); } },
+                { "removeFromDefaultAudioRoutingGroup", n => { RemoveFromDefaultAudioRoutingGroup = n.GetBoolValue(); } },
+                { "replacesCallId", n => { ReplacesCallId = n.GetStringValue(); } },
             };
         }
         /// <summary>

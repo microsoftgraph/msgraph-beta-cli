@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment {
+namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment
+{
     /// <summary>
     /// Provides operations to manage the linkedEligibleRoleAssignment property of the microsoft.graph.governanceRoleAssignment entity.
     /// </summary>
-    public class LinkedEligibleRoleAssignmentRequestBuilder : BaseCliRequestBuilder 
+    public class LinkedEligibleRoleAssignmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. If this is an active assignment and created due to activation on an eligible assignment, it represents the object of that eligible assignment; Otherwise, the value is null.

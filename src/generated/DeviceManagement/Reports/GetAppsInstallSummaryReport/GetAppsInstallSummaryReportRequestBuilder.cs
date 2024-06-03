@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getAppsInstallSummaryReport method.
     /// </summary>
-    public class GetAppsInstallSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetAppsInstallSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getAppsInstallSummaryReport

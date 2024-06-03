@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcReviewStatus : IAdditionalDataHolder, IParsable 
+    public class CloudPcReviewStatus : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -92,16 +93,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"azureStorageAccountId", n => { AzureStorageAccountId = n.GetStringValue(); } },
-                {"azureStorageAccountName", n => { AzureStorageAccountName = n.GetStringValue(); } },
-                {"azureStorageContainerName", n => { AzureStorageContainerName = n.GetStringValue(); } },
-                {"inReview", n => { InReview = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"restorePointDateTime", n => { RestorePointDateTime = n.GetDateTimeOffsetValue(); } },
-                {"reviewStartDateTime", n => { ReviewStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
-                {"subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
-                {"userAccessLevel", n => { UserAccessLevel = n.GetEnumValue<CloudPcUserAccessLevel>(); } },
+                { "azureStorageAccountId", n => { AzureStorageAccountId = n.GetStringValue(); } },
+                { "azureStorageAccountName", n => { AzureStorageAccountName = n.GetStringValue(); } },
+                { "azureStorageContainerName", n => { AzureStorageContainerName = n.GetStringValue(); } },
+                { "inReview", n => { InReview = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "restorePointDateTime", n => { RestorePointDateTime = n.GetDateTimeOffsetValue(); } },
+                { "reviewStartDateTime", n => { ReviewStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
+                { "subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
+                { "userAccessLevel", n => { UserAccessLevel = n.GetEnumValue<CloudPcUserAccessLevel>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class ContentApproval : ComplianceChange, IParsable 
+    public class ContentApproval : ComplianceChange, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content property</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetObjectValue<DeployableContent>(DeployableContent.CreateFromDiscriminatorValue); } },
-                {"deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
-                {"deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "content", n => { Content = n.GetObjectValue<DeployableContent>(DeployableContent.CreateFromDiscriminatorValue); } },
+                { "deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

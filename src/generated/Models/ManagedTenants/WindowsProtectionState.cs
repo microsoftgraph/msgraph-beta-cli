@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class WindowsProtectionState : ApiSdk.Models.Entity, IParsable 
+    public class WindowsProtectionState : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The anti-malware version for the managed device. Optional. Read-only.</summary>
@@ -137,31 +138,31 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"antiMalwareVersion", n => { AntiMalwareVersion = n.GetStringValue(); } },
-                {"attentionRequired", n => { AttentionRequired = n.GetBoolValue(); } },
-                {"deviceDeleted", n => { DeviceDeleted = n.GetBoolValue(); } },
-                {"devicePropertyRefreshDateTime", n => { DevicePropertyRefreshDateTime = n.GetDateTimeOffsetValue(); } },
-                {"engineVersion", n => { EngineVersion = n.GetStringValue(); } },
-                {"fullScanOverdue", n => { FullScanOverdue = n.GetBoolValue(); } },
-                {"fullScanRequired", n => { FullScanRequired = n.GetBoolValue(); } },
-                {"lastFullScanDateTime", n => { LastFullScanDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastFullScanSignatureVersion", n => { LastFullScanSignatureVersion = n.GetStringValue(); } },
-                {"lastQuickScanDateTime", n => { LastQuickScanDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastQuickScanSignatureVersion", n => { LastQuickScanSignatureVersion = n.GetStringValue(); } },
-                {"lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"malwareProtectionEnabled", n => { MalwareProtectionEnabled = n.GetBoolValue(); } },
-                {"managedDeviceHealthState", n => { ManagedDeviceHealthState = n.GetStringValue(); } },
-                {"managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                {"managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
-                {"networkInspectionSystemEnabled", n => { NetworkInspectionSystemEnabled = n.GetBoolValue(); } },
-                {"quickScanOverdue", n => { QuickScanOverdue = n.GetBoolValue(); } },
-                {"realTimeProtectionEnabled", n => { RealTimeProtectionEnabled = n.GetBoolValue(); } },
-                {"rebootRequired", n => { RebootRequired = n.GetBoolValue(); } },
-                {"signatureUpdateOverdue", n => { SignatureUpdateOverdue = n.GetBoolValue(); } },
-                {"signatureVersion", n => { SignatureVersion = n.GetStringValue(); } },
-                {"tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "antiMalwareVersion", n => { AntiMalwareVersion = n.GetStringValue(); } },
+                { "attentionRequired", n => { AttentionRequired = n.GetBoolValue(); } },
+                { "deviceDeleted", n => { DeviceDeleted = n.GetBoolValue(); } },
+                { "devicePropertyRefreshDateTime", n => { DevicePropertyRefreshDateTime = n.GetDateTimeOffsetValue(); } },
+                { "engineVersion", n => { EngineVersion = n.GetStringValue(); } },
+                { "fullScanOverdue", n => { FullScanOverdue = n.GetBoolValue(); } },
+                { "fullScanRequired", n => { FullScanRequired = n.GetBoolValue(); } },
+                { "lastFullScanDateTime", n => { LastFullScanDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastFullScanSignatureVersion", n => { LastFullScanSignatureVersion = n.GetStringValue(); } },
+                { "lastQuickScanDateTime", n => { LastQuickScanDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastQuickScanSignatureVersion", n => { LastQuickScanSignatureVersion = n.GetStringValue(); } },
+                { "lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "malwareProtectionEnabled", n => { MalwareProtectionEnabled = n.GetBoolValue(); } },
+                { "managedDeviceHealthState", n => { ManagedDeviceHealthState = n.GetStringValue(); } },
+                { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
+                { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
+                { "networkInspectionSystemEnabled", n => { NetworkInspectionSystemEnabled = n.GetBoolValue(); } },
+                { "quickScanOverdue", n => { QuickScanOverdue = n.GetBoolValue(); } },
+                { "realTimeProtectionEnabled", n => { RealTimeProtectionEnabled = n.GetBoolValue(); } },
+                { "rebootRequired", n => { RebootRequired = n.GetBoolValue(); } },
+                { "signatureUpdateOverdue", n => { SignatureUpdateOverdue = n.GetBoolValue(); } },
+                { "signatureVersion", n => { SignatureVersion = n.GetStringValue(); } },
+                { "tenantDisplayName", n => { TenantDisplayName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

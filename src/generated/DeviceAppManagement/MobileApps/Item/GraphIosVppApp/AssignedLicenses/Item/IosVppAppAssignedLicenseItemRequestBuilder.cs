@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.AssignedLicenses.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphIosVppApp.AssignedLicenses.Item
+{
     /// <summary>
     /// Provides operations to manage the assignedLicenses property of the microsoft.graph.iosVppApp entity.
     /// </summary>
-    public class IosVppAppAssignedLicenseItemRequestBuilder : BaseCliRequestBuilder 
+    public class IosVppAppAssignedLicenseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignedLicenses for deviceAppManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser {
+namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser
+{
     /// <summary>
     /// Provides operations to call the convertExternalToInternalMemberUser method.
     /// </summary>
-    public class ConvertExternalToInternalMemberUserRequestBuilder : BaseCliRequestBuilder 
+    public class ConvertExternalToInternalMemberUserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Convert an externally authenticated user into an internal user. The user is able to sign into the host tenant as an internal user and access resources as a member. For more information about this conversion, see Convert external users to internal users.

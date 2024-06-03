@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertDefinition {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertDefinition
+{
     /// <summary>
     /// Provides operations to manage the alertDefinition property of the microsoft.graph.unifiedRoleManagementAlert entity.
     /// </summary>
-    public class AlertDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class AlertDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Contains the description, impact, and measures to mitigate or prevent the security alert from being triggered in your tenant. Supports $expand.

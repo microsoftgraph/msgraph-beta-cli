@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Destination : IAdditionalDataHolder, IParsable 
+    public class Destination : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -82,20 +83,20 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceCount", n => { DeviceCount = n.GetIntValue(); } },
-                {"firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fqdn", n => { Fqdn = n.GetStringValue(); } },
-                {"ip", n => { Ip = n.GetStringValue(); } },
-                {"lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
-                {"threatCount", n => { ThreatCount = n.GetIntValue(); } },
-                {"totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
-                {"totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
-                {"trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
-                {"transactionCount", n => { TransactionCount = n.GetIntValue(); } },
-                {"userCount", n => { UserCount = n.GetIntValue(); } },
+                { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
+                { "firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fqdn", n => { Fqdn = n.GetStringValue(); } },
+                { "ip", n => { Ip = n.GetStringValue(); } },
+                { "lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
+                { "threatCount", n => { ThreatCount = n.GetIntValue(); } },
+                { "totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
+                { "totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "transactionCount", n => { TransactionCount = n.GetIntValue(); } },
+                { "userCount", n => { UserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

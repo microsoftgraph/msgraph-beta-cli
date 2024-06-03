@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.DataLossPreventionPolicies.Evaluate {
+namespace ApiSdk.Users.Item.InformationProtection.DataLossPreventionPolicies.Evaluate
+{
     #pragma warning disable CS1591
-    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Users.Item.InformationProtection.DataLossPreventionPolicies.Eva
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"evaluationInput", n => { EvaluationInput = n.GetObjectValue<DlpEvaluationInput>(DlpEvaluationInput.CreateFromDiscriminatorValue); } },
-                {"notificationInfo", n => { NotificationInfo = n.GetObjectValue<DlpNotification>(DlpNotification.CreateFromDiscriminatorValue); } },
-                {"target", n => { Target = n.GetStringValue(); } },
+                { "evaluationInput", n => { EvaluationInput = n.GetObjectValue<DlpEvaluationInput>(DlpEvaluationInput.CreateFromDiscriminatorValue); } },
+                { "notificationInfo", n => { NotificationInfo = n.GetObjectValue<DlpNotification>(DlpNotification.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetStringValue(); } },
             };
         }
         /// <summary>

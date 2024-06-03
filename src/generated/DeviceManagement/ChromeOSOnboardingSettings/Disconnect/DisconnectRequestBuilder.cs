@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Disconnect {
+namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Disconnect
+{
     /// <summary>
     /// Provides operations to call the disconnect method.
     /// </summary>
-    public class DisconnectRequestBuilder : BaseCliRequestBuilder 
+    public class DisconnectRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action disconnect

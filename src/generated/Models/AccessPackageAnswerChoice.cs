@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAnswerChoice : IAdditionalDataHolder, IParsable 
+    public class AccessPackageAnswerChoice : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actual value of the selected choice. This is typically a string value which is understandable by applications. Required.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actualValue", n => { ActualValue = n.GetStringValue(); } },
-                {"displayValue", n => { DisplayValue = n.GetObjectValue<AccessPackageLocalizedContent>(AccessPackageLocalizedContent.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "actualValue", n => { ActualValue = n.GetStringValue(); } },
+                { "displayValue", n => { DisplayValue = n.GetObjectValue<AccessPackageLocalizedContent>(AccessPackageLocalizedContent.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

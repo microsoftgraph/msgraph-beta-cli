@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe {
+namespace ApiSdk.AuditLogs.SignIns.ConfirmSafe
+{
     /// <summary>
     /// Provides operations to call the confirmSafe method.
     /// </summary>
-    public class ConfirmSafeRequestBuilder : BaseCliRequestBuilder 
+    public class ConfirmSafeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Allow admins to mark an event in Microsoft Entra sign-in logs as safe. Admins can either mark the events flagged as risky by Microsoft Entra ID Protection as safe, or they can mark unflagged events as safe. For details about investigating Identity Protection risks, see How to investigate risk.

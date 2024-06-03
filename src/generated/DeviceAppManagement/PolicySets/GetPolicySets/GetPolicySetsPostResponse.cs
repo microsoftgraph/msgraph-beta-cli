@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets {
+namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets
+{
     #pragma warning disable CS1591
-    public class GetPolicySetsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetPolicySetsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<PolicySet>(PolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<PolicySet>(PolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

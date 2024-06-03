@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks
+{
     /// <summary>
     /// Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.
     /// </summary>
-    public class DeviceLinksRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLinksRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.
@@ -53,14 +54,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to deviceLinks for networkAccess
+        /// Create a branch site with associated device links.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to deviceLinks for networkAccess";
+            command.Description = "Create a branch site with associated device links.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-post-devicelinks?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -105,14 +107,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return command;
         }
         /// <summary>
-        /// Each unique CPE device associated with a branch is specified. Supports $expand.
+        /// Retrieve a list of device links associated with a specific branch.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Each unique CPE device associated with a branch is specified. Supports $expand.";
+            command.Description = "Retrieve a list of device links associated with a specific branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-devicelinks?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -194,7 +197,9 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +225,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
         {
         }
         /// <summary>
-        /// Each unique CPE device associated with a branch is specified. Supports $expand.
+        /// Retrieve a list of device links associated with a specific branch.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,7 +245,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to deviceLinks for networkAccess
+        /// Create a branch site with associated device links.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +267,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks {
             return requestInfo;
         }
         /// <summary>
-        /// Each unique CPE device associated with a branch is specified. Supports $expand.
+        /// Retrieve a list of device links associated with a specific branch.
         /// </summary>
         public class DeviceLinksRequestBuilderGetQueryParameters 
         {

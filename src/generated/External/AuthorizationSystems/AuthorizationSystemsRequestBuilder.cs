@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.AuthorizationSystems {
+namespace ApiSdk.External.AuthorizationSystems
+{
     /// <summary>
     /// Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.
     /// </summary>
-    public class AuthorizationSystemsRequestBuilder : BaseCliRequestBuilder 
+    public class AuthorizationSystemsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.External.AuthorizationSystems {
             return command;
         }
         /// <summary>
-        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-external-list-authorizationsystems?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.";
+            command.Description = "List the authorizationSystem objects onboarded to Permissions Management and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-external-list-authorizationsystems?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.External.AuthorizationSystems {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.External.AuthorizationSystems {
         {
         }
         /// <summary>
-        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.External.AuthorizationSystems {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an onboarded AWS account, Azure subscription, or GCP project that Microsoft Entra Permissions Management will collect and analyze permissions and actions on.
+        /// List the authorizationSystem objects onboarded to Permissions Management and their properties.
         /// </summary>
         public class AuthorizationSystemsRequestBuilderGetQueryParameters 
         {

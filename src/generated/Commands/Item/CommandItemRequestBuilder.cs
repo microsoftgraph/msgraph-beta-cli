@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Commands.Item {
+namespace ApiSdk.Commands.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of command entities.
     /// </summary>
-    public class CommandItemRequestBuilder : BaseCliRequestBuilder 
+    public class CommandItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from commands

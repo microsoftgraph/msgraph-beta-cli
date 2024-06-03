@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows {
+namespace ApiSdk.Identity.AuthenticationEventsFlows
+{
     /// <summary>
     /// Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class AuthenticationEventsFlowsRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationEventsFlowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
@@ -57,13 +58,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to authenticationEventsFlows for identity
+        /// Create a new authenticationEventsFlow object that is of the type specified in the request body. You can create only an externalUsersSelfServiceSignupEventsFlow object type.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventsflows?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to authenticationEventsFlows for identity";
+            command.Description = "Create a new authenticationEventsFlow object that is of the type specified in the request body. You can create only an externalUsersSelfServiceSignupEventsFlow object type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-post-authenticationeventsflows?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -125,13 +127,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
             return command;
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventsflows?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.";
+            command.Description = "Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-list-authenticationeventsflows?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -207,7 +210,9 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -233,7 +238,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
         {
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -252,7 +257,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to authenticationEventsFlows for identity
+        /// Create a new authenticationEventsFlow object that is of the type specified in the request body. You can create only an externalUsersSelfServiceSignupEventsFlow object type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -273,7 +278,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Get a collection of authentication events policies that are derived from authenticationEventsFlow. Only the externalUsersSelfServiceSignupEventsFlow object type is returned.
         /// </summary>
         public class AuthenticationEventsFlowsRequestBuilderGetQueryParameters 
         {

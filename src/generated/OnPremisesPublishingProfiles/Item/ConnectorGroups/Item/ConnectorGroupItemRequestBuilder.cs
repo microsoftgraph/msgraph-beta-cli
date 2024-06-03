@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.
     /// </summary>
-    public class ConnectorGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectorGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the applications property of the microsoft.graph.connectorGroup entity.

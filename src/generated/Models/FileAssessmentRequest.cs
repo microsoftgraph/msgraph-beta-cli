@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FileAssessmentRequest : ThreatAssessmentRequest, IParsable 
+    public class FileAssessmentRequest : ThreatAssessmentRequest, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Base64 encoded file content. The file content can&apos;t fetch back because it isn&apos;t stored.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentData", n => { ContentData = n.GetStringValue(); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
+                { "contentData", n => { ContentData = n.GetStringValue(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
             };
         }
         /// <summary>

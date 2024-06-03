@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Reprovision {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Reprovision
+{
     /// <summary>
     /// Provides operations to call the reprovision method.
     /// </summary>
-    public class ReprovisionRequestBuilder : BaseCliRequestBuilder 
+    public class ReprovisionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reprovision a specific Cloud PC.

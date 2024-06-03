@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
+namespace ApiSdk.Admin.Windows.Updates.Deployments.Item
+{
     /// <summary>
     /// Provides operations to manage the deployments property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class DeploymentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeploymentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the audience property of the microsoft.graph.windowsUpdates.deployment entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property deployments for admin
+        /// Delete a deployment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property deployments for admin";
+            command.Description = "Delete a deployment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deployment-delete?view=graph-rest-beta";
             var deploymentIdOption = new Option<string>("--deployment-id", description: "The unique identifier of deployment") {
             };
             deploymentIdOption.IsRequired = true;
@@ -86,13 +88,14 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return command;
         }
         /// <summary>
-        /// Deployments created using the deployment service.
+        /// Read the properties and relationships of a deployment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Deployments created using the deployment service.";
+            command.Description = "Read the properties and relationships of a deployment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deployment-get?view=graph-rest-beta";
             var deploymentIdOption = new Option<string>("--deployment-id", description: "The unique identifier of deployment") {
             };
             deploymentIdOption.IsRequired = true;
@@ -138,13 +141,14 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property deployments in admin
+        /// Update the properties of a deployment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property deployments in admin";
+            command.Description = "Update the properties of a deployment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-deployment-update?view=graph-rest-beta";
             var deploymentIdOption = new Option<string>("--deployment-id", description: "The unique identifier of deployment") {
             };
             deploymentIdOption.IsRequired = true;
@@ -203,7 +207,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property deployments for admin
+        /// Delete a deployment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +226,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Deployments created using the deployment service.
+        /// Read the properties and relationships of a deployment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +245,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property deployments in admin
+        /// Update the properties of a deployment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +266,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Deployments created using the deployment service.
+        /// Read the properties and relationships of a deployment object.
         /// </summary>
         public class DeploymentItemRequestBuilderGetQueryParameters 
         {

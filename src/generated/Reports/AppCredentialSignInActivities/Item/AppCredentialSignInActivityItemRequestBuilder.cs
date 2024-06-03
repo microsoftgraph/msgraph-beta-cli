@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
+namespace ApiSdk.Reports.AppCredentialSignInActivities.Item
+{
     /// <summary>
     /// Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class AppCredentialSignInActivityItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppCredentialSignInActivityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property appCredentialSignInActivities for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
             return command;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a collection of sign-in activities of application credentials.";
+            command.Description = "Get an appCredentialSignInActivity object that contains recent activity of an application credential.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/appcredentialsigninactivity-get?view=graph-rest-beta";
             var appCredentialSignInActivityIdOption = new Option<string>("--app-credential-sign-in-activity-id", description: "The unique identifier of appCredentialSignInActivity") {
             };
             appCredentialSignInActivityIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get an appCredentialSignInActivity object that contains recent activity of an application credential.
         /// </summary>
         public class AppCredentialSignInActivityItemRequestBuilderGetQueryParameters 
         {

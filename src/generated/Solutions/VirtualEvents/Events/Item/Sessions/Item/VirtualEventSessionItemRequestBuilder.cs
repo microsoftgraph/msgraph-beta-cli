@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEvent entity.
     /// </summary>
-    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.
@@ -94,13 +95,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item {
             return command;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Sessions for the virtual event.";
+            command.Description = "The sessions for the virtual event.";
             var virtualEventIdOption = new Option<string>("--virtual-event-id", description: "The unique identifier of virtualEvent") {
             };
             virtualEventIdOption.IsRequired = true;
@@ -328,7 +329,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -368,7 +369,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Sessions for the virtual event.
+        /// The sessions for the virtual event.
         /// </summary>
         public class VirtualEventSessionItemRequestBuilderGetQueryParameters 
         {

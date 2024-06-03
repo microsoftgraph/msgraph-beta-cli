@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Rename {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Rename
+{
     /// <summary>
     /// Provides operations to call the rename method.
     /// </summary>
-    public class RenameRequestBuilder : BaseCliRequestBuilder 
+    public class RenameRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Rename a specific Cloud PC. Use this API to update the displayName for the Cloud PC entity.

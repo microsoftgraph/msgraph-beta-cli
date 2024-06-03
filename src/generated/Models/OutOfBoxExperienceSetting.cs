@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Windows Autopilot Deployment Profile settings used by the device for the out-of-box experience. Supports: $select, $top, $skip. $Search, $orderBy and $filter are not supported.
     /// </summary>
-    public class OutOfBoxExperienceSetting : IAdditionalDataHolder, IParsable 
+    public class OutOfBoxExperienceSetting : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -57,13 +58,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<WindowsDeviceUsageType>(); } },
-                {"escapeLinkHidden", n => { EscapeLinkHidden = n.GetBoolValue(); } },
-                {"eulaHidden", n => { EulaHidden = n.GetBoolValue(); } },
-                {"keyboardSelectionPageSkipped", n => { KeyboardSelectionPageSkipped = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"privacySettingsHidden", n => { PrivacySettingsHidden = n.GetBoolValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<WindowsUserType>(); } },
+                { "deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<WindowsDeviceUsageType>(); } },
+                { "escapeLinkHidden", n => { EscapeLinkHidden = n.GetBoolValue(); } },
+                { "eulaHidden", n => { EulaHidden = n.GetBoolValue(); } },
+                { "keyboardSelectionPageSkipped", n => { KeyboardSelectionPageSkipped = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "privacySettingsHidden", n => { PrivacySettingsHidden = n.GetBoolValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<WindowsUserType>(); } },
             };
         }
         /// <summary>

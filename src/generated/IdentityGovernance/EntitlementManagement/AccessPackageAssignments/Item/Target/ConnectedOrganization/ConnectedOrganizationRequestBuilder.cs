@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.Target.ConnectedOrganization {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.Item.Target.ConnectedOrganization
+{
     /// <summary>
     /// Provides operations to manage the connectedOrganization property of the microsoft.graph.accessPackageSubject entity.
     /// </summary>
-    public class ConnectedOrganizationRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectedOrganizationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The connected organization of the subject. Read-only. Nullable.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item.PresentationValues.Item.DefinitionValue {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.DefinitionValues.Item.PresentationValues.Item.DefinitionValue
+{
     /// <summary>
     /// Provides operations to manage the definitionValue property of the microsoft.graph.groupPolicyPresentationValue entity.
     /// </summary>
-    public class DefinitionValueRequestBuilder : BaseCliRequestBuilder 
+    public class DefinitionValueRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The group policy definition value associated with the presentation value.

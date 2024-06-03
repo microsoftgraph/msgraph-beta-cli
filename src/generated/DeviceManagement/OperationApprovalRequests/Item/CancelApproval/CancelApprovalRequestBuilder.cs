@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
+{
     /// <summary>
     /// Provides operations to call the cancelApproval method.
     /// </summary>
-    public class CancelApprovalRequestBuilder : BaseCliRequestBuilder 
+    public class CancelApprovalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Cancels an already approved instance of an operationApprovalRequest.

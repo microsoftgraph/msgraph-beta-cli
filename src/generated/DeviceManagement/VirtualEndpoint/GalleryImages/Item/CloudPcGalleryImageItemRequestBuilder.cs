@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.Item
+{
     /// <summary>
     /// Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcGalleryImageItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcGalleryImageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property galleryImages for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.Item {
             return command;
         }
         /// <summary>
-        /// The gallery image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcGalleryImage object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcgalleryimage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The gallery image resource on Cloud PC.";
+            command.Description = "Read the properties and relationships of a specific cloudPcGalleryImage object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcgalleryimage-get?view=graph-rest-beta";
             var cloudPcGalleryImageIdOption = new Option<string>("--cloud-pc-gallery-image-id", description: "The unique identifier of cloudPcGalleryImage") {
             };
             cloudPcGalleryImageIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The gallery image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcGalleryImage object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The gallery image resource on Cloud PC.
+        /// Read the properties and relationships of a specific cloudPcGalleryImage object.
         /// </summary>
         public class CloudPcGalleryImageItemRequestBuilderGetQueryParameters 
         {

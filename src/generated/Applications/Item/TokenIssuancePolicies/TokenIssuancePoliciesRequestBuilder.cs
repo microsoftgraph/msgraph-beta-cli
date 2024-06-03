@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.TokenIssuancePolicies {
+namespace ApiSdk.Applications.Item.TokenIssuancePolicies
+{
     /// <summary>
     /// Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.application entity.
     /// </summary>
-    public class TokenIssuancePoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class TokenIssuancePoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.applications.item.tokenIssuancePolicies.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies {
             return command;
         }
         /// <summary>
-        /// Get tokenIssuancePolicies from applications
+        /// List the tokenIssuancePolicy objects that are assigned to an application.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-tokenissuancepolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get tokenIssuancePolicies from applications";
+            command.Description = "List the tokenIssuancePolicy objects that are assigned to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-tokenissuancepolicies?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies {
         {
         }
         /// <summary>
-        /// Get tokenIssuancePolicies from applications
+        /// List the tokenIssuancePolicy objects that are assigned to an application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.Applications.Item.TokenIssuancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Get tokenIssuancePolicies from applications
+        /// List the tokenIssuancePolicy objects that are assigned to an application.
         /// </summary>
         public class TokenIssuancePoliciesRequestBuilderGetQueryParameters 
         {

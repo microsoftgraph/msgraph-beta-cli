@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A termsAndConditionsGroupAssignment entity represents the assignment of a given Terms and Conditions (T&amp;C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune.
     /// </summary>
-    public class TermsAndConditionsGroupAssignment : Entity, IParsable 
+    public class TermsAndConditionsGroupAssignment : Entity, IParsable
     {
         /// <summary>Unique identifier of a group that the T&amp;C policy is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
-                {"termsAndConditions", n => { TermsAndConditions = n.GetObjectValue<ApiSdk.Models.TermsAndConditions>(ApiSdk.Models.TermsAndConditions.CreateFromDiscriminatorValue); } },
+                { "targetGroupId", n => { TargetGroupId = n.GetStringValue(); } },
+                { "termsAndConditions", n => { TermsAndConditions = n.GetObjectValue<ApiSdk.Models.TermsAndConditions>(ApiSdk.Models.TermsAndConditions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

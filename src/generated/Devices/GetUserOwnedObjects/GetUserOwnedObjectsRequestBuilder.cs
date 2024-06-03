@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Devices.GetUserOwnedObjects {
+namespace ApiSdk.Devices.GetUserOwnedObjects
+{
     /// <summary>
     /// Provides operations to call the getUserOwnedObjects method.
     /// </summary>
-    public class GetUserOwnedObjectsRequestBuilder : BaseCliRequestBuilder 
+    public class GetUserOwnedObjectsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieve a list of recently deleted application and group objects owned by the specified user. This API returns up to 1,000 deleted objects owned by the user, sorted by ID, and doesn&apos;t support pagination.

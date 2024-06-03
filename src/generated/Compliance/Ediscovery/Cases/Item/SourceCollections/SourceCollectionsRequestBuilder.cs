@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections
+{
     /// <summary>
     /// Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class SourceCollectionsRequestBuilder : BaseCliRequestBuilder 
+    public class SourceCollectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.
@@ -61,14 +62,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to sourceCollections for compliance
+        /// Create a new sourceCollection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to sourceCollections for compliance";
+            command.Description = "Create a new sourceCollection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-post-sourcecollections?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -113,14 +115,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
             return command;
         }
         /// <summary>
-        /// Returns a list of sourceCollection objects associated with this case.
+        /// Get the list of sourceCollections from a case object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Returns a list of sourceCollection objects associated with this case.";
+            command.Description = "Get the list of sourceCollections from a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-list-sourcecollections?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -202,7 +205,9 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -228,7 +233,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
         {
         }
         /// <summary>
-        /// Returns a list of sourceCollection objects associated with this case.
+        /// Get the list of sourceCollections from a case object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to sourceCollections for compliance
+        /// Create a new sourceCollection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -270,7 +275,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of sourceCollection objects associated with this case.
+        /// Get the list of sourceCollections from a case object.
         /// </summary>
         public class SourceCollectionsRequestBuilderGetQueryParameters 
         {

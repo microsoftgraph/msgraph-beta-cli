@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings {
+namespace ApiSdk.Users.Item.Settings.RegionalAndLanguageSettings
+{
     /// <summary>
     /// Provides operations to manage the regionalAndLanguageSettings property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class RegionalAndLanguageSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class RegionalAndLanguageSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property regionalAndLanguageSettings for users

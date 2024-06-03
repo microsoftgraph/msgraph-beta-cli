@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsQualityUpdateProfiles.Item {
+namespace ApiSdk.DeviceManagement.WindowsQualityUpdateProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsQualityUpdateProfiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsQualityUpdateProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsQualityUpdateProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.windowsQualityUpdateProfile entity.

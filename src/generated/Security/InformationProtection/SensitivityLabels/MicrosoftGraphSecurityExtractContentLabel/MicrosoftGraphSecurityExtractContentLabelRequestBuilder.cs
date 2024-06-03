@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityExtractContentLabel {
+namespace ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityExtractContentLabel
+{
     /// <summary>
     /// Provides operations to call the extractContentLabel method.
     /// </summary>
-    public class MicrosoftGraphSecurityExtractContentLabelRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphSecurityExtractContentLabelRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.

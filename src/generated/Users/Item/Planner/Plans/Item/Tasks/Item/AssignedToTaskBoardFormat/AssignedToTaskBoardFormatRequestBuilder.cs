@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.Plans.Item.Tasks.Item.AssignedToTaskBoardFormat {
+namespace ApiSdk.Users.Item.Planner.Plans.Item.Tasks.Item.AssignedToTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class AssignedToTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class AssignedToTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignedToTaskBoardFormat for users

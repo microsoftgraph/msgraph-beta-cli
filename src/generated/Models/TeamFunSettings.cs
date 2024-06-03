@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamFunSettings : IAdditionalDataHolder, IParsable 
+    public class TeamFunSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,11 +53,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowCustomMemes", n => { AllowCustomMemes = n.GetBoolValue(); } },
-                {"allowGiphy", n => { AllowGiphy = n.GetBoolValue(); } },
-                {"allowStickersAndMemes", n => { AllowStickersAndMemes = n.GetBoolValue(); } },
-                {"giphyContentRating", n => { GiphyContentRating = n.GetEnumValue<GiphyRatingType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowCustomMemes", n => { AllowCustomMemes = n.GetBoolValue(); } },
+                { "allowGiphy", n => { AllowGiphy = n.GetBoolValue(); } },
+                { "allowStickersAndMemes", n => { AllowStickersAndMemes = n.GetBoolValue(); } },
+                { "giphyContentRating", n => { GiphyContentRating = n.GetEnumValue<GiphyRatingType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

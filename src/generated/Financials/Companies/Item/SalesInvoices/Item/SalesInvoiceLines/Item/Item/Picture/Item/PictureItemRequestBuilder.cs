@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.Item.Item.Picture.Item {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.Item.Item.Picture.Item
+{
     /// <summary>
     /// Provides operations to manage the picture property of the microsoft.graph.item entity.
     /// </summary>
-    public class PictureItemRequestBuilder : BaseCliRequestBuilder 
+    public class PictureItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the financials entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             command.Description = "Provides operations to manage the media for the financials entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)
@@ -47,11 +49,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property picture for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -59,7 +61,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             };
             salesInvoiceLineIdOption.IsRequired = true;
             command.AddOption(salesInvoiceLineIdOption);
-            var pictureIdOption = new Option<string>("--picture-id", description: "The unique identifier of picture") {
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
             };
             pictureIdOption.IsRequired = true;
             command.AddOption(pictureIdOption);
@@ -100,11 +102,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         {
             var command = new Command("get");
             command.Description = "Get picture from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -112,7 +114,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             };
             salesInvoiceLineIdOption.IsRequired = true;
             command.AddOption(salesInvoiceLineIdOption);
-            var pictureIdOption = new Option<string>("--picture-id", description: "The unique identifier of picture") {
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
             };
             pictureIdOption.IsRequired = true;
             command.AddOption(pictureIdOption);
@@ -170,11 +172,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property picture in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -182,7 +184,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceLines.
             };
             salesInvoiceLineIdOption.IsRequired = true;
             command.AddOption(salesInvoiceLineIdOption);
-            var pictureIdOption = new Option<string>("--picture-id", description: "The unique identifier of picture") {
+            var pictureIdOption = new Option<Guid?>("--picture-id", description: "The unique identifier of picture") {
             };
             pictureIdOption.IsRequired = true;
             command.AddOption(pictureIdOption);

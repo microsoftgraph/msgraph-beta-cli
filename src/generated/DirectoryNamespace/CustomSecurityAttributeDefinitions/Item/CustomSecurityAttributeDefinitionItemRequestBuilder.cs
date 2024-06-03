@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
+namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
     /// </summary>
-    public class CustomSecurityAttributeDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CustomSecurityAttributeDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
@@ -84,13 +85,14 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Read the properties and relationships of a customSecurityAttributeDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Schema of a custom security attributes (key-value pairs).";
+            command.Description = "Read the properties and relationships of a customSecurityAttributeDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-beta";
             var customSecurityAttributeDefinitionIdOption = new Option<string>("--custom-security-attribute-definition-id", description: "The unique identifier of customSecurityAttributeDefinition") {
             };
             customSecurityAttributeDefinitionIdOption.IsRequired = true;
@@ -136,13 +138,14 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property customSecurityAttributeDefinitions in directory
+        /// Update the properties of a customSecurityAttributeDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property customSecurityAttributeDefinitions in directory";
+            command.Description = "Update the properties of a customSecurityAttributeDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-beta";
             var customSecurityAttributeDefinitionIdOption = new Option<string>("--custom-security-attribute-definition-id", description: "The unique identifier of customSecurityAttributeDefinition") {
             };
             customSecurityAttributeDefinitionIdOption.IsRequired = true;
@@ -220,7 +223,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Read the properties and relationships of a customSecurityAttributeDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -239,7 +242,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property customSecurityAttributeDefinitions in directory
+        /// Update the properties of a customSecurityAttributeDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -260,7 +263,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Read the properties and relationships of a customSecurityAttributeDefinition object.
         /// </summary>
         public class CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The entity represents an group policy operation.
     /// </summary>
-    public class GroupPolicyOperation : Entity, IParsable 
+    public class GroupPolicyOperation : Entity, IParsable
     {
         /// <summary>The date and time the entity was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -42,10 +43,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"operationStatus", n => { OperationStatus = n.GetEnumValue<GroupPolicyOperationStatus>(); } },
-                {"operationType", n => { OperationType = n.GetEnumValue<GroupPolicyOperationType>(); } },
-                {"statusDetails", n => { StatusDetails = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "operationStatus", n => { OperationStatus = n.GetEnumValue<GroupPolicyOperationStatus>(); } },
+                { "operationType", n => { OperationType = n.GetEnumValue<GroupPolicyOperationType>(); } },
+                { "statusDetails", n => { StatusDetails = n.GetStringValue(); } },
             };
         }
         /// <summary>

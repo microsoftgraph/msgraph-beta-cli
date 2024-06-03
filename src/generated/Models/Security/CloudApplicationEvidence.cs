@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class CloudApplicationEvidence : AlertEvidence, IParsable 
+    public class CloudApplicationEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Unique identifier of the application.</summary>
@@ -64,12 +65,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetLongValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"instanceId", n => { InstanceId = n.GetLongValue(); } },
-                {"instanceName", n => { InstanceName = n.GetStringValue(); } },
-                {"saasAppId", n => { SaasAppId = n.GetLongValue(); } },
-                {"stream", n => { Stream = n.GetObjectValue<StreamObject>(StreamObject.CreateFromDiscriminatorValue); } },
+                { "appId", n => { AppId = n.GetLongValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "instanceId", n => { InstanceId = n.GetLongValue(); } },
+                { "instanceName", n => { InstanceName = n.GetStringValue(); } },
+                { "saasAppId", n => { SaasAppId = n.GetLongValue(); } },
+                { "stream", n => { Stream = n.GetObjectValue<StreamObject>(StreamObject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -33,11 +33,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace {
+namespace ApiSdk.DirectoryNamespace
+{
     /// <summary>
     /// Provides operations to manage the directory singleton.
     /// </summary>
-    public class DirectoryRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.

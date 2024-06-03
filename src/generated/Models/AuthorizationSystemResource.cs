@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthorizationSystemResource : Entity, IParsable 
+    public class AuthorizationSystemResource : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorization system that the resource exists in.</summary>
@@ -66,10 +67,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
+                { "authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "resourceType", n => { ResourceType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,7 +14,9 @@ using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Rename;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Reprovision;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Resize;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Restore;
+using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.RetrieveReviewStatus;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.RetryPartnerAgentInstallation;
+using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.SetReviewStatus;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Start;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Stop;
 using ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.Troubleshoot;
@@ -33,11 +35,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPCItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPCItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the changeUserAccountType method.
@@ -160,13 +163,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
             return command;
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// Read the properties and relationships of a specific cloudPC object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpc-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Cloud managed virtual desktops.";
+            command.Description = "Read the properties and relationships of a specific cloudPC object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpc-get?view=graph-rest-beta";
             var cloudPCIdOption = new Option<string>("--cloud-pcid", description: "The unique identifier of cloudPC") {
             };
             cloudPCIdOption.IsRequired = true;
@@ -433,6 +437,23 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the retrieveReviewStatus method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRetrieveReviewStatusNavCommand()
+        {
+            var command = new Command("retrieve-review-status");
+            command.Description = "Provides operations to call the retrieveReviewStatus method.";
+            var builder = new RetrieveReviewStatusRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the retryPartnerAgentInstallation method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -441,6 +462,23 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
             var command = new Command("retry-partner-agent-installation");
             command.Description = "Provides operations to call the retryPartnerAgentInstallation method.";
             var builder = new RetryPartnerAgentInstallationRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the setReviewStatus method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSetReviewStatusNavCommand()
+        {
+            var command = new Command("set-review-status");
+            command.Description = "Provides operations to call the setReviewStatus method.";
+            var builder = new SetReviewStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -534,7 +572,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// Read the properties and relationships of a specific cloudPC object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -574,7 +612,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// Read the properties and relationships of a specific cloudPC object.
         /// </summary>
         public class CloudPCItemRequestBuilderGetQueryParameters 
         {

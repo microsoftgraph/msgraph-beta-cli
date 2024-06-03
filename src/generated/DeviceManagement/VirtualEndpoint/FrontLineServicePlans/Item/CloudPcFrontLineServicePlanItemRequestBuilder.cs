@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.Item
+{
     /// <summary>
     /// Provides operations to manage the frontLineServicePlans property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcFrontLineServicePlanItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcFrontLineServicePlanItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property frontLineServicePlans for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.Item {
             return command;
         }
         /// <summary>
-        /// Front-line service plans for a Cloud PC.
+        /// Get the properties and relationships of a cloudPcFrontLineServicePlan object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcfrontlineserviceplan-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Front-line service plans for a Cloud PC.";
+            command.Description = "Get the properties and relationships of a cloudPcFrontLineServicePlan object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcfrontlineserviceplan-get?view=graph-rest-beta";
             var cloudPcFrontLineServicePlanIdOption = new Option<string>("--cloud-pc-front-line-service-plan-id", description: "The unique identifier of cloudPcFrontLineServicePlan") {
             };
             cloudPcFrontLineServicePlanIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Front-line service plans for a Cloud PC.
+        /// Get the properties and relationships of a cloudPcFrontLineServicePlan object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Front-line service plans for a Cloud PC.
+        /// Get the properties and relationships of a cloudPcFrontLineServicePlan object.
         /// </summary>
         public class CloudPcFrontLineServicePlanItemRequestBuilderGetQueryParameters 
         {

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConfiguration {
+namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConfiguration
+{
     /// <summary>
     /// Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.remoteNetwork entity.
     /// </summary>
-    public class ConnectivityConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectivityConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property connectivityConfiguration for networkAccess

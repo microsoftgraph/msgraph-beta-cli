@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Forms {
+namespace ApiSdk.Admin.Forms
+{
     /// <summary>
     /// Provides operations to manage the forms property of the microsoft.graph.admin entity.
     /// </summary>
-    public class FormsRequestBuilder : BaseCliRequestBuilder 
+    public class FormsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property forms for admin
@@ -50,13 +51,14 @@ namespace ApiSdk.Admin.Forms {
             return command;
         }
         /// <summary>
-        /// Get forms from admin
+        /// Read the properties and relationships of a adminForms object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminforms-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get forms from admin";
+            command.Description = "Read the properties and relationships of a adminForms object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminforms-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Admin.Forms {
             return command;
         }
         /// <summary>
-        /// Update the navigation property forms in admin
+        /// Update the properties of a adminForms object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/adminforms-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property forms in admin";
+            command.Description = "Update the properties of a adminForms object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/adminforms-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Admin.Forms {
             return requestInfo;
         }
         /// <summary>
-        /// Get forms from admin
+        /// Read the properties and relationships of a adminForms object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Admin.Forms {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property forms in admin
+        /// Update the properties of a adminForms object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Admin.Forms {
             return requestInfo;
         }
         /// <summary>
-        /// Get forms from admin
+        /// Read the properties and relationships of a adminForms object.
         /// </summary>
         public class FormsRequestBuilderGetQueryParameters 
         {

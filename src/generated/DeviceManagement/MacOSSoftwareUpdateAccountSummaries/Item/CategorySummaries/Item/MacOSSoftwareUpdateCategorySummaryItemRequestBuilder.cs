@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item.CategorySummaries.Item {
+namespace ApiSdk.DeviceManagement.MacOSSoftwareUpdateAccountSummaries.Item.CategorySummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the categorySummaries property of the microsoft.graph.macOSSoftwareUpdateAccountSummary entity.
     /// </summary>
-    public class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class MacOSSoftwareUpdateCategorySummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property categorySummaries for deviceManagement

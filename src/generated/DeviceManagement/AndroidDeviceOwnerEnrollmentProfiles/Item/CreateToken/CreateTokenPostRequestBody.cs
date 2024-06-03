@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken {
+namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken
+{
     #pragma warning disable CS1591
-    public class CreateTokenPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class CreateTokenPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.Crea
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"tokenValidityInSeconds", n => { TokenValidityInSeconds = n.GetIntValue(); } },
+                { "tokenValidityInSeconds", n => { TokenValidityInSeconds = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.Connections.Item.Groups {
+namespace ApiSdk.External.Connections.Item.Groups
+{
     /// <summary>
     /// Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class GroupsRequestBuilder : BaseCliRequestBuilder 
+    public class GroupsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.External.Connections.Item.Groups {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to groups for external
+        /// Create a new externalGroup object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to groups for external";
+            command.Description = "Create a new externalGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-beta";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.External.Connections.Item.Groups {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -239,7 +243,7 @@ namespace ApiSdk.External.Connections.Item.Groups {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to groups for external
+        /// Create a new externalGroup object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.Printers.Item.GetCapabilities {
+namespace ApiSdk.Print.Printers.Item.GetCapabilities
+{
     /// <summary>
     /// Provides operations to call the getCapabilities method.
     /// </summary>
-    public class GetCapabilitiesRequestBuilder : BaseCliRequestBuilder 
+    public class GetCapabilitiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a list of capabilities for the printer.

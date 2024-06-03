@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.ExportPersonalData {
+namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.ExportPersonalData
+{
     #pragma warning disable CS1591
-    public class ExportPersonalDataPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ExportPersonalDataPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.ExportPersona
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"storageLocation", n => { StorageLocation = n.GetStringValue(); } },
+                { "storageLocation", n => { StorageLocation = n.GetStringValue(); } },
             };
         }
         /// <summary>

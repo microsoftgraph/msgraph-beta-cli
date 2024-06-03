@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Shares.Item.List.ContentTypes.Item.AssociateWithHubSites {
+namespace ApiSdk.Shares.Item.List.ContentTypes.Item.AssociateWithHubSites
+{
     /// <summary>
     /// Provides operations to call the associateWithHubSites method.
     /// </summary>
-    public class AssociateWithHubSitesRequestBuilder : BaseCliRequestBuilder 
+    public class AssociateWithHubSitesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action associateWithHubSites

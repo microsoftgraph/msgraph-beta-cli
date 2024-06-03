@@ -28,11 +28,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Chats.Item {
+namespace ApiSdk.Users.Item.Chats.Item
+{
     /// <summary>
     /// Provides operations to manage the chats property of the microsoft.graph.user entity.
     /// </summary>
-    public class ChatItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChatItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property chats for users
@@ -76,13 +77,14 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return command;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get chats from users";
+            command.Description = "Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -536,7 +538,7 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -576,7 +578,7 @@ namespace ApiSdk.Users.Item.Chats.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get chats from users
+        /// Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
         /// </summary>
         public class ChatItemRequestBuilderGetQueryParameters 
         {

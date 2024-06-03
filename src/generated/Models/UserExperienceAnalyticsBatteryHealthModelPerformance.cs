@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics battery health model performance entity contains battery related information for all unique device models in their organization.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthModelPerformance : Entity, IParsable 
+    public class UserExperienceAnalyticsBatteryHealthModelPerformance : Entity, IParsable
     {
         /// <summary>Number of active devices for that model. Valid values 0 to 2147483647</summary>
         public int? ActiveDevices { get; set; }
@@ -64,18 +65,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeDevices", n => { ActiveDevices = n.GetIntValue(); } },
-                {"averageBatteryAgeInDays", n => { AverageBatteryAgeInDays = n.GetIntValue(); } },
-                {"averageEstimatedRuntimeInMinutes", n => { AverageEstimatedRuntimeInMinutes = n.GetIntValue(); } },
-                {"averageMaxCapacityPercentage", n => { AverageMaxCapacityPercentage = n.GetIntValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"meanFullBatteryDrainCount", n => { MeanFullBatteryDrainCount = n.GetIntValue(); } },
-                {"medianEstimatedRuntimeInMinutes", n => { MedianEstimatedRuntimeInMinutes = n.GetIntValue(); } },
-                {"medianFullBatteryDrainCount", n => { MedianFullBatteryDrainCount = n.GetIntValue(); } },
-                {"medianMaxCapacityPercentage", n => { MedianMaxCapacityPercentage = n.GetIntValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"modelBatteryHealthScore", n => { ModelBatteryHealthScore = n.GetIntValue(); } },
-                {"modelHealthStatus", n => { ModelHealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
+                { "activeDevices", n => { ActiveDevices = n.GetIntValue(); } },
+                { "averageBatteryAgeInDays", n => { AverageBatteryAgeInDays = n.GetIntValue(); } },
+                { "averageEstimatedRuntimeInMinutes", n => { AverageEstimatedRuntimeInMinutes = n.GetIntValue(); } },
+                { "averageMaxCapacityPercentage", n => { AverageMaxCapacityPercentage = n.GetIntValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "meanFullBatteryDrainCount", n => { MeanFullBatteryDrainCount = n.GetIntValue(); } },
+                { "medianEstimatedRuntimeInMinutes", n => { MedianEstimatedRuntimeInMinutes = n.GetIntValue(); } },
+                { "medianFullBatteryDrainCount", n => { MedianFullBatteryDrainCount = n.GetIntValue(); } },
+                { "medianMaxCapacityPercentage", n => { MedianMaxCapacityPercentage = n.GetIntValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "modelBatteryHealthScore", n => { ModelBatteryHealthScore = n.GetIntValue(); } },
+                { "modelHealthStatus", n => { ModelHealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
             };
         }
         /// <summary>

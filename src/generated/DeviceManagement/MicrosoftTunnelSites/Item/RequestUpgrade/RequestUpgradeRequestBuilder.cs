@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade
+{
     /// <summary>
     /// Provides operations to call the requestUpgrade method.
     /// </summary>
-    public class RequestUpgradeRequestBuilder : BaseCliRequestBuilder 
+    public class RequestUpgradeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action requestUpgrade

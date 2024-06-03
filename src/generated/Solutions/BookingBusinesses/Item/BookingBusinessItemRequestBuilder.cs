@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BookingBusinesses.Item {
+namespace ApiSdk.Solutions.BookingBusinesses.Item
+{
     /// <summary>
     /// Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
     /// </summary>
-    public class BookingBusinessItemRequestBuilder : BaseCliRequestBuilder 
+    public class BookingBusinessItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
@@ -138,13 +139,14 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property bookingBusinesses for solutions
+        /// Delete a bookingBusiness object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property bookingBusinesses for solutions";
+            command.Description = "Delete a bookingBusiness object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-beta";
             var bookingBusinessIdOption = new Option<string>("--booking-business-id", description: "The unique identifier of bookingBusiness") {
             };
             bookingBusinessIdOption.IsRequired = true;
@@ -395,7 +397,7 @@ namespace ApiSdk.Solutions.BookingBusinesses.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property bookingBusinesses for solutions
+        /// Delete a bookingBusiness object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

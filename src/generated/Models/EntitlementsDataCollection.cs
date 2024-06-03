@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EntitlementsDataCollection : EntitlementsDataCollectionInfo, IParsable 
+    public class EntitlementsDataCollection : EntitlementsDataCollectionInfo, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Last transformation time of entitlements.</summary>
@@ -40,9 +41,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastCollectionDateTime", n => { LastCollectionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"permissionsModificationCapability", n => { PermissionsModificationCapability = n.GetEnumValue<PermissionsModificationCapability>(); } },
-                {"status", n => { Status = n.GetEnumValue<DataCollectionStatus>(); } },
+                { "lastCollectionDateTime", n => { LastCollectionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "permissionsModificationCapability", n => { PermissionsModificationCapability = n.GetEnumValue<PermissionsModificationCapability>(); } },
+                { "status", n => { Status = n.GetEnumValue<DataCollectionStatus>(); } },
             };
         }
         /// <summary>

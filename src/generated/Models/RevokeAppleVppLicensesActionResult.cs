@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Revoke Apple Vpp licenses action result
     /// </summary>
-    public class RevokeAppleVppLicensesActionResult : DeviceActionResult, IParsable 
+    public class RevokeAppleVppLicensesActionResult : DeviceActionResult, IParsable
     {
         /// <summary>Total number of Apple Vpp licenses that failed to revoke</summary>
         public int? FailedLicensesCount { get; set; }
@@ -32,8 +33,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"failedLicensesCount", n => { FailedLicensesCount = n.GetIntValue(); } },
-                {"totalLicensesCount", n => { TotalLicensesCount = n.GetIntValue(); } },
+                { "failedLicensesCount", n => { FailedLicensesCount = n.GetIntValue(); } },
+                { "totalLicensesCount", n => { TotalLicensesCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

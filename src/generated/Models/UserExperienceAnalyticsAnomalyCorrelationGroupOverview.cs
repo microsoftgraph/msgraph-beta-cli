@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverview : Entity, IParsable 
+    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverview : Entity, IParsable
     {
         /// <summary>Indicates the number of correlation groups in the anomaly. Valid values -2147483648 to 2147483647</summary>
         public int? AnomalyCorrelationGroupCount { get; set; }
@@ -66,16 +67,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"anomalyCorrelationGroupCount", n => { AnomalyCorrelationGroupCount = n.GetIntValue(); } },
-                {"anomalyId", n => { AnomalyId = n.GetStringValue(); } },
-                {"correlationGroupAnomalousDeviceCount", n => { CorrelationGroupAnomalousDeviceCount = n.GetIntValue(); } },
-                {"correlationGroupAtRiskDeviceCount", n => { CorrelationGroupAtRiskDeviceCount = n.GetIntValue(); } },
-                {"correlationGroupDeviceCount", n => { CorrelationGroupDeviceCount = n.GetIntValue(); } },
-                {"correlationGroupFeatures", n => { CorrelationGroupFeatures = n.GetCollectionOfObjectValues<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>(UserExperienceAnalyticsAnomalyCorrelationGroupFeature.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"correlationGroupId", n => { CorrelationGroupId = n.GetStringValue(); } },
-                {"correlationGroupPrevalence", n => { CorrelationGroupPrevalence = n.GetEnumValue<UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>(); } },
-                {"correlationGroupPrevalencePercentage", n => { CorrelationGroupPrevalencePercentage = n.GetDoubleValue(); } },
-                {"totalDeviceCount", n => { TotalDeviceCount = n.GetIntValue(); } },
+                { "anomalyCorrelationGroupCount", n => { AnomalyCorrelationGroupCount = n.GetIntValue(); } },
+                { "anomalyId", n => { AnomalyId = n.GetStringValue(); } },
+                { "correlationGroupAnomalousDeviceCount", n => { CorrelationGroupAnomalousDeviceCount = n.GetIntValue(); } },
+                { "correlationGroupAtRiskDeviceCount", n => { CorrelationGroupAtRiskDeviceCount = n.GetIntValue(); } },
+                { "correlationGroupDeviceCount", n => { CorrelationGroupDeviceCount = n.GetIntValue(); } },
+                { "correlationGroupFeatures", n => { CorrelationGroupFeatures = n.GetCollectionOfObjectValues<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>(UserExperienceAnalyticsAnomalyCorrelationGroupFeature.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "correlationGroupId", n => { CorrelationGroupId = n.GetStringValue(); } },
+                { "correlationGroupPrevalence", n => { CorrelationGroupPrevalence = n.GetEnumValue<UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>(); } },
+                { "correlationGroupPrevalencePercentage", n => { CorrelationGroupPrevalencePercentage = n.GetDoubleValue(); } },
+                { "totalDeviceCount", n => { TotalDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

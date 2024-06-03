@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DayNote : ChangeTrackedEntity, IParsable 
+    public class DayNote : ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date of the day note.</summary>
@@ -53,9 +54,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dayNoteDate", n => { DayNoteDate = n.GetDateValue(); } },
-                {"draftDayNote", n => { DraftDayNote = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"sharedDayNote", n => { SharedDayNote = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "dayNoteDate", n => { DayNoteDate = n.GetDateValue(); } },
+                { "draftDayNote", n => { DraftDayNote = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "sharedDayNote", n => { SharedDayNote = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

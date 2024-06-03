@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance
+{
     /// <summary>
     /// Provides operations to manage the instance property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
     /// </summary>
-    public class InstanceRequestBuilder : BaseCliRequestBuilder 
+    public class InstanceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the acceptRecommendations method.
@@ -191,13 +192,13 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance {
             return command;
         }
         /// <summary>
-        /// There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+        /// There&apos;s exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.";
+            command.Description = "There's exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.";
             var accessReviewInstanceDecisionItemIdOption = new Option<string>("--access-review-instance-decision-item-id", description: "The unique identifier of accessReviewInstanceDecisionItem") {
             };
             accessReviewInstanceDecisionItemIdOption.IsRequired = true;
@@ -423,7 +424,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance {
             return requestInfo;
         }
         /// <summary>
-        /// There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+        /// There&apos;s exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -463,7 +464,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance {
             return requestInfo;
         }
         /// <summary>
-        /// There is exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
+        /// There&apos;s exactly one accessReviewInstance associated with each decision. The instance is the parent of the decision item, representing the recurrence of the access review the decision is made on.
         /// </summary>
         public class InstanceRequestBuilderGetQueryParameters 
         {

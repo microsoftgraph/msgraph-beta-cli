@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.RotateLocalAdminPassword {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.RotateLocalAdminPassword
+{
     /// <summary>
     /// Provides operations to call the rotateLocalAdminPassword method.
     /// </summary>
-    public class RotateLocalAdminPasswordRequestBuilder : BaseCliRequestBuilder 
+    public class RotateLocalAdminPasswordRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Initiates a manual rotation for the local admin password on the device

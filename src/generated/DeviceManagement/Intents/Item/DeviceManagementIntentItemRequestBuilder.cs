@@ -28,11 +28,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Intents.Item {
+namespace ApiSdk.DeviceManagement.Intents.Item
+{
     /// <summary>
     /// Provides operations to manage the intents property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceManagementIntentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementIntentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.

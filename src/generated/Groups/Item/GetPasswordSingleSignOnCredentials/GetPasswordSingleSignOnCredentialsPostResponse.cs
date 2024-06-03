@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.GetPasswordSingleSignOnCredentials {
+namespace ApiSdk.Groups.Item.GetPasswordSingleSignOnCredentials
+{
     #pragma warning disable CS1591
-    public class GetPasswordSingleSignOnCredentialsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetPasswordSingleSignOnCredentialsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Groups.Item.GetPasswordSingleSignOnCredentials {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<PasswordSingleSignOnCredentialSet>(PasswordSingleSignOnCredentialSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<PasswordSingleSignOnCredentialSet>(PasswordSingleSignOnCredentialSet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

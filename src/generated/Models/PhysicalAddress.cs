@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PhysicalAddress : IAdditionalDataHolder, IParsable 
+    public class PhysicalAddress : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -94,14 +95,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"city", n => { City = n.GetStringValue(); } },
-                {"countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"postOfficeBox", n => { PostOfficeBox = n.GetStringValue(); } },
-                {"postalCode", n => { PostalCode = n.GetStringValue(); } },
-                {"state", n => { State = n.GetStringValue(); } },
-                {"street", n => { Street = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<PhysicalAddressType>(); } },
+                { "city", n => { City = n.GetStringValue(); } },
+                { "countryOrRegion", n => { CountryOrRegion = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "postOfficeBox", n => { PostOfficeBox = n.GetStringValue(); } },
+                { "postalCode", n => { PostalCode = n.GetStringValue(); } },
+                { "state", n => { State = n.GetStringValue(); } },
+                { "street", n => { Street = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<PhysicalAddressType>(); } },
             };
         }
         /// <summary>

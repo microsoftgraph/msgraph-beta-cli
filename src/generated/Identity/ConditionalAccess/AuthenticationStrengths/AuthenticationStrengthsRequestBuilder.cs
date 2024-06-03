@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths {
+namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
+{
     /// <summary>
     /// Provides operations to manage the authenticationStrengths property of the microsoft.graph.conditionalAccessRoot entity.
     /// </summary>
-    public class AuthenticationStrengthsRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationStrengthsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
@@ -80,14 +81,14 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths {
             return command;
         }
         /// <summary>
-        /// Get authenticationStrengths from identity
+        /// DEPRECATED. See the authenticationStrength relationship instead.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The &apos;authenticationStrengths&apos; segment is deprecated. Please use &apos;authenticationStrength&apos; instead. as of 2023-02/AuthenticationStrengthsRemove")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get authenticationStrengths from identity";
+            command.Description = "DEPRECATED. See the authenticationStrength relationship instead.";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -235,7 +236,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths {
             return requestInfo;
         }
         /// <summary>
-        /// Get authenticationStrengths from identity
+        /// DEPRECATED. See the authenticationStrength relationship instead.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,7 +278,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths {
             return requestInfo;
         }
         /// <summary>
-        /// Get authenticationStrengths from identity
+        /// DEPRECATED. See the authenticationStrength relationship instead.
         /// </summary>
         public class AuthenticationStrengthsRequestBuilderGetQueryParameters 
         {

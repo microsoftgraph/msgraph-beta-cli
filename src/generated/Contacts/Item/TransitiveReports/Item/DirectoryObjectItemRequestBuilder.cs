@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Contacts.Item.TransitiveReports.Item {
+namespace ApiSdk.Contacts.Item.TransitiveReports.Item
+{
     /// <summary>
     /// Provides operations to manage the transitiveReports property of the microsoft.graph.orgContact entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The transitive reports for a contact. Read-only.

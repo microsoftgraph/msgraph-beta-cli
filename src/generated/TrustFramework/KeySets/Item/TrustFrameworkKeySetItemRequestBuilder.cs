@@ -3,6 +3,7 @@ using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.TrustFramework.KeySets.Item.GenerateKey;
 using ApiSdk.TrustFramework.KeySets.Item.GetActiveKey;
+using ApiSdk.TrustFramework.KeySets.Item.Keys_v2;
 using ApiSdk.TrustFramework.KeySets.Item.UploadCertificate;
 using ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12;
 using ApiSdk.TrustFramework.KeySets.Item.UploadSecret;
@@ -19,20 +20,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item {
+namespace ApiSdk.TrustFramework.KeySets.Item
+{
     /// <summary>
     /// Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.
     /// </summary>
-    public class TrustFrameworkKeySetItemRequestBuilder : BaseCliRequestBuilder 
+    public class TrustFrameworkKeySetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property keySets for trustFramework
+        /// Delete a trustFrameworkKeySet.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property keySets for trustFramework";
+            command.Description = "Delete a trustFrameworkKeySet.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-delete?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;
@@ -95,13 +98,14 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
             return command;
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve the properties and associations for a Trustframeworkkeyset.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get keySets from trustFramework";
+            command.Description = "Retrieve the properties and associations for a Trustframeworkkeyset.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-get?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;
@@ -147,13 +151,40 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property keySets in trustFramework
+        /// Provides operations to manage the keys_v2 property of the microsoft.graph.trustFrameworkKeySet entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildKeys_v2NavCommand()
+        {
+            var command = new Command("keys_v2");
+            command.Description = "Provides operations to manage the keys_v2 property of the microsoft.graph.trustFrameworkKeySet entity.";
+            var builder = new Keys_v2RequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/trustframeworkkeyset-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property keySets in trustFramework";
+            command.Description = "Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/trustframeworkkeyset-update?view=graph-rest-beta";
             var trustFrameworkKeySetIdOption = new Option<string>("--trust-framework-key-set-id", description: "The unique identifier of trustFrameworkKeySet") {
             };
             trustFrameworkKeySetIdOption.IsRequired = true;
@@ -263,7 +294,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property keySets for trustFramework
+        /// Delete a trustFrameworkKeySet.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -282,7 +313,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve the properties and associations for a Trustframeworkkeyset.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -301,7 +332,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property keySets in trustFramework
+        /// Update the properties of a trustFrameworkKeyset. This operation will replace the content of an existing keyset. Specifying the ID in the request payload is optional.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -322,7 +353,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get keySets from trustFramework
+        /// Retrieve the properties and associations for a Trustframeworkkeyset.
         /// </summary>
         public class TrustFrameworkKeySetItemRequestBuilderGetQueryParameters 
         {

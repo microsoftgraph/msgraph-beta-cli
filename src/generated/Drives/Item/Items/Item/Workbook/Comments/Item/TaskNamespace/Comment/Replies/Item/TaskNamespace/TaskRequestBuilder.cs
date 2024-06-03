@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace
+{
     /// <summary>
     /// Provides operations to manage the task property of the microsoft.graph.workbookCommentReply entity.
     /// </summary>
-    public class TaskRequestBuilder : BaseCliRequestBuilder 
+    public class TaskRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the changes property of the microsoft.graph.workbookDocumentTask entity.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GroupsWithUniqueName {
+namespace ApiSdk.GroupsWithUniqueName
+{
     /// <summary>
     /// Provides operations to manage the collection of group entities.
     /// </summary>
-    public class GroupsWithUniqueNameRequestBuilder : BaseCliRequestBuilder 
+    public class GroupsWithUniqueNameRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Deletes a group. When deleted, Microsoft 365 groups are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted. This isn&apos;t applicable to Security groups and Distribution groups that are permanently deleted immediately. To learn more, see deletedItems.

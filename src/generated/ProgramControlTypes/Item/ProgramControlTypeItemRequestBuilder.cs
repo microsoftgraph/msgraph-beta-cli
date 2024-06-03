@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ProgramControlTypes.Item {
+namespace ApiSdk.ProgramControlTypes.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of programControlType entities.
     /// </summary>
-    public class ProgramControlTypeItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProgramControlTypeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from programControlTypes

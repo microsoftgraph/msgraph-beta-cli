@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.UploadAgent {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.UploadAgent
+{
     /// <summary>
     /// Provides operations to manage the uploadAgent property of the microsoft.graph.exactMatchSession entity.
     /// </summary>
-    public class UploadAgentRequestBuilder : BaseCliRequestBuilder 
+    public class UploadAgentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property uploadAgent for dataClassification

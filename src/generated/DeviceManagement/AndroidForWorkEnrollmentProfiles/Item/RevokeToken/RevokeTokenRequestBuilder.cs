@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.RevokeToken {
+namespace ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.RevokeToken
+{
     /// <summary>
     /// Provides operations to call the revokeToken method.
     /// </summary>
-    public class RevokeTokenRequestBuilder : BaseCliRequestBuilder 
+    public class RevokeTokenRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action revokeToken

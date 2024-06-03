@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GcpCloudFunction : GcpIdentity, IParsable 
+    public class GcpCloudFunction : GcpIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the resources in an authorization system..</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"resource", n => { Resource = n.GetObjectValue<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

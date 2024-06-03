@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows 10 Edition Upgrade configuration.
     /// </summary>
-    public class EditionUpgradeConfiguration : DeviceConfiguration, IParsable 
+    public class EditionUpgradeConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Edition Upgrade License File Content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,11 +58,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"license", n => { License = n.GetStringValue(); } },
-                {"licenseType", n => { LicenseType = n.GetEnumValue<EditionUpgradeLicenseType>(); } },
-                {"productKey", n => { ProductKey = n.GetStringValue(); } },
-                {"targetEdition", n => { TargetEdition = n.GetEnumValue<Windows10EditionType>(); } },
-                {"windowsSMode", n => { WindowsSMode = n.GetEnumValue<WindowsSModeConfiguration>(); } },
+                { "license", n => { License = n.GetStringValue(); } },
+                { "licenseType", n => { LicenseType = n.GetEnumValue<EditionUpgradeLicenseType>(); } },
+                { "productKey", n => { ProductKey = n.GetStringValue(); } },
+                { "targetEdition", n => { TargetEdition = n.GetEnumValue<Windows10EditionType>(); } },
+                { "windowsSMode", n => { WindowsSMode = n.GetEnumValue<WindowsSModeConfiguration>(); } },
             };
         }
         /// <summary>

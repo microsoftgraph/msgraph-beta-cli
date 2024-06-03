@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents device registration records for Bring-Your-Own-Device(BYOD) Windows devices.
     /// </summary>
-    public class WindowsInformationProtectionDeviceRegistration : Entity, IParsable 
+    public class WindowsInformationProtectionDeviceRegistration : Entity, IParsable
     {
         /// <summary>Device Mac address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,12 +71,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deviceMacAddress", n => { DeviceMacAddress = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceRegistrationId", n => { DeviceRegistrationId = n.GetStringValue(); } },
-                {"deviceType", n => { DeviceType = n.GetStringValue(); } },
-                {"lastCheckInDateTime", n => { LastCheckInDateTime = n.GetDateTimeOffsetValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
+                { "deviceMacAddress", n => { DeviceMacAddress = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceRegistrationId", n => { DeviceRegistrationId = n.GetStringValue(); } },
+                { "deviceType", n => { DeviceType = n.GetStringValue(); } },
+                { "lastCheckInDateTime", n => { LastCheckInDateTime = n.GetDateTimeOffsetValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>

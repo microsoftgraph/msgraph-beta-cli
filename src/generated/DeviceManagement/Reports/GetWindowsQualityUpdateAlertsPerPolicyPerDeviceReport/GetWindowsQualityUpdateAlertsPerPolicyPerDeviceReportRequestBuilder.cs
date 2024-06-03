@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport method.
     /// </summary>
-    public class GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport

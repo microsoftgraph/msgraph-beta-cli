@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.Connections.Item.Quota {
+namespace ApiSdk.External.Connections.Item.Quota
+{
     /// <summary>
     /// Provides operations to manage the quota property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class QuotaRequestBuilder : BaseCliRequestBuilder 
+    public class QuotaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property quota for external
@@ -56,13 +57,14 @@ namespace ApiSdk.External.Connections.Item.Quota {
             return command;
         }
         /// <summary>
-        /// Get quota from external
+        /// Retrieve the properties and relationships of a connectionQuota object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-connectionquota-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get quota from external";
+            command.Description = "Retrieve the properties and relationships of a connectionQuota object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-connectionquota-get?view=graph-rest-beta";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.External.Connections.Item.Quota {
             return requestInfo;
         }
         /// <summary>
-        /// Get quota from external
+        /// Retrieve the properties and relationships of a connectionQuota object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.External.Connections.Item.Quota {
             return requestInfo;
         }
         /// <summary>
-        /// Get quota from external
+        /// Retrieve the properties and relationships of a connectionQuota object.
         /// </summary>
         public class QuotaRequestBuilderGetQueryParameters 
         {

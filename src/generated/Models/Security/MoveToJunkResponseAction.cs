@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class MoveToJunkResponseAction : ResponseAction, IParsable 
+    public class MoveToJunkResponseAction : ResponseAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"identifier", n => { Identifier = n.GetEnumValue<EmailEntityIdentifier>(); } },
+                { "identifier", n => { Identifier = n.GetEnumValue<EmailEntityIdentifier>(); } },
             };
         }
         /// <summary>

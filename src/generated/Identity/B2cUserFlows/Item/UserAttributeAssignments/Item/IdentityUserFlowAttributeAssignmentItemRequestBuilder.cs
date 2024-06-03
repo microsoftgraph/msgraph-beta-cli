@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
+namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2cIdentityUserFlow entity.
     /// </summary>
-    public class IdentityUserFlowAttributeAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityUserFlowAttributeAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property userAttributeAssignments for identity
+        /// Delete an identityUserFlowAttributeAssignment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property userAttributeAssignments for identity";
+            command.Description = "Delete an identityUserFlowAttributeAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-delete?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -63,13 +65,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
             return command;
         }
         /// <summary>
-        /// The user attribute assignments included in the user flow.
+        /// Read the properties and relationships of an identityUserFlowAttributeAssignment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The user attribute assignments included in the user flow.";
+            command.Description = "Read the properties and relationships of an identityUserFlowAttributeAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-get?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -121,13 +124,14 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property userAttributeAssignments in identity
+        /// Update the properties of a identityUserFlowAttributeAssignment object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property userAttributeAssignments in identity";
+            command.Description = "Update the properties of a identityUserFlowAttributeAssignment object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-update?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -209,7 +213,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property userAttributeAssignments for identity
+        /// Delete an identityUserFlowAttributeAssignment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -228,7 +232,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user attribute assignments included in the user flow.
+        /// Read the properties and relationships of an identityUserFlowAttributeAssignment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -247,7 +251,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property userAttributeAssignments in identity
+        /// Update the properties of a identityUserFlowAttributeAssignment object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -268,7 +272,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The user attribute assignments included in the user flow.
+        /// Read the properties and relationships of an identityUserFlowAttributeAssignment object.
         /// </summary>
         public class IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters 
         {

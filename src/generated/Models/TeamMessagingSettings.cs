@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamMessagingSettings : IAdditionalDataHolder, IParsable 
+    public class TeamMessagingSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,12 +55,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowChannelMentions", n => { AllowChannelMentions = n.GetBoolValue(); } },
-                {"allowOwnerDeleteMessages", n => { AllowOwnerDeleteMessages = n.GetBoolValue(); } },
-                {"allowTeamMentions", n => { AllowTeamMentions = n.GetBoolValue(); } },
-                {"allowUserDeleteMessages", n => { AllowUserDeleteMessages = n.GetBoolValue(); } },
-                {"allowUserEditMessages", n => { AllowUserEditMessages = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "allowChannelMentions", n => { AllowChannelMentions = n.GetBoolValue(); } },
+                { "allowOwnerDeleteMessages", n => { AllowOwnerDeleteMessages = n.GetBoolValue(); } },
+                { "allowTeamMentions", n => { AllowTeamMentions = n.GetBoolValue(); } },
+                { "allowUserDeleteMessages", n => { AllowUserDeleteMessages = n.GetBoolValue(); } },
+                { "allowUserEditMessages", n => { AllowUserEditMessages = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.ImCsch {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.ImCsch
+{
     #pragma warning disable CS1591
-    public class ImCschPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ImCschPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.ImCsch {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"inumber", n => { Inumber = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "inumber", n => { Inumber = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner {
+namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner
+{
     /// <summary>
     /// Provides operations to manage the planner property of the microsoft.graph.businessScenario entity.
     /// </summary>
-    public class PlannerRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property planner for solutions
@@ -60,13 +61,14 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner {
             return command;
         }
         /// <summary>
-        /// Planner content related to the scenario.
+        /// Read the properties and relationships of a businessScenarioPlanner object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/businessscenarioplanner-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Planner content related to the scenario.";
+            command.Description = "Read the properties and relationships of a businessScenarioPlanner object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/businessscenarioplanner-get?view=graph-rest-beta";
             var businessScenarioIdOption = new Option<string>("--business-scenario-id", description: "The unique identifier of businessScenario") {
             };
             businessScenarioIdOption.IsRequired = true;
@@ -284,7 +286,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Planner content related to the scenario.
+        /// Read the properties and relationships of a businessScenarioPlanner object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -324,7 +326,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner {
             return requestInfo;
         }
         /// <summary>
-        /// Planner content related to the scenario.
+        /// Read the properties and relationships of a businessScenarioPlanner object.
         /// </summary>
         public class PlannerRequestBuilderGetQueryParameters 
         {

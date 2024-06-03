@@ -14,20 +14,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus
+{
     /// <summary>
     /// Provides operations to call the changeDeploymentStatus method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke action changeDeploymentStatus
+        /// Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action changeDeploymentStatus";
+            command.Description = "Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -80,7 +81,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
         {
         }
         /// <summary>
-        /// Invoke action changeDeploymentStatus
+        /// Changes the tenant level deployment status for the management action. This information is used to provide insights into what management actions are in a specific state. As example there might be a plan to apply the require multi-factor authentication for admins, so it would be ideal to change the status to planned to reflect the appropriate status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

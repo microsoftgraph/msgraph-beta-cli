@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for mobile app PolicySetItem.
     /// </summary>
-    public class MobileAppPolicySetItem : PolicySetItem, IParsable 
+    public class MobileAppPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
         public InstallIntent? Intent { get; set; }
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"intent", n => { Intent = n.GetEnumValue<InstallIntent>(); } },
-                {"settings", n => { Settings = n.GetObjectValue<MobileAppAssignmentSettings>(MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
+                { "intent", n => { Intent = n.GetEnumValue<InstallIntent>(); } },
+                { "settings", n => { Settings = n.GetObjectValue<MobileAppAssignmentSettings>(MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

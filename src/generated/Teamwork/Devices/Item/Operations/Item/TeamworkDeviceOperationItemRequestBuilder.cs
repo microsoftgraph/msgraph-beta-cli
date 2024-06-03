@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
+namespace ApiSdk.Teamwork.Devices.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.
     /// </summary>
-    public class TeamworkDeviceOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamworkDeviceOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for teamwork
@@ -62,13 +63,14 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
             return command;
         }
         /// <summary>
-        /// The async operations on the device.
+        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdeviceoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The async operations on the device.";
+            command.Description = "Get the details of an async, long-running operation on a Microsoft Teams-enabled device.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdeviceoperation-get?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The async operations on the device.
+        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Teamwork.Devices.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The async operations on the device.
+        /// Get the details of an async, long-running operation on a Microsoft Teams-enabled device.
         /// </summary>
         public class TeamworkDeviceOperationItemRequestBuilderGetQueryParameters 
         {

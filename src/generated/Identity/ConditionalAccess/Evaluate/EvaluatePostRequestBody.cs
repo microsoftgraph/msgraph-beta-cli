@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.Evaluate {
+namespace ApiSdk.Identity.ConditionalAccess.Evaluate
+{
     #pragma warning disable CS1591
-    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -63,10 +64,10 @@ namespace ApiSdk.Identity.ConditionalAccess.Evaluate {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appliedPoliciesOnly", n => { AppliedPoliciesOnly = n.GetBoolValue(); } },
-                {"conditionalAccessContext", n => { ConditionalAccessContext = n.GetObjectValue<ApiSdk.Models.ConditionalAccessContext>(ApiSdk.Models.ConditionalAccessContext.CreateFromDiscriminatorValue); } },
-                {"conditionalAccessWhatIfConditions", n => { ConditionalAccessWhatIfConditions = n.GetObjectValue<ApiSdk.Models.ConditionalAccessWhatIfConditions>(ApiSdk.Models.ConditionalAccessWhatIfConditions.CreateFromDiscriminatorValue); } },
-                {"conditionalAccessWhatIfSubject", n => { ConditionalAccessWhatIfSubject = n.GetObjectValue<ApiSdk.Models.ConditionalAccessWhatIfSubject>(ApiSdk.Models.ConditionalAccessWhatIfSubject.CreateFromDiscriminatorValue); } },
+                { "appliedPoliciesOnly", n => { AppliedPoliciesOnly = n.GetBoolValue(); } },
+                { "conditionalAccessContext", n => { ConditionalAccessContext = n.GetObjectValue<ApiSdk.Models.ConditionalAccessContext>(ApiSdk.Models.ConditionalAccessContext.CreateFromDiscriminatorValue); } },
+                { "conditionalAccessWhatIfConditions", n => { ConditionalAccessWhatIfConditions = n.GetObjectValue<ApiSdk.Models.ConditionalAccessWhatIfConditions>(ApiSdk.Models.ConditionalAccessWhatIfConditions.CreateFromDiscriminatorValue); } },
+                { "conditionalAccessWhatIfSubject", n => { ConditionalAccessWhatIfSubject = n.GetObjectValue<ApiSdk.Models.ConditionalAccessWhatIfSubject>(ApiSdk.Models.ConditionalAccessWhatIfSubject.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

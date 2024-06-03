@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials {
+namespace ApiSdk.Financials
+{
     /// <summary>
     /// Provides operations to manage the financials singleton.
     /// </summary>
-    public class FinancialsRequestBuilder : BaseCliRequestBuilder 
+    public class FinancialsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the companies property of the microsoft.graph.financials entity.

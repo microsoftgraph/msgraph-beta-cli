@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.RecycleBin.LastModifiedByUser {
+namespace ApiSdk.Sites.Item.RecycleBin.LastModifiedByUser
+{
     /// <summary>
     /// Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.
     /// </summary>
-    public class LastModifiedByUserRequestBuilder : BaseCliRequestBuilder 
+    public class LastModifiedByUserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get lastModifiedByUser from sites

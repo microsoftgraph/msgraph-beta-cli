@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign an Mac VPP mobile app to a group.
     /// </summary>
-    public class MacOsVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class MacOsVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
         /// <summary>When TRUE, indicates that the app should not be automatically updated with the latest version from Apple app store. When FALSE, indicates that the app may be auto updated. By default, this property is set to null which internally is treated as FALSE.</summary>
         public bool? PreventAutoAppUpdate { get; set; }
@@ -43,10 +44,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"preventAutoAppUpdate", n => { PreventAutoAppUpdate = n.GetBoolValue(); } },
-                {"preventManagedAppBackup", n => { PreventManagedAppBackup = n.GetBoolValue(); } },
-                {"uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
-                {"useDeviceLicensing", n => { UseDeviceLicensing = n.GetBoolValue(); } },
+                { "preventAutoAppUpdate", n => { PreventAutoAppUpdate = n.GetBoolValue(); } },
+                { "preventManagedAppBackup", n => { PreventManagedAppBackup = n.GetBoolValue(); } },
+                { "uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
+                { "useDeviceLicensing", n => { UseDeviceLicensing = n.GetBoolValue(); } },
             };
         }
         /// <summary>

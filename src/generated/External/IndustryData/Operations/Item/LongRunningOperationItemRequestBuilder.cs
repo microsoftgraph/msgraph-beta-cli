@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.Operations.Item {
+namespace ApiSdk.External.IndustryData.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class LongRunningOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class LongRunningOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for external
@@ -56,13 +57,14 @@ namespace ApiSdk.External.IndustryData.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Set of ephemeral operations that the system runs currently. Read-only.
+        /// Read the properties and relationships of a fileValidateOperation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-filevalidateoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of ephemeral operations that the system runs currently. Read-only.";
+            command.Description = "Read the properties and relationships of a fileValidateOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-filevalidateoperation-get?view=graph-rest-beta";
             var longRunningOperationIdOption = new Option<string>("--long-running-operation-id", description: "The unique identifier of longRunningOperation") {
             };
             longRunningOperationIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.External.IndustryData.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of ephemeral operations that the system runs currently. Read-only.
+        /// Read the properties and relationships of a fileValidateOperation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.External.IndustryData.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of ephemeral operations that the system runs currently. Read-only.
+        /// Read the properties and relationships of a fileValidateOperation object.
         /// </summary>
         public class LongRunningOperationItemRequestBuilderGetQueryParameters 
         {

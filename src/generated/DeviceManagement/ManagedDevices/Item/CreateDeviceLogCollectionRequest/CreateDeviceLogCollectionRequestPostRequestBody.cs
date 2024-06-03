@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.CreateDeviceLogCollectionRequest {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.CreateDeviceLogCollectionRequest
+{
     #pragma warning disable CS1591
-    public class CreateDeviceLogCollectionRequestPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class CreateDeviceLogCollectionRequestPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.CreateDeviceLogCollectionR
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"templateType", n => { TemplateType = n.GetObjectValue<DeviceLogCollectionRequest>(DeviceLogCollectionRequest.CreateFromDiscriminatorValue); } },
+                { "templateType", n => { TemplateType = n.GetObjectValue<DeviceLogCollectionRequest>(DeviceLogCollectionRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

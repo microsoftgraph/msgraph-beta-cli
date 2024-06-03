@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsJunk {
+namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsJunk
+{
     /// <summary>
     /// Provides operations to call the markAsJunk method.
     /// </summary>
-    public class MarkAsJunkRequestBuilder : BaseCliRequestBuilder 
+    public class MarkAsJunkRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Mark a message as junk. This API adds the sender to the list of blocked senders and moves the message to the Junk Email folder, when moveToJunk is true.

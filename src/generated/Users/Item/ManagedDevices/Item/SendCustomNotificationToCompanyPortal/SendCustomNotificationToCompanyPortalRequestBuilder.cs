@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.SendCustomNotificationToCompanyPortal {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.SendCustomNotificationToCompanyPortal
+{
     /// <summary>
     /// Provides operations to call the sendCustomNotificationToCompanyPortal method.
     /// </summary>
-    public class SendCustomNotificationToCompanyPortalRequestBuilder : BaseCliRequestBuilder 
+    public class SendCustomNotificationToCompanyPortalRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action sendCustomNotificationToCompanyPortal

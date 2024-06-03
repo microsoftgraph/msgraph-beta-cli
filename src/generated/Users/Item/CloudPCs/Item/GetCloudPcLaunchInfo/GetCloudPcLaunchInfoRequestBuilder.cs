@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcLaunchInfo {
+namespace ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcLaunchInfo
+{
     /// <summary>
     /// Provides operations to call the getCloudPcLaunchInfo method.
     /// </summary>
-    public class GetCloudPcLaunchInfoRequestBuilder : BaseCliRequestBuilder 
+    public class GetCloudPcLaunchInfoRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the cloudPCLaunchInfo for the signed-in user.

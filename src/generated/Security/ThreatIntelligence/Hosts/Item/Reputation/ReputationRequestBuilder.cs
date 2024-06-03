@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation
+{
     /// <summary>
     /// Provides operations to manage the reputation property of the microsoft.graph.security.host entity.
     /// </summary>
-    public class ReputationRequestBuilder : BaseCliRequestBuilder 
+    public class ReputationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reputation for security
@@ -56,13 +57,14 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
             return command;
         }
         /// <summary>
-        /// Represents a calculated reputation of this host.
+        /// Get the properties and relationships of a hostReputation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a calculated reputation of this host.";
+            command.Description = "Get the properties and relationships of a hostReputation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-beta";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a calculated reputation of this host.
+        /// Get the properties and relationships of a hostReputation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Reputation {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a calculated reputation of this host.
+        /// Get the properties and relationships of a hostReputation object.
         /// </summary>
         public class ReputationRequestBuilderGetQueryParameters 
         {

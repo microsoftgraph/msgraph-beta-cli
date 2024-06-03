@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Plans.Item.Tasks.Item.ProgressTaskBoardFormat {
+namespace ApiSdk.Planner.Plans.Item.Tasks.Item.ProgressTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class ProgressTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class ProgressTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property progressTaskBoardFormat for planner

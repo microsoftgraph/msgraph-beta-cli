@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.SharedWithMe {
+namespace ApiSdk.Drives.Item.SharedWithMe
+{
     /// <summary>
     /// Provides operations to call the sharedWithMe method.
     /// </summary>
-    public class SharedWithMeRequestBuilder : BaseCliRequestBuilder 
+    public class SharedWithMeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a list of driveItem objects shared with the owner of a drive. The driveItems returned from the sharedWithMe method always include the remoteItem facet that indicates they&apos;re items from a different drive.
@@ -109,7 +110,9 @@ namespace ApiSdk.Drives.Item.SharedWithMe {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class M365ForwardingRule : ForwardingRule, IParsable 
+    public class M365ForwardingRule : ForwardingRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The category property</summary>
@@ -46,9 +47,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"category", n => { Category = n.GetEnumValue<ForwardingCategory>(); } },
-                {"ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"protocol", n => { Protocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "category", n => { Category = n.GetEnumValue<ForwardingCategory>(); } },
+                { "ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "protocol", n => { Protocol = n.GetEnumValue<NetworkingProtocol>(); } },
             };
         }
         /// <summary>

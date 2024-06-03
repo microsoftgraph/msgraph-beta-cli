@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions.Applications.IncludeApplications.Item {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions.Applications.IncludeApplications.Item
+{
     /// <summary>
     /// Provides operations to manage the includeApplications property of the microsoft.graph.authenticationConditionsApplications entity.
     /// </summary>
-    public class AuthenticationConditionApplicationAppItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationConditionApplicationAppItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property includeApplications for identity

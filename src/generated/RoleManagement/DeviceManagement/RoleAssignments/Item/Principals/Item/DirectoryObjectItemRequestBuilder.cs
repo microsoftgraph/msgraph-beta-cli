@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item.Principals.Item {
+namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item.Principals.Item
+{
     /// <summary>
     /// Provides operations to manage the principals property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
     /// </summary>
-    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryObjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.

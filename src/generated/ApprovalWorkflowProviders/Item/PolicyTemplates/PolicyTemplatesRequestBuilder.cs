@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates
+{
     /// <summary>
     /// Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
     /// </summary>
-    public class PolicyTemplatesRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyTemplatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.
@@ -192,7 +193,9 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

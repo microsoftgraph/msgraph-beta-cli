@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.EvaluateDynamicMembership {
+namespace ApiSdk.Groups.Item.EvaluateDynamicMembership
+{
     /// <summary>
     /// Provides operations to call the evaluateDynamicMembership method.
     /// </summary>
-    public class EvaluateDynamicMembershipRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateDynamicMembershipRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Evaluate whether a user or device is or would be a member of a dynamic group. The membership rule is returned along with other details that were used in the evaluation. You can complete this operation in the following ways:

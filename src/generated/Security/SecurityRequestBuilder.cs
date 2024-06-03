@@ -17,6 +17,7 @@ using ApiSdk.Security.InformationProtection;
 using ApiSdk.Security.IpSecurityProfiles;
 using ApiSdk.Security.Labels;
 using ApiSdk.Security.MicrosoftGraphSecurityRunHuntingQuery;
+using ApiSdk.Security.Partner;
 using ApiSdk.Security.ProviderTenantSettings;
 using ApiSdk.Security.Rules;
 using ApiSdk.Security.SecureScoreControlProfiles;
@@ -42,11 +43,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security {
+namespace ApiSdk.Security
+{
     /// <summary>
     /// Provides operations to manage the security singleton.
     /// </summary>
-    public class SecurityRequestBuilder : BaseCliRequestBuilder 
+    public class SecurityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
@@ -380,6 +382,7 @@ namespace ApiSdk.Security {
             execCommands.Add(builder.BuildGetCommand());
             nonExecCommands.Add(builder.BuildHealthIssuesNavCommand());
             execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSensorsNavCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);
@@ -512,6 +515,31 @@ namespace ApiSdk.Security {
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the partner property of the microsoft.graph.security entity.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildPartnerNavCommand()
+        {
+            var command = new Command("partner");
+            command.Description = "Provides operations to manage the partner property of the microsoft.graph.security entity.";
+            var builder = new PartnerRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSecurityAlertsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
             {
                 command.AddCommand(cmd);
             }

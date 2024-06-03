@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAttributeCollection {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.GraphExternalUsersSelfServiceSignUpEventsFlow.OnAttributeCollection
+{
     /// <summary>
     /// Builds and executes requests for operations under \identity\authenticationEventsFlows\{authenticationEventsFlow-id}\graph.externalUsersSelfServiceSignUpEventsFlow\onAttributeCollection
     /// </summary>
-    public class OnAttributeCollectionRequestBuilder : BaseCliRequestBuilder 
+    public class OnAttributeCollectionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The configuration for what to invoke when attributes are ready to be collected from the user.

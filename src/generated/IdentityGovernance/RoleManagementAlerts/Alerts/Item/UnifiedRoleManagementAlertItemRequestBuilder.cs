@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item {
+namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item
+{
     /// <summary>
     /// Provides operations to manage the alerts property of the microsoft.graph.roleManagementAlert entity.
     /// </summary>
-    public class UnifiedRoleManagementAlertItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleManagementAlertItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alertConfiguration property of the microsoft.graph.unifiedRoleManagementAlert entity.

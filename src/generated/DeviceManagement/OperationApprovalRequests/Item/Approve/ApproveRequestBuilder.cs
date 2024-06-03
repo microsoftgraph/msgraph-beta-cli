@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Approve {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Approve
+{
     /// <summary>
     /// Provides operations to call the approve method.
     /// </summary>
-    public class ApproveRequestBuilder : BaseCliRequestBuilder 
+    public class ApproveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Approves the requested instance of an operationApprovalRequest.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles {
+namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles
+{
     /// <summary>
     /// Provides operations to call the usersRegisteredByMethod method.
     /// </summary>
-    public class UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder : BaseCliRequestBuilder 
+    public class UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function usersRegisteredByMethod
@@ -28,11 +29,11 @@ namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByMethodWithInclud
         {
             var command = new Command("get");
             command.Description = "Invoke function usersRegisteredByMethod";
-            var includedUserTypesOption = new Option<object>("--included-user-types", description: "Usage: includedUserTypes='{includedUserTypes}'") {
+            var includedUserTypesOption = new Option<string>("--included-user-types", description: "Usage: includedUserTypes='{includedUserTypes}'") {
             };
             includedUserTypesOption.IsRequired = true;
             command.AddOption(includedUserTypesOption);
-            var includedUserRolesOption = new Option<object>("--included-user-roles", description: "Usage: includedUserRoles='{includedUserRoles}'") {
+            var includedUserRolesOption = new Option<string>("--included-user-roles", description: "Usage: includedUserRoles='{includedUserRoles}'") {
             };
             includedUserRolesOption.IsRequired = true;
             command.AddOption(includedUserRolesOption);

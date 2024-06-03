@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetZebraFotaDeploymentReport {
+namespace ApiSdk.DeviceManagement.Reports.GetZebraFotaDeploymentReport
+{
     /// <summary>
     /// Provides operations to call the getZebraFotaDeploymentReport method.
     /// </summary>
-    public class GetZebraFotaDeploymentReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetZebraFotaDeploymentReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getZebraFotaDeploymentReport

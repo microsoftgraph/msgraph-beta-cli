@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations.Item.TrustedCertificateAuthorities.Item {
+namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedApplicationConfigurations.Item.TrustedCertificateAuthorities.Item
+{
     /// <summary>
     /// Provides operations to manage the trustedCertificateAuthorities property of the microsoft.graph.trustedCertificateAuthorityAsEntityBase entity.
     /// </summary>
-    public class CertificateAuthorityAsEntityItemRequestBuilder : BaseCliRequestBuilder 
+    public class CertificateAuthorityAsEntityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property trustedCertificateAuthorities for directory
+        /// Delete a certificateAuthorityAsEntity object. You can&apos;t delete all items in the collection because this collection requires at least one object that is a root authority to always persist.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificateauthorityasentity-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property trustedCertificateAuthorities for directory";
+            command.Description = "Delete a certificateAuthorityAsEntity object. You can't delete all items in the collection because this collection requires at least one object that is a root authority to always persist.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificateauthorityasentity-delete?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Collection of trusted certificate authorities.
+        /// Read the properties and relationships of a certificateAuthorityAsEntity object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificateauthorityasentity-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of trusted certificate authorities.";
+            command.Description = "Read the properties and relationships of a certificateAuthorityAsEntity object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificateauthorityasentity-get?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return command;
         }
         /// <summary>
-        /// Update the navigation property trustedCertificateAuthorities in directory
+        /// Update the properties of a certificateAuthorityAsEntity object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/certificateauthorityasentity-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property trustedCertificateAuthorities in directory";
+            command.Description = "Update the properties of a certificateAuthorityAsEntity object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/certificateauthorityasentity-update?view=graph-rest-beta";
             var certificateBasedApplicationConfigurationIdOption = new Option<string>("--certificate-based-application-configuration-id", description: "The unique identifier of certificateBasedApplicationConfiguration") {
             };
             certificateBasedApplicationConfigurationIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
         {
         }
         /// <summary>
-        /// Delete navigation property trustedCertificateAuthorities for directory
+        /// Delete a certificateAuthorityAsEntity object. You can&apos;t delete all items in the collection because this collection requires at least one object that is a root authority to always persist.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Collection of trusted certificate authorities.
+        /// Read the properties and relationships of a certificateAuthorityAsEntity object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property trustedCertificateAuthorities in directory
+        /// Update the properties of a certificateAuthorityAsEntity object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.DirectoryNamespace.CertificateAuthorities.CertificateBasedAppli
             return requestInfo;
         }
         /// <summary>
-        /// Collection of trusted certificate authorities.
+        /// Read the properties and relationships of a certificateAuthorityAsEntity object.
         /// </summary>
         public class CertificateAuthorityAsEntityItemRequestBuilderGetQueryParameters 
         {

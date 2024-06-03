@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkplaceSensorDeviceTelemetry : IAdditionalDataHolder, IParsable 
+    public class WorkplaceSensorDeviceTelemetry : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,13 +69,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"boolValue", n => { BoolValue = n.GetBoolValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"intValue", n => { IntValue = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"sensorId", n => { SensorId = n.GetStringValue(); } },
-                {"sensorType", n => { SensorType = n.GetEnumValue<WorkplaceSensorType>(); } },
-                {"timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
+                { "boolValue", n => { BoolValue = n.GetBoolValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "intValue", n => { IntValue = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "sensorId", n => { SensorId = n.GetStringValue(); } },
+                { "sensorType", n => { SensorType = n.GetEnumValue<WorkplaceSensorType>(); } },
+                { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

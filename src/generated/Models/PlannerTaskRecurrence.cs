@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerTaskRecurrence : IAdditionalDataHolder, IParsable 
+    public class PlannerTaskRecurrence : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -80,13 +81,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"nextInSeriesTaskId", n => { NextInSeriesTaskId = n.GetStringValue(); } },
-                {"occurrenceId", n => { OccurrenceId = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"previousInSeriesTaskId", n => { PreviousInSeriesTaskId = n.GetStringValue(); } },
-                {"recurrenceStartDateTime", n => { RecurrenceStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<PlannerRecurrenceSchedule>(PlannerRecurrenceSchedule.CreateFromDiscriminatorValue); } },
-                {"seriesId", n => { SeriesId = n.GetStringValue(); } },
+                { "nextInSeriesTaskId", n => { NextInSeriesTaskId = n.GetStringValue(); } },
+                { "occurrenceId", n => { OccurrenceId = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "previousInSeriesTaskId", n => { PreviousInSeriesTaskId = n.GetStringValue(); } },
+                { "recurrenceStartDateTime", n => { RecurrenceStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<PlannerRecurrenceSchedule>(PlannerRecurrenceSchedule.CreateFromDiscriminatorValue); } },
+                { "seriesId", n => { SeriesId = n.GetStringValue(); } },
             };
         }
         /// <summary>

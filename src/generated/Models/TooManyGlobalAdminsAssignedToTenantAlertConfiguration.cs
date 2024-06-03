@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TooManyGlobalAdminsAssignedToTenantAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable 
+    public class TooManyGlobalAdminsAssignedToTenantAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.</summary>
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"globalAdminCountThreshold", n => { GlobalAdminCountThreshold = n.GetIntValue(); } },
-                {"percentageOfGlobalAdminsOutOfRolesThreshold", n => { PercentageOfGlobalAdminsOutOfRolesThreshold = n.GetIntValue(); } },
+                { "globalAdminCountThreshold", n => { GlobalAdminCountThreshold = n.GetIntValue(); } },
+                { "percentageOfGlobalAdminsOutOfRolesThreshold", n => { PercentageOfGlobalAdminsOutOfRolesThreshold = n.GetIntValue(); } },
             };
         }
         /// <summary>

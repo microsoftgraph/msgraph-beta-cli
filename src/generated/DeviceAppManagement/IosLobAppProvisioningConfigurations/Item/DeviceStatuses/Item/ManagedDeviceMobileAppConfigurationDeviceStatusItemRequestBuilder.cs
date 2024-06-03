@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.DeviceStatuses.Item {
+namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.DeviceStatuses.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     /// </summary>
-    public class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceStatuses for deviceAppManagement

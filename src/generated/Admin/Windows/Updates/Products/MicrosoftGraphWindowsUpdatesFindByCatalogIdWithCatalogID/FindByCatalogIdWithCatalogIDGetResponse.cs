@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID {
+namespace ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID
+{
     #pragma warning disable CS1591
-    public class FindByCatalogIdWithCatalogIDGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class FindByCatalogIdWithCatalogIDGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFind
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

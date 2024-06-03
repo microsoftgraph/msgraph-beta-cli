@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.UnblockManagedApps {
+namespace ApiSdk.Users.Item.UnblockManagedApps
+{
     /// <summary>
     /// Provides operations to call the unblockManagedApps method.
     /// </summary>
-    public class UnblockManagedAppsRequestBuilder : BaseCliRequestBuilder 
+    public class UnblockManagedAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Unblocks the managed app user from app check-in.

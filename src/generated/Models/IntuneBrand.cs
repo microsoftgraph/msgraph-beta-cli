@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
     /// </summary>
-    public class IntuneBrand : IAdditionalDataHolder, IParsable 
+    public class IntuneBrand : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -205,36 +206,36 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<CompanyPortalBlockedAction>(CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
-                {"contactITName", n => { ContactITName = n.GetStringValue(); } },
-                {"contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
-                {"contactITPhoneNumber", n => { ContactITPhoneNumber = n.GetStringValue(); } },
-                {"customCanSeePrivacyMessage", n => { CustomCanSeePrivacyMessage = n.GetStringValue(); } },
-                {"customCantSeePrivacyMessage", n => { CustomCantSeePrivacyMessage = n.GetStringValue(); } },
-                {"customPrivacyMessage", n => { CustomPrivacyMessage = n.GetStringValue(); } },
-                {"darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"disableClientTelemetry", n => { DisableClientTelemetry = n.GetBoolValue(); } },
-                {"disableDeviceCategorySelection", n => { DisableDeviceCategorySelection = n.GetBoolValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<EnrollmentAvailabilityOptions>(); } },
-                {"isFactoryResetDisabled", n => { IsFactoryResetDisabled = n.GetBoolValue(); } },
-                {"isRemoveDeviceDisabled", n => { IsRemoveDeviceDisabled = n.GetBoolValue(); } },
-                {"landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
-                {"onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
-                {"privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"sendDeviceOwnershipChangePushNotification", n => { SendDeviceOwnershipChangePushNotification = n.GetBoolValue(); } },
-                {"showAzureADEnterpriseApps", n => { ShowAzureADEnterpriseApps = n.GetBoolValue(); } },
-                {"showConfigurationManagerApps", n => { ShowConfigurationManagerApps = n.GetBoolValue(); } },
-                {"showDisplayNameNextToLogo", n => { ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
-                {"showLogo", n => { ShowLogo = n.GetBoolValue(); } },
-                {"showNameNextToLogo", n => { ShowNameNextToLogo = n.GetBoolValue(); } },
-                {"showOfficeWebApps", n => { ShowOfficeWebApps = n.GetBoolValue(); } },
-                {"themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
+                { "companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<CompanyPortalBlockedAction>(CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
+                { "contactITName", n => { ContactITName = n.GetStringValue(); } },
+                { "contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
+                { "contactITPhoneNumber", n => { ContactITPhoneNumber = n.GetStringValue(); } },
+                { "customCanSeePrivacyMessage", n => { CustomCanSeePrivacyMessage = n.GetStringValue(); } },
+                { "customCantSeePrivacyMessage", n => { CustomCantSeePrivacyMessage = n.GetStringValue(); } },
+                { "customPrivacyMessage", n => { CustomPrivacyMessage = n.GetStringValue(); } },
+                { "darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "disableClientTelemetry", n => { DisableClientTelemetry = n.GetBoolValue(); } },
+                { "disableDeviceCategorySelection", n => { DisableDeviceCategorySelection = n.GetBoolValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<EnrollmentAvailabilityOptions>(); } },
+                { "isFactoryResetDisabled", n => { IsFactoryResetDisabled = n.GetBoolValue(); } },
+                { "isRemoveDeviceDisabled", n => { IsRemoveDeviceDisabled = n.GetBoolValue(); } },
+                { "landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
+                { "onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
+                { "privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "sendDeviceOwnershipChangePushNotification", n => { SendDeviceOwnershipChangePushNotification = n.GetBoolValue(); } },
+                { "showAzureADEnterpriseApps", n => { ShowAzureADEnterpriseApps = n.GetBoolValue(); } },
+                { "showConfigurationManagerApps", n => { ShowConfigurationManagerApps = n.GetBoolValue(); } },
+                { "showDisplayNameNextToLogo", n => { ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
+                { "showLogo", n => { ShowLogo = n.GetBoolValue(); } },
+                { "showNameNextToLogo", n => { ShowNameNextToLogo = n.GetBoolValue(); } },
+                { "showOfficeWebApps", n => { ShowOfficeWebApps = n.GetBoolValue(); } },
+                { "themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

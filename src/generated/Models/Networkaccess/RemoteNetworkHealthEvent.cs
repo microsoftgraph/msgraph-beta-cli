@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class RemoteNetworkHealthEvent : ApiSdk.Models.Entity, IParsable 
+    public class RemoteNetworkHealthEvent : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of BGP routes advertised through tunnel.</summary>
@@ -69,15 +70,15 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bgpRoutesAdvertisedCount", n => { BgpRoutesAdvertisedCount = n.GetIntValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"destinationIp", n => { DestinationIp = n.GetStringValue(); } },
-                {"receivedBytes", n => { ReceivedBytes = n.GetLongValue(); } },
-                {"remoteNetworkId", n => { RemoteNetworkId = n.GetStringValue(); } },
-                {"sentBytes", n => { SentBytes = n.GetLongValue(); } },
-                {"sourceIp", n => { SourceIp = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<RemoteNetworkStatus>(); } },
+                { "bgpRoutesAdvertisedCount", n => { BgpRoutesAdvertisedCount = n.GetIntValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "destinationIp", n => { DestinationIp = n.GetStringValue(); } },
+                { "receivedBytes", n => { ReceivedBytes = n.GetLongValue(); } },
+                { "remoteNetworkId", n => { RemoteNetworkId = n.GetStringValue(); } },
+                { "sentBytes", n => { SentBytes = n.GetLongValue(); } },
+                { "sourceIp", n => { SourceIp = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<RemoteNetworkStatus>(); } },
             };
         }
         /// <summary>

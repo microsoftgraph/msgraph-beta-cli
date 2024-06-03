@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FilterOperatorSchema : Entity, IParsable 
+    public class FilterOperatorSchema : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The arity property</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"arity", n => { Arity = n.GetEnumValue<ScopeOperatorType>(); } },
-                {"multivaluedComparisonType", n => { MultivaluedComparisonType = n.GetEnumValue<ScopeOperatorMultiValuedComparisonType>(); } },
-                {"supportedAttributeTypes", n => { SupportedAttributeTypes = n.GetCollectionOfEnumValues<AttributeType>()?.ToList(); } },
+                { "arity", n => { Arity = n.GetEnumValue<ScopeOperatorType>(); } },
+                { "multivaluedComparisonType", n => { MultivaluedComparisonType = n.GetEnumValue<ScopeOperatorMultiValuedComparisonType>(); } },
+                { "supportedAttributeTypes", n => { SupportedAttributeTypes = n.GetCollectionOfEnumValues<AttributeType>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles {
+namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles
+{
     /// <summary>
     /// Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.
     /// </summary>
-    public class ForwardingProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class ForwardingProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.
@@ -108,14 +109,15 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles {
             return command;
         }
         /// <summary>
-        /// Each forwarding profile associated with a branch site is specified. Supports $expand.
+        /// Retrieve a list of traffic forwarding profiles associated with a branch.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-forwardingprofiles?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Each forwarding profile associated with a branch site is specified. Supports $expand.";
+            command.Description = "Retrieve a list of traffic forwarding profiles associated with a branch.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-branchsite-list-forwardingprofiles?view=graph-rest-beta";
             var branchSiteIdOption = new Option<string>("--branch-site-id", description: "The unique identifier of branchSite") {
             };
             branchSiteIdOption.IsRequired = true;
@@ -197,7 +199,9 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -223,7 +227,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles {
         {
         }
         /// <summary>
-        /// Each forwarding profile associated with a branch site is specified. Supports $expand.
+        /// Retrieve a list of traffic forwarding profiles associated with a branch.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +269,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Each forwarding profile associated with a branch site is specified. Supports $expand.
+        /// Retrieve a list of traffic forwarding profiles associated with a branch.
         /// </summary>
         public class ForwardingProfilesRequestBuilderGetQueryParameters 
         {

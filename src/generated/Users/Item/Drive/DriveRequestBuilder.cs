@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Drive {
+namespace ApiSdk.Users.Item.Drive
+{
     /// <summary>
     /// Provides operations to manage the drive property of the microsoft.graph.user entity.
     /// </summary>
-    public class DriveRequestBuilder : BaseCliRequestBuilder 
+    public class DriveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The user&apos;s OneDrive. Read-only.

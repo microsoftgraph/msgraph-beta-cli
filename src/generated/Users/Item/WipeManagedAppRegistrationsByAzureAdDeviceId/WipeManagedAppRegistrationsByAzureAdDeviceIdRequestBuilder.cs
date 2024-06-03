@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByAzureAdDeviceId {
+namespace ApiSdk.Users.Item.WipeManagedAppRegistrationsByAzureAdDeviceId
+{
     /// <summary>
     /// Provides operations to call the wipeManagedAppRegistrationsByAzureAdDeviceId method.
     /// </summary>
-    public class WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder : BaseCliRequestBuilder 
+    public class WipeManagedAppRegistrationsByAzureAdDeviceIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Issues a wipe operation on an app registration with specified aad device Id.

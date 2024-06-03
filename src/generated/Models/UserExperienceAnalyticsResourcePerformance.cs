@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics resource performance entity.
     /// </summary>
-    public class UserExperienceAnalyticsResourcePerformance : Entity, IParsable 
+    public class UserExperienceAnalyticsResourcePerformance : Entity, IParsable
     {
         /// <summary>AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100</summary>
         public int? AverageSpikeTimeScore { get; set; }
@@ -98,26 +99,26 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"averageSpikeTimeScore", n => { AverageSpikeTimeScore = n.GetIntValue(); } },
-                {"cpuClockSpeedInMHz", n => { CpuClockSpeedInMHz = n.GetDoubleValue(); } },
-                {"cpuDisplayName", n => { CpuDisplayName = n.GetStringValue(); } },
-                {"cpuSpikeTimePercentage", n => { CpuSpikeTimePercentage = n.GetDoubleValue(); } },
-                {"cpuSpikeTimePercentageThreshold", n => { CpuSpikeTimePercentageThreshold = n.GetDoubleValue(); } },
-                {"cpuSpikeTimeScore", n => { CpuSpikeTimeScore = n.GetIntValue(); } },
-                {"deviceCount", n => { DeviceCount = n.GetLongValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceResourcePerformanceScore", n => { DeviceResourcePerformanceScore = n.GetIntValue(); } },
-                {"diskType", n => { DiskType = n.GetEnumValue<DiskType>(); } },
-                {"healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
-                {"machineType", n => { MachineType = n.GetEnumValue<UserExperienceAnalyticsMachineType>(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"ramSpikeTimePercentage", n => { RamSpikeTimePercentage = n.GetDoubleValue(); } },
-                {"ramSpikeTimePercentageThreshold", n => { RamSpikeTimePercentageThreshold = n.GetDoubleValue(); } },
-                {"ramSpikeTimeScore", n => { RamSpikeTimeScore = n.GetIntValue(); } },
-                {"totalProcessorCoreCount", n => { TotalProcessorCoreCount = n.GetIntValue(); } },
-                {"totalRamInMB", n => { TotalRamInMB = n.GetDoubleValue(); } },
+                { "averageSpikeTimeScore", n => { AverageSpikeTimeScore = n.GetIntValue(); } },
+                { "cpuClockSpeedInMHz", n => { CpuClockSpeedInMHz = n.GetDoubleValue(); } },
+                { "cpuDisplayName", n => { CpuDisplayName = n.GetStringValue(); } },
+                { "cpuSpikeTimePercentage", n => { CpuSpikeTimePercentage = n.GetDoubleValue(); } },
+                { "cpuSpikeTimePercentageThreshold", n => { CpuSpikeTimePercentageThreshold = n.GetDoubleValue(); } },
+                { "cpuSpikeTimeScore", n => { CpuSpikeTimeScore = n.GetIntValue(); } },
+                { "deviceCount", n => { DeviceCount = n.GetLongValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceResourcePerformanceScore", n => { DeviceResourcePerformanceScore = n.GetIntValue(); } },
+                { "diskType", n => { DiskType = n.GetEnumValue<DiskType>(); } },
+                { "healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
+                { "machineType", n => { MachineType = n.GetEnumValue<UserExperienceAnalyticsMachineType>(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "ramSpikeTimePercentage", n => { RamSpikeTimePercentage = n.GetDoubleValue(); } },
+                { "ramSpikeTimePercentageThreshold", n => { RamSpikeTimePercentageThreshold = n.GetDoubleValue(); } },
+                { "ramSpikeTimeScore", n => { RamSpikeTimeScore = n.GetIntValue(); } },
+                { "totalProcessorCoreCount", n => { TotalProcessorCoreCount = n.GetIntValue(); } },
+                { "totalRamInMB", n => { TotalRamInMB = n.GetDoubleValue(); } },
             };
         }
         /// <summary>

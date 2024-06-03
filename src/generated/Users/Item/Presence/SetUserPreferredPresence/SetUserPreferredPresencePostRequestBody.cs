@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Presence.SetUserPreferredPresence {
+namespace ApiSdk.Users.Item.Presence.SetUserPreferredPresence
+{
     #pragma warning disable CS1591
-    public class SetUserPreferredPresencePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetUserPreferredPresencePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activity property</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Users.Item.Presence.SetUserPreferredPresence {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activity", n => { Activity = n.GetStringValue(); } },
-                {"availability", n => { Availability = n.GetStringValue(); } },
-                {"expirationDuration", n => { ExpirationDuration = n.GetTimeSpanValue(); } },
+                { "activity", n => { Activity = n.GetStringValue(); } },
+                { "availability", n => { Availability = n.GetStringValue(); } },
+                { "expirationDuration", n => { ExpirationDuration = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.AppRoleAssignments {
+namespace ApiSdk.Groups.Item.AppRoleAssignments
+{
     /// <summary>
     /// Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
     /// </summary>
-    public class AppRoleAssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class AppRoleAssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignments for groups
+        /// Use this API to assign an app role to a security group. All direct members of the group will be considered assigned. Security groups with dynamic memberships are supported. To grant an app role assignment to a group, you need three identifiers: Additional licenses might be required to use a group to manage access to applications.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-post-approleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to appRoleAssignments for groups";
+            command.Description = "Use this API to assign an app role to a security group. All direct members of the group will be considered assigned. Security groups with dynamic memberships are supported. To grant an app role assignment to a group, you need three identifiers: Additional licenses might be required to use a group to manage access to applications.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-post-approleassignments?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
             return command;
         }
         /// <summary>
-        /// Represents the app roles a group has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignment that have been granted to a group.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/group-list-approleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the app roles a group has been granted for an application. Supports $expand.";
+            command.Description = "Retrieve the list of appRoleAssignment that have been granted to a group.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/group-list-approleassignments?view=graph-rest-beta";
             var groupIdOption = new Option<string>("--group-id", description: "The unique identifier of group") {
             };
             groupIdOption.IsRequired = true;
@@ -199,7 +202,9 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -225,7 +230,7 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
         {
         }
         /// <summary>
-        /// Represents the app roles a group has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignment that have been granted to a group.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,7 +249,7 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignments for groups
+        /// Use this API to assign an app role to a security group. All direct members of the group will be considered assigned. Security groups with dynamic memberships are supported. To grant an app role assignment to a group, you need three identifiers: Additional licenses might be required to use a group to manage access to applications.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,7 +270,7 @@ namespace ApiSdk.Groups.Item.AppRoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the app roles a group has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignment that have been granted to a group.
         /// </summary>
         public class AppRoleAssignmentsRequestBuilderGetQueryParameters 
         {

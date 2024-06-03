@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.CreateLink {
+namespace ApiSdk.Drives.Item.Items.Item.CreateLink
+{
     /// <summary>
     /// Provides operations to call the createLink method.
     /// </summary>
-    public class CreateLinkRequestBuilder : BaseCliRequestBuilder 
+    public class CreateLinkRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Create a link to share a driveItem driveItem.The createLink action creates a new sharing link if the specified link type doesn&apos;t already exist for the calling application.If a sharing link of the specified type already exists for the app, the existing sharing link is returned. DriveItem resources inherit sharing permissions from their ancestors.

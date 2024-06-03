@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
+namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat
+{
     /// <summary>
     /// Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class BucketTaskBoardFormatRequestBuilder : BaseCliRequestBuilder 
+    public class BucketTaskBoardFormatRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property bucketTaskBoardFormat for planner
@@ -56,13 +57,14 @@ namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+        /// Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.";
+            command.Description = "Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
             return command;
         }
         /// <summary>
-        /// Update the navigation property bucketTaskBoardFormat in planner
+        /// Update the properties of a plannerBucketTaskBoardTaskFormat object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property bucketTaskBoardFormat in planner";
+            command.Description = "Update the properties of a plannerBucketTaskBoardTaskFormat object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-beta";
             var plannerTaskIdOption = new Option<string>("--planner-task-id", description: "The unique identifier of plannerTask") {
             };
             plannerTaskIdOption.IsRequired = true;
@@ -199,7 +202,7 @@ namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+        /// Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -218,7 +221,7 @@ namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property bucketTaskBoardFormat in planner
+        /// Update the properties of a plannerBucketTaskBoardTaskFormat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -239,7 +242,7 @@ namespace ApiSdk.Planner.Tasks.Item.BucketTaskBoardFormat {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.
+        /// Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
         /// </summary>
         public class BucketTaskBoardFormatRequestBuilderGetQueryParameters 
         {

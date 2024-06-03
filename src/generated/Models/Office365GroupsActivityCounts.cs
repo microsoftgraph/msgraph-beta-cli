@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365GroupsActivityCounts : Entity, IParsable 
+    public class Office365GroupsActivityCounts : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of emails received by Group mailboxes.</summary>
@@ -52,15 +53,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exchangeEmailsReceived", n => { ExchangeEmailsReceived = n.GetLongValue(); } },
-                {"reportDate", n => { ReportDate = n.GetDateValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"teamsChannelMessages", n => { TeamsChannelMessages = n.GetLongValue(); } },
-                {"teamsMeetingsOrganized", n => { TeamsMeetingsOrganized = n.GetLongValue(); } },
-                {"yammerMessagesLiked", n => { YammerMessagesLiked = n.GetLongValue(); } },
-                {"yammerMessagesPosted", n => { YammerMessagesPosted = n.GetLongValue(); } },
-                {"yammerMessagesRead", n => { YammerMessagesRead = n.GetLongValue(); } },
+                { "exchangeEmailsReceived", n => { ExchangeEmailsReceived = n.GetLongValue(); } },
+                { "reportDate", n => { ReportDate = n.GetDateValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "teamsChannelMessages", n => { TeamsChannelMessages = n.GetLongValue(); } },
+                { "teamsMeetingsOrganized", n => { TeamsMeetingsOrganized = n.GetLongValue(); } },
+                { "yammerMessagesLiked", n => { YammerMessagesLiked = n.GetLongValue(); } },
+                { "yammerMessagesPosted", n => { YammerMessagesPosted = n.GetLongValue(); } },
+                { "yammerMessagesRead", n => { YammerMessagesRead = n.GetLongValue(); } },
             };
         }
         /// <summary>

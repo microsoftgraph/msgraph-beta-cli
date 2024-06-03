@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item {
+namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item
+{
     /// <summary>
     /// Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
     /// </summary>
-    public class SimulationAutomationItemRequestBuilder : BaseCliRequestBuilder 
+    public class SimulationAutomationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property simulationAutomations for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item {
             return command;
         }
         /// <summary>
-        /// Represents simulation automation created to run on a tenant.
+        /// Get an attack simulation automation for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/simulationautomation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents simulation automation created to run on a tenant.";
+            command.Description = "Get an attack simulation automation for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/simulationautomation-get?view=graph-rest-beta";
             var simulationAutomationIdOption = new Option<string>("--simulation-automation-id", description: "The unique identifier of simulationAutomation") {
             };
             simulationAutomationIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents simulation automation created to run on a tenant.
+        /// Get an attack simulation automation for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Security.AttackSimulation.SimulationAutomations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents simulation automation created to run on a tenant.
+        /// Get an attack simulation automation for a tenant.
         /// </summary>
         public class SimulationAutomationItemRequestBuilderGetQueryParameters 
         {

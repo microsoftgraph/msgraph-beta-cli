@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RemoteActionAudits.Item {
+namespace ApiSdk.DeviceManagement.RemoteActionAudits.Item
+{
     /// <summary>
     /// Provides operations to manage the remoteActionAudits property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class RemoteActionAuditItemRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteActionAuditItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property remoteActionAudits for deviceManagement

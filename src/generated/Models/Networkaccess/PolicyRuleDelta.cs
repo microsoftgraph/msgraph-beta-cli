@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class PolicyRuleDelta : IAdditionalDataHolder, IParsable 
+    public class PolicyRuleDelta : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<ForwardingRuleAction>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"ruleId", n => { RuleId = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<ForwardingRuleAction>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "ruleId", n => { RuleId = n.GetStringValue(); } },
             };
         }
         /// <summary>

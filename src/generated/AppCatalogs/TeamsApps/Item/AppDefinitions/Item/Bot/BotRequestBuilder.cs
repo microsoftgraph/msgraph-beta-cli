@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.Bot {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.Bot
+{
     /// <summary>
     /// Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.
     /// </summary>
-    public class BotRequestBuilder : BaseCliRequestBuilder 
+    public class BotRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property bot for appCatalogs

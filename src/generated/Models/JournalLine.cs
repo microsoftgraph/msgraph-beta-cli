@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class JournalLine : IAdditionalDataHolder, IParsable 
+    public class JournalLine : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -113,20 +114,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
-                {"accountId", n => { AccountId = n.GetGuidValue(); } },
-                {"accountNumber", n => { AccountNumber = n.GetStringValue(); } },
-                {"amount", n => { Amount = n.GetDecimalValue(); } },
-                {"comment", n => { Comment = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
-                {"externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"journalDisplayName", n => { JournalDisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lineNumber", n => { LineNumber = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"postingDate", n => { PostingDate = n.GetDateValue(); } },
+                { "account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
+                { "accountId", n => { AccountId = n.GetGuidValue(); } },
+                { "accountNumber", n => { AccountNumber = n.GetStringValue(); } },
+                { "amount", n => { Amount = n.GetDecimalValue(); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "documentNumber", n => { DocumentNumber = n.GetStringValue(); } },
+                { "externalDocumentNumber", n => { ExternalDocumentNumber = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "journalDisplayName", n => { JournalDisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lineNumber", n => { LineNumber = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "postingDate", n => { PostingDate = n.GetDateValue(); } },
             };
         }
         /// <summary>

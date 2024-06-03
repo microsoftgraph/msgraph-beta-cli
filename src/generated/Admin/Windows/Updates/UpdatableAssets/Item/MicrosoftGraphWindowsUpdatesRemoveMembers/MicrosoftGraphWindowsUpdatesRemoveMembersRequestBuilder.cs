@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesRemoveMembers {
+namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesRemoveMembers
+{
     /// <summary>
     /// Provides operations to call the removeMembers method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Remove members from an updatableAssetGroup. You can also use the method removeMembersById to remove members.

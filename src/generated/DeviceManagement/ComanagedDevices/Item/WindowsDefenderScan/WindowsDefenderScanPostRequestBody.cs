@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.WindowsDefenderScan {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.WindowsDefenderScan
+{
     #pragma warning disable CS1591
-    public class WindowsDefenderScanPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class WindowsDefenderScanPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.WindowsDefenderScan {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"quickScan", n => { QuickScan = n.GetBoolValue(); } },
+                { "quickScan", n => { QuickScan = n.GetBoolValue(); } },
             };
         }
         /// <summary>

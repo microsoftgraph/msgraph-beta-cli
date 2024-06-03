@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AzureAuthorizationSystem : AuthorizationSystem, IParsable 
+    public class AzureAuthorizationSystem : AuthorizationSystem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for service in authorization system.</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<AzureAuthorizationSystemTypeAction>(AzureAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<AzureAssociatedIdentities>(AzureAssociatedIdentities.CreateFromDiscriminatorValue); } },
-                {"resources", n => { Resources = n.GetCollectionOfObjectValues<AzureAuthorizationSystemResource>(AzureAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<AzureRoleDefinition>(AzureRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AzureAuthorizationSystemTypeAction>(AzureAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<AzureAssociatedIdentities>(AzureAssociatedIdentities.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<AzureAuthorizationSystemResource>(AzureAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<AzureRoleDefinition>(AzureRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

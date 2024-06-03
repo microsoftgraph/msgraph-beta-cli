@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplate {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplate
+{
     /// <summary>
     /// Provides operations to manage the managementTemplate property of the microsoft.graph.managedTenants.managementTemplateStep entity.
     /// </summary>
-    public class ManagementTemplateRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get managementTemplate from tenantRelationships

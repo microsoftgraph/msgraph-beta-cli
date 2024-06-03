@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class TagItemRequestBuilder : BaseCliRequestBuilder 
+    public class TagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the childTags property of the microsoft.graph.ediscovery.tag entity.
@@ -49,14 +50,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property tags for compliance
+        /// Delete a tag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-tag-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property tags for compliance";
+            command.Description = "Delete a tag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-tag-delete?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -91,14 +93,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return command;
         }
         /// <summary>
-        /// Returns a list of tag objects associated to this case.
+        /// Read the properties and relationships of a tag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-tag-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Returns a list of tag objects associated to this case.";
+            command.Description = "Read the properties and relationships of a tag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-tag-get?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -167,14 +170,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property tags in compliance
+        /// Update the properties of a tag object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-tag-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property tags in compliance";
+            command.Description = "Update the properties of a tag object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-tag-update?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -239,7 +243,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property tags for compliance
+        /// Delete a tag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -259,7 +263,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of tag objects associated to this case.
+        /// Read the properties and relationships of a tag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -279,7 +283,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property tags in compliance
+        /// Update the properties of a tag object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -301,7 +305,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Returns a list of tag objects associated to this case.
+        /// Read the properties and relationships of a tag object.
         /// </summary>
         public class TagItemRequestBuilderGetQueryParameters 
         {

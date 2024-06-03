@@ -18,20 +18,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
+namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item
+{
     /// <summary>
     /// Provides operations to manage the updatableAssets property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatableAssetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property updatableAssets for admin
+        /// Delete an updatableAssetGroup object. When an updatableAssetGroup object, its member updatableAsset objects are not deleted.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property updatableAssets for admin";
+            command.Description = "Delete an updatableAssetGroup object. When an updatableAssetGroup object, its member updatableAsset objects are not deleted.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-updatableassetgroup-delete?view=graph-rest-beta";
             var updatableAssetIdOption = new Option<string>("--updatable-asset-id", description: "The unique identifier of updatableAsset") {
             };
             updatableAssetIdOption.IsRequired = true;
@@ -60,13 +62,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
             return command;
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Read the properties of an azureADDevice object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Assets registered with the deployment service that can receive updates.";
+            command.Description = "Read the properties of an azureADDevice object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/windowsupdates-azureaddevice-get?view=graph-rest-beta";
             var updatableAssetIdOption = new Option<string>("--updatable-asset-id", description: "The unique identifier of updatableAsset") {
             };
             updatableAssetIdOption.IsRequired = true;
@@ -245,7 +248,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property updatableAssets for admin
+        /// Delete an updatableAssetGroup object. When an updatableAssetGroup object, its member updatableAsset objects are not deleted.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -264,7 +267,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Read the properties of an azureADDevice object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -304,7 +307,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Assets registered with the deployment service that can receive updates.
+        /// Read the properties of an azureADDevice object.
         /// </summary>
         public class UpdatableAssetItemRequestBuilderGetQueryParameters 
         {

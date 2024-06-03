@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TaskFileAttachment : AttachmentBase, IParsable 
+    public class TaskFileAttachment : AttachmentBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The base64-encoded contents of the file.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contentBytes", n => { ContentBytes = n.GetByteArrayValue(); } },
+                { "contentBytes", n => { ContentBytes = n.GetByteArrayValue(); } },
             };
         }
         /// <summary>

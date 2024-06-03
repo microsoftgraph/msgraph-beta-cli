@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
+namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns
+{
     /// <summary>
     /// Provides operations to manage the trainingCampaigns property of the microsoft.graph.attackSimulationRoot entity.
     /// </summary>
-    public class TrainingCampaignsRequestBuilder : BaseCliRequestBuilder 
+    public class TrainingCampaignsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the trainingCampaigns property of the microsoft.graph.attackSimulationRoot entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to trainingCampaigns for security
+        /// Create a new trainingCampaign object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/attacksimulationroot-post-trainingcampaigns?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to trainingCampaigns for security";
+            command.Description = "Create a new trainingCampaign object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/attacksimulationroot-post-trainingcampaigns?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
             return command;
         }
         /// <summary>
-        /// Represents a training campaign in a tenant.
+        /// Get a list of trainingCampaign objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/attacksimulationroot-list-trainingcampaigns?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents a training campaign in a tenant.";
+            command.Description = "Get a list of trainingCampaign objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/attacksimulationroot-list-trainingcampaigns?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
         {
         }
         /// <summary>
-        /// Represents a training campaign in a tenant.
+        /// Get a list of trainingCampaign objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to trainingCampaigns for security
+        /// Create a new trainingCampaign object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Security.AttackSimulation.TrainingCampaigns {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a training campaign in a tenant.
+        /// Get a list of trainingCampaign objects and their properties.
         /// </summary>
         public class TrainingCampaignsRequestBuilderGetQueryParameters 
         {

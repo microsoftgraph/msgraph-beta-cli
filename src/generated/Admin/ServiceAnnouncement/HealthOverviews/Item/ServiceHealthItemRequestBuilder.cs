@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
+namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item
+{
     /// <summary>
     /// Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
     /// </summary>
-    public class ServiceHealthItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceHealthItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property healthOverviews for admin
@@ -57,13 +58,14 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
             return command;
         }
         /// <summary>
-        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.";
+            command.Description = "Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/servicehealth-get?view=graph-rest-beta";
             var serviceHealthIdOption = new Option<string>("--service-health-id", description: "The unique identifier of serviceHealth") {
             };
             serviceHealthIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+        /// Retrieve the properties and relationships of a serviceHealth object. This operation provides the health information of a specified service for a tenant.
         /// </summary>
         public class ServiceHealthItemRequestBuilderGetQueryParameters 
         {

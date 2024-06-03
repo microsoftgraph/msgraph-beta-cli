@@ -16,20 +16,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.User {
+namespace ApiSdk.Education.Me.User
+{
     /// <summary>
     /// Provides operations to manage the user property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class UserRequestBuilder : BaseCliRequestBuilder 
+    public class UserRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get user from education
+        /// Retrieve the simple directory user that corresponds to this educationUser.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get user from education";
+            command.Description = "Retrieve the simple directory user that corresponds to this educationUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationuser-get-user?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -124,7 +126,7 @@ namespace ApiSdk.Education.Me.User {
         {
         }
         /// <summary>
-        /// Get user from education
+        /// Retrieve the simple directory user that corresponds to this educationUser.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -143,7 +145,7 @@ namespace ApiSdk.Education.Me.User {
             return requestInfo;
         }
         /// <summary>
-        /// Get user from education
+        /// Retrieve the simple directory user that corresponds to this educationUser.
         /// </summary>
         public class UserRequestBuilderGetQueryParameters 
         {

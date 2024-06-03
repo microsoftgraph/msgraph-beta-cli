@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.AppRoleAssignments.Item {
+namespace ApiSdk.Users.Item.AppRoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
     /// </summary>
-    public class AppRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property appRoleAssignments for users
+        /// Delete an appRoleAssignment that has been granted to a user.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-delete-approleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property appRoleAssignments for users";
+            command.Description = "Delete an appRoleAssignment that has been granted to a user.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-delete-approleassignments?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -198,7 +200,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property appRoleAssignments for users
+        /// Delete an appRoleAssignment that has been granted to a user.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Reports.Security.GetAttackSimulationRepeatOffenders {
+namespace ApiSdk.Reports.Security.GetAttackSimulationRepeatOffenders
+{
     #pragma warning disable CS1591
-    public class GetAttackSimulationRepeatOffendersGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetAttackSimulationRepeatOffendersGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Reports.Security.GetAttackSimulationRepeatOffenders {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<AttackSimulationRepeatOffender>(AttackSimulationRepeatOffender.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<AttackSimulationRepeatOffender>(AttackSimulationRepeatOffender.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceCategory {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.DeviceCategory
+{
     /// <summary>
     /// Provides operations to manage the deviceCategory property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class DeviceCategoryRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceCategoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceCategory for users

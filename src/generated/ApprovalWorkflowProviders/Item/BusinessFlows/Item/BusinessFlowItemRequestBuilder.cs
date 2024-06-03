@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
+{
     /// <summary>
     /// Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.
     /// </summary>
-    public class BusinessFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class BusinessFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property businessFlows for approvalWorkflowProviders

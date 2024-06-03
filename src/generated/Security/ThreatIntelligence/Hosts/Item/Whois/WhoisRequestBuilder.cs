@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Whois {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Whois
+{
     /// <summary>
     /// Provides operations to manage the whois property of the microsoft.graph.security.host entity.
     /// </summary>
-    public class WhoisRequestBuilder : BaseCliRequestBuilder 
+    public class WhoisRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// The most recent whoisRecord for this host.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The most recent whoisRecord for this host.";
+            command.Description = "Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-whoisrecord-get?view=graph-rest-beta";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Whois {
         {
         }
         /// <summary>
-        /// The most recent whoisRecord for this host.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Whois {
             return requestInfo;
         }
         /// <summary>
-        /// The most recent whoisRecord for this host.
+        /// Get the specified whoisRecord resource.  Specify the desired whoisRecord in one of the following two ways:- Identify a host and get its current whoisRecord. - Specify an id value to get the corresponding whoisRecord.
         /// </summary>
         public class WhoisRequestBuilderGetQueryParameters 
         {

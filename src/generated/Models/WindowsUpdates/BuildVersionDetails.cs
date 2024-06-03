@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class BuildVersionDetails : IAdditionalDataHolder, IParsable 
+    public class BuildVersionDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,11 +53,11 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"buildNumber", n => { BuildNumber = n.GetIntValue(); } },
-                {"majorVersion", n => { MajorVersion = n.GetIntValue(); } },
-                {"minorVersion", n => { MinorVersion = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"updateBuildRevision", n => { UpdateBuildRevision = n.GetIntValue(); } },
+                { "buildNumber", n => { BuildNumber = n.GetIntValue(); } },
+                { "majorVersion", n => { MajorVersion = n.GetIntValue(); } },
+                { "minorVersion", n => { MinorVersion = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "updateBuildRevision", n => { UpdateBuildRevision = n.GetIntValue(); } },
             };
         }
         /// <summary>

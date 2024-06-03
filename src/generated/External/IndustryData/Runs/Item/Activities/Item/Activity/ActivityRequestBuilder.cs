@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.Runs.Item.Activities.Item.Activity {
+namespace ApiSdk.External.IndustryData.Runs.Item.Activities.Item.Activity
+{
     /// <summary>
     /// Provides operations to manage the activity property of the microsoft.graph.industryData.industryDataRunActivity entity.
     /// </summary>
-    public class ActivityRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The flow that was run by this activity.

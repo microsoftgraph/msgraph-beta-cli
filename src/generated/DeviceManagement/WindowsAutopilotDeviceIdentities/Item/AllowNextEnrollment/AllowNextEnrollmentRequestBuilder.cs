@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AllowNextEnrollment {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AllowNextEnrollment
+{
     /// <summary>
     /// Provides operations to call the allowNextEnrollment method.
     /// </summary>
-    public class AllowNextEnrollmentRequestBuilder : BaseCliRequestBuilder 
+    public class AllowNextEnrollmentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Unblocks next autopilot enrollment.

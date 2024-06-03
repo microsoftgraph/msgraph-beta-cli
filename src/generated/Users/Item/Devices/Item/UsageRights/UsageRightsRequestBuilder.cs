@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Devices.Item.UsageRights {
+namespace ApiSdk.Users.Item.Devices.Item.UsageRights
+{
     /// <summary>
     /// Provides operations to manage the usageRights property of the microsoft.graph.device entity.
     /// </summary>
-    public class UsageRightsRequestBuilder : BaseCliRequestBuilder 
+    public class UsageRightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the usageRights property of the microsoft.graph.device entity.
@@ -204,7 +205,9 @@ namespace ApiSdk.Users.Item.Devices.Item.UsageRights {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

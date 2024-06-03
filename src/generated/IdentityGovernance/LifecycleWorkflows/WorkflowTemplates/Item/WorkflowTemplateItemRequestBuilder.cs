@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.WorkflowTemplates.Item {
+namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.WorkflowTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
     /// </summary>
-    public class WorkflowTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkflowTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// The workflow templates in the lifecycle workflow instance.
+        /// Read the properties and relationships of a workflowTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The workflow templates in the lifecycle workflow instance.";
+            command.Description = "Read the properties and relationships of a workflowTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitygovernance-workflowtemplate-get?view=graph-rest-beta";
             var workflowTemplateIdOption = new Option<string>("--workflow-template-id", description: "The unique identifier of workflowTemplate") {
             };
             workflowTemplateIdOption.IsRequired = true;
@@ -114,7 +116,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.WorkflowTemplates.Item {
         {
         }
         /// <summary>
-        /// The workflow templates in the lifecycle workflow instance.
+        /// Read the properties and relationships of a workflowTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -133,7 +135,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.WorkflowTemplates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The workflow templates in the lifecycle workflow instance.
+        /// Read the properties and relationships of a workflowTemplate object.
         /// </summary>
         public class WorkflowTemplateItemRequestBuilderGetQueryParameters 
         {

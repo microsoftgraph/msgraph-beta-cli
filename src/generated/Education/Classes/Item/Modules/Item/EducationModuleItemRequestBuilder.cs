@@ -19,20 +19,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Classes.Item.Modules.Item {
+namespace ApiSdk.Education.Classes.Item.Modules.Item
+{
     /// <summary>
     /// Provides operations to manage the modules property of the microsoft.graph.educationClass entity.
     /// </summary>
-    public class EducationModuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationModuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property modules for education
+        /// Delete an existing module in a class. Only teachers within a class can delete modules.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property modules for education";
+            command.Description = "Delete an existing module in a class. Only teachers within a class can delete modules.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-delete?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -67,13 +69,14 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
             return command;
         }
         /// <summary>
-        /// All modules in the class. Nullable.
+        /// Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "All modules in the class. Nullable.";
+            command.Description = "Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-get?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -125,13 +128,14 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property modules in education
+        /// Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can&apos;t use a PATCH request to change the status of a module. Use the publish action to change the module status.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationmodule-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property modules in education";
+            command.Description = "Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can't use a PATCH request to change the status of a module. Use the publish action to change the module status.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationmodule-update?view=graph-rest-beta";
             var educationClassIdOption = new Option<string>("--education-class-id", description: "The unique identifier of educationClass") {
             };
             educationClassIdOption.IsRequired = true;
@@ -291,7 +295,7 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property modules for education
+        /// Delete an existing module in a class. Only teachers within a class can delete modules.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -310,7 +314,7 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All modules in the class. Nullable.
+        /// Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -329,7 +333,7 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property modules in education
+        /// Update an educationModule object in a class. Only teachers in the class can perform this operation. Note that you can&apos;t use a PATCH request to change the status of a module. Use the publish action to change the module status.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -350,7 +354,7 @@ namespace ApiSdk.Education.Classes.Item.Modules.Item {
             return requestInfo;
         }
         /// <summary>
-        /// All modules in the class. Nullable.
+        /// Get the properties and relationships of a module. Only teachers, students, and applications with application permissions can perform this operation. Students can only see published modules; teachers and applications with application permissions can see all modules in a class.
         /// </summary>
         public class EducationModuleItemRequestBuilderGetQueryParameters 
         {

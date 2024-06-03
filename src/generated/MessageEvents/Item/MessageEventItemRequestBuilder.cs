@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageEvents.Item {
+namespace ApiSdk.MessageEvents.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of messageEvent entities.
     /// </summary>
-    public class MessageEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from messageEvents

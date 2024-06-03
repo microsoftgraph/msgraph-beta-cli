@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Presenters.Item.Sessions.Item {
+namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Presenters.Item.Sessions.Item
+{
     /// <summary>
     /// Provides operations to manage the sessions property of the microsoft.graph.virtualEventPresenter entity.
     /// </summary>
-    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventSessionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get sessions from solutions

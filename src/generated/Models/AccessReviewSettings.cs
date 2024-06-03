@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessReviewSettings : IAdditionalDataHolder, IParsable 
+    public class AccessReviewSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether showing recommendations to reviewers is enabled.</summary>
@@ -79,16 +80,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessRecommendationsEnabled", n => { AccessRecommendationsEnabled = n.GetBoolValue(); } },
-                {"activityDurationInDays", n => { ActivityDurationInDays = n.GetIntValue(); } },
-                {"autoApplyReviewResultsEnabled", n => { AutoApplyReviewResultsEnabled = n.GetBoolValue(); } },
-                {"autoReviewEnabled", n => { AutoReviewEnabled = n.GetBoolValue(); } },
-                {"autoReviewSettings", n => { AutoReviewSettings = n.GetObjectValue<ApiSdk.Models.AutoReviewSettings>(ApiSdk.Models.AutoReviewSettings.CreateFromDiscriminatorValue); } },
-                {"justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
-                {"mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"recurrenceSettings", n => { RecurrenceSettings = n.GetObjectValue<AccessReviewRecurrenceSettings>(AccessReviewRecurrenceSettings.CreateFromDiscriminatorValue); } },
-                {"remindersEnabled", n => { RemindersEnabled = n.GetBoolValue(); } },
+                { "accessRecommendationsEnabled", n => { AccessRecommendationsEnabled = n.GetBoolValue(); } },
+                { "activityDurationInDays", n => { ActivityDurationInDays = n.GetIntValue(); } },
+                { "autoApplyReviewResultsEnabled", n => { AutoApplyReviewResultsEnabled = n.GetBoolValue(); } },
+                { "autoReviewEnabled", n => { AutoReviewEnabled = n.GetBoolValue(); } },
+                { "autoReviewSettings", n => { AutoReviewSettings = n.GetObjectValue<ApiSdk.Models.AutoReviewSettings>(ApiSdk.Models.AutoReviewSettings.CreateFromDiscriminatorValue); } },
+                { "justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
+                { "mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "recurrenceSettings", n => { RecurrenceSettings = n.GetObjectValue<AccessReviewRecurrenceSettings>(AccessReviewRecurrenceSettings.CreateFromDiscriminatorValue); } },
+                { "remindersEnabled", n => { RemindersEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

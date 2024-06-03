@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CartToClassAssociations.Item {
+namespace ApiSdk.DeviceManagement.CartToClassAssociations.Item
+{
     /// <summary>
     /// Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class CartToClassAssociationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CartToClassAssociationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cartToClassAssociations for deviceManagement

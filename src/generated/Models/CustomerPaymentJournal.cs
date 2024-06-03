@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomerPaymentJournal : IAdditionalDataHolder, IParsable 
+    public class CustomerPaymentJournal : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -90,15 +91,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
-                {"balancingAccountId", n => { BalancingAccountId = n.GetGuidValue(); } },
-                {"balancingAccountNumber", n => { BalancingAccountNumber = n.GetStringValue(); } },
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"customerPayments", n => { CustomerPayments = n.GetCollectionOfObjectValues<CustomerPayment>(CustomerPayment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "account", n => { Account = n.GetObjectValue<ApiSdk.Models.Account>(ApiSdk.Models.Account.CreateFromDiscriminatorValue); } },
+                { "balancingAccountId", n => { BalancingAccountId = n.GetGuidValue(); } },
+                { "balancingAccountNumber", n => { BalancingAccountNumber = n.GetStringValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "customerPayments", n => { CustomerPayments = n.GetCollectionOfObjectValues<CustomerPayment>(CustomerPayment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

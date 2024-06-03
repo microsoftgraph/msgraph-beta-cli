@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Constraint that enforces the maximum number of elements a collection
     /// </summary>
-    public class DeviceManagementSettingCollectionConstraint : DeviceManagementConstraint, IParsable 
+    public class DeviceManagementSettingCollectionConstraint : DeviceManagementConstraint, IParsable
     {
         /// <summary>The maximum number of elements in the collection</summary>
         public int? MaximumLength { get; set; }
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"maximumLength", n => { MaximumLength = n.GetIntValue(); } },
-                {"minimumLength", n => { MinimumLength = n.GetIntValue(); } },
+                { "maximumLength", n => { MaximumLength = n.GetIntValue(); } },
+                { "minimumLength", n => { MinimumLength = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TimeConstraint : IAdditionalDataHolder, IParsable 
+    public class TimeConstraint : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.</summary>
@@ -54,9 +55,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activityDomain", n => { ActivityDomain = n.GetEnumValue<ActivityDomain>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"timeSlots", n => { TimeSlots = n.GetCollectionOfObjectValues<TimeSlot>(TimeSlot.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activityDomain", n => { ActivityDomain = n.GetEnumValue<ActivityDomain>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "timeSlots", n => { TimeSlots = n.GetCollectionOfObjectValues<TimeSlot>(TimeSlot.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

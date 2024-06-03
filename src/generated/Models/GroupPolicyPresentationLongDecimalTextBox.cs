@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents an ADMX longDecimalTextBox element and an ADMX longDecimal element.
     /// </summary>
-    public class GroupPolicyPresentationLongDecimalTextBox : GroupPolicyUploadedPresentation, IParsable 
+    public class GroupPolicyPresentationLongDecimalTextBox : GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.</summary>
         public long? DefaultValue { get; set; }
@@ -47,12 +48,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetLongValue(); } },
-                {"maxValue", n => { MaxValue = n.GetLongValue(); } },
-                {"minValue", n => { MinValue = n.GetLongValue(); } },
-                {"required", n => { Required = n.GetBoolValue(); } },
-                {"spin", n => { Spin = n.GetBoolValue(); } },
-                {"spinStep", n => { SpinStep = n.GetLongValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetLongValue(); } },
+                { "maxValue", n => { MaxValue = n.GetLongValue(); } },
+                { "minValue", n => { MinValue = n.GetLongValue(); } },
+                { "required", n => { Required = n.GetBoolValue(); } },
+                { "spin", n => { Spin = n.GetBoolValue(); } },
+                { "spinStep", n => { SpinStep = n.GetLongValue(); } },
             };
         }
         /// <summary>

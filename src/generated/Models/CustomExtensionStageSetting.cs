@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CustomExtensionStageSetting : Entity, IParsable 
+    public class CustomExtensionStageSetting : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the custom workflow extension that is executed at this stage. Nullable. Supports $expand.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customExtension", n => { CustomExtension = n.GetObjectValue<CustomCalloutExtension>(CustomCalloutExtension.CreateFromDiscriminatorValue); } },
-                {"stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
+                { "customExtension", n => { CustomExtension = n.GetObjectValue<CustomCalloutExtension>(CustomCalloutExtension.CreateFromDiscriminatorValue); } },
+                { "stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
             };
         }
         /// <summary>

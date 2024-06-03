@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs
+{
     /// <summary>
     /// Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPCsRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPCsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the bulkResize method.
@@ -69,7 +70,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
             commands.Add(builder.BuildReprovisionNavCommand());
             commands.Add(builder.BuildResizeNavCommand());
             commands.Add(builder.BuildRestoreNavCommand());
+            commands.Add(builder.BuildRetrieveReviewStatusNavCommand());
             commands.Add(builder.BuildRetryPartnerAgentInstallationNavCommand());
+            commands.Add(builder.BuildSetReviewStatusNavCommand());
             commands.Add(builder.BuildStartNavCommand());
             commands.Add(builder.BuildStopNavCommand());
             commands.Add(builder.BuildTroubleshootNavCommand());
@@ -155,13 +158,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
             return command;
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// List the cloudPC devices in a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Cloud managed virtual desktops.";
+            command.Description = "List the cloudPC devices in a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualendpoint-list-cloudpcs?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -237,7 +241,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -280,7 +286,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
         {
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// List the cloudPC devices in a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -320,7 +326,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud managed virtual desktops.
+        /// List the cloudPC devices in a tenant.
         /// </summary>
         public class CloudPCsRequestBuilderGetQueryParameters 
         {

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics battery health capacity entity contains count of devices broken down into 3 categories - devices with capacity &gt; 80%, devices with capacity 50-80% and devices with capacity &lt; 50 %.This API provides the count of devices in these 3 categories..
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthCapacityDetails : Entity, IParsable 
+    public class UserExperienceAnalyticsBatteryHealthCapacityDetails : Entity, IParsable
     {
         /// <summary>Number of active devices within the tenant. Valid values 0 to 2147483647</summary>
         public int? ActiveDevices { get; set; }
@@ -38,11 +39,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeDevices", n => { ActiveDevices = n.GetIntValue(); } },
-                {"batteryCapacityFair", n => { BatteryCapacityFair = n.GetIntValue(); } },
-                {"batteryCapacityGood", n => { BatteryCapacityGood = n.GetIntValue(); } },
-                {"batteryCapacityPoor", n => { BatteryCapacityPoor = n.GetIntValue(); } },
-                {"lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "activeDevices", n => { ActiveDevices = n.GetIntValue(); } },
+                { "batteryCapacityFair", n => { BatteryCapacityFair = n.GetIntValue(); } },
+                { "batteryCapacityGood", n => { BatteryCapacityGood = n.GetIntValue(); } },
+                { "batteryCapacityPoor", n => { BatteryCapacityPoor = n.GetIntValue(); } },
+                { "lastRefreshedDateTime", n => { LastRefreshedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

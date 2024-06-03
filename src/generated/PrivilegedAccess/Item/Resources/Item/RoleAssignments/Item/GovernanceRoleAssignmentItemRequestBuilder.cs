@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the roleAssignments property of the microsoft.graph.governanceResource entity.
     /// </summary>
-    public class GovernanceRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceRoleAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleAssignments for privilegedAccess

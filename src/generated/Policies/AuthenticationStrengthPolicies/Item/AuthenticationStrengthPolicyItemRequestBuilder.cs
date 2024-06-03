@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
+namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class AuthenticationStrengthPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationStrengthPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property authenticationStrengthPolicies for policies
+        /// Delete a custom authenticationStrengthPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property authenticationStrengthPolicies for policies";
+            command.Description = "Delete a custom authenticationStrengthPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-beta";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
             };
             authenticationStrengthPolicyIdOption.IsRequired = true;
@@ -86,13 +88,14 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+        /// Read the properties and relationships of an authenticationStrengthPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.";
+            command.Description = "Read the properties and relationships of an authenticationStrengthPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-beta";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
             };
             authenticationStrengthPolicyIdOption.IsRequired = true;
@@ -138,13 +141,14 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property authenticationStrengthPolicies in policies
+        /// Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property authenticationStrengthPolicies in policies";
+            command.Description = "Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-beta";
             var authenticationStrengthPolicyIdOption = new Option<string>("--authentication-strength-policy-id", description: "The unique identifier of authenticationStrengthPolicy") {
             };
             authenticationStrengthPolicyIdOption.IsRequired = true;
@@ -237,7 +241,7 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property authenticationStrengthPolicies for policies
+        /// Delete a custom authenticationStrengthPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,7 +260,7 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+        /// Read the properties and relationships of an authenticationStrengthPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -275,7 +279,7 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property authenticationStrengthPolicies in policies
+        /// Update the properties of an authenticationStrengthPolicy object. You cannot update the allowed auth method combinations using this request. To do so, use the Update allowed combinations action.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -296,7 +300,7 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.
+        /// Read the properties and relationships of an authenticationStrengthPolicy object.
         /// </summary>
         public class AuthenticationStrengthPolicyItemRequestBuilderGetQueryParameters 
         {

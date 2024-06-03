@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Schema describing an Android application&apos;s custom configurations.
     /// </summary>
-    public class AndroidManagedStoreAppConfigurationSchema : Entity, IParsable 
+    public class AndroidManagedStoreAppConfigurationSchema : Entity, IParsable
     {
         /// <summary>UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exampleJson", n => { ExampleJson = n.GetByteArrayValue(); } },
-                {"nestedSchemaItems", n => { NestedSchemaItems = n.GetCollectionOfObjectValues<AndroidManagedStoreAppConfigurationSchemaItem>(AndroidManagedStoreAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"schemaItems", n => { SchemaItems = n.GetCollectionOfObjectValues<AndroidManagedStoreAppConfigurationSchemaItem>(AndroidManagedStoreAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exampleJson", n => { ExampleJson = n.GetByteArrayValue(); } },
+                { "nestedSchemaItems", n => { NestedSchemaItems = n.GetCollectionOfObjectValues<AndroidManagedStoreAppConfigurationSchemaItem>(AndroidManagedStoreAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schemaItems", n => { SchemaItems = n.GetCollectionOfObjectValues<AndroidManagedStoreAppConfigurationSchemaItem>(AndroidManagedStoreAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

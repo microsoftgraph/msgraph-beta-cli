@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources
+{
     /// <summary>
     /// Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
     /// </summary>
-    public class PublishedResourcesRequestBuilder : BaseCliRequestBuilder 
+    public class PublishedResourcesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.
@@ -106,13 +107,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources {
             return command;
         }
         /// <summary>
-        /// List of existing publishedResource objects. Read-only. Nullable.
+        /// Retrieve a list of publishedResource objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/publishedresource-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "List of existing publishedResource objects. Read-only. Nullable.";
+            command.Description = "Retrieve a list of publishedResource objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/publishedresource-list?view=graph-rest-beta";
             var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
             };
             onPremisesPublishingProfileIdOption.IsRequired = true;
@@ -194,7 +196,9 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +224,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources {
         {
         }
         /// <summary>
-        /// List of existing publishedResource objects. Read-only. Nullable.
+        /// Retrieve a list of publishedResource objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +264,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources {
             return requestInfo;
         }
         /// <summary>
-        /// List of existing publishedResource objects. Read-only. Nullable.
+        /// Retrieve a list of publishedResource objects.
         /// </summary>
         public class PublishedResourcesRequestBuilderGetQueryParameters 
         {

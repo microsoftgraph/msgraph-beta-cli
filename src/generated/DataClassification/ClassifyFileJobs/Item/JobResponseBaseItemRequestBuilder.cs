@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ClassifyFileJobs.Item {
+namespace ApiSdk.DataClassification.ClassifyFileJobs.Item
+{
     /// <summary>
     /// Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class JobResponseBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class JobResponseBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property classifyFileJobs for dataClassification

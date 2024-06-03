@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing configurations in this profile you can instruct the Nine Work email client on Android Work Profile devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class AndroidWorkProfileNineWorkEasConfiguration : AndroidWorkProfileEasEmailProfileBase, IParsable 
+    public class AndroidWorkProfileNineWorkEasConfiguration : AndroidWorkProfileEasEmailProfileBase, IParsable
     {
         /// <summary>Toggles syncing the calendar. If set to false the calendar is turned off on the device.</summary>
         public bool? SyncCalendar { get; set; }
@@ -41,9 +42,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
-                {"syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
-                {"syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
+                { "syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
+                { "syncContacts", n => { SyncContacts = n.GetBoolValue(); } },
+                { "syncTasks", n => { SyncTasks = n.GetBoolValue(); } },
             };
         }
         /// <summary>

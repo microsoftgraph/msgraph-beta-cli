@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SkypeUserConversationMember : ConversationMember, IParsable 
+    public class SkypeUserConversationMember : ConversationMember, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Skype ID of the user.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"skypeId", n => { SkypeId = n.GetStringValue(); } },
+                { "skypeId", n => { SkypeId = n.GetStringValue(); } },
             };
         }
         /// <summary>

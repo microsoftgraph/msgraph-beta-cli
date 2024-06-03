@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.SensitivityLabels.Item.Sublabels.Evaluate {
+namespace ApiSdk.InformationProtection.SensitivityLabels.Item.Sublabels.Evaluate
+{
     /// <summary>
     /// Provides operations to call the evaluate method.
     /// </summary>
-    public class EvaluateRequestBuilder : BaseCliRequestBuilder 
+    public class EvaluateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action evaluate

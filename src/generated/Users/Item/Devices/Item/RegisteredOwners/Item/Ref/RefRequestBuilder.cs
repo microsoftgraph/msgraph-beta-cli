@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.Ref {
+namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of user entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property registeredOwners for users

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnPremisesCurrentExportData : IAdditionalDataHolder, IParsable 
+    public class OnPremisesCurrentExportData : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -72,15 +73,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"clientMachineName", n => { ClientMachineName = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"pendingObjectsAddition", n => { PendingObjectsAddition = n.GetIntValue(); } },
-                {"pendingObjectsDeletion", n => { PendingObjectsDeletion = n.GetIntValue(); } },
-                {"pendingObjectsUpdate", n => { PendingObjectsUpdate = n.GetIntValue(); } },
-                {"serviceAccount", n => { ServiceAccount = n.GetStringValue(); } },
-                {"successfulLinksProvisioningCount", n => { SuccessfulLinksProvisioningCount = n.GetLongValue(); } },
-                {"successfulObjectsProvisioningCount", n => { SuccessfulObjectsProvisioningCount = n.GetIntValue(); } },
-                {"totalConnectorSpaceObjects", n => { TotalConnectorSpaceObjects = n.GetIntValue(); } },
+                { "clientMachineName", n => { ClientMachineName = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "pendingObjectsAddition", n => { PendingObjectsAddition = n.GetIntValue(); } },
+                { "pendingObjectsDeletion", n => { PendingObjectsDeletion = n.GetIntValue(); } },
+                { "pendingObjectsUpdate", n => { PendingObjectsUpdate = n.GetIntValue(); } },
+                { "serviceAccount", n => { ServiceAccount = n.GetStringValue(); } },
+                { "successfulLinksProvisioningCount", n => { SuccessfulLinksProvisioningCount = n.GetLongValue(); } },
+                { "successfulObjectsProvisioningCount", n => { SuccessfulObjectsProvisioningCount = n.GetIntValue(); } },
+                { "totalConnectorSpaceObjects", n => { TotalConnectorSpaceObjects = n.GetIntValue(); } },
             };
         }
         /// <summary>

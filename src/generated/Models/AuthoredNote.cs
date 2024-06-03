@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthoredNote : Entity, IParsable 
+    public class AuthoredNote : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Identity information about the note&apos;s author.</summary>
@@ -45,9 +46,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"author", n => { Author = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
-                {"content", n => { Content = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "author", n => { Author = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

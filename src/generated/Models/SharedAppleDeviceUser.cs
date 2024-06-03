@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharedAppleDeviceUser : IAdditionalDataHolder, IParsable 
+    public class SharedAppleDeviceUser : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,11 +59,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dataQuota", n => { DataQuota = n.GetLongValue(); } },
-                {"dataToSync", n => { DataToSync = n.GetBoolValue(); } },
-                {"dataUsed", n => { DataUsed = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "dataQuota", n => { DataQuota = n.GetLongValue(); } },
+                { "dataToSync", n => { DataToSync = n.GetBoolValue(); } },
+                { "dataUsed", n => { DataUsed = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

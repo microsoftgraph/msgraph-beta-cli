@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CustomerPayments {
+namespace ApiSdk.Financials.Companies.Item.CustomerPayments
+{
     /// <summary>
     /// Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
     /// </summary>
-    public class CustomerPaymentsRequestBuilder : BaseCliRequestBuilder 
+    public class CustomerPaymentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customerPayments property of the microsoft.graph.company entity.
@@ -62,7 +63,7 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPayments {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to customerPayments for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -113,7 +114,7 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPayments {
         {
             var command = new Command("list");
             command.Description = "Get customerPayments from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
@@ -194,7 +195,9 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPayments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

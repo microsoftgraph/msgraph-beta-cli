@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
     /// </summary>
-    public class TeamsAppDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.
@@ -220,13 +221,14 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property appDefinitions in appCatalogs
+        /// Publish an app to the Microsoft Teams app catalog.Specifically, this API publishes the app to your organization&apos;s catalog (the tenant app catalog);the created resource has a distributionMethod property value of organization. The requiresReview property allows any user to submit an app for review by an administrator. Admins can approve or reject these apps via this API or the Microsoft Teams admin center.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsapp-publish?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property appDefinitions in appCatalogs";
+            command.Description = "Publish an app to the Microsoft Teams app catalog.Specifically, this API publishes the app to your organization's catalog (the tenant app catalog);the created resource has a distributionMethod property value of organization. The requiresReview property allows any user to submit an app for review by an administrator. Admins can approve or reject these apps via this API or the Microsoft Teams admin center.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsapp-publish?view=graph-rest-beta";
             var teamsAppIdOption = new Option<string>("--teams-app-id", description: "The unique identifier of teamsApp") {
             };
             teamsAppIdOption.IsRequired = true;
@@ -329,7 +331,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property appDefinitions in appCatalogs
+        /// Publish an app to the Microsoft Teams app catalog.Specifically, this API publishes the app to your organization&apos;s catalog (the tenant app catalog);the created resource has a distributionMethod property value of organization. The requiresReview property allows any user to submit an app for review by an administrator. Admins can approve or reject these apps via this API or the Microsoft Teams admin center.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

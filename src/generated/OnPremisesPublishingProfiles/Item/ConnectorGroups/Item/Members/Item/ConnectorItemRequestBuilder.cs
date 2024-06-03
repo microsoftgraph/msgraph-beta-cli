@@ -10,11 +10,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \onPremisesPublishingProfiles\{onPremisesPublishingProfile-id}\connectorGroups\{connectorGroup-id}\members\{connector-id}
     /// </summary>
-    public class ConnectorItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of onPremisesPublishingProfile entities.

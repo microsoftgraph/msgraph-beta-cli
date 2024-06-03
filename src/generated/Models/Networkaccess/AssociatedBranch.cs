@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class AssociatedBranch : Association, IParsable 
+    public class AssociatedBranch : Association, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Identifier for the branch.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"branchId", n => { BranchId = n.GetStringValue(); } },
+                { "branchId", n => { BranchId = n.GetStringValue(); } },
             };
         }
         /// <summary>

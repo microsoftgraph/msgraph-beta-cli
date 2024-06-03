@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrinterCreateOperation : PrintOperation, IParsable 
+    public class PrinterCreateOperation : PrintOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The signed certificate created during the registration process. Read-only.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificate", n => { Certificate = n.GetStringValue(); } },
-                {"printer", n => { Printer = n.GetObjectValue<ApiSdk.Models.Printer>(ApiSdk.Models.Printer.CreateFromDiscriminatorValue); } },
+                { "certificate", n => { Certificate = n.GetStringValue(); } },
+                { "printer", n => { Printer = n.GetObjectValue<ApiSdk.Models.Printer>(ApiSdk.Models.Printer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

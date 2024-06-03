@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.Windows.Item {
+namespace ApiSdk.Users.Item.Settings.Windows.Item
+{
     /// <summary>
     /// Provides operations to manage the windows property of the microsoft.graph.userSettings entity.
     /// </summary>
-    public class WindowsSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windows for users

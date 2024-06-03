@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GoalsExportJob : LongRunningOperation, IParsable 
+    public class GoalsExportJob : LongRunningOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content of the goalsExportJob.</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetByteArrayValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"explorerViewId", n => { ExplorerViewId = n.GetStringValue(); } },
-                {"goalsOrganizationId", n => { GoalsOrganizationId = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetByteArrayValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "explorerViewId", n => { ExplorerViewId = n.GetStringValue(); } },
+                { "goalsOrganizationId", n => { GoalsOrganizationId = n.GetStringValue(); } },
             };
         }
         /// <summary>

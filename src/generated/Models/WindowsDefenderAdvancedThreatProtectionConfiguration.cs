@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Defender AdvancedThreatProtection Configuration.
     /// </summary>
-    public class WindowsDefenderAdvancedThreatProtectionConfiguration : DeviceConfiguration, IParsable 
+    public class WindowsDefenderAdvancedThreatProtectionConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Auto populate onboarding blob programmatically from Advanced Threat protection service</summary>
         public bool? AdvancedThreatProtectionAutoPopulateOnboardingBlob { get; set; }
@@ -73,13 +74,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"advancedThreatProtectionAutoPopulateOnboardingBlob", n => { AdvancedThreatProtectionAutoPopulateOnboardingBlob = n.GetBoolValue(); } },
-                {"advancedThreatProtectionOffboardingBlob", n => { AdvancedThreatProtectionOffboardingBlob = n.GetStringValue(); } },
-                {"advancedThreatProtectionOffboardingFilename", n => { AdvancedThreatProtectionOffboardingFilename = n.GetStringValue(); } },
-                {"advancedThreatProtectionOnboardingBlob", n => { AdvancedThreatProtectionOnboardingBlob = n.GetStringValue(); } },
-                {"advancedThreatProtectionOnboardingFilename", n => { AdvancedThreatProtectionOnboardingFilename = n.GetStringValue(); } },
-                {"allowSampleSharing", n => { AllowSampleSharing = n.GetBoolValue(); } },
-                {"enableExpeditedTelemetryReporting", n => { EnableExpeditedTelemetryReporting = n.GetBoolValue(); } },
+                { "advancedThreatProtectionAutoPopulateOnboardingBlob", n => { AdvancedThreatProtectionAutoPopulateOnboardingBlob = n.GetBoolValue(); } },
+                { "advancedThreatProtectionOffboardingBlob", n => { AdvancedThreatProtectionOffboardingBlob = n.GetStringValue(); } },
+                { "advancedThreatProtectionOffboardingFilename", n => { AdvancedThreatProtectionOffboardingFilename = n.GetStringValue(); } },
+                { "advancedThreatProtectionOnboardingBlob", n => { AdvancedThreatProtectionOnboardingBlob = n.GetStringValue(); } },
+                { "advancedThreatProtectionOnboardingFilename", n => { AdvancedThreatProtectionOnboardingFilename = n.GetStringValue(); } },
+                { "allowSampleSharing", n => { AllowSampleSharing = n.GetBoolValue(); } },
+                { "enableExpeditedTelemetryReporting", n => { EnableExpeditedTelemetryReporting = n.GetBoolValue(); } },
             };
         }
         /// <summary>

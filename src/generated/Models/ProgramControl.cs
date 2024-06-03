@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProgramControl : Entity, IParsable 
+    public class ProgramControl : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The controlId of the control, in particular the identifier of an access review. Required on create.</summary>
@@ -93,15 +94,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"controlId", n => { ControlId = n.GetStringValue(); } },
-                {"controlTypeId", n => { ControlTypeId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"owner", n => { Owner = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                {"program", n => { Program = n.GetObjectValue<ApiSdk.Models.Program>(ApiSdk.Models.Program.CreateFromDiscriminatorValue); } },
-                {"programId", n => { ProgramId = n.GetStringValue(); } },
-                {"resource", n => { Resource = n.GetObjectValue<ProgramResource>(ProgramResource.CreateFromDiscriminatorValue); } },
-                {"status", n => { Status = n.GetStringValue(); } },
+                { "controlId", n => { ControlId = n.GetStringValue(); } },
+                { "controlTypeId", n => { ControlTypeId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "program", n => { Program = n.GetObjectValue<ApiSdk.Models.Program>(ApiSdk.Models.Program.CreateFromDiscriminatorValue); } },
+                { "programId", n => { ProgramId = n.GetStringValue(); } },
+                { "resource", n => { Resource = n.GetObjectValue<ProgramResource>(ProgramResource.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetStringValue(); } },
             };
         }
         /// <summary>

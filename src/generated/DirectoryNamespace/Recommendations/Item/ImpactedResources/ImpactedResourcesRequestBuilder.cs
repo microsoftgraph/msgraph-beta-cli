@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources
+{
     /// <summary>
     /// Provides operations to manage the impactedResources property of the microsoft.graph.recommendationBase entity.
     /// </summary>
-    public class ImpactedResourcesRequestBuilder : BaseCliRequestBuilder 
+    public class ImpactedResourcesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the impactedResources property of the microsoft.graph.recommendationBase entity.
@@ -109,13 +110,14 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
             return command;
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Get the impactedResource objects for a recommendation.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recommendation-list-impactedresources?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The list of directory objects associated with the recommendation.";
+            command.Description = "Get the impactedResource objects for a recommendation.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recommendation-list-impactedresources?view=graph-rest-beta";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;
@@ -197,7 +199,9 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -223,7 +227,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
         {
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Get the impactedResource objects for a recommendation.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -263,7 +267,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources {
             return requestInfo;
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Get the impactedResource objects for a recommendation.
         /// </summary>
         public class ImpactedResourcesRequestBuilderGetQueryParameters 
         {

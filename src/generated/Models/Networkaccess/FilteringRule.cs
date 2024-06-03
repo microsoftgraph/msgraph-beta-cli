@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class FilteringRule : PolicyRule, IParsable 
+    public class FilteringRule : PolicyRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Possible destinations and types of destinations accessed by the user in accordance with the network filtering policy, such as IP addresses and FQDNs/URLs.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"destinations", n => { Destinations = n.GetCollectionOfObjectValues<RuleDestination>(RuleDestination.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"ruleType", n => { RuleType = n.GetEnumValue<NetworkDestinationType>(); } },
+                { "destinations", n => { Destinations = n.GetCollectionOfObjectValues<RuleDestination>(RuleDestination.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ruleType", n => { RuleType = n.GetEnumValue<NetworkDestinationType>(); } },
             };
         }
         /// <summary>

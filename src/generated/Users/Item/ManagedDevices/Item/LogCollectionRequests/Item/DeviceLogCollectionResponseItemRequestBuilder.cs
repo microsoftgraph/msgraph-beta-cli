@@ -2,7 +2,6 @@
 using ApiSdk.Models.ODataErrors;
 using ApiSdk.Models;
 using ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.CreateDownloadUrl;
-using ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item.DownloadDeviceLogs;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Cli.Commons.Extensions;
@@ -16,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class DeviceLogCollectionResponseItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLogCollectionResponseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the createDownloadUrl method.
@@ -84,23 +84,6 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.LogCollectionRequests.Item {
                 await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
                 Console.WriteLine("Success");
             });
-            return command;
-        }
-        /// <summary>
-        /// Provides operations to call the downloadDeviceLogs method.
-        /// </summary>
-        /// <returns>A <see cref="Command"/></returns>
-        public Command BuildDownloadDeviceLogsNavCommand()
-        {
-            var command = new Command("download-device-logs");
-            command.Description = "Provides operations to call the downloadDeviceLogs method.";
-            var builder = new DownloadDeviceLogsRequestBuilder(PathParameters);
-            var execCommands = new List<Command>();
-            execCommands.Add(builder.BuildPostCommand());
-            foreach (var cmd in execCommands)
-            {
-                command.AddCommand(cmd);
-            }
             return command;
         }
         /// <summary>

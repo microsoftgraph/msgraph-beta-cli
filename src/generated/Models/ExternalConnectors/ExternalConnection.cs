@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ExternalConnectors {
+namespace ApiSdk.Models.ExternalConnectors
+{
     #pragma warning disable CS1591
-    public class ExternalConnection : ApiSdk.Models.Entity, IParsable 
+    public class ExternalConnection : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Collects configurable settings related to activities involving connector content.</summary>
@@ -129,21 +130,21 @@ namespace ApiSdk.Models.ExternalConnectors {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activitySettings", n => { ActivitySettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.ActivitySettings>(ApiSdk.Models.ExternalConnectors.ActivitySettings.CreateFromDiscriminatorValue); } },
-                {"complianceSettings", n => { ComplianceSettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.ComplianceSettings>(ApiSdk.Models.ExternalConnectors.ComplianceSettings.CreateFromDiscriminatorValue); } },
-                {"configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.Configuration>(ApiSdk.Models.ExternalConnectors.Configuration.CreateFromDiscriminatorValue); } },
-                {"connectorId", n => { ConnectorId = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"enabledContentExperiences", n => { EnabledContentExperiences = n.GetEnumValue<ContentExperienceType>(); } },
-                {"groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"ingestedItemsCount", n => { IngestedItemsCount = n.GetLongValue(); } },
-                {"items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"quota", n => { Quota = n.GetObjectValue<ConnectionQuota>(ConnectionQuota.CreateFromDiscriminatorValue); } },
-                {"schema", n => { Schema = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.Schema>(ApiSdk.Models.ExternalConnectors.Schema.CreateFromDiscriminatorValue); } },
-                {"searchSettings", n => { SearchSettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.SearchSettings>(ApiSdk.Models.ExternalConnectors.SearchSettings.CreateFromDiscriminatorValue); } },
-                {"state", n => { State = n.GetEnumValue<ConnectionState>(); } },
+                { "activitySettings", n => { ActivitySettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.ActivitySettings>(ApiSdk.Models.ExternalConnectors.ActivitySettings.CreateFromDiscriminatorValue); } },
+                { "complianceSettings", n => { ComplianceSettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.ComplianceSettings>(ApiSdk.Models.ExternalConnectors.ComplianceSettings.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.Configuration>(ApiSdk.Models.ExternalConnectors.Configuration.CreateFromDiscriminatorValue); } },
+                { "connectorId", n => { ConnectorId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "enabledContentExperiences", n => { EnabledContentExperiences = n.GetEnumValue<ContentExperienceType>(); } },
+                { "groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ingestedItemsCount", n => { IngestedItemsCount = n.GetLongValue(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "quota", n => { Quota = n.GetObjectValue<ConnectionQuota>(ConnectionQuota.CreateFromDiscriminatorValue); } },
+                { "schema", n => { Schema = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.Schema>(ApiSdk.Models.ExternalConnectors.Schema.CreateFromDiscriminatorValue); } },
+                { "searchSettings", n => { SearchSettings = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.SearchSettings>(ApiSdk.Models.ExternalConnectors.SearchSettings.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetEnumValue<ConnectionState>(); } },
             };
         }
         /// <summary>

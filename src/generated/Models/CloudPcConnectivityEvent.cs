@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcConnectivityEvent : IAdditionalDataHolder, IParsable 
+    public class CloudPcConnectivityEvent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -66,12 +67,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"eventName", n => { EventName = n.GetStringValue(); } },
-                {"eventResult", n => { EventResult = n.GetEnumValue<CloudPcConnectivityEventResult>(); } },
-                {"eventType", n => { EventType = n.GetEnumValue<CloudPcConnectivityEventType>(); } },
-                {"message", n => { Message = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "eventName", n => { EventName = n.GetStringValue(); } },
+                { "eventResult", n => { EventResult = n.GetEnumValue<CloudPcConnectivityEventResult>(); } },
+                { "eventType", n => { EventType = n.GetEnumValue<CloudPcConnectivityEventType>(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

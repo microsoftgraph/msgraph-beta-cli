@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item
+{
     /// <summary>
     /// Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementTemplateStepVersionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateStepVersionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the acceptedFor property of the microsoft.graph.managedTenants.managementTemplateStepVersion entity.

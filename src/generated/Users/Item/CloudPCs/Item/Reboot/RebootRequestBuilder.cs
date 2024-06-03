@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item.Reboot {
+namespace ApiSdk.Users.Item.CloudPCs.Item.Reboot
+{
     /// <summary>
     /// Provides operations to call the reboot method.
     /// </summary>
-    public class RebootRequestBuilder : BaseCliRequestBuilder 
+    public class RebootRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Reboot a specific Cloud PC.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.TableRowOperationResultWithKey {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.TableRowOperationResultWithKey
+{
     /// <summary>
     /// Provides operations to call the tableRowOperationResult method.
     /// </summary>
-    public class TableRowOperationResultWithKeyRequestBuilder : BaseCliRequestBuilder 
+    public class TableRowOperationResultWithKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function tableRowOperationResult

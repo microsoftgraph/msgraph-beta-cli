@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.PermissionGrants {
+namespace ApiSdk.Chats.Item.PermissionGrants
+{
     /// <summary>
     /// Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
     /// </summary>
-    public class PermissionGrantsRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionGrantsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Chats.Item.PermissionGrants {
             return command;
         }
         /// <summary>
-        /// A collection of permissions granted to apps for the chat.
+        /// List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-list-permissiongrants?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of permissions granted to apps for the chat.";
+            command.Description = "List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-list-permissiongrants?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Chats.Item.PermissionGrants {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Chats.Item.PermissionGrants {
         {
         }
         /// <summary>
-        /// A collection of permissions granted to apps for the chat.
+        /// List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Chats.Item.PermissionGrants {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of permissions granted to apps for the chat.
+        /// List all resource-specific permission grants on the chat. This list specifies the Microsoft Entra apps that have access to the chat, along with the corresponding resource-specific access that each app has.
         /// </summary>
         public class PermissionGrantsRequestBuilderGetQueryParameters 
         {

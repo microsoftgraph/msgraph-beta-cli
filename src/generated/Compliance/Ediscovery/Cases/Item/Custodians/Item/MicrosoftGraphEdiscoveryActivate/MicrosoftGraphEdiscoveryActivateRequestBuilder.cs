@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryActivate {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryActivate
+{
     /// <summary>
     /// Provides operations to call the activate method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryActivateRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryActivateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Activate a custodian that has been released from a case to make them part of the case again. For details, see Manage custodians in an Advanced eDiscovery case.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows Log Collection request entity.
     /// </summary>
-    public class DeviceLogCollectionRequest : IAdditionalDataHolder, IParsable 
+    public class DeviceLogCollectionRequest : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,9 +56,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"templateType", n => { TemplateType = n.GetEnumValue<DeviceLogCollectionTemplateType>(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "templateType", n => { TemplateType = n.GetEnumValue<DeviceLogCollectionTemplateType>(); } },
             };
         }
         /// <summary>

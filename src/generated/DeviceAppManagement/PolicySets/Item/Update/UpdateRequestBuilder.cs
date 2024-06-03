@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update {
+namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
+{
     /// <summary>
     /// Provides operations to call the update method.
     /// </summary>
-    public class UpdateRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action update

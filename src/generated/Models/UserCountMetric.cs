@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserCountMetric : Entity, IParsable 
+    public class UserCountMetric : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The total number of users in the tenant over time.</summary>
@@ -40,9 +41,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"count", n => { Count = n.GetLongValue(); } },
-                {"factDate", n => { FactDate = n.GetDateValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
+                { "count", n => { Count = n.GetLongValue(); } },
+                { "factDate", n => { FactDate = n.GetDateValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
             };
         }
         /// <summary>

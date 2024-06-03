@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item {
+namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
+{
     /// <summary>
     /// Provides operations to manage the impactedResources property of the microsoft.graph.directory entity.
     /// </summary>
-    public class ImpactedResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ImpactedResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the complete method.

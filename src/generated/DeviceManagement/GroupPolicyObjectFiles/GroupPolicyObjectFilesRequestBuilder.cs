@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyObjectFiles {
+namespace ApiSdk.DeviceManagement.GroupPolicyObjectFiles
+{
     /// <summary>
     /// Provides operations to manage the groupPolicyObjectFiles property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class GroupPolicyObjectFilesRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyObjectFilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the groupPolicyObjectFiles property of the microsoft.graph.deviceManagement entity.
@@ -180,7 +181,9 @@ namespace ApiSdk.DeviceManagement.GroupPolicyObjectFiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationIdentitySynchronization {
+namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizationIdentitySynchronization
+{
     /// <summary>
     /// Provides operations to manage the multiTenantOrganizationIdentitySynchronization property of the microsoft.graph.policyTemplate entity.
     /// </summary>
-    public class MultiTenantOrganizationIdentitySynchronizationRequestBuilder : BaseCliRequestBuilder 
+    public class MultiTenantOrganizationIdentitySynchronizationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property multiTenantOrganizationIdentitySynchronization for policies
@@ -51,13 +52,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizat
             return command;
         }
         /// <summary>
-        /// Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+        /// Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.";
+            command.Description = "Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -97,13 +99,14 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizat
             return command;
         }
         /// <summary>
-        /// Update the navigation property multiTenantOrganizationIdentitySynchronization in policies
+        /// Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property multiTenantOrganizationIdentitySynchronization in policies";
+            command.Description = "Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganizationidentitysyncpolicytemplate-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizat
             return requestInfo;
         }
         /// <summary>
-        /// Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+        /// Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizat
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property multiTenantOrganizationIdentitySynchronization in policies
+        /// Update the cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Policies.CrossTenantAccessPolicy.Templates.MultiTenantOrganizat
             return requestInfo;
         }
         /// <summary>
-        /// Defines an optional cross-tenant access policy template with user synchronization settings for a multi-tenant organization.
+        /// Get the cross-tenant access policy template with user synchronization settings for a multitenant organization.
         /// </summary>
         public class MultiTenantOrganizationIdentitySynchronizationRequestBuilderGetQueryParameters 
         {

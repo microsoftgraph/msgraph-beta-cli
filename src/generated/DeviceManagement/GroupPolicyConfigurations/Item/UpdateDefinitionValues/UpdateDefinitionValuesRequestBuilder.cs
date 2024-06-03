@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues {
+namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues
+{
     /// <summary>
     /// Provides operations to call the updateDefinitionValues method.
     /// </summary>
-    public class UpdateDefinitionValuesRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateDefinitionValuesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateDefinitionValues

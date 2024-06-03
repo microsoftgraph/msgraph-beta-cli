@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionDeviceRegistrations.Item {
+namespace ApiSdk.DeviceAppManagement.WindowsInformationProtectionDeviceRegistrations.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsInformationProtectionDeviceRegistrations for deviceAppManagement

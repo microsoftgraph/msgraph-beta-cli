@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class DetectionRule : ProtectionRule, IParsable 
+    public class DetectionRule : ProtectionRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Complex type representing the actions taken when a detection is made by this rule.</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"detectionAction", n => { DetectionAction = n.GetObjectValue<ApiSdk.Models.Security.DetectionAction>(ApiSdk.Models.Security.DetectionAction.CreateFromDiscriminatorValue); } },
-                {"detectorId", n => { DetectorId = n.GetStringValue(); } },
-                {"lastRunDetails", n => { LastRunDetails = n.GetObjectValue<RunDetails>(RunDetails.CreateFromDiscriminatorValue); } },
-                {"queryCondition", n => { QueryCondition = n.GetObjectValue<ApiSdk.Models.Security.QueryCondition>(ApiSdk.Models.Security.QueryCondition.CreateFromDiscriminatorValue); } },
-                {"schedule", n => { Schedule = n.GetObjectValue<RuleSchedule>(RuleSchedule.CreateFromDiscriminatorValue); } },
+                { "detectionAction", n => { DetectionAction = n.GetObjectValue<ApiSdk.Models.Security.DetectionAction>(ApiSdk.Models.Security.DetectionAction.CreateFromDiscriminatorValue); } },
+                { "detectorId", n => { DetectorId = n.GetStringValue(); } },
+                { "lastRunDetails", n => { LastRunDetails = n.GetObjectValue<RunDetails>(RunDetails.CreateFromDiscriminatorValue); } },
+                { "queryCondition", n => { QueryCondition = n.GetObjectValue<ApiSdk.Models.Security.QueryCondition>(ApiSdk.Models.Security.QueryCondition.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<RuleSchedule>(RuleSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

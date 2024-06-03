@@ -16,7 +16,9 @@ using ApiSdk.Users.Item.CloudPCs.Item.Rename;
 using ApiSdk.Users.Item.CloudPCs.Item.Reprovision;
 using ApiSdk.Users.Item.CloudPCs.Item.Resize;
 using ApiSdk.Users.Item.CloudPCs.Item.Restore;
+using ApiSdk.Users.Item.CloudPCs.Item.RetrieveReviewStatus;
 using ApiSdk.Users.Item.CloudPCs.Item.RetryPartnerAgentInstallation;
+using ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus;
 using ApiSdk.Users.Item.CloudPCs.Item.Start;
 using ApiSdk.Users.Item.CloudPCs.Item.Stop;
 using ApiSdk.Users.Item.CloudPCs.Item.Troubleshoot;
@@ -33,11 +35,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.CloudPCs.Item {
+namespace ApiSdk.Users.Item.CloudPCs.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPCs property of the microsoft.graph.user entity.
     /// </summary>
-    public class CloudPCItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPCItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the changeUserAccountType method.
@@ -451,6 +454,23 @@ namespace ApiSdk.Users.Item.CloudPCs.Item {
             return command;
         }
         /// <summary>
+        /// Provides operations to call the retrieveReviewStatus method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildRetrieveReviewStatusNavCommand()
+        {
+            var command = new Command("retrieve-review-status");
+            command.Description = "Provides operations to call the retrieveReviewStatus method.";
+            var builder = new RetrieveReviewStatusRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildGetCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
         /// Provides operations to call the retryPartnerAgentInstallation method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
@@ -459,6 +479,23 @@ namespace ApiSdk.Users.Item.CloudPCs.Item {
             var command = new Command("retry-partner-agent-installation");
             command.Description = "Provides operations to call the retryPartnerAgentInstallation method.";
             var builder = new RetryPartnerAgentInstallationRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildPostCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to call the setReviewStatus method.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildSetReviewStatusNavCommand()
+        {
+            var command = new Command("set-review-status");
+            command.Description = "Provides operations to call the setReviewStatus method.";
+            var builder = new SetReviewStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Unpublish {
+namespace ApiSdk.Drives.Item.List.ContentTypes.Item.Unpublish
+{
     /// <summary>
     /// Provides operations to call the unpublish method.
     /// </summary>
-    public class UnpublishRequestBuilder : BaseCliRequestBuilder 
+    public class UnpublishRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action unpublish

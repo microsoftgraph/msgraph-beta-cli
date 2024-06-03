@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ResourceActions.Item.ResourceScope {
+namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ResourceActions.Item.ResourceScope
+{
     /// <summary>
     /// Provides operations to manage the resourceScope property of the microsoft.graph.unifiedRbacResourceAction entity.
     /// </summary>
-    public class ResourceScopeRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceScopeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resourceScope for roleManagement

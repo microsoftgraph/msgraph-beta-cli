@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.CreateDeviceLogCollectionRequest {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.CreateDeviceLogCollectionRequest
+{
     /// <summary>
     /// Provides operations to call the createDeviceLogCollectionRequest method.
     /// </summary>
-    public class CreateDeviceLogCollectionRequestRequestBuilder : BaseCliRequestBuilder 
+    public class CreateDeviceLogCollectionRequestRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createDeviceLogCollectionRequest

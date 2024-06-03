@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A MobileApp that is based on a referenced application in a WinGet repository.
     /// </summary>
-    public class WinGetApp : MobileApp, IParsable 
+    public class WinGetApp : MobileApp, IParsable
     {
         /// <summary>The install experience settings associated with this application, which are used to ensure the desired install experiences on the target device are taken into account. This includes the account type (System or User) that actions should be run as on target devices. Required at creation time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"installExperience", n => { InstallExperience = n.GetObjectValue<WinGetAppInstallExperience>(WinGetAppInstallExperience.CreateFromDiscriminatorValue); } },
-                {"manifestHash", n => { ManifestHash = n.GetStringValue(); } },
-                {"packageIdentifier", n => { PackageIdentifier = n.GetStringValue(); } },
+                { "installExperience", n => { InstallExperience = n.GetObjectValue<WinGetAppInstallExperience>(WinGetAppInstallExperience.CreateFromDiscriminatorValue); } },
+                { "manifestHash", n => { ManifestHash = n.GetStringValue(); } },
+                { "packageIdentifier", n => { PackageIdentifier = n.GetStringValue(); } },
             };
         }
         /// <summary>

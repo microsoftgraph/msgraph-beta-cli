@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerExternalTaskSource : PlannerTaskCreation, IParsable 
+    public class PlannerExternalTaskSource : PlannerTaskCreation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like &apos;com.constoso.customerSupport&apos;.</summary>
@@ -84,13 +85,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"contextScenarioId", n => { ContextScenarioId = n.GetStringValue(); } },
-                {"displayLinkType", n => { DisplayLinkType = n.GetEnumValue<PlannerExternalTaskSourceDisplayType>(); } },
-                {"displayNameSegments", n => { DisplayNameSegments = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"externalContextId", n => { ExternalContextId = n.GetStringValue(); } },
-                {"externalObjectId", n => { ExternalObjectId = n.GetStringValue(); } },
-                {"externalObjectVersion", n => { ExternalObjectVersion = n.GetStringValue(); } },
-                {"webUrl", n => { WebUrl = n.GetStringValue(); } },
+                { "contextScenarioId", n => { ContextScenarioId = n.GetStringValue(); } },
+                { "displayLinkType", n => { DisplayLinkType = n.GetEnumValue<PlannerExternalTaskSourceDisplayType>(); } },
+                { "displayNameSegments", n => { DisplayNameSegments = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "externalContextId", n => { ExternalContextId = n.GetStringValue(); } },
+                { "externalObjectId", n => { ExternalObjectId = n.GetStringValue(); } },
+                { "externalObjectVersion", n => { ExternalObjectVersion = n.GetStringValue(); } },
+                { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

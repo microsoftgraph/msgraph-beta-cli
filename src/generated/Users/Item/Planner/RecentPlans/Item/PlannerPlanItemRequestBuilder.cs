@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.RecentPlans.Item {
+namespace ApiSdk.Users.Item.Planner.RecentPlans.Item
+{
     /// <summary>
     /// Provides operations to manage the recentPlans property of the microsoft.graph.plannerUser entity.
     /// </summary>
-    public class PlannerPlanItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerPlanItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. Nullable. Returns the plannerPlans that the user recently viewed in apps that support recent plans.

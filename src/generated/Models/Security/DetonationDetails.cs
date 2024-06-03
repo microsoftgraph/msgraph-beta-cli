@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class DetonationDetails : IAdditionalDataHolder, IParsable 
+    public class DetonationDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -78,12 +79,12 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"analysisDateTime", n => { AnalysisDateTime = n.GetDateTimeOffsetValue(); } },
-                {"detonationChain", n => { DetonationChain = n.GetObjectValue<ApiSdk.Models.Security.DetonationChain>(ApiSdk.Models.Security.DetonationChain.CreateFromDiscriminatorValue); } },
-                {"detonationObservables", n => { DetonationObservables = n.GetObjectValue<ApiSdk.Models.Security.DetonationObservables>(ApiSdk.Models.Security.DetonationObservables.CreateFromDiscriminatorValue); } },
-                {"detonationVerdict", n => { DetonationVerdict = n.GetStringValue(); } },
-                {"detonationVerdictReason", n => { DetonationVerdictReason = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "analysisDateTime", n => { AnalysisDateTime = n.GetDateTimeOffsetValue(); } },
+                { "detonationChain", n => { DetonationChain = n.GetObjectValue<ApiSdk.Models.Security.DetonationChain>(ApiSdk.Models.Security.DetonationChain.CreateFromDiscriminatorValue); } },
+                { "detonationObservables", n => { DetonationObservables = n.GetObjectValue<ApiSdk.Models.Security.DetonationObservables>(ApiSdk.Models.Security.DetonationObservables.CreateFromDiscriminatorValue); } },
+                { "detonationVerdict", n => { DetonationVerdict = n.GetStringValue(); } },
+                { "detonationVerdictReason", n => { DetonationVerdictReason = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

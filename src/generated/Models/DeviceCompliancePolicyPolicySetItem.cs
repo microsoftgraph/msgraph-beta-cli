@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for device compliance policy PolicySetItem.
     /// </summary>
-    public class DeviceCompliancePolicyPolicySetItem : PolicySetItem, IParsable 
+    public class DeviceCompliancePolicyPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="DeviceCompliancePolicyPolicySetItem"/> and sets the default values.

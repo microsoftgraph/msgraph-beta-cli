@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App {
+namespace ApiSdk.App
+{
     /// <summary>
     /// Provides operations to manage the commsApplication singleton.
     /// </summary>
-    public class AppRequestBuilder : BaseCliRequestBuilder 
+    public class AppRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
@@ -111,8 +112,8 @@ namespace ApiSdk.App {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             nonExecCommands.Add(builder.BuildCreateOrGetNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllRecordingsNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllTranscriptsNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);

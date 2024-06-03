@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class TriggerAndScopeBasedConditions : WorkflowExecutionConditions, IParsable 
+    public class TriggerAndScopeBasedConditions : WorkflowExecutionConditions, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines who the workflow runs for.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"scope", n => { Scope = n.GetObjectValue<ApiSdk.Models.SubjectSet>(ApiSdk.Models.SubjectSet.CreateFromDiscriminatorValue); } },
-                {"trigger", n => { Trigger = n.GetObjectValue<WorkflowExecutionTrigger>(WorkflowExecutionTrigger.CreateFromDiscriminatorValue); } },
+                { "scope", n => { Scope = n.GetObjectValue<ApiSdk.Models.SubjectSet>(ApiSdk.Models.SubjectSet.CreateFromDiscriminatorValue); } },
+                { "trigger", n => { Trigger = n.GetObjectValue<WorkflowExecutionTrigger>(WorkflowExecutionTrigger.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

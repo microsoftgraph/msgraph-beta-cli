@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights.Daily.UserCount.Item {
+namespace ApiSdk.Reports.UserInsights.Daily.UserCount.Item
+{
     /// <summary>
     /// Provides operations to manage the userCount property of the microsoft.graph.dailyUserInsightMetricsRoot entity.
     /// </summary>
-    public class UserCountMetricItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserCountMetricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Insights for total users on apps registered in the tenant for a specified period.

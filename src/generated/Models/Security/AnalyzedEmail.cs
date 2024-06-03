@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AnalyzedEmail : ApiSdk.Models.Entity, IParsable 
+    public class AnalyzedEmail : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of values that contain the IDs of any alerts associated with the email.</summary>
@@ -159,13 +160,13 @@ namespace ApiSdk.Models.Security {
 #else
         public string PolicyAction { get; set; }
 #endif
-        /// <summary>Contains the email addresses of the recipients.</summary>
+        /// <summary>Contains the email address of the recipient.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? RecipientEmailAddresses { get; set; }
+        public string? RecipientEmailAddress { get; set; }
 #nullable restore
 #else
-        public List<string> RecipientEmailAddresses { get; set; }
+        public string RecipientEmailAddress { get; set; }
 #endif
         /// <summary>A field that indicates where and how bounced emails are processed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -201,8 +202,14 @@ namespace ApiSdk.Models.Security {
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>Indicates the threat types. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.</summary>
-        public ApiSdk.Models.Security.ThreatType? ThreatType { get; set; }
+        /// <summary>Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<ThreatType?>? ThreatTypes { get; set; }
+#nullable restore
+#else
+        public List<ThreatType?> ThreatTypes { get; set; }
+#endif
         /// <summary>A collection of the URLs in the email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -231,36 +238,36 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertIds", n => { AlertIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"attachments", n => { Attachments = n.GetCollectionOfObjectValues<AnalyzedEmailAttachment>(AnalyzedEmailAttachment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"attachmentsCount", n => { AttachmentsCount = n.GetIntValue(); } },
-                {"authenticationDetails", n => { AuthenticationDetails = n.GetObjectValue<AnalyzedEmailAuthenticationDetail>(AnalyzedEmailAuthenticationDetail.CreateFromDiscriminatorValue); } },
-                {"bulkComplaintLevel", n => { BulkComplaintLevel = n.GetStringValue(); } },
-                {"contexts", n => { Contexts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"detectionMethods", n => { DetectionMethods = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"directionality", n => { Directionality = n.GetEnumValue<AntispamDirectionality>(); } },
-                {"distributionList", n => { DistributionList = n.GetStringValue(); } },
-                {"emailClusterId", n => { EmailClusterId = n.GetStringValue(); } },
-                {"exchangeTransportRules", n => { ExchangeTransportRules = n.GetCollectionOfObjectValues<AnalyzedEmailExchangeTransportRuleInfo>(AnalyzedEmailExchangeTransportRuleInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"latestDelivery", n => { LatestDelivery = n.GetObjectValue<AnalyzedEmailDeliveryDetail>(AnalyzedEmailDeliveryDetail.CreateFromDiscriminatorValue); } },
-                {"loggedDateTime", n => { LoggedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"networkMessageId", n => { NetworkMessageId = n.GetStringValue(); } },
-                {"originalDelivery", n => { OriginalDelivery = n.GetObjectValue<AnalyzedEmailDeliveryDetail>(AnalyzedEmailDeliveryDetail.CreateFromDiscriminatorValue); } },
-                {"overrideSources", n => { OverrideSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"phishConfidenceLevel", n => { PhishConfidenceLevel = n.GetStringValue(); } },
-                {"policy", n => { Policy = n.GetStringValue(); } },
-                {"policyAction", n => { PolicyAction = n.GetStringValue(); } },
-                {"recipientEmailAddresses", n => { RecipientEmailAddresses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"returnPath", n => { ReturnPath = n.GetStringValue(); } },
-                {"senderDetail", n => { SenderDetail = n.GetObjectValue<AnalyzedEmailSenderDetail>(AnalyzedEmailSenderDetail.CreateFromDiscriminatorValue); } },
-                {"sizeInBytes", n => { SizeInBytes = n.GetIntValue(); } },
-                {"spamConfidenceLevel", n => { SpamConfidenceLevel = n.GetStringValue(); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
-                {"urls", n => { Urls = n.GetCollectionOfObjectValues<AnalyzedEmailUrl>(AnalyzedEmailUrl.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"urlsCount", n => { UrlsCount = n.GetIntValue(); } },
+                { "alertIds", n => { AlertIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<AnalyzedEmailAttachment>(AnalyzedEmailAttachment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "attachmentsCount", n => { AttachmentsCount = n.GetIntValue(); } },
+                { "authenticationDetails", n => { AuthenticationDetails = n.GetObjectValue<AnalyzedEmailAuthenticationDetail>(AnalyzedEmailAuthenticationDetail.CreateFromDiscriminatorValue); } },
+                { "bulkComplaintLevel", n => { BulkComplaintLevel = n.GetStringValue(); } },
+                { "contexts", n => { Contexts = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "detectionMethods", n => { DetectionMethods = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "directionality", n => { Directionality = n.GetEnumValue<AntispamDirectionality>(); } },
+                { "distributionList", n => { DistributionList = n.GetStringValue(); } },
+                { "emailClusterId", n => { EmailClusterId = n.GetStringValue(); } },
+                { "exchangeTransportRules", n => { ExchangeTransportRules = n.GetCollectionOfObjectValues<AnalyzedEmailExchangeTransportRuleInfo>(AnalyzedEmailExchangeTransportRuleInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "internetMessageId", n => { InternetMessageId = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "latestDelivery", n => { LatestDelivery = n.GetObjectValue<AnalyzedEmailDeliveryDetail>(AnalyzedEmailDeliveryDetail.CreateFromDiscriminatorValue); } },
+                { "loggedDateTime", n => { LoggedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "networkMessageId", n => { NetworkMessageId = n.GetStringValue(); } },
+                { "originalDelivery", n => { OriginalDelivery = n.GetObjectValue<AnalyzedEmailDeliveryDetail>(AnalyzedEmailDeliveryDetail.CreateFromDiscriminatorValue); } },
+                { "overrideSources", n => { OverrideSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "phishConfidenceLevel", n => { PhishConfidenceLevel = n.GetStringValue(); } },
+                { "policy", n => { Policy = n.GetStringValue(); } },
+                { "policyAction", n => { PolicyAction = n.GetStringValue(); } },
+                { "recipientEmailAddress", n => { RecipientEmailAddress = n.GetStringValue(); } },
+                { "returnPath", n => { ReturnPath = n.GetStringValue(); } },
+                { "senderDetail", n => { SenderDetail = n.GetObjectValue<AnalyzedEmailSenderDetail>(AnalyzedEmailSenderDetail.CreateFromDiscriminatorValue); } },
+                { "sizeInBytes", n => { SizeInBytes = n.GetIntValue(); } },
+                { "spamConfidenceLevel", n => { SpamConfidenceLevel = n.GetStringValue(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "threatTypes", n => { ThreatTypes = n.GetCollectionOfEnumValues<ThreatType>()?.ToList(); } },
+                { "urls", n => { Urls = n.GetCollectionOfObjectValues<AnalyzedEmailUrl>(AnalyzedEmailUrl.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "urlsCount", n => { UrlsCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -292,13 +299,13 @@ namespace ApiSdk.Models.Security {
             writer.WriteStringValue("phishConfidenceLevel", PhishConfidenceLevel);
             writer.WriteStringValue("policy", Policy);
             writer.WriteStringValue("policyAction", PolicyAction);
-            writer.WriteCollectionOfPrimitiveValues<string>("recipientEmailAddresses", RecipientEmailAddresses);
+            writer.WriteStringValue("recipientEmailAddress", RecipientEmailAddress);
             writer.WriteStringValue("returnPath", ReturnPath);
             writer.WriteObjectValue<AnalyzedEmailSenderDetail>("senderDetail", SenderDetail);
             writer.WriteIntValue("sizeInBytes", SizeInBytes);
             writer.WriteStringValue("spamConfidenceLevel", SpamConfidenceLevel);
             writer.WriteStringValue("subject", Subject);
-            writer.WriteEnumValue<ThreatType>("threatType", ThreatType);
+            writer.WriteCollectionOfEnumValues<ThreatType>("threatTypes", ThreatTypes);
             writer.WriteCollectionOfObjectValues<AnalyzedEmailUrl>("urls", Urls);
             writer.WriteIntValue("urlsCount", UrlsCount);
         }

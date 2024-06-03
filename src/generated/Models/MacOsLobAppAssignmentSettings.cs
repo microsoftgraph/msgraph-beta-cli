@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used to assign a macOS LOB app to a group.
     /// </summary>
-    public class MacOsLobAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class MacOsLobAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
-        /// <summary>When TRUE, indicates that the app should be uninstalled when the device is removed from Intune. When FALSE, indicates that the app will not be uninstalled when the device is removed from Intune.</summary>
+        /// <summary>Whether or not to uninstall the app when device is removed from Intune.</summary>
         public bool? UninstallOnDeviceRemoval { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="MacOsLobAppAssignmentSettings"/> and sets the default values.
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
+                { "uninstallOnDeviceRemoval", n => { UninstallOnDeviceRemoval = n.GetBoolValue(); } },
             };
         }
         /// <summary>

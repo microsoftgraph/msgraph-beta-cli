@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PersistentBrowserSessionControl : ConditionalAccessSessionControl, IParsable 
+    public class PersistentBrowserSessionControl : ConditionalAccessSessionControl, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Possible values are: always, never.</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"mode", n => { Mode = n.GetEnumValue<PersistentBrowserSessionMode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<PersistentBrowserSessionMode>(); } },
             };
         }
         /// <summary>

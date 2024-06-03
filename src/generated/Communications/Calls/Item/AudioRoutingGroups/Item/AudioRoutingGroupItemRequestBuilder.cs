@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
+namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
     /// </summary>
-    public class AudioRoutingGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class AudioRoutingGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property audioRoutingGroups for communications
+        /// Delete the specified audioRoutingGroup.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property audioRoutingGroups for communications";
+            command.Description = "Delete the specified audioRoutingGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
             return command;
         }
         /// <summary>
-        /// Get audioRoutingGroups from communications
+        /// Retrieve the properties and relationships of an audioRoutingGroup object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get audioRoutingGroups from communications";
+            command.Description = "Retrieve the properties and relationships of an audioRoutingGroup object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -120,13 +123,14 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property audioRoutingGroups in communications
+        /// Modify sources and receivers of an audioRoutingGroup.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property audioRoutingGroups in communications";
+            command.Description = "Modify sources and receivers of an audioRoutingGroup.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -191,7 +195,7 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property audioRoutingGroups for communications
+        /// Delete the specified audioRoutingGroup.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -210,7 +214,7 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get audioRoutingGroups from communications
+        /// Retrieve the properties and relationships of an audioRoutingGroup object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +233,7 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property audioRoutingGroups in communications
+        /// Modify sources and receivers of an audioRoutingGroup.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +254,7 @@ namespace ApiSdk.Communications.Calls.Item.AudioRoutingGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get audioRoutingGroups from communications
+        /// Retrieve the properties and relationships of an audioRoutingGroup object.
         /// </summary>
         public class AudioRoutingGroupItemRequestBuilderGetQueryParameters 
         {

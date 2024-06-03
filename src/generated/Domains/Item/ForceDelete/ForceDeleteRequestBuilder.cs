@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.ForceDelete {
+namespace ApiSdk.Domains.Item.ForceDelete
+{
     /// <summary>
     /// Provides operations to call the forceDelete method.
     /// </summary>
-    public class ForceDeleteRequestBuilder : BaseCliRequestBuilder 
+    public class ForceDeleteRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete a domain using an asynchronous operation. Before performing this operation, you must update or remove any references to Exchange as the provisioning service. The following actions are performed as part of this operation: After the domain deletion completes, API operations for the deleted domain return a 404 HTTP response code. To verify deletion of a domain, you can perform a get domain. If the domain was successfully deleted, a 404 HTTP response code is returned in the response.

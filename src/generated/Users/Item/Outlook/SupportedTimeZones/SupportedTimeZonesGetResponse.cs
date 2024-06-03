@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Outlook.SupportedTimeZones {
+namespace ApiSdk.Users.Item.Outlook.SupportedTimeZones
+{
     #pragma warning disable CS1591
-    public class SupportedTimeZonesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class SupportedTimeZonesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Users.Item.Outlook.SupportedTimeZones {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<TimeZoneInformation>(TimeZoneInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<TimeZoneInformation>(TimeZoneInformation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

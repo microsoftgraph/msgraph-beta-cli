@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Phones.Item {
+namespace ApiSdk.Users.Item.Profile.Phones.Item
+{
     /// <summary>
     /// Provides operations to manage the phones property of the microsoft.graph.profile entity.
     /// </summary>
-    public class ItemPhoneItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemPhoneItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property phones for users
+        /// Delete an itemPhone object from the user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemphone-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property phones for users";
+            command.Description = "Delete an itemPhone object from the user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemphone-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.Users.Item.Profile.Phones.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property phones in users
+        /// Update the properties of an itemPhone object in a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itemphone-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property phones in users";
+            command.Description = "Update the properties of an itemPhone object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itemphone-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.Users.Item.Profile.Phones.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property phones for users
+        /// Delete an itemPhone object from the user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.Users.Item.Profile.Phones.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property phones in users
+        /// Update the properties of an itemPhone object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

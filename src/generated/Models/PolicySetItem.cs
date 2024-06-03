@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for PolicySet Item.
     /// </summary>
-    public class PolicySetItem : Entity, IParsable 
+    public class PolicySetItem : Entity, IParsable
     {
         /// <summary>Creation time of the PolicySetItem.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -85,14 +86,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetEnumValue<ErrorCode>(); } },
-                {"guidedDeploymentTags", n => { GuidedDeploymentTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"itemType", n => { ItemType = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"payloadId", n => { PayloadId = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<PolicySetStatus>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ErrorCode>(); } },
+                { "guidedDeploymentTags", n => { GuidedDeploymentTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "itemType", n => { ItemType = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "payloadId", n => { PayloadId = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<PolicySetStatus>(); } },
             };
         }
         /// <summary>

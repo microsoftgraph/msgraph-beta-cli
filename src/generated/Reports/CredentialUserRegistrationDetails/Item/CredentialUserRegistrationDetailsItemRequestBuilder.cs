@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.CredentialUserRegistrationDetails.Item {
+namespace ApiSdk.Reports.CredentialUserRegistrationDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class CredentialUserRegistrationDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    public class CredentialUserRegistrationDetailsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property credentialUserRegistrationDetails for reports

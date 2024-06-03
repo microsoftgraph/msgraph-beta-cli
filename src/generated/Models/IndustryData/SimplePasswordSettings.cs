@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class SimplePasswordSettings : PasswordSettings, IParsable 
+    public class SimplePasswordSettings : PasswordSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The password for the user.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"password", n => { Password = n.GetStringValue(); } },
+                { "password", n => { Password = n.GetStringValue(); } },
             };
         }
         /// <summary>

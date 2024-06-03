@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceSubjects.Item {
+namespace ApiSdk.GovernanceSubjects.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of governanceSubject entities.
     /// </summary>
-    public class GovernanceSubjectItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceSubjectItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from governanceSubjects

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item.Includes.Item {
+namespace ApiSdk.Policies.ServicePrincipalCreationPolicies.Item.Includes.Item
+{
     /// <summary>
     /// Provides operations to manage the includes property of the microsoft.graph.servicePrincipalCreationPolicy entity.
     /// </summary>
-    public class ServicePrincipalCreationConditionSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServicePrincipalCreationConditionSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property includes for policies

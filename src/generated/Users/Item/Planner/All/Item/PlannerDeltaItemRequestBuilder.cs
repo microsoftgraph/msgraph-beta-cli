@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Planner.All.Item {
+namespace ApiSdk.Users.Item.Planner.All.Item
+{
     /// <summary>
     /// Provides operations to manage the all property of the microsoft.graph.plannerUser entity.
     /// </summary>
-    public class PlannerDeltaItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerDeltaItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property all for users

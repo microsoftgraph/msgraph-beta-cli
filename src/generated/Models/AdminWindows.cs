@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AdminWindows : Entity, IParsable 
+    public class AdminWindows : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Entity that acts as a container for all Windows Update for Business deployment service functionalities. Read-only.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"updates", n => { Updates = n.GetObjectValue<AdminWindowsUpdates>(AdminWindowsUpdates.CreateFromDiscriminatorValue); } },
+                { "updates", n => { Updates = n.GetObjectValue<AdminWindowsUpdates>(AdminWindowsUpdates.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileAppCatalogPackages.Item {
+namespace ApiSdk.DeviceAppManagement.MobileAppCatalogPackages.Item
+{
     /// <summary>
     /// Provides operations to manage the mobileAppCatalogPackages property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class MobileAppCatalogPackageItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppCatalogPackageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property mobileAppCatalogPackages for deviceAppManagement

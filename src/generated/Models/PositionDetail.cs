@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PositionDetail : IAdditionalDataHolder, IParsable 
+    public class PositionDetail : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -99,16 +100,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"company", n => { Company = n.GetObjectValue<CompanyDetail>(CompanyDetail.CreateFromDiscriminatorValue); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
-                {"jobTitle", n => { JobTitle = n.GetStringValue(); } },
-                {"layer", n => { Layer = n.GetIntValue(); } },
-                {"level", n => { Level = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"role", n => { Role = n.GetStringValue(); } },
-                {"startMonthYear", n => { StartMonthYear = n.GetDateValue(); } },
-                {"summary", n => { Summary = n.GetStringValue(); } },
+                { "company", n => { Company = n.GetObjectValue<CompanyDetail>(CompanyDetail.CreateFromDiscriminatorValue); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
+                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
+                { "layer", n => { Layer = n.GetIntValue(); } },
+                { "level", n => { Level = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "startMonthYear", n => { StartMonthYear = n.GetDateValue(); } },
+                { "summary", n => { Summary = n.GetStringValue(); } },
             };
         }
         /// <summary>

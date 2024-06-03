@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagementDetails {
+namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagementDetails
+{
     /// <summary>
     /// Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
     /// </summary>
-    public class ServiceManagementDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceManagementDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
             return command;
         }
         /// <summary>
-        /// Contains the management details of a service in the customer tenant that&apos;s managed by delegated administration.
+        /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Contains the management details of a service in the customer tenant that's managed by delegated administration.";
+            command.Description = "Get a list of the delegatedAdminServiceManagementDetail objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-beta";
             var delegatedAdminCustomerIdOption = new Option<string>("--delegated-admin-customer-id", description: "The unique identifier of delegatedAdminCustomer") {
             };
             delegatedAdminCustomerIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
         {
         }
         /// <summary>
-        /// Contains the management details of a service in the customer tenant that&apos;s managed by delegated administration.
+        /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminCustomers.Item.ServiceManagem
             return requestInfo;
         }
         /// <summary>
-        /// Contains the management details of a service in the customer tenant that&apos;s managed by delegated administration.
+        /// Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
         /// </summary>
         public class ServiceManagementDetailsRequestBuilderGetQueryParameters 
         {

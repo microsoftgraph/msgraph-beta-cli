@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UnifiedStorageQuota : Entity, IParsable 
+    public class UnifiedStorageQuota : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The deleted property</summary>
@@ -59,13 +60,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"deleted", n => { Deleted = n.GetLongValue(); } },
-                {"manageWebUrl", n => { ManageWebUrl = n.GetStringValue(); } },
-                {"remaining", n => { Remaining = n.GetLongValue(); } },
-                {"services", n => { Services = n.GetCollectionOfObjectValues<ServiceStorageQuotaBreakdown>(ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetStringValue(); } },
-                {"total", n => { Total = n.GetLongValue(); } },
-                {"used", n => { Used = n.GetLongValue(); } },
+                { "deleted", n => { Deleted = n.GetLongValue(); } },
+                { "manageWebUrl", n => { ManageWebUrl = n.GetStringValue(); } },
+                { "remaining", n => { Remaining = n.GetLongValue(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<ServiceStorageQuotaBreakdown>(ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetStringValue(); } },
+                { "total", n => { Total = n.GetLongValue(); } },
+                { "used", n => { Used = n.GetLongValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrivilegedAccessRoot : Entity, IParsable 
+    public class PrivilegedAccessRoot : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A group that&apos;s governed through Privileged Identity Management (PIM).</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"group", n => { Group = n.GetObjectValue<PrivilegedAccessGroup>(PrivilegedAccessGroup.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<PrivilegedAccessGroup>(PrivilegedAccessGroup.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

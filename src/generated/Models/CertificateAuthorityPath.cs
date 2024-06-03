@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CertificateAuthorityPath : Entity, IParsable 
+    public class CertificateAuthorityPath : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines the trusted certificate authorities for certificates that can be added to apps and service principals in the tenant.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificateBasedApplicationConfigurations", n => { CertificateBasedApplicationConfigurations = n.GetCollectionOfObjectValues<CertificateBasedApplicationConfiguration>(CertificateBasedApplicationConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "certificateBasedApplicationConfigurations", n => { CertificateBasedApplicationConfigurations = n.GetCollectionOfObjectValues<CertificateBasedApplicationConfiguration>(CertificateBasedApplicationConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

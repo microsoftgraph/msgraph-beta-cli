@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.IsManagedAppUserBlocked {
+namespace ApiSdk.Users.Item.IsManagedAppUserBlocked
+{
     #pragma warning disable CS1591
-    public class IsManagedAppUserBlockedGetResponse : IAdditionalDataHolder, IParsable 
+    public class IsManagedAppUserBlockedGetResponse : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.Users.Item.IsManagedAppUserBlocked {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetBoolValue(); } },
+                { "value", n => { Value = n.GetBoolValue(); } },
             };
         }
         /// <summary>

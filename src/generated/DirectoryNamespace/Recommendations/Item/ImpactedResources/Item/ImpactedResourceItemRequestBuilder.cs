@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item
+{
     /// <summary>
     /// Provides operations to manage the impactedResources property of the microsoft.graph.recommendationBase entity.
     /// </summary>
-    public class ImpactedResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class ImpactedResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the complete method.
@@ -100,13 +101,14 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item 
             return command;
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Read the properties and relationships of an impactedResource object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/impactedresource-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The list of directory objects associated with the recommendation.";
+            command.Description = "Read the properties and relationships of an impactedResource object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/impactedresource-get?view=graph-rest-beta";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;
@@ -282,7 +284,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item 
             return requestInfo;
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Read the properties and relationships of an impactedResource object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -322,7 +324,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item 
             return requestInfo;
         }
         /// <summary>
-        /// The list of directory objects associated with the recommendation.
+        /// Read the properties and relationships of an impactedResource object.
         /// </summary>
         public class ImpactedResourceItemRequestBuilderGetQueryParameters 
         {

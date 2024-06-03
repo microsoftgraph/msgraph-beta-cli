@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN Proxy Server.
     /// </summary>
-    public class Windows10VpnProxyServer : VpnProxyServer, IParsable 
+    public class Windows10VpnProxyServer : VpnProxyServer, IParsable
     {
         /// <summary>Bypass proxy server for local address.</summary>
         public bool? BypassProxyServerForLocalAddress { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bypassProxyServerForLocalAddress", n => { BypassProxyServerForLocalAddress = n.GetBoolValue(); } },
+                { "bypassProxyServerForLocalAddress", n => { BypassProxyServerForLocalAddress = n.GetBoolValue(); } },
             };
         }
         /// <summary>

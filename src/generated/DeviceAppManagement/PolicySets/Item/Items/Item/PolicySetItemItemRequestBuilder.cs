@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Items.Item {
+namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Items.Item
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.policySet entity.
     /// </summary>
-    public class PolicySetItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicySetItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property items for deviceAppManagement

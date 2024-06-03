@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate {
+namespace ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate
+{
     /// <summary>
     /// Provides operations to call the getYammerGroupsActivityDetail method.
     /// </summary>
-    public class GetYammerGroupsActivityDetailWithDateRequestBuilder : BaseCliRequestBuilder 
+    public class GetYammerGroupsActivityDetailWithDateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getYammerGroupsActivityDetail
@@ -27,7 +28,7 @@ namespace ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate {
         {
             var command = new Command("get");
             command.Description = "Invoke function getYammerGroupsActivityDetail";
-            var dateOption = new Option<string>("--date", description: "Usage: date={date}") {
+            var dateOption = new Option<Date?>("--date", description: "Usage: date={date}") {
             };
             dateOption.IsRequired = true;
             command.AddOption(dateOption);

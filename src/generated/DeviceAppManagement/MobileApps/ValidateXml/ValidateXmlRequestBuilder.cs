@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.ValidateXml {
+namespace ApiSdk.DeviceAppManagement.MobileApps.ValidateXml
+{
     /// <summary>
     /// Provides operations to call the validateXml method.
     /// </summary>
-    public class ValidateXmlRequestBuilder : BaseCliRequestBuilder 
+    public class ValidateXmlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action validateXml

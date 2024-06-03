@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.Item {
+namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels.Item
+{
     /// <summary>
     /// Provides operations to manage the labels property of the microsoft.graph.informationProtectionPolicy entity.
     /// </summary>
-    public class InformationProtectionLabelItemRequestBuilder : BaseCliRequestBuilder 
+    public class InformationProtectionLabelItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property labels for users

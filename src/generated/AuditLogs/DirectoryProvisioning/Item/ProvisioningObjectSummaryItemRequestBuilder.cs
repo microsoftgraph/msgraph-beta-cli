@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs.DirectoryProvisioning.Item {
+namespace ApiSdk.AuditLogs.DirectoryProvisioning.Item
+{
     /// <summary>
     /// Provides operations to manage the directoryProvisioning property of the microsoft.graph.auditLogRoot entity.
     /// </summary>
-    public class ProvisioningObjectSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ProvisioningObjectSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property directoryProvisioning for auditLogs

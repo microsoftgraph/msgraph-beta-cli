@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport {
+namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport
+{
     /// <summary>
     /// Provides operations to call the getWindowsDriverUpdateAlertSummaryReport method.
     /// </summary>
-    public class GetWindowsDriverUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetWindowsDriverUpdateAlertSummaryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getWindowsDriverUpdateAlertSummaryReport

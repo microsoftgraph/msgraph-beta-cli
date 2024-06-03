@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerBucketTaskBoardTaskFormat : PlannerDelta, IParsable 
+    public class PlannerBucketTaskBoardTaskFormat : PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Hint used to order tasks in the bucket view of the task board. For details about the supported format, see Using order hints in Planner.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"orderHint", n => { OrderHint = n.GetStringValue(); } },
+                { "orderHint", n => { OrderHint = n.GetStringValue(); } },
             };
         }
         /// <summary>

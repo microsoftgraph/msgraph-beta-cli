@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests {
+namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
+{
     #pragma warning disable CS1591
-    public class RetrieveMyRequestsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class RetrieveMyRequestsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalRequest>(OperationApprovalRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalRequest>(OperationApprovalRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

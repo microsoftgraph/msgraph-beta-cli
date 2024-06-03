@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExactMatchSessionBase : ExactMatchJobBase, IParsable 
+    public class ExactMatchSessionBase : ExactMatchJobBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dataStoreId property</summary>
@@ -67,14 +68,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dataStoreId", n => { DataStoreId = n.GetStringValue(); } },
-                {"processingCompletionDateTime", n => { ProcessingCompletionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"remainingBlockCount", n => { RemainingBlockCount = n.GetIntValue(); } },
-                {"remainingJobCount", n => { RemainingJobCount = n.GetIntValue(); } },
-                {"state", n => { State = n.GetStringValue(); } },
-                {"totalBlockCount", n => { TotalBlockCount = n.GetIntValue(); } },
-                {"totalJobCount", n => { TotalJobCount = n.GetIntValue(); } },
-                {"uploadCompletionDateTime", n => { UploadCompletionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dataStoreId", n => { DataStoreId = n.GetStringValue(); } },
+                { "processingCompletionDateTime", n => { ProcessingCompletionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "remainingBlockCount", n => { RemainingBlockCount = n.GetIntValue(); } },
+                { "remainingJobCount", n => { RemainingJobCount = n.GetIntValue(); } },
+                { "state", n => { State = n.GetStringValue(); } },
+                { "totalBlockCount", n => { TotalBlockCount = n.GetIntValue(); } },
+                { "totalJobCount", n => { TotalJobCount = n.GetIntValue(); } },
+                { "uploadCompletionDateTime", n => { UploadCompletionDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

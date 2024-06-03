@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.SecureScoreControlProfiles {
+namespace ApiSdk.Security.SecureScoreControlProfiles
+{
     /// <summary>
     /// Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
     /// </summary>
-    public class SecureScoreControlProfilesRequestBuilder : BaseCliRequestBuilder 
+    public class SecureScoreControlProfilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
             return command;
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/securescorecontrolprofiles-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get secureScoreControlProfiles from security";
+            command.Description = "Retrieves a list of secureScoreControlProfile objects for a tenant.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/securescorecontrolprofiles-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
         {
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Security.SecureScoreControlProfiles {
             return requestInfo;
         }
         /// <summary>
-        /// Get secureScoreControlProfiles from security
+        /// Retrieves a list of secureScoreControlProfile objects for a tenant.
         /// </summary>
         public class SecureScoreControlProfilesRequestBuilderGetQueryParameters 
         {

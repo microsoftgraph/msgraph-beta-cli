@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
+namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists
+{
     /// <summary>
     /// Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
     /// </summary>
-    public class SiteListsRequestBuilder : BaseCliRequestBuilder 
+    public class SiteListsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -57,13 +58,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to siteLists for admin
+        /// Create a new browserSiteList object to support Internet Explorer mode.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to siteLists for admin";
+            command.Description = "Create a new browserSiteList object to support Internet Explorer mode.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -102,13 +104,14 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
             return command;
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get a list of the browserSiteList objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of site lists to support Internet Explorer mode.";
+            command.Description = "Get a list of the browserSiteList objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -184,7 +187,9 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -210,7 +215,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
         {
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get a list of the browserSiteList objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +234,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to siteLists for admin
+        /// Create a new browserSiteList object to support Internet Explorer mode.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -250,7 +255,7 @@ namespace ApiSdk.Admin.Edge.InternetExplorerMode.SiteLists {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of site lists to support Internet Explorer mode.
+        /// Get a list of the browserSiteList objects and their properties.
         /// </summary>
         public class SiteListsRequestBuilderGetQueryParameters 
         {

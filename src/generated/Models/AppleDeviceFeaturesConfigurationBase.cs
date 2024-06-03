@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Apple device features configuration profile.
     /// </summary>
-    public class AppleDeviceFeaturesConfigurationBase : DeviceConfiguration, IParsable 
+    public class AppleDeviceFeaturesConfigurationBase : DeviceConfiguration, IParsable
     {
         /// <summary>An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,7 +50,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"airPrintDestinations", n => { AirPrintDestinations = n.GetCollectionOfObjectValues<AirPrintDestination>(AirPrintDestination.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "airPrintDestinations", n => { AirPrintDestinations = n.GetCollectionOfObjectValues<AirPrintDestination>(AirPrintDestination.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

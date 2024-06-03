@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.Item
+{
     /// <summary>
     /// Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class CloudPcConnectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcConnectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cloudPcConnections for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.Item {
             return command;
         }
         /// <summary>
-        /// The collection of cloud PC connections across managed tenants.
+        /// Read the properties and relationships of a cloudPcConnection object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-cloudpcconnection-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of cloud PC connections across managed tenants.";
+            command.Description = "Read the properties and relationships of a cloudPcConnection object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-cloudpcconnection-get?view=graph-rest-beta";
             var cloudPcConnectionIdOption = new Option<string>("--cloud-pc-connection-id", description: "The unique identifier of cloudPcConnection") {
             };
             cloudPcConnectionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of cloud PC connections across managed tenants.
+        /// Read the properties and relationships of a cloudPcConnection object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of cloud PC connections across managed tenants.
+        /// Read the properties and relationships of a cloudPcConnection object.
         /// </summary>
         public class CloudPcConnectionItemRequestBuilderGetQueryParameters 
         {

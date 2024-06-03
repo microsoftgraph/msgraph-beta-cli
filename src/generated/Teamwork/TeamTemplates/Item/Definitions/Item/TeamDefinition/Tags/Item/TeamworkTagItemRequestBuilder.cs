@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Tags.Item {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Tags.Item
+{
     /// <summary>
     /// Provides operations to manage the tags property of the microsoft.graph.team entity.
     /// </summary>
-    public class TeamworkTagItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamworkTagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tags for teamwork

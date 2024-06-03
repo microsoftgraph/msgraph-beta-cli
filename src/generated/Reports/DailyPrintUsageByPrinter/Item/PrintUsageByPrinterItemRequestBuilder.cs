@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item {
+namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item
+{
     /// <summary>
     /// Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class PrintUsageByPrinterItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrintUsageByPrinterItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property dailyPrintUsageByPrinter for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve a list of daily print usage summaries, grouped by printer.
+        /// Retrieve a printer&apos;s usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve a list of daily print usage summaries, grouped by printer.";
+            command.Description = "Retrieve a printer's usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-beta";
             var printUsageByPrinterIdOption = new Option<string>("--print-usage-by-printer-id", description: "The unique identifier of printUsageByPrinter") {
             };
             printUsageByPrinterIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of daily print usage summaries, grouped by printer.
+        /// Retrieve a printer&apos;s usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.DailyPrintUsageByPrinter.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve a list of daily print usage summaries, grouped by printer.
+        /// Retrieve a printer&apos;s usage summary for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
         /// </summary>
         public class PrintUsageByPrinterItemRequestBuilderGetQueryParameters 
         {

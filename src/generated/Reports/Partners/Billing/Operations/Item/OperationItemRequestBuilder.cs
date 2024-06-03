@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.Partners.Billing.Operations.Item {
+namespace ApiSdk.Reports.Partners.Billing.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.partners.billing.billing entity.
     /// </summary>
-    public class OperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class OperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.Partners.Billing.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Represents an operation to export the billing data of a partner.
+        /// Read the properties and relationships of an operation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/partners-billing-operation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents an operation to export the billing data of a partner.";
+            command.Description = "Read the properties and relationships of an operation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/partners-billing-operation-get?view=graph-rest-beta";
             var operationIdOption = new Option<string>("--operation-id", description: "The unique identifier of operation") {
             };
             operationIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.Partners.Billing.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an operation to export the billing data of a partner.
+        /// Read the properties and relationships of an operation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.Partners.Billing.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an operation to export the billing data of a partner.
+        /// Read the properties and relationships of an operation object.
         /// </summary>
         public class OperationItemRequestBuilderGetQueryParameters 
         {

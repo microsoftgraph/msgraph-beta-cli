@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrivilegedOperationEvent : Entity, IParsable 
+    public class PrivilegedOperationEvent : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The additionalInformation property</summary>
@@ -127,20 +128,20 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
-                {"creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"referenceKey", n => { ReferenceKey = n.GetStringValue(); } },
-                {"referenceSystem", n => { ReferenceSystem = n.GetStringValue(); } },
-                {"requestType", n => { RequestType = n.GetStringValue(); } },
-                {"requestorId", n => { RequestorId = n.GetStringValue(); } },
-                {"requestorName", n => { RequestorName = n.GetStringValue(); } },
-                {"roleId", n => { RoleId = n.GetStringValue(); } },
-                {"roleName", n => { RoleName = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userMail", n => { UserMail = n.GetStringValue(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
+                { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "referenceKey", n => { ReferenceKey = n.GetStringValue(); } },
+                { "referenceSystem", n => { ReferenceSystem = n.GetStringValue(); } },
+                { "requestType", n => { RequestType = n.GetStringValue(); } },
+                { "requestorId", n => { RequestorId = n.GetStringValue(); } },
+                { "requestorName", n => { RequestorName = n.GetStringValue(); } },
+                { "roleId", n => { RoleId = n.GetStringValue(); } },
+                { "roleName", n => { RoleName = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userMail", n => { UserMail = n.GetStringValue(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
             };
         }
         /// <summary>

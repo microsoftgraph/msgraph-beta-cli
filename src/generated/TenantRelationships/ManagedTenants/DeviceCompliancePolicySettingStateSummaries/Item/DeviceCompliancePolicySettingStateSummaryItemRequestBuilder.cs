@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettingStateSummaries.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettingStateSummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceCompliancePolicySettingStateSummaries for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
             return command;
         }
         /// <summary>
-        /// Summary information for device compliance policy setting states across managed tenants.
+        /// Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-devicecompliancepolicysettingstatesummary-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Summary information for device compliance policy setting states across managed tenants.";
+            command.Description = "Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-devicecompliancepolicysettingstatesummary-get?view=graph-rest-beta";
             var deviceCompliancePolicySettingStateSummaryIdOption = new Option<string>("--device-compliance-policy-setting-state-summary-id", description: "The unique identifier of deviceCompliancePolicySettingStateSummary") {
             };
             deviceCompliancePolicySettingStateSummaryIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
             return requestInfo;
         }
         /// <summary>
-        /// Summary information for device compliance policy setting states across managed tenants.
+        /// Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettin
             return requestInfo;
         }
         /// <summary>
-        /// Summary information for device compliance policy setting states across managed tenants.
+        /// Read the properties and relationships of a deviceCompliancePolicySettingStateSummary object.
         /// </summary>
         public class DeviceCompliancePolicySettingStateSummaryItemRequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GetAssignedRoleDetails {
+namespace ApiSdk.DeviceManagement.GetAssignedRoleDetails
+{
     /// <summary>
     /// Provides operations to call the getAssignedRoleDetails method.
     /// </summary>
-    public class GetAssignedRoleDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class GetAssignedRoleDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieves the assigned role definitions and role assignments of the currently authenticated user.

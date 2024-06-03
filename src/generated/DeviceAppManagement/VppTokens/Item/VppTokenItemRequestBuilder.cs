@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.VppTokens.Item {
+namespace ApiSdk.DeviceAppManagement.VppTokens.Item
+{
     /// <summary>
     /// Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class VppTokenItemRequestBuilder : BaseCliRequestBuilder 
+    public class VppTokenItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property vppTokens for deviceAppManagement

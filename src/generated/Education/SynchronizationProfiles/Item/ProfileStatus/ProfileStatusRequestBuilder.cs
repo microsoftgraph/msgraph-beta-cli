@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus
+{
     /// <summary>
     /// Provides operations to manage the profileStatus property of the microsoft.graph.educationSynchronizationProfile entity.
     /// </summary>
-    public class ProfileStatusRequestBuilder : BaseCliRequestBuilder 
+    public class ProfileStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property profileStatus for education
@@ -56,13 +57,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
             return command;
         }
         /// <summary>
-        /// The synchronization status.
+        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationsynchronizationprofilestatus-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The synchronization status.";
+            command.Description = "Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationsynchronizationprofilestatus-get?view=graph-rest-beta";
             var educationSynchronizationProfileIdOption = new Option<string>("--education-synchronization-profile-id", description: "The unique identifier of educationSynchronizationProfile") {
             };
             educationSynchronizationProfileIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
             return requestInfo;
         }
         /// <summary>
-        /// The synchronization status.
+        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus {
             return requestInfo;
         }
         /// <summary>
-        /// The synchronization status.
+        /// Get the status of a specific school data synchronization profile in the tenant. The response will indicate the status of the sync.
         /// </summary>
         public class ProfileStatusRequestBuilderGetQueryParameters 
         {

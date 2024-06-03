@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.DeviceManagement {
+namespace ApiSdk.Models.DeviceManagement
+{
     #pragma warning disable CS1591
-    public class AlertImpact : IAdditionalDataHolder, IParsable 
+    public class AlertImpact : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,10 +57,10 @@ namespace ApiSdk.Models.DeviceManagement {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"aggregationType", n => { AggregationType = n.GetEnumValue<AggregationType>(); } },
-                {"alertImpactDetails", n => { AlertImpactDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetIntValue(); } },
+                { "aggregationType", n => { AggregationType = n.GetEnumValue<AggregationType>(); } },
+                { "alertImpactDetails", n => { AlertImpactDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetIntValue(); } },
             };
         }
         /// <summary>

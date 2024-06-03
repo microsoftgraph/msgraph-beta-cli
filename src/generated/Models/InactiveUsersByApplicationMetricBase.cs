@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InactiveUsersByApplicationMetricBase : Entity, IParsable 
+    public class InactiveUsersByApplicationMetricBase : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"factDate", n => { FactDate = n.GetDateValue(); } },
-                {"inactive30DayCount", n => { Inactive30DayCount = n.GetLongValue(); } },
-                {"inactive60DayCount", n => { Inactive60DayCount = n.GetLongValue(); } },
-                {"inactive90DayCount", n => { Inactive90DayCount = n.GetLongValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "factDate", n => { FactDate = n.GetDateValue(); } },
+                { "inactive30DayCount", n => { Inactive30DayCount = n.GetLongValue(); } },
+                { "inactive60DayCount", n => { Inactive60DayCount = n.GetLongValue(); } },
+                { "inactive90DayCount", n => { Inactive90DayCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

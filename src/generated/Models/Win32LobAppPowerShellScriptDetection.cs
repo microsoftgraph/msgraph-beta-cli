@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains PowerShell script properties to detect a Win32 App
     /// </summary>
-    public class Win32LobAppPowerShellScriptDetection : Win32LobAppDetection, IParsable 
+    public class Win32LobAppPowerShellScriptDetection : Win32LobAppDetection, IParsable
     {
         /// <summary>A value indicating whether signature check is enforced</summary>
         public bool? EnforceSignatureCheck { get; set; }
@@ -47,9 +48,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
-                {"runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
-                {"scriptContent", n => { ScriptContent = n.GetStringValue(); } },
+                { "enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
+                { "runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
+                { "scriptContent", n => { ScriptContent = n.GetStringValue(); } },
             };
         }
         /// <summary>

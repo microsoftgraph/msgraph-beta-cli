@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12 {
+namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12
+{
     /// <summary>
     /// Provides operations to call the uploadPkcs12 method.
     /// </summary>
-    public class UploadPkcs12RequestBuilder : BaseCliRequestBuilder 
+    public class UploadPkcs12RequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Upload a PKCS12 format key (PFX) to a trustFrameworkKeyset. The input is a base-64 encoded value of the Pfx certificate contents. This method returns trustFrameworkKey.

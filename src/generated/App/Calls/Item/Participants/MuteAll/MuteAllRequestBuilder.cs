@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item.Participants.MuteAll {
+namespace ApiSdk.App.Calls.Item.Participants.MuteAll
+{
     /// <summary>
     /// Provides operations to call the muteAll method.
     /// </summary>
-    public class MuteAllRequestBuilder : BaseCliRequestBuilder 
+    public class MuteAllRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Mute all participants in the call.

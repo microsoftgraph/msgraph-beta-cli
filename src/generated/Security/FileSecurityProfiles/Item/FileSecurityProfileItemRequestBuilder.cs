@@ -14,16 +14,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.FileSecurityProfiles.Item {
+namespace ApiSdk.Security.FileSecurityProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the fileSecurityProfiles property of the microsoft.graph.security entity.
     /// </summary>
-    public class FileSecurityProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class FileSecurityProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property fileSecurityProfiles for security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
@@ -59,6 +61,7 @@ namespace ApiSdk.Security.FileSecurityProfiles.Item {
         /// Get fileSecurityProfiles from security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
@@ -111,6 +114,7 @@ namespace ApiSdk.Security.FileSecurityProfiles.Item {
         /// Update the navigation property fileSecurityProfiles in security
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
@@ -177,6 +181,7 @@ namespace ApiSdk.Security.FileSecurityProfiles.Item {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -196,6 +201,7 @@ namespace ApiSdk.Security.FileSecurityProfiles.Item {
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FileSecurityProfileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -216,6 +222,7 @@ namespace ApiSdk.Security.FileSecurityProfiles.Item {
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(FileSecurityProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)

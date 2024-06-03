@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Schema {
+namespace ApiSdk.Applications.Item.Synchronization.Jobs.Item.Schema
+{
     /// <summary>
     /// Provides operations to manage the schema property of the microsoft.graph.synchronizationJob entity.
     /// </summary>
-    public class SchemaRequestBuilder : BaseCliRequestBuilder 
+    public class SchemaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property schema for applications

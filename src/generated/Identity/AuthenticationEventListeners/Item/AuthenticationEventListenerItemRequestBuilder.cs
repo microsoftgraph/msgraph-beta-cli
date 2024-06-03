@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventListeners.Item {
+namespace ApiSdk.Identity.AuthenticationEventListeners.Item
+{
     /// <summary>
     /// Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class AuthenticationEventListenerItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationEventListenerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property authenticationEventListeners for identity
+        /// Deletes an authenticationEventListener object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationeventlistener-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property authenticationEventListeners for identity";
+            command.Description = "Deletes an authenticationEventListener object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationeventlistener-delete?view=graph-rest-beta";
             var authenticationEventListenerIdOption = new Option<string>("--authentication-event-listener-id", description: "The unique identifier of authenticationEventListener") {
             };
             authenticationEventListenerIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Identity.AuthenticationEventListeners.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property authenticationEventListeners in identity
+        /// Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationeventlistener-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property authenticationEventListeners in identity";
+            command.Description = "Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationeventlistener-update?view=graph-rest-beta";
             var authenticationEventListenerIdOption = new Option<string>("--authentication-event-listener-id", description: "The unique identifier of authenticationEventListener") {
             };
             authenticationEventListenerIdOption.IsRequired = true;
@@ -173,7 +176,7 @@ namespace ApiSdk.Identity.AuthenticationEventListeners.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property authenticationEventListeners for identity
+        /// Deletes an authenticationEventListener object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Identity.AuthenticationEventListeners.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property authenticationEventListeners in identity
+        /// Update the properties of an authenticationEventListener object. You must specify the @odata.type property and the value of the authenticationEventListener object type to update.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

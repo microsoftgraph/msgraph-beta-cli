@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class MonitoringRule : IAdditionalDataHolder, IParsable 
+    public class MonitoringRule : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action triggered when the threshold for the given signal is reached. Possible values are: alertError, pauseDeployment, offerFallback, unknownFutureValue. The offerFallback member is only supported on feature update deployments of Windows 11 and must be paired with the ineligible signal. The fallback version offered is the version 22H2 of Windows 10.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<MonitoringAction>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"signal", n => { Signal = n.GetEnumValue<MonitoringSignal>(); } },
-                {"threshold", n => { Threshold = n.GetIntValue(); } },
+                { "action", n => { Action = n.GetEnumValue<MonitoringAction>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "signal", n => { Signal = n.GetEnumValue<MonitoringSignal>(); } },
+                { "threshold", n => { Threshold = n.GetIntValue(); } },
             };
         }
         /// <summary>

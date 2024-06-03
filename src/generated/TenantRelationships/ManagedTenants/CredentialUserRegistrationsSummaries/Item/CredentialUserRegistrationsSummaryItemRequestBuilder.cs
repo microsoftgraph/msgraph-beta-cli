@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsSummaries.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsSummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class CredentialUserRegistrationsSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class CredentialUserRegistrationsSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property credentialUserRegistrationsSummaries for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
             return command;
         }
         /// <summary>
-        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
+        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.";
+            command.Description = "Read the properties and relationships of a credentialUserRegistrationsSummary object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-credentialuserregistrationssummary-get?view=graph-rest-beta";
             var credentialUserRegistrationsSummaryIdOption = new Option<string>("--credential-user-registrations-summary-id", description: "The unique identifier of credentialUserRegistrationsSummary") {
             };
             credentialUserRegistrationsSummaryIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
             return requestInfo;
         }
         /// <summary>
-        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
+        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsS
             return requestInfo;
         }
         /// <summary>
-        /// Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.
+        /// Read the properties and relationships of a credentialUserRegistrationsSummary object.
         /// </summary>
         public class CredentialUserRegistrationsSummaryItemRequestBuilderGetQueryParameters 
         {

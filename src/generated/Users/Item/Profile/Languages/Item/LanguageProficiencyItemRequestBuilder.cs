@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Languages.Item {
+namespace ApiSdk.Users.Item.Profile.Languages.Item
+{
     /// <summary>
     /// Provides operations to manage the languages property of the microsoft.graph.profile entity.
     /// </summary>
-    public class LanguageProficiencyItemRequestBuilder : BaseCliRequestBuilder 
+    public class LanguageProficiencyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property languages for users

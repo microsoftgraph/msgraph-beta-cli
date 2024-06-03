@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties for device run state of the device management script.
     /// </summary>
-    public class DeviceManagementScriptDeviceState : Entity, IParsable 
+    public class DeviceManagementScriptDeviceState : Entity, IParsable
     {
         /// <summary>Error code corresponding to erroneous execution of the device management script.</summary>
         public int? ErrorCode { get; set; }
@@ -58,12 +59,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errorCode", n => { ErrorCode = n.GetIntValue(); } },
-                {"errorDescription", n => { ErrorDescription = n.GetStringValue(); } },
-                {"lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
-                {"resultMessage", n => { ResultMessage = n.GetStringValue(); } },
-                {"runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
+                { "errorDescription", n => { ErrorDescription = n.GetStringValue(); } },
+                { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
+                { "resultMessage", n => { ResultMessage = n.GetStringValue(); } },
+                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
             };
         }
         /// <summary>

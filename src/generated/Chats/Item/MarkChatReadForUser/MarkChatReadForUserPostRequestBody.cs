@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Chats.Item.MarkChatReadForUser {
+namespace ApiSdk.Chats.Item.MarkChatReadForUser
+{
     #pragma warning disable CS1591
-    public class MarkChatReadForUserPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MarkChatReadForUserPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Chats.Item.MarkChatReadForUser {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"user", n => { User = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "user", n => { User = n.GetObjectValue<TeamworkUserIdentity>(TeamworkUserIdentity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

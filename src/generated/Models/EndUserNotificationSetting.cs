@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EndUserNotificationSetting : IAdditionalDataHolder, IParsable 
+    public class EndUserNotificationSetting : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -62,10 +63,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"notificationPreference", n => { NotificationPreference = n.GetEnumValue<EndUserNotificationPreference>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"positiveReinforcement", n => { PositiveReinforcement = n.GetObjectValue<PositiveReinforcementNotification>(PositiveReinforcementNotification.CreateFromDiscriminatorValue); } },
-                {"settingType", n => { SettingType = n.GetEnumValue<EndUserNotificationSettingType>(); } },
+                { "notificationPreference", n => { NotificationPreference = n.GetEnumValue<EndUserNotificationPreference>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "positiveReinforcement", n => { PositiveReinforcement = n.GetObjectValue<PositiveReinforcementNotification>(PositiveReinforcementNotification.CreateFromDiscriminatorValue); } },
+                { "settingType", n => { SettingType = n.GetEnumValue<EndUserNotificationSettingType>(); } },
             };
         }
         /// <summary>

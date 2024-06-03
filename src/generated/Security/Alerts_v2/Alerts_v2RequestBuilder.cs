@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Alerts_v2 {
+namespace ApiSdk.Security.Alerts_v2
+{
     /// <summary>
     /// Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
     /// </summary>
-    public class Alerts_v2RequestBuilder : BaseCliRequestBuilder 
+    public class Alerts_v2RequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Security.Alerts_v2 {
             return command;
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get a list of alert resources that were created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-list-alerts_v2?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of alerts in Microsoft 365 Defender.";
+            command.Description = "Get a list of alert resources that were created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-list-alerts_v2?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Security.Alerts_v2 {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Security.Alerts_v2 {
         {
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get a list of alert resources that were created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Security.Alerts_v2 {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of alerts in Microsoft 365 Defender.
+        /// Get a list of alert resources that were created to track suspicious activities in an organization. This operation lets you filter and sort through alerts to create an informed cyber security response. It exposes a collection of alerts that were flagged in your network, within the time range you specified in your environment retention policy. The most recent alerts are displayed at the top of the list.
         /// </summary>
         public class Alerts_v2RequestBuilderGetQueryParameters 
         {

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item.Record {
+namespace ApiSdk.App.Calls.Item.Record
+{
     /// <summary>
     /// Provides operations to call the record method.
     /// </summary>
-    public class RecordRequestBuilder : BaseCliRequestBuilder 
+    public class RecordRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action record

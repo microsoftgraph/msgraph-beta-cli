@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Plans.Item.Buckets.Item.Tasks.Item.Details {
+namespace ApiSdk.Planner.Plans.Item.Buckets.Item.Tasks.Item.Details
+{
     /// <summary>
     /// Provides operations to manage the details property of the microsoft.graph.plannerTask entity.
     /// </summary>
-    public class DetailsRequestBuilder : BaseCliRequestBuilder 
+    public class DetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property details for planner

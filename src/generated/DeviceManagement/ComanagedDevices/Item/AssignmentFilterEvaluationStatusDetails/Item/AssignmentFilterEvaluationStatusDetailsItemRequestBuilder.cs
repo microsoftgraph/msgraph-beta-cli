@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.AssignmentFilterEvaluationStatusDetails.Item {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.AssignmentFilterEvaluationStatusDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the assignmentFilterEvaluationStatusDetails property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    public class AssignmentFilterEvaluationStatusDetailsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignmentFilterEvaluationStatusDetails for deviceManagement

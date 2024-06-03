@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AddWatermark : MarkContent, IParsable 
+    public class AddWatermark : MarkContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The orientation property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"orientation", n => { Orientation = n.GetEnumValue<PageOrientation>(); } },
+                { "orientation", n => { Orientation = n.GetEnumValue<PageOrientation>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WhatIfUserActionContext : ConditionalAccessContext, IParsable 
+    public class WhatIfUserActionContext : ConditionalAccessContext, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The userAction property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"userAction", n => { UserAction = n.GetEnumValue<UserAction>(); } },
+                { "userAction", n => { UserAction = n.GetEnumValue<UserAction>(); } },
             };
         }
         /// <summary>

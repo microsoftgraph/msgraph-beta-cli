@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance {
+namespace ApiSdk.Compliance
+{
     /// <summary>
     /// Provides operations to manage the compliance singleton.
     /// </summary>
-    public class ComplianceRequestBuilder : BaseCliRequestBuilder 
+    public class ComplianceRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the ediscovery property of the microsoft.graph.compliance entity.

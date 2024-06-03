@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Account {
+namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Account
+{
     /// <summary>
     /// Provides operations to manage the account property of the microsoft.graph.customerPaymentJournal entity.
     /// </summary>
-    public class AccountRequestBuilder : BaseCliRequestBuilder 
+    public class AccountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get account from financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Account 
         {
             var command = new Command("get");
             command.Description = "Get account from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);

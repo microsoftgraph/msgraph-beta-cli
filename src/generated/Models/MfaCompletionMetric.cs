@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class MfaCompletionMetric : Entity, IParsable 
+    public class MfaCompletionMetric : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ID of the Microsoft Entra application. Supports $filter (eq).</summary>
@@ -90,16 +91,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"attemptsCount", n => { AttemptsCount = n.GetLongValue(); } },
-                {"country", n => { Country = n.GetStringValue(); } },
-                {"factDate", n => { FactDate = n.GetDateValue(); } },
-                {"identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"mfaFailures", n => { MfaFailures = n.GetCollectionOfObjectValues<MfaFailure>(MfaFailure.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"mfaMethod", n => { MfaMethod = n.GetStringValue(); } },
-                {"os", n => { Os = n.GetStringValue(); } },
-                {"successCount", n => { SuccessCount = n.GetLongValue(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "attemptsCount", n => { AttemptsCount = n.GetLongValue(); } },
+                { "country", n => { Country = n.GetStringValue(); } },
+                { "factDate", n => { FactDate = n.GetDateValue(); } },
+                { "identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "mfaFailures", n => { MfaFailures = n.GetCollectionOfObjectValues<MfaFailure>(MfaFailure.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mfaMethod", n => { MfaMethod = n.GetStringValue(); } },
+                { "os", n => { Os = n.GetStringValue(); } },
+                { "successCount", n => { SuccessCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

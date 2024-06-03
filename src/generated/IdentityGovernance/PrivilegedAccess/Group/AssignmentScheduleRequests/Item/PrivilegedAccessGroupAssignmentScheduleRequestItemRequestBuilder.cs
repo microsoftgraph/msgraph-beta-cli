@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleRequests.Item {
+namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the assignmentScheduleRequests property of the microsoft.graph.privilegedAccessGroup entity.
     /// </summary>
-    public class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activatedUsing property of the microsoft.graph.privilegedAccessGroupAssignmentScheduleRequest entity.
@@ -95,13 +96,14 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleReq
             return command;
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The schedule requests for operations to create, update, delete, extend, and renew an assignment.";
+            command.Description = "Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/privilegedaccessgroupassignmentschedulerequest-get?view=graph-rest-beta";
             var privilegedAccessGroupAssignmentScheduleRequestIdOption = new Option<string>("--privileged-access-group-assignment-schedule-request-id", description: "The unique identifier of privilegedAccessGroupAssignmentScheduleRequest") {
             };
             privilegedAccessGroupAssignmentScheduleRequestIdOption.IsRequired = true;
@@ -288,7 +290,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleReq
             return requestInfo;
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -328,7 +330,7 @@ namespace ApiSdk.IdentityGovernance.PrivilegedAccess.Group.AssignmentScheduleReq
             return requestInfo;
         }
         /// <summary>
-        /// The schedule requests for operations to create, update, delete, extend, and renew an assignment.
+        /// Read the properties and relationships of a privilegedAccessGroupAssignmentScheduleRequest object.
         /// </summary>
         public class PrivilegedAccessGroupAssignmentScheduleRequestItemRequestBuilderGetQueryParameters 
         {

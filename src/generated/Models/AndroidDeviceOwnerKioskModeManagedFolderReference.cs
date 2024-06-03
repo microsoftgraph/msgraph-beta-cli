@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A reference to folder containing apps and weblinks on the Managed Home Screen
     /// </summary>
-    public class AndroidDeviceOwnerKioskModeManagedFolderReference : AndroidDeviceOwnerKioskModeHomeScreenItem, IParsable 
+    public class AndroidDeviceOwnerKioskModeManagedFolderReference : AndroidDeviceOwnerKioskModeHomeScreenItem, IParsable
     {
         /// <summary>Unique identifier for the folder</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"folderIdentifier", n => { FolderIdentifier = n.GetStringValue(); } },
-                {"folderName", n => { FolderName = n.GetStringValue(); } },
+                { "folderIdentifier", n => { FolderIdentifier = n.GetStringValue(); } },
+                { "folderName", n => { FolderName = n.GetStringValue(); } },
             };
         }
         /// <summary>

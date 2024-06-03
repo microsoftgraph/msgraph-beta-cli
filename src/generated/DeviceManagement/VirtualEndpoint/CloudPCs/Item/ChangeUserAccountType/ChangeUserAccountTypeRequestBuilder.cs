@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.ChangeUserAccountType {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.ChangeUserAccountType
+{
     /// <summary>
     /// Provides operations to call the changeUserAccountType method.
     /// </summary>
-    public class ChangeUserAccountTypeRequestBuilder : BaseCliRequestBuilder 
+    public class ChangeUserAccountTypeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Change the account type of the user on a specific Cloud PC.

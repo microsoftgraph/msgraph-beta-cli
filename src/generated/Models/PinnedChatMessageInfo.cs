@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PinnedChatMessageInfo : Entity, IParsable 
+    public class PinnedChatMessageInfo : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents details about the chat message that is pinned.</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"message", n => { Message = n.GetObjectValue<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue); } },
+                { "message", n => { Message = n.GetObjectValue<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PermissionsAnalytics : Entity, IParsable 
+    public class PermissionsAnalytics : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The output of the permissions usage data analysis performed by Permissions Management to assess risk with identities and resources.</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"findings", n => { Findings = n.GetCollectionOfObjectValues<Finding>(Finding.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"permissionsCreepIndexDistributions", n => { PermissionsCreepIndexDistributions = n.GetCollectionOfObjectValues<PermissionsCreepIndexDistribution>(PermissionsCreepIndexDistribution.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "findings", n => { Findings = n.GetCollectionOfObjectValues<Finding>(Finding.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "permissionsCreepIndexDistributions", n => { PermissionsCreepIndexDistributions = n.GetCollectionOfObjectValues<PermissionsCreepIndexDistribution>(PermissionsCreepIndexDistribution.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

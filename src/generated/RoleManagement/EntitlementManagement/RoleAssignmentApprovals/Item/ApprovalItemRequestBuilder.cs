@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignmentApprovals.Item {
+namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignmentApprovals.Item
+{
     /// <summary>
     /// Provides operations to manage the roleAssignmentApprovals property of the microsoft.graph.rbacApplication entity.
     /// </summary>
-    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApprovalItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property roleAssignmentApprovals for roleManagement

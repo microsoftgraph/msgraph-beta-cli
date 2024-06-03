@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TodoTaskList : Entity, IParsable 
+    public class TodoTaskList : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the task list.</summary>
@@ -57,12 +58,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isOwner", n => { IsOwner = n.GetBoolValue(); } },
-                {"isShared", n => { IsShared = n.GetBoolValue(); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<TodoTask>(TodoTask.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"wellknownListName", n => { WellknownListName = n.GetEnumValue<WellknownListName>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "extensions", n => { Extensions = n.GetCollectionOfObjectValues<Extension>(Extension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isOwner", n => { IsOwner = n.GetBoolValue(); } },
+                { "isShared", n => { IsShared = n.GetBoolValue(); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<TodoTask>(TodoTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "wellknownListName", n => { WellknownListName = n.GetEnumValue<WellknownListName>(); } },
             };
         }
         /// <summary>

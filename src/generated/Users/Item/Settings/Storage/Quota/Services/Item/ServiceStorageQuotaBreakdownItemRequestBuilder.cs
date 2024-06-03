@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Settings.Storage.Quota.Services.Item {
+namespace ApiSdk.Users.Item.Settings.Storage.Quota.Services.Item
+{
     /// <summary>
     /// Provides operations to manage the services property of the microsoft.graph.unifiedStorageQuota entity.
     /// </summary>
-    public class ServiceStorageQuotaBreakdownItemRequestBuilder : BaseCliRequestBuilder 
+    public class ServiceStorageQuotaBreakdownItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property services for users

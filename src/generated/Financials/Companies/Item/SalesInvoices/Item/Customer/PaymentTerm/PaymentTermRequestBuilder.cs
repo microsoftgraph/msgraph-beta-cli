@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.PaymentTerm {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.PaymentTerm
+{
     /// <summary>
     /// Provides operations to manage the paymentTerm property of the microsoft.graph.customer entity.
     /// </summary>
-    public class PaymentTermRequestBuilder : BaseCliRequestBuilder 
+    public class PaymentTermRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property paymentTerm for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.PaymentTe
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property paymentTerm for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.PaymentTe
         {
             var command = new Command("get");
             command.Description = "Get paymentTerm from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.Customer.PaymentTe
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property paymentTerm in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);

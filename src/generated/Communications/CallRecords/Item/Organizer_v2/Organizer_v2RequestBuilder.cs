@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.Item.Organizer_v2 {
+namespace ApiSdk.Communications.CallRecords.Item.Organizer_v2
+{
     /// <summary>
     /// Provides operations to manage the organizer_v2 property of the microsoft.graph.callRecords.callRecord entity.
     /// </summary>
-    public class Organizer_v2RequestBuilder : BaseCliRequestBuilder 
+    public class Organizer_v2RequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property organizer_v2 for communications

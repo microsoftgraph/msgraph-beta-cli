@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics device scope entity contains device scope configuration values use to apply filtering on the endpoint analytics reports.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceScope : Entity, IParsable 
+    public class UserExperienceAnalyticsDeviceScope : Entity, IParsable
     {
         /// <summary>Indicates the creation date and time for the custom device scope.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -74,17 +75,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceScopeName", n => { DeviceScopeName = n.GetStringValue(); } },
-                {"enabled", n => { Enabled = n.GetBoolValue(); } },
-                {"isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"operator", n => { Operator = n.GetEnumValue<DeviceScopeOperator>(); } },
-                {"ownerId", n => { OwnerId = n.GetStringValue(); } },
-                {"parameter", n => { Parameter = n.GetEnumValue<DeviceScopeParameter>(); } },
-                {"status", n => { Status = n.GetEnumValue<DeviceScopeStatus>(); } },
-                {"value", n => { Value = n.GetStringValue(); } },
-                {"valueObjectId", n => { ValueObjectId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deviceScopeName", n => { DeviceScopeName = n.GetStringValue(); } },
+                { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "operator", n => { Operator = n.GetEnumValue<DeviceScopeOperator>(); } },
+                { "ownerId", n => { OwnerId = n.GetStringValue(); } },
+                { "parameter", n => { Parameter = n.GetEnumValue<DeviceScopeParameter>(); } },
+                { "status", n => { Status = n.GetEnumValue<DeviceScopeStatus>(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
+                { "valueObjectId", n => { ValueObjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>

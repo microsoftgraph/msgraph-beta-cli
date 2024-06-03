@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.Item.ImportResourceActions {
+namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.Item.ImportResourceActions
+{
     /// <summary>
     /// Provides operations to call the importResourceActions method.
     /// </summary>
-    public class ImportResourceActionsRequestBuilder : BaseCliRequestBuilder 
+    public class ImportResourceActionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action importResourceActions

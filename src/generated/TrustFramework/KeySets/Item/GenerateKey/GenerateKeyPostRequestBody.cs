@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey {
+namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey
+{
     #pragma warning disable CS1591
-    public class GenerateKeyPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GenerateKeyPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,10 +57,10 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"exp", n => { Exp = n.GetLongValue(); } },
-                {"kty", n => { Kty = n.GetStringValue(); } },
-                {"nbf", n => { Nbf = n.GetLongValue(); } },
-                {"use", n => { Use = n.GetStringValue(); } },
+                { "exp", n => { Exp = n.GetLongValue(); } },
+                { "kty", n => { Kty = n.GetStringValue(); } },
+                { "nbf", n => { Nbf = n.GetLongValue(); } },
+                { "use", n => { Use = n.GetStringValue(); } },
             };
         }
         /// <summary>

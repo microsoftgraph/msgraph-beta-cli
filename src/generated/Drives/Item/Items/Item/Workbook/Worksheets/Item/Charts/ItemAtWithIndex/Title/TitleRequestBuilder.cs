@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.Title {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.ItemAtWithIndex.Title
+{
     /// <summary>
     /// Provides operations to manage the title property of the microsoft.graph.workbookChart entity.
     /// </summary>
-    public class TitleRequestBuilder : BaseCliRequestBuilder 
+    public class TitleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property title for drives

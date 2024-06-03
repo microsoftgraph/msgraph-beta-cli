@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Zebra FOTA connector entity that represents the tenant&apos;s authorization status for Intune to call Zebra Update Services.
     /// </summary>
-    public class ZebraFotaConnector : Entity, IParsable 
+    public class ZebraFotaConnector : Entity, IParsable
     {
         /// <summary>Complete account enrollment authorization URL. This corresponds to verificationuricomplete in the Zebra API documentations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,11 +51,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enrollmentAuthorizationUrl", n => { EnrollmentAuthorizationUrl = n.GetStringValue(); } },
-                {"enrollmentToken", n => { EnrollmentToken = n.GetStringValue(); } },
-                {"fotaAppsApproved", n => { FotaAppsApproved = n.GetBoolValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"state", n => { State = n.GetEnumValue<ZebraFotaConnectorState>(); } },
+                { "enrollmentAuthorizationUrl", n => { EnrollmentAuthorizationUrl = n.GetStringValue(); } },
+                { "enrollmentToken", n => { EnrollmentToken = n.GetStringValue(); } },
+                { "fotaAppsApproved", n => { FotaAppsApproved = n.GetBoolValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "state", n => { State = n.GetEnumValue<ZebraFotaConnectorState>(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class HostLogonSessionEvidence : AlertEvidence, IParsable 
+    public class HostLogonSessionEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
@@ -62,11 +63,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"account", n => { Account = n.GetObjectValue<UserEvidence>(UserEvidence.CreateFromDiscriminatorValue); } },
-                {"endUtcDateTime", n => { EndUtcDateTime = n.GetDateTimeOffsetValue(); } },
-                {"host", n => { Host = n.GetObjectValue<DeviceEvidence>(DeviceEvidence.CreateFromDiscriminatorValue); } },
-                {"sessionId", n => { SessionId = n.GetStringValue(); } },
-                {"startUtcDateTime", n => { StartUtcDateTime = n.GetDateTimeOffsetValue(); } },
+                { "account", n => { Account = n.GetObjectValue<UserEvidence>(UserEvidence.CreateFromDiscriminatorValue); } },
+                { "endUtcDateTime", n => { EndUtcDateTime = n.GetDateTimeOffsetValue(); } },
+                { "host", n => { Host = n.GetObjectValue<DeviceEvidence>(DeviceEvidence.CreateFromDiscriminatorValue); } },
+                { "sessionId", n => { SessionId = n.GetStringValue(); } },
+                { "startUtcDateTime", n => { StartUtcDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

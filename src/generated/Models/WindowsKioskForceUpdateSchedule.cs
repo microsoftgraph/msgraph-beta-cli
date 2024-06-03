@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows 10 force update schedule for Kiosk devices.
     /// </summary>
-    public class WindowsKioskForceUpdateSchedule : IAdditionalDataHolder, IParsable 
+    public class WindowsKioskForceUpdateSchedule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -55,12 +56,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dayofMonth", n => { DayofMonth = n.GetIntValue(); } },
-                {"dayofWeek", n => { DayofWeek = n.GetEnumValue<DayOfWeekObject>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"recurrence", n => { Recurrence = n.GetEnumValue<Windows10AppsUpdateRecurrence>(); } },
-                {"runImmediatelyIfAfterStartDateTime", n => { RunImmediatelyIfAfterStartDateTime = n.GetBoolValue(); } },
-                {"startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "dayofMonth", n => { DayofMonth = n.GetIntValue(); } },
+                { "dayofWeek", n => { DayofWeek = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "recurrence", n => { Recurrence = n.GetEnumValue<Windows10AppsUpdateRecurrence>(); } },
+                { "runImmediatelyIfAfterStartDateTime", n => { RunImmediatelyIfAfterStartDateTime = n.GetBoolValue(); } },
+                { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

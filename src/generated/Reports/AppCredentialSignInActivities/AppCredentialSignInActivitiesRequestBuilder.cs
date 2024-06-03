@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AppCredentialSignInActivities {
+namespace ApiSdk.Reports.AppCredentialSignInActivities
+{
     /// <summary>
     /// Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class AppCredentialSignInActivitiesRequestBuilder : BaseCliRequestBuilder 
+    public class AppCredentialSignInActivitiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.
@@ -98,13 +99,14 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
             return command;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/reportroot-list-appcredentialsigninactivities?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents a collection of sign-in activities of application credentials.";
+            command.Description = "Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/reportroot-list-appcredentialsigninactivities?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +182,9 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +210,7 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
         {
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Reports.AppCredentialSignInActivities {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a collection of sign-in activities of application credentials.
+        /// Get a list of appCredentialSignInActivity objects that contains recent activity of application credentials.
         /// </summary>
         public class AppCredentialSignInActivitiesRequestBuilderGetQueryParameters 
         {

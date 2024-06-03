@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SecureScoreControlStateUpdate : IAdditionalDataHolder, IParsable 
+    public class SecureScoreControlStateUpdate : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The assignedTo property</summary>
+        /// <summary>Assign the control to the user who will take the action</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AssignedTo { get; set; }
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public string AssignedTo { get; set; }
 #endif
-        /// <summary>The comment property</summary>
+        /// <summary>Provides optional comment about the control</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Comment { get; set; }
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The state property</summary>
+        /// <summary>State of the control can be modified using PATCH command(Ex: ignored, thirdParty etc)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? State { get; set; }
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
 #else
         public string State { get; set; }
 #endif
-        /// <summary>The updatedBy property</summary>
+        /// <summary>ID of the user who updated tenant state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UpdatedBy { get; set; }
@@ -51,7 +52,7 @@ namespace ApiSdk.Models {
 #else
         public string UpdatedBy { get; set; }
 #endif
-        /// <summary>The updatedDateTime property</summary>
+        /// <summary>Time at which control state was updated</summary>
         public DateTimeOffset? UpdatedDateTime { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="SecureScoreControlStateUpdate"/> and sets the default values.
@@ -78,12 +79,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assignedTo", n => { AssignedTo = n.GetStringValue(); } },
-                {"comment", n => { Comment = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"state", n => { State = n.GetStringValue(); } },
-                {"updatedBy", n => { UpdatedBy = n.GetStringValue(); } },
-                {"updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "assignedTo", n => { AssignedTo = n.GetStringValue(); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "state", n => { State = n.GetStringValue(); } },
+                { "updatedBy", n => { UpdatedBy = n.GetStringValue(); } },
+                { "updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.Subject {
+namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.Subject
+{
     /// <summary>
     /// Provides operations to manage the subject property of the microsoft.graph.governanceRoleAssignmentRequest entity.
     /// </summary>
-    public class SubjectRequestBuilder : BaseCliRequestBuilder 
+    public class SubjectRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property subject for governanceRoleAssignmentRequests

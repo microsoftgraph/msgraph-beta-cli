@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Count {
+namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Coun
         {
             var command = new Command("get");
             command.Description = "Get the number of the resource";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);

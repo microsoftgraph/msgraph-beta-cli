@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.ConnectorGroup {
+namespace ApiSdk.Applications.Item.ConnectorGroup
+{
     /// <summary>
     /// Provides operations to manage the connectorGroup property of the microsoft.graph.application entity.
     /// </summary>
-    public class ConnectorGroupRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectorGroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The connectorGroup the application is using with Microsoft Entra application proxy. Nullable.

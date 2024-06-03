@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Subscription : Entity, IParsable 
+    public class Subscription : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Optional. Identifier of the application used to create the subscription. Read-only.</summary>
@@ -135,21 +136,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"applicationId", n => { ApplicationId = n.GetStringValue(); } },
-                {"changeType", n => { ChangeType = n.GetStringValue(); } },
-                {"clientState", n => { ClientState = n.GetStringValue(); } },
-                {"creatorId", n => { CreatorId = n.GetStringValue(); } },
-                {"encryptionCertificate", n => { EncryptionCertificate = n.GetStringValue(); } },
-                {"encryptionCertificateId", n => { EncryptionCertificateId = n.GetStringValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"includeResourceData", n => { IncludeResourceData = n.GetBoolValue(); } },
-                {"latestSupportedTlsVersion", n => { LatestSupportedTlsVersion = n.GetStringValue(); } },
-                {"lifecycleNotificationUrl", n => { LifecycleNotificationUrl = n.GetStringValue(); } },
-                {"notificationContentType", n => { NotificationContentType = n.GetStringValue(); } },
-                {"notificationQueryOptions", n => { NotificationQueryOptions = n.GetStringValue(); } },
-                {"notificationUrl", n => { NotificationUrl = n.GetStringValue(); } },
-                {"notificationUrlAppId", n => { NotificationUrlAppId = n.GetStringValue(); } },
-                {"resource", n => { Resource = n.GetStringValue(); } },
+                { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
+                { "changeType", n => { ChangeType = n.GetStringValue(); } },
+                { "clientState", n => { ClientState = n.GetStringValue(); } },
+                { "creatorId", n => { CreatorId = n.GetStringValue(); } },
+                { "encryptionCertificate", n => { EncryptionCertificate = n.GetStringValue(); } },
+                { "encryptionCertificateId", n => { EncryptionCertificateId = n.GetStringValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "includeResourceData", n => { IncludeResourceData = n.GetBoolValue(); } },
+                { "latestSupportedTlsVersion", n => { LatestSupportedTlsVersion = n.GetStringValue(); } },
+                { "lifecycleNotificationUrl", n => { LifecycleNotificationUrl = n.GetStringValue(); } },
+                { "notificationContentType", n => { NotificationContentType = n.GetStringValue(); } },
+                { "notificationQueryOptions", n => { NotificationQueryOptions = n.GetStringValue(); } },
+                { "notificationUrl", n => { NotificationUrl = n.GetStringValue(); } },
+                { "notificationUrlAppId", n => { NotificationUrlAppId = n.GetStringValue(); } },
+                { "resource", n => { Resource = n.GetStringValue(); } },
             };
         }
         /// <summary>

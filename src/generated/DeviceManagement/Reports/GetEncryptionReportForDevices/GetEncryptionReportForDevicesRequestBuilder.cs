@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetEncryptionReportForDevices {
+namespace ApiSdk.DeviceManagement.Reports.GetEncryptionReportForDevices
+{
     /// <summary>
     /// Provides operations to call the getEncryptionReportForDevices method.
     /// </summary>
-    public class GetEncryptionReportForDevicesRequestBuilder : BaseCliRequestBuilder 
+    public class GetEncryptionReportForDevicesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getEncryptionReportForDevices

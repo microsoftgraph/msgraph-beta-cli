@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.Partners.Billing.Manifests {
+namespace ApiSdk.Reports.Partners.Billing.Manifests
+{
     /// <summary>
     /// Provides operations to manage the manifests property of the microsoft.graph.partners.billing.billing entity.
     /// </summary>
-    public class ManifestsRequestBuilder : BaseCliRequestBuilder 
+    public class ManifestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the manifests property of the microsoft.graph.partners.billing.billing entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
             return command;
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents metadata for the exported data.";
+            command.Description = "Read the properties and relationships of a manifest object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
         {
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.Reports.Partners.Billing.Manifests {
             return requestInfo;
         }
         /// <summary>
-        /// Represents metadata for the exported data.
+        /// Read the properties and relationships of a manifest object.
         /// </summary>
         public class ManifestsRequestBuilderGetQueryParameters 
         {

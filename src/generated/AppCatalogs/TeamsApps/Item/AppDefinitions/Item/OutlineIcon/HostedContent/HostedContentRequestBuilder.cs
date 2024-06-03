@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.HostedContent {
+namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.HostedContent
+{
     /// <summary>
     /// Provides operations to manage the hostedContent property of the microsoft.graph.teamsAppIcon entity.
     /// </summary>
-    public class HostedContentRequestBuilder : BaseCliRequestBuilder 
+    public class HostedContentRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the media for the appCatalogs entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.Host
             command.Description = "Provides operations to manage the media for the appCatalogs entity.";
             var builder = new ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
+            execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPutCommand());
             foreach (var cmd in execCommands)

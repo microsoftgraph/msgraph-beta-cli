@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates {
+namespace ApiSdk.Admin.Windows.Updates
+{
     /// <summary>
     /// Provides operations to manage the updates property of the microsoft.graph.adminWindows entity.
     /// </summary>
-    public class UpdatesRequestBuilder : BaseCliRequestBuilder 
+    public class UpdatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the catalog property of the microsoft.graph.adminWindowsUpdates entity.

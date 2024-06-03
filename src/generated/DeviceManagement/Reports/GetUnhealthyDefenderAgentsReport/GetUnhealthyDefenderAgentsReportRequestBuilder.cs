@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Reports.GetUnhealthyDefenderAgentsReport {
+namespace ApiSdk.DeviceManagement.Reports.GetUnhealthyDefenderAgentsReport
+{
     /// <summary>
     /// Provides operations to call the getUnhealthyDefenderAgentsReport method.
     /// </summary>
-    public class GetUnhealthyDefenderAgentsReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetUnhealthyDefenderAgentsReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getUnhealthyDefenderAgentsReport

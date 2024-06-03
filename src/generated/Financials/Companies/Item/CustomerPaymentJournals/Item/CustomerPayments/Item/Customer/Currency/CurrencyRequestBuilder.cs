@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPayments.Item.Customer.Currency {
+namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPayments.Item.Customer.Currency
+{
     /// <summary>
     /// Provides operations to manage the currency property of the microsoft.graph.customer entity.
     /// </summary>
-    public class CurrencyRequestBuilder : BaseCliRequestBuilder 
+    public class CurrencyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property currency for financials
@@ -28,15 +29,15 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Customer
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property currency for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);
-            var customerPaymentIdOption = new Option<string>("--customer-payment-id", description: "The unique identifier of customerPayment") {
+            var customerPaymentIdOption = new Option<Guid?>("--customer-payment-id", description: "The unique identifier of customerPayment") {
             };
             customerPaymentIdOption.IsRequired = true;
             command.AddOption(customerPaymentIdOption);
@@ -75,15 +76,15 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Customer
         {
             var command = new Command("get");
             command.Description = "Get currency from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);
-            var customerPaymentIdOption = new Option<string>("--customer-payment-id", description: "The unique identifier of customerPayment") {
+            var customerPaymentIdOption = new Option<Guid?>("--customer-payment-id", description: "The unique identifier of customerPayment") {
             };
             customerPaymentIdOption.IsRequired = true;
             command.AddOption(customerPaymentIdOption);
@@ -139,15 +140,15 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Customer
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property currency in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var customerPaymentJournalIdOption = new Option<string>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
+            var customerPaymentJournalIdOption = new Option<Guid?>("--customer-payment-journal-id", description: "The unique identifier of customerPaymentJournal") {
             };
             customerPaymentJournalIdOption.IsRequired = true;
             command.AddOption(customerPaymentJournalIdOption);
-            var customerPaymentIdOption = new Option<string>("--customer-payment-id", description: "The unique identifier of customerPayment") {
+            var customerPaymentIdOption = new Option<Guid?>("--customer-payment-id", description: "The unique identifier of customerPayment") {
             };
             customerPaymentIdOption.IsRequired = true;
             command.AddOption(customerPaymentIdOption);

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects {
+namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects
+{
     #pragma warning disable CS1591
-    public class GetMemberObjectsPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetMemberObjectsPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.ServicePrincipals.Item.GetMemberObjects {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DomainDnsSrvRecord : DomainDnsRecord, IParsable 
+    public class DomainDnsSrvRecord : DomainDnsRecord, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Value to use when configuring the Target property of the SRV record at the DNS host.</summary>
@@ -57,12 +58,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"nameTarget", n => { NameTarget = n.GetStringValue(); } },
-                {"port", n => { Port = n.GetIntValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"protocol", n => { Protocol = n.GetStringValue(); } },
-                {"service", n => { Service = n.GetStringValue(); } },
-                {"weight", n => { Weight = n.GetIntValue(); } },
+                { "nameTarget", n => { NameTarget = n.GetStringValue(); } },
+                { "port", n => { Port = n.GetIntValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "protocol", n => { Protocol = n.GetStringValue(); } },
+                { "service", n => { Service = n.GetStringValue(); } },
+                { "weight", n => { Weight = n.GetIntValue(); } },
             };
         }
         /// <summary>

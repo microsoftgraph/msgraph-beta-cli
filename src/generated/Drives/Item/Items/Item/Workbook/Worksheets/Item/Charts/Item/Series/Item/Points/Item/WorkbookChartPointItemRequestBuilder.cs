@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Series.Item.Points.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Series.Item.Points.Item
+{
     /// <summary>
     /// Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
     /// </summary>
-    public class WorkbookChartPointItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookChartPointItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property points for drives

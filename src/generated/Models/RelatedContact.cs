@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RelatedContact : IAdditionalDataHolder, IParsable 
+    public class RelatedContact : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether the user has been consented to access student data.</summary>
@@ -80,13 +81,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessConsent", n => { AccessConsent = n.GetBoolValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"relationship", n => { Relationship = n.GetEnumValue<ContactRelationship>(); } },
+                { "accessConsent", n => { AccessConsent = n.GetBoolValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "mobilePhone", n => { MobilePhone = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "relationship", n => { Relationship = n.GetEnumValue<ContactRelationship>(); } },
             };
         }
         /// <summary>

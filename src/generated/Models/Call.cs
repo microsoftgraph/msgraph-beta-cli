@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Call : Entity, IParsable 
+    public class Call : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of active modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data. Read-only.</summary>
@@ -147,7 +148,7 @@ namespace ApiSdk.Models {
 #else
         public List<Participant> Participants { get; set; }
 #endif
-        /// <summary>The requestedModalities property</summary>
+        /// <summary>The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<Modality?>? RequestedModalities { get; set; }
@@ -155,7 +156,7 @@ namespace ApiSdk.Models {
 #else
         public List<Modality?> RequestedModalities { get; set; }
 #endif
-        /// <summary>The resultInfo property</summary>
+        /// <summary>The result information. For example, the result can hold termination reason. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.ResultInfo? ResultInfo { get; set; }
@@ -163,9 +164,9 @@ namespace ApiSdk.Models {
 #else
         public ApiSdk.Models.ResultInfo ResultInfo { get; set; }
 #endif
-        /// <summary>The ringingTimeoutInSeconds property</summary>
+        /// <summary>Ringing timeout in seconds for outgoing peer to peer calls. The max value for this attribute is 115 seconds.</summary>
         public int? RingingTimeoutInSeconds { get; set; }
-        /// <summary>The routingPolicies property</summary>
+        /// <summary>This property is applicable for peer to peer calls only. Possible values are: none, noMissedCall, disableForwardingExceptPhone, disableForwarding, preferSkypeForBusiness, unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<RoutingPolicy?>? RoutingPolicies { get; set; }
@@ -173,7 +174,7 @@ namespace ApiSdk.Models {
 #else
         public List<RoutingPolicy?> RoutingPolicies { get; set; }
 #endif
-        /// <summary>The source property</summary>
+        /// <summary>The originator of the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ParticipantInfo? Source { get; set; }
@@ -181,9 +182,9 @@ namespace ApiSdk.Models {
 #else
         public ParticipantInfo Source { get; set; }
 #endif
-        /// <summary>The state property</summary>
+        /// <summary>The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.</summary>
         public CallState? State { get; set; }
-        /// <summary>The subject property</summary>
+        /// <summary>The subject of the conversation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Subject { get; set; }
@@ -191,7 +192,7 @@ namespace ApiSdk.Models {
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>The targets property</summary>
+        /// <summary>The targets of the call. Required information for creating peer to peer call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<InvitationParticipantInfo>? Targets { get; set; }
@@ -199,7 +200,7 @@ namespace ApiSdk.Models {
 #else
         public List<InvitationParticipantInfo> Targets { get; set; }
 #endif
-        /// <summary>The tenantId property</summary>
+        /// <summary>Read-only. tenantId in Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TenantId { get; set; }
@@ -249,36 +250,36 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeModalities", n => { ActiveModalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
-                {"answeredBy", n => { AnsweredBy = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
-                {"audioRoutingGroups", n => { AudioRoutingGroups = n.GetCollectionOfObjectValues<AudioRoutingGroup>(AudioRoutingGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"callChainId", n => { CallChainId = n.GetStringValue(); } },
-                {"callOptions", n => { CallOptions = n.GetObjectValue<ApiSdk.Models.CallOptions>(ApiSdk.Models.CallOptions.CreateFromDiscriminatorValue); } },
-                {"callRoutes", n => { CallRoutes = n.GetCollectionOfObjectValues<CallRoute>(CallRoute.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"callbackUri", n => { CallbackUri = n.GetStringValue(); } },
-                {"chatInfo", n => { ChatInfo = n.GetObjectValue<ApiSdk.Models.ChatInfo>(ApiSdk.Models.ChatInfo.CreateFromDiscriminatorValue); } },
-                {"contentSharingSessions", n => { ContentSharingSessions = n.GetCollectionOfObjectValues<ContentSharingSession>(ContentSharingSession.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"direction", n => { Direction = n.GetEnumValue<CallDirection>(); } },
-                {"incomingContext", n => { IncomingContext = n.GetObjectValue<ApiSdk.Models.IncomingContext>(ApiSdk.Models.IncomingContext.CreateFromDiscriminatorValue); } },
-                {"mediaConfig", n => { MediaConfig = n.GetObjectValue<ApiSdk.Models.MediaConfig>(ApiSdk.Models.MediaConfig.CreateFromDiscriminatorValue); } },
-                {"mediaState", n => { MediaState = n.GetObjectValue<CallMediaState>(CallMediaState.CreateFromDiscriminatorValue); } },
-                {"meetingCapability", n => { MeetingCapability = n.GetObjectValue<ApiSdk.Models.MeetingCapability>(ApiSdk.Models.MeetingCapability.CreateFromDiscriminatorValue); } },
-                {"meetingInfo", n => { MeetingInfo = n.GetObjectValue<ApiSdk.Models.MeetingInfo>(ApiSdk.Models.MeetingInfo.CreateFromDiscriminatorValue); } },
-                {"myParticipantId", n => { MyParticipantId = n.GetStringValue(); } },
-                {"operations", n => { Operations = n.GetCollectionOfObjectValues<CommsOperation>(CommsOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"participants", n => { Participants = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"requestedModalities", n => { RequestedModalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
-                {"resultInfo", n => { ResultInfo = n.GetObjectValue<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue); } },
-                {"ringingTimeoutInSeconds", n => { RingingTimeoutInSeconds = n.GetIntValue(); } },
-                {"routingPolicies", n => { RoutingPolicies = n.GetCollectionOfEnumValues<RoutingPolicy>()?.ToList(); } },
-                {"source", n => { Source = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
-                {"state", n => { State = n.GetEnumValue<CallState>(); } },
-                {"subject", n => { Subject = n.GetStringValue(); } },
-                {"targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
-                {"terminationReason", n => { TerminationReason = n.GetStringValue(); } },
-                {"toneInfo", n => { ToneInfo = n.GetObjectValue<ApiSdk.Models.ToneInfo>(ApiSdk.Models.ToneInfo.CreateFromDiscriminatorValue); } },
-                {"transcription", n => { Transcription = n.GetObjectValue<CallTranscriptionInfo>(CallTranscriptionInfo.CreateFromDiscriminatorValue); } },
+                { "activeModalities", n => { ActiveModalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
+                { "answeredBy", n => { AnsweredBy = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
+                { "audioRoutingGroups", n => { AudioRoutingGroups = n.GetCollectionOfObjectValues<AudioRoutingGroup>(AudioRoutingGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "callChainId", n => { CallChainId = n.GetStringValue(); } },
+                { "callOptions", n => { CallOptions = n.GetObjectValue<ApiSdk.Models.CallOptions>(ApiSdk.Models.CallOptions.CreateFromDiscriminatorValue); } },
+                { "callRoutes", n => { CallRoutes = n.GetCollectionOfObjectValues<CallRoute>(CallRoute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "callbackUri", n => { CallbackUri = n.GetStringValue(); } },
+                { "chatInfo", n => { ChatInfo = n.GetObjectValue<ApiSdk.Models.ChatInfo>(ApiSdk.Models.ChatInfo.CreateFromDiscriminatorValue); } },
+                { "contentSharingSessions", n => { ContentSharingSessions = n.GetCollectionOfObjectValues<ContentSharingSession>(ContentSharingSession.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "direction", n => { Direction = n.GetEnumValue<CallDirection>(); } },
+                { "incomingContext", n => { IncomingContext = n.GetObjectValue<ApiSdk.Models.IncomingContext>(ApiSdk.Models.IncomingContext.CreateFromDiscriminatorValue); } },
+                { "mediaConfig", n => { MediaConfig = n.GetObjectValue<ApiSdk.Models.MediaConfig>(ApiSdk.Models.MediaConfig.CreateFromDiscriminatorValue); } },
+                { "mediaState", n => { MediaState = n.GetObjectValue<CallMediaState>(CallMediaState.CreateFromDiscriminatorValue); } },
+                { "meetingCapability", n => { MeetingCapability = n.GetObjectValue<ApiSdk.Models.MeetingCapability>(ApiSdk.Models.MeetingCapability.CreateFromDiscriminatorValue); } },
+                { "meetingInfo", n => { MeetingInfo = n.GetObjectValue<ApiSdk.Models.MeetingInfo>(ApiSdk.Models.MeetingInfo.CreateFromDiscriminatorValue); } },
+                { "myParticipantId", n => { MyParticipantId = n.GetStringValue(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<CommsOperation>(CommsOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "requestedModalities", n => { RequestedModalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
+                { "resultInfo", n => { ResultInfo = n.GetObjectValue<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue); } },
+                { "ringingTimeoutInSeconds", n => { RingingTimeoutInSeconds = n.GetIntValue(); } },
+                { "routingPolicies", n => { RoutingPolicies = n.GetCollectionOfEnumValues<RoutingPolicy>()?.ToList(); } },
+                { "source", n => { Source = n.GetObjectValue<ParticipantInfo>(ParticipantInfo.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetEnumValue<CallState>(); } },
+                { "subject", n => { Subject = n.GetStringValue(); } },
+                { "targets", n => { Targets = n.GetCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "terminationReason", n => { TerminationReason = n.GetStringValue(); } },
+                { "toneInfo", n => { ToneInfo = n.GetObjectValue<ApiSdk.Models.ToneInfo>(ApiSdk.Models.ToneInfo.CreateFromDiscriminatorValue); } },
+                { "transcription", n => { Transcription = n.GetObjectValue<CallTranscriptionInfo>(CallTranscriptionInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

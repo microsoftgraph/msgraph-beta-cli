@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EducationalActivity : ItemFacet, IParsable 
+    public class EducationalActivity : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The month and year the user graduated or completed the activity.</summary>
@@ -57,11 +58,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"completionMonthYear", n => { CompletionMonthYear = n.GetDateValue(); } },
-                {"endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
-                {"institution", n => { Institution = n.GetObjectValue<InstitutionData>(InstitutionData.CreateFromDiscriminatorValue); } },
-                {"program", n => { Program = n.GetObjectValue<EducationalActivityDetail>(EducationalActivityDetail.CreateFromDiscriminatorValue); } },
-                {"startMonthYear", n => { StartMonthYear = n.GetDateValue(); } },
+                { "completionMonthYear", n => { CompletionMonthYear = n.GetDateValue(); } },
+                { "endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
+                { "institution", n => { Institution = n.GetObjectValue<InstitutionData>(InstitutionData.CreateFromDiscriminatorValue); } },
+                { "program", n => { Program = n.GetObjectValue<EducationalActivityDetail>(EducationalActivityDetail.CreateFromDiscriminatorValue); } },
+                { "startMonthYear", n => { StartMonthYear = n.GetDateValue(); } },
             };
         }
         /// <summary>

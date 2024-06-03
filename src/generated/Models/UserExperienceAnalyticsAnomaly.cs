@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics anomaly entity contains anomaly details.
     /// </summary>
-    public class UserExperienceAnalyticsAnomaly : Entity, IParsable 
+    public class UserExperienceAnalyticsAnomaly : Entity, IParsable
     {
         /// <summary>Indicates the first occurrence date and time for the anomaly.</summary>
         public DateTimeOffset? AnomalyFirstOccurrenceDateTime { get; set; }
@@ -96,19 +97,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"anomalyFirstOccurrenceDateTime", n => { AnomalyFirstOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"anomalyId", n => { AnomalyId = n.GetStringValue(); } },
-                {"anomalyLatestOccurrenceDateTime", n => { AnomalyLatestOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
-                {"anomalyName", n => { AnomalyName = n.GetStringValue(); } },
-                {"anomalyType", n => { AnomalyType = n.GetEnumValue<UserExperienceAnalyticsAnomalyType>(); } },
-                {"assetName", n => { AssetName = n.GetStringValue(); } },
-                {"assetPublisher", n => { AssetPublisher = n.GetStringValue(); } },
-                {"assetVersion", n => { AssetVersion = n.GetStringValue(); } },
-                {"detectionModelId", n => { DetectionModelId = n.GetStringValue(); } },
-                {"deviceImpactedCount", n => { DeviceImpactedCount = n.GetIntValue(); } },
-                {"issueId", n => { IssueId = n.GetStringValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<UserExperienceAnalyticsAnomalySeverity>(); } },
-                {"state", n => { State = n.GetEnumValue<UserExperienceAnalyticsAnomalyState>(); } },
+                { "anomalyFirstOccurrenceDateTime", n => { AnomalyFirstOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "anomalyId", n => { AnomalyId = n.GetStringValue(); } },
+                { "anomalyLatestOccurrenceDateTime", n => { AnomalyLatestOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
+                { "anomalyName", n => { AnomalyName = n.GetStringValue(); } },
+                { "anomalyType", n => { AnomalyType = n.GetEnumValue<UserExperienceAnalyticsAnomalyType>(); } },
+                { "assetName", n => { AssetName = n.GetStringValue(); } },
+                { "assetPublisher", n => { AssetPublisher = n.GetStringValue(); } },
+                { "assetVersion", n => { AssetVersion = n.GetStringValue(); } },
+                { "detectionModelId", n => { DetectionModelId = n.GetStringValue(); } },
+                { "deviceImpactedCount", n => { DeviceImpactedCount = n.GetIntValue(); } },
+                { "issueId", n => { IssueId = n.GetStringValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<UserExperienceAnalyticsAnomalySeverity>(); } },
+                { "state", n => { State = n.GetEnumValue<UserExperienceAnalyticsAnomalyState>(); } },
             };
         }
         /// <summary>

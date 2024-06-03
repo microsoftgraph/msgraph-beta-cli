@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions.Item.Instance.Definition {
+namespace ApiSdk.IdentityGovernance.AccessReviews.Definitions.Item.Instances.Item.Decisions.Item.Instance.Definition
+{
     /// <summary>
     /// Provides operations to manage the definition property of the microsoft.graph.accessReviewInstance entity.
     /// </summary>
-    public class DefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class DefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// There&apos;s exactly one accessReviewScheduleDefinition associated with each instance. It&apos;s the parent schedule for the instance, where instances are created for each recurrence of a review definition and each group selected to review by the definition.

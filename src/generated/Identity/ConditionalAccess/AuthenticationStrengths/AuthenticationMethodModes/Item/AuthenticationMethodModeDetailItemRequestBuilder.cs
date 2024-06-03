@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationMethodModes.Item {
+namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationMethodModes.Item
+{
     /// <summary>
     /// Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
     /// </summary>
-    public class AuthenticationMethodModeDetailItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationMethodModeDetailItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property authenticationMethodModes for identity

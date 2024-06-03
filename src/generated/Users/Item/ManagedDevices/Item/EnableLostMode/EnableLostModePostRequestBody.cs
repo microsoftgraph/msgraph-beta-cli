@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode
+{
     #pragma warning disable CS1591
-    public class EnableLostModePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EnableLostModePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"footer", n => { Footer = n.GetStringValue(); } },
-                {"message", n => { Message = n.GetStringValue(); } },
-                {"phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
+                { "footer", n => { Footer = n.GetStringValue(); } },
+                { "message", n => { Message = n.GetStringValue(); } },
+                { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ComanagementEligibleDevicesSummary : IAdditionalDataHolder, IParsable 
+    public class ComanagementEligibleDevicesSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -56,13 +57,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"comanagedCount", n => { ComanagedCount = n.GetIntValue(); } },
-                {"eligibleButNotAzureAdJoinedCount", n => { EligibleButNotAzureAdJoinedCount = n.GetIntValue(); } },
-                {"eligibleCount", n => { EligibleCount = n.GetIntValue(); } },
-                {"ineligibleCount", n => { IneligibleCount = n.GetIntValue(); } },
-                {"needsOsUpdateCount", n => { NeedsOsUpdateCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"scheduledForEnrollmentCount", n => { ScheduledForEnrollmentCount = n.GetIntValue(); } },
+                { "comanagedCount", n => { ComanagedCount = n.GetIntValue(); } },
+                { "eligibleButNotAzureAdJoinedCount", n => { EligibleButNotAzureAdJoinedCount = n.GetIntValue(); } },
+                { "eligibleCount", n => { EligibleCount = n.GetIntValue(); } },
+                { "ineligibleCount", n => { IneligibleCount = n.GetIntValue(); } },
+                { "needsOsUpdateCount", n => { NeedsOsUpdateCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "scheduledForEnrollmentCount", n => { ScheduledForEnrollmentCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

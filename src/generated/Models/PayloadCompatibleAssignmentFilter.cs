@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for Payload Compatible Assignment Filter.
     /// </summary>
-    public class PayloadCompatibleAssignmentFilter : DeviceAndAppManagementAssignmentFilter, IParsable 
+    public class PayloadCompatibleAssignmentFilter : DeviceAndAppManagementAssignmentFilter, IParsable
     {
         /// <summary>Represents the payload type AssignmentFilter is being assigned to.</summary>
         public AssignmentFilterPayloadType? PayloadType { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"payloadType", n => { PayloadType = n.GetEnumValue<AssignmentFilterPayloadType>(); } },
+                { "payloadType", n => { PayloadType = n.GetEnumValue<AssignmentFilterPayloadType>(); } },
             };
         }
         /// <summary>

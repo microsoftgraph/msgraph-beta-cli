@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Journals.Item.JournalLines.Count {
+namespace ApiSdk.Financials.Companies.Item.Journals.Item.JournalLines.Count
+{
     /// <summary>
     /// Provides operations to count the resources in the collection.
     /// </summary>
-    public class CountRequestBuilder : BaseCliRequestBuilder 
+    public class CountRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of the resource
@@ -27,11 +28,11 @@ namespace ApiSdk.Financials.Companies.Item.Journals.Item.JournalLines.Count {
         {
             var command = new Command("get");
             command.Description = "Get the number of the resource";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var journalIdOption = new Option<string>("--journal-id", description: "The unique identifier of journal") {
+            var journalIdOption = new Option<Guid?>("--journal-id", description: "The unique identifier of journal") {
             };
             journalIdOption.IsRequired = true;
             command.AddOption(journalIdOption);

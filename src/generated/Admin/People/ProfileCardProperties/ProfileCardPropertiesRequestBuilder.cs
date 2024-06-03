@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.People.ProfileCardProperties {
+namespace ApiSdk.Admin.People.ProfileCardProperties
+{
     /// <summary>
     /// Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
     /// </summary>
-    public class ProfileCardPropertiesRequestBuilder : BaseCliRequestBuilder 
+    public class ProfileCardPropertiesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to profileCardProperties for admin
+        /// Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to profileCardProperties for admin";
+            command.Description = "Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/peopleadminsettings-post-profilecardproperties?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
             return command;
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.";
+            command.Description = "Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/peopleadminsettings-list-profilecardproperties?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
         {
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to profileCardProperties for admin
+        /// Create a new profileCardProperty for an organization. The new property is identified by its directoryPropertyName property. For more information about how to add properties to the profile card for an organization, see Add or remove custom attributes on a profile card using the profile card API.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Admin.People.ProfileCardProperties {
             return requestInfo;
         }
         /// <summary>
-        /// Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.
+        /// Get a collection of profileCardProperty resources for an organization. Each resource is identified by its directoryPropertyName property.
         /// </summary>
         public class ProfileCardPropertiesRequestBuilderGetQueryParameters 
         {

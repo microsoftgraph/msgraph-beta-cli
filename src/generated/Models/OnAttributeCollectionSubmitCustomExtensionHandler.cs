@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnAttributeCollectionSubmitCustomExtensionHandler : OnAttributeCollectionSubmitHandler, IParsable 
+    public class OnAttributeCollectionSubmitCustomExtensionHandler : OnAttributeCollectionSubmitHandler, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Configuration regarding properties of the custom extension that can be overwritten per event listener.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"configuration", n => { Configuration = n.GetObjectValue<CustomExtensionOverwriteConfiguration>(CustomExtensionOverwriteConfiguration.CreateFromDiscriminatorValue); } },
-                {"customExtension", n => { CustomExtension = n.GetObjectValue<OnAttributeCollectionSubmitCustomExtension>(OnAttributeCollectionSubmitCustomExtension.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<CustomExtensionOverwriteConfiguration>(CustomExtensionOverwriteConfiguration.CreateFromDiscriminatorValue); } },
+                { "customExtension", n => { CustomExtension = n.GetObjectValue<OnAttributeCollectionSubmitCustomExtension>(OnAttributeCollectionSubmitCustomExtension.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.SyncInventory {
+namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.SyncInventory
+{
     /// <summary>
     /// Provides operations to call the syncInventory method.
     /// </summary>
-    public class SyncInventoryRequestBuilder : BaseCliRequestBuilder 
+    public class SyncInventoryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Sync the driver inventory of a WindowsDriverUpdateProfile.

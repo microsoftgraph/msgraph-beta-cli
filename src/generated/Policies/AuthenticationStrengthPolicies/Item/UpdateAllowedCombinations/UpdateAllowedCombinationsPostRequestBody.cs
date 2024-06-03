@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item.UpdateAllowedCombinations {
+namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item.UpdateAllowedCombinations
+{
     #pragma warning disable CS1591
-    public class UpdateAllowedCombinationsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateAllowedCombinationsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Policies.AuthenticationStrengthPolicies.Item.UpdateAllowedCombi
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowedCombinations", n => { AllowedCombinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
+                { "allowedCombinations", n => { AllowedCombinations = n.GetCollectionOfEnumValues<ApiSdk.Models.AuthenticationMethodModes>()?.ToList(); } },
             };
         }
         /// <summary>

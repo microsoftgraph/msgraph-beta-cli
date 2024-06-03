@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
+{
     /// <summary>
     /// Provides operations to manage the pendingAccessReviewInstances property of the microsoft.graph.user entity.
     /// </summary>
-    public class AccessReviewInstanceItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewInstanceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the acceptRecommendations method.

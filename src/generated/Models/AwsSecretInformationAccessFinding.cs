@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsSecretInformationAccessFinding : Finding, IParsable 
+    public class AwsSecretInformationAccessFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity property</summary>
@@ -61,10 +62,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
-                {"identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
-                {"permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                {"secretInformationWebServices", n => { SecretInformationWebServices = n.GetEnumValue<AwsSecretInformationWebServices>(); } },
+                { "identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
+                { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
+                { "secretInformationWebServices", n => { SecretInformationWebServices = n.GetEnumValue<AwsSecretInformationWebServices>(); } },
             };
         }
         /// <summary>

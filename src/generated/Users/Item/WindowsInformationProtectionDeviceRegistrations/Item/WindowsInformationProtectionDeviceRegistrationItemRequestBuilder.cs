@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.WindowsInformationProtectionDeviceRegistrations.Item {
+namespace ApiSdk.Users.Item.WindowsInformationProtectionDeviceRegistrations.Item
+{
     /// <summary>
     /// Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.user entity.
     /// </summary>
-    public class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsInformationProtectionDeviceRegistrationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Zero or more WIP device registrations that belong to the user.

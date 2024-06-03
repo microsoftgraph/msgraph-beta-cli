@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.Ref {
+namespace ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of mobilityManagementPolicy entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete ref of navigation property includedGroups for mobilityManagementPolicies

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AuthorizationPolicy : PolicyBase, IParsable 
+    public class AuthorizationPolicy : PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether users can sign up for email based subscriptions.</summary>
@@ -80,17 +81,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"allowEmailVerifiedUsersToJoinOrganization", n => { AllowEmailVerifiedUsersToJoinOrganization = n.GetBoolValue(); } },
-                {"allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<AllowInvitesFrom>(); } },
-                {"allowUserConsentForRiskyApps", n => { AllowUserConsentForRiskyApps = n.GetBoolValue(); } },
-                {"allowedToSignUpEmailBasedSubscriptions", n => { AllowedToSignUpEmailBasedSubscriptions = n.GetBoolValue(); } },
-                {"allowedToUseSSPR", n => { AllowedToUseSSPR = n.GetBoolValue(); } },
-                {"blockMsolPowerShell", n => { BlockMsolPowerShell = n.GetBoolValue(); } },
-                {"defaultUserRoleOverrides", n => { DefaultUserRoleOverrides = n.GetCollectionOfObjectValues<DefaultUserRoleOverride>(DefaultUserRoleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"defaultUserRolePermissions", n => { DefaultUserRolePermissions = n.GetObjectValue<ApiSdk.Models.DefaultUserRolePermissions>(ApiSdk.Models.DefaultUserRolePermissions.CreateFromDiscriminatorValue); } },
-                {"enabledPreviewFeatures", n => { EnabledPreviewFeatures = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"guestUserRoleId", n => { GuestUserRoleId = n.GetGuidValue(); } },
-                {"permissionGrantPolicyIdsAssignedToDefaultUserRole", n => { PermissionGrantPolicyIdsAssignedToDefaultUserRole = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "allowEmailVerifiedUsersToJoinOrganization", n => { AllowEmailVerifiedUsersToJoinOrganization = n.GetBoolValue(); } },
+                { "allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<AllowInvitesFrom>(); } },
+                { "allowUserConsentForRiskyApps", n => { AllowUserConsentForRiskyApps = n.GetBoolValue(); } },
+                { "allowedToSignUpEmailBasedSubscriptions", n => { AllowedToSignUpEmailBasedSubscriptions = n.GetBoolValue(); } },
+                { "allowedToUseSSPR", n => { AllowedToUseSSPR = n.GetBoolValue(); } },
+                { "blockMsolPowerShell", n => { BlockMsolPowerShell = n.GetBoolValue(); } },
+                { "defaultUserRoleOverrides", n => { DefaultUserRoleOverrides = n.GetCollectionOfObjectValues<DefaultUserRoleOverride>(DefaultUserRoleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultUserRolePermissions", n => { DefaultUserRolePermissions = n.GetObjectValue<ApiSdk.Models.DefaultUserRolePermissions>(ApiSdk.Models.DefaultUserRolePermissions.CreateFromDiscriminatorValue); } },
+                { "enabledPreviewFeatures", n => { EnabledPreviewFeatures = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "guestUserRoleId", n => { GuestUserRoleId = n.GetGuidValue(); } },
+                { "permissionGrantPolicyIdsAssignedToDefaultUserRole", n => { PermissionGrantPolicyIdsAssignedToDefaultUserRole = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

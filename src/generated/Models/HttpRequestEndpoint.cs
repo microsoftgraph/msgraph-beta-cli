@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class HttpRequestEndpoint : CustomExtensionEndpointConfiguration, IParsable 
+    public class HttpRequestEndpoint : CustomExtensionEndpointConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The HTTP endpoint that a custom extension calls.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"targetUrl", n => { TargetUrl = n.GetStringValue(); } },
+                { "targetUrl", n => { TargetUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

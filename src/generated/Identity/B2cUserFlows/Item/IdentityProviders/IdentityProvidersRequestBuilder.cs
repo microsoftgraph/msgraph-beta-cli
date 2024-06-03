@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
+namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders
+{
     /// <summary>
     /// Provides operations to manage the identityProviders property of the microsoft.graph.b2cIdentityUserFlow entity.
     /// </summary>
-    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProvidersRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.identity.b2cUserFlows.item.identityProviders.item collection
@@ -52,14 +53,15 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
             return command;
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers in a b2cIdentityUserFlow object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get identityProviders from identity";
+            command.Description = "Get the identity providers in a b2cIdentityUserFlow object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2cidentityuserflow-list-identityproviders?view=graph-rest-beta";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -141,7 +143,9 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -186,7 +190,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
         {
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers in a b2cIdentityUserFlow object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -206,7 +210,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.IdentityProviders {
             return requestInfo;
         }
         /// <summary>
-        /// Get identityProviders from identity
+        /// Get the identity providers in a b2cIdentityUserFlow object.
         /// </summary>
         public class IdentityProvidersRequestBuilderGetQueryParameters 
         {

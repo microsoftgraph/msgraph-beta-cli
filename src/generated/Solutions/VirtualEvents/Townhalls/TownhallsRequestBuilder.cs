@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
+namespace ApiSdk.Solutions.VirtualEvents.Townhalls
+{
     /// <summary>
     /// Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
     /// </summary>
-    public class TownhallsRequestBuilder : BaseCliRequestBuilder 
+    public class TownhallsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the townhalls property of the microsoft.graph.virtualEventsRoot entity.
@@ -59,13 +60,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to townhalls for solutions
+        /// Create a new virtualEventTownhall object in draft mode.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventsroot-post-townhalls?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to townhalls for solutions";
+            command.Description = "Create a new virtualEventTownhall object in draft mode.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventsroot-post-townhalls?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -138,13 +140,13 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
             return command;
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get townhalls from solutions";
+            command.Description = "Read the properties and relationships of a virtualEventTownhall object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -220,7 +222,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -246,7 +250,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
         {
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +269,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to townhalls for solutions
+        /// Create a new virtualEventTownhall object in draft mode.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -286,7 +290,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls {
             return requestInfo;
         }
         /// <summary>
-        /// Get townhalls from solutions
+        /// Read the properties and relationships of a virtualEventTownhall object.
         /// </summary>
         public class TownhallsRequestBuilderGetQueryParameters 
         {

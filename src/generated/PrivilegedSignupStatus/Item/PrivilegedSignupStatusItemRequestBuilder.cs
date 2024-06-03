@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedSignupStatus.Item {
+namespace ApiSdk.PrivilegedSignupStatus.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedSignupStatus entities.
     /// </summary>
-    public class PrivilegedSignupStatusItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedSignupStatusItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from privilegedSignupStatus

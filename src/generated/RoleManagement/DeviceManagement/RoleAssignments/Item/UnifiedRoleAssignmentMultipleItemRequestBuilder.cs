@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
+namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplicationMultiple entity.
     /// </summary>
-    public class UnifiedRoleAssignmentMultipleItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRoleAssignmentMultipleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appScopes property of the microsoft.graph.unifiedRoleAssignmentMultiple entity.
@@ -52,13 +53,14 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property roleAssignments for roleManagement
+        /// Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property roleAssignments for roleManagement";
+            command.Description = "Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-delete?view=graph-rest-beta";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -113,13 +115,14 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get roleAssignments from roleManagement";
+            command.Description = "Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-get?view=graph-rest-beta";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -165,13 +168,14 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property roleAssignments in roleManagement
+        /// Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property roleAssignments in roleManagement";
+            command.Description = "Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedroleassignmentmultiple-update?view=graph-rest-beta";
             var unifiedRoleAssignmentMultipleIdOption = new Option<string>("--unified-role-assignment-multiple-id", description: "The unique identifier of unifiedRoleAssignmentMultiple") {
             };
             unifiedRoleAssignmentMultipleIdOption.IsRequired = true;
@@ -273,7 +277,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property roleAssignments for roleManagement
+        /// Delete a unifiedRoleAssignmentMultiple object of an RBAC provider.  This is applicable for a RBAC application that supports multiple principals and scopes. The following RBAC providers are currently supported:- Cloud PC - device management (Intune)
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -292,7 +296,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -311,7 +315,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property roleAssignments in roleManagement
+        /// Update an existing unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) In contrast, unifiedRoleAssignment does not support update.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -332,7 +336,7 @@ namespace ApiSdk.RoleManagement.DeviceManagement.RoleAssignments.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get roleAssignments from roleManagement
+        /// Get the properties and relationships of a unifiedRoleAssignmentMultiple object of an RBAC provider.  The following RBAC providers are currently supported:- Cloud PC - device management (Intune) For other Microsoft 365 applications (like Microsoft Entra ID), use unifiedRoleAssignment.
         /// </summary>
         public class UnifiedRoleAssignmentMultipleItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class FormsSettings : IAdditionalDataHolder, IParsable 
+    public class FormsSettings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -58,14 +59,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"isBingImageSearchEnabled", n => { IsBingImageSearchEnabled = n.GetBoolValue(); } },
-                {"isExternalSendFormEnabled", n => { IsExternalSendFormEnabled = n.GetBoolValue(); } },
-                {"isExternalShareCollaborationEnabled", n => { IsExternalShareCollaborationEnabled = n.GetBoolValue(); } },
-                {"isExternalShareResultEnabled", n => { IsExternalShareResultEnabled = n.GetBoolValue(); } },
-                {"isExternalShareTemplateEnabled", n => { IsExternalShareTemplateEnabled = n.GetBoolValue(); } },
-                {"isInOrgFormsPhishingScanEnabled", n => { IsInOrgFormsPhishingScanEnabled = n.GetBoolValue(); } },
-                {"isRecordIdentityByDefaultEnabled", n => { IsRecordIdentityByDefaultEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "isBingImageSearchEnabled", n => { IsBingImageSearchEnabled = n.GetBoolValue(); } },
+                { "isExternalSendFormEnabled", n => { IsExternalSendFormEnabled = n.GetBoolValue(); } },
+                { "isExternalShareCollaborationEnabled", n => { IsExternalShareCollaborationEnabled = n.GetBoolValue(); } },
+                { "isExternalShareResultEnabled", n => { IsExternalShareResultEnabled = n.GetBoolValue(); } },
+                { "isExternalShareTemplateEnabled", n => { IsExternalShareTemplateEnabled = n.GetBoolValue(); } },
+                { "isInOrgFormsPhishingScanEnabled", n => { IsInOrgFormsPhishingScanEnabled = n.GetBoolValue(); } },
+                { "isRecordIdentityByDefaultEnabled", n => { IsRecordIdentityByDefaultEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

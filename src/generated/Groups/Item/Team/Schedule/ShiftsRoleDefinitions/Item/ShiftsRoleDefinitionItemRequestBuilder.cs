@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.Schedule.ShiftsRoleDefinitions.Item {
+namespace ApiSdk.Groups.Item.Team.Schedule.ShiftsRoleDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the shiftsRoleDefinitions property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class ShiftsRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ShiftsRoleDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property shiftsRoleDefinitions for groups

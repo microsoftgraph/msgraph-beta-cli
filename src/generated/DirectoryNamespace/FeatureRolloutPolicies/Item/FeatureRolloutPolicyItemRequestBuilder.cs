@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item {
+namespace ApiSdk.DirectoryNamespace.FeatureRolloutPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.directory entity.
     /// </summary>
-    public class FeatureRolloutPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class FeatureRolloutPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity.

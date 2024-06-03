@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item {
+namespace ApiSdk.Users.Item.Profile.EducationalActivities.Item
+{
     /// <summary>
     /// Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.
     /// </summary>
-    public class EducationalActivityItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationalActivityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property educationalActivities for users

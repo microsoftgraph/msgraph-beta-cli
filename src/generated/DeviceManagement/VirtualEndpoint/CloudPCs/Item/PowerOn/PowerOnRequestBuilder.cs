@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.PowerOn {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.PowerOn
+{
     /// <summary>
     /// Provides operations to call the powerOn method.
     /// </summary>
-    public class PowerOnRequestBuilder : BaseCliRequestBuilder 
+    public class PowerOnRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Power on a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered on, it is allocated to a user, and licenses are assigned immediately. Only IT admin users can perform this action. 

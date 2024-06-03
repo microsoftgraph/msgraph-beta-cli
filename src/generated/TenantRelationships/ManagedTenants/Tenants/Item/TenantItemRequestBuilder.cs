@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item
+{
     /// <summary>
     /// Provides operations to manage the tenants property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class TenantItemRequestBuilder : BaseCliRequestBuilder 
+    public class TenantItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenants for tenantRelationships
@@ -58,13 +59,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item {
             return command;
         }
         /// <summary>
-        /// The collection of tenants associated with the managing entity.
+        /// Read the properties and relationships of a tenant object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenant-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of tenants associated with the managing entity.";
+            command.Description = "Read the properties and relationships of a tenant object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenant-get?view=graph-rest-beta";
             var tenantIdOption = new Option<string>("--tenant-id", description: "The unique identifier of tenant") {
             };
             tenantIdOption.IsRequired = true;
@@ -228,7 +230,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of tenants associated with the managing entity.
+        /// Read the properties and relationships of a tenant object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -268,7 +270,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of tenants associated with the managing entity.
+        /// Read the properties and relationships of a tenant object.
         /// </summary>
         public class TenantItemRequestBuilderGetQueryParameters 
         {

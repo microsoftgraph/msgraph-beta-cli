@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications {
+namespace ApiSdk.Communications
+{
     /// <summary>
     /// Provides operations to manage the cloudCommunications singleton.
     /// </summary>
-    public class CommunicationsRequestBuilder : BaseCliRequestBuilder 
+    public class CommunicationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -163,8 +164,8 @@ namespace ApiSdk.Communications {
             nonExecCommands.Add(builder.BuildCountNavCommand());
             execCommands.Add(builder.BuildCreateCommand());
             nonExecCommands.Add(builder.BuildCreateOrGetNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllRecordingsNavCommand());
-            nonExecCommands.Add(builder.BuildGetAllTranscriptsNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllRecordingsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
+            nonExecCommands.Add(builder.BuildGetAllTranscriptsmeetingOrganizerUserIdMeetingOrganizerUserIdWithStartDateTimeWithEndDateTimeNavCommand());
             execCommands.Add(builder.BuildListCommand());
             var cmds = builder.BuildCommand();
             execCommands.AddRange(cmds.Item1);

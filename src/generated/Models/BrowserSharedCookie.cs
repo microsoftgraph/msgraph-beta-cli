@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BrowserSharedCookie : Entity, IParsable 
+    public class BrowserSharedCookie : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The comment for the shared cookie.</summary>
@@ -87,18 +88,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"comment", n => { Comment = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"history", n => { History = n.GetCollectionOfObjectValues<BrowserSharedCookieHistory>(BrowserSharedCookieHistory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"hostOnly", n => { HostOnly = n.GetBoolValue(); } },
-                {"hostOrDomain", n => { HostOrDomain = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"path", n => { Path = n.GetStringValue(); } },
-                {"sourceEnvironment", n => { SourceEnvironment = n.GetEnumValue<BrowserSharedCookieSourceEnvironment>(); } },
-                {"status", n => { Status = n.GetEnumValue<BrowserSharedCookieStatus>(); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deletedDateTime", n => { DeletedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "history", n => { History = n.GetCollectionOfObjectValues<BrowserSharedCookieHistory>(BrowserSharedCookieHistory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hostOnly", n => { HostOnly = n.GetBoolValue(); } },
+                { "hostOrDomain", n => { HostOrDomain = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
+                { "sourceEnvironment", n => { SourceEnvironment = n.GetEnumValue<BrowserSharedCookieSourceEnvironment>(); } },
+                { "status", n => { Status = n.GetEnumValue<BrowserSharedCookieStatus>(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows update catalog item entity
     /// </summary>
-    public class WindowsFeatureUpdateCatalogItem : WindowsUpdateCatalogItem, IParsable 
+    public class WindowsFeatureUpdateCatalogItem : WindowsUpdateCatalogItem, IParsable
     {
         /// <summary>The feature update version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"version", n => { Version = n.GetStringValue(); } },
+                { "version", n => { Version = n.GetStringValue(); } },
             };
         }
         /// <summary>

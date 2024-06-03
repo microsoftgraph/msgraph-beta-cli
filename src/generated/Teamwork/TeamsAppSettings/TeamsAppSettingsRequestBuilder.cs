@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamsAppSettings {
+namespace ApiSdk.Teamwork.TeamsAppSettings
+{
     /// <summary>
     /// Provides operations to manage the teamsAppSettings property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class TeamsAppSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class TeamsAppSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property teamsAppSettings for teamwork
@@ -50,13 +51,14 @@ namespace ApiSdk.Teamwork.TeamsAppSettings {
             return command;
         }
         /// <summary>
-        /// Represents tenant-wide settings for all Teams apps in the tenant.
+        /// Read the properties and relationships of a teamsAppSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsappsettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents tenant-wide settings for all Teams apps in the tenant.";
+            command.Description = "Read the properties and relationships of a teamsAppSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsappsettings-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -96,13 +98,14 @@ namespace ApiSdk.Teamwork.TeamsAppSettings {
             return command;
         }
         /// <summary>
-        /// Update the navigation property teamsAppSettings in teamwork
+        /// Update the properties of a teamsAppSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamsappsettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property teamsAppSettings in teamwork";
+            command.Description = "Update the properties of a teamsAppSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamsappsettings-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -174,7 +177,7 @@ namespace ApiSdk.Teamwork.TeamsAppSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Represents tenant-wide settings for all Teams apps in the tenant.
+        /// Read the properties and relationships of a teamsAppSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -193,7 +196,7 @@ namespace ApiSdk.Teamwork.TeamsAppSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property teamsAppSettings in teamwork
+        /// Update the properties of a teamsAppSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -214,7 +217,7 @@ namespace ApiSdk.Teamwork.TeamsAppSettings {
             return requestInfo;
         }
         /// <summary>
-        /// Represents tenant-wide settings for all Teams apps in the tenant.
+        /// Read the properties and relationships of a teamsAppSettings object.
         /// </summary>
         public class TeamsAppSettingsRequestBuilderGetQueryParameters 
         {

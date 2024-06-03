@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EnableLegacyPcManagement {
+namespace ApiSdk.DeviceManagement.EnableLegacyPcManagement
+{
     /// <summary>
     /// Provides operations to call the enableLegacyPcManagement method.
     /// </summary>
-    public class EnableLegacyPcManagementRequestBuilder : BaseCliRequestBuilder 
+    public class EnableLegacyPcManagementRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enableLegacyPcManagement

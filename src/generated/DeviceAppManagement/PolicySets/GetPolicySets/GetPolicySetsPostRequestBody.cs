@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets {
+namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets
+{
     #pragma warning disable CS1591
-    public class GetPolicySetsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetPolicySetsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"policySetIds", n => { PolicySetIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "policySetIds", n => { PolicySetIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

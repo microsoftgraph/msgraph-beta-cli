@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ItemEmail : ItemFacet, IParsable 
+    public class ItemEmail : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The email address itself.</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"address", n => { Address = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<EmailType>(); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<EmailType>(); } },
             };
         }
         /// <summary>

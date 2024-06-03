@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Currency : IAdditionalDataHolder, IParsable 
+    public class Currency : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -82,14 +83,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"amountDecimalPlaces", n => { AmountDecimalPlaces = n.GetStringValue(); } },
-                {"amountRoundingPrecision", n => { AmountRoundingPrecision = n.GetDecimalValue(); } },
-                {"code", n => { Code = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"symbol", n => { Symbol = n.GetStringValue(); } },
+                { "amountDecimalPlaces", n => { AmountDecimalPlaces = n.GetStringValue(); } },
+                { "amountRoundingPrecision", n => { AmountRoundingPrecision = n.GetDecimalValue(); } },
+                { "code", n => { Code = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "symbol", n => { Symbol = n.GetStringValue(); } },
             };
         }
         /// <summary>

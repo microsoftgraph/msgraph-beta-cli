@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.TokenIssuancePolicies {
+namespace ApiSdk.Policies.TokenIssuancePolicies
+{
     /// <summary>
     /// Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class TokenIssuancePoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class TokenIssuancePoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to tokenIssuancePolicies for policies
+        /// Create a new tokenIssuancePolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tokenissuancepolicy-post-tokenissuancepolicy?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to tokenIssuancePolicies for policies";
+            command.Description = "Create a new tokenIssuancePolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tokenissuancepolicy-post-tokenissuancepolicy?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
             return command;
         }
         /// <summary>
-        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+        /// Get a list of tokenIssuancePolicy objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/tokenissuancepolicy-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.";
+            command.Description = "Get a list of tokenIssuancePolicy objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/tokenissuancepolicy-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
         {
         }
         /// <summary>
-        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+        /// Get a list of tokenIssuancePolicy objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to tokenIssuancePolicies for policies
+        /// Create a new tokenIssuancePolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Policies.TokenIssuancePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.
+        /// Get a list of tokenIssuancePolicy objects.
         /// </summary>
         public class TokenIssuancePoliciesRequestBuilderGetQueryParameters 
         {

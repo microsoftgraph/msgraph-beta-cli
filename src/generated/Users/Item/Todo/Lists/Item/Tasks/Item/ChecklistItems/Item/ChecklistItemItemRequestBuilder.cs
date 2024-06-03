@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems.Item {
+namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item.ChecklistItems.Item
+{
     /// <summary>
     /// Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
     /// </summary>
-    public class ChecklistItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class ChecklistItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property checklistItems for users

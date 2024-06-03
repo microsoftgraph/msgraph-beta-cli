@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetricTimeSeries {
+namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetricTimeSeries
+{
     #pragma warning disable CS1591
-    public class GetHealthMetricTimeSeriesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetHealthMetricTimeSeriesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetr
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"timeSeries", n => { TimeSeries = n.GetObjectValue<TimeSeriesParameter>(TimeSeriesParameter.CreateFromDiscriminatorValue); } },
+                { "timeSeries", n => { TimeSeries = n.GetObjectValue<TimeSeriesParameter>(TimeSeriesParameter.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

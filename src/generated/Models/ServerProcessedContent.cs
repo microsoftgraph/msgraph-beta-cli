@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ServerProcessedContent : IAdditionalDataHolder, IParsable 
+    public class ServerProcessedContent : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -92,13 +93,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"componentDependencies", n => { ComponentDependencies = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"customMetadata", n => { CustomMetadata = n.GetCollectionOfObjectValues<MetaDataKeyValuePair>(MetaDataKeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"htmlStrings", n => { HtmlStrings = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"imageSources", n => { ImageSources = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"links", n => { Links = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"searchablePlainTexts", n => { SearchablePlainTexts = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "componentDependencies", n => { ComponentDependencies = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customMetadata", n => { CustomMetadata = n.GetCollectionOfObjectValues<MetaDataKeyValuePair>(MetaDataKeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "htmlStrings", n => { HtmlStrings = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "imageSources", n => { ImageSources = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "links", n => { Links = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "searchablePlainTexts", n => { SearchablePlainTexts = n.GetCollectionOfObjectValues<MetaDataKeyStringPair>(MetaDataKeyStringPair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device health script run once schedule.
     /// </summary>
-    public class DeviceHealthScriptRunOnceSchedule : DeviceHealthScriptTimeSchedule, IParsable 
+    public class DeviceHealthScriptRunOnceSchedule : DeviceHealthScriptTimeSchedule, IParsable
     {
         /// <summary>The date the script is scheduled to run. This collection can contain a maximum of 20 elements.</summary>
         public Date? Date { get; set; }
@@ -38,7 +39,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"date", n => { Date = n.GetDateValue(); } },
+                { "date", n => { Date = n.GetDateValue(); } },
             };
         }
         /// <summary>

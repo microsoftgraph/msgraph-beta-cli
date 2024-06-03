@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RoleScopeTags.Item {
+namespace ApiSdk.DeviceManagement.RoleScopeTags.Item
+{
     /// <summary>
     /// Provides operations to manage the roleScopeTags property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class RoleScopeTagItemRequestBuilder : BaseCliRequestBuilder 
+    public class RoleScopeTagItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.roleScopeTag entity.

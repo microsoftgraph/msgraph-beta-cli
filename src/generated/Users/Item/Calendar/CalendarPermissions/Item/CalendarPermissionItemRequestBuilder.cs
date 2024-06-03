@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
+namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item
+{
     /// <summary>
     /// Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
     /// </summary>
-    public class CalendarPermissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class CalendarPermissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property calendarPermissions for users
+        /// Delete calendarPermission.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property calendarPermissions for users";
+            command.Description = "Delete calendarPermission.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
             return command;
         }
         /// <summary>
-        /// The permissions of the users with whom the calendar is shared.
+        /// Get the specified permissions object of a user or group calendar that has been shared.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The permissions of the users with whom the calendar is shared.";
+            command.Description = "Get the specified permissions object of a user or group calendar that has been shared.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -113,13 +116,14 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property calendarPermissions in users
+        /// Update the permissions assigned to an existing share recipient or delegate, through the corresponding calendarPermission object for a calendar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property calendarPermissions in users";
+            command.Description = "Update the permissions assigned to an existing share recipient or delegate, through the corresponding calendarPermission object for a calendar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -184,7 +188,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property calendarPermissions for users
+        /// Delete calendarPermission.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -203,7 +207,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions of the users with whom the calendar is shared.
+        /// Get the specified permissions object of a user or group calendar that has been shared.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +226,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property calendarPermissions in users
+        /// Update the permissions assigned to an existing share recipient or delegate, through the corresponding calendarPermission object for a calendar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -243,7 +247,7 @@ namespace ApiSdk.Users.Item.Calendar.CalendarPermissions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The permissions of the users with whom the calendar is shared.
+        /// Get the specified permissions object of a user or group calendar that has been shared.
         /// </summary>
         public class CalendarPermissionItemRequestBuilderGetQueryParameters 
         {

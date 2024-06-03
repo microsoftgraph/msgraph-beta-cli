@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.Messages.MarkRead {
+namespace ApiSdk.Admin.ServiceAnnouncement.Messages.MarkRead
+{
     #pragma warning disable CS1591
-    public class MarkReadPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MarkReadPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Admin.ServiceAnnouncement.Messages.MarkRead {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"messageIds", n => { MessageIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "messageIds", n => { MessageIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

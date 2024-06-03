@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.DownloadAppDiagnostics {
+namespace ApiSdk.DeviceManagement.ManagedDevices.DownloadAppDiagnostics
+{
     /// <summary>
     /// Provides operations to call the downloadAppDiagnostics method.
     /// </summary>
-    public class DownloadAppDiagnosticsRequestBuilder : BaseCliRequestBuilder 
+    public class DownloadAppDiagnosticsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action downloadAppDiagnostics

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.MasterCategories.Item {
+namespace ApiSdk.Users.Item.Outlook.MasterCategories.Item
+{
     /// <summary>
     /// Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
     /// </summary>
-    public class OutlookCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutlookCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property masterCategories for users

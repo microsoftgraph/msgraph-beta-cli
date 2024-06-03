@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DataSharingConsents.Item.ConsentToDataSharing {
+namespace ApiSdk.DeviceManagement.DataSharingConsents.Item.ConsentToDataSharing
+{
     /// <summary>
     /// Provides operations to call the consentToDataSharing method.
     /// </summary>
-    public class ConsentToDataSharingRequestBuilder : BaseCliRequestBuilder 
+    public class ConsentToDataSharingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action consentToDataSharing

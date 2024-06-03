@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class WebCategoriesSummary : IAdditionalDataHolder, IParsable 
+    public class WebCategoriesSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -60,12 +61,12 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
-                {"deviceCount", n => { DeviceCount = n.GetLongValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"transactionCount", n => { TransactionCount = n.GetLongValue(); } },
-                {"userCount", n => { UserCount = n.GetLongValue(); } },
-                {"webCategory", n => { WebCategory = n.GetObjectValue<ApiSdk.Models.Networkaccess.WebCategory>(ApiSdk.Models.Networkaccess.WebCategory.CreateFromDiscriminatorValue); } },
+                { "action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
+                { "deviceCount", n => { DeviceCount = n.GetLongValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "transactionCount", n => { TransactionCount = n.GetLongValue(); } },
+                { "userCount", n => { UserCount = n.GetLongValue(); } },
+                { "webCategory", n => { WebCategory = n.GetObjectValue<ApiSdk.Models.Networkaccess.WebCategory>(ApiSdk.Models.Networkaccess.WebCategory.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

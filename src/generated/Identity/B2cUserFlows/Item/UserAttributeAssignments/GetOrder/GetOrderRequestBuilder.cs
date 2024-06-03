@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.GetOrder {
+namespace ApiSdk.Identity.B2cUserFlows.Item.UserAttributeAssignments.GetOrder
+{
     /// <summary>
     /// Provides operations to call the getOrder method.
     /// </summary>
-    public class GetOrderRequestBuilder : BaseCliRequestBuilder 
+    public class GetOrderRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the order of identityUserFlowAttributeAssignments being collected within a user flow.

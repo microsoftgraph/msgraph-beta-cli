@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollections {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollections
+{
     /// <summary>
     /// Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementTemplateCollectionsRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateCollectionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.
@@ -182,7 +183,9 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollection
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

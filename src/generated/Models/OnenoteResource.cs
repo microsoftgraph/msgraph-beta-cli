@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnenoteResource : OnenoteEntityBaseModel, IParsable 
+    public class OnenoteResource : OnenoteEntityBaseModel, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The content property</summary>
+        /// <summary>The content of the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public byte[]? Content { get; set; }
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public byte[] Content { get; set; }
 #endif
-        /// <summary>The contentUrl property</summary>
+        /// <summary>The URL for the content stream.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentUrl { get; set; }
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetByteArrayValue(); } },
-                {"contentUrl", n => { ContentUrl = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetByteArrayValue(); } },
+                { "contentUrl", n => { ContentUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AdvancedThreatProtectionOnboardingStateSummary.AdvancedThreatProtectionOnboardingDeviceSettingStates.Item {
+namespace ApiSdk.DeviceManagement.AdvancedThreatProtectionOnboardingStateSummary.AdvancedThreatProtectionOnboardingDeviceSettingStates.Item
+{
     /// <summary>
     /// Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.
     /// </summary>
-    public class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class AdvancedThreatProtectionOnboardingDeviceSettingStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property advancedThreatProtectionOnboardingDeviceSettingStates for deviceManagement

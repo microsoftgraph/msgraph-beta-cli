@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class EnrollmentMappings : IAdditionalDataHolder, IParsable 
+    public class EnrollmentMappings : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"memberEnrollmentMappings", n => { MemberEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"ownerEnrollmentMappings", n => { OwnerEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "memberEnrollmentMappings", n => { MemberEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "ownerEnrollmentMappings", n => { OwnerEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

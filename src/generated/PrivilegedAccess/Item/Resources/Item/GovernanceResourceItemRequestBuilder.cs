@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedAccess.Item.Resources.Item {
+namespace ApiSdk.PrivilegedAccess.Item.Resources.Item
+{
     /// <summary>
     /// Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.
     /// </summary>
-    public class GovernanceResourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class GovernanceResourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resources for privilegedAccess

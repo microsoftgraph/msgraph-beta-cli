@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetM365AppUserCountsWithPeriod {
+namespace ApiSdk.Reports.GetM365AppUserCountsWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getM365AppUserCounts method.
     /// </summary>
-    public class GetM365AppUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetM365AppUserCountsWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a report that provides the trend in the number of active users for each app (Outlook, Word, Excel, PowerPoint, OneNote, and Teams) in your organization.

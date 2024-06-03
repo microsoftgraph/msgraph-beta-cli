@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDeviceCleanupRules.Item {
+namespace ApiSdk.DeviceManagement.ManagedDeviceCleanupRules.Item
+{
     /// <summary>
     /// Provides operations to manage the managedDeviceCleanupRules property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ManagedDeviceCleanupRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedDeviceCleanupRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedDeviceCleanupRules for deviceManagement

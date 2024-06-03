@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.Item {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.Item
+{
     /// <summary>
     /// Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.
     /// </summary>
-    public class ImportedAppleDeviceIdentityItemRequestBuilder : BaseCliRequestBuilder 
+    public class ImportedAppleDeviceIdentityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property importedAppleDeviceIdentities for deviceManagement

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Legend.Format.Fill.SetSolidColor {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Legend.Format.Fill.SetSolidColor
+{
     #pragma warning disable CS1591
-    public class SetSolidColorPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetSolidColorPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Worksheets.Item.Charts.Item.Leg
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"color", n => { Color = n.GetStringValue(); } },
+                { "color", n => { Color = n.GetStringValue(); } },
             };
         }
         /// <summary>

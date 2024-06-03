@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item.MicrosoftGraphManagedTenantsChangeDeploymentStatus {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item.MicrosoftGraphManagedTenantsChangeDeploymentStatus
+{
     #pragma warning disable CS1591
-    public class ChangeDeploymentStatusPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ChangeDeploymentStatusPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"managementTemplateStepId", n => { ManagementTemplateStepId = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "managementTemplateStepId", n => { ManagementTemplateStepId = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.Owners.Ref {
+namespace ApiSdk.Applications.Item.Owners.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of application entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property owners for applications
+        /// Remove an owner from an application. As a recommended best practice, apps should have at least two owners.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-delete-owners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property owners for applications";
+            command.Description = "Remove an owner from an application. As a recommended best practice, apps should have at least two owners.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-delete-owners?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
             return command;
         }
         /// <summary>
-        /// Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.
+        /// Retrieve a list of owners for an application that are directoryObject objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-owners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.";
+            command.Description = "Retrieve a list of owners for an application that are directoryObject objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-owners?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -143,7 +146,9 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -155,13 +160,14 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to owners for applications
+        /// Use this API to add an owner to an application by posting to the owners collection.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-post-owners?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to owners for applications";
+            command.Description = "Use this API to add an owner to an application by posting to the owners collection.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-post-owners?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -210,7 +216,7 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property owners for applications
+        /// Remove an owner from an application. As a recommended best practice, apps should have at least two owners.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +235,7 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.
+        /// Retrieve a list of owners for an application that are directoryObject objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +254,7 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to owners for applications
+        /// Use this API to add an owner to an application by posting to the owners collection.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -269,7 +275,7 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property owners for applications
+        /// Remove an owner from an application. As a recommended best practice, apps should have at least two owners.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -285,7 +291,7 @@ namespace ApiSdk.Applications.Item.Owners.Ref {
 #endif
         }
         /// <summary>
-        /// Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.
+        /// Retrieve a list of owners for an application that are directoryObject objects.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.DstDevP {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.DstDevP
+{
     #pragma warning disable CS1591
-    public class DstDevPPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DstDevPPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.DstDevP {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"criteria", n => { Criteria = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"database", n => { Database = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"field", n => { Field = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "criteria", n => { Criteria = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "database", n => { Database = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "field", n => { Field = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

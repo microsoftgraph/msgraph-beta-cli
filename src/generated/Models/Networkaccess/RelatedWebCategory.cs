@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class RelatedWebCategory : RelatedResource, IParsable 
+    public class RelatedWebCategory : RelatedResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The webCategoryName property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"webCategoryName", n => { WebCategoryName = n.GetStringValue(); } },
+                { "webCategoryName", n => { WebCategoryName = n.GetStringValue(); } },
             };
         }
         /// <summary>

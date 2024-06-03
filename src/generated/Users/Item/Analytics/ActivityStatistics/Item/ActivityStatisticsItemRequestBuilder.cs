@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Analytics.ActivityStatistics.Item {
+namespace ApiSdk.Users.Item.Analytics.ActivityStatistics.Item
+{
     /// <summary>
     /// Provides operations to manage the activityStatistics property of the microsoft.graph.userAnalytics entity.
     /// </summary>
-    public class ActivityStatisticsItemRequestBuilder : BaseCliRequestBuilder 
+    public class ActivityStatisticsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property activityStatistics for users

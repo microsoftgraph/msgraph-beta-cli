@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.Connections.Item.Items.Item {
+namespace ApiSdk.External.Connections.Item.Items.Item
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
     /// </summary>
-    public class ExternalItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExternalItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.
@@ -50,13 +51,14 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property items for external
+        /// Delete an externalitem.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property items for external";
+            command.Description = "Delete an externalitem.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-beta";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -91,13 +93,14 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get items from external";
+            command.Description = "Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn't intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-beta";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -166,13 +169,14 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property items in external
+        /// Create a new externalItem. This API can be used to create a custom item. The containing externalConnection must have a schema registered of the corresponding type.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-put-items?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the navigation property items in external";
+            command.Description = "Create a new externalItem. This API can be used to create a custom item. The containing externalConnection must have a schema registered of the corresponding type.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-put-items?view=graph-rest-beta";
             var externalConnectionIdOption = new Option<string>("--external-connection-id", description: "The unique identifier of externalConnection") {
             };
             externalConnectionIdOption.IsRequired = true;
@@ -237,7 +241,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property items for external
+        /// Delete an externalitem.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -256,7 +260,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -275,7 +279,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property items in external
+        /// Create a new externalItem. This API can be used to create a custom item. The containing externalConnection must have a schema registered of the corresponding type.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -296,7 +300,7 @@ namespace ApiSdk.External.Connections.Item.Items.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get items from external
+        /// Get the properties and relationships of an externalitem object. This API is provided for diagnostic purposes only. It isn&apos;t intended to be used for any other purpose. Repeated requests to this API might result in 429 HTTP errors.
         /// </summary>
         public class ExternalItemItemRequestBuilderGetQueryParameters 
         {

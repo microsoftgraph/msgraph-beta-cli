@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class AuditEvent : ApiSdk.Models.Entity, IParsable 
+    public class AuditEvent : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A string that uniquely represents the operation that occurred. Required. Read-only.</summary>
@@ -125,19 +126,19 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activity", n => { Activity = n.GetStringValue(); } },
-                {"activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
-                {"activityId", n => { ActivityId = n.GetStringValue(); } },
-                {"category", n => { Category = n.GetStringValue(); } },
-                {"httpVerb", n => { HttpVerb = n.GetStringValue(); } },
-                {"initiatedByAppId", n => { InitiatedByAppId = n.GetStringValue(); } },
-                {"initiatedByUpn", n => { InitiatedByUpn = n.GetStringValue(); } },
-                {"initiatedByUserId", n => { InitiatedByUserId = n.GetStringValue(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"requestBody", n => { RequestBody = n.GetStringValue(); } },
-                {"requestUrl", n => { RequestUrl = n.GetStringValue(); } },
-                {"tenantIds", n => { TenantIds = n.GetStringValue(); } },
-                {"tenantNames", n => { TenantNames = n.GetStringValue(); } },
+                { "activity", n => { Activity = n.GetStringValue(); } },
+                { "activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
+                { "activityId", n => { ActivityId = n.GetStringValue(); } },
+                { "category", n => { Category = n.GetStringValue(); } },
+                { "httpVerb", n => { HttpVerb = n.GetStringValue(); } },
+                { "initiatedByAppId", n => { InitiatedByAppId = n.GetStringValue(); } },
+                { "initiatedByUpn", n => { InitiatedByUpn = n.GetStringValue(); } },
+                { "initiatedByUserId", n => { InitiatedByUserId = n.GetStringValue(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "requestBody", n => { RequestBody = n.GetStringValue(); } },
+                { "requestUrl", n => { RequestUrl = n.GetStringValue(); } },
+                { "tenantIds", n => { TenantIds = n.GetStringValue(); } },
+                { "tenantNames", n => { TenantNames = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.InformationProtection {
+namespace ApiSdk.Groups.Item.Sites.Item.GetByPathWithPath.InformationProtection
+{
     /// <summary>
     /// Provides operations to manage the informationProtection property of the microsoft.graph.site entity.
     /// </summary>
-    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder 
+    public class InformationProtectionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property informationProtection for groups

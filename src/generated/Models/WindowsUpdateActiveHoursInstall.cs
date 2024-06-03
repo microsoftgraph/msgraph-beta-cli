@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WindowsUpdateActiveHoursInstall : WindowsUpdateInstallScheduleType, IParsable 
+    public class WindowsUpdateActiveHoursInstall : WindowsUpdateInstallScheduleType, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Active Hours End</summary>
@@ -39,8 +40,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activeHoursEnd", n => { ActiveHoursEnd = n.GetTimeValue(); } },
-                {"activeHoursStart", n => { ActiveHoursStart = n.GetTimeValue(); } },
+                { "activeHoursEnd", n => { ActiveHoursEnd = n.GetTimeValue(); } },
+                { "activeHoursStart", n => { ActiveHoursStart = n.GetTimeValue(); } },
             };
         }
         /// <summary>

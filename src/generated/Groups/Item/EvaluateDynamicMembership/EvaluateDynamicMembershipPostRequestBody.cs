@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.EvaluateDynamicMembership {
+namespace ApiSdk.Groups.Item.EvaluateDynamicMembership
+{
     #pragma warning disable CS1591
-    public class EvaluateDynamicMembershipPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class EvaluateDynamicMembershipPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Groups.Item.EvaluateDynamicMembership {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"memberId", n => { MemberId = n.GetStringValue(); } },
+                { "memberId", n => { MemberId = n.GetStringValue(); } },
             };
         }
         /// <summary>

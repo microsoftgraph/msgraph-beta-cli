@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.RemovePersonalData {
+namespace ApiSdk.DirectoryNamespace.InboundSharedUserProfiles.Item.RemovePersonalData
+{
     /// <summary>
     /// Provides operations to call the removePersonalData method.
     /// </summary>
-    public class RemovePersonalDataRequestBuilder : BaseCliRequestBuilder 
+    public class RemovePersonalDataRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Create a request to remove the personal data for an inboundSharedUserProfile. 

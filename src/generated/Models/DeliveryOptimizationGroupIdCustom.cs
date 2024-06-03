@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Custom group id type
     /// </summary>
-    public class DeliveryOptimizationGroupIdCustom : DeliveryOptimizationGroupIdSource, IParsable 
+    public class DeliveryOptimizationGroupIdCustom : DeliveryOptimizationGroupIdSource, IParsable
     {
         /// <summary>Specifies an arbitrary group ID that the device belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"groupIdCustom", n => { GroupIdCustom = n.GetStringValue(); } },
+                { "groupIdCustom", n => { GroupIdCustom = n.GetStringValue(); } },
             };
         }
         /// <summary>

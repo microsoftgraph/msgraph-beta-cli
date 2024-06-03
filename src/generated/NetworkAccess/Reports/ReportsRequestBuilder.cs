@@ -10,8 +10,8 @@ using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSumm
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime;
-using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBy;
-using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTime;
+using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentId;
+using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentId;
 using ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
@@ -26,11 +26,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports {
+namespace ApiSdk.NetworkAccess.Reports
+{
     /// <summary>
     /// Provides operations to manage the reports property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class ReportsRequestBuilder : BaseCliRequestBuilder 
+    public class ReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reports for networkAccess
@@ -264,11 +265,11 @@ namespace ApiSdk.NetworkAccess.Reports {
         /// Provides operations to call the usageProfiling method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildMicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRbCommand()
+        public Command BuildMicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRbCommand()
         {
-            var command = new Command("microsoft-graph-networkaccess-usage-profiling-with-start-date-time-with-end-date-time-with-aggregated-by");
+            var command = new Command("microsoft-graph-networkaccess-usage-profiling-with-start-date-time-with-end-date-time-with-aggregated-bydiscovered-application-segment-id-discovered-application-segment-id");
             command.Description = "Provides operations to call the usageProfiling method.";
-            var builder = new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder(PathParameters);
+            var builder = new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -281,11 +282,11 @@ namespace ApiSdk.NetworkAccess.Reports {
         /// Provides operations to call the userReport method.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
-        public Command BuildMicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimeRbCommand()
+        public Command BuildMicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRbCommand()
         {
-            var command = new Command("microsoft-graph-networkaccess-user-report-with-start-date-time-with-end-date-time");
+            var command = new Command("microsoft-graph-networkaccess-user-report-with-start-date-time-with-end-date-timediscovered-application-segment-id-discovered-application-segment-id");
             command.Description = "Provides operations to call the userReport method.";
-            var builder = new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)

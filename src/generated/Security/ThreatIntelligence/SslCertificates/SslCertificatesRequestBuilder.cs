@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.SslCertificates {
+namespace ApiSdk.Security.ThreatIntelligence.SslCertificates
+{
     /// <summary>
     /// Provides operations to manage the sslCertificates property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class SslCertificatesRequestBuilder : BaseCliRequestBuilder 
+    public class SslCertificatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the sslCertificates property of the microsoft.graph.security.threatIntelligence entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates {
             return command;
         }
         /// <summary>
-        /// Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get a list of sslCertificate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-threatintelligence-list-sslcertificates?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.";
+            command.Description = "Get a list of sslCertificate objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-threatintelligence-list-sslcertificates?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates {
         {
         }
         /// <summary>
-        /// Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get a list of sslCertificate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.SslCertificates {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about sslCertificate objects.Note: List retrieval is not yet supported.
+        /// Get a list of sslCertificate objects and their properties.
         /// </summary>
         public class SslCertificatesRequestBuilderGetQueryParameters 
         {

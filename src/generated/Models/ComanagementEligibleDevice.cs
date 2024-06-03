@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Device Co-Management eligibility state
     /// </summary>
-    public class ComanagementEligibleDevice : Entity, IParsable 
+    public class ComanagementEligibleDevice : Entity, IParsable
     {
         /// <summary>Device registration status.</summary>
         public DeviceRegistrationState? ClientRegistrationStatus { get; set; }
@@ -138,25 +139,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"clientRegistrationStatus", n => { ClientRegistrationStatus = n.GetEnumValue<DeviceRegistrationState>(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
-                {"entitySource", n => { EntitySource = n.GetIntValue(); } },
-                {"managementAgents", n => { ManagementAgents = n.GetEnumValue<ManagementAgentType>(); } },
-                {"managementState", n => { ManagementState = n.GetEnumValue<ManagementState>(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"mdmStatus", n => { MdmStatus = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"osDescription", n => { OsDescription = n.GetStringValue(); } },
-                {"osVersion", n => { OsVersion = n.GetStringValue(); } },
-                {"ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
-                {"referenceId", n => { ReferenceId = n.GetStringValue(); } },
-                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<ComanagementEligibleType>(); } },
-                {"upn", n => { Upn = n.GetStringValue(); } },
-                {"userEmail", n => { UserEmail = n.GetStringValue(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userName", n => { UserName = n.GetStringValue(); } },
+                { "clientRegistrationStatus", n => { ClientRegistrationStatus = n.GetEnumValue<DeviceRegistrationState>(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
+                { "entitySource", n => { EntitySource = n.GetIntValue(); } },
+                { "managementAgents", n => { ManagementAgents = n.GetEnumValue<ManagementAgentType>(); } },
+                { "managementState", n => { ManagementState = n.GetEnumValue<ManagementState>(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "mdmStatus", n => { MdmStatus = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "osDescription", n => { OsDescription = n.GetStringValue(); } },
+                { "osVersion", n => { OsVersion = n.GetStringValue(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
+                { "referenceId", n => { ReferenceId = n.GetStringValue(); } },
+                { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<ComanagementEligibleType>(); } },
+                { "upn", n => { Upn = n.GetStringValue(); } },
+                { "userEmail", n => { UserEmail = n.GetStringValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userName", n => { UserName = n.GetStringValue(); } },
             };
         }
         /// <summary>

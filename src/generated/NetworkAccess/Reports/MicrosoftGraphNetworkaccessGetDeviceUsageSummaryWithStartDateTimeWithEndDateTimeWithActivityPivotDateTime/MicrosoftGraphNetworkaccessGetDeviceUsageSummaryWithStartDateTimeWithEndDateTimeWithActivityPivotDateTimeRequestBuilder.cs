@@ -14,29 +14,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime
+{
     /// <summary>
     /// Provides operations to call the getDeviceUsageSummary method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke function getDeviceUsageSummary
+        /// Get a summary of device onboarding and offboarding within a specified timeframe. This summary includes the total number of devices, active devices, and inactive devices.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getDeviceUsageSummary";
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            command.Description = "Get a summary of device onboarding and offboarding within a specified timeframe. This summary includes the total number of devices, active devices, and inactive devices.";
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);
-            var activityPivotDateTimeOption = new Option<string>("--activity-pivot-date-time", description: "Usage: activityPivotDateTime={activityPivotDateTime}") {
+            var activityPivotDateTimeOption = new Option<DateTimeOffset?>("--activity-pivot-date-time", description: "Usage: activityPivotDateTime={activityPivotDateTime}") {
             };
             activityPivotDateTimeOption.IsRequired = true;
             command.AddOption(activityPivotDateTimeOption);
@@ -85,7 +86,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsage
         {
         }
         /// <summary>
-        /// Invoke function getDeviceUsageSummary
+        /// Get a summary of device onboarding and offboarding within a specified timeframe. This summary includes the total number of devices, active devices, and inactive devices.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TrustFramework {
+namespace ApiSdk.TrustFramework
+{
     /// <summary>
     /// Provides operations to manage the trustFramework singleton.
     /// </summary>
-    public class TrustFrameworkRequestBuilder : BaseCliRequestBuilder 
+    public class TrustFrameworkRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get trustFramework

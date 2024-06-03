@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcBulkModifyDiskEncryptionType : CloudPcBulkAction, IParsable 
+    public class CloudPcBulkModifyDiskEncryptionType : CloudPcBulkAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The diskEncryptionType property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"diskEncryptionType", n => { DiskEncryptionType = n.GetEnumValue<CloudPcDiskEncryptionType>(); } },
+                { "diskEncryptionType", n => { DiskEncryptionType = n.GetEnumValue<CloudPcDiskEncryptionType>(); } },
             };
         }
         /// <summary>

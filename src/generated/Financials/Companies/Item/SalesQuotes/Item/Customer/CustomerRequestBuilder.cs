@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer {
+namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer
+{
     /// <summary>
     /// Provides operations to manage the customer property of the microsoft.graph.salesQuote entity.
     /// </summary>
-    public class CustomerRequestBuilder : BaseCliRequestBuilder 
+    public class CustomerRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the currency property of the microsoft.graph.customer entity.
@@ -52,11 +53,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property customer for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);
@@ -93,11 +94,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer {
         {
             var command = new Command("get");
             command.Description = "Get customer from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);
@@ -151,11 +152,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property customer in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesQuoteIdOption = new Option<string>("--sales-quote-id", description: "The unique identifier of salesQuote") {
+            var salesQuoteIdOption = new Option<Guid?>("--sales-quote-id", description: "The unique identifier of salesQuote") {
             };
             salesQuoteIdOption.IsRequired = true;
             command.AddOption(salesQuoteIdOption);

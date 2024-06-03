@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.DeviceManagement {
+namespace ApiSdk.Models.DeviceManagement
+{
     #pragma warning disable CS1591
-    public class AlertRecord : ApiSdk.Models.Entity, IParsable 
+    public class AlertRecord : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The impact of the alert event. Consists of a list of key-value pair and a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected. The list of key-value pair indicates the details of the alert impact.</summary>
@@ -63,15 +64,15 @@ namespace ApiSdk.Models.DeviceManagement {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alertImpact", n => { AlertImpact = n.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>(ApiSdk.Models.DeviceManagement.AlertImpact.CreateFromDiscriminatorValue); } },
-                {"alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
-                {"alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
-                {"detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
-                {"status", n => { Status = n.GetEnumValue<AlertStatusType>(); } },
+                { "alertImpact", n => { AlertImpact = n.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>(ApiSdk.Models.DeviceManagement.AlertImpact.CreateFromDiscriminatorValue); } },
+                { "alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
+                { "detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
+                { "status", n => { Status = n.GetEnumValue<AlertStatusType>(); } },
             };
         }
         /// <summary>

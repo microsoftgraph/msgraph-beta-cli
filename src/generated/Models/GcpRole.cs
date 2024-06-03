@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GcpRole : Entity, IParsable 
+    public class GcpRole : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the GCP role. Supports $filter and (eq,contains).</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
-                {"gcpRoleType", n => { GcpRoleType = n.GetEnumValue<GcpRoleType>(); } },
-                {"scopes", n => { Scopes = n.GetCollectionOfObjectValues<GcpScope>(GcpScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "gcpRoleType", n => { GcpRoleType = n.GetEnumValue<GcpRoleType>(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfObjectValues<GcpScope>(GcpScope.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

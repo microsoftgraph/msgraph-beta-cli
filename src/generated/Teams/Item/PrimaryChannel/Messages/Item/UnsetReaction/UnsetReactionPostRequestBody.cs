@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Teams.Item.PrimaryChannel.Messages.Item.UnsetReaction {
+namespace ApiSdk.Teams.Item.PrimaryChannel.Messages.Item.UnsetReaction
+{
     #pragma warning disable CS1591
-    public class UnsetReactionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UnsetReactionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Teams.Item.PrimaryChannel.Messages.Item.UnsetReaction {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"reactionType", n => { ReactionType = n.GetStringValue(); } },
+                { "reactionType", n => { ReactionType = n.GetStringValue(); } },
             };
         }
         /// <summary>

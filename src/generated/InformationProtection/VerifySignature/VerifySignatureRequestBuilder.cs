@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.VerifySignature {
+namespace ApiSdk.InformationProtection.VerifySignature
+{
     /// <summary>
     /// Provides operations to call the verifySignature method.
     /// </summary>
-    public class VerifySignatureRequestBuilder : BaseCliRequestBuilder 
+    public class VerifySignatureRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action verifySignature

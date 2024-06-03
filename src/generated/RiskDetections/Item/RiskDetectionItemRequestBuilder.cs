@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RiskDetections.Item {
+namespace ApiSdk.RiskDetections.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of riskDetection entities.
     /// </summary>
-    public class RiskDetectionItemRequestBuilder : BaseCliRequestBuilder 
+    public class RiskDetectionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from riskDetections

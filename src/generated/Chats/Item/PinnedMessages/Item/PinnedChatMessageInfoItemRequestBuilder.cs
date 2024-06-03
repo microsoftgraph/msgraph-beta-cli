@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Chats.Item.PinnedMessages.Item {
+namespace ApiSdk.Chats.Item.PinnedMessages.Item
+{
     /// <summary>
     /// Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
     /// </summary>
-    public class PinnedChatMessageInfoItemRequestBuilder : BaseCliRequestBuilder 
+    public class PinnedChatMessageInfoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property pinnedMessages for chats
+        /// Unpin a message from a chat.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property pinnedMessages for chats";
+            command.Description = "Unpin a message from a chat.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-beta";
             var chatIdOption = new Option<string>("--chat-id", description: "The unique identifier of chat") {
             };
             chatIdOption.IsRequired = true;
@@ -209,7 +211,7 @@ namespace ApiSdk.Chats.Item.PinnedMessages.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property pinnedMessages for chats
+        /// Unpin a message from a chat.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

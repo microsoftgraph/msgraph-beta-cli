@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.ItemCategories.Item {
+namespace ApiSdk.Financials.Companies.Item.ItemCategories.Item
+{
     /// <summary>
     /// Provides operations to manage the itemCategories property of the microsoft.graph.company entity.
     /// </summary>
-    public class ItemCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property itemCategories for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.ItemCategories.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property itemCategories for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var itemCategoryIdOption = new Option<string>("--item-category-id", description: "The unique identifier of itemCategory") {
+            var itemCategoryIdOption = new Option<Guid?>("--item-category-id", description: "The unique identifier of itemCategory") {
             };
             itemCategoryIdOption.IsRequired = true;
             command.AddOption(itemCategoryIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.ItemCategories.Item {
         {
             var command = new Command("get");
             command.Description = "Get itemCategories from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var itemCategoryIdOption = new Option<string>("--item-category-id", description: "The unique identifier of itemCategory") {
+            var itemCategoryIdOption = new Option<Guid?>("--item-category-id", description: "The unique identifier of itemCategory") {
             };
             itemCategoryIdOption.IsRequired = true;
             command.AddOption(itemCategoryIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.ItemCategories.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property itemCategories in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var itemCategoryIdOption = new Option<string>("--item-category-id", description: "The unique identifier of itemCategory") {
+            var itemCategoryIdOption = new Option<Guid?>("--item-category-id", description: "The unique identifier of itemCategory") {
             };
             itemCategoryIdOption.IsRequired = true;
             command.AddOption(itemCategoryIdOption);

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Privacy.SubjectRightsRequests {
+namespace ApiSdk.Privacy.SubjectRightsRequests
+{
     /// <summary>
     /// Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
     /// </summary>
-    public class SubjectRightsRequestsRequestBuilder : BaseCliRequestBuilder 
+    public class SubjectRightsRequestsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
@@ -60,14 +61,15 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to subjectRightsRequests for privacy
+        /// Create a new subjectRightsRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate")]
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to subjectRightsRequests for privacy";
+            command.Description = "Create a new subjectRightsRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -106,14 +108,15 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
             return command;
         }
         /// <summary>
-        /// Get subjectRightsRequests from privacy
+        /// Get a list of subjectRightsRequest objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate")]
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get subjectRightsRequests from privacy";
+            command.Description = "Get a list of subjectRightsRequest objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -189,7 +192,9 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -215,7 +220,7 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
         {
         }
         /// <summary>
-        /// Get subjectRightsRequests from privacy
+        /// Get a list of subjectRightsRequest objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -235,7 +240,7 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to subjectRightsRequests for privacy
+        /// Create a new subjectRightsRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -257,7 +262,7 @@ namespace ApiSdk.Privacy.SubjectRightsRequests {
             return requestInfo;
         }
         /// <summary>
-        /// Get subjectRightsRequests from privacy
+        /// Get a list of subjectRightsRequest objects and their properties.
         /// </summary>
         public class SubjectRightsRequestsRequestBuilderGetQueryParameters 
         {

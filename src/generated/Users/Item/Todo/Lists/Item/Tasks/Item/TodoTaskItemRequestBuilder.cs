@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item {
+namespace ApiSdk.Users.Item.Todo.Lists.Item.Tasks.Item
+{
     /// <summary>
     /// Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.
     /// </summary>
-    public class TodoTaskItemRequestBuilder : BaseCliRequestBuilder 
+    public class TodoTaskItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.

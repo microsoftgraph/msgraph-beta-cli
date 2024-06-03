@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AnalyzedEmailUrl : IAdditionalDataHolder, IParsable 
+    public class AnalyzedEmailUrl : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"detectionMethod", n => { DetectionMethod = n.GetStringValue(); } },
-                {"detonationDetails", n => { DetonationDetails = n.GetObjectValue<ApiSdk.Models.Security.DetonationDetails>(ApiSdk.Models.Security.DetonationDetails.CreateFromDiscriminatorValue); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
-                {"url", n => { Url = n.GetStringValue(); } },
+                { "detectionMethod", n => { DetectionMethod = n.GetStringValue(); } },
+                { "detonationDetails", n => { DetonationDetails = n.GetObjectValue<ApiSdk.Models.Security.DetonationDetails>(ApiSdk.Models.Security.DetonationDetails.CreateFromDiscriminatorValue); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
+                { "url", n => { Url = n.GetStringValue(); } },
             };
         }
         /// <summary>

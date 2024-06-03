@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item.TaskNamespace.Comment.TaskNamespace.Changes.ItemAtWithIndex {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item.TaskNamespace.Comment.TaskNamespace.Changes.ItemAtWithIndex
+{
     /// <summary>
     /// Provides operations to call the itemAt method.
     /// </summary>
-    public class ItemAtWithIndexRequestBuilder : BaseCliRequestBuilder 
+    public class ItemAtWithIndexRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function itemAt

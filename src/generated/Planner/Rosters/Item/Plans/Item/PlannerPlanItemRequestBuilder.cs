@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Planner.Rosters.Item.Plans.Item {
+namespace ApiSdk.Planner.Rosters.Item.Plans.Item
+{
     /// <summary>
     /// Provides operations to manage the plans property of the microsoft.graph.plannerRoster entity.
     /// </summary>
-    public class PlannerPlanItemRequestBuilder : BaseCliRequestBuilder 
+    public class PlannerPlanItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retrieves the plans contained by the plannerRoster.

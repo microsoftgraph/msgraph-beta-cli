@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates {
+namespace ApiSdk.Teamwork.TeamTemplates
+{
     /// <summary>
     /// Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class TeamTemplatesRequestBuilder : BaseCliRequestBuilder 
+    public class TeamTemplatesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the teamTemplates property of the microsoft.graph.teamwork entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Teamwork.TeamTemplates {
             return command;
         }
         /// <summary>
-        /// The templates associated with a team.
+        /// Get the list of teamTemplate objects that are available for a tenant. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-list-teamtemplates?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The templates associated with a team.";
+            command.Description = "Get the list of teamTemplate objects that are available for a tenant. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-list-teamtemplates?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Teamwork.TeamTemplates {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Teamwork.TeamTemplates {
         {
         }
         /// <summary>
-        /// The templates associated with a team.
+        /// Get the list of teamTemplate objects that are available for a tenant. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Teamwork.TeamTemplates {
             return requestInfo;
         }
         /// <summary>
-        /// The templates associated with a team.
+        /// Get the list of teamTemplate objects that are available for a tenant. 
         /// </summary>
         public class TeamTemplatesRequestBuilderGetQueryParameters 
         {

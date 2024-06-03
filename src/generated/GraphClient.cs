@@ -49,6 +49,7 @@ using ApiSdk.Education;
 using ApiSdk.EmployeeExperience;
 using ApiSdk.External;
 using ApiSdk.FilterOperators;
+using ApiSdk.FilteringPolicies;
 using ApiSdk.Financials;
 using ApiSdk.Functions;
 using ApiSdk.GovernanceResources;
@@ -107,6 +108,7 @@ using ApiSdk.Settings;
 using ApiSdk.Shares;
 using ApiSdk.Sites;
 using ApiSdk.Solutions;
+using ApiSdk.Storage;
 using ApiSdk.SubscribedSkus;
 using ApiSdk.Subscriptions;
 using ApiSdk.TeamTemplateDefinition;
@@ -134,11 +136,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System;
-namespace ApiSdk {
+namespace ApiSdk
+{
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class GraphClient : BaseCliRequestBuilder 
+    public class GraphClient : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the collection of accessReviewDecision entities.
@@ -1690,6 +1693,33 @@ namespace ApiSdk {
                 command.AddCommand(cmd);
             }
             foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the collection of filteringPolicy entities.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildFilteringPoliciesNavCommand()
+        {
+            var command = new Command("filtering-policies");
+            command.Description = "Provides operations to manage the collection of filteringPolicy entities.";
+            var builder = new FilteringPoliciesRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildCountNavCommand());
+            execCommands.Add(builder.BuildCreateCommand());
+            execCommands.Add(builder.BuildListCommand());
+            var cmds = builder.BuildCommand();
+            execCommands.AddRange(cmds.Item1);
+            nonExecCommands.AddRange(cmds.Item2);
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands.OrderBy(static c => c.Name, StringComparer.Ordinal))
             {
                 command.AddCommand(cmd);
             }
@@ -3264,6 +3294,7 @@ namespace ApiSdk {
             command.AddCommand(BuildEducationNavCommand());
             command.AddCommand(BuildEmployeeExperienceNavCommand());
             command.AddCommand(BuildExternalNavCommand());
+            command.AddCommand(BuildFilteringPoliciesNavCommand());
             command.AddCommand(BuildFilterOperatorsNavCommand());
             command.AddCommand(BuildFinancialsNavCommand());
             command.AddCommand(BuildFunctionsNavCommand());
@@ -3323,6 +3354,7 @@ namespace ApiSdk {
             command.AddCommand(BuildSharesNavCommand());
             command.AddCommand(BuildSitesNavCommand());
             command.AddCommand(BuildSolutionsNavCommand());
+            command.AddCommand(BuildStorageNavCommand());
             command.AddCommand(BuildSubscribedSkusNavCommand());
             command.AddCommand(BuildSubscriptionsNavCommand());
             command.AddCommand(BuildTeamsNavCommand());
@@ -3446,6 +3478,7 @@ namespace ApiSdk {
             nonExecCommands.Add(builder.BuildIpSecurityProfilesNavCommand());
             nonExecCommands.Add(builder.BuildLabelsNavCommand());
             nonExecCommands.Add(builder.BuildMicrosoftGraphSecurityRunHuntingQueryNavCommand());
+            nonExecCommands.Add(builder.BuildPartnerNavCommand());
             execCommands.Add(builder.BuildPatchCommand());
             nonExecCommands.Add(builder.BuildProviderTenantSettingsNavCommand());
             nonExecCommands.Add(builder.BuildRulesNavCommand());
@@ -3621,6 +3654,31 @@ namespace ApiSdk {
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
             nonExecCommands.Add(builder.BuildVirtualEventsNavCommand());
+            foreach (var cmd in execCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            foreach (var cmd in nonExecCommands)
+            {
+                command.AddCommand(cmd);
+            }
+            return command;
+        }
+        /// <summary>
+        /// Provides operations to manage the storage singleton.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildStorageNavCommand()
+        {
+            var command = new Command("storage");
+            command.Description = "Provides operations to manage the storage singleton.";
+            var builder = new StorageRequestBuilder(PathParameters);
+            var execCommands = new List<Command>();
+            var nonExecCommands = new List<Command>();
+            nonExecCommands.Add(builder.BuildFileStorageNavCommand());
+            execCommands.Add(builder.BuildGetCommand());
+            execCommands.Add(builder.BuildPatchCommand());
+            nonExecCommands.Add(builder.BuildSettingsNavCommand());
             foreach (var cmd in execCommands)
             {
                 command.AddCommand(cmd);

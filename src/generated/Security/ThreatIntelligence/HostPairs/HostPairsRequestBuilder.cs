@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.HostPairs {
+namespace ApiSdk.Security.ThreatIntelligence.HostPairs
+{
     /// <summary>
     /// Provides operations to manage the hostPairs property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostPairsRequestBuilder : BaseCliRequestBuilder 
+    public class HostPairsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the hostPairs property of the microsoft.graph.security.threatIntelligence entity.
@@ -101,13 +102,13 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs {
             return command;
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a hostPair object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +184,9 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -209,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs {
         {
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -249,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostPairs {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostTracker objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostPair object.
         /// </summary>
         public class HostPairsRequestBuilderGetQueryParameters 
         {

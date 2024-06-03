@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Schools.Item.Users.Ref {
+namespace ApiSdk.Education.Schools.Item.Users.Ref
+{
     /// <summary>
     /// Provides operations to manage the collection of educationRoot entities.
     /// </summary>
-    public class RefRequestBuilder : BaseCliRequestBuilder 
+    public class RefRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete ref of navigation property users for education
+        /// Delete a user from a school.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-delete-users?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete ref of navigation property users for education";
+            command.Description = "Delete a user from a school.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationschool-delete-users?view=graph-rest-beta";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
             };
             educationSchoolIdOption.IsRequired = true;
@@ -62,13 +64,14 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
             return command;
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Users in the school. Nullable.";
+            command.Description = "Retrieve a list of users at a school.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-beta";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
             };
             educationSchoolIdOption.IsRequired = true;
@@ -136,7 +139,9 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -148,13 +153,14 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
             return command;
         }
         /// <summary>
-        /// Create new navigation property ref to users for education
+        /// Add a user to a school.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/educationschool-post-users?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Create new navigation property ref to users for education";
+            command.Description = "Add a user to a school.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/educationschool-post-users?view=graph-rest-beta";
             var educationSchoolIdOption = new Option<string>("--education-school-id", description: "The unique identifier of educationSchool") {
             };
             educationSchoolIdOption.IsRequired = true;
@@ -203,7 +209,7 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
         {
         }
         /// <summary>
-        /// Delete ref of navigation property users for education
+        /// Delete a user from a school.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -222,7 +228,7 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -241,7 +247,7 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property ref to users for education
+        /// Add a user to a school.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -262,7 +268,7 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
             return requestInfo;
         }
         /// <summary>
-        /// Delete ref of navigation property users for education
+        /// Delete a user from a school.
         /// </summary>
         public class RefRequestBuilderDeleteQueryParameters 
         {
@@ -278,7 +284,7 @@ namespace ApiSdk.Education.Schools.Item.Users.Ref {
 #endif
         }
         /// <summary>
-        /// Users in the school. Nullable.
+        /// Retrieve a list of users at a school.
         /// </summary>
         public class RefRequestBuilderGetQueryParameters 
         {

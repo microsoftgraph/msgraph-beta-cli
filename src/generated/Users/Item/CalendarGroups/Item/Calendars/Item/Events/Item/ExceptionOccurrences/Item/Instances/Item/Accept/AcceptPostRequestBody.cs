@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.ExceptionOccurrences.Item.Instances.Item.Accept {
+namespace ApiSdk.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.ExceptionOccurrences.Item.Instances.Item.Accept
+{
     #pragma warning disable CS1591
-    public class AcceptPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AcceptPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -46,8 +47,8 @@ namespace ApiSdk.Users.Item.CalendarGroups.Item.Calendars.Item.Events.Item.Excep
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"Comment", n => { Comment = n.GetStringValue(); } },
-                {"SendResponse", n => { SendResponse = n.GetBoolValue(); } },
+                { "Comment", n => { Comment = n.GetStringValue(); } },
+                { "SendResponse", n => { SendResponse = n.GetBoolValue(); } },
             };
         }
         /// <summary>

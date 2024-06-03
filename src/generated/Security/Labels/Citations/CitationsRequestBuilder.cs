@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Labels.Citations {
+namespace ApiSdk.Security.Labels.Citations
+{
     /// <summary>
     /// Provides operations to manage the citations property of the microsoft.graph.security.labelsRoot entity.
     /// </summary>
-    public class CitationsRequestBuilder : BaseCliRequestBuilder 
+    public class CitationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the citations property of the microsoft.graph.security.labelsRoot entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Security.Labels.Citations {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to citations for security
+        /// Create a new citationTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-post-citations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to citations for security";
+            command.Description = "Create a new citationTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-labelsroot-post-citations?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -98,13 +100,14 @@ namespace ApiSdk.Security.Labels.Citations {
             return command;
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Get a list of the citationTemplate objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-labelsroot-list-citations?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.";
+            command.Description = "Get a list of the citationTemplate objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-labelsroot-list-citations?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +183,9 @@ namespace ApiSdk.Security.Labels.Citations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +211,7 @@ namespace ApiSdk.Security.Labels.Citations {
         {
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Get a list of the citationTemplate objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +230,7 @@ namespace ApiSdk.Security.Labels.Citations {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to citations for security
+        /// Create a new citationTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -246,7 +251,7 @@ namespace ApiSdk.Security.Labels.Citations {
             return requestInfo;
         }
         /// <summary>
-        /// The specific rule or regulation created by a jurisdiction used to determine whether certain labels and content should be retained or deleted.
+        /// Get a list of the citationTemplate objects and their properties.
         /// </summary>
         public class CitationsRequestBuilderGetQueryParameters 
         {

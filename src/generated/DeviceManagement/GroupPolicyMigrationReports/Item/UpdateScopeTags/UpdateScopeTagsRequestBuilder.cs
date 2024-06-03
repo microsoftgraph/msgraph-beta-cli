@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags
+{
     /// <summary>
     /// Provides operations to call the updateScopeTags method.
     /// </summary>
-    public class UpdateScopeTagsRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateScopeTagsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action updateScopeTags

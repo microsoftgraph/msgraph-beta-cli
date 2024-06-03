@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item {
+namespace ApiSdk.Users.Item.AppConsentRequestsForApproval.Item
+{
     /// <summary>
     /// Provides operations to manage the appConsentRequestsForApproval property of the microsoft.graph.user entity.
     /// </summary>
-    public class AppConsentRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class AppConsentRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property appConsentRequestsForApproval for users

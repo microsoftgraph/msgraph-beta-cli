@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.DeviceLocalCredentials.Item {
+namespace ApiSdk.DirectoryNamespace.DeviceLocalCredentials.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceLocalCredentials property of the microsoft.graph.directory entity.
     /// </summary>
-    public class DeviceLocalCredentialInfoItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceLocalCredentialInfoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceLocalCredentials for directory
@@ -56,13 +57,14 @@ namespace ApiSdk.DirectoryNamespace.DeviceLocalCredentials.Item {
             return command;
         }
         /// <summary>
-        /// The credentials of the device&apos;s local administrator account backed up to Microsoft Entra ID.
+        /// Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The credentials of the device's local administrator account backed up to Microsoft Entra ID.";
+            command.Description = "Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicelocalcredentialinfo-get?view=graph-rest-beta";
             var deviceLocalCredentialInfoIdOption = new Option<string>("--device-local-credential-info-id", description: "The unique identifier of deviceLocalCredentialInfo") {
             };
             deviceLocalCredentialInfoIdOption.IsRequired = true;
@@ -185,7 +187,7 @@ namespace ApiSdk.DirectoryNamespace.DeviceLocalCredentials.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The credentials of the device&apos;s local administrator account backed up to Microsoft Entra ID.
+        /// Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -225,7 +227,7 @@ namespace ApiSdk.DirectoryNamespace.DeviceLocalCredentials.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The credentials of the device&apos;s local administrator account backed up to Microsoft Entra ID.
+        /// Retrieve the properties of a deviceLocalCredentialInfo for a specified device object. 
         /// </summary>
         public class DeviceLocalCredentialInfoItemRequestBuilderGetQueryParameters 
         {

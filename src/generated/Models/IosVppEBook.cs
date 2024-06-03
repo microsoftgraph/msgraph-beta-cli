@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties for iOS Vpp eBook.
     /// </summary>
-    public class IosVppEBook : ManagedEBook, IParsable 
+    public class IosVppEBook : ManagedEBook, IParsable
     {
         /// <summary>The Apple ID associated with Vpp token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,15 +90,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appleId", n => { AppleId = n.GetStringValue(); } },
-                {"genres", n => { Genres = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"language", n => { Language = n.GetStringValue(); } },
-                {"roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"seller", n => { Seller = n.GetStringValue(); } },
-                {"totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
-                {"usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
-                {"vppOrganizationName", n => { VppOrganizationName = n.GetStringValue(); } },
-                {"vppTokenId", n => { VppTokenId = n.GetGuidValue(); } },
+                { "appleId", n => { AppleId = n.GetStringValue(); } },
+                { "genres", n => { Genres = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "seller", n => { Seller = n.GetStringValue(); } },
+                { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
+                { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
+                { "vppOrganizationName", n => { VppOrganizationName = n.GetStringValue(); } },
+                { "vppTokenId", n => { VppTokenId = n.GetGuidValue(); } },
             };
         }
         /// <summary>

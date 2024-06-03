@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Categories.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedEBooks.Item.Categories.Item
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.managedEBook entity.
     /// </summary>
-    public class ManagedEBookCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedEBookCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The list of categories for this eBook.

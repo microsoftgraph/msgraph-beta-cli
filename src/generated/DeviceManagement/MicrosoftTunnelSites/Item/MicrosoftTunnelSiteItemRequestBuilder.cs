@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
+{
     /// <summary>
     /// Provides operations to manage the microsoftTunnelSites property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MicrosoftTunnelSiteItemRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftTunnelSiteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property microsoftTunnelSites for deviceManagement

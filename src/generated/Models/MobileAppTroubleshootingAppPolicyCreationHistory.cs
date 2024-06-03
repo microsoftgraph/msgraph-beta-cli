@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// History Item contained in the Mobile App Troubleshooting Event.
     /// </summary>
-    public class MobileAppTroubleshootingAppPolicyCreationHistory : MobileAppTroubleshootingHistoryItem, IParsable 
+    public class MobileAppTroubleshootingAppPolicyCreationHistory : MobileAppTroubleshootingHistoryItem, IParsable
     {
         /// <summary>Error code for the failure, empty if no failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,8 +39,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                {"runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
+                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
             };
         }
         /// <summary>

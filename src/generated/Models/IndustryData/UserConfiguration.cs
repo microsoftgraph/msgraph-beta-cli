@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class UserConfiguration : IAdditionalDataHolder, IParsable 
+    public class UserConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"defaultPasswordSettings", n => { DefaultPasswordSettings = n.GetObjectValue<PasswordSettings>(PasswordSettings.CreateFromDiscriminatorValue); } },
-                {"licenseSkus", n => { LicenseSkus = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"roleGroup", n => { RoleGroup = n.GetObjectValue<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue); } },
+                { "defaultPasswordSettings", n => { DefaultPasswordSettings = n.GetObjectValue<PasswordSettings>(PasswordSettings.CreateFromDiscriminatorValue); } },
+                { "licenseSkus", n => { LicenseSkus = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "roleGroup", n => { RoleGroup = n.GetObjectValue<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

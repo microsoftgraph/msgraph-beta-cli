@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents {
+namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents
+{
     /// <summary>
     /// Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
     /// </summary>
-    public class LearningContentsRequestBuilder : BaseCliRequestBuilder 
+    public class LearningContentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents {
             return command;
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider&apos;s content in Viva Learning.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Learning catalog items for the provider.";
+            command.Description = "Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents {
         {
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider&apos;s content in Viva Learning.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningContents {
             return requestInfo;
         }
         /// <summary>
-        /// Learning catalog items for the provider.
+        /// Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider&apos;s content in Viva Learning.
         /// </summary>
         public class LearningContentsRequestBuilderGetQueryParameters 
         {

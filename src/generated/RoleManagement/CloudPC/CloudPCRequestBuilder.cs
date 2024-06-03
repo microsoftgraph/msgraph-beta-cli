@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.CloudPC {
+namespace ApiSdk.RoleManagement.CloudPC
+{
     /// <summary>
     /// Provides operations to manage the cloudPC property of the microsoft.graph.roleManagement entity.
     /// </summary>
-    public class CloudPCRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPCRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property cloudPC for roleManagement

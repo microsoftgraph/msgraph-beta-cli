@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.UnitsOfMeasure.Item {
+namespace ApiSdk.Financials.Companies.Item.UnitsOfMeasure.Item
+{
     /// <summary>
     /// Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.
     /// </summary>
-    public class UnitOfMeasureItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnitOfMeasureItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property unitsOfMeasure for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.UnitsOfMeasure.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property unitsOfMeasure for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var unitOfMeasureIdOption = new Option<string>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
+            var unitOfMeasureIdOption = new Option<Guid?>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
             };
             unitOfMeasureIdOption.IsRequired = true;
             command.AddOption(unitOfMeasureIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.UnitsOfMeasure.Item {
         {
             var command = new Command("get");
             command.Description = "Get unitsOfMeasure from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var unitOfMeasureIdOption = new Option<string>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
+            var unitOfMeasureIdOption = new Option<Guid?>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
             };
             unitOfMeasureIdOption.IsRequired = true;
             command.AddOption(unitOfMeasureIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.UnitsOfMeasure.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property unitsOfMeasure in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var unitOfMeasureIdOption = new Option<string>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
+            var unitOfMeasureIdOption = new Option<Guid?>("--unit-of-measure-id", description: "The unique identifier of unitOfMeasure") {
             };
             unitOfMeasureIdOption.IsRequired = true;
             command.AddOption(unitOfMeasureIdOption);

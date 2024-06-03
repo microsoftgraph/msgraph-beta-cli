@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ResourceOperations.Item {
+namespace ApiSdk.DeviceManagement.ResourceOperations.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ResourceOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ResourceOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property resourceOperations for deviceManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item.DeviceStates.Item {
+namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item.DeviceStates.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceStates property of the microsoft.graph.embeddedSIMActivationCodePool entity.
     /// </summary>
-    public class EmbeddedSIMDeviceStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmbeddedSIMDeviceStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceStates for deviceManagement

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.windowsAutopilotDeploymentProfile entity.
     /// </summary>
-    public class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsAutopilotDeploymentProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

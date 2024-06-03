@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
+namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item
+{
     /// <summary>
     /// Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class ApplicationSignInDetailedSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationSignInDetailedSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property applicationSignInDetailedSummary for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
             return command;
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents a detailed summary of an application sign-in.";
+            command.Description = "Retrieve the properties and relationships of an applicationSignInDetailedSummary object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/applicationsignindetailedsummary-get?view=graph-rest-beta";
             var applicationSignInDetailedSummaryIdOption = new Option<string>("--application-sign-in-detailed-summary-id", description: "The unique identifier of applicationSignInDetailedSummary") {
             };
             applicationSignInDetailedSummaryIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.ApplicationSignInDetailedSummary.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents a detailed summary of an application sign-in.
+        /// Retrieve the properties and relationships of an applicationSignInDetailedSummary object.
         /// </summary>
         public class ApplicationSignInDetailedSummaryItemRequestBuilderGetQueryParameters 
         {

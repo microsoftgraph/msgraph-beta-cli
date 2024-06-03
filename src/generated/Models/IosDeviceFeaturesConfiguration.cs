@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// iOS Device Features Configuration Profile.
     /// </summary>
-    public class IosDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable 
+    public class IosDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable
     {
         /// <summary>Asset tag information for the device, displayed on the login window and lock screen.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -137,21 +138,21 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assetTagTemplate", n => { AssetTagTemplate = n.GetStringValue(); } },
-                {"contentFilterSettings", n => { ContentFilterSettings = n.GetObjectValue<IosWebContentFilterBase>(IosWebContentFilterBase.CreateFromDiscriminatorValue); } },
-                {"homeScreenDockIcons", n => { HomeScreenDockIcons = n.GetCollectionOfObjectValues<IosHomeScreenItem>(IosHomeScreenItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"homeScreenGridHeight", n => { HomeScreenGridHeight = n.GetIntValue(); } },
-                {"homeScreenGridWidth", n => { HomeScreenGridWidth = n.GetIntValue(); } },
-                {"homeScreenPages", n => { HomeScreenPages = n.GetCollectionOfObjectValues<IosHomeScreenPage>(IosHomeScreenPage.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"iosSingleSignOnExtension", n => { IosSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.IosSingleSignOnExtension>(ApiSdk.Models.IosSingleSignOnExtension.CreateFromDiscriminatorValue); } },
-                {"lockScreenFootnote", n => { LockScreenFootnote = n.GetStringValue(); } },
-                {"notificationSettings", n => { NotificationSettings = n.GetCollectionOfObjectValues<IosNotificationSettings>(IosNotificationSettings.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
-                {"singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                {"singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<IosSingleSignOnSettings>(IosSingleSignOnSettings.CreateFromDiscriminatorValue); } },
-                {"wallpaperDisplayLocation", n => { WallpaperDisplayLocation = n.GetEnumValue<IosWallpaperDisplayLocation>(); } },
-                {"wallpaperImage", n => { WallpaperImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "assetTagTemplate", n => { AssetTagTemplate = n.GetStringValue(); } },
+                { "contentFilterSettings", n => { ContentFilterSettings = n.GetObjectValue<IosWebContentFilterBase>(IosWebContentFilterBase.CreateFromDiscriminatorValue); } },
+                { "homeScreenDockIcons", n => { HomeScreenDockIcons = n.GetCollectionOfObjectValues<IosHomeScreenItem>(IosHomeScreenItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "homeScreenGridHeight", n => { HomeScreenGridHeight = n.GetIntValue(); } },
+                { "homeScreenGridWidth", n => { HomeScreenGridWidth = n.GetIntValue(); } },
+                { "homeScreenPages", n => { HomeScreenPages = n.GetCollectionOfObjectValues<IosHomeScreenPage>(IosHomeScreenPage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "iosSingleSignOnExtension", n => { IosSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.IosSingleSignOnExtension>(ApiSdk.Models.IosSingleSignOnExtension.CreateFromDiscriminatorValue); } },
+                { "lockScreenFootnote", n => { LockScreenFootnote = n.GetStringValue(); } },
+                { "notificationSettings", n => { NotificationSettings = n.GetCollectionOfObjectValues<IosNotificationSettings>(IosNotificationSettings.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
+                { "singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<IosSingleSignOnSettings>(IosSingleSignOnSettings.CreateFromDiscriminatorValue); } },
+                { "wallpaperDisplayLocation", n => { WallpaperDisplayLocation = n.GetEnumValue<IosWallpaperDisplayLocation>(); } },
+                { "wallpaperImage", n => { WallpaperImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

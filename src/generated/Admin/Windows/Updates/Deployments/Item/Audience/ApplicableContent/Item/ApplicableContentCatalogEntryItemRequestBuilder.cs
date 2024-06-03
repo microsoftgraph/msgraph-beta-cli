@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.ApplicableContent.Item {
+namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.ApplicableContent.Item
+{
     /// <summary>
     /// Provides operations to manage the applicableContent property of the microsoft.graph.windowsUpdates.deploymentAudience entity.
     /// </summary>
-    public class ApplicableContentCatalogEntryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicableContentCatalogEntryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the catalogEntry property of the microsoft.graph.windowsUpdates.applicableContent entity.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchUploadAgents.Item {
+namespace ApiSdk.DataClassification.ExactMatchUploadAgents.Item
+{
     /// <summary>
     /// Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class ExactMatchUploadAgentItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExactMatchUploadAgentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property exactMatchUploadAgents for dataClassification

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents per-process privacy preferences.
     /// </summary>
-    public class MacOSPrivacyAccessControlItem : IAdditionalDataHolder, IParsable 
+    public class MacOSPrivacyAccessControlItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Possible values of a property</summary>
         public Enablement? Accessibility { get; set; }
@@ -121,33 +122,33 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessibility", n => { Accessibility = n.GetEnumValue<Enablement>(); } },
-                {"addressBook", n => { AddressBook = n.GetEnumValue<Enablement>(); } },
-                {"appleEventsAllowedReceivers", n => { AppleEventsAllowedReceivers = n.GetCollectionOfObjectValues<MacOSAppleEventReceiver>(MacOSAppleEventReceiver.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"blockCamera", n => { BlockCamera = n.GetBoolValue(); } },
-                {"blockListenEvent", n => { BlockListenEvent = n.GetBoolValue(); } },
-                {"blockMicrophone", n => { BlockMicrophone = n.GetBoolValue(); } },
-                {"blockScreenCapture", n => { BlockScreenCapture = n.GetBoolValue(); } },
-                {"calendar", n => { Calendar = n.GetEnumValue<Enablement>(); } },
-                {"codeRequirement", n => { CodeRequirement = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"fileProviderPresence", n => { FileProviderPresence = n.GetEnumValue<Enablement>(); } },
-                {"identifier", n => { Identifier = n.GetStringValue(); } },
-                {"identifierType", n => { IdentifierType = n.GetEnumValue<MacOSProcessIdentifierType>(); } },
-                {"mediaLibrary", n => { MediaLibrary = n.GetEnumValue<Enablement>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"photos", n => { Photos = n.GetEnumValue<Enablement>(); } },
-                {"postEvent", n => { PostEvent = n.GetEnumValue<Enablement>(); } },
-                {"reminders", n => { Reminders = n.GetEnumValue<Enablement>(); } },
-                {"speechRecognition", n => { SpeechRecognition = n.GetEnumValue<Enablement>(); } },
-                {"staticCodeValidation", n => { StaticCodeValidation = n.GetBoolValue(); } },
-                {"systemPolicyAllFiles", n => { SystemPolicyAllFiles = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicyDesktopFolder", n => { SystemPolicyDesktopFolder = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicyDocumentsFolder", n => { SystemPolicyDocumentsFolder = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicyDownloadsFolder", n => { SystemPolicyDownloadsFolder = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicyNetworkVolumes", n => { SystemPolicyNetworkVolumes = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicyRemovableVolumes", n => { SystemPolicyRemovableVolumes = n.GetEnumValue<Enablement>(); } },
-                {"systemPolicySystemAdminFiles", n => { SystemPolicySystemAdminFiles = n.GetEnumValue<Enablement>(); } },
+                { "accessibility", n => { Accessibility = n.GetEnumValue<Enablement>(); } },
+                { "addressBook", n => { AddressBook = n.GetEnumValue<Enablement>(); } },
+                { "appleEventsAllowedReceivers", n => { AppleEventsAllowedReceivers = n.GetCollectionOfObjectValues<MacOSAppleEventReceiver>(MacOSAppleEventReceiver.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "blockCamera", n => { BlockCamera = n.GetBoolValue(); } },
+                { "blockListenEvent", n => { BlockListenEvent = n.GetBoolValue(); } },
+                { "blockMicrophone", n => { BlockMicrophone = n.GetBoolValue(); } },
+                { "blockScreenCapture", n => { BlockScreenCapture = n.GetBoolValue(); } },
+                { "calendar", n => { Calendar = n.GetEnumValue<Enablement>(); } },
+                { "codeRequirement", n => { CodeRequirement = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "fileProviderPresence", n => { FileProviderPresence = n.GetEnumValue<Enablement>(); } },
+                { "identifier", n => { Identifier = n.GetStringValue(); } },
+                { "identifierType", n => { IdentifierType = n.GetEnumValue<MacOSProcessIdentifierType>(); } },
+                { "mediaLibrary", n => { MediaLibrary = n.GetEnumValue<Enablement>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "photos", n => { Photos = n.GetEnumValue<Enablement>(); } },
+                { "postEvent", n => { PostEvent = n.GetEnumValue<Enablement>(); } },
+                { "reminders", n => { Reminders = n.GetEnumValue<Enablement>(); } },
+                { "speechRecognition", n => { SpeechRecognition = n.GetEnumValue<Enablement>(); } },
+                { "staticCodeValidation", n => { StaticCodeValidation = n.GetBoolValue(); } },
+                { "systemPolicyAllFiles", n => { SystemPolicyAllFiles = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicyDesktopFolder", n => { SystemPolicyDesktopFolder = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicyDocumentsFolder", n => { SystemPolicyDocumentsFolder = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicyDownloadsFolder", n => { SystemPolicyDownloadsFolder = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicyNetworkVolumes", n => { SystemPolicyNetworkVolumes = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicyRemovableVolumes", n => { SystemPolicyRemovableVolumes = n.GetEnumValue<Enablement>(); } },
+                { "systemPolicySystemAdminFiles", n => { SystemPolicySystemAdminFiles = n.GetEnumValue<Enablement>(); } },
             };
         }
         /// <summary>

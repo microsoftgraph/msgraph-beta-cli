@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.DeletedTeams {
+namespace ApiSdk.Teamwork.DeletedTeams
+{
     /// <summary>
     /// Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class DeletedTeamsRequestBuilder : BaseCliRequestBuilder 
+    public class DeletedTeamsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -118,13 +119,14 @@ namespace ApiSdk.Teamwork.DeletedTeams {
             return command;
         }
         /// <summary>
-        /// A collection of deleted teams.
+        /// Get a list of the deletedTeam objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of deleted teams.";
+            command.Description = "Get a list of the deletedTeam objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -200,7 +202,9 @@ namespace ApiSdk.Teamwork.DeletedTeams {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -226,7 +230,7 @@ namespace ApiSdk.Teamwork.DeletedTeams {
         {
         }
         /// <summary>
-        /// A collection of deleted teams.
+        /// Get a list of the deletedTeam objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -266,7 +270,7 @@ namespace ApiSdk.Teamwork.DeletedTeams {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of deleted teams.
+        /// Get a list of the deletedTeam objects and their properties.
         /// </summary>
         public class DeletedTeamsRequestBuilderGetQueryParameters 
         {

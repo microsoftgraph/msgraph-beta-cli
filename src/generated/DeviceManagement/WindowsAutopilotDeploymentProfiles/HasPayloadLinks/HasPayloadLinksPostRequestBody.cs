@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.HasPayloadLinks {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.HasPayloadLinks
+{
     #pragma warning disable CS1591
-    public class HasPayloadLinksPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class HasPayloadLinksPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.HasPayloadL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"payloadIds", n => { PayloadIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "payloadIds", n => { PayloadIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

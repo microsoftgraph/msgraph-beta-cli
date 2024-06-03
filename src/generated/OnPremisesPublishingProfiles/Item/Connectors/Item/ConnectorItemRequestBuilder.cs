@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.Connectors.Item {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.Connectors.Item
+{
     /// <summary>
     /// Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.
     /// </summary>
-    public class ConnectorItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConnectorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property connectors for onPremisesPublishingProfiles

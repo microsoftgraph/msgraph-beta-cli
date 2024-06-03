@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents.GetAuditActivityTypes {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents.GetAuditActivityTypes
+{
     #pragma warning disable CS1591
-    public class GetAuditActivityTypesGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetAuditActivityTypesGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents.GetAuditActivityTy
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

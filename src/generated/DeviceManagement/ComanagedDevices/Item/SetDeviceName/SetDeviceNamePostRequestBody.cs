@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetDeviceName {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetDeviceName
+{
     #pragma warning disable CS1591
-    public class SetDeviceNamePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetDeviceNamePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetDeviceName {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
             };
         }
         /// <summary>

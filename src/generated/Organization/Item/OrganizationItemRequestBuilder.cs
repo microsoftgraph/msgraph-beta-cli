@@ -25,11 +25,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item {
+namespace ApiSdk.Organization.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of organization entities.
     /// </summary>
-    public class OrganizationItemRequestBuilder : BaseCliRequestBuilder 
+    public class OrganizationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the branding property of the microsoft.graph.organization entity.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelHealthThresholds.Item {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelHealthThresholds.Item
+{
     /// <summary>
     /// Provides operations to manage the microsoftTunnelHealthThresholds property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MicrosoftTunnelHealthThresholdItemRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftTunnelHealthThresholdItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property microsoftTunnelHealthThresholds for deviceManagement

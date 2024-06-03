@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UpdateDeviceProperties {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.UpdateDeviceProperties
+{
     #pragma warning disable CS1591
-    public class UpdateDevicePropertiesPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UpdateDevicePropertiesPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -92,13 +93,13 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.Assign
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
-                {"deviceAccountPassword", n => { DeviceAccountPassword = n.GetStringValue(); } },
-                {"deviceAccountUpn", n => { DeviceAccountUpn = n.GetStringValue(); } },
-                {"deviceFriendlyName", n => { DeviceFriendlyName = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"groupTag", n => { GroupTag = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
+                { "deviceAccountPassword", n => { DeviceAccountPassword = n.GetStringValue(); } },
+                { "deviceAccountUpn", n => { DeviceAccountUpn = n.GetStringValue(); } },
+                { "deviceFriendlyName", n => { DeviceFriendlyName = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "groupTag", n => { GroupTag = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetNoncompliantDevicesToRetire {
+namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetNoncompliantDevicesToRetire
+{
     /// <summary>
     /// Provides operations to call the getNoncompliantDevicesToRetire method.
     /// </summary>
-    public class GetNoncompliantDevicesToRetireRequestBuilder : BaseCliRequestBuilder 
+    public class GetNoncompliantDevicesToRetireRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getNoncompliantDevicesToRetire

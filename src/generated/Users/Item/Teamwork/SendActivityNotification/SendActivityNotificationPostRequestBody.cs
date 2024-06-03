@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.Teamwork.SendActivityNotification {
+namespace ApiSdk.Users.Item.Teamwork.SendActivityNotification
+{
     #pragma warning disable CS1591
-    public class SendActivityNotificationPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SendActivityNotificationPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityType property</summary>
@@ -79,12 +80,12 @@ namespace ApiSdk.Users.Item.Teamwork.SendActivityNotification {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activityType", n => { ActivityType = n.GetStringValue(); } },
-                {"chainId", n => { ChainId = n.GetLongValue(); } },
-                {"previewText", n => { PreviewText = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                {"teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
-                {"templateParameters", n => { TemplateParameters = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"topic", n => { Topic = n.GetObjectValue<TeamworkActivityTopic>(TeamworkActivityTopic.CreateFromDiscriminatorValue); } },
+                { "activityType", n => { ActivityType = n.GetStringValue(); } },
+                { "chainId", n => { ChainId = n.GetLongValue(); } },
+                { "previewText", n => { PreviewText = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "teamsAppId", n => { TeamsAppId = n.GetStringValue(); } },
+                { "templateParameters", n => { TemplateParameters = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "topic", n => { Topic = n.GetObjectValue<TeamworkActivityTopic>(TeamworkActivityTopic.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

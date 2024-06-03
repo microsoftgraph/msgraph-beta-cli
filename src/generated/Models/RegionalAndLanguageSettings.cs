@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RegionalAndLanguageSettings : Entity, IParsable 
+    public class RegionalAndLanguageSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Prioritized list of languages the user reads and authors in.Returned by default. Not nullable.</summary>
@@ -83,13 +84,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authoringLanguages", n => { AuthoringLanguages = n.GetCollectionOfObjectValues<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"defaultDisplayLanguage", n => { DefaultDisplayLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
-                {"defaultRegionalFormat", n => { DefaultRegionalFormat = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
-                {"defaultSpeechInputLanguage", n => { DefaultSpeechInputLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
-                {"defaultTranslationLanguage", n => { DefaultTranslationLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
-                {"regionalFormatOverrides", n => { RegionalFormatOverrides = n.GetObjectValue<ApiSdk.Models.RegionalFormatOverrides>(ApiSdk.Models.RegionalFormatOverrides.CreateFromDiscriminatorValue); } },
-                {"translationPreferences", n => { TranslationPreferences = n.GetObjectValue<ApiSdk.Models.TranslationPreferences>(ApiSdk.Models.TranslationPreferences.CreateFromDiscriminatorValue); } },
+                { "authoringLanguages", n => { AuthoringLanguages = n.GetCollectionOfObjectValues<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultDisplayLanguage", n => { DefaultDisplayLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "defaultRegionalFormat", n => { DefaultRegionalFormat = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "defaultSpeechInputLanguage", n => { DefaultSpeechInputLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "defaultTranslationLanguage", n => { DefaultTranslationLanguage = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "regionalFormatOverrides", n => { RegionalFormatOverrides = n.GetObjectValue<ApiSdk.Models.RegionalFormatOverrides>(ApiSdk.Models.RegionalFormatOverrides.CreateFromDiscriminatorValue); } },
+                { "translationPreferences", n => { TranslationPreferences = n.GetObjectValue<ApiSdk.Models.TranslationPreferences>(ApiSdk.Models.TranslationPreferences.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

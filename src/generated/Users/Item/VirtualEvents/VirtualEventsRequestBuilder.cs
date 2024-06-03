@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.VirtualEvents {
+namespace ApiSdk.Users.Item.VirtualEvents
+{
     /// <summary>
     /// Provides operations to manage the virtualEvents property of the microsoft.graph.user entity.
     /// </summary>
-    public class VirtualEventsRequestBuilder : BaseCliRequestBuilder 
+    public class VirtualEventsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property virtualEvents for users

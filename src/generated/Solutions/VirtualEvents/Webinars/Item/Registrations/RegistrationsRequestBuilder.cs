@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
+namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations
+{
     /// <summary>
     /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
     /// </summary>
-    public class RegistrationsRequestBuilder : BaseCliRequestBuilder 
+    public class RegistrationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the registrations property of the microsoft.graph.virtualEventWebinar entity.
@@ -31,6 +32,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
             var executables = new List<Command>();
             var commands = new List<Command>();
             var builder = new VirtualEventRegistrationItemRequestBuilder(PathParameters);
+            commands.Add(builder.BuildCancelNavCommand());
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
@@ -107,13 +109,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
             return command;
         }
         /// <summary>
-        /// Registration records of the webinar.
+        /// Get a list of all registration records of a webinar.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/virtualeventregistration-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Registration records of the webinar.";
+            command.Description = "Get a list of all registration records of a webinar.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/virtualeventregistration-list?view=graph-rest-beta";
             var virtualEventWebinarIdOption = new Option<string>("--virtual-event-webinar-id", description: "The unique identifier of virtualEventWebinar") {
             };
             virtualEventWebinarIdOption.IsRequired = true;
@@ -195,7 +198,9 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +226,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
         {
         }
         /// <summary>
-        /// Registration records of the webinar.
+        /// Get a list of all registration records of a webinar.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +266,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Webinars.Item.Registrations {
             return requestInfo;
         }
         /// <summary>
-        /// Registration records of the webinar.
+        /// Get a list of all registration records of a webinar.
         /// </summary>
         public class RegistrationsRequestBuilderGetQueryParameters 
         {

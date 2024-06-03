@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2xUserFlows.Item.Languages {
+namespace ApiSdk.Identity.B2xUserFlows.Item.Languages
+{
     /// <summary>
     /// Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
     /// </summary>
-    public class LanguagesRequestBuilder : BaseCliRequestBuilder 
+    public class LanguagesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -107,13 +108,14 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages {
             return command;
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can&apos;t create custom languages in self-service sign-up user flows.
+        /// Retrieve a list of languages supported for customization in a B2X user flow.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can't create custom languages in self-service sign-up user flows.";
+            command.Description = "Retrieve a list of languages supported for customization in a B2X user flow.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-beta";
             var b2xIdentityUserFlowIdOption = new Option<string>("--b2x-identity-user-flow-id", description: "The unique identifier of b2xIdentityUserFlow") {
             };
             b2xIdentityUserFlowIdOption.IsRequired = true;
@@ -195,7 +197,9 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -221,7 +225,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages {
         {
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can&apos;t create custom languages in self-service sign-up user flows.
+        /// Retrieve a list of languages supported for customization in a B2X user flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.Identity.B2xUserFlows.Item.Languages {
             return requestInfo;
         }
         /// <summary>
-        /// The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign-up user flow. You can&apos;t create custom languages in self-service sign-up user flows.
+        /// Retrieve a list of languages supported for customization in a B2X user flow.
         /// </summary>
         public class LanguagesRequestBuilderGetQueryParameters 
         {

@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.BookingBusinesses.Item {
+namespace ApiSdk.BookingBusinesses.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of bookingBusiness entities.
     /// </summary>
-    public class BookingBusinessItemRequestBuilder : BaseCliRequestBuilder 
+    public class BookingBusinessItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.

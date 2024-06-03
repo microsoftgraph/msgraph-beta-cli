@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.GroupAssignments.Item {
+namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.GroupAssignments.Item
+{
     /// <summary>
     /// Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.
     /// </summary>
-    public class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileAppProvisioningConfigGroupAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property groupAssignments for deviceAppManagement

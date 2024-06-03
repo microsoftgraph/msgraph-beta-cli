@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Properties of the  Booolean script parameter.
     /// </summary>
-    public class DeviceHealthScriptBooleanParameter : DeviceHealthScriptParameter, IParsable 
+    public class DeviceHealthScriptBooleanParameter : DeviceHealthScriptParameter, IParsable
     {
         /// <summary>The default value of boolean param</summary>
         public bool? DefaultValue { get; set; }
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultValue", n => { DefaultValue = n.GetBoolValue(); } },
+                { "defaultValue", n => { DefaultValue = n.GetBoolValue(); } },
             };
         }
         /// <summary>

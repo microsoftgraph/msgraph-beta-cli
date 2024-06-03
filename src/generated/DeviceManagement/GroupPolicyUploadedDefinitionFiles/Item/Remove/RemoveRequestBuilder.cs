@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove
+{
     /// <summary>
     /// Provides operations to call the remove method.
     /// </summary>
-    public class RemoveRequestBuilder : BaseCliRequestBuilder 
+    public class RemoveRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action remove

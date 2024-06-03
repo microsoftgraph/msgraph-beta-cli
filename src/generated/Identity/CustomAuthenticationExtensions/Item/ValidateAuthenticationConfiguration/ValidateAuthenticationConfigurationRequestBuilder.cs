@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item.ValidateAuthenticationConfiguration {
+namespace ApiSdk.Identity.CustomAuthenticationExtensions.Item.ValidateAuthenticationConfiguration
+{
     /// <summary>
     /// Provides operations to call the validateAuthenticationConfiguration method.
     /// </summary>
-    public class ValidateAuthenticationConfigurationRequestBuilder : BaseCliRequestBuilder 
+    public class ValidateAuthenticationConfigurationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// An API to check validity of the endpoint and and authentication configuration for a customAuthenticationExtension.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The OperationApprovalRequest entity encompasses the operation an admin wishes to perform and is requesting approval to complete. It contains the detail of the operation one wishes to perform, user metadata of the requestor, and a justification for the change. It allows for several operations for both the requestor and the potential approver to either approve, deny, or cancel the request and a response justification to provide information for the decision.
     /// </summary>
-    public class OperationApprovalRequest : Entity, IParsable 
+    public class OperationApprovalRequest : Entity, IParsable
     {
         /// <summary>Indicates the justification for approving or rejecting the request. Maximum length of justification is 1024 characters. For example: &apos;Approved per Change 23423 - needed for Feb 2023 application baseline updates.&apos; Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,15 +77,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"approvalJustification", n => { ApprovalJustification = n.GetStringValue(); } },
-                {"approver", n => { Approver = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
-                {"requestJustification", n => { RequestJustification = n.GetStringValue(); } },
-                {"requestor", n => { Requestor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"requiredOperationApprovalPolicyTypes", n => { RequiredOperationApprovalPolicyTypes = n.GetCollectionOfEnumValues<OperationApprovalPolicyType>()?.ToList(); } },
-                {"status", n => { Status = n.GetEnumValue<OperationApprovalRequestStatus>(); } },
+                { "approvalJustification", n => { ApprovalJustification = n.GetStringValue(); } },
+                { "approver", n => { Approver = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
+                { "requestJustification", n => { RequestJustification = n.GetStringValue(); } },
+                { "requestor", n => { Requestor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "requiredOperationApprovalPolicyTypes", n => { RequiredOperationApprovalPolicyTypes = n.GetCollectionOfEnumValues<OperationApprovalPolicyType>()?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<OperationApprovalRequestStatus>(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ThreatSubmission.FileThreats.Item {
+namespace ApiSdk.ThreatSubmission.FileThreats.Item
+{
     /// <summary>
     /// Provides operations to manage the fileThreats property of the microsoft.graph.security.threatSubmissionRoot entity.
     /// </summary>
-    public class FileThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class FileThreatSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property fileThreats for threatSubmission

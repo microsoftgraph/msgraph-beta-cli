@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.InformationProtection.LabelPolicySettings {
+namespace ApiSdk.Security.InformationProtection.LabelPolicySettings
+{
     /// <summary>
     /// Provides operations to manage the labelPolicySettings property of the microsoft.graph.security.informationProtection entity.
     /// </summary>
-    public class LabelPolicySettingsRequestBuilder : BaseCliRequestBuilder 
+    public class LabelPolicySettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property labelPolicySettings for security

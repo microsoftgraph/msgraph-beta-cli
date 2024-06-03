@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.Assignments.Item {
+namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     /// </summary>
-    public class WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsDefenderApplicationControlSupplementalPolicyAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceAppManagement

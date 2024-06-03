@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
+namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the referenceDefinitions property of the microsoft.graph.industryData.industryDataRoot entity.
     /// </summary>
-    public class ReferenceDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ReferenceDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property referenceDefinitions for external
@@ -56,13 +57,14 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
             return command;
         }
         /// <summary>
-        /// Set of user modifiable system picker types.
+        /// Read the properties and relationships of a referenceDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-referencedefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Set of user modifiable system picker types.";
+            command.Description = "Read the properties and relationships of a referenceDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-referencedefinition-get?view=graph-rest-beta";
             var referenceDefinitionIdOption = new Option<string>("--reference-definition-id", description: "The unique identifier of referenceDefinition") {
             };
             referenceDefinitionIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of user modifiable system picker types.
+        /// Read the properties and relationships of a referenceDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.External.IndustryData.ReferenceDefinitions.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Set of user modifiable system picker types.
+        /// Read the properties and relationships of a referenceDefinition object.
         /// </summary>
         public class ReferenceDefinitionItemRequestBuilderGetQueryParameters 
         {

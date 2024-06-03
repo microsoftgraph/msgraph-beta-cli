@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class TunnelConfigurationIKEv2Custom : TunnelConfiguration, IParsable 
+    public class TunnelConfigurationIKEv2Custom : TunnelConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dhGroup property</summary>
@@ -48,13 +49,13 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"dhGroup", n => { DhGroup = n.GetEnumValue<DhGroup>(); } },
-                {"ikeEncryption", n => { IkeEncryption = n.GetEnumValue<IkeEncryption>(); } },
-                {"ikeIntegrity", n => { IkeIntegrity = n.GetEnumValue<IkeIntegrity>(); } },
-                {"ipSecEncryption", n => { IpSecEncryption = n.GetEnumValue<IpSecEncryption>(); } },
-                {"ipSecIntegrity", n => { IpSecIntegrity = n.GetEnumValue<IpSecIntegrity>(); } },
-                {"pfsGroup", n => { PfsGroup = n.GetEnumValue<PfsGroup>(); } },
-                {"saLifeTimeSeconds", n => { SaLifeTimeSeconds = n.GetLongValue(); } },
+                { "dhGroup", n => { DhGroup = n.GetEnumValue<DhGroup>(); } },
+                { "ikeEncryption", n => { IkeEncryption = n.GetEnumValue<IkeEncryption>(); } },
+                { "ikeIntegrity", n => { IkeIntegrity = n.GetEnumValue<IkeIntegrity>(); } },
+                { "ipSecEncryption", n => { IpSecEncryption = n.GetEnumValue<IpSecEncryption>(); } },
+                { "ipSecIntegrity", n => { IpSecIntegrity = n.GetEnumValue<IpSecIntegrity>(); } },
+                { "pfsGroup", n => { PfsGroup = n.GetEnumValue<PfsGroup>(); } },
+                { "saLifeTimeSeconds", n => { SaLifeTimeSeconds = n.GetLongValue(); } },
             };
         }
         /// <summary>

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents one item in the list of freeze periods for Android Device Owner system updates
     /// </summary>
-    public class AndroidDeviceOwnerSystemUpdateFreezePeriod : IAdditionalDataHolder, IParsable 
+    public class AndroidDeviceOwnerSystemUpdateFreezePeriod : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -53,11 +54,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"endDay", n => { EndDay = n.GetIntValue(); } },
-                {"endMonth", n => { EndMonth = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"startDay", n => { StartDay = n.GetIntValue(); } },
-                {"startMonth", n => { StartMonth = n.GetIntValue(); } },
+                { "endDay", n => { EndDay = n.GetIntValue(); } },
+                { "endMonth", n => { EndMonth = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "startDay", n => { StartDay = n.GetIntValue(); } },
+                { "startMonth", n => { StartMonth = n.GetIntValue(); } },
             };
         }
         /// <summary>

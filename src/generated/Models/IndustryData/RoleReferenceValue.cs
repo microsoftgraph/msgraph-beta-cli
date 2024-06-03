@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class RoleReferenceValue : ReferenceValue, IParsable 
+    public class RoleReferenceValue : ReferenceValue, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

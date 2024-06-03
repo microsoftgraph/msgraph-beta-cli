@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.RecycleBin.Items.Item {
+namespace ApiSdk.Groups.Item.Sites.Item.RecycleBin.Items.Item
+{
     /// <summary>
     /// Provides operations to manage the items property of the microsoft.graph.recycleBin entity.
     /// </summary>
-    public class RecycleBinItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class RecycleBinItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.

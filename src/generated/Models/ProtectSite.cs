@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProtectSite : LabelActionBase, IParsable 
+    public class ProtectSite : LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessType property</summary>
@@ -44,8 +45,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessType", n => { AccessType = n.GetEnumValue<SiteAccessType>(); } },
-                {"conditionalAccessProtectionLevelId", n => { ConditionalAccessProtectionLevelId = n.GetStringValue(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<SiteAccessType>(); } },
+                { "conditionalAccessProtectionLevelId", n => { ConditionalAccessProtectionLevelId = n.GetStringValue(); } },
             };
         }
         /// <summary>

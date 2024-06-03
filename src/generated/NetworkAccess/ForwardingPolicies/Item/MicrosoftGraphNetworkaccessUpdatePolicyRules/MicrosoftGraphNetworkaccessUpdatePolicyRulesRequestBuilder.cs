@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkaccessUpdatePolicyRules {
+namespace ApiSdk.NetworkAccess.ForwardingPolicies.Item.MicrosoftGraphNetworkaccessUpdatePolicyRules
+{
     /// <summary>
     /// Provides operations to call the updatePolicyRules method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessUpdatePolicyRulesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the rules within a forwarding policy.

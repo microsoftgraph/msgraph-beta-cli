@@ -13,20 +13,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpdatesEnrollAssetsById {
+namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpdatesEnrollAssetsById
+{
     /// <summary>
     /// Provides operations to call the enrollAssetsById method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke action enrollAssetsById
+        /// Enroll updatableAsset resources of the same type in update management by the deployment service. You can also use the method enrollAssets to enroll assets.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPostCommand()
         {
             var command = new Command("post");
-            command.Description = "Invoke action enrollAssetsById";
+            command.Description = "Enroll updatableAsset resources of the same type in update management by the deployment service. You can also use the method enrollAssets to enroll assets.";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -69,7 +70,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.MicrosoftGraphWindowsUpda
         {
         }
         /// <summary>
-        /// Invoke action enrollAssetsById
+        /// Enroll updatableAsset resources of the same type in update management by the deployment service. You can also use the method enrollAssets to enroll assets.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

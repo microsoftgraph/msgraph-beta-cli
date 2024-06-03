@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class BitlockerRecoveryKey : Entity, IParsable 
+    public class BitlockerRecoveryKey : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the key was originally backed up to Microsoft Entra ID.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"key", n => { Key = n.GetStringValue(); } },
-                {"volumeType", n => { VolumeType = n.GetEnumValue<VolumeType>(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "key", n => { Key = n.GetStringValue(); } },
+                { "volumeType", n => { VolumeType = n.GetEnumValue<VolumeType>(); } },
             };
         }
         /// <summary>

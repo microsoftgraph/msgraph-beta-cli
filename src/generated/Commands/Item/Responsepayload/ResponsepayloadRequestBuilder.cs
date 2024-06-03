@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Commands.Item.Responsepayload {
+namespace ApiSdk.Commands.Item.Responsepayload
+{
     /// <summary>
     /// Provides operations to manage the responsepayload property of the microsoft.graph.command entity.
     /// </summary>
-    public class ResponsepayloadRequestBuilder : BaseCliRequestBuilder 
+    public class ResponsepayloadRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get responsepayload from commands

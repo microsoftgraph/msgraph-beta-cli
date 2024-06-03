@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties used when assigning a Windows Universal AppX mobile app to a group.
     /// </summary>
-    public class WindowsUniversalAppXAppAssignmentSettings : MobileAppAssignmentSettings, IParsable 
+    public class WindowsUniversalAppXAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
     {
-        /// <summary>If true, uses device execution context for Windows Universal AppX mobile app. Device-context install is not allowed when this type of app is targeted with Available intent. Defaults to false.</summary>
+        /// <summary>Whether or not to use device execution context for Windows Universal AppX mobile app.</summary>
         public bool? UseDeviceContext { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="WindowsUniversalAppXAppAssignmentSettings"/> and sets the default values.
@@ -37,7 +38,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"useDeviceContext", n => { UseDeviceContext = n.GetBoolValue(); } },
+                { "useDeviceContext", n => { UseDeviceContext = n.GetBoolValue(); } },
             };
         }
         /// <summary>

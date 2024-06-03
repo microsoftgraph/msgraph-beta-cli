@@ -7,6 +7,7 @@ using ApiSdk.Models.IdentityGovernance;
 using ApiSdk.Models.IndustryData;
 using ApiSdk.Models.ManagedTenants;
 using ApiSdk.Models.Networkaccess;
+using ApiSdk.Models.Partner.Security;
 using ApiSdk.Models.Partners.Billing;
 using ApiSdk.Models.Partners;
 using ApiSdk.Models.Search;
@@ -19,9 +20,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Entity : IAdditionalDataHolder, IParsable 
+    public class Entity : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -88,7 +90,6 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.accessReviewSet" => new AccessReviewSet(),
                 "#microsoft.graph.accessReviewStage" => new AccessReviewStage(),
                 "#microsoft.graph.activeDirectoryWindowsAutopilotDeploymentProfile" => new ActiveDirectoryWindowsAutopilotDeploymentProfile(),
-                "#microsoft.graph.activeUsersBreakdownMetric" => new ActiveUsersBreakdownMetric(),
                 "#microsoft.graph.activeUsersMetric" => new ActiveUsersMetric(),
                 "#microsoft.graph.activityBasedTimeoutPolicy" => new ActivityBasedTimeoutPolicy(),
                 "#microsoft.graph.activityHistoryItem" => new ActivityHistoryItem(),
@@ -420,6 +421,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.customAppScope" => new CustomAppScope(),
                 "#microsoft.graph.customAuthenticationExtension" => new CustomAuthenticationExtension(),
                 "#microsoft.graph.customCalloutExtension" => new CustomCalloutExtension(),
+                "#microsoft.graph.customClaimsPolicy" => new CustomClaimsPolicy(),
                 "#microsoft.graph.customExtensionHandler" => new CustomExtensionHandler(),
                 "#microsoft.graph.customExtensionStageSetting" => new CustomExtensionStageSetting(),
                 "#microsoft.graph.customSecurityAttributeAudit" => new CustomSecurityAttributeAudit(),
@@ -689,6 +691,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.extension" => new Extension(),
                 "#microsoft.graph.extensionProperty" => new ExtensionProperty(),
                 "#microsoft.graph.external" => new External(),
+                "#microsoft.graph.externalAuthenticationMethodConfiguration" => new ExternalAuthenticationMethodConfiguration(),
                 "#microsoft.graph.externalConnection" => new ExternalConnection(),
                 "#microsoft.graph.externalConnectors.connectionOperation" => new ApiSdk.Models.ExternalConnectors.ConnectionOperation(),
                 "#microsoft.graph.externalConnectors.connectionQuota" => new ConnectionQuota(),
@@ -722,6 +725,8 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.fileAttachment" => new FileAttachment(),
                 "#microsoft.graph.fileClassificationRequest" => new FileClassificationRequest(),
                 "#microsoft.graph.fileSecurityProfile" => new FileSecurityProfile(),
+                "#microsoft.graph.fileStorage" => new FileStorage(),
+                "#microsoft.graph.fileStorageContainer" => new FileStorageContainer(),
                 "#microsoft.graph.filterOperatorSchema" => new FilterOperatorSchema(),
                 "#microsoft.graph.finding" => new Finding(),
                 "#microsoft.graph.focusActivityStatistics" => new FocusActivityStatistics(),
@@ -791,6 +796,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.identityCustomUserFlowAttribute" => new IdentityCustomUserFlowAttribute(),
                 "#microsoft.graph.identityFinding" => new IdentityFinding(),
                 "#microsoft.graph.identityGovernance.customTaskExtension" => new CustomTaskExtension(),
+                "#microsoft.graph.identityGovernance.insights" => new ApiSdk.Models.IdentityGovernance.Insights(),
                 "#microsoft.graph.identityGovernance.lifecycleManagementSettings" => new LifecycleManagementSettings(),
                 "#microsoft.graph.identityGovernance.lifecycleWorkflowsContainer" => new LifecycleWorkflowsContainer(),
                 "#microsoft.graph.identityGovernance.run" => new Run(),
@@ -1208,6 +1214,8 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.participant" => new Participant(),
                 "#microsoft.graph.participantJoiningNotification" => new ParticipantJoiningNotification(),
                 "#microsoft.graph.participantLeftNotification" => new ParticipantLeftNotification(),
+                "#microsoft.graph.partner.security.partnerSecurity" => new PartnerSecurity(),
+                "#microsoft.graph.partner.security.partnerSecurityAlert" => new PartnerSecurityAlert(),
                 "#microsoft.graph.partners" => new ApiSdk.Models.Partners.Partners(),
                 "#microsoft.graph.partners.billing.azureUsage" => new AzureUsage(),
                 "#microsoft.graph.partners.billing.billedReconciliation" => new BilledReconciliation(),
@@ -1220,6 +1228,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.partners.billing.operation" => new ApiSdk.Models.Partners.Billing.Operation(),
                 "#microsoft.graph.partners.billing.runningOperation" => new RunningOperation(),
                 "#microsoft.graph.partners.billing.unbilledUsage" => new UnbilledUsage(),
+                "#microsoft.graph.passkeyAuthenticationMethodTarget" => new PasskeyAuthenticationMethodTarget(),
                 "#microsoft.graph.passwordAuthenticationMethod" => new PasswordAuthenticationMethod(),
                 "#microsoft.graph.passwordlessMicrosoftAuthenticatorAuthenticationMethod" => new PasswordlessMicrosoftAuthenticatorAuthenticationMethod(),
                 "#microsoft.graph.payload" => new Payload(),
@@ -1326,6 +1335,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.profile" => new Profile(),
                 "#microsoft.graph.profileCardProperty" => new ProfileCardProperty(),
                 "#microsoft.graph.profilePhoto" => new ProfilePhoto(),
+                "#microsoft.graph.profileSource" => new ProfileSource(),
                 "#microsoft.graph.program" => new Program(),
                 "#microsoft.graph.programControl" => new ProgramControl(),
                 "#microsoft.graph.programControlType" => new ProgramControlType(),
@@ -1397,7 +1407,6 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.sectionGroup" => new SectionGroup(),
                 "#microsoft.graph.secureScore" => new SecureScore(),
                 "#microsoft.graph.secureScoreControlProfile" => new SecureScoreControlProfile(),
-                "#microsoft.graph.security" => new ApiSdk.Models.Security.Security(),
                 "#microsoft.graph.security.alert" => new ApiSdk.Models.Security.Alert(),
                 "#microsoft.graph.security.analyzedEmail" => new AnalyzedEmail(),
                 "#microsoft.graph.security.article" => new Article(),
@@ -1467,6 +1476,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.security.intelligenceProfileIndicator" => new IntelligenceProfileIndicator(),
                 "#microsoft.graph.security.ipAddress" => new ApiSdk.Models.Security.IpAddress(),
                 "#microsoft.graph.security.labelsRoot" => new LabelsRoot(),
+                "#microsoft.graph.security.networkAdapter" => new NetworkAdapter(),
                 "#microsoft.graph.security.passiveDnsRecord" => new PassiveDnsRecord(),
                 "#microsoft.graph.security.policyBase" => new ApiSdk.Models.Security.PolicyBase(),
                 "#microsoft.graph.security.protectionRule" => new ProtectionRule(),
@@ -1477,6 +1487,7 @@ namespace ApiSdk.Models {
                 "#microsoft.graph.security.search" => new ApiSdk.Models.Security.Search(),
                 "#microsoft.graph.security.security" => new ApiSdk.Models.Security.Security(),
                 "#microsoft.graph.security.sensitivityLabel" => new ApiSdk.Models.Security.SensitivityLabel(),
+                "#microsoft.graph.security.sensor" => new Sensor(),
                 "#microsoft.graph.security.siteSource" => new ApiSdk.Models.Security.SiteSource(),
                 "#microsoft.graph.security.sslCertificate" => new ApiSdk.Models.Security.SslCertificate(),
                 "#microsoft.graph.security.subcategoryTemplate" => new SubcategoryTemplate(),
@@ -1984,8 +1995,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

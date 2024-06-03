@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Office365ActiveUserCounts : Entity, IParsable 
+    public class Office365ActiveUserCounts : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of active users in Exchange. Any user who can read and send email is considered an active user.</summary>
@@ -54,16 +55,16 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"exchange", n => { Exchange = n.GetLongValue(); } },
-                {"office365", n => { Office365 = n.GetLongValue(); } },
-                {"oneDrive", n => { OneDrive = n.GetLongValue(); } },
-                {"reportDate", n => { ReportDate = n.GetDateValue(); } },
-                {"reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
-                {"reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
-                {"sharePoint", n => { SharePoint = n.GetLongValue(); } },
-                {"skypeForBusiness", n => { SkypeForBusiness = n.GetLongValue(); } },
-                {"teams", n => { Teams = n.GetLongValue(); } },
-                {"yammer", n => { Yammer = n.GetLongValue(); } },
+                { "exchange", n => { Exchange = n.GetLongValue(); } },
+                { "office365", n => { Office365 = n.GetLongValue(); } },
+                { "oneDrive", n => { OneDrive = n.GetLongValue(); } },
+                { "reportDate", n => { ReportDate = n.GetDateValue(); } },
+                { "reportPeriod", n => { ReportPeriod = n.GetStringValue(); } },
+                { "reportRefreshDate", n => { ReportRefreshDate = n.GetDateValue(); } },
+                { "sharePoint", n => { SharePoint = n.GetLongValue(); } },
+                { "skypeForBusiness", n => { SkypeForBusiness = n.GetLongValue(); } },
+                { "teams", n => { Teams = n.GetLongValue(); } },
+                { "yammer", n => { Yammer = n.GetLongValue(); } },
             };
         }
         /// <summary>

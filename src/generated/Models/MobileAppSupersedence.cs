@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes a supersedence relationship between two mobile apps.
     /// </summary>
-    public class MobileAppSupersedence : MobileAppRelationship, IParsable 
+    public class MobileAppSupersedence : MobileAppRelationship, IParsable
     {
         /// <summary>The total number of apps directly or indirectly superseded by the child app. This property is read-only.</summary>
         public int? SupersededAppCount { get; private set; }
@@ -41,9 +42,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"supersededAppCount", n => { SupersededAppCount = n.GetIntValue(); } },
-                {"supersedenceType", n => { SupersedenceType = n.GetEnumValue<MobileAppSupersedenceType>(); } },
-                {"supersedingAppCount", n => { SupersedingAppCount = n.GetIntValue(); } },
+                { "supersededAppCount", n => { SupersededAppCount = n.GetIntValue(); } },
+                { "supersedenceType", n => { SupersedenceType = n.GetEnumValue<MobileAppSupersedenceType>(); } },
+                { "supersedingAppCount", n => { SupersedingAppCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

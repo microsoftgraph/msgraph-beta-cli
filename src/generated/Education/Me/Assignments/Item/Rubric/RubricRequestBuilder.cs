@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Me.Assignments.Item.Rubric {
+namespace ApiSdk.Education.Me.Assignments.Item.Rubric
+{
     /// <summary>
     /// Provides operations to manage the rubric property of the microsoft.graph.educationAssignment entity.
     /// </summary>
-    public class RubricRequestBuilder : BaseCliRequestBuilder 
+    public class RubricRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property rubric for education

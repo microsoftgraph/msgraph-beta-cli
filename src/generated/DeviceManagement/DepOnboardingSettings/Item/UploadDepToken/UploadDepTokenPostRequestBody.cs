@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken
+{
     #pragma warning disable CS1591
-    public class UploadDepTokenPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UploadDepTokenPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appleId", n => { AppleId = n.GetStringValue(); } },
-                {"depToken", n => { DepToken = n.GetStringValue(); } },
+                { "appleId", n => { AppleId = n.GetStringValue(); } },
+                { "depToken", n => { DepToken = n.GetStringValue(); } },
             };
         }
         /// <summary>

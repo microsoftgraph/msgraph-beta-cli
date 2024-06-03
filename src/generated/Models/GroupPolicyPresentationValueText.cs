@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The entity represents a string value for a drop-down list, combo box, or text box presentation on a policy definition.
     /// </summary>
-    public class GroupPolicyPresentationValueText : GroupPolicyPresentationValue, IParsable 
+    public class GroupPolicyPresentationValueText : GroupPolicyPresentationValue, IParsable
     {
         /// <summary>A string value for the associated presentation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +37,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
             };
         }
         /// <summary>

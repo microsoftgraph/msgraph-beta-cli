@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMicrosoftStoreForBusinessApp.ContainedApps.Item {
+namespace ApiSdk.DeviceAppManagement.MobileApps.Item.GraphMicrosoftStoreForBusinessApp.ContainedApps.Item
+{
     /// <summary>
     /// Provides operations to manage the containedApps property of the microsoft.graph.microsoftStoreForBusinessApp entity.
     /// </summary>
-    public class MobileContainedAppItemRequestBuilder : BaseCliRequestBuilder 
+    public class MobileContainedAppItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property containedApps for deviceAppManagement

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.Sla {
+namespace ApiSdk.Reports.Sla
+{
     /// <summary>
     /// Provides operations to manage the sla property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class SlaRequestBuilder : BaseCliRequestBuilder 
+    public class SlaRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the azureADAuthentication property of the microsoft.graph.serviceLevelAgreementRoot entity.

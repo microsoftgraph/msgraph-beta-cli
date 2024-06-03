@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsAnomalyCorrelationGroupOverview.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsAnomalyCorrelationGroupOverview.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsAnomalyCorrelationGroupOverview property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverviewItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverviewItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsAnomalyCorrelationGroupOverview for deviceManagement

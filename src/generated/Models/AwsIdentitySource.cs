@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsIdentitySource : PermissionsDefinitionIdentitySource, IParsable 
+    public class AwsIdentitySource : PermissionsDefinitionIdentitySource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorizationSystemInfo property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authorizationSystemInfo", n => { AuthorizationSystemInfo = n.GetObjectValue<PermissionsDefinitionAuthorizationSystem>(PermissionsDefinitionAuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "authorizationSystemInfo", n => { AuthorizationSystemInfo = n.GetObjectValue<PermissionsDefinitionAuthorizationSystem>(PermissionsDefinitionAuthorizationSystem.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

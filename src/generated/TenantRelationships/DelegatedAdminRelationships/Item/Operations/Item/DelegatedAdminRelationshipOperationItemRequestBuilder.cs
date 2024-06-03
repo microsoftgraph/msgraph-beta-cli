@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations.Item {
+namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
     /// </summary>
-    public class DelegatedAdminRelationshipOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class DelegatedAdminRelationshipOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for tenantRelationships
@@ -62,13 +63,14 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
             return command;
         }
         /// <summary>
-        /// The long running operations associated with the delegated admin relationship.
+        /// Read the properties of a delegatedAdminRelationshipOperation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The long running operations associated with the delegated admin relationship.";
+            command.Description = "Read the properties of a delegatedAdminRelationshipOperation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/delegatedadminrelationshipoperation-get?view=graph-rest-beta";
             var delegatedAdminRelationshipIdOption = new Option<string>("--delegated-admin-relationship-id", description: "The unique identifier of delegatedAdminRelationship") {
             };
             delegatedAdminRelationshipIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
             return requestInfo;
         }
         /// <summary>
-        /// The long running operations associated with the delegated admin relationship.
+        /// Read the properties of a delegatedAdminRelationshipOperation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.TenantRelationships.DelegatedAdminRelationships.Item.Operations
             return requestInfo;
         }
         /// <summary>
-        /// The long running operations associated with the delegated admin relationship.
+        /// Read the properties of a delegatedAdminRelationshipOperation object.
         /// </summary>
         public class DelegatedAdminRelationshipOperationItemRequestBuilderGetQueryParameters 
         {

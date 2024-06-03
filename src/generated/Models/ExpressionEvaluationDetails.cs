@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExpressionEvaluationDetails : IAdditionalDataHolder, IParsable 
+    public class ExpressionEvaluationDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -70,11 +71,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"expression", n => { Expression = n.GetStringValue(); } },
-                {"expressionEvaluationDetails", n => { ExpressionEvaluationDetailsProp = n.GetCollectionOfObjectValues<ExpressionEvaluationDetails>(ExpressionEvaluationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"expressionResult", n => { ExpressionResult = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"propertyToEvaluate", n => { PropertyToEvaluate = n.GetObjectValue<ApiSdk.Models.PropertyToEvaluate>(ApiSdk.Models.PropertyToEvaluate.CreateFromDiscriminatorValue); } },
+                { "expression", n => { Expression = n.GetStringValue(); } },
+                { "expressionEvaluationDetails", n => { ExpressionEvaluationDetailsProp = n.GetCollectionOfObjectValues<ExpressionEvaluationDetails>(ExpressionEvaluationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "expressionResult", n => { ExpressionResult = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "propertyToEvaluate", n => { PropertyToEvaluate = n.GetObjectValue<ApiSdk.Models.PropertyToEvaluate>(ApiSdk.Models.PropertyToEvaluate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

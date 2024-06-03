@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.TermStore.Sets.Item {
+namespace ApiSdk.Sites.Item.TermStore.Sets.Item
+{
     /// <summary>
     /// Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
     /// </summary>
-    public class SetItemRequestBuilder : BaseCliRequestBuilder 
+    public class SetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
@@ -93,13 +94,14 @@ namespace ApiSdk.Sites.Item.TermStore.Sets.Item {
             return command;
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/termstore-set-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Collection of all sets available in the term store.";
+            command.Description = "Read the properties and relationships of a set object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/termstore-set-get?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -320,7 +322,7 @@ namespace ApiSdk.Sites.Item.TermStore.Sets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -360,7 +362,7 @@ namespace ApiSdk.Sites.Item.TermStore.Sets.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Collection of all sets available in the term store.
+        /// Read the properties and relationships of a set object.
         /// </summary>
         public class SetItemRequestBuilderGetQueryParameters 
         {

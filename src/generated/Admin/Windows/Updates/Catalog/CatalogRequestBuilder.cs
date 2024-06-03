@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Catalog {
+namespace ApiSdk.Admin.Windows.Updates.Catalog
+{
     /// <summary>
     /// Provides operations to manage the catalog property of the microsoft.graph.adminWindowsUpdates entity.
     /// </summary>
-    public class CatalogRequestBuilder : BaseCliRequestBuilder 
+    public class CatalogRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property catalog for admin

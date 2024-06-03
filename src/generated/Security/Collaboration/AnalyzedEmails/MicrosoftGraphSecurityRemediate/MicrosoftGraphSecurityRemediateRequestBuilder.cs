@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate {
+namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate
+{
     /// <summary>
     /// Provides operations to call the remediate method.
     /// </summary>
-    public class MicrosoftGraphSecurityRemediateRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphSecurityRemediateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Remove a potential threat from end users&apos; mailboxes. Remediation means to take prescribed action against a threat. This API can trigger email purge actions like move to junk, move to deleted items, soft delete, hard delete, or move to Inbox. This API enables scenarios and use cases such as SOAR integration, playbooks, and automations. For more information read email remediation, trigger action and track actions. If there is false positives admins can take move to inbox action.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PrinterCapabilities : IAdditionalDataHolder, IParsable 
+    public class PrinterCapabilities : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -332,46 +333,46 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"bottomMargins", n => { BottomMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"collation", n => { Collation = n.GetBoolValue(); } },
-                {"colorModes", n => { ColorModes = n.GetCollectionOfEnumValues<PrintColorMode>()?.ToList(); } },
-                {"contentTypes", n => { ContentTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"copiesPerJob", n => { CopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
-                {"dpis", n => { Dpis = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"duplexModes", n => { DuplexModes = n.GetCollectionOfEnumValues<PrintDuplexMode>()?.ToList(); } },
-                {"feedDirections", n => { FeedDirections = n.GetCollectionOfEnumValues<PrinterFeedDirection>()?.ToList(); } },
-                {"feedOrientations", n => { FeedOrientations = n.GetCollectionOfEnumValues<PrinterFeedOrientation>()?.ToList(); } },
-                {"finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
-                {"inputBins", n => { InputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"isColorPrintingSupported", n => { IsColorPrintingSupported = n.GetBoolValue(); } },
-                {"isPageRangeSupported", n => { IsPageRangeSupported = n.GetBoolValue(); } },
-                {"leftMargins", n => { LeftMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"mediaColors", n => { MediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"mediaSizes", n => { MediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"mediaTypes", n => { MediaTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"multipageLayouts", n => { MultipageLayouts = n.GetCollectionOfEnumValues<PrintMultipageLayout>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"orientations", n => { Orientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
-                {"outputBins", n => { OutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"pagesPerSheet", n => { PagesPerSheet = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"qualities", n => { Qualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
-                {"rightMargins", n => { RightMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                {"scalings", n => { Scalings = n.GetCollectionOfEnumValues<PrintScaling>()?.ToList(); } },
-                {"supportedColorConfigurations", n => { SupportedColorConfigurations = n.GetCollectionOfEnumValues<PrintColorConfiguration>()?.ToList(); } },
-                {"supportedCopiesPerJob", n => { SupportedCopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
-                {"supportedDocumentMimeTypes", n => { SupportedDocumentMimeTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportedDuplexConfigurations", n => { SupportedDuplexConfigurations = n.GetCollectionOfEnumValues<PrintDuplexConfiguration>()?.ToList(); } },
-                {"supportedFinishings", n => { SupportedFinishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
-                {"supportedMediaColors", n => { SupportedMediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportedMediaSizes", n => { SupportedMediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportedMediaTypes", n => { SupportedMediaTypes = n.GetCollectionOfEnumValues<PrintMediaType>()?.ToList(); } },
-                {"supportedOrientations", n => { SupportedOrientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
-                {"supportedOutputBins", n => { SupportedOutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"supportedPagesPerSheet", n => { SupportedPagesPerSheet = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
-                {"supportedPresentationDirections", n => { SupportedPresentationDirections = n.GetCollectionOfEnumValues<PrintPresentationDirection>()?.ToList(); } },
-                {"supportedPrintQualities", n => { SupportedPrintQualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
-                {"supportsFitPdfToPage", n => { SupportsFitPdfToPage = n.GetBoolValue(); } },
-                {"topMargins", n => { TopMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "bottomMargins", n => { BottomMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "collation", n => { Collation = n.GetBoolValue(); } },
+                { "colorModes", n => { ColorModes = n.GetCollectionOfEnumValues<PrintColorMode>()?.ToList(); } },
+                { "contentTypes", n => { ContentTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "copiesPerJob", n => { CopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
+                { "dpis", n => { Dpis = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "duplexModes", n => { DuplexModes = n.GetCollectionOfEnumValues<PrintDuplexMode>()?.ToList(); } },
+                { "feedDirections", n => { FeedDirections = n.GetCollectionOfEnumValues<PrinterFeedDirection>()?.ToList(); } },
+                { "feedOrientations", n => { FeedOrientations = n.GetCollectionOfEnumValues<PrinterFeedOrientation>()?.ToList(); } },
+                { "finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
+                { "inputBins", n => { InputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "isColorPrintingSupported", n => { IsColorPrintingSupported = n.GetBoolValue(); } },
+                { "isPageRangeSupported", n => { IsPageRangeSupported = n.GetBoolValue(); } },
+                { "leftMargins", n => { LeftMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "mediaColors", n => { MediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "mediaSizes", n => { MediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "mediaTypes", n => { MediaTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "multipageLayouts", n => { MultipageLayouts = n.GetCollectionOfEnumValues<PrintMultipageLayout>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "orientations", n => { Orientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
+                { "outputBins", n => { OutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "pagesPerSheet", n => { PagesPerSheet = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "qualities", n => { Qualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
+                { "rightMargins", n => { RightMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
+                { "scalings", n => { Scalings = n.GetCollectionOfEnumValues<PrintScaling>()?.ToList(); } },
+                { "supportedColorConfigurations", n => { SupportedColorConfigurations = n.GetCollectionOfEnumValues<PrintColorConfiguration>()?.ToList(); } },
+                { "supportedCopiesPerJob", n => { SupportedCopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
+                { "supportedDocumentMimeTypes", n => { SupportedDocumentMimeTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportedDuplexConfigurations", n => { SupportedDuplexConfigurations = n.GetCollectionOfEnumValues<PrintDuplexConfiguration>()?.ToList(); } },
+                { "supportedFinishings", n => { SupportedFinishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
+                { "supportedMediaColors", n => { SupportedMediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportedMediaSizes", n => { SupportedMediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportedMediaTypes", n => { SupportedMediaTypes = n.GetCollectionOfEnumValues<PrintMediaType>()?.ToList(); } },
+                { "supportedOrientations", n => { SupportedOrientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
+                { "supportedOutputBins", n => { SupportedOutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "supportedPagesPerSheet", n => { SupportedPagesPerSheet = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
+                { "supportedPresentationDirections", n => { SupportedPresentationDirections = n.GetCollectionOfEnumValues<PrintPresentationDirection>()?.ToList(); } },
+                { "supportedPrintQualities", n => { SupportedPrintQualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
+                { "supportsFitPdfToPage", n => { SupportsFitPdfToPage = n.GetBoolValue(); } },
+                { "topMargins", n => { TopMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
             };
         }
         /// <summary>

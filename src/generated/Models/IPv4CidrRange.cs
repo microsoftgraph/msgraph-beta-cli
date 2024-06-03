@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class IPv4CidrRange : IpRange, IParsable 
+    public class IPv4CidrRange : IpRange, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>IPv4 address in CIDR notation. Not nullable.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"cidrAddress", n => { CidrAddress = n.GetStringValue(); } },
+                { "cidrAddress", n => { CidrAddress = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcSharedUseServicePlan : Entity, IParsable 
+    public class CloudPcSharedUseServicePlan : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the shared-use service plan.</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"totalCount", n => { TotalCount = n.GetIntValue(); } },
-                {"usedCount", n => { UsedCount = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "totalCount", n => { TotalCount = n.GetIntValue(); } },
+                { "usedCount", n => { UsedCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

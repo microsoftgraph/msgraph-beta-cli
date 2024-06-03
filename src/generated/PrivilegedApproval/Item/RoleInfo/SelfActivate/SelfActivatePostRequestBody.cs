@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate {
+namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate
+{
     #pragma warning disable CS1591
-    public class SelfActivatePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SelfActivatePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -68,10 +69,10 @@ namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"duration", n => { Duration = n.GetStringValue(); } },
-                {"reason", n => { Reason = n.GetStringValue(); } },
-                {"ticketNumber", n => { TicketNumber = n.GetStringValue(); } },
-                {"ticketSystem", n => { TicketSystem = n.GetStringValue(); } },
+                { "duration", n => { Duration = n.GetStringValue(); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
+                { "ticketNumber", n => { TicketNumber = n.GetStringValue(); } },
+                { "ticketSystem", n => { TicketSystem = n.GetStringValue(); } },
             };
         }
         /// <summary>

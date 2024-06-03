@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.RetryPartnerAgentInstallation {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.RetryPartnerAgentInstallation
+{
     /// <summary>
     /// Provides operations to call the retryPartnerAgentInstallation method.
     /// </summary>
-    public class RetryPartnerAgentInstallationRequestBuilder : BaseCliRequestBuilder 
+    public class RetryPartnerAgentInstallationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Retry installation for the partner agents that failed to install on the Cloud PC. Service side checks which agent installation failed firstly and retry.

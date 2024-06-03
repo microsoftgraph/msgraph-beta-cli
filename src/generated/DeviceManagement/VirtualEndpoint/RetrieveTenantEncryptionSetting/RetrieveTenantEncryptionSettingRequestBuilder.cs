@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveTenantEncryptionSetting {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveTenantEncryptionSetting
+{
     /// <summary>
     /// Provides operations to call the retrieveTenantEncryptionSetting method.
     /// </summary>
-    public class RetrieveTenantEncryptionSettingRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveTenantEncryptionSettingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function retrieveTenantEncryptionSetting

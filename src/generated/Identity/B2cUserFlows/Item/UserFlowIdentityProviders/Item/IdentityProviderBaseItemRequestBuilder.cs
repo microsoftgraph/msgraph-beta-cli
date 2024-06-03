@@ -14,20 +14,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.B2cUserFlows.Item.UserFlowIdentityProviders.Item {
+namespace ApiSdk.Identity.B2cUserFlows.Item.UserFlowIdentityProviders.Item
+{
     /// <summary>
     /// Provides operations to manage the userFlowIdentityProviders property of the microsoft.graph.b2cIdentityUserFlow entity.
     /// </summary>
-    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class IdentityProviderBaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Get userFlowIdentityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get userFlowIdentityProviders from identity";
+            command.Description = "The identity providers included in the user flow.";
             var b2cIdentityUserFlowIdOption = new Option<string>("--b2c-identity-user-flow-id", description: "The unique identifier of b2cIdentityUserFlow") {
             };
             b2cIdentityUserFlowIdOption.IsRequired = true;
@@ -93,7 +94,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserFlowIdentityProviders.Item {
         {
         }
         /// <summary>
-        /// Get userFlowIdentityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +113,7 @@ namespace ApiSdk.Identity.B2cUserFlows.Item.UserFlowIdentityProviders.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get userFlowIdentityProviders from identity
+        /// The identity providers included in the user flow.
         /// </summary>
         public class IdentityProviderBaseItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventWebinarRegistrationConfiguration : VirtualEventRegistrationConfiguration, IParsable 
+    public class VirtualEventWebinarRegistrationConfiguration : VirtualEventRegistrationConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The isManualApprovalEnabled property</summary>
@@ -31,8 +32,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isManualApprovalEnabled", n => { IsManualApprovalEnabled = n.GetBoolValue(); } },
-                {"isWaitlistEnabled", n => { IsWaitlistEnabled = n.GetBoolValue(); } },
+                { "isManualApprovalEnabled", n => { IsManualApprovalEnabled = n.GetBoolValue(); } },
+                { "isWaitlistEnabled", n => { IsWaitlistEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

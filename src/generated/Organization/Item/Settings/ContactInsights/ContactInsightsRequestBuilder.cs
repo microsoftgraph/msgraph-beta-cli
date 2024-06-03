@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Organization.Item.Settings.ContactInsights {
+namespace ApiSdk.Organization.Item.Settings.ContactInsights
+{
     /// <summary>
     /// Provides operations to manage the contactInsights property of the microsoft.graph.organizationSettings entity.
     /// </summary>
-    public class ContactInsightsRequestBuilder : BaseCliRequestBuilder 
+    public class ContactInsightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property contactInsights for organization
@@ -56,13 +57,14 @@ namespace ApiSdk.Organization.Item.Settings.ContactInsights {
             return command;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user&apos;s contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/organizationsettings-list-contactinsights?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.";
+            command.Description = "Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/organizationsettings-list-contactinsights?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -108,13 +110,14 @@ namespace ApiSdk.Organization.Item.Settings.ContactInsights {
             return command;
         }
         /// <summary>
-        /// Update the navigation property contactInsights in organization
+        /// Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property contactInsights in organization";
+            command.Description = "Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/insightssettings-update?view=graph-rest-beta";
             var organizationIdOption = new Option<string>("--organization-id", description: "The unique identifier of organization") {
             };
             organizationIdOption.IsRequired = true;
@@ -192,7 +195,7 @@ namespace ApiSdk.Organization.Item.Settings.ContactInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user&apos;s contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -211,7 +214,7 @@ namespace ApiSdk.Organization.Item.Settings.ContactInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property contactInsights in organization
+        /// Update privacy settings to display or return the specified type of insights in an organization. The type of settings can be contact insights, item insights, or people insights. To learn more about customizing insights privacy for your organization, see:-  Customize item insights privacy -  Customize people insights privacy
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -232,7 +235,7 @@ namespace ApiSdk.Organization.Item.Settings.ContactInsights {
             return requestInfo;
         }
         /// <summary>
-        /// Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user&apos;s contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+        /// Get the properties of an insightsSettings object for displaying or returning contact insights in an organization.
         /// </summary>
         public class ContactInsightsRequestBuilderGetQueryParameters 
         {

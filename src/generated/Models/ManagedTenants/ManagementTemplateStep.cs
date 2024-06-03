@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.ManagedTenants {
+namespace ApiSdk.Models.ManagedTenants
+{
     #pragma warning disable CS1591
-    public class ManagementTemplateStep : ApiSdk.Models.Entity, IParsable 
+    public class ManagementTemplateStep : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acceptedVersion property</summary>
@@ -115,20 +116,20 @@ namespace ApiSdk.Models.ManagedTenants {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"acceptedVersion", n => { AcceptedVersion = n.GetObjectValue<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
-                {"category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
-                {"createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"informationLinks", n => { InformationLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
-                {"lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                {"managementTemplate", n => { ManagementTemplate = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplate>(ApiSdk.Models.ManagedTenants.ManagementTemplate.CreateFromDiscriminatorValue); } },
-                {"portalLink", n => { PortalLink = n.GetObjectValue<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"userImpact", n => { UserImpact = n.GetStringValue(); } },
-                {"versions", n => { Versions = n.GetCollectionOfObjectValues<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "acceptedVersion", n => { AcceptedVersion = n.GetObjectValue<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "informationLinks", n => { InformationLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
+                { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
+                { "managementTemplate", n => { ManagementTemplate = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplate>(ApiSdk.Models.ManagedTenants.ManagementTemplate.CreateFromDiscriminatorValue); } },
+                { "portalLink", n => { PortalLink = n.GetObjectValue<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "userImpact", n => { UserImpact = n.GetStringValue(); } },
+                { "versions", n => { Versions = n.GetCollectionOfObjectValues<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

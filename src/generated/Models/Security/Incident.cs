@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class Incident : ApiSdk.Models.Entity, IParsable 
+    public class Incident : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of related alerts. Supports $expand.</summary>
@@ -151,26 +152,26 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"alerts", n => { Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"assignedTo", n => { AssignedTo = n.GetStringValue(); } },
-                {"classification", n => { Classification = n.GetEnumValue<AlertClassification>(); } },
-                {"comments", n => { Comments = n.GetCollectionOfObjectValues<AlertComment>(AlertComment.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customTags", n => { CustomTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"determination", n => { Determination = n.GetEnumValue<AlertDetermination>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"incidentWebUrl", n => { IncidentWebUrl = n.GetStringValue(); } },
-                {"lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
-                {"lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"recommendedActions", n => { RecommendedActions = n.GetStringValue(); } },
-                {"recommendedHuntingQueries", n => { RecommendedHuntingQueries = n.GetCollectionOfObjectValues<RecommendedHuntingQuery>(RecommendedHuntingQuery.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"redirectIncidentId", n => { RedirectIncidentId = n.GetStringValue(); } },
-                {"resolvingComment", n => { ResolvingComment = n.GetStringValue(); } },
-                {"severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
-                {"status", n => { Status = n.GetEnumValue<IncidentStatus>(); } },
-                {"systemTags", n => { SystemTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"tenantId", n => { TenantId = n.GetStringValue(); } },
+                { "alerts", n => { Alerts = n.GetCollectionOfObjectValues<Alert>(Alert.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedTo", n => { AssignedTo = n.GetStringValue(); } },
+                { "classification", n => { Classification = n.GetEnumValue<AlertClassification>(); } },
+                { "comments", n => { Comments = n.GetCollectionOfObjectValues<AlertComment>(AlertComment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customTags", n => { CustomTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "determination", n => { Determination = n.GetEnumValue<AlertDetermination>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "incidentWebUrl", n => { IncidentWebUrl = n.GetStringValue(); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
+                { "lastUpdateDateTime", n => { LastUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "recommendedActions", n => { RecommendedActions = n.GetStringValue(); } },
+                { "recommendedHuntingQueries", n => { RecommendedHuntingQueries = n.GetCollectionOfObjectValues<RecommendedHuntingQuery>(RecommendedHuntingQuery.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "redirectIncidentId", n => { RedirectIncidentId = n.GetStringValue(); } },
+                { "resolvingComment", n => { ResolvingComment = n.GetStringValue(); } },
+                { "severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
+                { "status", n => { Status = n.GetEnumValue<IncidentStatus>(); } },
+                { "systemTags", n => { SystemTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
         /// <summary>

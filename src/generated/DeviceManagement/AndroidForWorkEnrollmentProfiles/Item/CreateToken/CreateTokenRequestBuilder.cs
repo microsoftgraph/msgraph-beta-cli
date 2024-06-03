@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.CreateToken {
+namespace ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.CreateToken
+{
     /// <summary>
     /// Provides operations to call the createToken method.
     /// </summary>
-    public class CreateTokenRequestBuilder : BaseCliRequestBuilder 
+    public class CreateTokenRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action createToken

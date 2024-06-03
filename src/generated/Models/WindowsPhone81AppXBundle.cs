@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains properties and inherited properties for Windows Phone 8.1 AppX Bundle Line Of Business apps. Inherits from graph.windowsPhone81AppX (which is also to be deprecated at the same time). Will be deprecated in February 2023.
     /// </summary>
-    public class WindowsPhone81AppXBundle : WindowsPhone81AppX, IParsable 
+    public class WindowsPhone81AppXBundle : WindowsPhone81AppX, IParsable
     {
         /// <summary>The list of AppX Package Information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appXPackageInformationList", n => { AppXPackageInformationList = n.GetCollectionOfObjectValues<WindowsPackageInformation>(WindowsPackageInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appXPackageInformationList", n => { AppXPackageInformationList = n.GetCollectionOfObjectValues<WindowsPackageInformation>(WindowsPackageInformation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SynchronizationRule : IAdditionalDataHolder, IParsable 
+    public class SynchronizationRule : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -112,17 +113,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"containerFilter", n => { ContainerFilter = n.GetObjectValue<ApiSdk.Models.ContainerFilter>(ApiSdk.Models.ContainerFilter.CreateFromDiscriminatorValue); } },
-                {"editable", n => { Editable = n.GetBoolValue(); } },
-                {"groupFilter", n => { GroupFilter = n.GetObjectValue<ApiSdk.Models.GroupFilter>(ApiSdk.Models.GroupFilter.CreateFromDiscriminatorValue); } },
-                {"id", n => { Id = n.GetStringValue(); } },
-                {"metadata", n => { Metadata = n.GetCollectionOfObjectValues<StringKeyStringValuePair>(StringKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"objectMappings", n => { ObjectMappings = n.GetCollectionOfObjectValues<ObjectMapping>(ObjectMapping.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"priority", n => { Priority = n.GetIntValue(); } },
-                {"sourceDirectoryName", n => { SourceDirectoryName = n.GetStringValue(); } },
-                {"targetDirectoryName", n => { TargetDirectoryName = n.GetStringValue(); } },
+                { "containerFilter", n => { ContainerFilter = n.GetObjectValue<ApiSdk.Models.ContainerFilter>(ApiSdk.Models.ContainerFilter.CreateFromDiscriminatorValue); } },
+                { "editable", n => { Editable = n.GetBoolValue(); } },
+                { "groupFilter", n => { GroupFilter = n.GetObjectValue<ApiSdk.Models.GroupFilter>(ApiSdk.Models.GroupFilter.CreateFromDiscriminatorValue); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "metadata", n => { Metadata = n.GetCollectionOfObjectValues<StringKeyStringValuePair>(StringKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "objectMappings", n => { ObjectMappings = n.GetCollectionOfObjectValues<ObjectMapping>(ObjectMapping.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "priority", n => { Priority = n.GetIntValue(); } },
+                { "sourceDirectoryName", n => { SourceDirectoryName = n.GetStringValue(); } },
+                { "targetDirectoryName", n => { TargetDirectoryName = n.GetStringValue(); } },
             };
         }
         /// <summary>

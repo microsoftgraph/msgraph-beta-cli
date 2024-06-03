@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookChartLegend : Entity, IParsable 
+    public class WorkbookChartLegend : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"format", n => { Format = n.GetObjectValue<WorkbookChartLegendFormat>(WorkbookChartLegendFormat.CreateFromDiscriminatorValue); } },
-                {"overlay", n => { Overlay = n.GetBoolValue(); } },
-                {"position", n => { Position = n.GetStringValue(); } },
-                {"visible", n => { Visible = n.GetBoolValue(); } },
+                { "format", n => { Format = n.GetObjectValue<WorkbookChartLegendFormat>(WorkbookChartLegendFormat.CreateFromDiscriminatorValue); } },
+                { "overlay", n => { Overlay = n.GetBoolValue(); } },
+                { "position", n => { Position = n.GetStringValue(); } },
+                { "visible", n => { Visible = n.GetBoolValue(); } },
             };
         }
         /// <summary>

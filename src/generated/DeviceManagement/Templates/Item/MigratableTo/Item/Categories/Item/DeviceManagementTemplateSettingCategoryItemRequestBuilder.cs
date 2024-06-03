@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item {
+namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.Item.Categories.Item
+{
     /// <summary>
     /// Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.
     /// </summary>
-    public class DeviceManagementTemplateSettingCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementTemplateSettingCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property categories for deviceManagement

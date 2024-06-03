@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ZebraFotaConnector {
+namespace ApiSdk.DeviceManagement.ZebraFotaConnector
+{
     /// <summary>
     /// Provides operations to manage the zebraFotaConnector property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ZebraFotaConnectorRequestBuilder : BaseCliRequestBuilder 
+    public class ZebraFotaConnectorRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the approveFotaApps method.

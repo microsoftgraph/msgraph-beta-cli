@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringProfiles.Item.Policies.Item {
+namespace ApiSdk.NetworkAccess.FilteringProfiles.Item.Policies.Item
+{
     /// <summary>
     /// Provides operations to manage the policies property of the microsoft.graph.networkaccess.profile entity.
     /// </summary>
-    public class PolicyLinkItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicyLinkItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property policies for networkAccess

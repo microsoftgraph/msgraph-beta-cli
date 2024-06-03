@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcBulkAction : Entity, IParsable 
+    public class CloudPcBulkAction : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Run summary of this bulk action.</summary>
@@ -69,11 +70,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actionSummary", n => { ActionSummary = n.GetObjectValue<CloudPcBulkActionSummary>(CloudPcBulkActionSummary.CreateFromDiscriminatorValue); } },
-                {"cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"scheduledDuringMaintenanceWindow", n => { ScheduledDuringMaintenanceWindow = n.GetBoolValue(); } },
+                { "actionSummary", n => { ActionSummary = n.GetObjectValue<CloudPcBulkActionSummary>(CloudPcBulkActionSummary.CreateFromDiscriminatorValue); } },
+                { "cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "scheduledDuringMaintenanceWindow", n => { ScheduledDuringMaintenanceWindow = n.GetBoolValue(); } },
             };
         }
         /// <summary>

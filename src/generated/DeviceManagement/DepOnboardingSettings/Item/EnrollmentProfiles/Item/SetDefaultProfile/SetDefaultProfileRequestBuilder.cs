@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.SetDefaultProfile {
+namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.SetDefaultProfile
+{
     /// <summary>
     /// Provides operations to call the setDefaultProfile method.
     /// </summary>
-    public class SetDefaultProfileRequestBuilder : BaseCliRequestBuilder 
+    public class SetDefaultProfileRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action setDefaultProfile

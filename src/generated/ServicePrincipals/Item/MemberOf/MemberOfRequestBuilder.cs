@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.MemberOf {
+namespace ApiSdk.ServicePrincipals.Item.MemberOf
+{
     /// <summary>
     /// Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class MemberOfRequestBuilder : BaseCliRequestBuilder 
+    public class MemberOfRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the memberOf property of the microsoft.graph.servicePrincipal entity.
@@ -127,13 +128,14 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf {
             return command;
         }
         /// <summary>
-        /// Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
+        /// Get the groups and directory roles that this servicePrincipal is a direct member of. This operation isn&apos;t transitive.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-memberof?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.";
+            command.Description = "Get the groups and directory roles that this servicePrincipal is a direct member of. This operation isn't transitive.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-memberof?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -222,7 +224,9 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -248,7 +252,7 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf {
         {
         }
         /// <summary>
-        /// Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
+        /// Get the groups and directory roles that this servicePrincipal is a direct member of. This operation isn&apos;t transitive.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -267,7 +271,7 @@ namespace ApiSdk.ServicePrincipals.Item.MemberOf {
             return requestInfo;
         }
         /// <summary>
-        /// Roles that this service principal is a member of. HTTP Methods: GET Read-only. Nullable. Supports $expand.
+        /// Get the groups and directory roles that this servicePrincipal is a direct member of. This operation isn&apos;t transitive.
         /// </summary>
         public class MemberOfRequestBuilderGetQueryParameters 
         {

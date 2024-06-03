@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.SensitivityLabels.Item {
+namespace ApiSdk.DataClassification.SensitivityLabels.Item
+{
     /// <summary>
     /// Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder 
+    public class SensitivityLabelItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property sensitivityLabels for dataClassification

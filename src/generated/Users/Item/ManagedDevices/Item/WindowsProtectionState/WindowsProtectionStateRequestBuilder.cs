@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.WindowsProtectionState {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.WindowsProtectionState
+{
     /// <summary>
     /// Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.
     /// </summary>
-    public class WindowsProtectionStateRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsProtectionStateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsProtectionState for users

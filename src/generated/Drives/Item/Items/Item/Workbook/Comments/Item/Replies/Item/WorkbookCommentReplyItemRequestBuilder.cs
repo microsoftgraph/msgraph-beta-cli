@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Comments.Item.Replies.Item
+{
     /// <summary>
     /// Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
     /// </summary>
-    public class WorkbookCommentReplyItemRequestBuilder : BaseCliRequestBuilder 
+    public class WorkbookCommentReplyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property replies for drives

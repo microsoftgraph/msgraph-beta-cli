@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone {
+namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone
+{
     #pragma warning disable CS1591
-    public class PostponePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PostponePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
+                { "postponeUntilDateTime", n => { PostponeUntilDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>

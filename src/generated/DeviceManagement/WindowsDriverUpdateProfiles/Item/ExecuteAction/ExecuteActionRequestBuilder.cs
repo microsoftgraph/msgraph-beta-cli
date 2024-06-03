@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction {
+namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
+{
     /// <summary>
     /// Provides operations to call the executeAction method.
     /// </summary>
-    public class ExecuteActionRequestBuilder : BaseCliRequestBuilder 
+    public class ExecuteActionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action executeAction

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN Security Association Parameters
     /// </summary>
-    public class CryptographySuite : IAdditionalDataHolder, IParsable 
+    public class CryptographySuite : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -57,13 +58,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authenticationTransformConstants", n => { AuthenticationTransformConstants = n.GetEnumValue<AuthenticationTransformConstant>(); } },
-                {"cipherTransformConstants", n => { CipherTransformConstants = n.GetEnumValue<VpnEncryptionAlgorithmType>(); } },
-                {"dhGroup", n => { DhGroup = n.GetEnumValue<DiffieHellmanGroup>(); } },
-                {"encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<VpnEncryptionAlgorithmType>(); } },
-                {"integrityCheckMethod", n => { IntegrityCheckMethod = n.GetEnumValue<VpnIntegrityAlgorithmType>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"pfsGroup", n => { PfsGroup = n.GetEnumValue<PerfectForwardSecrecyGroup>(); } },
+                { "authenticationTransformConstants", n => { AuthenticationTransformConstants = n.GetEnumValue<AuthenticationTransformConstant>(); } },
+                { "cipherTransformConstants", n => { CipherTransformConstants = n.GetEnumValue<VpnEncryptionAlgorithmType>(); } },
+                { "dhGroup", n => { DhGroup = n.GetEnumValue<DiffieHellmanGroup>(); } },
+                { "encryptionMethod", n => { EncryptionMethod = n.GetEnumValue<VpnEncryptionAlgorithmType>(); } },
+                { "integrityCheckMethod", n => { IntegrityCheckMethod = n.GetEnumValue<VpnIntegrityAlgorithmType>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "pfsGroup", n => { PfsGroup = n.GetEnumValue<PerfectForwardSecrecyGroup>(); } },
             };
         }
         /// <summary>

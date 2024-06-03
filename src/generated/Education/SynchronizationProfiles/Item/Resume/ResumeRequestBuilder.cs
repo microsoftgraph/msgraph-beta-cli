@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.SynchronizationProfiles.Item.Resume {
+namespace ApiSdk.Education.SynchronizationProfiles.Item.Resume
+{
     /// <summary>
     /// Provides operations to call the resume method.
     /// </summary>
-    public class ResumeRequestBuilder : BaseCliRequestBuilder 
+    public class ResumeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Resume the sync of a specific school data synchronization profile in the tenant.

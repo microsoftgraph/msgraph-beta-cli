@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.People.Item {
+namespace ApiSdk.Users.Item.People.Item
+{
     /// <summary>
     /// Provides operations to manage the people property of the microsoft.graph.user entity.
     /// </summary>
-    public class PersonItemRequestBuilder : BaseCliRequestBuilder 
+    public class PersonItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Read-only. The most relevant people to the user. The collection is ordered by their relevance to the user, which is determined by the user&apos;s communication, collaboration, and business relationships. A person aggregates information from mail, contacts, and social networks.

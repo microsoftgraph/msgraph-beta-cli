@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.PolicySets.Item {
+namespace ApiSdk.DeviceAppManagement.PolicySets.Item
+{
     /// <summary>
     /// Provides operations to manage the policySets property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class PolicySetItemRequestBuilder : BaseCliRequestBuilder 
+    public class PolicySetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.policySet entity.

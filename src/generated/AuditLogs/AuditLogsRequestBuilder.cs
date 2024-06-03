@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AuditLogs {
+namespace ApiSdk.AuditLogs
+{
     /// <summary>
     /// Provides operations to manage the auditLogRoot singleton.
     /// </summary>
-    public class AuditLogsRequestBuilder : BaseCliRequestBuilder 
+    public class AuditLogsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customSecurityAttributeAudits property of the microsoft.graph.auditLogRoot entity.

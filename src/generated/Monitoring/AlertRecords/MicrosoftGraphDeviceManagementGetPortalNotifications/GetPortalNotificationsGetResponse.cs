@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications {
+namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications
+{
     #pragma warning disable CS1591
-    public class GetPortalNotificationsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetPortalNotificationsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortal
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<PortalNotification>(PortalNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<PortalNotification>(PortalNotification.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

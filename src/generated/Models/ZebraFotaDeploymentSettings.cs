@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The Zebra FOTA deployment complex type that describes the settings required to create a FOTA deployment.
     /// </summary>
-    public class ZebraFotaDeploymentSettings : IAdditionalDataHolder, IParsable 
+    public class ZebraFotaDeploymentSettings : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -108,23 +109,23 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"batteryRuleMinimumBatteryLevelPercentage", n => { BatteryRuleMinimumBatteryLevelPercentage = n.GetIntValue(); } },
-                {"batteryRuleRequireCharger", n => { BatteryRuleRequireCharger = n.GetBoolValue(); } },
-                {"deviceModel", n => { DeviceModel = n.GetStringValue(); } },
-                {"downloadRuleNetworkType", n => { DownloadRuleNetworkType = n.GetEnumValue<ZebraFotaNetworkType>(); } },
-                {"downloadRuleStartDateTime", n => { DownloadRuleStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"firmwareTargetArtifactDescription", n => { FirmwareTargetArtifactDescription = n.GetStringValue(); } },
-                {"firmwareTargetBoardSupportPackageVersion", n => { FirmwareTargetBoardSupportPackageVersion = n.GetStringValue(); } },
-                {"firmwareTargetOsVersion", n => { FirmwareTargetOsVersion = n.GetStringValue(); } },
-                {"firmwareTargetPatch", n => { FirmwareTargetPatch = n.GetStringValue(); } },
-                {"installRuleStartDateTime", n => { InstallRuleStartDateTime = n.GetDateTimeOffsetValue(); } },
-                {"installRuleWindowEndTime", n => { InstallRuleWindowEndTime = n.GetTimeValue(); } },
-                {"installRuleWindowStartTime", n => { InstallRuleWindowStartTime = n.GetTimeValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"scheduleDurationInDays", n => { ScheduleDurationInDays = n.GetIntValue(); } },
-                {"scheduleMode", n => { ScheduleMode = n.GetEnumValue<ZebraFotaScheduleMode>(); } },
-                {"timeZoneOffsetInMinutes", n => { TimeZoneOffsetInMinutes = n.GetIntValue(); } },
-                {"updateType", n => { UpdateType = n.GetEnumValue<ZebraFotaUpdateType>(); } },
+                { "batteryRuleMinimumBatteryLevelPercentage", n => { BatteryRuleMinimumBatteryLevelPercentage = n.GetIntValue(); } },
+                { "batteryRuleRequireCharger", n => { BatteryRuleRequireCharger = n.GetBoolValue(); } },
+                { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
+                { "downloadRuleNetworkType", n => { DownloadRuleNetworkType = n.GetEnumValue<ZebraFotaNetworkType>(); } },
+                { "downloadRuleStartDateTime", n => { DownloadRuleStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "firmwareTargetArtifactDescription", n => { FirmwareTargetArtifactDescription = n.GetStringValue(); } },
+                { "firmwareTargetBoardSupportPackageVersion", n => { FirmwareTargetBoardSupportPackageVersion = n.GetStringValue(); } },
+                { "firmwareTargetOsVersion", n => { FirmwareTargetOsVersion = n.GetStringValue(); } },
+                { "firmwareTargetPatch", n => { FirmwareTargetPatch = n.GetStringValue(); } },
+                { "installRuleStartDateTime", n => { InstallRuleStartDateTime = n.GetDateTimeOffsetValue(); } },
+                { "installRuleWindowEndTime", n => { InstallRuleWindowEndTime = n.GetTimeValue(); } },
+                { "installRuleWindowStartTime", n => { InstallRuleWindowStartTime = n.GetTimeValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "scheduleDurationInDays", n => { ScheduleDurationInDays = n.GetIntValue(); } },
+                { "scheduleMode", n => { ScheduleMode = n.GetEnumValue<ZebraFotaScheduleMode>(); } },
+                { "timeZoneOffsetInMinutes", n => { TimeZoneOffsetInMinutes = n.GetIntValue(); } },
+                { "updateType", n => { UpdateType = n.GetEnumValue<ZebraFotaUpdateType>(); } },
             };
         }
         /// <summary>

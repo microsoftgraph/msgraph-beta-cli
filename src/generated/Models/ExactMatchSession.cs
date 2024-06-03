@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExactMatchSession : ExactMatchSessionBase, IParsable 
+    public class ExactMatchSession : ExactMatchSessionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The checksum property</summary>
@@ -85,14 +86,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"checksum", n => { Checksum = n.GetStringValue(); } },
-                {"dataUploadURI", n => { DataUploadURI = n.GetStringValue(); } },
-                {"fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"fileName", n => { FileName = n.GetStringValue(); } },
-                {"rowsPerBlock", n => { RowsPerBlock = n.GetIntValue(); } },
-                {"salt", n => { Salt = n.GetStringValue(); } },
-                {"uploadAgent", n => { UploadAgent = n.GetObjectValue<ExactMatchUploadAgent>(ExactMatchUploadAgent.CreateFromDiscriminatorValue); } },
-                {"uploadAgentId", n => { UploadAgentId = n.GetStringValue(); } },
+                { "checksum", n => { Checksum = n.GetStringValue(); } },
+                { "dataUploadURI", n => { DataUploadURI = n.GetStringValue(); } },
+                { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "fileName", n => { FileName = n.GetStringValue(); } },
+                { "rowsPerBlock", n => { RowsPerBlock = n.GetIntValue(); } },
+                { "salt", n => { Salt = n.GetStringValue(); } },
+                { "uploadAgent", n => { UploadAgent = n.GetObjectValue<ExactMatchUploadAgent>(ExactMatchUploadAgent.CreateFromDiscriminatorValue); } },
+                { "uploadAgentId", n => { UploadAgentId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustryDataValidate {
+namespace ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustryDataValidate
+{
     /// <summary>
     /// Provides operations to call the validate method.
     /// </summary>
-    public class MicrosoftGraphIndustryDataValidateRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphIndustryDataValidateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Perform validations applicable for the specific instance of the data connector.

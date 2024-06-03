@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OpenNetworkAzureSecurityGroupFinding : Finding, IParsable 
+    public class OpenNetworkAzureSecurityGroupFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The inboundPorts property</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
-                {"securityGroup", n => { SecurityGroup = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
-                {"virtualMachines", n => { VirtualMachines = n.GetCollectionOfObjectValues<VirtualMachineDetails>(VirtualMachineDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
+                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "virtualMachines", n => { VirtualMachines = n.GetCollectionOfObjectValues<VirtualMachineDetails>(VirtualMachineDetails.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

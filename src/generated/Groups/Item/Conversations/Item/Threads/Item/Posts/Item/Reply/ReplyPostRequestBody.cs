@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Reply {
+namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Reply
+{
     #pragma warning disable CS1591
-    public class ReplyPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ReplyPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Groups.Item.Conversations.Item.Threads.Item.Posts.Item.Reply {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"Post", n => { Post = n.GetObjectValue<ApiSdk.Models.Post>(ApiSdk.Models.Post.CreateFromDiscriminatorValue); } },
+                { "Post", n => { Post = n.GetObjectValue<ApiSdk.Models.Post>(ApiSdk.Models.Post.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

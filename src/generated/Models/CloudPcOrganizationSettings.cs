@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcOrganizationSettings : Entity, IParsable 
+    public class CloudPcOrganizationSettings : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.</summary>
@@ -43,11 +44,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"enableMEMAutoEnroll", n => { EnableMEMAutoEnroll = n.GetBoolValue(); } },
-                {"enableSingleSignOn", n => { EnableSingleSignOn = n.GetBoolValue(); } },
-                {"osVersion", n => { OsVersion = n.GetEnumValue<CloudPcOperatingSystem>(); } },
-                {"userAccountType", n => { UserAccountType = n.GetEnumValue<CloudPcUserAccountType>(); } },
-                {"windowsSettings", n => { WindowsSettings = n.GetObjectValue<CloudPcWindowsSettings>(CloudPcWindowsSettings.CreateFromDiscriminatorValue); } },
+                { "enableMEMAutoEnroll", n => { EnableMEMAutoEnroll = n.GetBoolValue(); } },
+                { "enableSingleSignOn", n => { EnableSingleSignOn = n.GetBoolValue(); } },
+                { "osVersion", n => { OsVersion = n.GetEnumValue<CloudPcOperatingSystem>(); } },
+                { "userAccountType", n => { UserAccountType = n.GetEnumValue<CloudPcUserAccountType>(); } },
+                { "windowsSettings", n => { WindowsSettings = n.GetObjectValue<CloudPcWindowsSettings>(CloudPcWindowsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

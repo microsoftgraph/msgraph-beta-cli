@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus {
+namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus
+{
     /// <summary>
     /// Provides operations to call the updateStatus method.
     /// </summary>
-    public class UpdateStatusRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Set the task&apos;s status and attach a note.

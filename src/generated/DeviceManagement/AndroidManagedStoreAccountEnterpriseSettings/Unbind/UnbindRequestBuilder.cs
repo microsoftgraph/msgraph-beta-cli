@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.Unbind {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.Unbind
+{
     /// <summary>
     /// Provides operations to call the unbind method.
     /// </summary>
-    public class UnbindRequestBuilder : BaseCliRequestBuilder 
+    public class UnbindRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action unbind

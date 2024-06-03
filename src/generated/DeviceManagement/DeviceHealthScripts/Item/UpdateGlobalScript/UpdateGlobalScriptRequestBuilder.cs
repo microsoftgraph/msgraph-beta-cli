@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript
+{
     /// <summary>
     /// Provides operations to call the updateGlobalScript method.
     /// </summary>
-    public class UpdateGlobalScriptRequestBuilder : BaseCliRequestBuilder 
+    public class UpdateGlobalScriptRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Update the Proprietary Device Health Script

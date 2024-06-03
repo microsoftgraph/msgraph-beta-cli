@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports
+{
     /// <summary>
     /// Provides operations to call the getRawRemoteConnectionReports method.
     /// </summary>
-    public class GetRawRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetRawRemoteConnectionReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the raw real-time remote connection report for a Cloud PC without any calculation, such as roundTripTime or available bandwidth, which are aggregated hourly from the raw event data.

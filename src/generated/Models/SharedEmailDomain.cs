@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class SharedEmailDomain : Entity, IParsable 
+    public class SharedEmailDomain : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The provisioningStatus property</summary>
@@ -35,7 +36,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"provisioningStatus", n => { ProvisioningStatus = n.GetStringValue(); } },
+                { "provisioningStatus", n => { ProvisioningStatus = n.GetStringValue(); } },
             };
         }
         /// <summary>

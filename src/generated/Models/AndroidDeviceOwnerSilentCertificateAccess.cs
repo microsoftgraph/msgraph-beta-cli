@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contain the package ID that has the pre-granted access to the certificate.
     /// </summary>
-    public class AndroidDeviceOwnerSilentCertificateAccess : IAdditionalDataHolder, IParsable 
+    public class AndroidDeviceOwnerSilentCertificateAccess : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -53,8 +54,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"packageId", n => { PackageId = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "packageId", n => { PackageId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.Item
+{
     /// <summary>
     /// Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementTemplates for tenantRelationships
@@ -58,13 +59,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.Item {
             return command;
         }
         /// <summary>
-        /// The collection of baseline management templates across managed tenants.
+        /// Read the properties and relationships of a managementTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-managementtemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of baseline management templates across managed tenants.";
+            command.Description = "Read the properties and relationships of a managementTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-managementtemplate-get?view=graph-rest-beta";
             var managementTemplateIdOption = new Option<string>("--management-template-id", description: "The unique identifier of managementTemplate") {
             };
             managementTemplateIdOption.IsRequired = true;
@@ -246,7 +248,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management templates across managed tenants.
+        /// Read the properties and relationships of a managementTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -286,7 +288,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of baseline management templates across managed tenants.
+        /// Read the properties and relationships of a managementTemplate object.
         /// </summary>
         public class ManagementTemplateItemRequestBuilderGetQueryParameters 
         {

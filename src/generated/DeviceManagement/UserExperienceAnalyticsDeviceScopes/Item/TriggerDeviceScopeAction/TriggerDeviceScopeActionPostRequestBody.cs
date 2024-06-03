@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item.TriggerDeviceScopeAction {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item.TriggerDeviceScopeAction
+{
     #pragma warning disable CS1591
-    public class TriggerDeviceScopeActionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class TriggerDeviceScopeActionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item.Trigg
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"actionName", n => { ActionName = n.GetStringValue(); } },
-                {"deviceScopeId", n => { DeviceScopeId = n.GetStringValue(); } },
+                { "actionName", n => { ActionName = n.GetStringValue(); } },
+                { "deviceScopeId", n => { DeviceScopeId = n.GetStringValue(); } },
             };
         }
         /// <summary>

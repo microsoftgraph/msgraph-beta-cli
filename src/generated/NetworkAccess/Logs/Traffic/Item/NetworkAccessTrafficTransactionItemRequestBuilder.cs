@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Logs.Traffic.Item {
+namespace ApiSdk.NetworkAccess.Logs.Traffic.Item
+{
     /// <summary>
     /// Provides operations to manage the traffic property of the microsoft.graph.networkaccess.logs entity.
     /// </summary>
-    public class NetworkAccessTrafficTransactionItemRequestBuilder : BaseCliRequestBuilder 
+    public class NetworkAccessTrafficTransactionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property traffic for networkAccess

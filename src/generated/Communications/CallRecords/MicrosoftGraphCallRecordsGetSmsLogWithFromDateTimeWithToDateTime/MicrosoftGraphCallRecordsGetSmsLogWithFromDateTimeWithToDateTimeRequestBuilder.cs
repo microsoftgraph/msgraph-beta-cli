@@ -13,25 +13,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime {
+namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime
+{
     /// <summary>
     /// Provides operations to call the getSmsLog method.
     /// </summary>
-    public class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke function getSmsLog
+        /// Get the log of a sent/received SMS as a collection of smsLogRow entries.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getSmsLog";
-            var fromDateTimeOption = new Option<string>("--from-date-time", description: "Usage: fromDateTime={fromDateTime}") {
+            command.Description = "Get the log of a sent/received SMS as a collection of smsLogRow entries.";
+            var fromDateTimeOption = new Option<DateTimeOffset?>("--from-date-time", description: "Usage: fromDateTime={fromDateTime}") {
             };
             fromDateTimeOption.IsRequired = true;
             command.AddOption(fromDateTimeOption);
-            var toDateTimeOption = new Option<string>("--to-date-time", description: "Usage: toDateTime={toDateTime}") {
+            var toDateTimeOption = new Option<DateTimeOffset?>("--to-date-time", description: "Usage: toDateTime={toDateTime}") {
             };
             toDateTimeOption.IsRequired = true;
             command.AddOption(toDateTimeOption);
@@ -93,7 +94,9 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -119,7 +122,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
         {
         }
         /// <summary>
-        /// Invoke function getSmsLog
+        /// Get the log of a sent/received SMS as a collection of smsLogRow entries.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -138,7 +141,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
             return requestInfo;
         }
         /// <summary>
-        /// Invoke function getSmsLog
+        /// Get the log of a sent/received SMS as a collection of smsLogRow entries.
         /// </summary>
         public class MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTimeRequestBuilderGetQueryParameters 
         {

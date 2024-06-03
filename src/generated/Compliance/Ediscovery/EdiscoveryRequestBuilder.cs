@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery {
+namespace ApiSdk.Compliance.Ediscovery
+{
     /// <summary>
     /// Provides operations to manage the ediscovery property of the microsoft.graph.compliance entity.
     /// </summary>
-    public class EdiscoveryRequestBuilder : BaseCliRequestBuilder 
+    public class EdiscoveryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.

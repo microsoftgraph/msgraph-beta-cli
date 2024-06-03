@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Graph model for a secret setting value
     /// </summary>
-    public class DeviceManagementConfigurationSecretSettingValue : DeviceManagementConfigurationSimpleSettingValue, IParsable 
+    public class DeviceManagementConfigurationSecretSettingValue : DeviceManagementConfigurationSimpleSettingValue, IParsable
     {
         /// <summary>Value of the secret setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetStringValue(); } },
-                {"valueState", n => { ValueState = n.GetEnumValue<DeviceManagementConfigurationSecretSettingValueState>(); } },
+                { "value", n => { Value = n.GetStringValue(); } },
+                { "valueState", n => { ValueState = n.GetEnumValue<DeviceManagementConfigurationSecretSettingValueState>(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.RoleDefinition {
+namespace ApiSdk.RoleManagement.EntitlementManagement.RoleAssignments.Item.RoleDefinition
+{
     /// <summary>
     /// Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity.
     /// </summary>
-    public class RoleDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class RoleDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.

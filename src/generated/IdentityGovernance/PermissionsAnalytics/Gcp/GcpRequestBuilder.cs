@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp
+{
     /// <summary>
     /// Provides operations to manage the gcp property of the microsoft.graph.permissionsAnalyticsAggregation entity.
     /// </summary>
-    public class GcpRequestBuilder : BaseCliRequestBuilder 
+    public class GcpRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property gcp for identityGovernance

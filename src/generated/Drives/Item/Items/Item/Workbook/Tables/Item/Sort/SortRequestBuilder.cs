@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Sort {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Tables.Item.Sort
+{
     /// <summary>
     /// Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
     /// </summary>
-    public class SortRequestBuilder : BaseCliRequestBuilder 
+    public class SortRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the apply method.

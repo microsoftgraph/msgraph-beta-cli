@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc {
+namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc
+{
     #pragma warning disable CS1591
-    public class BulkRestoreCloudPcPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class BulkRestoreCloudPcPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -49,9 +50,9 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"managedDeviceIds", n => { ManagedDeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"restorePointDateTime", n => { RestorePointDateTime = n.GetDateTimeOffsetValue(); } },
-                {"timeRange", n => { TimeRange = n.GetEnumValue<RestoreTimeRange>(); } },
+                { "managedDeviceIds", n => { ManagedDeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "restorePointDateTime", n => { RestorePointDateTime = n.GetDateTimeOffsetValue(); } },
+                { "timeRange", n => { TimeRange = n.GetEnumValue<RestoreTimeRange>(); } },
             };
         }
         /// <summary>

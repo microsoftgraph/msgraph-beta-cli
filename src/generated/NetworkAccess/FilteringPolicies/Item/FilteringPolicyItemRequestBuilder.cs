@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
+namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the filteringPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class FilteringPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class FilteringPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property filteringPolicies for networkAccess
@@ -57,13 +58,14 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
             return command;
         }
         /// <summary>
-        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+        /// Get a filteringPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.";
+            command.Description = "Get a filteringPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringpolicy-get?view=graph-rest-beta";
             var filteringPolicyIdOption = new Option<string>("--filtering-policy-id", description: "The unique identifier of filteringPolicy") {
             };
             filteringPolicyIdOption.IsRequired = true;
@@ -220,7 +222,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+        /// Get a filteringPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +262,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// A filtering policy defines the specific traffic that is allowed or blocked through the Global Secure Access services for a filtering profile.
+        /// Get a filteringPolicy object.
         /// </summary>
         public class FilteringPolicyItemRequestBuilderGetQueryParameters 
         {

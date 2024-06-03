@@ -24,11 +24,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item
+{
     /// <summary>
     /// Provides operations to manage the cases property of the microsoft.graph.ediscovery.ediscoveryroot entity.
     /// </summary>
-    public class CaseItemRequestBuilder : BaseCliRequestBuilder 
+    public class CaseItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.
@@ -60,14 +61,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property cases for compliance
+        /// Delete a case object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property cases for compliance";
+            command.Description = "Delete a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-delete?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -96,14 +98,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve the properties and relationships of a case object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get cases from compliance";
+            command.Description = "Retrieve the properties and relationships of a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-get?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -267,14 +270,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property cases in compliance
+        /// Update the properties of a case object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-case-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property cases in compliance";
+            command.Description = "Update the properties of a case object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-case-update?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -440,7 +444,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property cases for compliance
+        /// Delete a case object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -460,7 +464,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve the properties and relationships of a case object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -480,7 +484,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property cases in compliance
+        /// Update the properties of a case object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -502,7 +506,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get cases from compliance
+        /// Retrieve the properties and relationships of a case object.
         /// </summary>
         public class CaseItemRequestBuilderGetQueryParameters 
         {

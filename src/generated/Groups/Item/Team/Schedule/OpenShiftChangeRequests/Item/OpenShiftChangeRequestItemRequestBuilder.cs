@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item {
+namespace ApiSdk.Groups.Item.Team.Schedule.OpenShiftChangeRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class OpenShiftChangeRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class OpenShiftChangeRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property openShiftChangeRequests for groups

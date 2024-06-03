@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class GcpAuthorizationSystem : AuthorizationSystem, IParsable 
+    public class GcpAuthorizationSystem : AuthorizationSystem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for service in authorization system.</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"actions", n => { Actions = n.GetCollectionOfObjectValues<GcpAuthorizationSystemTypeAction>(GcpAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<GcpAssociatedIdentities>(GcpAssociatedIdentities.CreateFromDiscriminatorValue); } },
-                {"resources", n => { Resources = n.GetCollectionOfObjectValues<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"roles", n => { Roles = n.GetCollectionOfObjectValues<GcpRole>(GcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<GcpAuthorizationSystemTypeAction>(GcpAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<GcpAssociatedIdentities>(GcpAssociatedIdentities.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<GcpRole>(GcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

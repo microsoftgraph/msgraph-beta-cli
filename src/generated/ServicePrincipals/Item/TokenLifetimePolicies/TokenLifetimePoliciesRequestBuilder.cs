@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies {
+namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies
+{
     /// <summary>
     /// Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
     /// </summary>
-    public class TokenLifetimePoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class TokenLifetimePoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies {
             return command;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/serviceprincipal-list-tokenlifetimepolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The tokenLifetimePolicies assigned to this service principal. Supports $expand.";
+            command.Description = "List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/serviceprincipal-list-tokenlifetimepolicies?view=graph-rest-beta";
             var servicePrincipalIdOption = new Option<string>("--service-principal-id", description: "The unique identifier of servicePrincipal") {
             };
             servicePrincipalIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies {
         {
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.ServicePrincipals.Item.TokenLifetimePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to a servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to a service principal.
         /// </summary>
         public class TokenLifetimePoliciesRequestBuilderGetQueryParameters 
         {

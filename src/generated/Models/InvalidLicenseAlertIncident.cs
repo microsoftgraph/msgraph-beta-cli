@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class InvalidLicenseAlertIncident : UnifiedRoleManagementAlertIncident, IParsable 
+    public class InvalidLicenseAlertIncident : UnifiedRoleManagementAlertIncident, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Status of the tenant&apos;s Microsoft Entra ID P2 license.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"tenantLicenseStatus", n => { TenantLicenseStatus = n.GetStringValue(); } },
+                { "tenantLicenseStatus", n => { TenantLicenseStatus = n.GetStringValue(); } },
             };
         }
         /// <summary>

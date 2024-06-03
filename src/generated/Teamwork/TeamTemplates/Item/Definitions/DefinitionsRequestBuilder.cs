@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
+namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions
+{
     /// <summary>
     /// Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
     /// </summary>
-    public class DefinitionsRequestBuilder : BaseCliRequestBuilder 
+    public class DefinitionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the definitions property of the microsoft.graph.teamTemplate entity.
@@ -106,13 +107,13 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
             return command;
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A generic representation of a team template definition for a team with a specific structure and configuration.";
+            command.Description = "Read the properties and relationships of a teamTemplateDefinition object.";
             var teamTemplateIdOption = new Option<string>("--team-template-id", description: "The unique identifier of teamTemplate") {
             };
             teamTemplateIdOption.IsRequired = true;
@@ -194,7 +195,9 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +223,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
         {
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +263,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions {
             return requestInfo;
         }
         /// <summary>
-        /// A generic representation of a team template definition for a team with a specific structure and configuration.
+        /// Read the properties and relationships of a teamTemplateDefinition object.
         /// </summary>
         public class DefinitionsRequestBuilderGetQueryParameters 
         {

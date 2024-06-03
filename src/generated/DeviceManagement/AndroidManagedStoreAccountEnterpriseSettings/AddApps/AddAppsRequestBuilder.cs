@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps {
+namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps
+{
     /// <summary>
     /// Provides operations to call the addApps method.
     /// </summary>
-    public class AddAppsRequestBuilder : BaseCliRequestBuilder 
+    public class AddAppsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action addApps

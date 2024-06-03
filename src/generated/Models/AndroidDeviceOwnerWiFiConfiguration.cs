@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Android device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user. This profile provides limited and simpler security types than Enterprise Wi-Fi profile.
     /// </summary>
-    public class AndroidDeviceOwnerWiFiConfiguration : DeviceConfiguration, IParsable 
+    public class AndroidDeviceOwnerWiFiConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -102,19 +103,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"connectAutomatically", n => { ConnectAutomatically = n.GetBoolValue(); } },
-                {"connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
-                {"macAddressRandomizationMode", n => { MacAddressRandomizationMode = n.GetEnumValue<MacAddressRandomizationMode>(); } },
-                {"networkName", n => { NetworkName = n.GetStringValue(); } },
-                {"preSharedKey", n => { PreSharedKey = n.GetStringValue(); } },
-                {"preSharedKeyIsSet", n => { PreSharedKeyIsSet = n.GetBoolValue(); } },
-                {"proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
-                {"proxyExclusionList", n => { ProxyExclusionList = n.GetStringValue(); } },
-                {"proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
-                {"proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
-                {"proxySettings", n => { ProxySettings = n.GetEnumValue<WiFiProxySetting>(); } },
-                {"ssid", n => { Ssid = n.GetStringValue(); } },
-                {"wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<AndroidDeviceOwnerWiFiSecurityType>(); } },
+                { "connectAutomatically", n => { ConnectAutomatically = n.GetBoolValue(); } },
+                { "connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
+                { "macAddressRandomizationMode", n => { MacAddressRandomizationMode = n.GetEnumValue<MacAddressRandomizationMode>(); } },
+                { "networkName", n => { NetworkName = n.GetStringValue(); } },
+                { "preSharedKey", n => { PreSharedKey = n.GetStringValue(); } },
+                { "preSharedKeyIsSet", n => { PreSharedKeyIsSet = n.GetBoolValue(); } },
+                { "proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
+                { "proxyExclusionList", n => { ProxyExclusionList = n.GetStringValue(); } },
+                { "proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
+                { "proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
+                { "proxySettings", n => { ProxySettings = n.GetEnumValue<WiFiProxySetting>(); } },
+                { "ssid", n => { Ssid = n.GetStringValue(); } },
+                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<AndroidDeviceOwnerWiFiSecurityType>(); } },
             };
         }
         /// <summary>

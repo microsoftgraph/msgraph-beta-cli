@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentRequestCallbackData : CustomExtensionData, IParsable 
+    public class AccessPackageAssignmentRequestCallbackData : CustomExtensionData, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Details for the callback.</summary>
@@ -60,10 +61,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customExtensionStageInstanceDetail", n => { CustomExtensionStageInstanceDetail = n.GetStringValue(); } },
-                {"customExtensionStageInstanceId", n => { CustomExtensionStageInstanceId = n.GetStringValue(); } },
-                {"stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
-                {"state", n => { State = n.GetStringValue(); } },
+                { "customExtensionStageInstanceDetail", n => { CustomExtensionStageInstanceDetail = n.GetStringValue(); } },
+                { "customExtensionStageInstanceId", n => { CustomExtensionStageInstanceId = n.GetStringValue(); } },
+                { "stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
+                { "state", n => { State = n.GetStringValue(); } },
             };
         }
         /// <summary>

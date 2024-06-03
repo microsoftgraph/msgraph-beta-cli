@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Settings.Item {
+namespace ApiSdk.Groups.Item.Settings.Item
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.group entity.
     /// </summary>
-    public class DirectorySettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class DirectorySettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settings for groups

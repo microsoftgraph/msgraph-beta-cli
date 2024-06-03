@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components {
+namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components
+{
     /// <summary>
     /// Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.
     /// </summary>
-    public class ComponentsRequestBuilder : BaseCliRequestBuilder 
+    public class ComponentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components {
             return command;
         }
         /// <summary>
-        /// Components related to this vulnerability article.
+        /// Get a list of vulnerabilityComponent objects related to a known vulnerability.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-vulnerability-list-components?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Components related to this vulnerability article.";
+            command.Description = "Get a list of vulnerabilityComponent objects related to a known vulnerability.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-vulnerability-list-components?view=graph-rest-beta";
             var vulnerabilityIdOption = new Option<string>("--vulnerability-id", description: "The unique identifier of vulnerability") {
             };
             vulnerabilityIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components {
         {
         }
         /// <summary>
-        /// Components related to this vulnerability article.
+        /// Get a list of vulnerabilityComponent objects related to a known vulnerability.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Vulnerabilities.Item.Components {
             return requestInfo;
         }
         /// <summary>
-        /// Components related to this vulnerability article.
+        /// Get a list of vulnerabilityComponent objects related to a known vulnerability.
         /// </summary>
         public class ComponentsRequestBuilderGetQueryParameters 
         {

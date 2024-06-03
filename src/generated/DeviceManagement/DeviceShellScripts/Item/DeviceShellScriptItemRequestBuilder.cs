@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item {
+namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceShellScripts property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DeviceShellScriptItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceShellScriptItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.deviceShellScript entity.

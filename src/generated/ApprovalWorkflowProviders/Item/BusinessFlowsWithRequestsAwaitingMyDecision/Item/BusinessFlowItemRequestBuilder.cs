@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item {
+namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.Item
+{
     /// <summary>
     /// Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.
     /// </summary>
-    public class BusinessFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class BusinessFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property businessFlowsWithRequestsAwaitingMyDecision for approvalWorkflowProviders

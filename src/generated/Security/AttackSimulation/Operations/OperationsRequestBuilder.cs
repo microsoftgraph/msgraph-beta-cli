@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AttackSimulation.Operations {
+namespace ApiSdk.Security.AttackSimulation.Operations
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    public class OperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the operations property of the microsoft.graph.attackSimulationRoot entity.
@@ -98,13 +99,13 @@ namespace ApiSdk.Security.AttackSimulation.Operations {
             return command;
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents an attack simulation training operation.";
+            command.Description = "Get an attack simulation operation to track a long-running operation request for a tenant.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -180,7 +181,9 @@ namespace ApiSdk.Security.AttackSimulation.Operations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -206,7 +209,7 @@ namespace ApiSdk.Security.AttackSimulation.Operations {
         {
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +249,7 @@ namespace ApiSdk.Security.AttackSimulation.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// Represents an attack simulation training operation.
+        /// Get an attack simulation operation to track a long-running operation request for a tenant.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

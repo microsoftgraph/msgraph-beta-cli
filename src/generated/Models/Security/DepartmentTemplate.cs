@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class DepartmentTemplate : FilePlanDescriptorTemplate, IParsable 
+    public class DepartmentTemplate : FilePlanDescriptorTemplate, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>

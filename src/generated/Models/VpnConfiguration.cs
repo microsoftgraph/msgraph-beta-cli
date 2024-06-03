@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Base VPN Configuration profile.
     /// </summary>
-    public class VpnConfiguration : DeviceConfiguration, IParsable 
+    public class VpnConfiguration : DeviceConfiguration, IParsable
     {
         /// <summary>VPN Authentication Method.</summary>
         public VpnAuthenticationMethod? AuthenticationMethod { get; set; }
@@ -74,11 +75,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
-                {"connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                {"realm", n => { Realm = n.GetStringValue(); } },
-                {"role", n => { Role = n.GetStringValue(); } },
-                {"servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
+                { "realm", n => { Realm = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
+                { "servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

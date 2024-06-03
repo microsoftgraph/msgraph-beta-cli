@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.Operations.Item {
+namespace ApiSdk.Communications.Calls.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.call entity.
     /// </summary>
-    public class CommsOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CommsOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for communications
@@ -62,13 +63,14 @@ namespace ApiSdk.Communications.Calls.Item.Operations.Item {
             return command;
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/addlargegalleryviewoperation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get operations from communications";
+            command.Description = "Get the status of an operation that adds the large gallery view to a call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/addlargegalleryviewoperation-get?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Communications.Calls.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Communications.Calls.Item.Operations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
         /// </summary>
         public class CommsOperationItemRequestBuilderGetQueryParameters 
         {

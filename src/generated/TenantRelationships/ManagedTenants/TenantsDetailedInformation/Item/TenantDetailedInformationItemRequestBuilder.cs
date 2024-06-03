@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.Item
+{
     /// <summary>
     /// Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class TenantDetailedInformationItemRequestBuilder : BaseCliRequestBuilder 
+    public class TenantDetailedInformationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property tenantsDetailedInformation for tenantRelationships
@@ -56,13 +57,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.I
             return command;
         }
         /// <summary>
-        /// The collection tenant level detailed information across managed tenants.
+        /// Read the properties and relationships of a tenantDetailedInformation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/managedtenants-tenantdetailedinformation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection tenant level detailed information across managed tenants.";
+            command.Description = "Read the properties and relationships of a tenantDetailedInformation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/managedtenants-tenantdetailedinformation-get?view=graph-rest-beta";
             var tenantDetailedInformationIdOption = new Option<string>("--tenant-detailed-information-id", description: "The unique identifier of tenantDetailedInformation") {
             };
             tenantDetailedInformationIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.I
             return requestInfo;
         }
         /// <summary>
-        /// The collection tenant level detailed information across managed tenants.
+        /// Read the properties and relationships of a tenantDetailedInformation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.I
             return requestInfo;
         }
         /// <summary>
-        /// The collection tenant level detailed information across managed tenants.
+        /// Read the properties and relationships of a tenantDetailedInformation object.
         /// </summary>
         public class TenantDetailedInformationItemRequestBuilderGetQueryParameters 
         {

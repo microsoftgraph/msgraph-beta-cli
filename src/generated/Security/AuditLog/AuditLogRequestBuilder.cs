@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.AuditLog {
+namespace ApiSdk.Security.AuditLog
+{
     /// <summary>
     /// Provides operations to manage the auditLog property of the microsoft.graph.security entity.
     /// </summary>
-    public class AuditLogRequestBuilder : BaseCliRequestBuilder 
+    public class AuditLogRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property auditLog for security

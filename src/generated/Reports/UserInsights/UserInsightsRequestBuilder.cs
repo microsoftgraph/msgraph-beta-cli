@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserInsights {
+namespace ApiSdk.Reports.UserInsights
+{
     /// <summary>
     /// Provides operations to manage the userInsights property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class UserInsightsRequestBuilder : BaseCliRequestBuilder 
+    public class UserInsightsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the daily property of the microsoft.graph.userInsightsRoot entity.
@@ -33,7 +34,6 @@ namespace ApiSdk.Reports.UserInsights {
             var builder = new DailyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
-            nonExecCommands.Add(builder.BuildActiveUsersBreakdownNavCommand());
             nonExecCommands.Add(builder.BuildActiveUsersNavCommand());
             nonExecCommands.Add(builder.BuildAuthenticationsNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());
@@ -141,7 +141,6 @@ namespace ApiSdk.Reports.UserInsights {
             var builder = new MonthlyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
-            nonExecCommands.Add(builder.BuildActiveUsersBreakdownNavCommand());
             nonExecCommands.Add(builder.BuildActiveUsersNavCommand());
             nonExecCommands.Add(builder.BuildAuthenticationsNavCommand());
             execCommands.Add(builder.BuildDeleteCommand());

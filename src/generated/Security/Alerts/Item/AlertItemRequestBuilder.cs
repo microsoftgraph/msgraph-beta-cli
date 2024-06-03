@@ -14,20 +14,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Alerts.Item {
+namespace ApiSdk.Security.Alerts.Item
+{
     /// <summary>
     /// Provides operations to manage the alerts property of the microsoft.graph.security entity.
     /// </summary>
-    public class AlertItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Notifications for suspicious or potential security issues in a customer’s tenant.
+        /// Retrieve the properties and relationships of an alert object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/alert-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Notifications for suspicious or potential security issues in a customer’s tenant.";
+            command.Description = "Retrieve the properties and relationships of an alert object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/alert-get?view=graph-rest-beta";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -73,13 +76,15 @@ namespace ApiSdk.Security.Alerts.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property alerts in security
+        /// Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/alert-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property alerts in security";
+            command.Description = "Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/alert-update?view=graph-rest-beta";
             var alertIdOption = new Option<string>("--alert-id", description: "The unique identifier of alert") {
             };
             alertIdOption.IsRequired = true;
@@ -138,10 +143,11 @@ namespace ApiSdk.Security.Alerts.Item {
         {
         }
         /// <summary>
-        /// Notifications for suspicious or potential security issues in a customer’s tenant.
+        /// Retrieve the properties and relationships of an alert object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
@@ -157,11 +163,12 @@ namespace ApiSdk.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property alerts in security
+        /// Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Alert body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
@@ -178,7 +185,7 @@ namespace ApiSdk.Security.Alerts.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Notifications for suspicious or potential security issues in a customer’s tenant.
+        /// Retrieve the properties and relationships of an alert object.
         /// </summary>
         public class AlertItemRequestBuilderGetQueryParameters 
         {

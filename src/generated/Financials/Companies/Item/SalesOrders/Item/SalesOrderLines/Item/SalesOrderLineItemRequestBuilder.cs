@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Item {
+namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Item
+{
     /// <summary>
     /// Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.
     /// </summary>
-    public class SalesOrderLineItemRequestBuilder : BaseCliRequestBuilder 
+    public class SalesOrderLineItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the account property of the microsoft.graph.salesOrderLine entity.
@@ -47,11 +48,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Item
         {
             var command = new Command("get");
             command.Description = "Get salesOrderLines from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);
@@ -137,11 +138,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.Item
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property salesOrderLines in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);

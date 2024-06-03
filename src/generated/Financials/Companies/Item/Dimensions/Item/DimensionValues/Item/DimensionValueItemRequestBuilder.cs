@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Item {
+namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Item
+{
     /// <summary>
     /// Provides operations to manage the dimensionValues property of the microsoft.graph.dimension entity.
     /// </summary>
-    public class DimensionValueItemRequestBuilder : BaseCliRequestBuilder 
+    public class DimensionValueItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get dimensionValues from financials
@@ -28,15 +29,15 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionValues.Item 
         {
             var command = new Command("get");
             command.Description = "Get dimensionValues from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var dimensionIdOption = new Option<string>("--dimension-id", description: "The unique identifier of dimension") {
+            var dimensionIdOption = new Option<Guid?>("--dimension-id", description: "The unique identifier of dimension") {
             };
             dimensionIdOption.IsRequired = true;
             command.AddOption(dimensionIdOption);
-            var dimensionValueIdOption = new Option<string>("--dimension-value-id", description: "The unique identifier of dimensionValue") {
+            var dimensionValueIdOption = new Option<Guid?>("--dimension-value-id", description: "The unique identifier of dimensionValue") {
             };
             dimensionValueIdOption.IsRequired = true;
             command.AddOption(dimensionValueIdOption);

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsOffboardTenant {
+namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsOffboardTenant
+{
     /// <summary>
     /// Provides operations to call the offboardTenant method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Carries out the appropriate procedures to remove a managed tenant from the multitenant management platform. No relationships, such as commerce and delegate administrative privileges, will be impacted. The only change made by invoking this action is the tenant will be deprovisioned from the multitenant management platform.

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport {
+namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport
+{
     #pragma warning disable CS1591
-    public class CreateMigrationReportPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class CreateMigrationReportPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationRep
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"groupPolicyObjectFile", n => { GroupPolicyObjectFile = n.GetObjectValue<ApiSdk.Models.GroupPolicyObjectFile>(ApiSdk.Models.GroupPolicyObjectFile.CreateFromDiscriminatorValue); } },
+                { "groupPolicyObjectFile", n => { GroupPolicyObjectFile = n.GetObjectValue<ApiSdk.Models.GroupPolicyObjectFile>(ApiSdk.Models.GroupPolicyObjectFile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

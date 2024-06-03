@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssets {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssets
+{
     /// <summary>
     /// Provides operations to call the enrollAssets method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action enrollAssets

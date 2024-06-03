@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport
+{
     /// <summary>
     /// Provides operations to call the retrieveCrossRegionDisasterRecoveryReport method.
     /// </summary>
-    public class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder : BaseCliRequestBuilder 
+    public class RetrieveCrossRegionDisasterRecoveryReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action retrieveCrossRegionDisasterRecoveryReport

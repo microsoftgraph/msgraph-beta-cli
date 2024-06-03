@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
+namespace ApiSdk.Policies.FeatureRolloutPolicies.Item
+{
     /// <summary>
     /// Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class FeatureRolloutPolicyItemRequestBuilder : BaseCliRequestBuilder 
+    public class FeatureRolloutPolicyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity.
@@ -50,13 +51,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property featureRolloutPolicies for policies
+        /// Delete a featureRolloutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property featureRolloutPolicies for policies";
+            command.Description = "Delete a featureRolloutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -85,13 +87,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve the properties and relationships of a featureRolloutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The feature rollout policy associated with a directory object.";
+            command.Description = "Retrieve the properties and relationships of a featureRolloutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -137,13 +140,14 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property featureRolloutPolicies in policies
+        /// Update the properties of featureRolloutPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/featurerolloutpolicy-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property featureRolloutPolicies in policies";
+            command.Description = "Update the properties of featureRolloutPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/featurerolloutpolicy-update?view=graph-rest-beta";
             var featureRolloutPolicyIdOption = new Option<string>("--feature-rollout-policy-id", description: "The unique identifier of featureRolloutPolicy") {
             };
             featureRolloutPolicyIdOption.IsRequired = true;
@@ -202,7 +206,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property featureRolloutPolicies for policies
+        /// Delete a featureRolloutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -221,7 +225,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve the properties and relationships of a featureRolloutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -240,7 +244,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property featureRolloutPolicies in policies
+        /// Update the properties of featureRolloutPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.Policies.FeatureRolloutPolicies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The feature rollout policy associated with a directory object.
+        /// Retrieve the properties and relationships of a featureRolloutPolicy object.
         /// </summary>
         public class FeatureRolloutPolicyItemRequestBuilderGetQueryParameters 
         {

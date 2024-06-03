@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.UserCredentialUsageDetails.Item {
+namespace ApiSdk.Reports.UserCredentialUsageDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.
     /// </summary>
-    public class UserCredentialUsageDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserCredentialUsageDetailsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userCredentialUsageDetails for reports

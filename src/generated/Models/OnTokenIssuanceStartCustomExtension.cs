@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnTokenIssuanceStartCustomExtension : CustomAuthenticationExtension, IParsable 
+    public class OnTokenIssuanceStartCustomExtension : CustomAuthenticationExtension, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Collection of claims to be returned by the API called by this custom authentication extension.</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"claimsForTokenConfiguration", n => { ClaimsForTokenConfiguration = n.GetCollectionOfObjectValues<OnTokenIssuanceStartReturnClaim>(OnTokenIssuanceStartReturnClaim.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "claimsForTokenConfiguration", n => { ClaimsForTokenConfiguration = n.GetCollectionOfObjectValues<OnTokenIssuanceStartReturnClaim>(OnTokenIssuanceStartReturnClaim.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

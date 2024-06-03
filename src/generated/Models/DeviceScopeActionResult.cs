@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The result of the triggered device scope action.
     /// </summary>
-    public class DeviceScopeActionResult : IAdditionalDataHolder, IParsable 
+    public class DeviceScopeActionResult : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -71,11 +72,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceScopeAction", n => { DeviceScopeAction = n.GetStringValue(); } },
-                {"deviceScopeId", n => { DeviceScopeId = n.GetStringValue(); } },
-                {"failedMessage", n => { FailedMessage = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<DeviceScopeActionStatus>(); } },
+                { "deviceScopeAction", n => { DeviceScopeAction = n.GetStringValue(); } },
+                { "deviceScopeId", n => { DeviceScopeId = n.GetStringValue(); } },
+                { "failedMessage", n => { FailedMessage = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<DeviceScopeActionStatus>(); } },
             };
         }
         /// <summary>

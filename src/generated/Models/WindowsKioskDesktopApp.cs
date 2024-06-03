@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The base class for a type of apps
     /// </summary>
-    public class WindowsKioskDesktopApp : WindowsKioskAppBase, IParsable 
+    public class WindowsKioskDesktopApp : WindowsKioskAppBase, IParsable
     {
         /// <summary>Define the DesktopApplicationID of the app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,9 +60,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"desktopApplicationId", n => { DesktopApplicationId = n.GetStringValue(); } },
-                {"desktopApplicationLinkPath", n => { DesktopApplicationLinkPath = n.GetStringValue(); } },
-                {"path", n => { Path = n.GetStringValue(); } },
+                { "desktopApplicationId", n => { DesktopApplicationId = n.GetStringValue(); } },
+                { "desktopApplicationLinkPath", n => { DesktopApplicationLinkPath = n.GetStringValue(); } },
+                { "path", n => { Path = n.GetStringValue(); } },
             };
         }
         /// <summary>

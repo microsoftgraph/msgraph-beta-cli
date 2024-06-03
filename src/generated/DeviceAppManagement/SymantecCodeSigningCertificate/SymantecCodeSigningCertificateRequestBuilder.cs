@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.SymantecCodeSigningCertificate {
+namespace ApiSdk.DeviceAppManagement.SymantecCodeSigningCertificate
+{
     /// <summary>
     /// Provides operations to manage the symantecCodeSigningCertificate property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class SymantecCodeSigningCertificateRequestBuilder : BaseCliRequestBuilder 
+    public class SymantecCodeSigningCertificateRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property symantecCodeSigningCertificate for deviceAppManagement

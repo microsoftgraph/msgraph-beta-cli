@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ItemPhone : ItemFacet, IParsable 
+    public class ItemPhone : ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Friendly name the user has assigned this phone number.</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetEnumValue<PhoneType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<PhoneType>(); } },
             };
         }
         /// <summary>

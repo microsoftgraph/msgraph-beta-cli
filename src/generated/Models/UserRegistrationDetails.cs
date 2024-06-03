@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserRegistrationDetails : Entity, IParsable 
+    public class UserRegistrationDetails : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The method the user or admin selected as default for performing multifactor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.</summary>
@@ -83,22 +84,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"defaultMfaMethod", n => { DefaultMfaMethod = n.GetEnumValue<DefaultMfaMethodType>(); } },
-                {"isAdmin", n => { IsAdmin = n.GetBoolValue(); } },
-                {"isMfaCapable", n => { IsMfaCapable = n.GetBoolValue(); } },
-                {"isMfaRegistered", n => { IsMfaRegistered = n.GetBoolValue(); } },
-                {"isPasswordlessCapable", n => { IsPasswordlessCapable = n.GetBoolValue(); } },
-                {"isSsprCapable", n => { IsSsprCapable = n.GetBoolValue(); } },
-                {"isSsprEnabled", n => { IsSsprEnabled = n.GetBoolValue(); } },
-                {"isSsprRegistered", n => { IsSsprRegistered = n.GetBoolValue(); } },
-                {"isSystemPreferredAuthenticationMethodEnabled", n => { IsSystemPreferredAuthenticationMethodEnabled = n.GetBoolValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"methodsRegistered", n => { MethodsRegistered = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"systemPreferredAuthenticationMethods", n => { SystemPreferredAuthenticationMethods = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
-                {"userPreferredMethodForSecondaryAuthentication", n => { UserPreferredMethodForSecondaryAuthentication = n.GetEnumValue<UserDefaultAuthenticationMethod>(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<SignInUserType>(); } },
+                { "defaultMfaMethod", n => { DefaultMfaMethod = n.GetEnumValue<DefaultMfaMethodType>(); } },
+                { "isAdmin", n => { IsAdmin = n.GetBoolValue(); } },
+                { "isMfaCapable", n => { IsMfaCapable = n.GetBoolValue(); } },
+                { "isMfaRegistered", n => { IsMfaRegistered = n.GetBoolValue(); } },
+                { "isPasswordlessCapable", n => { IsPasswordlessCapable = n.GetBoolValue(); } },
+                { "isSsprCapable", n => { IsSsprCapable = n.GetBoolValue(); } },
+                { "isSsprEnabled", n => { IsSsprEnabled = n.GetBoolValue(); } },
+                { "isSsprRegistered", n => { IsSsprRegistered = n.GetBoolValue(); } },
+                { "isSystemPreferredAuthenticationMethodEnabled", n => { IsSystemPreferredAuthenticationMethodEnabled = n.GetBoolValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "methodsRegistered", n => { MethodsRegistered = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "systemPreferredAuthenticationMethods", n => { SystemPreferredAuthenticationMethods = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
+                { "userPreferredMethodForSecondaryAuthentication", n => { UserPreferredMethodForSecondaryAuthentication = n.GetEnumValue<UserDefaultAuthenticationMethod>(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<SignInUserType>(); } },
             };
         }
         /// <summary>

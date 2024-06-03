@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.ManagedDevices.Item.TriggerConfigurationManagerAction {
+namespace ApiSdk.Users.Item.ManagedDevices.Item.TriggerConfigurationManagerAction
+{
     /// <summary>
     /// Provides operations to call the triggerConfigurationManagerAction method.
     /// </summary>
-    public class TriggerConfigurationManagerActionRequestBuilder : BaseCliRequestBuilder 
+    public class TriggerConfigurationManagerActionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Trigger action on ConfigurationManager client

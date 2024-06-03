@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.Item
+{
     /// <summary>
     /// Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcSnapshotItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcSnapshotItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property snapshots for deviceManagement
@@ -56,13 +57,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.Item {
             return command;
         }
         /// <summary>
-        /// Cloud PC snapshots.
+        /// Read the properties and relationships of a cloudPcSnapshot object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcsnapshot-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Cloud PC snapshots.";
+            command.Description = "Read the properties and relationships of a cloudPcSnapshot object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcsnapshot-get?view=graph-rest-beta";
             var cloudPcSnapshotIdOption = new Option<string>("--cloud-pc-snapshot-id", description: "The unique identifier of cloudPcSnapshot") {
             };
             cloudPcSnapshotIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC snapshots.
+        /// Read the properties and relationships of a cloudPcSnapshot object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC snapshots.
+        /// Read the properties and relationships of a cloudPcSnapshot object.
         /// </summary>
         public class CloudPcSnapshotItemRequestBuilderGetQueryParameters 
         {

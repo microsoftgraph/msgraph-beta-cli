@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class EstimateStatisticsOperation : CaseOperation, IParsable 
+    public class EstimateStatisticsOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The estimated count of items for the sourceCollection that matched the content query.</summary>
@@ -47,13 +48,13 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"indexedItemCount", n => { IndexedItemCount = n.GetLongValue(); } },
-                {"indexedItemsSize", n => { IndexedItemsSize = n.GetLongValue(); } },
-                {"mailboxCount", n => { MailboxCount = n.GetIntValue(); } },
-                {"siteCount", n => { SiteCount = n.GetIntValue(); } },
-                {"sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
-                {"unindexedItemCount", n => { UnindexedItemCount = n.GetLongValue(); } },
-                {"unindexedItemsSize", n => { UnindexedItemsSize = n.GetLongValue(); } },
+                { "indexedItemCount", n => { IndexedItemCount = n.GetLongValue(); } },
+                { "indexedItemsSize", n => { IndexedItemsSize = n.GetLongValue(); } },
+                { "mailboxCount", n => { MailboxCount = n.GetIntValue(); } },
+                { "siteCount", n => { SiteCount = n.GetIntValue(); } },
+                { "sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
+                { "unindexedItemCount", n => { UnindexedItemCount = n.GetLongValue(); } },
+                { "unindexedItemsSize", n => { UnindexedItemsSize = n.GetLongValue(); } },
             };
         }
         /// <summary>

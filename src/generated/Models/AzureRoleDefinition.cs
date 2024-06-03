@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AzureRoleDefinition : Entity, IParsable 
+    public class AzureRoleDefinition : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Scopes at which the Azure role can be assigned. For more information about common patterns, see Understand Azure role definitions: AssignableScopes. Supports $filter (eq).</summary>
@@ -53,10 +54,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"assignableScopes", n => { AssignableScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"azureRoleDefinitionType", n => { AzureRoleDefinitionType = n.GetEnumValue<AzureRoleDefinitionType>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"externalId", n => { ExternalId = n.GetStringValue(); } },
+                { "assignableScopes", n => { AssignableScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "azureRoleDefinitionType", n => { AzureRoleDefinitionType = n.GetEnumValue<AzureRoleDefinitionType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "externalId", n => { ExternalId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceRunStates.Item {
+namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceRunStates.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.
     /// </summary>
-    public class DeviceHealthScriptDeviceStateItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceHealthScriptDeviceStateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceRunStates for deviceManagement

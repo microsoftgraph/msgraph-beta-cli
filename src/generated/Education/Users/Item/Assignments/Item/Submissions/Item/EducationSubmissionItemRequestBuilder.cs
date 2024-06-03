@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions.Item {
+namespace ApiSdk.Education.Users.Item.Assignments.Item.Submissions.Item
+{
     /// <summary>
     /// Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
     /// </summary>
-    public class EducationSubmissionItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationSubmissionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property submissions for education

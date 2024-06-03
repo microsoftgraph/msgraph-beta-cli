@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes.Item {
+namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes.Item
+{
     /// <summary>
     /// Provides operations to manage the excludes property of the microsoft.graph.permissionGrantPolicy entity.
     /// </summary>
-    public class PermissionGrantConditionSetItemRequestBuilder : BaseCliRequestBuilder 
+    public class PermissionGrantConditionSetItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property excludes for policies
+        /// Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete-excludes?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property excludes for policies";
+            command.Description = "Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete-excludes?view=graph-rest-beta";
             var permissionGrantPolicyIdOption = new Option<string>("--permission-grant-policy-id", description: "The unique identifier of permissionGrantPolicy") {
             };
             permissionGrantPolicyIdOption.IsRequired = true;
@@ -191,7 +193,7 @@ namespace ApiSdk.Policies.PermissionGrantPolicies.Item.Excludes.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property excludes for policies
+        /// Deletes a permissionGrantConditionSet from the excludes collection of a permissionGrantPolicy.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

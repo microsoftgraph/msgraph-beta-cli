@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DataSharingConsents.Item {
+namespace ApiSdk.DeviceManagement.DataSharingConsents.Item
+{
     /// <summary>
     /// Provides operations to manage the dataSharingConsents property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class DataSharingConsentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DataSharingConsentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the consentToDataSharing method.

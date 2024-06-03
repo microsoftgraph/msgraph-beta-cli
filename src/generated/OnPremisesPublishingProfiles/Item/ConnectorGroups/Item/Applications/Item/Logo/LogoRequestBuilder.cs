@@ -13,12 +13,60 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item.Logo {
+namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item.Logo
+{
     /// <summary>
     /// Provides operations to manage the media for the onPremisesPublishingProfile entity.
     /// </summary>
-    public class LogoRequestBuilder : BaseCliRequestBuilder 
+    public class LogoRequestBuilder : BaseCliRequestBuilder
     {
+        /// <summary>
+        /// The main logo for the application. Not nullable.
+        /// </summary>
+        /// <returns>A <see cref="Command"/></returns>
+        public Command BuildDeleteCommand()
+        {
+            var command = new Command("delete");
+            command.Description = "The main logo for the application. Not nullable.";
+            var onPremisesPublishingProfileIdOption = new Option<string>("--on-premises-publishing-profile-id", description: "The unique identifier of onPremisesPublishingProfile") {
+            };
+            onPremisesPublishingProfileIdOption.IsRequired = true;
+            command.AddOption(onPremisesPublishingProfileIdOption);
+            var connectorGroupIdOption = new Option<string>("--connector-group-id", description: "The unique identifier of connectorGroup") {
+            };
+            connectorGroupIdOption.IsRequired = true;
+            command.AddOption(connectorGroupIdOption);
+            var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
+            };
+            applicationIdOption.IsRequired = true;
+            command.AddOption(applicationIdOption);
+            var ifMatchOption = new Option<string[]>("--if-match", description: "ETag") {
+                Arity = ArgumentArity.ZeroOrMore
+            };
+            ifMatchOption.IsRequired = false;
+            command.AddOption(ifMatchOption);
+            command.SetHandler(async (invocationContext) => {
+                var onPremisesPublishingProfileId = invocationContext.ParseResult.GetValueForOption(onPremisesPublishingProfileIdOption);
+                var connectorGroupId = invocationContext.ParseResult.GetValueForOption(connectorGroupIdOption);
+                var applicationId = invocationContext.ParseResult.GetValueForOption(applicationIdOption);
+                var ifMatch = invocationContext.ParseResult.GetValueForOption(ifMatchOption);
+                var cancellationToken = invocationContext.GetCancellationToken();
+                var reqAdapter = invocationContext.GetRequestAdapter();
+                var requestInfo = ToDeleteRequestInformation(q => {
+                });
+                if (onPremisesPublishingProfileId is not null) requestInfo.PathParameters.Add("onPremisesPublishingProfile%2Did", onPremisesPublishingProfileId);
+                if (connectorGroupId is not null) requestInfo.PathParameters.Add("connectorGroup%2Did", connectorGroupId);
+                if (applicationId is not null) requestInfo.PathParameters.Add("application%2Did", applicationId);
+                if (ifMatch is not null) requestInfo.Headers.Add("If-Match", ifMatch);
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>> {
+                    {"4XX", ODataError.CreateFromDiscriminatorValue},
+                    {"5XX", ODataError.CreateFromDiscriminatorValue},
+                };
+                await reqAdapter.SendNoContentAsync(requestInfo, errorMapping: errorMapping, cancellationToken: cancellationToken);
+                Console.WriteLine("Success");
+            });
+            return command;
+        }
         /// <summary>
         /// The main logo for the application. Not nullable.
         /// </summary>
@@ -146,6 +194,25 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applicat
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public LogoRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/applications/{application%2Did}/logo", rawUrl)
         {
+        }
+        /// <summary>
+        /// The main logo for the application. Not nullable.
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            return requestInfo;
         }
         /// <summary>
         /// The main logo for the application. Not nullable.

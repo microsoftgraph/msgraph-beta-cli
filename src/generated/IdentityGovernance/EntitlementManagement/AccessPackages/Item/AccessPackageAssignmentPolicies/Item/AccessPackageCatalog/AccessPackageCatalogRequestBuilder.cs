@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AccessPackageAssignmentPolicies.Item.AccessPackageCatalog {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.Item.AccessPackageAssignmentPolicies.Item.AccessPackageCatalog
+{
     /// <summary>
     /// Provides operations to manage the accessPackageCatalog property of the microsoft.graph.accessPackageAssignmentPolicy entity.
     /// </summary>
-    public class AccessPackageCatalogRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageCatalogRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get accessPackageCatalog from identityGovernance

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.Synchronization.Ping {
+namespace ApiSdk.Applications.Item.Synchronization.Ping
+{
     /// <summary>
     /// Provides operations to call the Ping method.
     /// </summary>
-    public class PingRequestBuilder : BaseCliRequestBuilder 
+    public class PingRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function Ping

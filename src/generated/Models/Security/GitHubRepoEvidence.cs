@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class GitHubRepoEvidence : AlertEvidence, IParsable 
+    public class GitHubRepoEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The baseUrl property</summary>
@@ -74,11 +75,11 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"baseUrl", n => { BaseUrl = n.GetStringValue(); } },
-                {"login", n => { Login = n.GetStringValue(); } },
-                {"owner", n => { Owner = n.GetStringValue(); } },
-                {"ownerType", n => { OwnerType = n.GetStringValue(); } },
-                {"repoId", n => { RepoId = n.GetStringValue(); } },
+                { "baseUrl", n => { BaseUrl = n.GetStringValue(); } },
+                { "login", n => { Login = n.GetStringValue(); } },
+                { "owner", n => { Owner = n.GetStringValue(); } },
+                { "ownerType", n => { OwnerType = n.GetStringValue(); } },
+                { "repoId", n => { RepoId = n.GetStringValue(); } },
             };
         }
         /// <summary>

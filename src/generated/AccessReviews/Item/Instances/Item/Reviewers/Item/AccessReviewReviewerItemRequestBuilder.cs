@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Instances.Item.Reviewers.Item {
+namespace ApiSdk.AccessReviews.Item.Instances.Item.Reviewers.Item
+{
     /// <summary>
     /// Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.
     /// </summary>
-    public class AccessReviewReviewerItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessReviewReviewerItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property reviewers for accessReviews

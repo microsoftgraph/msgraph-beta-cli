@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Application {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Application
+{
     /// <summary>
     /// Provides operations to manage the application property of the microsoft.graph.workbook entity.
     /// </summary>
-    public class ApplicationRequestBuilder : BaseCliRequestBuilder 
+    public class ApplicationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the calculate method.

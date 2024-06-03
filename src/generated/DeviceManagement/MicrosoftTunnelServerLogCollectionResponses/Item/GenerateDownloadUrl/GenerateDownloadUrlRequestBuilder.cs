@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item.GenerateDownloadUrl {
+namespace ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item.GenerateDownloadUrl
+{
     /// <summary>
     /// Provides operations to call the generateDownloadUrl method.
     /// </summary>
-    public class GenerateDownloadUrlRequestBuilder : BaseCliRequestBuilder 
+    public class GenerateDownloadUrlRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action generateDownloadUrl

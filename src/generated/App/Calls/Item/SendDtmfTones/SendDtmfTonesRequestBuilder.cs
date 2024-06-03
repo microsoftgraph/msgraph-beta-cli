@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item.SendDtmfTones {
+namespace ApiSdk.App.Calls.Item.SendDtmfTones
+{
     /// <summary>
     /// Provides operations to call the sendDtmfTones method.
     /// </summary>
-    public class SendDtmfTonesRequestBuilder : BaseCliRequestBuilder 
+    public class SendDtmfTonesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action sendDtmfTones

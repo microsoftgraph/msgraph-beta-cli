@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Move {
+namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Move
+{
     #pragma warning disable CS1591
-    public class MovePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class MovePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.Messages.Item.Mov
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"DestinationId", n => { DestinationId = n.GetStringValue(); } },
+                { "DestinationId", n => { DestinationId = n.GetStringValue(); } },
             };
         }
         /// <summary>

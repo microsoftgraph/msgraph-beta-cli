@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.DeletedChats {
+namespace ApiSdk.Teamwork.DeletedChats
+{
     /// <summary>
     /// Provides operations to manage the deletedChats property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class DeletedChatsRequestBuilder : BaseCliRequestBuilder 
+    public class DeletedChatsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the deletedChats property of the microsoft.graph.teamwork entity.
@@ -100,13 +101,13 @@ namespace ApiSdk.Teamwork.DeletedChats {
             return command;
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A collection of deleted chats.";
+            command.Description = "Read the properties and relationships of a deletedChat object.";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +183,9 @@ namespace ApiSdk.Teamwork.DeletedChats {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +211,7 @@ namespace ApiSdk.Teamwork.DeletedChats {
         {
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +251,7 @@ namespace ApiSdk.Teamwork.DeletedChats {
             return requestInfo;
         }
         /// <summary>
-        /// A collection of deleted chats.
+        /// Read the properties and relationships of a deletedChat object.
         /// </summary>
         public class DeletedChatsRequestBuilderGetQueryParameters 
         {

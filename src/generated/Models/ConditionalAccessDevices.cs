@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConditionalAccessDevices : IAdditionalDataHolder, IParsable 
+    public class ConditionalAccessDevices : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -27,7 +28,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> ExcludeDevices { get; set; }
 #endif
-        /// <summary>The excludeDeviceStates property</summary>
+        /// <summary>States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? ExcludeDeviceStates { get; set; }
@@ -43,7 +44,7 @@ namespace ApiSdk.Models {
 #else
         public List<string> IncludeDevices { get; set; }
 #endif
-        /// <summary>The includeDeviceStates property</summary>
+        /// <summary>States in the scope of the policy. All is the only allowed value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<string>? IncludeDeviceStates { get; set; }
@@ -84,12 +85,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceFilter", n => { DeviceFilter = n.GetObjectValue<ConditionalAccessFilter>(ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
-                {"excludeDeviceStates", n => { ExcludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"excludeDevices", n => { ExcludeDevices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"includeDeviceStates", n => { IncludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"includeDevices", n => { IncludeDevices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "deviceFilter", n => { DeviceFilter = n.GetObjectValue<ConditionalAccessFilter>(ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
+                { "excludeDeviceStates", n => { ExcludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "excludeDevices", n => { ExcludeDevices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "includeDeviceStates", n => { IncludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "includeDevices", n => { IncludeDevices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

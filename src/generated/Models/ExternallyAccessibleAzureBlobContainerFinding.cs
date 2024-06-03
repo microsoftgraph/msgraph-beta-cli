@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ExternallyAccessibleAzureBlobContainerFinding : Finding, IParsable 
+    public class ExternallyAccessibleAzureBlobContainerFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessibility property</summary>
@@ -39,9 +40,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessibility", n => { Accessibility = n.GetEnumValue<AzureAccessType>(); } },
-                {"encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<AzureEncryption>(); } },
-                {"storageAccount", n => { StorageAccount = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessibility", n => { Accessibility = n.GetEnumValue<AzureAccessType>(); } },
+                { "encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<AzureEncryption>(); } },
+                { "storageAccount", n => { StorageAccount = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

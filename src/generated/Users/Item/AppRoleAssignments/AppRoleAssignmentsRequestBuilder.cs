@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.AppRoleAssignments {
+namespace ApiSdk.Users.Item.AppRoleAssignments
+{
     /// <summary>
     /// Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
     /// </summary>
-    public class AppRoleAssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class AppRoleAssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
@@ -53,13 +54,14 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignments for users
+        /// Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-post-approleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to appRoleAssignments for users";
+            command.Description = "Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-post-approleassignments?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -104,13 +106,14 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
             return command;
         }
         /// <summary>
-        /// Represents the app roles a user has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignments that a user has been granted. This operation also returns app role assignments granted to groups that the user is a direct member of.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/user-list-approleassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the app roles a user has been granted for an application. Supports $expand.";
+            command.Description = "Retrieve the list of appRoleAssignments that a user has been granted. This operation also returns app role assignments granted to groups that the user is a direct member of.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/user-list-approleassignments?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -199,7 +202,9 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -225,7 +230,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
         {
         }
         /// <summary>
-        /// Represents the app roles a user has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignments that a user has been granted. This operation also returns app role assignments granted to groups that the user is a direct member of.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -244,7 +249,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to appRoleAssignments for users
+        /// Use this API to assign an app role to a user. To grant an app role assignment to a user, you need three identifiers:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -265,7 +270,7 @@ namespace ApiSdk.Users.Item.AppRoleAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the app roles a user has been granted for an application. Supports $expand.
+        /// Retrieve the list of appRoleAssignments that a user has been granted. This operation also returns app role assignments granted to groups that the user is a direct member of.
         /// </summary>
         public class AppRoleAssignmentsRequestBuilderGetQueryParameters 
         {

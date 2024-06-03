@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quotient {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quotient
+{
     #pragma warning disable CS1591
-    public class QuotientPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class QuotientPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -53,8 +54,8 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Quotient {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"denominator", n => { Denominator = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"numerator", n => { Numerator = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "denominator", n => { Denominator = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "numerator", n => { Numerator = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

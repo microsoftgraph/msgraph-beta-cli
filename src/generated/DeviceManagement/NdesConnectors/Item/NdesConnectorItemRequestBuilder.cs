@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.NdesConnectors.Item {
+namespace ApiSdk.DeviceManagement.NdesConnectors.Item
+{
     /// <summary>
     /// Provides operations to manage the ndesConnectors property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class NdesConnectorItemRequestBuilder : BaseCliRequestBuilder 
+    public class NdesConnectorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property ndesConnectors for deviceManagement

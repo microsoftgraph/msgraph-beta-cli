@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList {
+namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList
+{
     #pragma warning disable CS1591
-    public class ImportDeviceIdentityListPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class ImportDeviceIdentityListPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"importedDeviceIdentities", n => { ImportedDeviceIdentities = n.GetCollectionOfObjectValues<ImportedDeviceIdentity>(ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"overwriteImportedDeviceIdentities", n => { OverwriteImportedDeviceIdentities = n.GetBoolValue(); } },
+                { "importedDeviceIdentities", n => { ImportedDeviceIdentities = n.GetCollectionOfObjectValues<ImportedDeviceIdentity>(ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "overwriteImportedDeviceIdentities", n => { OverwriteImportedDeviceIdentities = n.GetBoolValue(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class SettingsRequestBuilder : BaseCliRequestBuilder 
+    public class SettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settings for compliance
@@ -58,14 +59,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
             return command;
         }
         /// <summary>
-        /// Get settings from compliance
+        /// Read the properties and relationships of an eDiscovery caseSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-casesettings-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get settings from compliance";
+            command.Description = "Read the properties and relationships of an eDiscovery caseSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-casesettings-get?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -128,14 +130,15 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
             return command;
         }
         /// <summary>
-        /// Update the navigation property settings in compliance
+        /// Update the properties of a an eDiscovery caseSettings object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/ediscovery-casesettings-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property settings in compliance";
+            command.Description = "Update the properties of a an eDiscovery caseSettings object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/ediscovery-casesettings-update?view=graph-rest-beta";
             var caseIdOption = new Option<string>("--case-id", description: "The unique identifier of case") {
             };
             caseIdOption.IsRequired = true;
@@ -214,7 +217,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Get settings from compliance
+        /// Read the properties and relationships of an eDiscovery caseSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -234,7 +237,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property settings in compliance
+        /// Update the properties of a an eDiscovery caseSettings object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -256,7 +259,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Settings {
             return requestInfo;
         }
         /// <summary>
-        /// Get settings from compliance
+        /// Read the properties and relationships of an eDiscovery caseSettings object.
         /// </summary>
         public class SettingsRequestBuilderGetQueryParameters 
         {

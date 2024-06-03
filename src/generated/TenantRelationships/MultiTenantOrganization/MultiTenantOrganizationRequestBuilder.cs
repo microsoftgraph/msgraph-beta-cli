@@ -16,20 +16,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
+namespace ApiSdk.TenantRelationships.MultiTenantOrganization
+{
     /// <summary>
     /// Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.
     /// </summary>
-    public class MultiTenantOrganizationRequestBuilder : BaseCliRequestBuilder 
+    public class MultiTenantOrganizationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Defines an organization with more than one instance of Microsoft Entra ID.
+        /// Get properties of the multitenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Defines an organization with more than one instance of Microsoft Entra ID.";
+            command.Description = "Get properties of the multitenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-get?view=graph-rest-beta";
             var selectOption = new Option<string[]>("--select", description: "Select properties to be returned") {
                 Arity = ArgumentArity.ZeroOrMore
             };
@@ -87,13 +89,14 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
             return command;
         }
         /// <summary>
-        /// Update the navigation property multiTenantOrganization in tenantRelationships
+        /// Update the properties of a multi-tenant organization.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPutCommand()
         {
             var command = new Command("put");
-            command.Description = "Update the navigation property multiTenantOrganization in tenantRelationships";
+            command.Description = "Update the properties of a multi-tenant organization.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/multitenantorganization-update?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -173,7 +176,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
         {
         }
         /// <summary>
-        /// Defines an organization with more than one instance of Microsoft Entra ID.
+        /// Get properties of the multitenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -192,7 +195,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property multiTenantOrganization in tenantRelationships
+        /// Update the properties of a multi-tenant organization.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -213,7 +216,7 @@ namespace ApiSdk.TenantRelationships.MultiTenantOrganization {
             return requestInfo;
         }
         /// <summary>
-        /// Defines an organization with more than one instance of Microsoft Entra ID.
+        /// Get properties of the multitenant organization.
         /// </summary>
         public class MultiTenantOrganizationRequestBuilderGetQueryParameters 
         {

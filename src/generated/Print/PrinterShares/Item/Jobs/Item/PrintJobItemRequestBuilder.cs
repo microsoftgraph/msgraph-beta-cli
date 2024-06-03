@@ -22,11 +22,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item {
+namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item
+{
     /// <summary>
     /// Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
     /// </summary>
-    public class PrintJobItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrintJobItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the abort method.

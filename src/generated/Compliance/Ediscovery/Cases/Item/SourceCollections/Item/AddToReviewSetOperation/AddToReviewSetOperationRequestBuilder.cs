@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.AddToReviewSetOperation {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.Item.AddToReviewSetOperation
+{
     /// <summary>
     /// Provides operations to manage the addToReviewSetOperation property of the microsoft.graph.ediscovery.sourceCollection entity.
     /// </summary>
-    public class AddToReviewSetOperationRequestBuilder : BaseCliRequestBuilder 
+    public class AddToReviewSetOperationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Adds the results of the sourceCollection to the specified reviewSet.

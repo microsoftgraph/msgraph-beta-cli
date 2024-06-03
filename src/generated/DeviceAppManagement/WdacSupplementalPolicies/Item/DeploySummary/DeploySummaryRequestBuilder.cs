@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeploySummary {
+namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeploySummary
+{
     /// <summary>
     /// Provides operations to manage the deploySummary property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.
     /// </summary>
-    public class DeploySummaryRequestBuilder : BaseCliRequestBuilder 
+    public class DeploySummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deploySummary for deviceAppManagement

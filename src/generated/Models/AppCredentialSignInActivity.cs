@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AppCredentialSignInActivity : Entity, IParsable 
+    public class AppCredentialSignInActivity : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credential application.</summary>
@@ -85,17 +86,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appObjectId", n => { AppObjectId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"credentialOrigin", n => { CredentialOrigin = n.GetEnumValue<ApplicationKeyOrigin>(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"keyId", n => { KeyId = n.GetStringValue(); } },
-                {"keyType", n => { KeyType = n.GetEnumValue<ApplicationKeyType>(); } },
-                {"keyUsage", n => { KeyUsage = n.GetEnumValue<ApplicationKeyUsage>(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"servicePrincipalObjectId", n => { ServicePrincipalObjectId = n.GetStringValue(); } },
-                {"signInActivity", n => { SignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "appObjectId", n => { AppObjectId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "credentialOrigin", n => { CredentialOrigin = n.GetEnumValue<ApplicationKeyOrigin>(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "keyId", n => { KeyId = n.GetStringValue(); } },
+                { "keyType", n => { KeyType = n.GetEnumValue<ApplicationKeyType>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApplicationKeyUsage>(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "servicePrincipalObjectId", n => { ServicePrincipalObjectId = n.GetStringValue(); } },
+                { "signInActivity", n => { SignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

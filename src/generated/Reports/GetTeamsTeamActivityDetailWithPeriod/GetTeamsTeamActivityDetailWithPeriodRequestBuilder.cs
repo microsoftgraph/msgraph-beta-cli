@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetTeamsTeamActivityDetailWithPeriod {
+namespace ApiSdk.Reports.GetTeamsTeamActivityDetailWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getTeamsTeamActivityDetail method.
     /// </summary>
-    public class GetTeamsTeamActivityDetailWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetTeamsTeamActivityDetailWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getTeamsTeamActivityDetail

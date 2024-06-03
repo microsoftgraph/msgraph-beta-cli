@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CloudPcServicePlan : Entity, IParsable 
+    public class CloudPcServicePlan : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name for the service plan. Read-only.</summary>
@@ -49,14 +50,14 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"provisioningType", n => { ProvisioningType = n.GetEnumValue<CloudPcProvisioningType>(); } },
-                {"ramInGB", n => { RamInGB = n.GetIntValue(); } },
-                {"storageInGB", n => { StorageInGB = n.GetIntValue(); } },
-                {"supportedSolution", n => { SupportedSolution = n.GetEnumValue<CloudPcManagementService>(); } },
-                {"type", n => { Type = n.GetEnumValue<CloudPcServicePlanType>(); } },
-                {"userProfileInGB", n => { UserProfileInGB = n.GetIntValue(); } },
-                {"vCpuCount", n => { VCpuCount = n.GetIntValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "provisioningType", n => { ProvisioningType = n.GetEnumValue<CloudPcProvisioningType>(); } },
+                { "ramInGB", n => { RamInGB = n.GetIntValue(); } },
+                { "storageInGB", n => { StorageInGB = n.GetIntValue(); } },
+                { "supportedSolution", n => { SupportedSolution = n.GetEnumValue<CloudPcManagementService>(); } },
+                { "type", n => { Type = n.GetEnumValue<CloudPcServicePlanType>(); } },
+                { "userProfileInGB", n => { UserProfileInGB = n.GetIntValue(); } },
+                { "vCpuCount", n => { VCpuCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

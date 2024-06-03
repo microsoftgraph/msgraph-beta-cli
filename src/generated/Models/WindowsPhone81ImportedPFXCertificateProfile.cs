@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Windows 8.1 Phone and Mobile PFX Import certificate profile
     /// </summary>
-    public class WindowsPhone81ImportedPFXCertificateProfile : WindowsCertificateProfileBase, IParsable 
+    public class WindowsPhone81ImportedPFXCertificateProfile : WindowsCertificateProfileBase, IParsable
     {
         /// <summary>PFX Import Options.</summary>
         public ApiSdk.Models.IntendedPurpose? IntendedPurpose { get; set; }
@@ -45,8 +46,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<IntendedPurpose>(); } },
-                {"managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<IntendedPurpose>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

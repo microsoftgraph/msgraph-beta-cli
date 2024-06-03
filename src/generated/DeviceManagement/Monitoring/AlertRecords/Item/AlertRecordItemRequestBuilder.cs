@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
+namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item
+{
     /// <summary>
     /// Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.
     /// </summary>
-    public class AlertRecordItemRequestBuilder : BaseCliRequestBuilder 
+    public class AlertRecordItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property alertRecords for deviceManagement
@@ -57,13 +58,14 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
             return command;
         }
         /// <summary>
-        /// The collection of records of alert events.
+        /// Read the properties and relationships of an alertRecord object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/devicemanagement-alertrecord-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of records of alert events.";
+            command.Description = "Read the properties and relationships of an alertRecord object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/devicemanagement-alertrecord-get?view=graph-rest-beta";
             var alertRecordIdOption = new Option<string>("--alert-record-id", description: "The unique identifier of alertRecord") {
             };
             alertRecordIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of records of alert events.
+        /// Read the properties and relationships of an alertRecord object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of records of alert events.
+        /// Read the properties and relationships of an alertRecord object.
         /// </summary>
         public class AlertRecordItemRequestBuilderGetQueryParameters 
         {

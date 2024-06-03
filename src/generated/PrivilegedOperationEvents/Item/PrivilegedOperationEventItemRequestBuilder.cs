@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.PrivilegedOperationEvents.Item {
+namespace ApiSdk.PrivilegedOperationEvents.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of privilegedOperationEvent entities.
     /// </summary>
-    public class PrivilegedOperationEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class PrivilegedOperationEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from privilegedOperationEvents

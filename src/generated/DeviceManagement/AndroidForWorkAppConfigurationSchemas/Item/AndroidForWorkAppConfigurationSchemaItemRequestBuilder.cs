@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AndroidForWorkAppConfigurationSchemas.Item {
+namespace ApiSdk.DeviceManagement.AndroidForWorkAppConfigurationSchemas.Item
+{
     /// <summary>
     /// Provides operations to manage the androidForWorkAppConfigurationSchemas property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AndroidForWorkAppConfigurationSchemaItemRequestBuilder : BaseCliRequestBuilder 
+    public class AndroidForWorkAppConfigurationSchemaItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property androidForWorkAppConfigurationSchemas for deviceManagement

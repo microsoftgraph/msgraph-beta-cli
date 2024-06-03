@@ -4,16 +4,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class BgpConfiguration : IAdditionalDataHolder, IParsable 
+    public class BgpConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies the ASN of the BGP.</summary>
         public int? Asn { get; set; }
-        /// <summary>The ipAddress property</summary>
+        /// <summary>Specifies the BGP IP address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IpAddress { get; set; }
@@ -70,11 +71,11 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"asn", n => { Asn = n.GetIntValue(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"localIpAddress", n => { LocalIpAddress = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"peerIpAddress", n => { PeerIpAddress = n.GetStringValue(); } },
+                { "asn", n => { Asn = n.GetIntValue(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "localIpAddress", n => { LocalIpAddress = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "peerIpAddress", n => { PeerIpAddress = n.GetStringValue(); } },
             };
         }
         /// <summary>

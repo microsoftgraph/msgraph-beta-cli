@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions
+{
     /// <summary>
     /// Builds and executes requests for operations under \identity\authenticationEventsFlows\{authenticationEventsFlow-id}\conditions
     /// </summary>
-    public class ConditionsRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The applications property
@@ -39,13 +40,13 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions {
             return command;
         }
         /// <summary>
-        /// The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.
+        /// The conditions representing the context of the authentication request that&apos;s used to decide whether the events policy is invoked.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.";
+            command.Description = "The conditions representing the context of the authentication request that's used to decide whether the events policy is invoked.";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -105,7 +106,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions {
         {
         }
         /// <summary>
-        /// The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.
+        /// The conditions representing the context of the authentication request that&apos;s used to decide whether the events policy is invoked.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -124,7 +125,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item.Conditions {
             return requestInfo;
         }
         /// <summary>
-        /// The conditions representing the context of the authentication request that will be used to decide whether the events policy will be invoked.
+        /// The conditions representing the context of the authentication request that&apos;s used to decide whether the events policy is invoked.
         /// </summary>
         public class ConditionsRequestBuilderGetQueryParameters 
         {

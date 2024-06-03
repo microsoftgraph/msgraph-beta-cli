@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.Runs.Item.Activities.Item {
+namespace ApiSdk.External.IndustryData.Runs.Item.Activities.Item
+{
     /// <summary>
     /// Provides operations to manage the activities property of the microsoft.graph.industryData.industryDataRun entity.
     /// </summary>
-    public class IndustryDataRunActivityItemRequestBuilder : BaseCliRequestBuilder 
+    public class IndustryDataRunActivityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activity property of the microsoft.graph.industryData.industryDataRunActivity entity.

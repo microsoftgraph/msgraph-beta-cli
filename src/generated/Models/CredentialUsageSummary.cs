@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CredentialUsageSummary : Entity, IParsable 
+    public class CredentialUsageSummary : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authMethod property</summary>
@@ -35,10 +36,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
-                {"failureActivityCount", n => { FailureActivityCount = n.GetLongValue(); } },
-                {"feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
-                {"successfulActivityCount", n => { SuccessfulActivityCount = n.GetLongValue(); } },
+                { "authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
+                { "failureActivityCount", n => { FailureActivityCount = n.GetLongValue(); } },
+                { "feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
+                { "successfulActivityCount", n => { SuccessfulActivityCount = n.GetLongValue(); } },
             };
         }
         /// <summary>

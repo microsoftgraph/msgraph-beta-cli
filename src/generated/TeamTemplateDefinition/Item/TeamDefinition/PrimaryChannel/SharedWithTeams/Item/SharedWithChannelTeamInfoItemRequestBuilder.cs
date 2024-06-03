@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.SharedWithTeams.Item {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.SharedWithTeams.Item
+{
     /// <summary>
     /// Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
     /// </summary>
-    public class SharedWithChannelTeamInfoItemRequestBuilder : BaseCliRequestBuilder 
+    public class SharedWithChannelTeamInfoItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.

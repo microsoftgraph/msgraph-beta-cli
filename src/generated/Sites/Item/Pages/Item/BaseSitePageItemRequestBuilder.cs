@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.Pages.Item {
+namespace ApiSdk.Sites.Item.Pages.Item
+{
     /// <summary>
     /// Provides operations to manage the pages property of the microsoft.graph.site entity.
     /// </summary>
-    public class BaseSitePageItemRequestBuilder : BaseCliRequestBuilder 
+    public class BaseSitePageItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.
@@ -89,13 +90,14 @@ namespace ApiSdk.Sites.Item.Pages.Item {
             return command;
         }
         /// <summary>
-        /// The collection of pages in the baseSitePages list on this site.
+        /// Get the metadata for a baseSitePage in the site pages list in a site.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/basesitepage-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of pages in the baseSitePages list on this site.";
+            command.Description = "Get the metadata for a baseSitePage in the site pages list in a site.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/basesitepage-get?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -287,7 +289,7 @@ namespace ApiSdk.Sites.Item.Pages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of pages in the baseSitePages list on this site.
+        /// Get the metadata for a baseSitePage in the site pages list in a site.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -327,7 +329,7 @@ namespace ApiSdk.Sites.Item.Pages.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of pages in the baseSitePages list on this site.
+        /// Get the metadata for a baseSitePage in the site pages list in a site.
         /// </summary>
         public class BaseSitePageItemRequestBuilderGetQueryParameters 
         {

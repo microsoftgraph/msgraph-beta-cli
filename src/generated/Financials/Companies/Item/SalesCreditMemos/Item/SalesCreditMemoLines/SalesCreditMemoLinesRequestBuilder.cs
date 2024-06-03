@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemoLines {
+namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemoLines
+{
     /// <summary>
     /// Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
     /// </summary>
-    public class SalesCreditMemoLinesRequestBuilder : BaseCliRequestBuilder 
+    public class SalesCreditMemoLinesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.salesCreditMemo entity.
@@ -62,11 +63,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemo
         {
             var command = new Command("list");
             command.Description = "Get salesCreditMemoLines from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);
@@ -149,7 +150,9 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemo
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

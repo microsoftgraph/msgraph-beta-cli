@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN Traffic Rule definition.
     /// </summary>
-    public class VpnTrafficRule : IAdditionalDataHolder, IParsable 
+    public class VpnTrafficRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -109,18 +110,18 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"appId", n => { AppId = n.GetStringValue(); } },
-                {"appType", n => { AppType = n.GetEnumValue<VpnTrafficRuleAppType>(); } },
-                {"claims", n => { Claims = n.GetStringValue(); } },
-                {"localAddressRanges", n => { LocalAddressRanges = n.GetCollectionOfObjectValues<IPv4Range>(IPv4Range.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"localPortRanges", n => { LocalPortRanges = n.GetCollectionOfObjectValues<NumberRange>(NumberRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"protocols", n => { Protocols = n.GetIntValue(); } },
-                {"remoteAddressRanges", n => { RemoteAddressRanges = n.GetCollectionOfObjectValues<IPv4Range>(IPv4Range.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"remotePortRanges", n => { RemotePortRanges = n.GetCollectionOfObjectValues<NumberRange>(NumberRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"routingPolicyType", n => { RoutingPolicyType = n.GetEnumValue<VpnTrafficRuleRoutingPolicyType>(); } },
-                {"vpnTrafficDirection", n => { VpnTrafficDirection = n.GetEnumValue<VpnTrafficDirection>(); } },
+                { "appId", n => { AppId = n.GetStringValue(); } },
+                { "appType", n => { AppType = n.GetEnumValue<VpnTrafficRuleAppType>(); } },
+                { "claims", n => { Claims = n.GetStringValue(); } },
+                { "localAddressRanges", n => { LocalAddressRanges = n.GetCollectionOfObjectValues<IPv4Range>(IPv4Range.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "localPortRanges", n => { LocalPortRanges = n.GetCollectionOfObjectValues<NumberRange>(NumberRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "protocols", n => { Protocols = n.GetIntValue(); } },
+                { "remoteAddressRanges", n => { RemoteAddressRanges = n.GetCollectionOfObjectValues<IPv4Range>(IPv4Range.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remotePortRanges", n => { RemotePortRanges = n.GetCollectionOfObjectValues<NumberRange>(NumberRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "routingPolicyType", n => { RoutingPolicyType = n.GetEnumValue<VpnTrafficRuleRoutingPolicyType>(); } },
+                { "vpnTrafficDirection", n => { VpnTrafficDirection = n.GetEnumValue<VpnTrafficDirection>(); } },
             };
         }
         /// <summary>

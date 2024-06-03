@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSources.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSources.Item
+{
     /// <summary>
     /// Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.custodian entity.
     /// </summary>
-    public class UnifiedGroupSourceItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedGroupSourceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property unifiedGroupSources for compliance

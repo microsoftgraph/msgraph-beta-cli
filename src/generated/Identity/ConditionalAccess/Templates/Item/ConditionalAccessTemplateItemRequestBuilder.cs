@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.ConditionalAccess.Templates.Item {
+namespace ApiSdk.Identity.ConditionalAccess.Templates.Item
+{
     /// <summary>
     /// Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
     /// </summary>
-    public class ConditionalAccessTemplateItemRequestBuilder : BaseCliRequestBuilder 
+    public class ConditionalAccessTemplateItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Read the properties and relationships of a conditionalAccessTemplate object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read-only. Nullable. Returns a collection of the specified Conditional Access templates.";
+            command.Description = "Read the properties and relationships of a conditionalAccessTemplate object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-beta";
             var conditionalAccessTemplateIdOption = new Option<string>("--conditional-access-template-id", description: "The unique identifier of conditionalAccessTemplate") {
             };
             conditionalAccessTemplateIdOption.IsRequired = true;
@@ -87,7 +89,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates.Item {
         {
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Read the properties and relationships of a conditionalAccessTemplate object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -106,7 +108,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Templates.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Read-only. Nullable. Returns a collection of the specified Conditional Access templates.
+        /// Read the properties and relationships of a conditionalAccessTemplate object.
         /// </summary>
         public class ConditionalAccessTemplateItemRequestBuilderGetQueryParameters 
         {

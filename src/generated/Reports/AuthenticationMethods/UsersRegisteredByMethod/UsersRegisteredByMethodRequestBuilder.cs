@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByMethod {
+namespace ApiSdk.Reports.AuthenticationMethods.UsersRegisteredByMethod
+{
     /// <summary>
     /// Provides operations to call the usersRegisteredByMethod method.
     /// </summary>
-    public class UsersRegisteredByMethodRequestBuilder : BaseCliRequestBuilder 
+    public class UsersRegisteredByMethodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the number of users registered for each authentication method.

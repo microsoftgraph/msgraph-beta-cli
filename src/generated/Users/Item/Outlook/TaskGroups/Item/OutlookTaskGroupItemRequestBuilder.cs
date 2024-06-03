@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item {
+namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item
+{
     /// <summary>
     /// Provides operations to manage the taskGroups property of the microsoft.graph.outlookUser entity.
     /// </summary>
-    public class OutlookTaskGroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class OutlookTaskGroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property taskGroups for users
@@ -64,14 +65,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item {
             return command;
         }
         /// <summary>
-        /// Get taskGroups from users
+        /// The user&apos;s Outlook task groups. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         [Obsolete("The Outlook tasks API is deprecated and will stop returning data on February 20, 2023. Please use the new To Do API. For more details, please visit https://developer.microsoft.com/en-us/office/blogs/announcing-the-general-availability-of-microsoft-to-do-apis-on-graph/ as of 2020-08/Outlook_Tasks")]
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get taskGroups from users";
+            command.Description = "The user's Outlook task groups. Read-only. Nullable.";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -235,7 +236,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get taskGroups from users
+        /// The user&apos;s Outlook task groups. Read-only. Nullable.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -277,7 +278,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get taskGroups from users
+        /// The user&apos;s Outlook task groups. Read-only. Nullable.
         /// </summary>
         public class OutlookTaskGroupItemRequestBuilderGetQueryParameters 
         {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Item : IAdditionalDataHolder, IParsable 
+    public class Item : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -128,25 +129,25 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"baseUnitOfMeasureId", n => { BaseUnitOfMeasureId = n.GetGuidValue(); } },
-                {"blocked", n => { Blocked = n.GetBoolValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"gtin", n => { Gtin = n.GetStringValue(); } },
-                {"id", n => { Id = n.GetGuidValue(); } },
-                {"inventory", n => { Inventory = n.GetDecimalValue(); } },
-                {"itemCategory", n => { ItemCategory = n.GetObjectValue<ApiSdk.Models.ItemCategory>(ApiSdk.Models.ItemCategory.CreateFromDiscriminatorValue); } },
-                {"itemCategoryCode", n => { ItemCategoryCode = n.GetStringValue(); } },
-                {"itemCategoryId", n => { ItemCategoryId = n.GetGuidValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"number", n => { Number = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"priceIncludesTax", n => { PriceIncludesTax = n.GetBoolValue(); } },
-                {"taxGroupCode", n => { TaxGroupCode = n.GetStringValue(); } },
-                {"taxGroupId", n => { TaxGroupId = n.GetGuidValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"unitCost", n => { UnitCost = n.GetDecimalValue(); } },
-                {"unitPrice", n => { UnitPrice = n.GetDecimalValue(); } },
+                { "baseUnitOfMeasureId", n => { BaseUnitOfMeasureId = n.GetGuidValue(); } },
+                { "blocked", n => { Blocked = n.GetBoolValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "gtin", n => { Gtin = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetGuidValue(); } },
+                { "inventory", n => { Inventory = n.GetDecimalValue(); } },
+                { "itemCategory", n => { ItemCategory = n.GetObjectValue<ApiSdk.Models.ItemCategory>(ApiSdk.Models.ItemCategory.CreateFromDiscriminatorValue); } },
+                { "itemCategoryCode", n => { ItemCategoryCode = n.GetStringValue(); } },
+                { "itemCategoryId", n => { ItemCategoryId = n.GetGuidValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "number", n => { Number = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "picture", n => { Picture = n.GetCollectionOfObjectValues<ApiSdk.Models.Picture>(ApiSdk.Models.Picture.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "priceIncludesTax", n => { PriceIncludesTax = n.GetBoolValue(); } },
+                { "taxGroupCode", n => { TaxGroupCode = n.GetStringValue(); } },
+                { "taxGroupId", n => { TaxGroupId = n.GetGuidValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "unitCost", n => { UnitCost = n.GetDecimalValue(); } },
+                { "unitPrice", n => { UnitPrice = n.GetDecimalValue(); } },
             };
         }
         /// <summary>

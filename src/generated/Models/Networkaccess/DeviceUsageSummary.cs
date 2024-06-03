@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class DeviceUsageSummary : IAdditionalDataHolder, IParsable 
+    public class DeviceUsageSummary : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of distinct device IDs between the discovery pivot time and the end of the reporting period.</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"activeDeviceCount", n => { ActiveDeviceCount = n.GetIntValue(); } },
-                {"inactiveDeviceCount", n => { InactiveDeviceCount = n.GetIntValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"totalDeviceCount", n => { TotalDeviceCount = n.GetIntValue(); } },
+                { "activeDeviceCount", n => { ActiveDeviceCount = n.GetIntValue(); } },
+                { "inactiveDeviceCount", n => { InactiveDeviceCount = n.GetIntValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "totalDeviceCount", n => { TotalDeviceCount = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Search {
+namespace ApiSdk.Models.Search
+{
     #pragma warning disable CS1591
-    public class Acronym : SearchAnswer, IParsable 
+    public class Acronym : SearchAnswer, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>What the acronym stands for.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models.Search {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"standsFor", n => { StandsFor = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<AnswerState>(); } },
+                { "standsFor", n => { StandsFor = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<AnswerState>(); } },
             };
         }
         /// <summary>

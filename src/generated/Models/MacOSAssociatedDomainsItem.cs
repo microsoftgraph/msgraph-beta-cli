@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A mapping of application identifiers to associated domains.
     /// </summary>
-    public class MacOSAssociatedDomainsItem : IAdditionalDataHolder, IParsable 
+    public class MacOSAssociatedDomainsItem : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -63,10 +64,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"applicationIdentifier", n => { ApplicationIdentifier = n.GetStringValue(); } },
-                {"directDownloadsEnabled", n => { DirectDownloadsEnabled = n.GetBoolValue(); } },
-                {"domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "applicationIdentifier", n => { ApplicationIdentifier = n.GetStringValue(); } },
+                { "directDownloadsEnabled", n => { DirectDownloadsEnabled = n.GetBoolValue(); } },
+                { "domains", n => { Domains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

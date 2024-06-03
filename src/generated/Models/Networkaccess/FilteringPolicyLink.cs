@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class FilteringPolicyLink : PolicyLink, IParsable 
+    public class FilteringPolicyLink : PolicyLink, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the filtering Policy link was created.</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models.Networkaccess {
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The loggingState property</summary>
         public Status? LoggingState { get; set; }
-        /// <summary>The priority property</summary>
+        /// <summary>Provides an integer priority level for each instance of a URL filtering policy linked to a profile. Required.</summary>
         public long? Priority { get; set; }
         /// <summary>
         /// Instantiates a new <see cref="FilteringPolicyLink"/> and sets the default values.
@@ -42,10 +43,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"loggingState", n => { LoggingState = n.GetEnumValue<Status>(); } },
-                {"priority", n => { Priority = n.GetLongValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "loggingState", n => { LoggingState = n.GetEnumValue<Status>(); } },
+                { "priority", n => { Priority = n.GetLongValue(); } },
             };
         }
         /// <summary>

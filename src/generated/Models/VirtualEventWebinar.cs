@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class VirtualEventWebinar : VirtualEvent, IParsable 
+    public class VirtualEventWebinar : VirtualEvent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>To whom the webinar is visible.</summary>
@@ -19,7 +20,7 @@ namespace ApiSdk.Models {
 #else
         public List<CommunicationsUserIdentity> CoOrganizers { get; set; }
 #endif
-        /// <summary>The registrationConfiguration property</summary>
+        /// <summary>Registration configuration of the webinar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public VirtualEventWebinarRegistrationConfiguration? RegistrationConfiguration { get; set; }
@@ -60,10 +61,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
-                {"coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"registrationConfiguration", n => { RegistrationConfiguration = n.GetObjectValue<VirtualEventWebinarRegistrationConfiguration>(VirtualEventWebinarRegistrationConfiguration.CreateFromDiscriminatorValue); } },
-                {"registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
+                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registrationConfiguration", n => { RegistrationConfiguration = n.GetObjectValue<VirtualEventWebinarRegistrationConfiguration>(VirtualEventWebinarRegistrationConfiguration.CreateFromDiscriminatorValue); } },
+                { "registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

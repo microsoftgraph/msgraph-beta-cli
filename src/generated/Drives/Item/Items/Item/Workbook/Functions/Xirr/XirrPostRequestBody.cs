@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Xirr {
+namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Xirr
+{
     #pragma warning disable CS1591
-    public class XirrPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class XirrPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -61,9 +62,9 @@ namespace ApiSdk.Drives.Item.Items.Item.Workbook.Functions.Xirr {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"dates", n => { Dates = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"guess", n => { Guess = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "dates", n => { Dates = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "guess", n => { Guess = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "values", n => { Values = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

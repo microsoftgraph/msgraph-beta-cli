@@ -35,11 +35,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item {
+namespace ApiSdk.Sites.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of site entities.
     /// </summary>
-    public class SiteItemRequestBuilder : BaseCliRequestBuilder 
+    public class SiteItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the analytics property of the microsoft.graph.site entity.

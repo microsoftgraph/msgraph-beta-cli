@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ProfilePhoto : Entity, IParsable 
+    public class ProfilePhoto : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The height of the photo. Read-only.</summary>
@@ -31,8 +32,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"height", n => { Height = n.GetIntValue(); } },
-                {"width", n => { Width = n.GetIntValue(); } },
+                { "height", n => { Height = n.GetIntValue(); } },
+                { "width", n => { Width = n.GetIntValue(); } },
             };
         }
         /// <summary>

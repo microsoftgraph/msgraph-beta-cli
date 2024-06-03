@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.Findings.Item {
+namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.Findings.Item
+{
     /// <summary>
     /// Provides operations to manage the findings property of the microsoft.graph.permissionsAnalytics entity.
     /// </summary>
-    public class FindingItemRequestBuilder : BaseCliRequestBuilder 
+    public class FindingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property findings for identityGovernance

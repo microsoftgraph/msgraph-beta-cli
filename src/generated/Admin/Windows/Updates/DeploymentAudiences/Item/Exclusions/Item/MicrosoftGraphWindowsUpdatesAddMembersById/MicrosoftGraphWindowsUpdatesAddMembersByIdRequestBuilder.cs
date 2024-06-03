@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById
+{
     /// <summary>
     /// Provides operations to call the addMembersById method.
     /// </summary>
-    public class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Add members of the same type to an updatableAssetGroup. You can also use the method addMembers to add members.

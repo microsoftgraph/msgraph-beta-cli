@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
+namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies
+{
     /// <summary>
     /// Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class HomeRealmDiscoveryPoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class HomeRealmDiscoveryPoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to homeRealmDiscoveryPolicies for policies
+        /// Create a new homeRealmDiscoveryPolicy object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to homeRealmDiscoveryPolicies for policies";
+            command.Description = "Create a new homeRealmDiscoveryPolicy object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
             return command;
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Get a list of homeRealmDiscoveryPolicy objects.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The policy to control Microsoft Entra authentication behavior for federated users.";
+            command.Description = "Get a list of homeRealmDiscoveryPolicy objects.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
         {
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Get a list of homeRealmDiscoveryPolicy objects.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to homeRealmDiscoveryPolicies for policies
+        /// Create a new homeRealmDiscoveryPolicy object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.Policies.HomeRealmDiscoveryPolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The policy to control Microsoft Entra authentication behavior for federated users.
+        /// Get a list of homeRealmDiscoveryPolicy objects.
         /// </summary>
         public class HomeRealmDiscoveryPoliciesRequestBuilderGetQueryParameters 
         {

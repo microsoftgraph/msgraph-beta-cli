@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.AuthenticationMethods.UserRegistrationDetails.Item {
+namespace ApiSdk.Reports.AuthenticationMethods.UserRegistrationDetails.Item
+{
     /// <summary>
     /// Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
     /// </summary>
-    public class UserRegistrationDetailsItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserRegistrationDetailsItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userRegistrationDetails for reports
@@ -56,13 +57,14 @@ namespace ApiSdk.Reports.AuthenticationMethods.UserRegistrationDetails.Item {
             return command;
         }
         /// <summary>
-        /// Represents the state of a user&apos;s authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
+        /// Read the properties and relationships of a userRegistrationDetails object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userregistrationdetails-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the state of a user's authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).";
+            command.Description = "Read the properties and relationships of a userRegistrationDetails object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userregistrationdetails-get?view=graph-rest-beta";
             var userRegistrationDetailsIdOption = new Option<string>("--user-registration-details-id", description: "The unique identifier of userRegistrationDetails") {
             };
             userRegistrationDetailsIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Reports.AuthenticationMethods.UserRegistrationDetails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the state of a user&apos;s authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
+        /// Read the properties and relationships of a userRegistrationDetails object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Reports.AuthenticationMethods.UserRegistrationDetails.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the state of a user&apos;s authentication methods, including which methods are registered and which features the user is registered and capable of (such as multifactor authentication, self-service password reset, and passwordless authentication).
+        /// Read the properties and relationships of a userRegistrationDetails object.
         /// </summary>
         public class UserRegistrationDetailsItemRequestBuilderGetQueryParameters 
         {

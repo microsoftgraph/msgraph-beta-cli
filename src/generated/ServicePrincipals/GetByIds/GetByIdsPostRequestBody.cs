@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.ServicePrincipals.GetByIds {
+namespace ApiSdk.ServicePrincipals.GetByIds
+{
     #pragma warning disable CS1591
-    public class GetByIdsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class GetByIdsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.ServicePrincipals.GetByIds {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"types", n => { Types = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "types", n => { Types = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class HybridAgentUpdaterConfiguration : IAdditionalDataHolder, IParsable 
+    public class HybridAgentUpdaterConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -23,7 +24,7 @@ namespace ApiSdk.Models {
 #else
         public string OdataType { get; set; }
 #endif
-        /// <summary>The updateWindow property</summary>
+        /// <summary>The time window during which the agent can receive updates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.UpdateWindow? UpdateWindow { get; set; }
@@ -56,10 +57,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"allowUpdateConfigurationOverride", n => { AllowUpdateConfigurationOverride = n.GetBoolValue(); } },
-                {"deferUpdateDateTime", n => { DeferUpdateDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"updateWindow", n => { UpdateWindow = n.GetObjectValue<ApiSdk.Models.UpdateWindow>(ApiSdk.Models.UpdateWindow.CreateFromDiscriminatorValue); } },
+                { "allowUpdateConfigurationOverride", n => { AllowUpdateConfigurationOverride = n.GetBoolValue(); } },
+                { "deferUpdateDateTime", n => { DeferUpdateDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "updateWindow", n => { UpdateWindow = n.GetObjectValue<ApiSdk.Models.UpdateWindow>(ApiSdk.Models.UpdateWindow.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

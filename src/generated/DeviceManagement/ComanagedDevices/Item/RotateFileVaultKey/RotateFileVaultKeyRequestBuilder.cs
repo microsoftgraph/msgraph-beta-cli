@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RotateFileVaultKey {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.RotateFileVaultKey
+{
     /// <summary>
     /// Provides operations to call the rotateFileVaultKey method.
     /// </summary>
-    public class RotateFileVaultKeyRequestBuilder : BaseCliRequestBuilder 
+    public class RotateFileVaultKeyRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action rotateFileVaultKey

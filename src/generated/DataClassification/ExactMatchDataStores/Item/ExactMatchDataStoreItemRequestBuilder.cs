@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DataClassification.ExactMatchDataStores.Item {
+namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
+{
     /// <summary>
     /// Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.
     /// </summary>
-    public class ExactMatchDataStoreItemRequestBuilder : BaseCliRequestBuilder 
+    public class ExactMatchDataStoreItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property exactMatchDataStores for dataClassification

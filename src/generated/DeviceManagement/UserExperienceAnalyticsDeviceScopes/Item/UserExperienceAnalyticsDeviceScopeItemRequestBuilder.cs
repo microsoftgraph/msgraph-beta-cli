@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsDeviceScopes.Item
+{
     /// <summary>
     /// Provides operations to manage the userExperienceAnalyticsDeviceScopes property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceScopeItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsDeviceScopeItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property userExperienceAnalyticsDeviceScopes for deviceManagement

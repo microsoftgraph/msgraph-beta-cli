@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The OperationApprovalPolicy entity allows an administrator to configure which operations require admin approval and the set of admins who can perform that approval. Creating a policy enables the multiple admin approval service to catch requests which are targeted by the specific policy type defined.
     /// </summary>
-    public class OperationApprovalPolicy : Entity, IParsable 
+    public class OperationApprovalPolicy : Entity, IParsable
     {
         /// <summary>The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the user to define the possible approvers for the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +47,7 @@ namespace ApiSdk.Models {
 #else
         public OperationApprovalPolicySet PolicySet { get; set; }
 #endif
-        /// <summary>The set of available policy types that can be configured for approval. There is no default value for this enum, indicating that the policy type must always be chosen.</summary>
+        /// <summary>The set of available policy types that can be configured for approval. The policy type must always be defined in an OperationApprovalRequest.</summary>
         public OperationApprovalPolicyType? PolicyType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -66,13 +67,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"approverGroupIds", n => { ApproverGroupIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"policyPlatform", n => { PolicyPlatform = n.GetEnumValue<OperationApprovalPolicyPlatform>(); } },
-                {"policySet", n => { PolicySet = n.GetObjectValue<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue); } },
-                {"policyType", n => { PolicyType = n.GetEnumValue<OperationApprovalPolicyType>(); } },
+                { "approverGroupIds", n => { ApproverGroupIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "policyPlatform", n => { PolicyPlatform = n.GetEnumValue<OperationApprovalPolicyPlatform>(); } },
+                { "policySet", n => { PolicySet = n.GetObjectValue<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<OperationApprovalPolicyType>(); } },
             };
         }
         /// <summary>

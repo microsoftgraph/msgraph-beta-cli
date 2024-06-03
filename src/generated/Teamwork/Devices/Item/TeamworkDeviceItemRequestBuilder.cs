@@ -21,11 +21,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Teamwork.Devices.Item {
+namespace ApiSdk.Teamwork.Devices.Item
+{
     /// <summary>
     /// Provides operations to manage the devices property of the microsoft.graph.teamwork entity.
     /// </summary>
-    public class TeamworkDeviceItemRequestBuilder : BaseCliRequestBuilder 
+    public class TeamworkDeviceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activity property of the microsoft.graph.teamworkDevice entity.
@@ -101,13 +102,14 @@ namespace ApiSdk.Teamwork.Devices.Item {
             return command;
         }
         /// <summary>
-        /// The Teams devices provisioned for the tenant.
+        /// Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that&apos;s enabled for Teams.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/teamworkdevice-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The Teams devices provisioned for the tenant.";
+            command.Description = "Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that's enabled for Teams.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/teamworkdevice-get?view=graph-rest-beta";
             var teamworkDeviceIdOption = new Option<string>("--teamwork-device-id", description: "The unique identifier of teamworkDevice") {
             };
             teamworkDeviceIdOption.IsRequired = true;
@@ -334,7 +336,7 @@ namespace ApiSdk.Teamwork.Devices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The Teams devices provisioned for the tenant.
+        /// Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that&apos;s enabled for Teams.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -374,7 +376,7 @@ namespace ApiSdk.Teamwork.Devices.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The Teams devices provisioned for the tenant.
+        /// Get the properties of a Microsoft Teams-enabled device. For example, you can use this method to get the device type, hardware detail, activity state, and health status information for a device that&apos;s enabled for Teams.
         /// </summary>
         public class TeamworkDeviceItemRequestBuilderGetQueryParameters 
         {

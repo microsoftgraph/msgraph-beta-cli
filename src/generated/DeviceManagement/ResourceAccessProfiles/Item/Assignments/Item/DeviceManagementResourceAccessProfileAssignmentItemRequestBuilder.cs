@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.deviceManagementResourceAccessProfileBase entity.
     /// </summary>
-    public class DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementResourceAccessProfileAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

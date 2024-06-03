@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ConditionalAccessWhatIfConditions : IAdditionalDataHolder, IParsable 
+    public class ConditionalAccessWhatIfConditions : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -88,17 +89,17 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"authenticationFlow", n => { AuthenticationFlow = n.GetObjectValue<ApiSdk.Models.AuthenticationFlow>(ApiSdk.Models.AuthenticationFlow.CreateFromDiscriminatorValue); } },
-                {"clientAppType", n => { ClientAppType = n.GetEnumValue<ConditionalAccessClientApp>(); } },
-                {"country", n => { Country = n.GetStringValue(); } },
-                {"deviceInfo", n => { DeviceInfo = n.GetObjectValue<ApiSdk.Models.DeviceInfo>(ApiSdk.Models.DeviceInfo.CreateFromDiscriminatorValue); } },
-                {"devicePlatform", n => { DevicePlatform = n.GetEnumValue<ConditionalAccessDevicePlatform>(); } },
-                {"insiderRiskLevel", n => { InsiderRiskLevel = n.GetEnumValue<InsiderRiskLevel>(); } },
-                {"ipAddress", n => { IpAddress = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"servicePrincipalRiskLevel", n => { ServicePrincipalRiskLevel = n.GetEnumValue<RiskLevel>(); } },
-                {"signInRiskLevel", n => { SignInRiskLevel = n.GetEnumValue<RiskLevel>(); } },
-                {"userRiskLevel", n => { UserRiskLevel = n.GetEnumValue<RiskLevel>(); } },
+                { "authenticationFlow", n => { AuthenticationFlow = n.GetObjectValue<ApiSdk.Models.AuthenticationFlow>(ApiSdk.Models.AuthenticationFlow.CreateFromDiscriminatorValue); } },
+                { "clientAppType", n => { ClientAppType = n.GetEnumValue<ConditionalAccessClientApp>(); } },
+                { "country", n => { Country = n.GetStringValue(); } },
+                { "deviceInfo", n => { DeviceInfo = n.GetObjectValue<ApiSdk.Models.DeviceInfo>(ApiSdk.Models.DeviceInfo.CreateFromDiscriminatorValue); } },
+                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<ConditionalAccessDevicePlatform>(); } },
+                { "insiderRiskLevel", n => { InsiderRiskLevel = n.GetEnumValue<InsiderRiskLevel>(); } },
+                { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "servicePrincipalRiskLevel", n => { ServicePrincipalRiskLevel = n.GetEnumValue<RiskLevel>(); } },
+                { "signInRiskLevel", n => { SignInRiskLevel = n.GetEnumValue<RiskLevel>(); } },
+                { "userRiskLevel", n => { UserRiskLevel = n.GetEnumValue<RiskLevel>(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.DeviceCustomAttributeShellScripts.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.DeviceCustomAttributeShellScripts.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.deviceCustomAttributeShellScript entity.
     /// </summary>
-    public class DeviceManagementScriptAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementScriptAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

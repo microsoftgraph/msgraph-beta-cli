@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.Monitoring {
+namespace ApiSdk.DeviceManagement.Monitoring
+{
     /// <summary>
     /// Provides operations to manage the monitoring property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class MonitoringRequestBuilder : BaseCliRequestBuilder 
+    public class MonitoringRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.

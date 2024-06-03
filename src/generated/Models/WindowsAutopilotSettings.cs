@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
     /// </summary>
-    public class WindowsAutopilotSettings : Entity, IParsable 
+    public class WindowsAutopilotSettings : Entity, IParsable
     {
         /// <summary>Last data sync date time with DDS service.</summary>
         public DateTimeOffset? LastManualSyncTriggerDateTime { get; set; }
@@ -34,9 +35,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"lastManualSyncTriggerDateTime", n => { LastManualSyncTriggerDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"syncStatus", n => { SyncStatus = n.GetEnumValue<WindowsAutopilotSyncStatus>(); } },
+                { "lastManualSyncTriggerDateTime", n => { LastManualSyncTriggerDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "syncStatus", n => { SyncStatus = n.GetEnumValue<WindowsAutopilotSyncStatus>(); } },
             };
         }
         /// <summary>

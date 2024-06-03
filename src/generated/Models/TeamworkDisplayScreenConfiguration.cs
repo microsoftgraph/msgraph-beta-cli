@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeamworkDisplayScreenConfiguration : IAdditionalDataHolder, IParsable 
+    public class TeamworkDisplayScreenConfiguration : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -54,12 +55,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"backlightBrightness", n => { BacklightBrightness = n.GetIntValue(); } },
-                {"backlightTimeout", n => { BacklightTimeout = n.GetTimeSpanValue(); } },
-                {"isHighContrastEnabled", n => { IsHighContrastEnabled = n.GetBoolValue(); } },
-                {"isScreensaverEnabled", n => { IsScreensaverEnabled = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"screensaverTimeout", n => { ScreensaverTimeout = n.GetTimeSpanValue(); } },
+                { "backlightBrightness", n => { BacklightBrightness = n.GetIntValue(); } },
+                { "backlightTimeout", n => { BacklightTimeout = n.GetTimeSpanValue(); } },
+                { "isHighContrastEnabled", n => { IsHighContrastEnabled = n.GetBoolValue(); } },
+                { "isScreensaverEnabled", n => { IsScreensaverEnabled = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "screensaverTimeout", n => { ScreensaverTimeout = n.GetTimeSpanValue(); } },
             };
         }
         /// <summary>

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerPlanDetails : PlannerDelta, IParsable 
+    public class PlannerPlanDetails : PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"categoryDescriptions", n => { CategoryDescriptions = n.GetObjectValue<PlannerCategoryDescriptions>(PlannerCategoryDescriptions.CreateFromDiscriminatorValue); } },
-                {"contextDetails", n => { ContextDetails = n.GetObjectValue<PlannerPlanContextDetailsCollection>(PlannerPlanContextDetailsCollection.CreateFromDiscriminatorValue); } },
-                {"sharedWith", n => { SharedWith = n.GetObjectValue<PlannerUserIds>(PlannerUserIds.CreateFromDiscriminatorValue); } },
+                { "categoryDescriptions", n => { CategoryDescriptions = n.GetObjectValue<PlannerCategoryDescriptions>(PlannerCategoryDescriptions.CreateFromDiscriminatorValue); } },
+                { "contextDetails", n => { ContextDetails = n.GetObjectValue<PlannerPlanContextDetailsCollection>(PlannerPlanContextDetailsCollection.CreateFromDiscriminatorValue); } },
+                { "sharedWith", n => { SharedWith = n.GetObjectValue<PlannerUserIds>(PlannerUserIds.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

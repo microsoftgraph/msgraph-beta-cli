@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item.MicrosoftGraphManagedTenantsChangeDeploymentStatus {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.Item.Deployments.Item.MicrosoftGraphManagedTenantsChangeDeploymentStatus
+{
     /// <summary>
     /// Provides operations to call the changeDeploymentStatus method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsChangeDeploymentStatusRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action changeDeploymentStatus

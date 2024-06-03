@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class CrossTenantAccessSettings : ApiSdk.Models.Entity, IParsable 
+    public class CrossTenantAccessSettings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The networkPacketTaggingStatus property</summary>
@@ -29,7 +30,7 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"networkPacketTaggingStatus", n => { NetworkPacketTaggingStatus = n.GetEnumValue<Status>(); } },
+                { "networkPacketTaggingStatus", n => { NetworkPacketTaggingStatus = n.GetEnumValue<Status>(); } },
             };
         }
         /// <summary>

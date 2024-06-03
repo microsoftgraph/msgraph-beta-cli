@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Publish {
+namespace ApiSdk.Groups.Item.Sites.Item.ContentTypes.Item.Publish
+{
     /// <summary>
     /// Provides operations to call the publish method.
     /// </summary>
-    public class PublishRequestBuilder : BaseCliRequestBuilder 
+    public class PublishRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action publish

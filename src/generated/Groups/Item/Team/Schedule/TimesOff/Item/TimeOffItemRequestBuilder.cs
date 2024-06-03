@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.Schedule.TimesOff.Item {
+namespace ApiSdk.Groups.Item.Team.Schedule.TimesOff.Item
+{
     /// <summary>
     /// Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
     /// </summary>
-    public class TimeOffItemRequestBuilder : BaseCliRequestBuilder 
+    public class TimeOffItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property timesOff for groups

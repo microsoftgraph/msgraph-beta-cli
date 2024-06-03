@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class AttributeChangeTrigger : WorkflowExecutionTrigger, IParsable 
+    public class AttributeChangeTrigger : WorkflowExecutionTrigger, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The trigger attribute being changed that triggers the workflowexecutiontrigger of a workflow.)</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"triggerAttributes", n => { TriggerAttributes = n.GetCollectionOfObjectValues<TriggerAttribute>(TriggerAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "triggerAttributes", n => { TriggerAttributes = n.GetCollectionOfObjectValues<TriggerAttribute>(TriggerAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

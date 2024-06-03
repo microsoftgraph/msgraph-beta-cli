@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Education.Users.Item.Rubrics.Item {
+namespace ApiSdk.Education.Users.Item.Rubrics.Item
+{
     /// <summary>
     /// Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
     /// </summary>
-    public class EducationRubricItemRequestBuilder : BaseCliRequestBuilder 
+    public class EducationRubricItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property rubrics for education

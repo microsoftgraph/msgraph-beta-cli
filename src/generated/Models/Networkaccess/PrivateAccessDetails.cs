@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class PrivateAccessDetails : IAdditionalDataHolder, IParsable 
+    public class PrivateAccessDetails : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessType property</summary>
@@ -88,14 +89,14 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
-                {"connectionStatus", n => { ConnectionStatus = n.GetEnumValue<ConnectionStatus>(); } },
-                {"connectorId", n => { ConnectorId = n.GetStringValue(); } },
-                {"connectorIp", n => { ConnectorIp = n.GetStringValue(); } },
-                {"connectorName", n => { ConnectorName = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"processingRegion", n => { ProcessingRegion = n.GetStringValue(); } },
-                {"thirdPartyTokenDetails", n => { ThirdPartyTokenDetails = n.GetObjectValue<ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails>(ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails.CreateFromDiscriminatorValue); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
+                { "connectionStatus", n => { ConnectionStatus = n.GetEnumValue<ConnectionStatus>(); } },
+                { "connectorId", n => { ConnectorId = n.GetStringValue(); } },
+                { "connectorIp", n => { ConnectorIp = n.GetStringValue(); } },
+                { "connectorName", n => { ConnectorName = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "processingRegion", n => { ProcessingRegion = n.GetStringValue(); } },
+                { "thirdPartyTokenDetails", n => { ThirdPartyTokenDetails = n.GetObjectValue<ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails>(ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

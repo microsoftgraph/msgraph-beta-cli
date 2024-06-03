@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.
     /// </summary>
-    public class CaseOperationItemRequestBuilder : BaseCliRequestBuilder 
+    public class CaseOperationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property operations for compliance

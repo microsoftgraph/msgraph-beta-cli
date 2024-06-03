@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports
+{
     /// <summary>
     /// Provides operations to call the getRemoteConnectionHistoricalReports method.
     /// </summary>
-    public class GetRemoteConnectionHistoricalReportsRequestBuilder : BaseCliRequestBuilder 
+    public class GetRemoteConnectionHistoricalReportsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get the remote connection history records of a Cloud PC during a given period. This report contains data such as signInDateTime, signOutDateTime, usageInHour, remoteSignInTimeInSec and roundTripTimeInMsP50, and so on. This data is aggregated hourly for a specified time period, such as the last seven days.

@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.CustomAuthenticationExtensions {
+namespace ApiSdk.Identity.CustomAuthenticationExtensions
+{
     /// <summary>
     /// Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class CustomAuthenticationExtensionsRequestBuilder : BaseCliRequestBuilder 
+    public class CustomAuthenticationExtensionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.
@@ -56,13 +57,14 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to customAuthenticationExtensions for identity
+        /// Create a new customAuthenticationExtension object. The following derived types are currently supported.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-post-customauthenticationextensions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to customAuthenticationExtensions for identity";
+            command.Description = "Create a new customAuthenticationExtension object. The following derived types are currently supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-post-customauthenticationextensions?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -101,13 +103,14 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
             return command;
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/identitycontainer-list-customauthenticationextensions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get customAuthenticationExtensions from identity";
+            command.Description = "Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/identitycontainer-list-customauthenticationextensions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -183,7 +186,9 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -226,7 +231,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
         {
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -245,7 +250,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to customAuthenticationExtensions for identity
+        /// Create a new customAuthenticationExtension object. The following derived types are currently supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -266,7 +271,7 @@ namespace ApiSdk.Identity.CustomAuthenticationExtensions {
             return requestInfo;
         }
         /// <summary>
-        /// Get customAuthenticationExtensions from identity
+        /// Get a list of the customAuthenticationExtension objects and their properties. The following derived types are supported.
         /// </summary>
         public class CustomAuthenticationExtensionsRequestBuilderGetQueryParameters 
         {

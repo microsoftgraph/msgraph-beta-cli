@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.Settings.Item.SettingDefinitions.Item {
+namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.Settings.Item.SettingDefinitions.Item
+{
     /// <summary>
     /// Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementConfigurationSetting entity.
     /// </summary>
-    public class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementConfigurationSettingDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// List of related Setting Definitions. This property is read-only.

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.StartPrintJob {
+namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.StartPrintJob
+{
     /// <summary>
     /// Provides operations to call the startPrintJob method.
     /// </summary>
-    public class StartPrintJobRequestBuilder : BaseCliRequestBuilder 
+    public class StartPrintJobRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action startPrintJob

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains
+{
     /// <summary>
     /// Provides operations to manage the subdomains property of the microsoft.graph.security.host entity.
     /// </summary>
-    public class SubdomainsRequestBuilder : BaseCliRequestBuilder 
+    public class SubdomainsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the subdomains property of the microsoft.graph.security.host entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains {
             return command;
         }
         /// <summary>
-        /// The subdomains that are associated with this host.
+        /// Get the list of subdomain resources associated with a host.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-host-list-subdomains?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The subdomains that are associated with this host.";
+            command.Description = "Get the list of subdomain resources associated with a host.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-host-list-subdomains?view=graph-rest-beta";
             var hostIdOption = new Option<string>("--host-id", description: "The unique identifier of host") {
             };
             hostIdOption.IsRequired = true;
@@ -139,7 +141,9 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -165,7 +169,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains {
         {
         }
         /// <summary>
-        /// The subdomains that are associated with this host.
+        /// Get the list of subdomain resources associated with a host.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -184,7 +188,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts.Item.Subdomains {
             return requestInfo;
         }
         /// <summary>
-        /// The subdomains that are associated with this host.
+        /// Get the list of subdomain resources associated with a host.
         /// </summary>
         public class SubdomainsRequestBuilderGetQueryParameters 
         {

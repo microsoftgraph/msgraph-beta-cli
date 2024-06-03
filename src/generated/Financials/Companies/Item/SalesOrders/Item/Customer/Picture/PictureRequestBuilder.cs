@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.Picture {
+namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.Picture
+{
     /// <summary>
     /// Provides operations to manage the picture property of the microsoft.graph.customer entity.
     /// </summary>
-    public class PictureRequestBuilder : BaseCliRequestBuilder 
+    public class PictureRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the picture property of the microsoft.graph.customer entity.
@@ -62,11 +63,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.Picture {
         {
             var command = new Command("create");
             command.Description = "Create new navigation property to picture for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);
@@ -119,11 +120,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.Picture {
         {
             var command = new Command("list");
             command.Description = "Get picture from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesOrderIdOption = new Option<string>("--sales-order-id", description: "The unique identifier of salesOrder") {
+            var salesOrderIdOption = new Option<Guid?>("--sales-order-id", description: "The unique identifier of salesOrder") {
             };
             salesOrderIdOption.IsRequired = true;
             command.AddOption(salesOrderIdOption);
@@ -206,7 +207,9 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.Picture {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

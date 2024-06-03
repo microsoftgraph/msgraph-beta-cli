@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.WindowsUpdates {
+namespace ApiSdk.Models.WindowsUpdates
+{
     #pragma warning disable CS1591
-    public class CatalogContent : DeployableContent, IParsable 
+    public class CatalogContent : DeployableContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The catalogEntry property</summary>
@@ -42,7 +43,7 @@ namespace ApiSdk.Models.WindowsUpdates {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
+                { "catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets {
+namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets
+{
     #pragma warning disable CS1591
-    public class UnenrollAssetsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class UnenrollAssetsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Micro
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
             };
         }
         /// <summary>

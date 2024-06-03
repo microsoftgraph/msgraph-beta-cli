@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.AccessReviews.Item.Instances.Item.Stop {
+namespace ApiSdk.AccessReviews.Item.Instances.Item.Stop
+{
     /// <summary>
     /// Provides operations to call the stop method.
     /// </summary>
-    public class StopRequestBuilder : BaseCliRequestBuilder 
+    public class StopRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// In the Microsoft Entra access reviews feature, stop a currently active accessReview.  The target object can be either a one-time access review, or an instance of a recurring access review.  (To prevent a recurring access review from starting future instances, update it to change its scheduled end date).  After the access review stops, reviewers can no longer give input, and the access review decisions can be applied.

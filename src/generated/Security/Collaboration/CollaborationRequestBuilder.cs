@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Collaboration {
+namespace ApiSdk.Security.Collaboration
+{
     /// <summary>
     /// Provides operations to manage the collaboration property of the microsoft.graph.security entity.
     /// </summary>
-    public class CollaborationRequestBuilder : BaseCliRequestBuilder 
+    public class CollaborationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the analyzedEmails property of the microsoft.graph.security.collaborationRoot entity.

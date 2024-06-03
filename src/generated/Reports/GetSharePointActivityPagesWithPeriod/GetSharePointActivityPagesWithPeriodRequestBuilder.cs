@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Reports.GetSharePointActivityPagesWithPeriod {
+namespace ApiSdk.Reports.GetSharePointActivityPagesWithPeriod
+{
     /// <summary>
     /// Provides operations to call the getSharePointActivityPages method.
     /// </summary>
-    public class GetSharePointActivityPagesWithPeriodRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharePointActivityPagesWithPeriodRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function getSharePointActivityPages

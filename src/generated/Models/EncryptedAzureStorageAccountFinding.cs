@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EncryptedAzureStorageAccountFinding : Finding, IParsable 
+    public class EncryptedAzureStorageAccountFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The encryptionManagedBy property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<AzureEncryption>(); } },
-                {"storageAccount", n => { StorageAccount = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<AzureEncryption>(); } },
+                { "storageAccount", n => { StorageAccount = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

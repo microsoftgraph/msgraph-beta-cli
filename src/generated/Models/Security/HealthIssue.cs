@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class HealthIssue : ApiSdk.Models.Entity, IParsable 
+    public class HealthIssue : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains additional information about the issue, such as a list of items to fix.</summary>
@@ -101,19 +102,19 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalInformation", n => { AdditionalInformation = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"domainNames", n => { DomainNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"healthIssueType", n => { HealthIssueType = n.GetEnumValue<HealthIssueType>(); } },
-                {"issueTypeId", n => { IssueTypeId = n.GetStringValue(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"recommendations", n => { Recommendations = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"recommendedActionCommands", n => { RecommendedActionCommands = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"sensorDNSNames", n => { SensorDNSNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"severity", n => { Severity = n.GetEnumValue<HealthIssueSeverity>(); } },
-                {"status", n => { Status = n.GetEnumValue<HealthIssueStatus>(); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "domainNames", n => { DomainNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "healthIssueType", n => { HealthIssueType = n.GetEnumValue<HealthIssueType>(); } },
+                { "issueTypeId", n => { IssueTypeId = n.GetStringValue(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "recommendations", n => { Recommendations = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "recommendedActionCommands", n => { RecommendedActionCommands = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "sensorDNSNames", n => { SensorDNSNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<HealthIssueSeverity>(); } },
+                { "status", n => { Status = n.GetEnumValue<HealthIssueStatus>(); } },
             };
         }
         /// <summary>

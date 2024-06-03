@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal {
+namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal
+{
     #pragma warning disable CS1591
-    public class SendCustomNotificationToCompanyPortalPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SendCustomNotificationToCompanyPortalPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -52,8 +53,8 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationTo
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"notificationBody", n => { NotificationBody = n.GetStringValue(); } },
-                {"notificationTitle", n => { NotificationTitle = n.GetStringValue(); } },
+                { "notificationBody", n => { NotificationBody = n.GetStringValue(); } },
+                { "notificationTitle", n => { NotificationTitle = n.GetStringValue(); } },
             };
         }
         /// <summary>

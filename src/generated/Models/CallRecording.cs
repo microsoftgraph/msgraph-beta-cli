@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CallRecording : Entity, IParsable 
+    public class CallRecording : Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The callId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CallId { get; set; }
+#nullable restore
+#else
+        public string CallId { get; set; }
+#endif
         /// <summary>The content of the recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -17,8 +26,18 @@ namespace ApiSdk.Models {
 #else
         public byte[] Content { get; set; }
 #endif
+        /// <summary>The contentCorrelationId property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ContentCorrelationId { get; set; }
+#nullable restore
+#else
+        public string ContentCorrelationId { get; set; }
+#endif
         /// <summary>Date and time at which the recording was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
+        /// <summary>The endDateTime property</summary>
+        public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The unique identifier of the onlineMeeting related to this recording. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -69,12 +88,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetByteArrayValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"meetingId", n => { MeetingId = n.GetStringValue(); } },
-                {"meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                {"meetingOrganizerId", n => { MeetingOrganizerId = n.GetStringValue(); } },
-                {"recordingContentUrl", n => { RecordingContentUrl = n.GetStringValue(); } },
+                { "callId", n => { CallId = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetByteArrayValue(); } },
+                { "contentCorrelationId", n => { ContentCorrelationId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
+                { "meetingId", n => { MeetingId = n.GetStringValue(); } },
+                { "meetingOrganizer", n => { MeetingOrganizer = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "meetingOrganizerId", n => { MeetingOrganizerId = n.GetStringValue(); } },
+                { "recordingContentUrl", n => { RecordingContentUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -85,8 +107,11 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteStringValue("callId", CallId);
             writer.WriteByteArrayValue("content", Content);
+            writer.WriteStringValue("contentCorrelationId", ContentCorrelationId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
+            writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteStringValue("meetingId", MeetingId);
             writer.WriteObjectValue<IdentitySet>("meetingOrganizer", MeetingOrganizer);
             writer.WriteStringValue("meetingOrganizerId", MeetingOrganizerId);

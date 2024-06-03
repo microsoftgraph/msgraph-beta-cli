@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item.Team.TemplateDefinition {
+namespace ApiSdk.Groups.Item.Team.TemplateDefinition
+{
     /// <summary>
     /// Provides operations to manage the templateDefinition property of the microsoft.graph.team entity.
     /// </summary>
-    public class TemplateDefinitionRequestBuilder : BaseCliRequestBuilder 
+    public class TemplateDefinitionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Generic representation of a team template definition for a team with a specific structure and configuration.

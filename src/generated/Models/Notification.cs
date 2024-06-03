@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Notification : Entity, IParsable 
+    public class Notification : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Sets how long (in seconds) this notification content stays in each platform&apos;s notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification stays in the user&apos;s Windows Action Center.</summary>
@@ -65,13 +66,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"displayTimeToLive", n => { DisplayTimeToLive = n.GetIntValue(); } },
-                {"expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                {"groupName", n => { GroupName = n.GetStringValue(); } },
-                {"payload", n => { Payload = n.GetObjectValue<PayloadTypes>(PayloadTypes.CreateFromDiscriminatorValue); } },
-                {"priority", n => { Priority = n.GetEnumValue<Priority>(); } },
-                {"targetHostName", n => { TargetHostName = n.GetStringValue(); } },
-                {"targetPolicy", n => { TargetPolicy = n.GetObjectValue<TargetPolicyEndpoints>(TargetPolicyEndpoints.CreateFromDiscriminatorValue); } },
+                { "displayTimeToLive", n => { DisplayTimeToLive = n.GetIntValue(); } },
+                { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
+                { "groupName", n => { GroupName = n.GetStringValue(); } },
+                { "payload", n => { Payload = n.GetObjectValue<PayloadTypes>(PayloadTypes.CreateFromDiscriminatorValue); } },
+                { "priority", n => { Priority = n.GetEnumValue<Priority>(); } },
+                { "targetHostName", n => { TargetHostName = n.GetStringValue(); } },
+                { "targetPolicy", n => { TargetPolicy = n.GetObjectValue<TargetPolicyEndpoints>(TargetPolicyEndpoints.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

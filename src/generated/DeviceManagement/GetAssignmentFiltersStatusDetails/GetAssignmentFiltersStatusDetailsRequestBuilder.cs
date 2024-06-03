@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GetAssignmentFiltersStatusDetails {
+namespace ApiSdk.DeviceManagement.GetAssignmentFiltersStatusDetails
+{
     /// <summary>
     /// Provides operations to call the getAssignmentFiltersStatusDetails method.
     /// </summary>
-    public class GetAssignmentFiltersStatusDetailsRequestBuilder : BaseCliRequestBuilder 
+    public class GetAssignmentFiltersStatusDetailsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action getAssignmentFiltersStatusDetails

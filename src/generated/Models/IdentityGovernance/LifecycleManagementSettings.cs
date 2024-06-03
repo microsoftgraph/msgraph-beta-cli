@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IdentityGovernance {
+namespace ApiSdk.Models.IdentityGovernance
+{
     #pragma warning disable CS1591
-    public class LifecycleManagementSettings : ApiSdk.Models.Entity, IParsable 
+    public class LifecycleManagementSettings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The emailSettings property</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models.IdentityGovernance {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"emailSettings", n => { EmailSettings = n.GetObjectValue<ApiSdk.Models.EmailSettings>(ApiSdk.Models.EmailSettings.CreateFromDiscriminatorValue); } },
-                {"workflowScheduleIntervalInHours", n => { WorkflowScheduleIntervalInHours = n.GetIntValue(); } },
+                { "emailSettings", n => { EmailSettings = n.GetObjectValue<ApiSdk.Models.EmailSettings>(ApiSdk.Models.EmailSettings.CreateFromDiscriminatorValue); } },
+                { "workflowScheduleIntervalInHours", n => { WorkflowScheduleIntervalInHours = n.GetIntValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.LastEstimateStatisticsOperation {
+namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.LastEstimateStatisticsOperation
+{
     /// <summary>
     /// Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity.
     /// </summary>
-    public class LastEstimateStatisticsOperationRequestBuilder : BaseCliRequestBuilder 
+    public class LastEstimateStatisticsOperationRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The last estimate operation associated with the eDiscovery search.

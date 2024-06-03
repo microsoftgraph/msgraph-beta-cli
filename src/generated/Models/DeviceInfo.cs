@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DeviceInfo : IAdditionalDataHolder, IParsable 
+    public class DeviceInfo : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -270,36 +271,36 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
-                {"extensionAttribute1", n => { ExtensionAttribute1 = n.GetStringValue(); } },
-                {"extensionAttribute10", n => { ExtensionAttribute10 = n.GetStringValue(); } },
-                {"extensionAttribute11", n => { ExtensionAttribute11 = n.GetStringValue(); } },
-                {"extensionAttribute12", n => { ExtensionAttribute12 = n.GetStringValue(); } },
-                {"extensionAttribute13", n => { ExtensionAttribute13 = n.GetStringValue(); } },
-                {"extensionAttribute14", n => { ExtensionAttribute14 = n.GetStringValue(); } },
-                {"extensionAttribute15", n => { ExtensionAttribute15 = n.GetStringValue(); } },
-                {"extensionAttribute2", n => { ExtensionAttribute2 = n.GetStringValue(); } },
-                {"extensionAttribute3", n => { ExtensionAttribute3 = n.GetStringValue(); } },
-                {"extensionAttribute4", n => { ExtensionAttribute4 = n.GetStringValue(); } },
-                {"extensionAttribute5", n => { ExtensionAttribute5 = n.GetStringValue(); } },
-                {"extensionAttribute6", n => { ExtensionAttribute6 = n.GetStringValue(); } },
-                {"extensionAttribute7", n => { ExtensionAttribute7 = n.GetStringValue(); } },
-                {"extensionAttribute8", n => { ExtensionAttribute8 = n.GetStringValue(); } },
-                {"extensionAttribute9", n => { ExtensionAttribute9 = n.GetStringValue(); } },
-                {"isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
-                {"operatingSystemVersion", n => { OperatingSystemVersion = n.GetStringValue(); } },
-                {"ownership", n => { Ownership = n.GetStringValue(); } },
-                {"physicalIds", n => { PhysicalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"profileType", n => { ProfileType = n.GetStringValue(); } },
-                {"systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"trustType", n => { TrustType = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enrollmentProfileName", n => { EnrollmentProfileName = n.GetStringValue(); } },
+                { "extensionAttribute1", n => { ExtensionAttribute1 = n.GetStringValue(); } },
+                { "extensionAttribute10", n => { ExtensionAttribute10 = n.GetStringValue(); } },
+                { "extensionAttribute11", n => { ExtensionAttribute11 = n.GetStringValue(); } },
+                { "extensionAttribute12", n => { ExtensionAttribute12 = n.GetStringValue(); } },
+                { "extensionAttribute13", n => { ExtensionAttribute13 = n.GetStringValue(); } },
+                { "extensionAttribute14", n => { ExtensionAttribute14 = n.GetStringValue(); } },
+                { "extensionAttribute15", n => { ExtensionAttribute15 = n.GetStringValue(); } },
+                { "extensionAttribute2", n => { ExtensionAttribute2 = n.GetStringValue(); } },
+                { "extensionAttribute3", n => { ExtensionAttribute3 = n.GetStringValue(); } },
+                { "extensionAttribute4", n => { ExtensionAttribute4 = n.GetStringValue(); } },
+                { "extensionAttribute5", n => { ExtensionAttribute5 = n.GetStringValue(); } },
+                { "extensionAttribute6", n => { ExtensionAttribute6 = n.GetStringValue(); } },
+                { "extensionAttribute7", n => { ExtensionAttribute7 = n.GetStringValue(); } },
+                { "extensionAttribute8", n => { ExtensionAttribute8 = n.GetStringValue(); } },
+                { "extensionAttribute9", n => { ExtensionAttribute9 = n.GetStringValue(); } },
+                { "isCompliant", n => { IsCompliant = n.GetBoolValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "mdmAppId", n => { MdmAppId = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "operatingSystem", n => { OperatingSystem = n.GetStringValue(); } },
+                { "operatingSystemVersion", n => { OperatingSystemVersion = n.GetStringValue(); } },
+                { "ownership", n => { Ownership = n.GetStringValue(); } },
+                { "physicalIds", n => { PhysicalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "profileType", n => { ProfileType = n.GetStringValue(); } },
+                { "systemLabels", n => { SystemLabels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "trustType", n => { TrustType = n.GetStringValue(); } },
             };
         }
         /// <summary>

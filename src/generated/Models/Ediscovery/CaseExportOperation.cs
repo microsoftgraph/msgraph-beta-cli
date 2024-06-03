@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Ediscovery {
+namespace ApiSdk.Models.Ediscovery
+{
     #pragma warning disable CS1591
-    public class CaseExportOperation : CaseOperation, IParsable 
+    public class CaseExportOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Models.Ediscovery {
         public ApiSdk.Models.Ediscovery.ExportOptions? ExportOptions { get; set; }
         /// <summary>The options provided specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.</summary>
         public ExportFileStructure? ExportStructure { get; set; }
-        /// <summary>The outputFolderId property</summary>
+        /// <summary>The output folder ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OutputFolderId { get; set; }
@@ -79,14 +80,14 @@ namespace ApiSdk.Models.Ediscovery {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
-                {"azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
-                {"exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
-                {"outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
-                {"outputName", n => { OutputName = n.GetStringValue(); } },
-                {"reviewSet", n => { ReviewSet = n.GetObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue); } },
+                { "azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
+                { "azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
+                { "exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
+                { "outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
+                { "outputName", n => { OutputName = n.GetStringValue(); } },
+                { "reviewSet", n => { ReviewSet = n.GetObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

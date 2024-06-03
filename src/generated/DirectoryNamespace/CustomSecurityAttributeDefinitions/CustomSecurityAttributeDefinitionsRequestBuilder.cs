@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
+namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions
+{
     /// <summary>
     /// Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
     /// </summary>
-    public class CustomSecurityAttributeDefinitionsRequestBuilder : BaseCliRequestBuilder 
+    public class CustomSecurityAttributeDefinitionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
@@ -55,13 +56,14 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
             return command;
         }
         /// <summary>
-        /// Create new navigation property to customSecurityAttributeDefinitions for directory
+        /// Create a new customSecurityAttributeDefinition object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildCreateCommand()
         {
             var command = new Command("create");
-            command.Description = "Create new navigation property to customSecurityAttributeDefinitions for directory";
+            command.Description = "Create a new customSecurityAttributeDefinition object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-beta";
             var bodyOption = new Option<string>("--body", description: "The request body") {
             };
             bodyOption.IsRequired = true;
@@ -100,13 +102,14 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
             return command;
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Get a list of the customSecurityAttributeDefinition objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/directory-list-customsecurityattributedefinitions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Schema of a custom security attributes (key-value pairs).";
+            command.Description = "Get a list of the customSecurityAttributeDefinition objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/directory-list-customsecurityattributedefinitions?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +185,9 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +213,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
         {
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Get a list of the customSecurityAttributeDefinition objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -227,7 +232,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Create new navigation property to customSecurityAttributeDefinitions for directory
+        /// Create a new customSecurityAttributeDefinition object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -248,7 +253,7 @@ namespace ApiSdk.DirectoryNamespace.CustomSecurityAttributeDefinitions {
             return requestInfo;
         }
         /// <summary>
-        /// Schema of a custom security attributes (key-value pairs).
+        /// Get a list of the customSecurityAttributeDefinition objects and their properties.
         /// </summary>
         public class CustomSecurityAttributeDefinitionsRequestBuilderGetQueryParameters 
         {

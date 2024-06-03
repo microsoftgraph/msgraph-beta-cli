@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollectionTenantSummaries.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollectionTenantSummaries.Item
+{
     /// <summary>
     /// Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class ManagementTemplateCollectionTenantSummaryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagementTemplateCollectionTenantSummaryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managementTemplateCollectionTenantSummaries for tenantRelationships

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item.MessageRules.Item {
+namespace ApiSdk.Users.Item.MailFolders.Item.MessageRules.Item
+{
     /// <summary>
     /// Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
     /// </summary>
-    public class MessageRuleItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageRuleItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property messageRules for users

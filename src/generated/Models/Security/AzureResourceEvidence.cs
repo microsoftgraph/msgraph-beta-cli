@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class AzureResourceEvidence : AlertEvidence, IParsable 
+    public class AzureResourceEvidence : AlertEvidence, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The unique identifier for the Azure resource.</summary>
@@ -58,9 +59,9 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
-                {"resourceName", n => { ResourceName = n.GetStringValue(); } },
-                {"resourceType", n => { ResourceType = n.GetStringValue(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "resourceName", n => { ResourceName = n.GetStringValue(); } },
+                { "resourceType", n => { ResourceType = n.GetStringValue(); } },
             };
         }
         /// <summary>

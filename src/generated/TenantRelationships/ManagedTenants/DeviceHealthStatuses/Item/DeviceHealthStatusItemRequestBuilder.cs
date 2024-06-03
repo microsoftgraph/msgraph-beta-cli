@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceHealthStatuses.Item {
+namespace ApiSdk.TenantRelationships.ManagedTenants.DeviceHealthStatuses.Item
+{
     /// <summary>
     /// Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.
     /// </summary>
-    public class DeviceHealthStatusItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceHealthStatusItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property deviceHealthStatuses for tenantRelationships

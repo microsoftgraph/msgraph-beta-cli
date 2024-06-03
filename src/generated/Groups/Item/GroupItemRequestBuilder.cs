@@ -61,11 +61,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Groups.Item {
+namespace ApiSdk.Groups.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of group entities.
     /// </summary>
-    public class GroupItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.

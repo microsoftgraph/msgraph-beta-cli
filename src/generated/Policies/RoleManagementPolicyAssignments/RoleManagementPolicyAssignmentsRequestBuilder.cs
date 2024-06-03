@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
+namespace ApiSdk.Policies.RoleManagementPolicyAssignments
+{
     /// <summary>
     /// Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
     /// </summary>
-    public class RoleManagementPolicyAssignmentsRequestBuilder : BaseCliRequestBuilder 
+    public class RoleManagementPolicyAssignmentsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
@@ -100,13 +101,14 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
             return command;
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Represents the role management policy assignments.";
+            command.Description = "Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicyassignments?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -182,7 +184,9 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -208,7 +212,7 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
         {
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -248,7 +252,7 @@ namespace ApiSdk.Policies.RoleManagementPolicyAssignments {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the role management policy assignments.
+        /// Get the details of all role management policy assignments made in PIM for Microsoft Entra roles and PIM for groups.
         /// </summary>
         public class RoleManagementPolicyAssignmentsRequestBuilderGetQueryParameters 
         {

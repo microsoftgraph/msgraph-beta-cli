@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Represents a booked appointment of a service by a customer in a business.
     /// </summary>
-    public class BookingAppointment : Entity, IParsable 
+    public class BookingAppointment : Entity, IParsable
     {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -258,46 +259,46 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
-                {"anonymousJoinWebUrl", n => { AnonymousJoinWebUrl = n.GetStringValue(); } },
-                {"appointmentLabel", n => { AppointmentLabel = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"customerEmailAddress", n => { CustomerEmailAddress = n.GetStringValue(); } },
-                {"customerId", n => { CustomerId = n.GetStringValue(); } },
-                {"customerLocation", n => { CustomerLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
-                {"customerName", n => { CustomerName = n.GetStringValue(); } },
-                {"customerNotes", n => { CustomerNotes = n.GetStringValue(); } },
-                {"customerPhone", n => { CustomerPhone = n.GetStringValue(); } },
-                {"customerTimeZone", n => { CustomerTimeZone = n.GetStringValue(); } },
-                {"customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"duration", n => { Duration = n.GetTimeSpanValue(); } },
-                {"end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"filledAttendeesCount", n => { FilledAttendeesCount = n.GetIntValue(); } },
-                {"invoiceAmount", n => { InvoiceAmount = n.GetDoubleValue(); } },
-                {"invoiceDate", n => { InvoiceDate = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                {"invoiceId", n => { InvoiceId = n.GetStringValue(); } },
-                {"invoiceStatus", n => { InvoiceStatus = n.GetEnumValue<BookingInvoiceStatus>(); } },
-                {"invoiceUrl", n => { InvoiceUrl = n.GetStringValue(); } },
-                {"isCustomerAllowedToManageBooking", n => { IsCustomerAllowedToManageBooking = n.GetBoolValue(); } },
-                {"isLocationOnline", n => { IsLocationOnline = n.GetBoolValue(); } },
-                {"joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"maximumAttendeesCount", n => { MaximumAttendeesCount = n.GetIntValue(); } },
-                {"onlineMeetingUrl", n => { OnlineMeetingUrl = n.GetStringValue(); } },
-                {"optOutOfCustomerEmail", n => { OptOutOfCustomerEmail = n.GetBoolValue(); } },
-                {"postBuffer", n => { PostBuffer = n.GetTimeSpanValue(); } },
-                {"preBuffer", n => { PreBuffer = n.GetTimeSpanValue(); } },
-                {"price", n => { Price = n.GetDoubleValue(); } },
-                {"priceType", n => { PriceType = n.GetEnumValue<BookingPriceType>(); } },
-                {"reminders", n => { Reminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"selfServiceAppointmentId", n => { SelfServiceAppointmentId = n.GetStringValue(); } },
-                {"serviceId", n => { ServiceId = n.GetStringValue(); } },
-                {"serviceLocation", n => { ServiceLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
-                {"serviceName", n => { ServiceName = n.GetStringValue(); } },
-                {"serviceNotes", n => { ServiceNotes = n.GetStringValue(); } },
-                {"smsNotificationsEnabled", n => { SmsNotificationsEnabled = n.GetBoolValue(); } },
-                {"staffMemberIds", n => { StaffMemberIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"start", n => { Start = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetStringValue(); } },
+                { "anonymousJoinWebUrl", n => { AnonymousJoinWebUrl = n.GetStringValue(); } },
+                { "appointmentLabel", n => { AppointmentLabel = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "customerEmailAddress", n => { CustomerEmailAddress = n.GetStringValue(); } },
+                { "customerId", n => { CustomerId = n.GetStringValue(); } },
+                { "customerLocation", n => { CustomerLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
+                { "customerName", n => { CustomerName = n.GetStringValue(); } },
+                { "customerNotes", n => { CustomerNotes = n.GetStringValue(); } },
+                { "customerPhone", n => { CustomerPhone = n.GetStringValue(); } },
+                { "customerTimeZone", n => { CustomerTimeZone = n.GetStringValue(); } },
+                { "customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "filledAttendeesCount", n => { FilledAttendeesCount = n.GetIntValue(); } },
+                { "invoiceAmount", n => { InvoiceAmount = n.GetDoubleValue(); } },
+                { "invoiceDate", n => { InvoiceDate = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "invoiceId", n => { InvoiceId = n.GetStringValue(); } },
+                { "invoiceStatus", n => { InvoiceStatus = n.GetEnumValue<BookingInvoiceStatus>(); } },
+                { "invoiceUrl", n => { InvoiceUrl = n.GetStringValue(); } },
+                { "isCustomerAllowedToManageBooking", n => { IsCustomerAllowedToManageBooking = n.GetBoolValue(); } },
+                { "isLocationOnline", n => { IsLocationOnline = n.GetBoolValue(); } },
+                { "joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "maximumAttendeesCount", n => { MaximumAttendeesCount = n.GetIntValue(); } },
+                { "onlineMeetingUrl", n => { OnlineMeetingUrl = n.GetStringValue(); } },
+                { "optOutOfCustomerEmail", n => { OptOutOfCustomerEmail = n.GetBoolValue(); } },
+                { "postBuffer", n => { PostBuffer = n.GetTimeSpanValue(); } },
+                { "preBuffer", n => { PreBuffer = n.GetTimeSpanValue(); } },
+                { "price", n => { Price = n.GetDoubleValue(); } },
+                { "priceType", n => { PriceType = n.GetEnumValue<BookingPriceType>(); } },
+                { "reminders", n => { Reminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "selfServiceAppointmentId", n => { SelfServiceAppointmentId = n.GetStringValue(); } },
+                { "serviceId", n => { ServiceId = n.GetStringValue(); } },
+                { "serviceLocation", n => { ServiceLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
+                { "serviceName", n => { ServiceName = n.GetStringValue(); } },
+                { "serviceNotes", n => { ServiceNotes = n.GetStringValue(); } },
+                { "smsNotificationsEnabled", n => { SmsNotificationsEnabled = n.GetBoolValue(); } },
+                { "staffMemberIds", n => { StaffMemberIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "start", n => { Start = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

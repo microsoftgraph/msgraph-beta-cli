@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
+namespace ApiSdk.Identity.AuthenticationEventsFlows.Item
+{
     /// <summary>
     /// Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.
     /// </summary>
-    public class AuthenticationEventsFlowItemRequestBuilder : BaseCliRequestBuilder 
+    public class AuthenticationEventsFlowItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The conditions property
@@ -46,13 +47,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property authenticationEventsFlows for identity
+        /// Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationeventsflow-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property authenticationEventsFlows for identity";
+            command.Description = "Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationeventsflow-delete?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -81,13 +83,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return command;
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationeventsflow-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.";
+            command.Description = "Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationeventsflow-get?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -158,13 +161,14 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property authenticationEventsFlows in identity
+        /// Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/authenticationeventsflow-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property authenticationEventsFlows in identity";
+            command.Description = "Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/authenticationeventsflow-update?view=graph-rest-beta";
             var authenticationEventsFlowIdOption = new Option<string>("--authentication-events-flow-id", description: "The unique identifier of authenticationEventsFlow") {
             };
             authenticationEventsFlowIdOption.IsRequired = true;
@@ -223,7 +227,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property authenticationEventsFlows for identity
+        /// Delete a specific authenticationEventsFlow resource by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -242,7 +246,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -261,7 +265,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property authenticationEventsFlows in identity
+        /// Update the properties of an authenticationEventsFlow object. Only the externalUsersSelfServiceSignupEventsFlow object type is supported.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -282,7 +286,7 @@ namespace ApiSdk.Identity.AuthenticationEventsFlows.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Represents the entry point for self-service sign up and sign in user flows in both Microsoft Entra workforce and customer tenants.
+        /// Retrieve the properties and relationships of a specific authenticationEventsFlow object by ID. Only externalUsersSelfServiceSignupEventsFlow object types are available.
         /// </summary>
         public class AuthenticationEventsFlowItemRequestBuilderGetQueryParameters 
         {

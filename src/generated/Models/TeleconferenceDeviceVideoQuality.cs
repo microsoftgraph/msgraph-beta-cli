@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class TeleconferenceDeviceVideoQuality : TeleconferenceDeviceMediaQuality, IParsable 
+    public class TeleconferenceDeviceVideoQuality : TeleconferenceDeviceMediaQuality, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The average inbound stream video bit rate per second.</summary>
@@ -47,10 +48,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"averageInboundBitRate", n => { AverageInboundBitRate = n.GetDoubleValue(); } },
-                {"averageInboundFrameRate", n => { AverageInboundFrameRate = n.GetDoubleValue(); } },
-                {"averageOutboundBitRate", n => { AverageOutboundBitRate = n.GetDoubleValue(); } },
-                {"averageOutboundFrameRate", n => { AverageOutboundFrameRate = n.GetDoubleValue(); } },
+                { "averageInboundBitRate", n => { AverageInboundBitRate = n.GetDoubleValue(); } },
+                { "averageInboundFrameRate", n => { AverageInboundFrameRate = n.GetDoubleValue(); } },
+                { "averageOutboundBitRate", n => { AverageOutboundBitRate = n.GetDoubleValue(); } },
+                { "averageOutboundFrameRate", n => { AverageOutboundFrameRate = n.GetDoubleValue(); } },
             };
         }
         /// <summary>

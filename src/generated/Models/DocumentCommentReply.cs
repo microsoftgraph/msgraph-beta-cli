@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DocumentCommentReply : Entity, IParsable 
+    public class DocumentCommentReply : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content property</summary>
@@ -43,8 +44,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"content", n => { Content = n.GetStringValue(); } },
-                {"location", n => { Location = n.GetStringValue(); } },
+                { "content", n => { Content = n.GetStringValue(); } },
+                { "location", n => { Location = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Instance.Stop {
+namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.Item.Instance.Stop
+{
     /// <summary>
     /// Provides operations to call the stop method.
     /// </summary>
-    public class StopRequestBuilder : BaseCliRequestBuilder 
+    public class StopRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Stop a currently active accessReviewInstance. After the access review instance stops, the instance status will be Completed, the reviewers can no longer give input, and the access review decisions can be applied. Stopping an instance will not effect future instances. To prevent a recurring access review from starting future instances, update the schedule definition to change its scheduled end date.

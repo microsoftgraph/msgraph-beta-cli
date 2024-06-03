@@ -14,20 +14,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivities.Item {
+namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivities.Item
+{
     /// <summary>
     /// Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
     /// </summary>
-    public class LearningCourseActivityItemRequestBuilder : BaseCliRequestBuilder 
+    public class LearningCourseActivityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property learningCourseActivities for employeeExperience
+        /// Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property learningCourseActivities for employeeExperience";
+            command.Description = "Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-delete?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -120,13 +122,14 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
             return command;
         }
         /// <summary>
-        /// Update the navigation property learningCourseActivities in employeeExperience
+        /// Update the properties of a learningCourseActivity object. 
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property learningCourseActivities in employeeExperience";
+            command.Description = "Update the properties of a learningCourseActivity object. \n\nFind more info here:\n  https://learn.microsoft.com/graph/api/learningcourseactivity-update?view=graph-rest-beta";
             var learningProviderIdOption = new Option<string>("--learning-provider-id", description: "The unique identifier of learningProvider") {
             };
             learningProviderIdOption.IsRequired = true;
@@ -191,7 +194,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
         {
         }
         /// <summary>
-        /// Delete navigation property learningCourseActivities for employeeExperience
+        /// Delete a learningCourseActivity object by using the course activity ID of either an assignment or a self-initiated activity.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -229,7 +232,7 @@ namespace ApiSdk.EmployeeExperience.LearningProviders.Item.LearningCourseActivit
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property learningCourseActivities in employeeExperience
+        /// Update the properties of a learningCourseActivity object. 
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

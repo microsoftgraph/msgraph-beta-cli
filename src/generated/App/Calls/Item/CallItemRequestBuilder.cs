@@ -34,11 +34,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item {
+namespace ApiSdk.App.Calls.Item
+{
     /// <summary>
     /// Provides operations to manage the calls property of the microsoft.graph.commsApplication entity.
     /// </summary>
-    public class CallItemRequestBuilder : BaseCliRequestBuilder 
+    public class CallItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the addLargeGalleryView method.

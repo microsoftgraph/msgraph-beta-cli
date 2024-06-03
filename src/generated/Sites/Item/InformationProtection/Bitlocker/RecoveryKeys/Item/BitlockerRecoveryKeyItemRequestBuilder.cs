@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker.RecoveryKeys.Item {
+namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker.RecoveryKeys.Item
+{
     /// <summary>
     /// Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
     /// </summary>
-    public class BitlockerRecoveryKeyItemRequestBuilder : BaseCliRequestBuilder 
+    public class BitlockerRecoveryKeyItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The recovery keys associated with the bitlocker entity.

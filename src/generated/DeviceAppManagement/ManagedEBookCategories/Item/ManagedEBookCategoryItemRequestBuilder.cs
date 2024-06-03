@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.ManagedEBookCategories.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedEBookCategories.Item
+{
     /// <summary>
     /// Provides operations to manage the managedEBookCategories property of the microsoft.graph.deviceAppManagement entity.
     /// </summary>
-    public class ManagedEBookCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedEBookCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedEBookCategories for deviceAppManagement

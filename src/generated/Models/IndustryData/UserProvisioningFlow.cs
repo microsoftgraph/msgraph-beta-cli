@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.IndustryData {
+namespace ApiSdk.Models.IndustryData
+{
     #pragma warning disable CS1591
-    public class UserProvisioningFlow : ProvisioningFlow, IParsable 
+    public class UserProvisioningFlow : ProvisioningFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A boolean choice indicating whether unmatched users should be created or ignored.</summary>
@@ -52,9 +53,9 @@ namespace ApiSdk.Models.IndustryData {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"createUnmatchedUsers", n => { CreateUnmatchedUsers = n.GetBoolValue(); } },
-                {"creationOptions", n => { CreationOptions = n.GetObjectValue<UserCreationOptions>(UserCreationOptions.CreateFromDiscriminatorValue); } },
-                {"managementOptions", n => { ManagementOptions = n.GetObjectValue<UserManagementOptions>(UserManagementOptions.CreateFromDiscriminatorValue); } },
+                { "createUnmatchedUsers", n => { CreateUnmatchedUsers = n.GetBoolValue(); } },
+                { "creationOptions", n => { CreationOptions = n.GetObjectValue<UserCreationOptions>(UserCreationOptions.CreateFromDiscriminatorValue); } },
+                { "managementOptions", n => { ManagementOptions = n.GetObjectValue<UserManagementOptions>(UserManagementOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

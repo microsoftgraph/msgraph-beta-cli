@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Describes the status for a single FOTA deployment.
     /// </summary>
-    public class ZebraFotaDeploymentStatus : IAdditionalDataHolder, IParsable 
+    public class ZebraFotaDeploymentStatus : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -75,22 +76,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"cancelRequested", n => { CancelRequested = n.GetBoolValue(); } },
-                {"completeOrCanceledDateTime", n => { CompleteOrCanceledDateTime = n.GetDateTimeOffsetValue(); } },
-                {"errorCode", n => { ErrorCode = n.GetEnumValue<ZebraFotaErrorCode>(); } },
-                {"lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"state", n => { State = n.GetEnumValue<ZebraFotaDeploymentState>(); } },
-                {"totalAwaitingInstall", n => { TotalAwaitingInstall = n.GetIntValue(); } },
-                {"totalCanceled", n => { TotalCanceled = n.GetIntValue(); } },
-                {"totalCreated", n => { TotalCreated = n.GetIntValue(); } },
-                {"totalDevices", n => { TotalDevices = n.GetIntValue(); } },
-                {"totalDownloading", n => { TotalDownloading = n.GetIntValue(); } },
-                {"totalFailedDownload", n => { TotalFailedDownload = n.GetIntValue(); } },
-                {"totalFailedInstall", n => { TotalFailedInstall = n.GetIntValue(); } },
-                {"totalScheduled", n => { TotalScheduled = n.GetIntValue(); } },
-                {"totalSucceededInstall", n => { TotalSucceededInstall = n.GetIntValue(); } },
-                {"totalUnknown", n => { TotalUnknown = n.GetIntValue(); } },
+                { "cancelRequested", n => { CancelRequested = n.GetBoolValue(); } },
+                { "completeOrCanceledDateTime", n => { CompleteOrCanceledDateTime = n.GetDateTimeOffsetValue(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ZebraFotaErrorCode>(); } },
+                { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<ZebraFotaDeploymentState>(); } },
+                { "totalAwaitingInstall", n => { TotalAwaitingInstall = n.GetIntValue(); } },
+                { "totalCanceled", n => { TotalCanceled = n.GetIntValue(); } },
+                { "totalCreated", n => { TotalCreated = n.GetIntValue(); } },
+                { "totalDevices", n => { TotalDevices = n.GetIntValue(); } },
+                { "totalDownloading", n => { TotalDownloading = n.GetIntValue(); } },
+                { "totalFailedDownload", n => { TotalFailedDownload = n.GetIntValue(); } },
+                { "totalFailedInstall", n => { TotalFailedInstall = n.GetIntValue(); } },
+                { "totalScheduled", n => { TotalScheduled = n.GetIntValue(); } },
+                { "totalSucceededInstall", n => { TotalSucceededInstall = n.GetIntValue(); } },
+                { "totalUnknown", n => { TotalUnknown = n.GetIntValue(); } },
             };
         }
         /// <summary>

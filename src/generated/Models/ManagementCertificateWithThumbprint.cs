@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class ManagementCertificateWithThumbprint : IAdditionalDataHolder, IParsable 
+    public class ManagementCertificateWithThumbprint : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -60,9 +61,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"certificate", n => { Certificate = n.GetStringValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"thumbprint", n => { Thumbprint = n.GetStringValue(); } },
+                { "certificate", n => { Certificate = n.GetStringValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "thumbprint", n => { Thumbprint = n.GetStringValue(); } },
             };
         }
         /// <summary>

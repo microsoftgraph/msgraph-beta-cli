@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Profile.Publications.Item {
+namespace ApiSdk.Users.Item.Profile.Publications.Item
+{
     /// <summary>
     /// Provides operations to manage the publications property of the microsoft.graph.profile entity.
     /// </summary>
-    public class ItemPublicationItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemPublicationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property publications for users
@@ -120,13 +121,14 @@ namespace ApiSdk.Users.Item.Profile.Publications.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property publications in users
+        /// Update the properties of an itemPublication object in a user&apos;s profile.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/itempublication-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property publications in users";
+            command.Description = "Update the properties of an itemPublication object in a user's profile.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/itempublication-update?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -229,7 +231,7 @@ namespace ApiSdk.Users.Item.Profile.Publications.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property publications in users
+        /// Update the properties of an itemPublication object in a user&apos;s profile.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

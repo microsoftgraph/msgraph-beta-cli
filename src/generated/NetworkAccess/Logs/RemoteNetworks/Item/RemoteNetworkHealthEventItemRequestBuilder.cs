@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks.Item {
+namespace ApiSdk.NetworkAccess.Logs.RemoteNetworks.Item
+{
     /// <summary>
     /// Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.logs entity.
     /// </summary>
-    public class RemoteNetworkHealthEventItemRequestBuilder : BaseCliRequestBuilder 
+    public class RemoteNetworkHealthEventItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property remoteNetworks for networkAccess

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class Domain : Entity, IParsable 
+    public class Domain : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Microsoft Entra ID performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant&apos;s on-premises Active Directory via Active Directory Federation Services. Not nullable.  To update this property in delegated scenarios, the calling app must be assigned the Directory.AccessAsUser.All delegated permission.</summary>
@@ -113,22 +114,22 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authenticationType", n => { AuthenticationType = n.GetStringValue(); } },
-                {"availabilityStatus", n => { AvailabilityStatus = n.GetStringValue(); } },
-                {"domainNameReferences", n => { DomainNameReferences = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"federationConfiguration", n => { FederationConfiguration = n.GetCollectionOfObjectValues<InternalDomainFederation>(InternalDomainFederation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"isAdminManaged", n => { IsAdminManaged = n.GetBoolValue(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"isInitial", n => { IsInitial = n.GetBoolValue(); } },
-                {"isRoot", n => { IsRoot = n.GetBoolValue(); } },
-                {"isVerified", n => { IsVerified = n.GetBoolValue(); } },
-                {"passwordNotificationWindowInDays", n => { PasswordNotificationWindowInDays = n.GetIntValue(); } },
-                {"passwordValidityPeriodInDays", n => { PasswordValidityPeriodInDays = n.GetIntValue(); } },
-                {"serviceConfigurationRecords", n => { ServiceConfigurationRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"sharedEmailDomainInvitations", n => { SharedEmailDomainInvitations = n.GetCollectionOfObjectValues<SharedEmailDomainInvitation>(SharedEmailDomainInvitation.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"state", n => { State = n.GetObjectValue<DomainState>(DomainState.CreateFromDiscriminatorValue); } },
-                {"supportedServices", n => { SupportedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"verificationDnsRecords", n => { VerificationDnsRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationType", n => { AuthenticationType = n.GetStringValue(); } },
+                { "availabilityStatus", n => { AvailabilityStatus = n.GetStringValue(); } },
+                { "domainNameReferences", n => { DomainNameReferences = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "federationConfiguration", n => { FederationConfiguration = n.GetCollectionOfObjectValues<InternalDomainFederation>(InternalDomainFederation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "isAdminManaged", n => { IsAdminManaged = n.GetBoolValue(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "isInitial", n => { IsInitial = n.GetBoolValue(); } },
+                { "isRoot", n => { IsRoot = n.GetBoolValue(); } },
+                { "isVerified", n => { IsVerified = n.GetBoolValue(); } },
+                { "passwordNotificationWindowInDays", n => { PasswordNotificationWindowInDays = n.GetIntValue(); } },
+                { "passwordValidityPeriodInDays", n => { PasswordValidityPeriodInDays = n.GetIntValue(); } },
+                { "serviceConfigurationRecords", n => { ServiceConfigurationRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sharedEmailDomainInvitations", n => { SharedEmailDomainInvitations = n.GetCollectionOfObjectValues<SharedEmailDomainInvitation>(SharedEmailDomainInvitation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetObjectValue<DomainState>(DomainState.CreateFromDiscriminatorValue); } },
+                { "supportedServices", n => { SupportedServices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "verificationDnsRecords", n => { VerificationDnsRecords = n.GetCollectionOfObjectValues<DomainDnsRecord>(DomainDnsRecord.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

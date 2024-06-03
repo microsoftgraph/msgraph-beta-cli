@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.Hosts {
+namespace ApiSdk.Security.ThreatIntelligence.Hosts
+{
     /// <summary>
     /// Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostsRequestBuilder : BaseCliRequestBuilder 
+    public class HostsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
@@ -112,13 +113,13 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
             return command;
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -194,7 +195,9 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -220,7 +223,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
         {
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -260,7 +263,7 @@ namespace ApiSdk.Security.ThreatIntelligence.Hosts {
             return requestInfo;
         }
         /// <summary>
-        /// Refers to host objects that Microsoft Threat Intelligence has observed.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
         /// </summary>
         public class HostsRequestBuilderGetQueryParameters 
         {

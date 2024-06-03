@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.TaxAreas.Item {
+namespace ApiSdk.Financials.Companies.Item.TaxAreas.Item
+{
     /// <summary>
     /// Provides operations to manage the taxAreas property of the microsoft.graph.company entity.
     /// </summary>
-    public class TaxAreaItemRequestBuilder : BaseCliRequestBuilder 
+    public class TaxAreaItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property taxAreas for financials
@@ -28,11 +29,11 @@ namespace ApiSdk.Financials.Companies.Item.TaxAreas.Item {
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property taxAreas for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var taxAreaIdOption = new Option<string>("--tax-area-id", description: "The unique identifier of taxArea") {
+            var taxAreaIdOption = new Option<Guid?>("--tax-area-id", description: "The unique identifier of taxArea") {
             };
             taxAreaIdOption.IsRequired = true;
             command.AddOption(taxAreaIdOption);
@@ -69,11 +70,11 @@ namespace ApiSdk.Financials.Companies.Item.TaxAreas.Item {
         {
             var command = new Command("get");
             command.Description = "Get taxAreas from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var taxAreaIdOption = new Option<string>("--tax-area-id", description: "The unique identifier of taxArea") {
+            var taxAreaIdOption = new Option<Guid?>("--tax-area-id", description: "The unique identifier of taxArea") {
             };
             taxAreaIdOption.IsRequired = true;
             command.AddOption(taxAreaIdOption);
@@ -127,11 +128,11 @@ namespace ApiSdk.Financials.Companies.Item.TaxAreas.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property taxAreas in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var taxAreaIdOption = new Option<string>("--tax-area-id", description: "The unique identifier of taxArea") {
+            var taxAreaIdOption = new Option<Guid?>("--tax-area-id", description: "The unique identifier of taxArea") {
             };
             taxAreaIdOption.IsRequired = true;
             command.AddOption(taxAreaIdOption);

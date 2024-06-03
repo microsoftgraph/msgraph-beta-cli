@@ -13,21 +13,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item.IncidentReport {
+namespace ApiSdk.Admin.ServiceAnnouncement.HealthOverviews.Item.Issues.Item.IncidentReport
+{
     /// <summary>
     /// Provides operations to call the incidentReport method.
     /// </summary>
-    public class IncidentReportRequestBuilder : BaseCliRequestBuilder 
+    public class IncidentReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provide the Post-Incident Review (PIR) document of a specified service issue for tenant. An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn&apos;t exist for the tenant or if PIR document does not exist for the issue.
-        /// Find more info here <see href="https://learn.microsoft.com/graph/api/servicehealthissue-incidentreport?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Provide the Post-Incident Review (PIR) document of a specified service issue for tenant. An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn't exist for the tenant or if PIR document does not exist for the issue.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/servicehealthissue-incidentreport?view=graph-rest-beta";
+            command.Description = "Provide the Post-Incident Review (PIR) document of a specified service issue for tenant. An issue only with status of PostIncidentReviewPublished indicates that the PIR document exists for the issue. The operation returns an error if the specified issue doesn't exist for the tenant or if PIR document does not exist for the issue.";
             var serviceHealthIdOption = new Option<string>("--service-health-id", description: "The unique identifier of serviceHealth") {
             };
             serviceHealthIdOption.IsRequired = true;

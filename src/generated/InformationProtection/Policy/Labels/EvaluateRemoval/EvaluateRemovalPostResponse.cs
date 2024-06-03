@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateRemoval {
+namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateRemoval
+{
     #pragma warning disable CS1591
-    public class EvaluateRemovalPostResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class EvaluateRemovalPostResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateRemoval {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<InformationProtectionAction>(InformationProtectionAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<InformationProtectionAction>(InformationProtectionAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

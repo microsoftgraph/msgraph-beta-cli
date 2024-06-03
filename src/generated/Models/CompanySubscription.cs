@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CompanySubscription : Entity, IParsable 
+    public class CompanySubscription : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ID of this subscription in the commerce system. Alternate key.</summary>
@@ -107,19 +108,19 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"commerceSubscriptionId", n => { CommerceSubscriptionId = n.GetStringValue(); } },
-                {"createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"isTrial", n => { IsTrial = n.GetBoolValue(); } },
-                {"nextLifecycleDateTime", n => { NextLifecycleDateTime = n.GetDateTimeOffsetValue(); } },
-                {"ocpSubscriptionId", n => { OcpSubscriptionId = n.GetStringValue(); } },
-                {"ownerId", n => { OwnerId = n.GetStringValue(); } },
-                {"ownerTenantId", n => { OwnerTenantId = n.GetStringValue(); } },
-                {"ownerType", n => { OwnerType = n.GetStringValue(); } },
-                {"serviceStatus", n => { ServiceStatus = n.GetCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"skuId", n => { SkuId = n.GetStringValue(); } },
-                {"skuPartNumber", n => { SkuPartNumber = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetStringValue(); } },
-                {"totalLicenses", n => { TotalLicenses = n.GetIntValue(); } },
+                { "commerceSubscriptionId", n => { CommerceSubscriptionId = n.GetStringValue(); } },
+                { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "isTrial", n => { IsTrial = n.GetBoolValue(); } },
+                { "nextLifecycleDateTime", n => { NextLifecycleDateTime = n.GetDateTimeOffsetValue(); } },
+                { "ocpSubscriptionId", n => { OcpSubscriptionId = n.GetStringValue(); } },
+                { "ownerId", n => { OwnerId = n.GetStringValue(); } },
+                { "ownerTenantId", n => { OwnerTenantId = n.GetStringValue(); } },
+                { "ownerType", n => { OwnerType = n.GetStringValue(); } },
+                { "serviceStatus", n => { ServiceStatus = n.GetCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "skuId", n => { SkuId = n.GetStringValue(); } },
+                { "skuPartNumber", n => { SkuPartNumber = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "totalLicenses", n => { TotalLicenses = n.GetIntValue(); } },
             };
         }
         /// <summary>

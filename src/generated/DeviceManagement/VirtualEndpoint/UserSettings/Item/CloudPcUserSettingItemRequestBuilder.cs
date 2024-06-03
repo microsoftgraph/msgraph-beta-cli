@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item
+{
     /// <summary>
     /// Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.
     /// </summary>
-    public class CloudPcUserSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class CloudPcUserSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.cloudPcUserSetting entity.
@@ -67,13 +68,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return command;
         }
         /// <summary>
-        /// Delete navigation property userSettings for deviceManagement
+        /// Delete a cloudPcUserSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcusersetting-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property userSettings for deviceManagement";
+            command.Description = "Delete a cloudPcUserSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcusersetting-delete?view=graph-rest-beta";
             var cloudPcUserSettingIdOption = new Option<string>("--cloud-pc-user-setting-id", description: "The unique identifier of cloudPcUserSetting") {
             };
             cloudPcUserSettingIdOption.IsRequired = true;
@@ -102,13 +104,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return command;
         }
         /// <summary>
-        /// Cloud PC user settings.
+        /// Read the properties and relationships of a cloudPcUserSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcusersetting-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Cloud PC user settings.";
+            command.Description = "Read the properties and relationships of a cloudPcUserSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcusersetting-get?view=graph-rest-beta";
             var cloudPcUserSettingIdOption = new Option<string>("--cloud-pc-user-setting-id", description: "The unique identifier of cloudPcUserSetting") {
             };
             cloudPcUserSettingIdOption.IsRequired = true;
@@ -154,13 +157,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property userSettings in deviceManagement
+        /// Update the properties of a cloudPcUserSetting object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/cloudpcusersetting-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property userSettings in deviceManagement";
+            command.Description = "Update the properties of a cloudPcUserSetting object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/cloudpcusersetting-update?view=graph-rest-beta";
             var cloudPcUserSettingIdOption = new Option<string>("--cloud-pc-user-setting-id", description: "The unique identifier of cloudPcUserSetting") {
             };
             cloudPcUserSettingIdOption.IsRequired = true;
@@ -219,7 +223,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property userSettings for deviceManagement
+        /// Delete a cloudPcUserSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -238,7 +242,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC user settings.
+        /// Read the properties and relationships of a cloudPcUserSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -257,7 +261,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property userSettings in deviceManagement
+        /// Update the properties of a cloudPcUserSetting object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -278,7 +282,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Cloud PC user settings.
+        /// Read the properties and relationships of a cloudPcUserSetting object.
         /// </summary>
         public class CloudPcUserSettingItemRequestBuilderGetQueryParameters 
         {

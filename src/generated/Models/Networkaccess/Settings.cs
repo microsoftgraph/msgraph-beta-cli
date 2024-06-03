@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class Settings : ApiSdk.Models.Entity, IParsable 
+    public class Settings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The conditionalAccess property</summary>
@@ -59,10 +60,10 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessSettings>(ConditionalAccessSettings.CreateFromDiscriminatorValue); } },
-                {"crossTenantAccess", n => { CrossTenantAccess = n.GetObjectValue<CrossTenantAccessSettings>(CrossTenantAccessSettings.CreateFromDiscriminatorValue); } },
-                {"enrichedAuditLogs", n => { EnrichedAuditLogs = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogs>(ApiSdk.Models.Networkaccess.EnrichedAuditLogs.CreateFromDiscriminatorValue); } },
-                {"forwardingOptions", n => { ForwardingOptions = n.GetObjectValue<ApiSdk.Models.Networkaccess.ForwardingOptions>(ApiSdk.Models.Networkaccess.ForwardingOptions.CreateFromDiscriminatorValue); } },
+                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessSettings>(ConditionalAccessSettings.CreateFromDiscriminatorValue); } },
+                { "crossTenantAccess", n => { CrossTenantAccess = n.GetObjectValue<CrossTenantAccessSettings>(CrossTenantAccessSettings.CreateFromDiscriminatorValue); } },
+                { "enrichedAuditLogs", n => { EnrichedAuditLogs = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogs>(ApiSdk.Models.Networkaccess.EnrichedAuditLogs.CreateFromDiscriminatorValue); } },
+                { "forwardingOptions", n => { ForwardingOptions = n.GetObjectValue<ApiSdk.Models.Networkaccess.ForwardingOptions>(ApiSdk.Models.Networkaccess.ForwardingOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

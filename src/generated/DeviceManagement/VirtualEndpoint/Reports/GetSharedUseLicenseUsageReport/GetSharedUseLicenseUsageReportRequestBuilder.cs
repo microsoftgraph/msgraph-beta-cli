@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetSharedUseLicenseUsageReport {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetSharedUseLicenseUsageReport
+{
     /// <summary>
     /// Provides operations to call the getSharedUseLicenseUsageReport method.
     /// </summary>
-    public class GetSharedUseLicenseUsageReportRequestBuilder : BaseCliRequestBuilder 
+    public class GetSharedUseLicenseUsageReportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Get a usage report on shared-use licenses, such as servicePlanId, licenseCount, and claimedLicenseCount, for real-time, 7 days, or 28 days trend.

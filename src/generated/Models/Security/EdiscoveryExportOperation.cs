@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class EdiscoveryExportOperation : CaseOperation, IParsable 
+    public class EdiscoveryExportOperation : CaseOperation, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The azureBlobContainer property</summary>
+        /// <summary>The name of the Azure storage location where the export is stored. This only applies to exports stored in your own Azure storage location. The azureBlobContainer property is deprecated and will stop returning data on April 30th, 2023.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AzureBlobContainer { get; set; }
@@ -17,7 +18,7 @@ namespace ApiSdk.Models.Security {
 #else
         public string AzureBlobContainer { get; set; }
 #endif
-        /// <summary>The azureBlobToken property</summary>
+        /// <summary>The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location. The azureBlobToken property is deprecated and will stop returning data on April 30, 2023.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AzureBlobToken { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models.Security {
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The exportFileMetadata property</summary>
+        /// <summary>Contains the properties for an export file metadata, including downloadUrl, fileName, and size. If you export to an Azure storage location, this property returns empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<ApiSdk.Models.Security.ExportFileMetadata>? ExportFileMetadata { get; set; }
@@ -45,7 +46,7 @@ namespace ApiSdk.Models.Security {
         public ApiSdk.Models.Security.ExportOptions? ExportOptions { get; set; }
         /// <summary>The options provided that specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.</summary>
         public ExportFileStructure? ExportStructure { get; set; }
-        /// <summary>The outputFolderId property</summary>
+        /// <summary>The output folder ID. The outputFolderId property is deprecated and will stop returning data on April 30, 2023.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OutputFolderId { get; set; }
@@ -95,16 +96,16 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
-                {"azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
-                {"exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
-                {"outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
-                {"outputName", n => { OutputName = n.GetStringValue(); } },
-                {"reviewSet", n => { ReviewSet = n.GetObjectValue<EdiscoveryReviewSet>(EdiscoveryReviewSet.CreateFromDiscriminatorValue); } },
-                {"reviewSetQuery", n => { ReviewSetQuery = n.GetObjectValue<EdiscoveryReviewSetQuery>(EdiscoveryReviewSetQuery.CreateFromDiscriminatorValue); } },
+                { "azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
+                { "azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
+                { "exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
+                { "outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
+                { "outputName", n => { OutputName = n.GetStringValue(); } },
+                { "reviewSet", n => { ReviewSet = n.GetObjectValue<EdiscoveryReviewSet>(EdiscoveryReviewSet.CreateFromDiscriminatorValue); } },
+                { "reviewSetQuery", n => { ReviewSetQuery = n.GetObjectValue<EdiscoveryReviewSetQuery>(EdiscoveryReviewSetQuery.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

@@ -18,11 +18,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.ThreatSubmission {
+namespace ApiSdk.ThreatSubmission
+{
     /// <summary>
     /// Provides operations to manage the threatSubmissionRoot singleton.
     /// </summary>
-    public class ThreatSubmissionRequestBuilder : BaseCliRequestBuilder 
+    public class ThreatSubmissionRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the emailThreats property of the microsoft.graph.security.threatSubmissionRoot entity.

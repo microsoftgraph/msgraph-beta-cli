@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnenoteEntityBaseModel : Entity, IParsable 
+    public class OnenoteEntityBaseModel : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The self property</summary>
@@ -46,7 +47,7 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"self", n => { Self = n.GetStringValue(); } },
+                { "self", n => { Self = n.GetStringValue(); } },
             };
         }
         /// <summary>

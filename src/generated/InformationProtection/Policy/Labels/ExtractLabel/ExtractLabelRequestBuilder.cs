@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel {
+namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel
+{
     /// <summary>
     /// Provides operations to call the extractLabel method.
     /// </summary>
-    public class ExtractLabelRequestBuilder : BaseCliRequestBuilder 
+    public class ExtractLabelRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Using the metadata that exists on an already-labeled piece of information, resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.

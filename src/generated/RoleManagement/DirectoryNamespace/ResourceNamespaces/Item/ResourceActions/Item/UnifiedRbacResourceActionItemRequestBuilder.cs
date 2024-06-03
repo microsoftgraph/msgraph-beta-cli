@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions.Item {
+namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.ResourceActions.Item
+{
     /// <summary>
     /// Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
     /// </summary>
-    public class UnifiedRbacResourceActionItemRequestBuilder : BaseCliRequestBuilder 
+    public class UnifiedRbacResourceActionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the authenticationContext property of the microsoft.graph.unifiedRbacResourceAction entity.
@@ -81,13 +82,14 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
             return command;
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Read the properties and relationships of an unifiedRbacResourceAction object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/unifiedrbacresourceaction-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Operations that an authorized principal is allowed to perform.";
+            command.Description = "Read the properties and relationships of an unifiedRbacResourceAction object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/unifiedrbacresourceaction-get?view=graph-rest-beta";
             var unifiedRbacResourceNamespaceIdOption = new Option<string>("--unified-rbac-resource-namespace-id", description: "The unique identifier of unifiedRbacResourceNamespace") {
             };
             unifiedRbacResourceNamespaceIdOption.IsRequired = true;
@@ -248,7 +250,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
             return requestInfo;
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Read the properties and relationships of an unifiedRbacResourceAction object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -288,7 +290,7 @@ namespace ApiSdk.RoleManagement.DirectoryNamespace.ResourceNamespaces.Item.Resou
             return requestInfo;
         }
         /// <summary>
-        /// Operations that an authorized principal is allowed to perform.
+        /// Read the properties and relationships of an unifiedRbacResourceAction object.
         /// </summary>
         public class UnifiedRbacResourceActionItemRequestBuilderGetQueryParameters 
         {

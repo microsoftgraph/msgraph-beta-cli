@@ -20,11 +20,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.MailFolders.Item {
+namespace ApiSdk.Users.Item.MailFolders.Item
+{
     /// <summary>
     /// Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
     /// </summary>
-    public class MailFolderItemRequestBuilder : BaseCliRequestBuilder 
+    public class MailFolderItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.

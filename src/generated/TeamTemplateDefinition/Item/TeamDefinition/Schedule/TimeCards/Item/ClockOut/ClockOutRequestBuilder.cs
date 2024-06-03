@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.Item.ClockOut {
+namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.Item.ClockOut
+{
     /// <summary>
     /// Provides operations to call the clockOut method.
     /// </summary>
-    public class ClockOutRequestBuilder : BaseCliRequestBuilder 
+    public class ClockOutRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Clock out to end an open timeCard.

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class UserAccount : IAdditionalDataHolder, IParsable 
+    public class UserAccount : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -80,13 +81,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"riskScore", n => { RiskScore = n.GetStringValue(); } },
-                {"service", n => { Service = n.GetStringValue(); } },
-                {"signinName", n => { SigninName = n.GetStringValue(); } },
-                {"status", n => { Status = n.GetEnumValue<AccountStatus>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "riskScore", n => { RiskScore = n.GetStringValue(); } },
+                { "service", n => { Service = n.GetStringValue(); } },
+                { "signinName", n => { SigninName = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetEnumValue<AccountStatus>(); } },
             };
         }
         /// <summary>

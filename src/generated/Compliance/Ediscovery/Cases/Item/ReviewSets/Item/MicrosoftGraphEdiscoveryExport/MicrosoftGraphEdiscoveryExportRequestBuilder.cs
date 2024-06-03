@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryExport {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryExport
+{
     /// <summary>
     /// Provides operations to call the export method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryExportRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryExportRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Initiate an export from a reviewSet.  For details, see Export documents from a review set in Advanced eDiscovery.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Bandwidth limit as a percentage with business hours.
     /// </summary>
-    public class DeliveryOptimizationBandwidthHoursWithPercentage : DeliveryOptimizationBandwidth, IParsable 
+    public class DeliveryOptimizationBandwidthHoursWithPercentage : DeliveryOptimizationBandwidth, IParsable
     {
         /// <summary>Background download percentage hours.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,8 +52,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bandwidthBackgroundPercentageHours", n => { BandwidthBackgroundPercentageHours = n.GetObjectValue<DeliveryOptimizationBandwidthBusinessHoursLimit>(DeliveryOptimizationBandwidthBusinessHoursLimit.CreateFromDiscriminatorValue); } },
-                {"bandwidthForegroundPercentageHours", n => { BandwidthForegroundPercentageHours = n.GetObjectValue<DeliveryOptimizationBandwidthBusinessHoursLimit>(DeliveryOptimizationBandwidthBusinessHoursLimit.CreateFromDiscriminatorValue); } },
+                { "bandwidthBackgroundPercentageHours", n => { BandwidthBackgroundPercentageHours = n.GetObjectValue<DeliveryOptimizationBandwidthBusinessHoursLimit>(DeliveryOptimizationBandwidthBusinessHoursLimit.CreateFromDiscriminatorValue); } },
+                { "bandwidthForegroundPercentageHours", n => { BandwidthForegroundPercentageHours = n.GetObjectValue<DeliveryOptimizationBandwidthBusinessHoursLimit>(DeliveryOptimizationBandwidthBusinessHoursLimit.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

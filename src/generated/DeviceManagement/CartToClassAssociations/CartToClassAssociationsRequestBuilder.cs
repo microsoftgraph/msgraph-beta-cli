@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.CartToClassAssociations {
+namespace ApiSdk.DeviceManagement.CartToClassAssociations
+{
     /// <summary>
     /// Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class CartToClassAssociationsRequestBuilder : BaseCliRequestBuilder 
+    public class CartToClassAssociationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the cartToClassAssociations property of the microsoft.graph.deviceManagement entity.
@@ -180,7 +181,9 @@ namespace ApiSdk.DeviceManagement.CartToClassAssociations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;

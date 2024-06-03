@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class WorkbookNamedItem : Entity, IParsable 
+    public class WorkbookNamedItem : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the comment associated with this name.</summary>
@@ -77,13 +78,13 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"comment", n => { Comment = n.GetStringValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"scope", n => { Scope = n.GetStringValue(); } },
-                {"type", n => { Type = n.GetStringValue(); } },
-                {"value", n => { Value = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
-                {"visible", n => { Visible = n.GetBoolValue(); } },
-                {"worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
+                { "comment", n => { Comment = n.GetStringValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "scope", n => { Scope = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "value", n => { Value = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "visible", n => { Visible = n.GetBoolValue(); } },
+                { "worksheet", n => { Worksheet = n.GetObjectValue<WorkbookWorksheet>(WorkbookWorksheet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

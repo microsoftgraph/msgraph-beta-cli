@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
+namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings
+{
     /// <summary>
     /// Provides operations to manage the labelPolicySettings property of the microsoft.graph.security.informationProtection entity.
     /// </summary>
-    public class LabelPolicySettingsRequestBuilder : BaseCliRequestBuilder 
+    public class LabelPolicySettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property labelPolicySettings for users
@@ -56,13 +57,14 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
             return command;
         }
         /// <summary>
-        /// Read the Microsoft Purview Information Protection policy settings for the user or organization.
+        /// Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the moreInfoUrl property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-informationprotectionpolicysetting-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Read the Microsoft Purview Information Protection policy settings for the user or organization.";
+            command.Description = "Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the moreInfoUrl property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-informationprotectionpolicysetting-get?view=graph-rest-beta";
             var userIdOption = new Option<string>("--user-id", description: "The unique identifier of user. Use 'me' for the currently signed in user.") {
             };
             userIdOption.IsRequired = true;
@@ -192,7 +194,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
             return requestInfo;
         }
         /// <summary>
-        /// Read the Microsoft Purview Information Protection policy settings for the user or organization.
+        /// Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the moreInfoUrl property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -232,7 +234,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings {
             return requestInfo;
         }
         /// <summary>
-        /// Read the Microsoft Purview Information Protection policy settings for the user or organization.
+        /// Read the properties and relationships of an informationProtectionPolicySetting object. The settings exposed by this API should be used in applications to populate the moreInfoUrl property for Microsoft Purview Information Protection help, and indicate whether labeling is mandatory for the user and whether justification must be provided on downgrade.
         /// </summary>
         public class LabelPolicySettingsRequestBuilderGetQueryParameters 
         {

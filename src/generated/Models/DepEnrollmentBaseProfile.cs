@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The DepEnrollmentBaseProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
     /// </summary>
-    public class DepEnrollmentBaseProfile : EnrollmentProfile, IParsable 
+    public class DepEnrollmentBaseProfile : EnrollmentProfile, IParsable
     {
         /// <summary>Indicates if Apple id setup pane is disabled</summary>
         public bool? AppleIdDisabled { get; set; }
@@ -115,28 +116,28 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"appleIdDisabled", n => { AppleIdDisabled = n.GetBoolValue(); } },
-                {"applePayDisabled", n => { ApplePayDisabled = n.GetBoolValue(); } },
-                {"configurationWebUrl", n => { ConfigurationWebUrl = n.GetBoolValue(); } },
-                {"deviceNameTemplate", n => { DeviceNameTemplate = n.GetStringValue(); } },
-                {"diagnosticsDisabled", n => { DiagnosticsDisabled = n.GetBoolValue(); } },
-                {"displayToneSetupDisabled", n => { DisplayToneSetupDisabled = n.GetBoolValue(); } },
-                {"enabledSkipKeys", n => { EnabledSkipKeys = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"enrollmentTimeAzureAdGroupIds", n => { EnrollmentTimeAzureAdGroupIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.ToList(); } },
-                {"isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                {"isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
-                {"locationDisabled", n => { LocationDisabled = n.GetBoolValue(); } },
-                {"privacyPaneDisabled", n => { PrivacyPaneDisabled = n.GetBoolValue(); } },
-                {"profileRemovalDisabled", n => { ProfileRemovalDisabled = n.GetBoolValue(); } },
-                {"restoreBlocked", n => { RestoreBlocked = n.GetBoolValue(); } },
-                {"screenTimeScreenDisabled", n => { ScreenTimeScreenDisabled = n.GetBoolValue(); } },
-                {"siriDisabled", n => { SiriDisabled = n.GetBoolValue(); } },
-                {"supervisedModeEnabled", n => { SupervisedModeEnabled = n.GetBoolValue(); } },
-                {"supportDepartment", n => { SupportDepartment = n.GetStringValue(); } },
-                {"supportPhoneNumber", n => { SupportPhoneNumber = n.GetStringValue(); } },
-                {"termsAndConditionsDisabled", n => { TermsAndConditionsDisabled = n.GetBoolValue(); } },
-                {"touchIdDisabled", n => { TouchIdDisabled = n.GetBoolValue(); } },
-                {"waitForDeviceConfiguredConfirmation", n => { WaitForDeviceConfiguredConfirmation = n.GetBoolValue(); } },
+                { "appleIdDisabled", n => { AppleIdDisabled = n.GetBoolValue(); } },
+                { "applePayDisabled", n => { ApplePayDisabled = n.GetBoolValue(); } },
+                { "configurationWebUrl", n => { ConfigurationWebUrl = n.GetBoolValue(); } },
+                { "deviceNameTemplate", n => { DeviceNameTemplate = n.GetStringValue(); } },
+                { "diagnosticsDisabled", n => { DiagnosticsDisabled = n.GetBoolValue(); } },
+                { "displayToneSetupDisabled", n => { DisplayToneSetupDisabled = n.GetBoolValue(); } },
+                { "enabledSkipKeys", n => { EnabledSkipKeys = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "enrollmentTimeAzureAdGroupIds", n => { EnrollmentTimeAzureAdGroupIds = n.GetCollectionOfPrimitiveValues<Guid?>()?.ToList(); } },
+                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
+                { "locationDisabled", n => { LocationDisabled = n.GetBoolValue(); } },
+                { "privacyPaneDisabled", n => { PrivacyPaneDisabled = n.GetBoolValue(); } },
+                { "profileRemovalDisabled", n => { ProfileRemovalDisabled = n.GetBoolValue(); } },
+                { "restoreBlocked", n => { RestoreBlocked = n.GetBoolValue(); } },
+                { "screenTimeScreenDisabled", n => { ScreenTimeScreenDisabled = n.GetBoolValue(); } },
+                { "siriDisabled", n => { SiriDisabled = n.GetBoolValue(); } },
+                { "supervisedModeEnabled", n => { SupervisedModeEnabled = n.GetBoolValue(); } },
+                { "supportDepartment", n => { SupportDepartment = n.GetStringValue(); } },
+                { "supportPhoneNumber", n => { SupportPhoneNumber = n.GetStringValue(); } },
+                { "termsAndConditionsDisabled", n => { TermsAndConditionsDisabled = n.GetBoolValue(); } },
+                { "touchIdDisabled", n => { TouchIdDisabled = n.GetBoolValue(); } },
+                { "waitForDeviceConfiguredConfirmation", n => { WaitForDeviceConfiguredConfirmation = n.GetBoolValue(); } },
             };
         }
         /// <summary>

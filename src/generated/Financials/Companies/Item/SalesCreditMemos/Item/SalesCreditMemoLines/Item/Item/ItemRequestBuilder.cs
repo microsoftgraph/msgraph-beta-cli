@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemoLines.Item.Item {
+namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemoLines.Item.Item
+{
     /// <summary>
     /// Provides operations to manage the item property of the microsoft.graph.salesCreditMemoLine entity.
     /// </summary>
-    public class ItemRequestBuilder : BaseCliRequestBuilder 
+    public class ItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property item for financials
@@ -30,11 +31,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemo
         {
             var command = new Command("delete");
             command.Description = "Delete navigation property item for financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);
@@ -77,11 +78,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemo
         {
             var command = new Command("get");
             command.Description = "Get item from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);
@@ -160,11 +161,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemos.Item.SalesCreditMemo
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property item in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesCreditMemoIdOption = new Option<string>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
+            var salesCreditMemoIdOption = new Option<Guid?>("--sales-credit-memo-id", description: "The unique identifier of salesCreditMemo") {
             };
             salesCreditMemoIdOption.IsRequired = true;
             command.AddOption(salesCreditMemoIdOption);

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class CalendarSharingMessageAction : IAdditionalDataHolder, IParsable 
+    public class CalendarSharingMessageAction : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
@@ -50,10 +51,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"action", n => { Action = n.GetEnumValue<CalendarSharingAction>(); } },
-                {"actionType", n => { ActionType = n.GetEnumValue<CalendarSharingActionType>(); } },
-                {"importance", n => { Importance = n.GetEnumValue<CalendarSharingActionImportance>(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "action", n => { Action = n.GetEnumValue<CalendarSharingAction>(); } },
+                { "actionType", n => { ActionType = n.GetEnumValue<CalendarSharingActionType>(); } },
+                { "importance", n => { Importance = n.GetEnumValue<CalendarSharingActionImportance>(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

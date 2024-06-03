@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests.Item {
+namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.
     /// </summary>
-    public class AccessPackageResourceRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class AccessPackageResourceRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the accessPackageResource property of the microsoft.graph.accessPackageResourceRequest entity.

@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// VPN Server definition.
     /// </summary>
-    public class VpnServer : IAdditionalDataHolder, IParsable 
+    public class VpnServer : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -63,10 +64,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"address", n => { Address = n.GetStringValue(); } },
-                {"description", n => { Description = n.GetStringValue(); } },
-                {"isDefaultServer", n => { IsDefaultServer = n.GetBoolValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "address", n => { Address = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "isDefaultServer", n => { IsDefaultServer = n.GetBoolValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

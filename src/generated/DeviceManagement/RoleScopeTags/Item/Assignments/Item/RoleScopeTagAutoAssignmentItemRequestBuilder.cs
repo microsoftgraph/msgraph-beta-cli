@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.RoleScopeTags.Item.Assignments.Item {
+namespace ApiSdk.DeviceManagement.RoleScopeTags.Item.Assignments.Item
+{
     /// <summary>
     /// Provides operations to manage the assignments property of the microsoft.graph.roleScopeTag entity.
     /// </summary>
-    public class RoleScopeTagAutoAssignmentItemRequestBuilder : BaseCliRequestBuilder 
+    public class RoleScopeTagAutoAssignmentItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property assignments for deviceManagement

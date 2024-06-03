@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Models and Manufactures meatadata for managed devices in the account
     /// </summary>
-    public class ManagedDeviceModelsAndManufacturers : IAdditionalDataHolder, IParsable 
+    public class ManagedDeviceModelsAndManufacturers : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -61,9 +62,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"deviceManufacturers", n => { DeviceManufacturers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"deviceModels", n => { DeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "deviceManufacturers", n => { DeviceManufacturers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "deviceModels", n => { DeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
         /// <summary>

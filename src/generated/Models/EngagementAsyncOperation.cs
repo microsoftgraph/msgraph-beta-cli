@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class EngagementAsyncOperation : LongRunningOperation, IParsable 
+    public class EngagementAsyncOperation : LongRunningOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type of the long-running operation. The possible values are: createCommunity, unknownFutureValue.</summary>
@@ -37,8 +38,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"operationType", n => { OperationType = n.GetEnumValue<EngagementAsyncOperationType>(); } },
-                {"resourceId", n => { ResourceId = n.GetStringValue(); } },
+                { "operationType", n => { OperationType = n.GetEnumValue<EngagementAsyncOperationType>(); } },
+                { "resourceId", n => { ResourceId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityProtection.RiskyUsers.Item.History.Item {
+namespace ApiSdk.IdentityProtection.RiskyUsers.Item.History.Item
+{
     /// <summary>
     /// Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
     /// </summary>
-    public class RiskyUserHistoryItemItemRequestBuilder : BaseCliRequestBuilder 
+    public class RiskyUserHistoryItemItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property history for identityProtection
@@ -62,13 +63,14 @@ namespace ApiSdk.IdentityProtection.RiskyUsers.Item.History.Item {
             return command;
         }
         /// <summary>
-        /// Get history from identityProtection
+        /// Get a riskyUserHistoryItem object of a riskyUser.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Get history from identityProtection";
+            command.Description = "Get a riskyUserHistoryItem object of a riskyUser.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/riskyuserhistoryitem-get?view=graph-rest-beta";
             var riskyUserIdOption = new Option<string>("--risky-user-id", description: "The unique identifier of riskyUser") {
             };
             riskyUserIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.IdentityProtection.RiskyUsers.Item.History.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get history from identityProtection
+        /// Get a riskyUserHistoryItem object of a riskyUser.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.IdentityProtection.RiskyUsers.Item.History.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Get history from identityProtection
+        /// Get a riskyUserHistoryItem object of a riskyUser.
         /// </summary>
         public class RiskyUserHistoryItemItemRequestBuilderGetQueryParameters 
         {

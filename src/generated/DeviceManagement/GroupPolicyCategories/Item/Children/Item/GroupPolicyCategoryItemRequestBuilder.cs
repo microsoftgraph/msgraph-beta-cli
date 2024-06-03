@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item.Children.Item {
+namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item.Children.Item
+{
     /// <summary>
     /// Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.
     /// </summary>
-    public class GroupPolicyCategoryItemRequestBuilder : BaseCliRequestBuilder 
+    public class GroupPolicyCategoryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The children categories

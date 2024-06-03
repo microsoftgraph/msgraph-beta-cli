@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Applications.Item.Synchronization.AcquireAccessToken {
+namespace ApiSdk.Applications.Item.Synchronization.AcquireAccessToken
+{
     #pragma warning disable CS1591
-    public class AcquireAccessTokenPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class AcquireAccessTokenPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Applications.Item.Synchronization.AcquireAccessToken {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"credentials", n => { Credentials = n.GetCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(SynchronizationSecretKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<SynchronizationSecretKeyStringValuePair>(SynchronizationSecretKeyStringValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

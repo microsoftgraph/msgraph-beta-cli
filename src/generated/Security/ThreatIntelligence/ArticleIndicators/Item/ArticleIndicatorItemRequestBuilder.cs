@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.ArticleIndicators.Item {
+namespace ApiSdk.Security.ThreatIntelligence.ArticleIndicators.Item
+{
     /// <summary>
     /// Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class ArticleIndicatorItemRequestBuilder : BaseCliRequestBuilder 
+    public class ArticleIndicatorItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the artifact property of the microsoft.graph.security.indicator entity.
@@ -74,13 +75,14 @@ namespace ApiSdk.Security.ThreatIntelligence.ArticleIndicators.Item {
             return command;
         }
         /// <summary>
-        /// Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of an articleIndicator object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of an articleIndicator object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-beta";
             var articleIndicatorIdOption = new Option<string>("--article-indicator-id", description: "The unique identifier of articleIndicator") {
             };
             articleIndicatorIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.ArticleIndicators.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of an articleIndicator object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.ArticleIndicators.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Refers to indicators of threat or compromise highlighted in an article.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of an articleIndicator object.
         /// </summary>
         public class ArticleIndicatorItemRequestBuilderGetQueryParameters 
         {

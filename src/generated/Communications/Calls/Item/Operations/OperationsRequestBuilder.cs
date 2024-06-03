@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.Operations {
+namespace ApiSdk.Communications.Calls.Item.Operations
+{
     /// <summary>
     /// Provides operations to manage the operations property of the microsoft.graph.call entity.
     /// </summary>
-    public class OperationsRequestBuilder : BaseCliRequestBuilder 
+    public class OperationsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the operations property of the microsoft.graph.call entity.
@@ -104,13 +105,13 @@ namespace ApiSdk.Communications.Calls.Item.Operations {
             return command;
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get operations from communications";
+            command.Description = "Get the status of an operation that adds the large gallery view to a call.";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -192,7 +193,9 @@ namespace ApiSdk.Communications.Calls.Item.Operations {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +221,7 @@ namespace ApiSdk.Communications.Calls.Item.Operations {
         {
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +261,7 @@ namespace ApiSdk.Communications.Calls.Item.Operations {
             return requestInfo;
         }
         /// <summary>
-        /// Get operations from communications
+        /// Get the status of an operation that adds the large gallery view to a call.
         /// </summary>
         public class OperationsRequestBuilderGetQueryParameters 
         {

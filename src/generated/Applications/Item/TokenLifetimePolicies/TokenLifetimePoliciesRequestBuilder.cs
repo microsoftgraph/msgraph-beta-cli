@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
+namespace ApiSdk.Applications.Item.TokenLifetimePolicies
+{
     /// <summary>
     /// Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.application entity.
     /// </summary>
-    public class TokenLifetimePoliciesRequestBuilder : BaseCliRequestBuilder 
+    public class TokenLifetimePoliciesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Gets an item from the ApiSdk.applications.item.tokenLifetimePolicies.item collection
@@ -52,13 +53,14 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
             return command;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The tokenLifetimePolicies assigned to this application. Supports $expand.";
+            command.Description = "List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/application-list-tokenlifetimepolicies?view=graph-rest-beta";
             var applicationIdOption = new Option<string>("--application-id", description: "The unique identifier of application") {
             };
             applicationIdOption.IsRequired = true;
@@ -140,7 +142,9 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -185,7 +189,7 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
         {
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -204,7 +208,7 @@ namespace ApiSdk.Applications.Item.TokenLifetimePolicies {
             return requestInfo;
         }
         /// <summary>
-        /// The tokenLifetimePolicies assigned to this application. Supports $expand.
+        /// List the tokenLifetimePolicy objects that are assigned to an application or servicePrincipal. Only one object is returned in the collection because only one tokenLifetimePolicy can be assigned to an application.
         /// </summary>
         public class TokenLifetimePoliciesRequestBuilderGetQueryParameters 
         {

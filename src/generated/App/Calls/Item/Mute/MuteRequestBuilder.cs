@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.App.Calls.Item.Mute {
+namespace ApiSdk.App.Calls.Item.Mute
+{
     /// <summary>
     /// Provides operations to call the mute method.
     /// </summary>
-    public class MuteRequestBuilder : BaseCliRequestBuilder 
+    public class MuteRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Allows the application to mute itself. This is a server mute, meaning that the server drops all audio packets for this participant, even if the participant continues to stream audio. For more information about how to handle mute operations, see muteParticipantOperation.

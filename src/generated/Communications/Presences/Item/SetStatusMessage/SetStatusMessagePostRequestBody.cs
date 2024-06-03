@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.Presences.Item.SetStatusMessage {
+namespace ApiSdk.Communications.Presences.Item.SetStatusMessage
+{
     #pragma warning disable CS1591
-    public class SetStatusMessagePostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SetStatusMessagePostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Communications.Presences.Item.SetStatusMessage {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"statusMessage", n => { StatusMessage = n.GetObjectValue<PresenceStatusMessage>(PresenceStatusMessage.CreateFromDiscriminatorValue); } },
+                { "statusMessage", n => { StatusMessage = n.GetObjectValue<PresenceStatusMessage>(PresenceStatusMessage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

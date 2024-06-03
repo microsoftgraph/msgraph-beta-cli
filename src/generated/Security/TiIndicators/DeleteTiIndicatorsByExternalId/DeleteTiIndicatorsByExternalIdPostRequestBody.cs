@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Security.TiIndicators.DeleteTiIndicatorsByExternalId {
+namespace ApiSdk.Security.TiIndicators.DeleteTiIndicatorsByExternalId
+{
     #pragma warning disable CS1591
-    public class DeleteTiIndicatorsByExternalIdPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class DeleteTiIndicatorsByExternalIdPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -44,7 +45,7 @@ namespace ApiSdk.Security.TiIndicators.DeleteTiIndicatorsByExternalId {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

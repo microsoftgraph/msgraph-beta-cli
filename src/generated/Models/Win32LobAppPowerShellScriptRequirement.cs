@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Contains PowerShell script properties to detect a Win32 App
     /// </summary>
-    public class Win32LobAppPowerShellScriptRequirement : Win32LobAppRequirement, IParsable 
+    public class Win32LobAppPowerShellScriptRequirement : Win32LobAppRequirement, IParsable
     {
         /// <summary>Contains all supported Powershell Script output detection type.</summary>
         public Win32LobAppPowerShellScriptDetectionType? DetectionType { get; set; }
@@ -59,12 +60,12 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"detectionType", n => { DetectionType = n.GetEnumValue<Win32LobAppPowerShellScriptDetectionType>(); } },
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
-                {"runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
-                {"runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
-                {"scriptContent", n => { ScriptContent = n.GetStringValue(); } },
+                { "detectionType", n => { DetectionType = n.GetEnumValue<Win32LobAppPowerShellScriptDetectionType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
+                { "runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
+                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
+                { "scriptContent", n => { ScriptContent = n.GetStringValue(); } },
             };
         }
         /// <summary>

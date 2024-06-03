@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item.ManagedAppLogCollectionRequests.Item {
+namespace ApiSdk.DeviceAppManagement.ManagedAppRegistrations.Item.ManagedAppLogCollectionRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the managedAppLogCollectionRequests property of the microsoft.graph.managedAppRegistration entity.
     /// </summary>
-    public class ManagedAppLogCollectionRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class ManagedAppLogCollectionRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property managedAppLogCollectionRequests for deviceAppManagement

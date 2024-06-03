@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsSummarizedDeviceScopes {
+namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsSummarizedDeviceScopes
+{
     /// <summary>
     /// Provides operations to call the userExperienceAnalyticsSummarizedDeviceScopes method.
     /// </summary>
-    public class UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder : BaseCliRequestBuilder 
+    public class UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke function userExperienceAnalyticsSummarizedDeviceScopes

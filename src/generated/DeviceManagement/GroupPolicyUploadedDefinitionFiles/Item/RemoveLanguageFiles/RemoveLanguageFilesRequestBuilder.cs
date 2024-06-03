@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.RemoveLanguageFiles {
+namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.RemoveLanguageFiles
+{
     /// <summary>
     /// Provides operations to call the removeLanguageFiles method.
     /// </summary>
-    public class RemoveLanguageFilesRequestBuilder : BaseCliRequestBuilder 
+    public class RemoveLanguageFilesRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action removeLanguageFiles

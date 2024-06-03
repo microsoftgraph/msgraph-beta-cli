@@ -15,20 +15,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
+namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item
+{
     /// <summary>
     /// Provides operations to manage the columns property of the microsoft.graph.contentType entity.
     /// </summary>
-    public class ColumnDefinitionItemRequestBuilder : BaseCliRequestBuilder 
+    public class ColumnDefinitionItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Delete navigation property columns for sites
+        /// Delete columnDefinition
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildDeleteCommand()
         {
             var command = new Command("delete");
-            command.Description = "Delete navigation property columns for sites";
+            command.Description = "Delete columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -69,13 +71,14 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
             return command;
         }
         /// <summary>
-        /// The collection of column definitions for this content type.
+        /// Retrieve the metadata for a site, list, or contentType column.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "The collection of column definitions for this content type.";
+            command.Description = "Retrieve the metadata for a site, list, or contentType column.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -133,13 +136,14 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property columns in sites
+        /// Update columnDefinition
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property columns in sites";
+            command.Description = "Update columnDefinition\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-beta";
             var siteIdOption = new Option<string>("--site-id", description: "The unique identifier of site") {
             };
             siteIdOption.IsRequired = true;
@@ -227,7 +231,7 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
         {
         }
         /// <summary>
-        /// Delete navigation property columns for sites
+        /// Delete columnDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -246,7 +250,7 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions for this content type.
+        /// Retrieve the metadata for a site, list, or contentType column.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -265,7 +269,7 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property columns in sites
+        /// Update columnDefinition
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
@@ -286,7 +290,7 @@ namespace ApiSdk.Sites.Item.ContentTypes.Item.Columns.Item {
             return requestInfo;
         }
         /// <summary>
-        /// The collection of column definitions for this content type.
+        /// Retrieve the metadata for a site, list, or contentType column.
         /// </summary>
         public class ColumnDefinitionItemRequestBuilderGetQueryParameters 
         {

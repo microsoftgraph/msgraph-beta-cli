@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class RiskyServicePrincipalHistoryItem : RiskyServicePrincipal, IParsable 
+    public class RiskyServicePrincipalHistoryItem : RiskyServicePrincipal, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activity related to service principal risk level change.</summary>
@@ -51,9 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"activity", n => { Activity = n.GetObjectValue<RiskServicePrincipalActivity>(RiskServicePrincipalActivity.CreateFromDiscriminatorValue); } },
-                {"initiatedBy", n => { InitiatedBy = n.GetStringValue(); } },
-                {"servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
+                { "activity", n => { Activity = n.GetObjectValue<RiskServicePrincipalActivity>(RiskServicePrincipalActivity.CreateFromDiscriminatorValue); } },
+                { "initiatedBy", n => { InitiatedBy = n.GetStringValue(); } },
+                { "servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
             };
         }
         /// <summary>

@@ -14,29 +14,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime {
+namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime
+{
     /// <summary>
     /// Provides operations to call the getCrossTenantSummary method.
     /// </summary>
-    public class MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
-        /// Invoke function getCrossTenantSummary
+        /// Get a summary of the cross-tenant access patterns.
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Invoke function getCrossTenantSummary";
-            var startDateTimeOption = new Option<string>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
+            command.Description = "Get a summary of the cross-tenant access patterns.";
+            var startDateTimeOption = new Option<DateTimeOffset?>("--start-date-time", description: "Usage: startDateTime={startDateTime}") {
             };
             startDateTimeOption.IsRequired = true;
             command.AddOption(startDateTimeOption);
-            var endDateTimeOption = new Option<string>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
+            var endDateTimeOption = new Option<DateTimeOffset?>("--end-date-time", description: "Usage: endDateTime={endDateTime}") {
             };
             endDateTimeOption.IsRequired = true;
             command.AddOption(endDateTimeOption);
-            var discoveryPivotDateTimeOption = new Option<string>("--discovery-pivot-date-time", description: "Usage: discoveryPivotDateTime={discoveryPivotDateTime}") {
+            var discoveryPivotDateTimeOption = new Option<DateTimeOffset?>("--discovery-pivot-date-time", description: "Usage: discoveryPivotDateTime={discoveryPivotDateTime}") {
             };
             discoveryPivotDateTimeOption.IsRequired = true;
             command.AddOption(discoveryPivotDateTimeOption);
@@ -85,7 +86,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetCrossTenant
         {
         }
         /// <summary>
-        /// Invoke function getCrossTenantSummary
+        /// Get a summary of the cross-tenant access patterns.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

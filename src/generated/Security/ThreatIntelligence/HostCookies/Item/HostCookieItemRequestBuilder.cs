@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
+namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item
+{
     /// <summary>
     /// Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
     /// </summary>
-    public class HostCookieItemRequestBuilder : BaseCliRequestBuilder 
+    public class HostCookieItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property hostCookies for security
@@ -57,13 +58,14 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
             return command;
         }
         /// <summary>
-        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostCookie object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.";
+            command.Description = "Read the properties and relationships of a hostCookie object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-beta";
             var hostCookieIdOption = new Option<string>("--host-cookie-id", description: "The unique identifier of hostCookie") {
             };
             hostCookieIdOption.IsRequired = true;
@@ -210,7 +212,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostCookie object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -250,7 +252,7 @@ namespace ApiSdk.Security.ThreatIntelligence.HostCookies.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Retrieve details about hostCookie objects.Note: List retrieval is not yet supported.
+        /// Read the properties and relationships of a hostCookie object.
         /// </summary>
         public class HostCookieItemRequestBuilderGetQueryParameters 
         {

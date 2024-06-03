@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.PowerOff {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.PowerOff
+{
     /// <summary>
     /// Provides operations to call the powerOff method.
     /// </summary>
-    public class PowerOffRequestBuilder : BaseCliRequestBuilder 
+    public class PowerOffRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Power off a Windows 365 Frontline Cloud PC. This action supports Microsoft Endpoint Manager (MEM) admin scenarios.  After a Windows 365 Frontline Cloud PC is powered off, it&apos;s deallocated, and licenses are revoked immediately. Only IT admin users can perform this action. 

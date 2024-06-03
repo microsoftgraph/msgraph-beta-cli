@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Settings.Item {
+namespace ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.Item.Settings.Item
+{
     /// <summary>
     /// Provides operations to manage the settings property of the microsoft.graph.managedAppConfiguration entity.
     /// </summary>
-    public class DeviceManagementConfigurationSettingItemRequestBuilder : BaseCliRequestBuilder 
+    public class DeviceManagementConfigurationSettingItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property settings for deviceAppManagement

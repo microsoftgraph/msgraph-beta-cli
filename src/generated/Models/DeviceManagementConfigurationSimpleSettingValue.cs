@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Simple setting value
     /// </summary>
-    public class DeviceManagementConfigurationSimpleSettingValue : DeviceManagementConfigurationSettingValue, IParsable 
+    public class DeviceManagementConfigurationSimpleSettingValue : DeviceManagementConfigurationSettingValue, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="DeviceManagementConfigurationSimpleSettingValue"/> and sets the default values.

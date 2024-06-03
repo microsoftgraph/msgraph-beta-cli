@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions {
+namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions
+{
     /// <summary>
     /// Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
     /// </summary>
-    public class ContentSharingSessionsRequestBuilder : BaseCliRequestBuilder 
+    public class ContentSharingSessionsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
@@ -104,13 +105,14 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions {
             return command;
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve a list of contentSharingSession objects in a call.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "Get contentSharingSessions from communications";
+            command.Description = "Retrieve a list of contentSharingSession objects in a call.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-beta";
             var callIdOption = new Option<string>("--call-id", description: "The unique identifier of call") {
             };
             callIdOption.IsRequired = true;
@@ -192,7 +194,9 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +222,7 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions {
         {
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve a list of contentSharingSession objects in a call.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +262,7 @@ namespace ApiSdk.Communications.Calls.Item.ContentSharingSessions {
             return requestInfo;
         }
         /// <summary>
-        /// Get contentSharingSessions from communications
+        /// Retrieve a list of contentSharingSession objects in a call.
         /// </summary>
         public class ContentSharingSessionsRequestBuilderGetQueryParameters 
         {

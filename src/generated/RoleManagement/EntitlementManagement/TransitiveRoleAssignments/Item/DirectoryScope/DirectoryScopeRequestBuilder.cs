@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.RoleManagement.EntitlementManagement.TransitiveRoleAssignments.Item.DirectoryScope {
+namespace ApiSdk.RoleManagement.EntitlementManagement.TransitiveRoleAssignments.Item.DirectoryScope
+{
     /// <summary>
     /// Provides operations to manage the directoryScope property of the microsoft.graph.unifiedRoleAssignment entity.
     /// </summary>
-    public class DirectoryScopeRequestBuilder : BaseCliRequestBuilder 
+    public class DirectoryScopeRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.

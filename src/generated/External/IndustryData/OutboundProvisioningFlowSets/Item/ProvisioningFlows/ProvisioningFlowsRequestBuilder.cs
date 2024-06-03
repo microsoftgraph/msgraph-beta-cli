@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.ProvisioningFlows {
+namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.ProvisioningFlows
+{
     /// <summary>
     /// Provides operations to manage the provisioningFlows property of the microsoft.graph.industryData.outboundProvisioningFlowSet entity.
     /// </summary>
-    public class ProvisioningFlowsRequestBuilder : BaseCliRequestBuilder 
+    public class ProvisioningFlowsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the provisioningFlows property of the microsoft.graph.industryData.outboundProvisioningFlowSet entity.
@@ -29,11 +30,13 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
+            var commands = new List<Command>();
             var builder = new ProvisioningFlowItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
+            commands.Add(builder.BuildMicrosoftGraphIndustryDataResetNavCommand());
             executables.Add(builder.BuildPatchCommand());
-            return new(executables, new(0));
+            return new(executables, commands);
         }
         /// <summary>
         /// Provides operations to count the resources in the collection.
@@ -104,13 +107,14 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
             return command;
         }
         /// <summary>
-        /// A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
+        /// Get a list of the provisioningFlow objects and their properties.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/industrydata-outboundprovisioningflowset-list-provisioningflows?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.";
+            command.Description = "Get a list of the provisioningFlow objects and their properties.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/industrydata-outboundprovisioningflowset-list-provisioningflows?view=graph-rest-beta";
             var outboundProvisioningFlowSetIdOption = new Option<string>("--outbound-provisioning-flow-set-id", description: "The unique identifier of outboundProvisioningFlowSet") {
             };
             outboundProvisioningFlowSetIdOption.IsRequired = true;
@@ -192,7 +196,9 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -218,7 +224,7 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
         {
         }
         /// <summary>
-        /// A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
+        /// Get a list of the provisioningFlow objects and their properties.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -258,7 +264,7 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
             return requestInfo;
         }
         /// <summary>
-        /// A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.
+        /// Get a list of the provisioningFlow objects and their properties.
         /// </summary>
         public class ProvisioningFlowsRequestBuilderGetQueryParameters 
         {

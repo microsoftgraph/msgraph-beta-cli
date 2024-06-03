@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag {
+namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag
+{
     /// <summary>
     /// Provides operations to call the assignTag method.
     /// </summary>
-    public class MicrosoftGraphManagedTenantsAssignTagRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphManagedTenantsAssignTagRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Assign the tenant tag to the specified managed tenants.

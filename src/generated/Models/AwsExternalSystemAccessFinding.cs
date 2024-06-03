@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class AwsExternalSystemAccessFinding : Finding, IParsable 
+    public class AwsExternalSystemAccessFinding : Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessMethods property</summary>
@@ -49,11 +50,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"accessMethods", n => { AccessMethods = n.GetEnumValue<ExternalSystemAccessMethods>(); } },
-                {"affectedSystem", n => { AffectedSystem = n.GetObjectValue<AuthorizationSystem>(AuthorizationSystem.CreateFromDiscriminatorValue); } },
-                {"systemWithAccess", n => { SystemWithAccess = n.GetObjectValue<AuthorizationSystemInfo>(AuthorizationSystemInfo.CreateFromDiscriminatorValue); } },
-                {"trustedIdentityCount", n => { TrustedIdentityCount = n.GetIntValue(); } },
-                {"trustsAllIdentities", n => { TrustsAllIdentities = n.GetBoolValue(); } },
+                { "accessMethods", n => { AccessMethods = n.GetEnumValue<ExternalSystemAccessMethods>(); } },
+                { "affectedSystem", n => { AffectedSystem = n.GetObjectValue<AuthorizationSystem>(AuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "systemWithAccess", n => { SystemWithAccess = n.GetObjectValue<AuthorizationSystemInfo>(AuthorizationSystemInfo.CreateFromDiscriminatorValue); } },
+                { "trustedIdentityCount", n => { TrustedIdentityCount = n.GetIntValue(); } },
+                { "trustsAllIdentities", n => { TrustsAllIdentities = n.GetBoolValue(); } },
             };
         }
         /// <summary>

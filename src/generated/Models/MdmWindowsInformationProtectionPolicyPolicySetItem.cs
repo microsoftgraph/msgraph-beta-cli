@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// A class containing the properties used for mdm windows information protection policy PolicySetItem.
     /// </summary>
-    public class MdmWindowsInformationProtectionPolicyPolicySetItem : PolicySetItem, IParsable 
+    public class MdmWindowsInformationProtectionPolicyPolicySetItem : PolicySetItem, IParsable
     {
         /// <summary>
         /// Instantiates a new <see cref="MdmWindowsInformationProtectionPolicyPolicySetItem"/> and sets the default values.

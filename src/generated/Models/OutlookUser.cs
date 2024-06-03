@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OutlookUser : Entity, IParsable 
+    public class OutlookUser : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A list of categories defined for the user.</summary>
@@ -17,7 +18,7 @@ namespace ApiSdk.Models {
 #else
         public List<OutlookCategory> MasterCategories { get; set; }
 #endif
-        /// <summary>The taskFolders property</summary>
+        /// <summary>The user&apos;s Outlook task folders. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OutlookTaskFolder>? TaskFolders { get; set; }
@@ -25,7 +26,7 @@ namespace ApiSdk.Models {
 #else
         public List<OutlookTaskFolder> TaskFolders { get; set; }
 #endif
-        /// <summary>The taskGroups property</summary>
+        /// <summary>The user&apos;s Outlook task groups. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OutlookTaskGroup>? TaskGroups { get; set; }
@@ -33,7 +34,7 @@ namespace ApiSdk.Models {
 #else
         public List<OutlookTaskGroup> TaskGroups { get; set; }
 #endif
-        /// <summary>The tasks property</summary>
+        /// <summary>The user&apos;s Outlook tasks. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<OutlookTask>? Tasks { get; set; }
@@ -59,10 +60,10 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"masterCategories", n => { MasterCategories = n.GetCollectionOfObjectValues<OutlookCategory>(OutlookCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<OutlookTaskFolder>(OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"taskGroups", n => { TaskGroups = n.GetCollectionOfObjectValues<OutlookTaskGroup>(OutlookTaskGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"tasks", n => { Tasks = n.GetCollectionOfObjectValues<OutlookTask>(OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "masterCategories", n => { MasterCategories = n.GetCollectionOfObjectValues<OutlookCategory>(OutlookCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<OutlookTaskFolder>(OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "taskGroups", n => { TaskGroups = n.GetCollectionOfObjectValues<OutlookTaskGroup>(OutlookTaskGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<OutlookTask>(OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

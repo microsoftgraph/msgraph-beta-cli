@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.AdvancedThreatProtectionOnboardingStateSummary {
+namespace ApiSdk.DeviceManagement.AdvancedThreatProtectionOnboardingStateSummary
+{
     /// <summary>
     /// Provides operations to manage the advancedThreatProtectionOnboardingStateSummary property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder : BaseCliRequestBuilder 
+    public class AdvancedThreatProtectionOnboardingStateSummaryRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the advancedThreatProtectionOnboardingDeviceSettingStates property of the microsoft.graph.advancedThreatProtectionOnboardingStateSummary entity.

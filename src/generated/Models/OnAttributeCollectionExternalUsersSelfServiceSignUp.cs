@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class OnAttributeCollectionExternalUsersSelfServiceSignUp : OnAttributeCollectionHandler, IParsable 
+    public class OnAttributeCollectionExternalUsersSelfServiceSignUp : OnAttributeCollectionHandler, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Required. The configuration for how attributes are displayed in the sign up experience defined by a user flow, like the externalUsersSelfServiceSignupEventsFlow, specifically on the attribute collection page.</summary>
@@ -50,8 +51,8 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"attributeCollectionPage", n => { AttributeCollectionPage = n.GetObjectValue<AuthenticationAttributeCollectionPage>(AuthenticationAttributeCollectionPage.CreateFromDiscriminatorValue); } },
-                {"attributes", n => { Attributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "attributeCollectionPage", n => { AttributeCollectionPage = n.GetObjectValue<AuthenticationAttributeCollectionPage>(AuthenticationAttributeCollectionPage.CreateFromDiscriminatorValue); } },
+                { "attributes", n => { Attributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

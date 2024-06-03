@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class EmailThreatSubmissionPolicy : ApiSdk.Models.Entity, IParsable 
+    public class EmailThreatSubmissionPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the email address of the sender from which email notifications will be sent to end users to inform them whether an email is spam, phish or clean. The default value is null. Optional for creation.</summary>
@@ -65,19 +66,19 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"customizedNotificationSenderEmailAddress", n => { CustomizedNotificationSenderEmailAddress = n.GetStringValue(); } },
-                {"customizedReportRecipientEmailAddress", n => { CustomizedReportRecipientEmailAddress = n.GetStringValue(); } },
-                {"isAlwaysReportEnabledForUsers", n => { IsAlwaysReportEnabledForUsers = n.GetBoolValue(); } },
-                {"isAskMeEnabledForUsers", n => { IsAskMeEnabledForUsers = n.GetBoolValue(); } },
-                {"isCustomizedMessageEnabled", n => { IsCustomizedMessageEnabled = n.GetBoolValue(); } },
-                {"isCustomizedMessageEnabledForPhishing", n => { IsCustomizedMessageEnabledForPhishing = n.GetBoolValue(); } },
-                {"isCustomizedNotificationSenderEnabled", n => { IsCustomizedNotificationSenderEnabled = n.GetBoolValue(); } },
-                {"isNeverReportEnabledForUsers", n => { IsNeverReportEnabledForUsers = n.GetBoolValue(); } },
-                {"isOrganizationBrandingEnabled", n => { IsOrganizationBrandingEnabled = n.GetBoolValue(); } },
-                {"isReportFromQuarantineEnabled", n => { IsReportFromQuarantineEnabled = n.GetBoolValue(); } },
-                {"isReportToCustomizedEmailAddressEnabled", n => { IsReportToCustomizedEmailAddressEnabled = n.GetBoolValue(); } },
-                {"isReportToMicrosoftEnabled", n => { IsReportToMicrosoftEnabled = n.GetBoolValue(); } },
-                {"isReviewEmailNotificationEnabled", n => { IsReviewEmailNotificationEnabled = n.GetBoolValue(); } },
+                { "customizedNotificationSenderEmailAddress", n => { CustomizedNotificationSenderEmailAddress = n.GetStringValue(); } },
+                { "customizedReportRecipientEmailAddress", n => { CustomizedReportRecipientEmailAddress = n.GetStringValue(); } },
+                { "isAlwaysReportEnabledForUsers", n => { IsAlwaysReportEnabledForUsers = n.GetBoolValue(); } },
+                { "isAskMeEnabledForUsers", n => { IsAskMeEnabledForUsers = n.GetBoolValue(); } },
+                { "isCustomizedMessageEnabled", n => { IsCustomizedMessageEnabled = n.GetBoolValue(); } },
+                { "isCustomizedMessageEnabledForPhishing", n => { IsCustomizedMessageEnabledForPhishing = n.GetBoolValue(); } },
+                { "isCustomizedNotificationSenderEnabled", n => { IsCustomizedNotificationSenderEnabled = n.GetBoolValue(); } },
+                { "isNeverReportEnabledForUsers", n => { IsNeverReportEnabledForUsers = n.GetBoolValue(); } },
+                { "isOrganizationBrandingEnabled", n => { IsOrganizationBrandingEnabled = n.GetBoolValue(); } },
+                { "isReportFromQuarantineEnabled", n => { IsReportFromQuarantineEnabled = n.GetBoolValue(); } },
+                { "isReportToCustomizedEmailAddressEnabled", n => { IsReportToCustomizedEmailAddressEnabled = n.GetBoolValue(); } },
+                { "isReportToMicrosoftEnabled", n => { IsReportToMicrosoftEnabled = n.GetBoolValue(); } },
+                { "isReviewEmailNotificationEnabled", n => { IsReviewEmailNotificationEnabled = n.GetBoolValue(); } },
             };
         }
         /// <summary>

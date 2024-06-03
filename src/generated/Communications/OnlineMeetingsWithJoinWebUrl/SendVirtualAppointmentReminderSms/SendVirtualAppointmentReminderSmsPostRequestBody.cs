@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Communications.OnlineMeetingsWithJoinWebUrl.SendVirtualAppointmentReminderSms {
+namespace ApiSdk.Communications.OnlineMeetingsWithJoinWebUrl.SendVirtualAppointmentReminderSms
+{
     #pragma warning disable CS1591
-    public class SendVirtualAppointmentReminderSmsPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class SendVirtualAppointmentReminderSmsPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -47,8 +48,8 @@ namespace ApiSdk.Communications.OnlineMeetingsWithJoinWebUrl.SendVirtualAppointm
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"attendees", n => { Attendees = n.GetCollectionOfObjectValues<AttendeeNotificationInfo>(AttendeeNotificationInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"remindBeforeTimeInMinutesType", n => { RemindBeforeTimeInMinutesType = n.GetEnumValue<RemindBeforeTimeInMinutesType>(); } },
+                { "attendees", n => { Attendees = n.GetCollectionOfObjectValues<AttendeeNotificationInfo>(AttendeeNotificationInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remindBeforeTimeInMinutesType", n => { RemindBeforeTimeInMinutesType = n.GetEnumValue<RemindBeforeTimeInMinutesType>(); } },
             };
         }
         /// <summary>

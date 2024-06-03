@@ -24,11 +24,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item {
+namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item
+{
     /// <summary>
     /// Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.
     /// </summary>
-    public class SalesInvoiceItemRequestBuilder : BaseCliRequestBuilder 
+    public class SalesInvoiceItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the cancelAndSend method.
@@ -120,11 +121,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item {
         {
             var command = new Command("get");
             command.Description = "Get salesInvoices from financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);
@@ -178,11 +179,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item {
         {
             var command = new Command("patch");
             command.Description = "Update the navigation property salesInvoices in financials";
-            var companyIdOption = new Option<string>("--company-id", description: "The unique identifier of company") {
+            var companyIdOption = new Option<Guid?>("--company-id", description: "The unique identifier of company") {
             };
             companyIdOption.IsRequired = true;
             command.AddOption(companyIdOption);
-            var salesInvoiceIdOption = new Option<string>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
+            var salesInvoiceIdOption = new Option<Guid?>("--sales-invoice-id", description: "The unique identifier of salesInvoice") {
             };
             salesInvoiceIdOption.IsRequired = true;
             command.AddOption(salesInvoiceIdOption);

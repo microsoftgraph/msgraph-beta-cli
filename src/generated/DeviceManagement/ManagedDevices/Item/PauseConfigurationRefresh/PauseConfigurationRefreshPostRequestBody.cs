@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.ManagedDevices.Item.PauseConfigurationRefresh {
+namespace ApiSdk.DeviceManagement.ManagedDevices.Item.PauseConfigurationRefresh
+{
     #pragma warning disable CS1591
-    public class PauseConfigurationRefreshPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class PauseConfigurationRefreshPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -38,7 +39,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.PauseConfigurationRefresh 
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"pauseTimePeriodInMinutes", n => { PauseTimePeriodInMinutes = n.GetIntValue(); } },
+                { "pauseTimePeriodInMinutes", n => { PauseTimePeriodInMinutes = n.GetIntValue(); } },
             };
         }
         /// <summary>

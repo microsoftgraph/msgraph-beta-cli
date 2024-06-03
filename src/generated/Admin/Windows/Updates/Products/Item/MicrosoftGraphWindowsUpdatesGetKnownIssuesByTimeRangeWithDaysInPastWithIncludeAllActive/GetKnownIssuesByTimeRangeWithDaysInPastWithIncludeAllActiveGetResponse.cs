@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive
+{
     #pragma warning disable CS1591
-    public class GetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -37,7 +38,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.MicrosoftGraphWindowsUpdate
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle {
+namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle
+{
     /// <summary>
     /// Provides operations to manage the knowledgeBaseArticle property of the microsoft.graph.windowsUpdates.productRevision entity.
     /// </summary>
-    public class KnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder 
+    public class KnowledgeBaseArticleRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property knowledgeBaseArticle for admin

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions {
+namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions
+{
     #pragma warning disable CS1591
-    public class GetSubscriptionsGetResponse : BaseCollectionPaginationCountResponse, IParsable 
+    public class GetSubscriptionsGetResponse : BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -36,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetSubscriptions {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"value", n => { Value = n.GetCollectionOfObjectValues<CloudPcSubscription>(CloudPcSubscription.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcSubscription>(CloudPcSubscription.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>

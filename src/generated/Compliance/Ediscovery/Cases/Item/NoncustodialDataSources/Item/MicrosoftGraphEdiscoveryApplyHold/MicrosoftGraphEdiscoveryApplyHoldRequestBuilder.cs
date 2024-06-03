@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryApplyHold {
+namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryApplyHold
+{
     /// <summary>
     /// Provides operations to call the applyHold method.
     /// </summary>
-    public class MicrosoftGraphEdiscoveryApplyHoldRequestBuilder : BaseCliRequestBuilder 
+    public class MicrosoftGraphEdiscoveryApplyHoldRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action applyHold

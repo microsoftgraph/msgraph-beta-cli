@@ -4,11 +4,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class PlannerRoster : Entity, IParsable 
+    public class PlannerRoster : Entity, IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The assignedSensitivityLabel property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public SensitivityLabelAssignment? AssignedSensitivityLabel { get; set; }
+#nullable restore
+#else
+        public SensitivityLabelAssignment AssignedSensitivityLabel { get; set; }
+#endif
         /// <summary>Retrieves the members of the plannerRoster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,8 +52,9 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"members", n => { Members = n.GetCollectionOfObjectValues<PlannerRosterMember>(PlannerRosterMember.CreateFromDiscriminatorValue)?.ToList(); } },
-                {"plans", n => { Plans = n.GetCollectionOfObjectValues<PlannerPlan>(PlannerPlan.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedSensitivityLabel", n => { AssignedSensitivityLabel = n.GetObjectValue<SensitivityLabelAssignment>(SensitivityLabelAssignment.CreateFromDiscriminatorValue); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<PlannerRosterMember>(PlannerRosterMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "plans", n => { Plans = n.GetCollectionOfObjectValues<PlannerPlan>(PlannerPlan.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -55,6 +65,7 @@ namespace ApiSdk.Models {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
+            writer.WriteObjectValue<SensitivityLabelAssignment>("assignedSensitivityLabel", AssignedSensitivityLabel);
             writer.WriteCollectionOfObjectValues<PlannerRosterMember>("members", Members);
             writer.WriteCollectionOfObjectValues<PlannerPlan>("plans", Plans);
         }

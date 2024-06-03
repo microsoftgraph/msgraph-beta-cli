@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Print.Printers.Item.Jobs.Item.Documents.Item.CreateUploadSession {
+namespace ApiSdk.Print.Printers.Item.Jobs.Item.Documents.Item.CreateUploadSession
+{
     #pragma warning disable CS1591
-    public class CreateUploadSessionPostRequestBody : IAdditionalDataHolder, IParsable 
+    public class CreateUploadSessionPostRequestBody : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -45,7 +46,7 @@ namespace ApiSdk.Print.Printers.Item.Jobs.Item.Documents.Item.CreateUploadSessio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"properties", n => { Properties = n.GetObjectValue<PrintDocumentUploadProperties>(PrintDocumentUploadProperties.CreateFromDiscriminatorValue); } },
+                { "properties", n => { Properties = n.GetObjectValue<PrintDocumentUploadProperties>(PrintDocumentUploadProperties.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

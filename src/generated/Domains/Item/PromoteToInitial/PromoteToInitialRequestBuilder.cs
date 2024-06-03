@@ -13,11 +13,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Domains.Item.PromoteToInitial {
+namespace ApiSdk.Domains.Item.PromoteToInitial
+{
     /// <summary>
     /// Provides operations to call the promoteToInitial method.
     /// </summary>
-    public class PromoteToInitialRequestBuilder : BaseCliRequestBuilder 
+    public class PromoteToInitialRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Invoke action promoteToInitial

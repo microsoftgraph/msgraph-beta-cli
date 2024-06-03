@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.EmployeeExperience.Communities.Item.Group {
+namespace ApiSdk.EmployeeExperience.Communities.Item.Group
+{
     /// <summary>
     /// Provides operations to manage the group property of the microsoft.graph.community entity.
     /// </summary>
-    public class GroupRequestBuilder : BaseCliRequestBuilder 
+    public class GroupRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// The Microsoft 365 group that manages the membership of this community.

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings {
+namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings
+{
     /// <summary>
     /// Provides operations to manage the windowsAutopilotSettings property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class WindowsAutopilotSettingsRequestBuilder : BaseCliRequestBuilder 
+    public class WindowsAutopilotSettingsRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property windowsAutopilotSettings for deviceManagement

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Security {
+namespace ApiSdk.Models.Security
+{
     #pragma warning disable CS1591
-    public class FilePlanDescriptor : ApiSdk.Models.Entity, IParsable 
+    public class FilePlanDescriptor : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Represents the file plan descriptor of type authority applied to a particular retention label.</summary>
+        /// <summary>The authority property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public FilePlanAuthority? Authority { get; set; }
@@ -41,7 +42,7 @@ namespace ApiSdk.Models.Security {
 #else
         public ApiSdk.Models.Security.CategoryTemplate CategoryTemplate { get; set; }
 #endif
-        /// <summary>Represents the file plan descriptor of type citation applied to a particular retention label.</summary>
+        /// <summary>The citation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public FilePlanCitation? Citation { get; set; }
@@ -57,7 +58,7 @@ namespace ApiSdk.Models.Security {
 #else
         public ApiSdk.Models.Security.CitationTemplate CitationTemplate { get; set; }
 #endif
-        /// <summary>Represents the file plan descriptor of type department applied to a particular retention label.</summary>
+        /// <summary>The department property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public FilePlanDepartment? Department { get; set; }
@@ -73,7 +74,7 @@ namespace ApiSdk.Models.Security {
 #else
         public ApiSdk.Models.Security.DepartmentTemplate DepartmentTemplate { get; set; }
 #endif
-        /// <summary>Represents the file plan descriptor of type filePlanReference applied to a particular retention label.</summary>
+        /// <summary>The filePlanReference property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public ApiSdk.Models.Security.FilePlanReference? FilePlanReference { get; set; }
@@ -107,16 +108,16 @@ namespace ApiSdk.Models.Security {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"authority", n => { Authority = n.GetObjectValue<FilePlanAuthority>(FilePlanAuthority.CreateFromDiscriminatorValue); } },
-                {"authorityTemplate", n => { AuthorityTemplate = n.GetObjectValue<ApiSdk.Models.Security.AuthorityTemplate>(ApiSdk.Models.Security.AuthorityTemplate.CreateFromDiscriminatorValue); } },
-                {"category", n => { Category = n.GetObjectValue<FilePlanAppliedCategory>(FilePlanAppliedCategory.CreateFromDiscriminatorValue); } },
-                {"categoryTemplate", n => { CategoryTemplate = n.GetObjectValue<ApiSdk.Models.Security.CategoryTemplate>(ApiSdk.Models.Security.CategoryTemplate.CreateFromDiscriminatorValue); } },
-                {"citation", n => { Citation = n.GetObjectValue<FilePlanCitation>(FilePlanCitation.CreateFromDiscriminatorValue); } },
-                {"citationTemplate", n => { CitationTemplate = n.GetObjectValue<ApiSdk.Models.Security.CitationTemplate>(ApiSdk.Models.Security.CitationTemplate.CreateFromDiscriminatorValue); } },
-                {"department", n => { Department = n.GetObjectValue<FilePlanDepartment>(FilePlanDepartment.CreateFromDiscriminatorValue); } },
-                {"departmentTemplate", n => { DepartmentTemplate = n.GetObjectValue<ApiSdk.Models.Security.DepartmentTemplate>(ApiSdk.Models.Security.DepartmentTemplate.CreateFromDiscriminatorValue); } },
-                {"filePlanReference", n => { FilePlanReference = n.GetObjectValue<ApiSdk.Models.Security.FilePlanReference>(ApiSdk.Models.Security.FilePlanReference.CreateFromDiscriminatorValue); } },
-                {"filePlanReferenceTemplate", n => { FilePlanReferenceTemplate = n.GetObjectValue<ApiSdk.Models.Security.FilePlanReferenceTemplate>(ApiSdk.Models.Security.FilePlanReferenceTemplate.CreateFromDiscriminatorValue); } },
+                { "authority", n => { Authority = n.GetObjectValue<FilePlanAuthority>(FilePlanAuthority.CreateFromDiscriminatorValue); } },
+                { "authorityTemplate", n => { AuthorityTemplate = n.GetObjectValue<ApiSdk.Models.Security.AuthorityTemplate>(ApiSdk.Models.Security.AuthorityTemplate.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetObjectValue<FilePlanAppliedCategory>(FilePlanAppliedCategory.CreateFromDiscriminatorValue); } },
+                { "categoryTemplate", n => { CategoryTemplate = n.GetObjectValue<ApiSdk.Models.Security.CategoryTemplate>(ApiSdk.Models.Security.CategoryTemplate.CreateFromDiscriminatorValue); } },
+                { "citation", n => { Citation = n.GetObjectValue<FilePlanCitation>(FilePlanCitation.CreateFromDiscriminatorValue); } },
+                { "citationTemplate", n => { CitationTemplate = n.GetObjectValue<ApiSdk.Models.Security.CitationTemplate>(ApiSdk.Models.Security.CitationTemplate.CreateFromDiscriminatorValue); } },
+                { "department", n => { Department = n.GetObjectValue<FilePlanDepartment>(FilePlanDepartment.CreateFromDiscriminatorValue); } },
+                { "departmentTemplate", n => { DepartmentTemplate = n.GetObjectValue<ApiSdk.Models.Security.DepartmentTemplate>(ApiSdk.Models.Security.DepartmentTemplate.CreateFromDiscriminatorValue); } },
+                { "filePlanReference", n => { FilePlanReference = n.GetObjectValue<ApiSdk.Models.Security.FilePlanReference>(ApiSdk.Models.Security.FilePlanReference.CreateFromDiscriminatorValue); } },
+                { "filePlanReferenceTemplate", n => { FilePlanReferenceTemplate = n.GetObjectValue<ApiSdk.Models.Security.FilePlanReferenceTemplate>(ApiSdk.Models.Security.FilePlanReferenceTemplate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>

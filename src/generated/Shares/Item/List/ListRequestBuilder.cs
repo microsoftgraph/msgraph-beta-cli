@@ -23,11 +23,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Shares.Item.List {
+namespace ApiSdk.Shares.Item.List
+{
     /// <summary>
     /// Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.
     /// </summary>
-    public class ListRequestBuilder : BaseCliRequestBuilder 
+    public class ListRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the activities property of the microsoft.graph.list entity.

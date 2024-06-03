@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// Settings for Android For Work.
     /// </summary>
-    public class AndroidForWorkSettings : Entity, IParsable 
+    public class AndroidForWorkSettings : Entity, IParsable
     {
         /// <summary>Bind status of the tenant with the Google EMM API</summary>
         public AndroidForWorkBindStatus? BindStatus { get; set; }
@@ -64,15 +65,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"bindStatus", n => { BindStatus = n.GetEnumValue<AndroidForWorkBindStatus>(); } },
-                {"deviceOwnerManagementEnabled", n => { DeviceOwnerManagementEnabled = n.GetBoolValue(); } },
-                {"enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<AndroidForWorkEnrollmentTarget>(); } },
-                {"lastAppSyncDateTime", n => { LastAppSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                {"lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<AndroidForWorkSyncStatus>(); } },
-                {"lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                {"ownerOrganizationName", n => { OwnerOrganizationName = n.GetStringValue(); } },
-                {"ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
-                {"targetGroupIds", n => { TargetGroupIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
+                { "bindStatus", n => { BindStatus = n.GetEnumValue<AndroidForWorkBindStatus>(); } },
+                { "deviceOwnerManagementEnabled", n => { DeviceOwnerManagementEnabled = n.GetBoolValue(); } },
+                { "enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<AndroidForWorkEnrollmentTarget>(); } },
+                { "lastAppSyncDateTime", n => { LastAppSyncDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<AndroidForWorkSyncStatus>(); } },
+                { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
+                { "ownerOrganizationName", n => { OwnerOrganizationName = n.GetStringValue(); } },
+                { "ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
+                { "targetGroupIds", n => { TargetGroupIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
         /// <summary>

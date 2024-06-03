@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models.Networkaccess {
+namespace ApiSdk.Models.Networkaccess
+{
     #pragma warning disable CS1591
-    public class User : IAdditionalDataHolder, IParsable 
+    public class User : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
@@ -19,6 +20,8 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string DisplayName { get; set; }
 #endif
+        /// <summary>The firstAccessDateTime property</summary>
+        public DateTimeOffset? FirstAccessDateTime { get; set; }
         /// <summary>The date and time of the most recent access.</summary>
         public DateTimeOffset? LastAccessDateTime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -29,8 +32,14 @@ namespace ApiSdk.Models.Networkaccess {
 #else
         public string OdataType { get; set; }
 #endif
+        /// <summary>The totalBytesReceived property</summary>
+        public long? TotalBytesReceived { get; set; }
+        /// <summary>The totalBytesSent property</summary>
+        public long? TotalBytesSent { get; set; }
         /// <summary>The trafficType property</summary>
         public ApiSdk.Models.Networkaccess.TrafficType? TrafficType { get; set; }
+        /// <summary>The transactionCount property</summary>
+        public long? TransactionCount { get; set; }
         /// <summary>The ID for the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,13 +83,17 @@ namespace ApiSdk.Models.Networkaccess {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"displayName", n => { DisplayName = n.GetStringValue(); } },
-                {"lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
-                {"@odata.type", n => { OdataType = n.GetStringValue(); } },
-                {"trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
-                {"userId", n => { UserId = n.GetStringValue(); } },
-                {"userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<UserType>(); } },
+                { "displayName", n => { DisplayName = n.GetStringValue(); } },
+                { "firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "lastAccessDateTime", n => { LastAccessDateTime = n.GetDateTimeOffsetValue(); } },
+                { "@odata.type", n => { OdataType = n.GetStringValue(); } },
+                { "totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
+                { "totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "transactionCount", n => { TransactionCount = n.GetLongValue(); } },
+                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<UserType>(); } },
             };
         }
         /// <summary>
@@ -91,9 +104,13 @@ namespace ApiSdk.Models.Networkaccess {
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("displayName", DisplayName);
+            writer.WriteDateTimeOffsetValue("firstAccessDateTime", FirstAccessDateTime);
             writer.WriteDateTimeOffsetValue("lastAccessDateTime", LastAccessDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
+            writer.WriteLongValue("totalBytesReceived", TotalBytesReceived);
+            writer.WriteLongValue("totalBytesSent", TotalBytesSent);
             writer.WriteEnumValue<TrafficType>("trafficType", TrafficType);
+            writer.WriteLongValue("transactionCount", TransactionCount);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
             writer.WriteEnumValue<UserType>("userType", UserType);

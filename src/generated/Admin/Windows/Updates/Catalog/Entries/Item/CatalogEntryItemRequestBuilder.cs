@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.Admin.Windows.Updates.Catalog.Entries.Item {
+namespace ApiSdk.Admin.Windows.Updates.Catalog.Entries.Item
+{
     /// <summary>
     /// Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.
     /// </summary>
-    public class CatalogEntryItemRequestBuilder : BaseCliRequestBuilder 
+    public class CatalogEntryItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property entries for admin

@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
+namespace ApiSdk.NetworkAccess.FilteringProfiles.Item
+{
     /// <summary>
     /// Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.
     /// </summary>
-    public class FilteringProfileItemRequestBuilder : BaseCliRequestBuilder 
+    public class FilteringProfileItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.networkaccess.filteringProfile entity.
@@ -136,13 +137,14 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
             return command;
         }
         /// <summary>
-        /// Update the navigation property filteringProfiles in networkAccess
+        /// Update the properties of a filteringProfile object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-update?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildPatchCommand()
         {
             var command = new Command("patch");
-            command.Description = "Update the navigation property filteringProfiles in networkAccess";
+            command.Description = "Update the properties of a filteringProfile object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/networkaccess-filteringprofile-update?view=graph-rest-beta";
             var filteringProfileIdOption = new Option<string>("--filtering-profile-id", description: "The unique identifier of filteringProfile") {
             };
             filteringProfileIdOption.IsRequired = true;
@@ -266,7 +268,7 @@ namespace ApiSdk.NetworkAccess.FilteringProfiles.Item {
             return requestInfo;
         }
         /// <summary>
-        /// Update the navigation property filteringProfiles in networkAccess
+        /// Update the properties of a filteringProfile object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

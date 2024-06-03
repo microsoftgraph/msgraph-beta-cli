@@ -16,11 +16,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys {
+namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys
+{
     /// <summary>
     /// Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
     /// </summary>
-    public class RecoveryKeysRequestBuilder : BaseCliRequestBuilder 
+    public class RecoveryKeysRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
@@ -51,13 +52,14 @@ namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys {
             return command;
         }
         /// <summary>
-        /// The recovery keys associated with the bitlocker entity.
+        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildListCommand()
         {
             var command = new Command("list");
-            command.Description = "The recovery keys associated with the bitlocker entity.";
+            command.Description = "Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-beta";
             var topOption = new Option<int?>("--top", description: "Show only the first n items") {
             };
             topOption.IsRequired = false;
@@ -133,7 +135,9 @@ namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys {
                 var pagingData = new PageLinkData(requestInfo, null, itemName: "value", nextLinkName: "@odata.nextLink");
                 var pageResponse = await pagingService.GetPagedDataAsync((info, token) => reqAdapter.SendNoContentAsync(info, cancellationToken: token), pagingData, all, cancellationToken);
                 var response = pageResponse?.Response;
+#nullable enable
                 IOutputFormatter? formatter = null;
+#nullable restore
                 if (pageResponse?.StatusCode >= 200 && pageResponse?.StatusCode < 300) {
                     formatter = outputFormatterFactory.GetFormatter(output);
                     response = (response != Stream.Null) ? await outputFilter.FilterOutputAsync(response, query, cancellationToken) : response;
@@ -159,7 +163,7 @@ namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys {
         {
         }
         /// <summary>
-        /// The recovery keys associated with the bitlocker entity.
+        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -178,7 +182,7 @@ namespace ApiSdk.InformationProtection.Bitlocker.RecoveryKeys {
             return requestInfo;
         }
         /// <summary>
-        /// The recovery keys associated with the bitlocker entity.
+        /// Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
         /// </summary>
         public class RecoveryKeysRequestBuilderGetQueryParameters 
         {

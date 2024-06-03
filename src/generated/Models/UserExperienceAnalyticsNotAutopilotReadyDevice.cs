@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The user experience analytics Device not windows autopilot ready.
     /// </summary>
-    public class UserExperienceAnalyticsNotAutopilotReadyDevice : Entity, IParsable 
+    public class UserExperienceAnalyticsNotAutopilotReadyDevice : Entity, IParsable
     {
         /// <summary>The intune device&apos;s autopilotProfileAssigned.</summary>
         public bool? AutoPilotProfileAssigned { get; set; }
@@ -82,15 +83,15 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"autoPilotProfileAssigned", n => { AutoPilotProfileAssigned = n.GetBoolValue(); } },
-                {"autoPilotRegistered", n => { AutoPilotRegistered = n.GetBoolValue(); } },
-                {"azureAdJoinType", n => { AzureAdJoinType = n.GetStringValue(); } },
-                {"azureAdRegistered", n => { AzureAdRegistered = n.GetBoolValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"managedBy", n => { ManagedBy = n.GetStringValue(); } },
-                {"manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                {"model", n => { Model = n.GetStringValue(); } },
-                {"serialNumber", n => { SerialNumber = n.GetStringValue(); } },
+                { "autoPilotProfileAssigned", n => { AutoPilotProfileAssigned = n.GetBoolValue(); } },
+                { "autoPilotRegistered", n => { AutoPilotRegistered = n.GetBoolValue(); } },
+                { "azureAdJoinType", n => { AzureAdJoinType = n.GetStringValue(); } },
+                { "azureAdRegistered", n => { AzureAdRegistered = n.GetBoolValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "managedBy", n => { ManagedBy = n.GetStringValue(); } },
+                { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
+                { "model", n => { Model = n.GetStringValue(); } },
+                { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
             };
         }
         /// <summary>

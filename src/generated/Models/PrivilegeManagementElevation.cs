@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     /// <summary>
     /// The endpoint privilege management elevation result entity representing a single elevation action on a client device.
     /// </summary>
-    public class PrivilegeManagementElevation : Entity, IParsable 
+    public class PrivilegeManagementElevation : Entity, IParsable
     {
         /// <summary>The certificate payload of the application. This is computed by hashing the certificate information on the client. Example: `32c220482c68413fbf8290e3b1e49b0a85901cfcd62ab0738760568a2a6e8a50`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -168,28 +169,28 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"certificatePayload", n => { CertificatePayload = n.GetStringValue(); } },
-                {"companyName", n => { CompanyName = n.GetStringValue(); } },
-                {"deviceId", n => { DeviceId = n.GetStringValue(); } },
-                {"deviceName", n => { DeviceName = n.GetStringValue(); } },
-                {"elevationType", n => { ElevationType = n.GetEnumValue<PrivilegeManagementElevationType>(); } },
-                {"eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
-                {"fileDescription", n => { FileDescription = n.GetStringValue(); } },
-                {"filePath", n => { FilePath = n.GetStringValue(); } },
-                {"fileVersion", n => { FileVersion = n.GetStringValue(); } },
-                {"hash", n => { Hash = n.GetStringValue(); } },
-                {"internalName", n => { InternalName = n.GetStringValue(); } },
-                {"justification", n => { Justification = n.GetStringValue(); } },
-                {"parentProcessName", n => { ParentProcessName = n.GetStringValue(); } },
-                {"policyId", n => { PolicyId = n.GetStringValue(); } },
-                {"policyName", n => { PolicyName = n.GetStringValue(); } },
-                {"processType", n => { ProcessType = n.GetEnumValue<PrivilegeManagementProcessType>(); } },
-                {"productName", n => { ProductName = n.GetStringValue(); } },
-                {"result", n => { Result = n.GetIntValue(); } },
-                {"ruleId", n => { RuleId = n.GetStringValue(); } },
-                {"systemInitiatedElevation", n => { SystemInitiatedElevation = n.GetBoolValue(); } },
-                {"upn", n => { Upn = n.GetStringValue(); } },
-                {"userType", n => { UserType = n.GetEnumValue<PrivilegeManagementEndUserType>(); } },
+                { "certificatePayload", n => { CertificatePayload = n.GetStringValue(); } },
+                { "companyName", n => { CompanyName = n.GetStringValue(); } },
+                { "deviceId", n => { DeviceId = n.GetStringValue(); } },
+                { "deviceName", n => { DeviceName = n.GetStringValue(); } },
+                { "elevationType", n => { ElevationType = n.GetEnumValue<PrivilegeManagementElevationType>(); } },
+                { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
+                { "fileDescription", n => { FileDescription = n.GetStringValue(); } },
+                { "filePath", n => { FilePath = n.GetStringValue(); } },
+                { "fileVersion", n => { FileVersion = n.GetStringValue(); } },
+                { "hash", n => { Hash = n.GetStringValue(); } },
+                { "internalName", n => { InternalName = n.GetStringValue(); } },
+                { "justification", n => { Justification = n.GetStringValue(); } },
+                { "parentProcessName", n => { ParentProcessName = n.GetStringValue(); } },
+                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "policyName", n => { PolicyName = n.GetStringValue(); } },
+                { "processType", n => { ProcessType = n.GetEnumValue<PrivilegeManagementProcessType>(); } },
+                { "productName", n => { ProductName = n.GetStringValue(); } },
+                { "result", n => { Result = n.GetIntValue(); } },
+                { "ruleId", n => { RuleId = n.GetStringValue(); } },
+                { "systemInitiatedElevation", n => { SystemInitiatedElevation = n.GetBoolValue(); } },
+                { "upn", n => { Upn = n.GetStringValue(); } },
+                { "userType", n => { UserType = n.GetEnumValue<PrivilegeManagementEndUserType>(); } },
             };
         }
         /// <summary>

@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.Item {
+namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConsentRequests.Item
+{
     /// <summary>
     /// Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
     /// </summary>
-    public class UserConsentRequestItemRequestBuilder : BaseCliRequestBuilder 
+    public class UserConsentRequestItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the approval property of the microsoft.graph.userConsentRequest entity.
@@ -88,13 +89,14 @@ namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConse
             return command;
         }
         /// <summary>
-        /// A list of pending user consent requests. Supports $filter (eq).
+        /// Read the properties and relationships of a userConsentRequest object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/userconsentrequest-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "A list of pending user consent requests. Supports $filter (eq).";
+            command.Description = "Read the properties and relationships of a userConsentRequest object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/userconsentrequest-get?view=graph-rest-beta";
             var appConsentRequestIdOption = new Option<string>("--app-consent-request-id", description: "The unique identifier of appConsentRequest") {
             };
             appConsentRequestIdOption.IsRequired = true;
@@ -236,7 +238,7 @@ namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConse
             return requestInfo;
         }
         /// <summary>
-        /// A list of pending user consent requests. Supports $filter (eq).
+        /// Read the properties and relationships of a userConsentRequest object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -276,7 +278,7 @@ namespace ApiSdk.IdentityGovernance.AppConsent.AppConsentRequests.Item.UserConse
             return requestInfo;
         }
         /// <summary>
-        /// A list of pending user consent requests. Supports $filter (eq).
+        /// Read the properties and relationships of a userConsentRequest object.
         /// </summary>
         public class UserConsentRequestItemRequestBuilderGetQueryParameters 
         {

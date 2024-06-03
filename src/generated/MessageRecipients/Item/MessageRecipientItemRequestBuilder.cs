@@ -15,11 +15,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.MessageRecipients.Item {
+namespace ApiSdk.MessageRecipients.Item
+{
     /// <summary>
     /// Provides operations to manage the collection of messageRecipient entities.
     /// </summary>
-    public class MessageRecipientItemRequestBuilder : BaseCliRequestBuilder 
+    public class MessageRecipientItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete entity from messageRecipients

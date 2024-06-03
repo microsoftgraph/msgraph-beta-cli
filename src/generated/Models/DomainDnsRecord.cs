@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace ApiSdk.Models {
+namespace ApiSdk.Models
+{
     #pragma warning disable CS1591
-    public class DomainDnsRecord : Entity, IParsable 
+    public class DomainDnsRecord : Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If false, the customer must configure this record at the DNS host for Microsoft Online Services to operate correctly with the domain.</summary>
@@ -64,11 +65,11 @@ namespace ApiSdk.Models {
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                {"isOptional", n => { IsOptional = n.GetBoolValue(); } },
-                {"label", n => { Label = n.GetStringValue(); } },
-                {"recordType", n => { RecordType = n.GetStringValue(); } },
-                {"supportedService", n => { SupportedService = n.GetStringValue(); } },
-                {"ttl", n => { Ttl = n.GetIntValue(); } },
+                { "isOptional", n => { IsOptional = n.GetBoolValue(); } },
+                { "label", n => { Label = n.GetStringValue(); } },
+                { "recordType", n => { RecordType = n.GetStringValue(); } },
+                { "supportedService", n => { SupportedService = n.GetStringValue(); } },
+                { "ttl", n => { Ttl = n.GetIntValue(); } },
             };
         }
         /// <summary>

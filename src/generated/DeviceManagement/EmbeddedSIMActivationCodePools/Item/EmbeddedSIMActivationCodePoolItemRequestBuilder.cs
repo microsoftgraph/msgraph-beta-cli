@@ -17,11 +17,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item {
+namespace ApiSdk.DeviceManagement.EmbeddedSIMActivationCodePools.Item
+{
     /// <summary>
     /// Provides operations to manage the embeddedSIMActivationCodePools property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class EmbeddedSIMActivationCodePoolItemRequestBuilder : BaseCliRequestBuilder 
+    public class EmbeddedSIMActivationCodePoolItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to manage the assignments property of the microsoft.graph.embeddedSIMActivationCodePool entity.

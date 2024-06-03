@@ -14,11 +14,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.Item {
+namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.Item
+{
     /// <summary>
     /// Provides operations to manage the importedDeviceIdentities property of the microsoft.graph.deviceManagement entity.
     /// </summary>
-    public class ImportedDeviceIdentityItemRequestBuilder : BaseCliRequestBuilder 
+    public class ImportedDeviceIdentityItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Delete navigation property importedDeviceIdentities for deviceManagement

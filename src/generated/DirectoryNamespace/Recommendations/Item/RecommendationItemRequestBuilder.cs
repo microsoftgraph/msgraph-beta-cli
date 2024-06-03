@@ -19,11 +19,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
+namespace ApiSdk.DirectoryNamespace.Recommendations.Item
+{
     /// <summary>
     /// Provides operations to manage the recommendations property of the microsoft.graph.directory entity.
     /// </summary>
-    public class RecommendationItemRequestBuilder : BaseCliRequestBuilder 
+    public class RecommendationItemRequestBuilder : BaseCliRequestBuilder
     {
         /// <summary>
         /// Provides operations to call the complete method.
@@ -95,13 +96,14 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
             return command;
         }
         /// <summary>
-        /// List of recommended improvements to improve tenant posture.
+        /// Read the properties and relationships of a recommendation object.
+        /// Find more info here <see href="https://learn.microsoft.com/graph/api/recommendation-get?view=graph-rest-beta" />
         /// </summary>
         /// <returns>A <see cref="Command"/></returns>
         public Command BuildGetCommand()
         {
             var command = new Command("get");
-            command.Description = "List of recommended improvements to improve tenant posture.";
+            command.Description = "Read the properties and relationships of a recommendation object.\n\nFind more info here:\n  https://learn.microsoft.com/graph/api/recommendation-get?view=graph-rest-beta";
             var recommendationIdOption = new Option<string>("--recommendation-id", description: "The unique identifier of recommendation") {
             };
             recommendationIdOption.IsRequired = true;
@@ -292,7 +294,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// List of recommended improvements to improve tenant posture.
+        /// Read the properties and relationships of a recommendation object.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -332,7 +334,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item {
             return requestInfo;
         }
         /// <summary>
-        /// List of recommended improvements to improve tenant posture.
+        /// Read the properties and relationships of a recommendation object.
         /// </summary>
         public class RecommendationItemRequestBuilderGetQueryParameters 
         {

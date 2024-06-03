@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/microsoftgraph/msgraph-beta-cli/compare/v0.2.2...v0.2.3) (2024-06-03)
+
+
+### Features
+
+* **generation:** update request builders and models ([ee0afbd](https://github.com/microsoftgraph/msgraph-beta-cli/commit/ee0afbd5da92a86c44b35b932d7d324a526bb4b0))
+
 ## [0.2.2](https://github.com/microsoftgraph/msgraph-beta-cli/compare/v0.2.1...v0.2.2) (2024-05-17)
 
 

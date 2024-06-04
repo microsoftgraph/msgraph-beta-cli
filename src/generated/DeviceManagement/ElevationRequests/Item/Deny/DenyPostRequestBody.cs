@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Deny
         public string ReviewerJustification { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DenyPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.Deny.DenyPostRequestBody"/> and sets the default values.
         /// </summary>
         public DenyPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Deny
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DenyPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.Deny.DenyPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DenyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ElevationRequests.Item.Deny.DenyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DenyPostRequestBody();
+            return new ApiSdk.DeviceManagement.ElevationRequests.Item.Deny.DenyPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

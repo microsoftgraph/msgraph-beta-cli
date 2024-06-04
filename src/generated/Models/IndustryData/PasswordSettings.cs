@@ -21,7 +21,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PasswordSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.PasswordSettings"/> and sets the default values.
         /// </summary>
         public PasswordSettings()
         {
@@ -30,16 +30,16 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PasswordSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.PasswordSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PasswordSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.PasswordSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.simplePasswordSettings" => new SimplePasswordSettings(),
-                _ => new PasswordSettings(),
+                "#microsoft.graph.industryData.simplePasswordSettings" => new ApiSdk.Models.IndustryData.SimplePasswordSettings(),
+                _ => new ApiSdk.Models.IndustryData.PasswordSettings(),
             };
         }
         /// <summary>

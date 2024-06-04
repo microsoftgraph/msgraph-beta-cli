@@ -74,14 +74,14 @@ namespace ApiSdk.Reports.UserInsights.Monthly.Requests.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserRequestsMetricItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Monthly.Requests.Item.UserRequestsMetricItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UserRequestsMetricItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/userInsights/monthly/requests/{userRequestsMetric%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserRequestsMetricItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Monthly.Requests.Item.UserRequestsMetricItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UserRequestsMetricItemRequestBuilder(string rawUrl) : base("{+baseurl}/reports/userInsights/monthly/requests/{userRequestsMetric%2Did}{?%24expand,%24select}", rawUrl)
@@ -94,11 +94,11 @@ namespace ApiSdk.Reports.UserInsights.Monthly.Requests.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UserRequestsMetricItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Monthly.Requests.Item.UserRequestsMetricItemRequestBuilder.UserRequestsMetricItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UserRequestsMetricItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Monthly.Requests.Item.UserRequestsMetricItemRequestBuilder.UserRequestsMetricItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

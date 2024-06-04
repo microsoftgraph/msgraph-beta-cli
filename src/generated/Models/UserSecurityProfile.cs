@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserSecurityProfile : Entity, IParsable
+    public class UserSecurityProfile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accounts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserAccount>? Accounts { get; set; }
+        public List<ApiSdk.Models.UserAccount>? Accounts { get; set; }
 #nullable restore
 #else
-        public List<UserAccount> Accounts { get; set; }
+        public List<ApiSdk.Models.UserAccount> Accounts { get; set; }
 #endif
         /// <summary>The azureSubscriptionId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,20 +73,20 @@ namespace ApiSdk.Models
         /// <summary>The vendorInformation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityVendorInformation? VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation? VendorInformation { get; set; }
 #nullable restore
 #else
-        public SecurityVendorInformation VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation VendorInformation { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserSecurityProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserSecurityProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserSecurityProfile();
+            return new ApiSdk.Models.UserSecurityProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,7 +96,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<UserAccount>(UserAccount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accounts", n => { Accounts = n.GetCollectionOfObjectValues<ApiSdk.Models.UserAccount>(ApiSdk.Models.UserAccount.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "azureSubscriptionId", n => { AzureSubscriptionId = n.GetStringValue(); } },
                 { "azureTenantId", n => { AzureTenantId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -105,7 +105,7 @@ namespace ApiSdk.Models
                 { "riskScore", n => { RiskScore = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<ApiSdk.Models.SecurityVendorInformation>(ApiSdk.Models.SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -116,7 +116,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UserAccount>("accounts", Accounts);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserAccount>("accounts", Accounts);
             writer.WriteStringValue("azureSubscriptionId", AzureSubscriptionId);
             writer.WriteStringValue("azureTenantId", AzureTenantId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
@@ -125,7 +125,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("riskScore", RiskScore);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
-            writer.WriteObjectValue<SecurityVendorInformation>("vendorInformation", VendorInformation);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityVendorInformation>("vendorInformation", VendorInformation);
         }
     }
 }

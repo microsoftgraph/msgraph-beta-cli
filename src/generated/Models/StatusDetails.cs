@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class StatusDetails : StatusBase, IParsable
+    public class StatusDetails : ApiSdk.Models.StatusBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Additional details if there is an error.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string AdditionalDetails { get; set; }
 #endif
         /// <summary>Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.</summary>
-        public ProvisioningStatusErrorCategory? ErrorCategory { get; set; }
+        public ApiSdk.Models.ProvisioningStatusErrorCategory? ErrorCategory { get; set; }
         /// <summary>Unique error code if any occurred. Learn more</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string RecommendedAction { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="StatusDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.StatusDetails"/> and sets the default values.
         /// </summary>
         public StatusDetails() : base()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="StatusDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.StatusDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new StatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.StatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new StatusDetails();
+            return new ApiSdk.Models.StatusDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "additionalDetails", n => { AdditionalDetails = n.GetStringValue(); } },
-                { "errorCategory", n => { ErrorCategory = n.GetEnumValue<ProvisioningStatusErrorCategory>(); } },
+                { "errorCategory", n => { ErrorCategory = n.GetEnumValue<ApiSdk.Models.ProvisioningStatusErrorCategory>(); } },
                 { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("additionalDetails", AdditionalDetails);
-            writer.WriteEnumValue<ProvisioningStatusErrorCategory>("errorCategory", ErrorCategory);
+            writer.WriteEnumValue<ApiSdk.Models.ProvisioningStatusErrorCategory>("errorCategory", ErrorCategory);
             writer.WriteStringValue("errorCode", ErrorCode);
             writer.WriteStringValue("reason", Reason);
             writer.WriteStringValue("recommendedAction", RecommendedAction);

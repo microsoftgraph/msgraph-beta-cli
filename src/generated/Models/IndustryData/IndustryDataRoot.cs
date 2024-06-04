@@ -13,18 +13,18 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>Set of connectors for importing data from source systems.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IndustryDataConnector>? DataConnectors { get; set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataConnector>? DataConnectors { get; set; }
 #nullable restore
 #else
-        public List<IndustryDataConnector> DataConnectors { get; set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataConnector> DataConnectors { get; set; }
 #endif
         /// <summary>Set of data import flow activities to bring data into the canonical store via a connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<InboundFlow>? InboundFlows { get; set; }
+        public List<ApiSdk.Models.IndustryData.InboundFlow>? InboundFlows { get; set; }
 #nullable restore
 #else
-        public List<InboundFlow> InboundFlows { get; set; }
+        public List<ApiSdk.Models.IndustryData.InboundFlow> InboundFlows { get; set; }
 #endif
         /// <summary>Set of ephemeral operations that the system runs currently. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,60 +37,60 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The outboundProvisioningFlowSets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OutboundProvisioningFlowSet>? OutboundProvisioningFlowSets { get; set; }
+        public List<ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet>? OutboundProvisioningFlowSets { get; set; }
 #nullable restore
 #else
-        public List<OutboundProvisioningFlowSet> OutboundProvisioningFlowSets { get; set; }
+        public List<ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet> OutboundProvisioningFlowSets { get; set; }
 #endif
         /// <summary>Set of user modifiable system picker types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ReferenceDefinition>? ReferenceDefinitions { get; set; }
+        public List<ApiSdk.Models.IndustryData.ReferenceDefinition>? ReferenceDefinitions { get; set; }
 #nullable restore
 #else
-        public List<ReferenceDefinition> ReferenceDefinitions { get; set; }
+        public List<ApiSdk.Models.IndustryData.ReferenceDefinition> ReferenceDefinitions { get; set; }
 #endif
         /// <summary>Set of groups of individual roles that makes role-based admin simpler.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleGroup>? RoleGroups { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleGroup>? RoleGroups { get; set; }
 #nullable restore
 #else
-        public List<RoleGroup> RoleGroups { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleGroup> RoleGroups { get; set; }
 #endif
         /// <summary>Set of ephemeral runs which present the point-in-time that diagnostic state of activities performed by the system. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IndustryDataRun>? Runs { get; set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRun>? Runs { get; set; }
 #nullable restore
 #else
-        public List<IndustryDataRun> Runs { get; set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRun> Runs { get; set; }
 #endif
         /// <summary>Set of source definitions that represents real-world external systems.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SourceSystemDefinition>? SourceSystems { get; set; }
+        public List<ApiSdk.Models.IndustryData.SourceSystemDefinition>? SourceSystems { get; set; }
 #nullable restore
 #else
-        public List<SourceSystemDefinition> SourceSystems { get; set; }
+        public List<ApiSdk.Models.IndustryData.SourceSystemDefinition> SourceSystems { get; set; }
 #endif
         /// <summary>Set of years represented in the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<YearTimePeriodDefinition>? Years { get; set; }
+        public List<ApiSdk.Models.IndustryData.YearTimePeriodDefinition>? Years { get; set; }
 #nullable restore
 #else
-        public List<YearTimePeriodDefinition> Years { get; set; }
+        public List<ApiSdk.Models.IndustryData.YearTimePeriodDefinition> Years { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IndustryDataRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.IndustryDataRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IndustryDataRoot();
+            return new ApiSdk.Models.IndustryData.IndustryDataRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,15 +100,15 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "dataConnectors", n => { DataConnectors = n.GetCollectionOfObjectValues<IndustryDataConnector>(IndustryDataConnector.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "inboundFlows", n => { InboundFlows = n.GetCollectionOfObjectValues<InboundFlow>(InboundFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dataConnectors", n => { DataConnectors = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataConnector>(ApiSdk.Models.IndustryData.IndustryDataConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inboundFlows", n => { InboundFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.InboundFlow>(ApiSdk.Models.IndustryData.InboundFlow.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>(ApiSdk.Models.LongRunningOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "outboundProvisioningFlowSets", n => { OutboundProvisioningFlowSets = n.GetCollectionOfObjectValues<OutboundProvisioningFlowSet>(OutboundProvisioningFlowSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "referenceDefinitions", n => { ReferenceDefinitions = n.GetCollectionOfObjectValues<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleGroups", n => { RoleGroups = n.GetCollectionOfObjectValues<RoleGroup>(RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "runs", n => { Runs = n.GetCollectionOfObjectValues<IndustryDataRun>(IndustryDataRun.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sourceSystems", n => { SourceSystems = n.GetCollectionOfObjectValues<SourceSystemDefinition>(SourceSystemDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "years", n => { Years = n.GetCollectionOfObjectValues<YearTimePeriodDefinition>(YearTimePeriodDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "outboundProvisioningFlowSets", n => { OutboundProvisioningFlowSets = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet>(ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "referenceDefinitions", n => { ReferenceDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.ReferenceDefinition>(ApiSdk.Models.IndustryData.ReferenceDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleGroups", n => { RoleGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "runs", n => { Runs = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataRun>(ApiSdk.Models.IndustryData.IndustryDataRun.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sourceSystems", n => { SourceSystems = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.SourceSystemDefinition>(ApiSdk.Models.IndustryData.SourceSystemDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "years", n => { Years = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.YearTimePeriodDefinition>(ApiSdk.Models.IndustryData.YearTimePeriodDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -119,15 +119,15 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<IndustryDataConnector>("dataConnectors", DataConnectors);
-            writer.WriteCollectionOfObjectValues<InboundFlow>("inboundFlows", InboundFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataConnector>("dataConnectors", DataConnectors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.InboundFlow>("inboundFlows", InboundFlows);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.LongRunningOperation>("operations", Operations);
-            writer.WriteCollectionOfObjectValues<OutboundProvisioningFlowSet>("outboundProvisioningFlowSets", OutboundProvisioningFlowSets);
-            writer.WriteCollectionOfObjectValues<ReferenceDefinition>("referenceDefinitions", ReferenceDefinitions);
-            writer.WriteCollectionOfObjectValues<RoleGroup>("roleGroups", RoleGroups);
-            writer.WriteCollectionOfObjectValues<IndustryDataRun>("runs", Runs);
-            writer.WriteCollectionOfObjectValues<SourceSystemDefinition>("sourceSystems", SourceSystems);
-            writer.WriteCollectionOfObjectValues<YearTimePeriodDefinition>("years", Years);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet>("outboundProvisioningFlowSets", OutboundProvisioningFlowSets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.ReferenceDefinition>("referenceDefinitions", ReferenceDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleGroup>("roleGroups", RoleGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataRun>("runs", Runs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.SourceSystemDefinition>("sourceSystems", SourceSystems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.YearTimePeriodDefinition>("years", Years);
         }
     }
 }

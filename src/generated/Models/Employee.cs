@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>The address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? Address { get; set; }
+        public ApiSdk.Models.PostalAddressType? Address { get; set; }
 #nullable restore
 #else
-        public PostalAddressType Address { get; set; }
+        public ApiSdk.Models.PostalAddressType Address { get; set; }
 #endif
         /// <summary>The birthDate property</summary>
         public Date? BirthDate { get; set; }
@@ -144,7 +144,7 @@ namespace ApiSdk.Models
         /// <summary>The terminationDate property</summary>
         public Date? TerminationDate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Employee"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Employee"/> and sets the default values.
         /// </summary>
         public Employee()
         {
@@ -153,12 +153,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Employee"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Employee"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Employee CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Employee CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Employee();
+            return new ApiSdk.Models.Employee();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -168,7 +168,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "birthDate", n => { BirthDate = n.GetDateValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
@@ -197,7 +197,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PostalAddressType>("address", Address);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("address", Address);
             writer.WriteDateValue("birthDate", BirthDate);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("email", Email);

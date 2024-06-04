@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GovernancePolicyTemplate : Entity, IParsable
+    public class GovernancePolicyTemplate : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The displayName property</summary>
@@ -21,28 +21,28 @@ namespace ApiSdk.Models
         /// <summary>The policy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernancePolicy? Policy { get; set; }
+        public ApiSdk.Models.GovernancePolicy? Policy { get; set; }
 #nullable restore
 #else
-        public GovernancePolicy Policy { get; set; }
+        public ApiSdk.Models.GovernancePolicy Policy { get; set; }
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public BusinessFlowSettings? Settings { get; set; }
+        public ApiSdk.Models.BusinessFlowSettings? Settings { get; set; }
 #nullable restore
 #else
-        public BusinessFlowSettings Settings { get; set; }
+        public ApiSdk.Models.BusinessFlowSettings Settings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernancePolicyTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernancePolicyTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GovernancePolicyTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GovernancePolicyTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernancePolicyTemplate();
+            return new ApiSdk.Models.GovernancePolicyTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "policy", n => { Policy = n.GetObjectValue<GovernancePolicy>(GovernancePolicy.CreateFromDiscriminatorValue); } },
-                { "settings", n => { Settings = n.GetObjectValue<BusinessFlowSettings>(BusinessFlowSettings.CreateFromDiscriminatorValue); } },
+                { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.GovernancePolicy>(ApiSdk.Models.GovernancePolicy.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.BusinessFlowSettings>(ApiSdk.Models.BusinessFlowSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<GovernancePolicy>("policy", Policy);
-            writer.WriteObjectValue<BusinessFlowSettings>("settings", Settings);
+            writer.WriteObjectValue<ApiSdk.Models.GovernancePolicy>("policy", Policy);
+            writer.WriteObjectValue<ApiSdk.Models.BusinessFlowSettings>("settings", Settings);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The built-in aggregation method for the rule condition. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.</summary>
-        public AggregationType? Aggregation { get; set; }
+        public ApiSdk.Models.DeviceManagement.AggregationType? Aggregation { get; set; }
         /// <summary>The property that the rule condition monitors. Possible values are:  provisionFailures, imageUploadFailures, azureNetworkConnectionCheckFailures, cloudPcInGracePeriod, frontlineInsufficientLicenses, cloudPcConnectionErrors, cloudPcHostHealthCheckFailures, cloudPcZoneOutage, unknownFutureValue.</summary>
         public ApiSdk.Models.DeviceManagement.ConditionCategory? ConditionCategory { get; set; }
         /// <summary>The OdataType property</summary>
@@ -25,7 +25,7 @@ namespace ApiSdk.Models.DeviceManagement
         public string OdataType { get; set; }
 #endif
         /// <summary>The built-in operator for the rule condition. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.</summary>
-        public OperatorType? Operator { get; set; }
+        public ApiSdk.Models.DeviceManagement.OperatorType? Operator { get; set; }
         /// <summary>The relationship type.  Possible values are: and, or.</summary>
         public ApiSdk.Models.DeviceManagement.RelationshipType? RelationshipType { get; set; }
         /// <summary>The threshold value of the alert condition. The threshold value can be a number in string form or string like &apos;WestUS&apos;.</summary>
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.DeviceManagement
         public string ThresholdValue { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RuleCondition"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagement.RuleCondition"/> and sets the default values.
         /// </summary>
         public RuleCondition()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RuleCondition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.RuleCondition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RuleCondition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagement.RuleCondition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RuleCondition();
+            return new ApiSdk.Models.DeviceManagement.RuleCondition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,11 +61,11 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation", n => { Aggregation = n.GetEnumValue<AggregationType>(); } },
-                { "conditionCategory", n => { ConditionCategory = n.GetEnumValue<ConditionCategory>(); } },
+                { "aggregation", n => { Aggregation = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>(); } },
+                { "conditionCategory", n => { ConditionCategory = n.GetEnumValue<ApiSdk.Models.DeviceManagement.ConditionCategory>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<OperatorType>(); } },
-                { "relationshipType", n => { RelationshipType = n.GetEnumValue<RelationshipType>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<ApiSdk.Models.DeviceManagement.OperatorType>(); } },
+                { "relationshipType", n => { RelationshipType = n.GetEnumValue<ApiSdk.Models.DeviceManagement.RelationshipType>(); } },
                 { "thresholdValue", n => { ThresholdValue = n.GetStringValue(); } },
             };
         }
@@ -76,11 +76,11 @@ namespace ApiSdk.Models.DeviceManagement
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AggregationType>("aggregation", Aggregation);
-            writer.WriteEnumValue<ConditionCategory>("conditionCategory", ConditionCategory);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>("aggregation", Aggregation);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.ConditionCategory>("conditionCategory", ConditionCategory);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<OperatorType>("operator", Operator);
-            writer.WriteEnumValue<RelationshipType>("relationshipType", RelationshipType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.OperatorType>("operator", Operator);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.RelationshipType>("relationshipType", RelationshipType);
             writer.WriteStringValue("thresholdValue", ThresholdValue);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -17,10 +17,10 @@ namespace ApiSdk.Models
         /// <summary>All checks that are done on the connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcOnPremisesConnectionHealthCheck>? HealthChecks { get; set; }
+        public List<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck>? HealthChecks { get; set; }
 #nullable restore
 #else
-        public List<CloudPcOnPremisesConnectionHealthCheck> HealthChecks { get; set; }
+        public List<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck> HealthChecks { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         /// <summary>The start time of the connection health check. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcOnPremisesConnectionStatusDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails"/> and sets the default values.
         /// </summary>
         public CloudPcOnPremisesConnectionStatusDetails()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcOnPremisesConnectionStatusDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcOnPremisesConnectionStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcOnPremisesConnectionStatusDetails();
+            return new ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                { "healthChecks", n => { HealthChecks = n.GetCollectionOfObjectValues<CloudPcOnPremisesConnectionHealthCheck>(CloudPcOnPremisesConnectionHealthCheck.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "healthChecks", n => { HealthChecks = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck>(ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -71,7 +71,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteCollectionOfObjectValues<CloudPcOnPremisesConnectionHealthCheck>("healthChecks", HealthChecks);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck>("healthChecks", HealthChecks);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteAdditionalData(AdditionalData);

@@ -31,7 +31,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Pri
         {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the teamwork entity.";
-            var builder = new ContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.Content.ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -50,7 +50,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Pri
         {
             var command = new Command("content-stream");
             command.Description = "Provides operations to manage the media for the teamwork entity.";
-            var builder = new ContentStreamRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.ContentStream.ContentStreamRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -120,14 +120,14 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Pri
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="FilesFolderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.FilesFolderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public FilesFolderRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/filesFolder{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="FilesFolderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.FilesFolderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public FilesFolderRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/filesFolder{?%24expand,%24select}", rawUrl)
@@ -140,11 +140,11 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Pri
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.FilesFolderRequestBuilder.FilesFolderRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilesFolderRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.PrimaryChannel.FilesFolder.FilesFolderRequestBuilder.FilesFolderRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

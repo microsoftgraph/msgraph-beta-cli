@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity which represents an OnPrem Ndes connector.
     /// </summary>
-    public class NdesConnector : Entity, IParsable
+    public class NdesConnector : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The build version of the Ndes Connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,16 +48,16 @@ namespace ApiSdk.Models
         public List<string> RoleScopeTagIds { get; set; }
 #endif
         /// <summary>The current status of the Ndes Connector.</summary>
-        public NdesConnectorState? State { get; set; }
+        public ApiSdk.Models.NdesConnectorState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NdesConnector"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.NdesConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new NdesConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.NdesConnector CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NdesConnector();
+            return new ApiSdk.Models.NdesConnector();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "lastConnectionDateTime", n => { LastConnectionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "machineName", n => { MachineName = n.GetStringValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "state", n => { State = n.GetEnumValue<NdesConnectorState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.NdesConnectorState>(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastConnectionDateTime", LastConnectionDateTime);
             writer.WriteStringValue("machineName", MachineName);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteEnumValue<NdesConnectorState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.NdesConnectorState>("state", State);
         }
     }
 }

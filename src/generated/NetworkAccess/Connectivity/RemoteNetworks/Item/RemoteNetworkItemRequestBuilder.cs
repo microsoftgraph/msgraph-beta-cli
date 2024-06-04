@@ -32,7 +32,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
         {
             var command = new Command("connectivity-configuration");
             command.Description = "Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.remoteNetwork entity.";
-            var builder = new ConnectivityConfigurationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -92,7 +92,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
         {
             var command = new Command("device-links");
             command.Description = "Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.remoteNetwork entity.";
-            var builder = new DeviceLinksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.DeviceLinks.DeviceLinksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -119,7 +119,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
         {
             var command = new Command("forwarding-profiles");
             command.Description = "Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.remoteNetwork entity.";
-            var builder = new ForwardingProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.ForwardingProfiles.ForwardingProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -221,7 +221,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RemoteNetwork>(RemoteNetwork.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.RemoteNetwork>(ApiSdk.Models.Networkaccess.RemoteNetwork.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -242,14 +242,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoteNetworkItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.RemoteNetworkItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemoteNetworkItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoteNetworkItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.RemoteNetworkItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemoteNetworkItemRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/connectivity/remoteNetworks/{remoteNetwork%2Did}{?%24expand,%24select}", rawUrl)
@@ -281,11 +281,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RemoteNetworkItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.RemoteNetworkItemRequestBuilder.RemoteNetworkItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RemoteNetworkItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item.RemoteNetworkItemRequestBuilder.RemoteNetworkItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -301,11 +301,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(RemoteNetwork body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.RemoteNetwork body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(RemoteNetwork body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.RemoteNetwork body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

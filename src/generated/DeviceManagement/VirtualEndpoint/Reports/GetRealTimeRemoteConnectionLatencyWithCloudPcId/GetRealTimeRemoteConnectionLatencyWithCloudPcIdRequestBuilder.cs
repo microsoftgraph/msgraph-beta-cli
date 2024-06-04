@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConne
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionLatencyWithCloudPcId.GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint/reports/getRealTimeRemoteConnectionLatency(cloudPcId='{cloudPcId}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRealTimeRemoteConnectionLatencyWithCloudPcId.GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetRealTimeRemoteConnectionLatencyWithCloudPcIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint/reports/getRealTimeRemoteConnectionLatency(cloudPcId='{cloudPcId}')", rawUrl)

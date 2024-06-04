@@ -21,7 +21,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.Mic
         public string LogInformation { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AddUserInputLogPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog.AddUserInputLogPostRequestBody"/> and sets the default values.
         /// </summary>
         public AddUserInputLogPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.Mic
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddUserInputLogPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog.AddUserInputLogPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AddUserInputLogPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog.AddUserInputLogPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddUserInputLogPostRequestBody();
+            return new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.Item.MicrosoftGraphManagedTenantsAddUserInputLog.AddUserInputLogPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

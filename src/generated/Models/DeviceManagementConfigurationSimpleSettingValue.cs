@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Simple setting value
     /// </summary>
-    public class DeviceManagementConfigurationSimpleSettingValue : DeviceManagementConfigurationSettingValue, IParsable
+    public class DeviceManagementConfigurationSimpleSettingValue : ApiSdk.Models.DeviceManagementConfigurationSettingValue, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSimpleSettingValue"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSimpleSettingValue() : base()
         {
@@ -21,19 +21,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSimpleSettingValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSimpleSettingValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValue" => new DeviceManagementConfigurationIntegerSettingValue(),
-                "#microsoft.graph.deviceManagementConfigurationReferenceSettingValue" => new DeviceManagementConfigurationReferenceSettingValue(),
-                "#microsoft.graph.deviceManagementConfigurationSecretSettingValue" => new DeviceManagementConfigurationSecretSettingValue(),
-                "#microsoft.graph.deviceManagementConfigurationStringSettingValue" => new DeviceManagementConfigurationStringSettingValue(),
-                _ => new DeviceManagementConfigurationSimpleSettingValue(),
+                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValue" => new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValue(),
+                "#microsoft.graph.deviceManagementConfigurationReferenceSettingValue" => new ApiSdk.Models.DeviceManagementConfigurationReferenceSettingValue(),
+                "#microsoft.graph.deviceManagementConfigurationSecretSettingValue" => new ApiSdk.Models.DeviceManagementConfigurationSecretSettingValue(),
+                "#microsoft.graph.deviceManagementConfigurationStringSettingValue" => new ApiSdk.Models.DeviceManagementConfigurationStringSettingValue(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue(),
             };
         }
         /// <summary>

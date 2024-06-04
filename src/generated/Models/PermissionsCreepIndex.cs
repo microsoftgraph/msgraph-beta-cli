@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         /// <summary>This value represents how much risk an identity poses. This risk range is classified in three buckets: 0-33: low, 34-66: medium, 67-100: high..</summary>
         public int? Score { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsCreepIndex"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PermissionsCreepIndex"/> and sets the default values.
         /// </summary>
         public PermissionsCreepIndex()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsCreepIndex"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsCreepIndex"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PermissionsCreepIndex CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PermissionsCreepIndex CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PermissionsCreepIndex();
+            return new ApiSdk.Models.PermissionsCreepIndex();
         }
         /// <summary>
         /// The deserialization information for the current model

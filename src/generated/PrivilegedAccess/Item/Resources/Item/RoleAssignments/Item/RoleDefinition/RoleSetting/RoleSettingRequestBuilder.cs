@@ -86,14 +86,14 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleD
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RoleSettingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleDefinition.RoleSetting.RoleSettingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RoleSettingRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}/roleDefinition/roleSetting{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RoleSettingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleDefinition.RoleSetting.RoleSettingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RoleSettingRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}/roleDefinition/roleSetting{?%24expand,%24select}", rawUrl)
@@ -106,11 +106,11 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleD
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RoleSettingRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleDefinition.RoleSetting.RoleSettingRequestBuilder.RoleSettingRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RoleSettingRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignments.Item.RoleDefinition.RoleSetting.RoleSettingRequestBuilder.RoleSettingRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

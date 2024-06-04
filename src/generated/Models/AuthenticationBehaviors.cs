@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         /// <summary>Requires multitenant applications to have a service principal in the resource tenant as part of authorization checks before they&apos;re granted access tokens. This property is only modifiable for multi-tenant resource applications that rely on access from clients without a service principal and had this behavior as set to false by Microsoft. Tenant administrators should respond to security advisories sent through Azure Health Service events and the Microsoft 365 message center.</summary>
         public bool? RequireClientServicePrincipal { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationBehaviors"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthenticationBehaviors"/> and sets the default values.
         /// </summary>
         public AuthenticationBehaviors()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthenticationBehaviors"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthenticationBehaviors"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuthenticationBehaviors CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuthenticationBehaviors CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthenticationBehaviors();
+            return new ApiSdk.Models.AuthenticationBehaviors();
         }
         /// <summary>
         /// The deserialization information for the current model

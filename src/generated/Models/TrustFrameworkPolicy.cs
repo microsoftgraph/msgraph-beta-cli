@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TrustFrameworkPolicy : Entity, IParsable
+    public class TrustFrameworkPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrustFrameworkPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrustFrameworkPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TrustFrameworkPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TrustFrameworkPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrustFrameworkPolicy();
+            return new ApiSdk.Models.TrustFrameworkPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

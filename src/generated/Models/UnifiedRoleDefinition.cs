@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleDefinition : Entity, IParsable
+    public class UnifiedRoleDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Types of principals that can be assigned the role. Read-only. The possible values are: user, servicePrincipal, group, unknownFutureValue. This is a multi-valued enumeration that can contain up to three values as a comma-separated string. For example, user, group. Supports $filter (eq).</summary>
-        public AllowedRolePrincipalTypes? AllowedPrincipalTypes { get; set; }
+        public ApiSdk.Models.AllowedRolePrincipalTypes? AllowedPrincipalTypes { get; set; }
         /// <summary>The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,10 +31,10 @@ namespace ApiSdk.Models
         /// <summary>Read-only collection of role definitions that the given role definition inherits from. Only Microsoft Entra built-in roles support this attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleDefinition>? InheritsPermissionsFrom { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition>? InheritsPermissionsFrom { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleDefinition> InheritsPermissionsFrom { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition> InheritsPermissionsFrom { get; set; }
 #endif
         /// <summary>Flag indicating if the unifiedRoleDefinition is part of the default set included with the product or custom. Read-only.  Supports $filter (eq).</summary>
         public bool? IsBuiltIn { get; set; }
@@ -53,10 +53,10 @@ namespace ApiSdk.Models
         /// <summary>List of permissions included in the role. Read-only when isBuiltIn is true. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRolePermission>? RolePermissions { get; set; }
+        public List<ApiSdk.Models.UnifiedRolePermission>? RolePermissions { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRolePermission> RolePermissions { get; set; }
+        public List<ApiSdk.Models.UnifiedRolePermission> RolePermissions { get; set; }
 #endif
         /// <summary>Custom template identifier that can be set when isBuiltIn is false. This identifier is typically used if one needs an identifier to be the same across different directories. Read-only when isBuiltIn is true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,12 +77,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleDefinition();
+            return new ApiSdk.Models.UnifiedRoleDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,15 +92,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "allowedPrincipalTypes", n => { AllowedPrincipalTypes = n.GetEnumValue<AllowedRolePrincipalTypes>(); } },
+                { "allowedPrincipalTypes", n => { AllowedPrincipalTypes = n.GetEnumValue<ApiSdk.Models.AllowedRolePrincipalTypes>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "inheritsPermissionsFrom", n => { InheritsPermissionsFrom = n.GetCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inheritsPermissionsFrom", n => { InheritsPermissionsFrom = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>(ApiSdk.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
                 { "resourceScopes", n => { ResourceScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<UnifiedRolePermission>(UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rolePermissions", n => { RolePermissions = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRolePermission>(ApiSdk.Models.UnifiedRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "templateId", n => { TemplateId = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -113,15 +113,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AllowedRolePrincipalTypes>("allowedPrincipalTypes", AllowedPrincipalTypes);
+            writer.WriteEnumValue<ApiSdk.Models.AllowedRolePrincipalTypes>("allowedPrincipalTypes", AllowedPrincipalTypes);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleDefinition>("inheritsPermissionsFrom", InheritsPermissionsFrom);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>("inheritsPermissionsFrom", InheritsPermissionsFrom);
             writer.WriteBoolValue("isBuiltIn", IsBuiltIn);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteBoolValue("isPrivileged", IsPrivileged);
             writer.WriteCollectionOfPrimitiveValues<string>("resourceScopes", ResourceScopes);
-            writer.WriteCollectionOfObjectValues<UnifiedRolePermission>("rolePermissions", RolePermissions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRolePermission>("rolePermissions", RolePermissions);
             writer.WriteStringValue("templateId", TemplateId);
             writer.WriteStringValue("version", Version);
         }

@@ -51,14 +51,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryReopen
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphEdiscoveryReopenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryReopen.MicrosoftGraphEdiscoveryReopenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphEdiscoveryReopenRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/microsoft.graph.ediscovery.reopen", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphEdiscoveryReopenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryReopen.MicrosoftGraphEdiscoveryReopenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphEdiscoveryReopenRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/microsoft.graph.ediscovery.reopen", rawUrl)

@@ -38,7 +38,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<MoveDevicesToOUPostRequestBody>(MoveDevicesToOUPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOUPostRequestBody>(ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOUPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -56,14 +56,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MoveDevicesToOURequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOURequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MoveDevicesToOURequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/moveDevicesToOU", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MoveDevicesToOURequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOURequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MoveDevicesToOURequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/moveDevicesToOU", rawUrl)
@@ -77,11 +77,11 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MoveDevicesToOUPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOUPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MoveDevicesToOUPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ManagedDevices.MoveDevicesToOU.MoveDevicesToOUPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

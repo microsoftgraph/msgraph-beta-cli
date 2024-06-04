@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WebApplicationSegment : ApplicationSegment, IParsable
+    public class WebApplicationSegment : ApiSdk.Models.ApplicationSegment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If you&apos;re configuring a traffic manager in front of multiple App Proxy application segments, this property contains the user-friendly URL that will point to the traffic manager.</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>A collection of CORS Rule definitions for a particular application segment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CorsConfiguration_v2>? CorsConfigurations { get; set; }
+        public List<ApiSdk.Models.CorsConfiguration_v2>? CorsConfigurations { get; set; }
 #nullable restore
 #else
-        public List<CorsConfiguration_v2> CorsConfigurations { get; set; }
+        public List<ApiSdk.Models.CorsConfiguration_v2> CorsConfigurations { get; set; }
 #endif
         /// <summary>The published external URL for the application segment; for example, https://intranet.contoso.com/.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         public string InternalUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WebApplicationSegment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WebApplicationSegment"/> and sets the default values.
         /// </summary>
         public WebApplicationSegment() : base()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WebApplicationSegment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WebApplicationSegment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WebApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WebApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WebApplicationSegment();
+            return new ApiSdk.Models.WebApplicationSegment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
-                { "corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<CorsConfiguration_v2>(CorsConfiguration_v2.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.CorsConfiguration_v2>(ApiSdk.Models.CorsConfiguration_v2.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
                 { "internalUrl", n => { InternalUrl = n.GetStringValue(); } },
             };
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("alternateUrl", AlternateUrl);
-            writer.WriteCollectionOfObjectValues<CorsConfiguration_v2>("corsConfigurations", CorsConfigurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CorsConfiguration_v2>("corsConfigurations", CorsConfigurations);
             writer.WriteStringValue("externalUrl", ExternalUrl);
             writer.WriteStringValue("internalUrl", InternalUrl);
         }

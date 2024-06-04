@@ -43,14 +43,14 @@ namespace ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphNetworkaccessOnboardRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard.MicrosoftGraphNetworkaccessOnboardRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphNetworkaccessOnboardRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/microsoft.graph.networkaccess.onboard", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphNetworkaccessOnboardRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard.MicrosoftGraphNetworkaccessOnboardRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphNetworkaccessOnboardRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/microsoft.graph.networkaccess.onboard", rawUrl)

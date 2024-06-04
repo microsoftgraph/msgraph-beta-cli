@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the type of execution status of the device management script.</summary>
-        public RunState? SummarizedAppState { get; set; }
+        public ApiSdk.Models.RunState? SummarizedAppState { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedDeviceSummarizedAppState"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedDeviceSummarizedAppState"/> and sets the default values.
         /// </summary>
         public ManagedDeviceSummarizedAppState()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedDeviceSummarizedAppState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedDeviceSummarizedAppState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ManagedDeviceSummarizedAppState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedDeviceSummarizedAppState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedDeviceSummarizedAppState();
+            return new ApiSdk.Models.ManagedDeviceSummarizedAppState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             {
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "summarizedAppState", n => { SummarizedAppState = n.GetEnumValue<RunState>(); } },
+                { "summarizedAppState", n => { SummarizedAppState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RunState>("summarizedAppState", SummarizedAppState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("summarizedAppState", SummarizedAppState);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

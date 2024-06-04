@@ -31,10 +31,10 @@ namespace ApiSdk.Models
         /// <summary>Address or location of the institute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PhysicalAddress? Location { get; set; }
+        public ApiSdk.Models.PhysicalAddress? Location { get; set; }
 #nullable restore
 #else
-        public PhysicalAddress Location { get; set; }
+        public ApiSdk.Models.PhysicalAddress Location { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="InstitutionData"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.InstitutionData"/> and sets the default values.
         /// </summary>
         public InstitutionData()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InstitutionData"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InstitutionData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static InstitutionData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.InstitutionData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InstitutionData();
+            return new ApiSdk.Models.InstitutionData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "location", n => { Location = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "location", n => { Location = n.GetObjectValue<ApiSdk.Models.PhysicalAddress>(ApiSdk.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
@@ -93,7 +93,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<PhysicalAddress>("location", Location);
+            writer.WriteObjectValue<ApiSdk.Models.PhysicalAddress>("location", Location);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("webUrl", WebUrl);
             writer.WriteAdditionalData(AdditionalData);

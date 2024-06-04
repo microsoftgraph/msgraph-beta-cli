@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GcpCloudFunction : GcpIdentity, IParsable
+    public class GcpCloudFunction : ApiSdk.Models.GcpIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the resources in an authorization system..</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GcpAuthorizationSystemResource? Resource { get; set; }
+        public ApiSdk.Models.GcpAuthorizationSystemResource? Resource { get; set; }
 #nullable restore
 #else
-        public GcpAuthorizationSystemResource Resource { get; set; }
+        public ApiSdk.Models.GcpAuthorizationSystemResource Resource { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GcpCloudFunction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GcpCloudFunction"/> and sets the default values.
         /// </summary>
         public GcpCloudFunction() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpCloudFunction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpCloudFunction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GcpCloudFunction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GcpCloudFunction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GcpCloudFunction();
+            return new ApiSdk.Models.GcpCloudFunction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "resource", n => { Resource = n.GetObjectValue<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<ApiSdk.Models.GcpAuthorizationSystemResource>(ApiSdk.Models.GcpAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GcpAuthorizationSystemResource>("resource", Resource);
+            writer.WriteObjectValue<ApiSdk.Models.GcpAuthorizationSystemResource>("resource", Resource);
         }
     }
 }

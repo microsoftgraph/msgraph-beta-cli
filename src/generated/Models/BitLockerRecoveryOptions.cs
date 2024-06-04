@@ -30,13 +30,13 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>BitLockerRecoveryInformationType types</summary>
-        public BitLockerRecoveryInformationType? RecoveryInformationToStore { get; set; }
+        public ApiSdk.Models.BitLockerRecoveryInformationType? RecoveryInformationToStore { get; set; }
         /// <summary>Possible values of the ConfigurationUsage list.</summary>
-        public ConfigurationUsage? RecoveryKeyUsage { get; set; }
+        public ApiSdk.Models.ConfigurationUsage? RecoveryKeyUsage { get; set; }
         /// <summary>Possible values of the ConfigurationUsage list.</summary>
-        public ConfigurationUsage? RecoveryPasswordUsage { get; set; }
+        public ApiSdk.Models.ConfigurationUsage? RecoveryPasswordUsage { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="BitLockerRecoveryOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BitLockerRecoveryOptions"/> and sets the default values.
         /// </summary>
         public BitLockerRecoveryOptions()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BitLockerRecoveryOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BitLockerRecoveryOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BitLockerRecoveryOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.BitLockerRecoveryOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BitLockerRecoveryOptions();
+            return new ApiSdk.Models.BitLockerRecoveryOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
                 { "enableRecoveryInformationSaveToStore", n => { EnableRecoveryInformationSaveToStore = n.GetBoolValue(); } },
                 { "hideRecoveryOptions", n => { HideRecoveryOptions = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "recoveryInformationToStore", n => { RecoveryInformationToStore = n.GetEnumValue<BitLockerRecoveryInformationType>(); } },
-                { "recoveryKeyUsage", n => { RecoveryKeyUsage = n.GetEnumValue<ConfigurationUsage>(); } },
-                { "recoveryPasswordUsage", n => { RecoveryPasswordUsage = n.GetEnumValue<ConfigurationUsage>(); } },
+                { "recoveryInformationToStore", n => { RecoveryInformationToStore = n.GetEnumValue<ApiSdk.Models.BitLockerRecoveryInformationType>(); } },
+                { "recoveryKeyUsage", n => { RecoveryKeyUsage = n.GetEnumValue<ApiSdk.Models.ConfigurationUsage>(); } },
+                { "recoveryPasswordUsage", n => { RecoveryPasswordUsage = n.GetEnumValue<ApiSdk.Models.ConfigurationUsage>(); } },
             };
         }
         /// <summary>
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("enableRecoveryInformationSaveToStore", EnableRecoveryInformationSaveToStore);
             writer.WriteBoolValue("hideRecoveryOptions", HideRecoveryOptions);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<BitLockerRecoveryInformationType>("recoveryInformationToStore", RecoveryInformationToStore);
-            writer.WriteEnumValue<ConfigurationUsage>("recoveryKeyUsage", RecoveryKeyUsage);
-            writer.WriteEnumValue<ConfigurationUsage>("recoveryPasswordUsage", RecoveryPasswordUsage);
+            writer.WriteEnumValue<ApiSdk.Models.BitLockerRecoveryInformationType>("recoveryInformationToStore", RecoveryInformationToStore);
+            writer.WriteEnumValue<ApiSdk.Models.ConfigurationUsage>("recoveryKeyUsage", RecoveryKeyUsage);
+            writer.WriteEnumValue<ApiSdk.Models.ConfigurationUsage>("recoveryPasswordUsage", RecoveryPasswordUsage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

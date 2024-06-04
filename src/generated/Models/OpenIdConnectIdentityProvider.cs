@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OpenIdConnectIdentityProvider : IdentityProviderBase, IParsable
+    public class OpenIdConnectIdentityProvider : ApiSdk.Models.IdentityProviderBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>After the OIDC provider sends an ID token back to Microsoft Entra ID, Microsoft Entra ID needs to be able to map the claims from the received token to the claims that Microsoft Entra ID recognizes and uses. This complex type captures that mapping. Required.</summary>
@@ -51,9 +51,9 @@ namespace ApiSdk.Models
         public string MetadataUrl { get; set; }
 #endif
         /// <summary>The responseMode property</summary>
-        public OpenIdConnectResponseMode? ResponseMode { get; set; }
+        public ApiSdk.Models.OpenIdConnectResponseMode? ResponseMode { get; set; }
         /// <summary>The responseType property</summary>
-        public OpenIdConnectResponseTypes? ResponseType { get; set; }
+        public ApiSdk.Models.OpenIdConnectResponseTypes? ResponseType { get; set; }
         /// <summary>Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the openid scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended, separated by a space. For more details about the scope limitations, see RFC6749 Section 3.3. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         public string Scope { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OpenIdConnectIdentityProvider"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OpenIdConnectIdentityProvider"/> and sets the default values.
         /// </summary>
         public OpenIdConnectIdentityProvider() : base()
         {
@@ -72,12 +72,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OpenIdConnectIdentityProvider"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OpenIdConnectIdentityProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OpenIdConnectIdentityProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OpenIdConnectIdentityProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OpenIdConnectIdentityProvider();
+            return new ApiSdk.Models.OpenIdConnectIdentityProvider();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,8 +92,8 @@ namespace ApiSdk.Models
                 { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
                 { "domainHint", n => { DomainHint = n.GetStringValue(); } },
                 { "metadataUrl", n => { MetadataUrl = n.GetStringValue(); } },
-                { "responseMode", n => { ResponseMode = n.GetEnumValue<OpenIdConnectResponseMode>(); } },
-                { "responseType", n => { ResponseType = n.GetEnumValue<OpenIdConnectResponseTypes>(); } },
+                { "responseMode", n => { ResponseMode = n.GetEnumValue<ApiSdk.Models.OpenIdConnectResponseMode>(); } },
+                { "responseType", n => { ResponseType = n.GetEnumValue<ApiSdk.Models.OpenIdConnectResponseTypes>(); } },
                 { "scope", n => { Scope = n.GetStringValue(); } },
             };
         }
@@ -110,8 +110,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("clientSecret", ClientSecret);
             writer.WriteStringValue("domainHint", DomainHint);
             writer.WriteStringValue("metadataUrl", MetadataUrl);
-            writer.WriteEnumValue<OpenIdConnectResponseMode>("responseMode", ResponseMode);
-            writer.WriteEnumValue<OpenIdConnectResponseTypes>("responseType", ResponseType);
+            writer.WriteEnumValue<ApiSdk.Models.OpenIdConnectResponseMode>("responseMode", ResponseMode);
+            writer.WriteEnumValue<ApiSdk.Models.OpenIdConnectResponseTypes>("responseType", ResponseType);
             writer.WriteStringValue("scope", Scope);
         }
     }

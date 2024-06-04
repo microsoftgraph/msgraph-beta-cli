@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AuthenticationEventListener : Entity, IParsable
+    public class AuthenticationEventListener : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier of the authenticationEventsFlow object.</summary>
@@ -21,32 +21,32 @@ namespace ApiSdk.Models
         /// <summary>The conditions on which this authenticationEventListener should trigger.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationConditions? Conditions { get; set; }
+        public ApiSdk.Models.AuthenticationConditions? Conditions { get; set; }
 #nullable restore
 #else
-        public AuthenticationConditions Conditions { get; set; }
+        public ApiSdk.Models.AuthenticationConditions Conditions { get; set; }
 #endif
         /// <summary>The priority of this handler. Between 0 (lower priority) and 1000 (higher priority).</summary>
         public int? Priority { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthenticationEventListener"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthenticationEventListener"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuthenticationEventListener CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AuthenticationEventListener CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.onAttributeCollectionListener" => new OnAttributeCollectionListener(),
-                "#microsoft.graph.onAttributeCollectionStartListener" => new OnAttributeCollectionStartListener(),
-                "#microsoft.graph.onAttributeCollectionSubmitListener" => new OnAttributeCollectionSubmitListener(),
-                "#microsoft.graph.onAuthenticationMethodLoadStartListener" => new OnAuthenticationMethodLoadStartListener(),
-                "#microsoft.graph.onInteractiveAuthFlowStartListener" => new OnInteractiveAuthFlowStartListener(),
-                "#microsoft.graph.onTokenIssuanceStartListener" => new OnTokenIssuanceStartListener(),
-                "#microsoft.graph.onUserCreateStartListener" => new OnUserCreateStartListener(),
-                _ => new AuthenticationEventListener(),
+                "#microsoft.graph.onAttributeCollectionListener" => new ApiSdk.Models.OnAttributeCollectionListener(),
+                "#microsoft.graph.onAttributeCollectionStartListener" => new ApiSdk.Models.OnAttributeCollectionStartListener(),
+                "#microsoft.graph.onAttributeCollectionSubmitListener" => new ApiSdk.Models.OnAttributeCollectionSubmitListener(),
+                "#microsoft.graph.onAuthenticationMethodLoadStartListener" => new ApiSdk.Models.OnAuthenticationMethodLoadStartListener(),
+                "#microsoft.graph.onInteractiveAuthFlowStartListener" => new ApiSdk.Models.OnInteractiveAuthFlowStartListener(),
+                "#microsoft.graph.onTokenIssuanceStartListener" => new ApiSdk.Models.OnTokenIssuanceStartListener(),
+                "#microsoft.graph.onUserCreateStartListener" => new ApiSdk.Models.OnUserCreateStartListener(),
+                _ => new ApiSdk.Models.AuthenticationEventListener(),
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "authenticationEventsFlowId", n => { AuthenticationEventsFlowId = n.GetStringValue(); } },
-                { "conditions", n => { Conditions = n.GetObjectValue<AuthenticationConditions>(AuthenticationConditions.CreateFromDiscriminatorValue); } },
+                { "conditions", n => { Conditions = n.GetObjectValue<ApiSdk.Models.AuthenticationConditions>(ApiSdk.Models.AuthenticationConditions.CreateFromDiscriminatorValue); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("authenticationEventsFlowId", AuthenticationEventsFlowId);
-            writer.WriteObjectValue<AuthenticationConditions>("conditions", Conditions);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationConditions>("conditions", Conditions);
             writer.WriteIntValue("priority", Priority);
         }
     }

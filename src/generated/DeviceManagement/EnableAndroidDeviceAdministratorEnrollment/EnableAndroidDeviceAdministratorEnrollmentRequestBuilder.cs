@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.EnableAndroidDeviceAdministratorEnrollment
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableAndroidDeviceAdministratorEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableAndroidDeviceAdministratorEnrollment.EnableAndroidDeviceAdministratorEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EnableAndroidDeviceAdministratorEnrollmentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/enableAndroidDeviceAdministratorEnrollment", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableAndroidDeviceAdministratorEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableAndroidDeviceAdministratorEnrollment.EnableAndroidDeviceAdministratorEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EnableAndroidDeviceAdministratorEnrollmentRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/enableAndroidDeviceAdministratorEnrollment", rawUrl)

@@ -34,7 +34,7 @@ namespace ApiSdk.Models
         /// <summary>Start time of the series being requested.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TimeSeriesParameter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TimeSeriesParameter"/> and sets the default values.
         /// </summary>
         public TimeSeriesParameter()
         {
@@ -43,12 +43,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TimeSeriesParameter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TimeSeriesParameter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TimeSeriesParameter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TimeSeriesParameter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TimeSeriesParameter();
+            return new ApiSdk.Models.TimeSeriesParameter();
         }
         /// <summary>
         /// The deserialization information for the current model

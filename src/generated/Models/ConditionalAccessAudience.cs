@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string ApplicationId { get; set; }
 #endif
         /// <summary>Indicates the reasons this audience was included for a sign-in request.</summary>
-        public ConditionalAccessAudienceReason? AudienceReasons { get; set; }
+        public ApiSdk.Models.ConditionalAccessAudienceReason? AudienceReasons { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessAudience"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessAudience"/> and sets the default values.
         /// </summary>
         public ConditionalAccessAudience()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessAudience"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessAudience"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessAudience CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessAudience CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessAudience();
+            return new ApiSdk.Models.ConditionalAccessAudience();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
-                { "audienceReasons", n => { AudienceReasons = n.GetEnumValue<ConditionalAccessAudienceReason>(); } },
+                { "audienceReasons", n => { AudienceReasons = n.GetEnumValue<ApiSdk.Models.ConditionalAccessAudienceReason>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("applicationId", ApplicationId);
-            writer.WriteEnumValue<ConditionalAccessAudienceReason>("audienceReasons", AudienceReasons);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessAudienceReason>("audienceReasons", AudienceReasons);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

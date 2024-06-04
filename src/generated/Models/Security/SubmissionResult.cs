@@ -13,16 +13,16 @@ namespace ApiSdk.Models.Security
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The submission result category. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable and unkownFutureValue.</summary>
-        public SubmissionResultCategory? Category { get; set; }
+        public ApiSdk.Models.Security.SubmissionResultCategory? Category { get; set; }
         /// <summary>Specifies the extra details provided by Microsoft to substantiate their analysis result.</summary>
-        public SubmissionResultDetail? Detail { get; set; }
+        public ApiSdk.Models.Security.SubmissionResultDetail? Detail { get; set; }
         /// <summary>Specifies the files detected by Microsoft in the submitted emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SubmissionDetectedFile>? DetectedFiles { get; set; }
+        public List<ApiSdk.Models.Security.SubmissionDetectedFile>? DetectedFiles { get; set; }
 #nullable restore
 #else
-        public List<SubmissionDetectedFile> DetectedFiles { get; set; }
+        public List<ApiSdk.Models.Security.SubmissionDetectedFile> DetectedFiles { get; set; }
 #endif
         /// <summary>Specifies the URLs detected by Microsoft in the submitted email.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +43,7 @@ namespace ApiSdk.Models.Security
         /// <summary>Specifies the setting for user mailbox denoted by a comma-separated string.</summary>
         public ApiSdk.Models.Security.UserMailboxSetting? UserMailboxSetting { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SubmissionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.SubmissionResult"/> and sets the default values.
         /// </summary>
         public SubmissionResult()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SubmissionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.SubmissionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SubmissionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.SubmissionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SubmissionResult();
+            return new ApiSdk.Models.Security.SubmissionResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,12 +67,12 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "category", n => { Category = n.GetEnumValue<SubmissionResultCategory>(); } },
-                { "detail", n => { Detail = n.GetEnumValue<SubmissionResultDetail>(); } },
-                { "detectedFiles", n => { DetectedFiles = n.GetCollectionOfObjectValues<SubmissionDetectedFile>(SubmissionDetectedFile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.Security.SubmissionResultCategory>(); } },
+                { "detail", n => { Detail = n.GetEnumValue<ApiSdk.Models.Security.SubmissionResultDetail>(); } },
+                { "detectedFiles", n => { DetectedFiles = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.SubmissionDetectedFile>(ApiSdk.Models.Security.SubmissionDetectedFile.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "detectedUrls", n => { DetectedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "userMailboxSetting", n => { UserMailboxSetting = n.GetEnumValue<UserMailboxSetting>(); } },
+                { "userMailboxSetting", n => { UserMailboxSetting = n.GetEnumValue<ApiSdk.Models.Security.UserMailboxSetting>(); } },
             };
         }
         /// <summary>
@@ -82,12 +82,12 @@ namespace ApiSdk.Models.Security
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<SubmissionResultCategory>("category", Category);
-            writer.WriteEnumValue<SubmissionResultDetail>("detail", Detail);
-            writer.WriteCollectionOfObjectValues<SubmissionDetectedFile>("detectedFiles", DetectedFiles);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionResultCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionResultDetail>("detail", Detail);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.SubmissionDetectedFile>("detectedFiles", DetectedFiles);
             writer.WriteCollectionOfPrimitiveValues<string>("detectedUrls", DetectedUrls);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<UserMailboxSetting>("userMailboxSetting", UserMailboxSetting);
+            writer.WriteEnumValue<ApiSdk.Models.Security.UserMailboxSetting>("userMailboxSetting", UserMailboxSetting);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

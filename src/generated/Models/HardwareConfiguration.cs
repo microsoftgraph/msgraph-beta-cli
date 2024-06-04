@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// BIOS configuration and other settings provides customers the ability to configure hardware/bios settings on the enrolled Windows 10/11 Entra ID joined devices by uploading a configuration file generated with their OEM tool (e.g. Dell Command tool). A BIOS configuration policy can be assigned to multiple devices, allowing admins to remotely control a device&apos;s hardware properties (e.g. enable Secure Boot) from the Intune Portal.
     /// </summary>
-    public class HardwareConfiguration : Entity, IParsable
+    public class HardwareConfiguration : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>A list of the Entra user group ids that hardware configuration will be applied to. Only security groups and Office 365 Groups are supported. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HardwareConfigurationAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<HardwareConfigurationAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationAssignment> Assignments { get; set; }
 #endif
         /// <summary>The file content contains custom hardware settings that will be applied to the assigned devices&apos; BIOS. Max allowed file size is 5KB. Represented as bytes. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,10 +40,10 @@ namespace ApiSdk.Models
         /// <summary>List of run states for the hardware configuration across all devices. Read-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HardwareConfigurationDeviceState>? DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationDeviceState>? DeviceRunStates { get; set; }
 #nullable restore
 #else
-        public List<HardwareConfigurationDeviceState> DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationDeviceState> DeviceRunStates { get; set; }
 #endif
         /// <summary>The name of the hardware BIOS configuration profile. It serves as user-friendly name to identify hardware BIOS configuration profiles. Max length is 150 characters. Required. Read-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,30 +78,30 @@ namespace ApiSdk.Models
         /// <summary>A summary of the results from an attempt to configure hardware settings. Read-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public HardwareConfigurationRunSummary? RunSummary { get; set; }
+        public ApiSdk.Models.HardwareConfigurationRunSummary? RunSummary { get; set; }
 #nullable restore
 #else
-        public HardwareConfigurationRunSummary RunSummary { get; set; }
+        public ApiSdk.Models.HardwareConfigurationRunSummary RunSummary { get; set; }
 #endif
         /// <summary>List of run states for the hardware configuration across all users. Read-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HardwareConfigurationUserState>? UserRunStates { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationUserState>? UserRunStates { get; set; }
 #nullable restore
 #else
-        public List<HardwareConfigurationUserState> UserRunStates { get; set; }
+        public List<ApiSdk.Models.HardwareConfigurationUserState> UserRunStates { get; set; }
 #endif
         /// <summary>The version of the hardware configuration (E.g. 1, 2, 3 ...). This is incremented after a change to the BIOS configuration profile&apos;s settings file name (FileName property), settings file content (ConfigurationFileContent property), or the PerDevicePasswordDisabled property. Read-Only.</summary>
         public int? Version { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HardwareConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HardwareConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HardwareConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.HardwareConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HardwareConfiguration();
+            return new ApiSdk.Models.HardwareConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,19 +111,19 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<HardwareConfigurationAssignment>(HardwareConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationAssignment>(ApiSdk.Models.HardwareConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "configurationFileContent", n => { ConfigurationFileContent = n.GetByteArrayValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationDeviceState>(HardwareConfigurationDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationDeviceState>(ApiSdk.Models.HardwareConfigurationDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "fileName", n => { FileName = n.GetStringValue(); } },
-                { "hardwareConfigurationFormat", n => { HardwareConfigurationFormat = n.GetEnumValue<HardwareConfigurationFormat>(); } },
+                { "hardwareConfigurationFormat", n => { HardwareConfigurationFormat = n.GetEnumValue<ApiSdk.Models.HardwareConfigurationFormat>(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "perDevicePasswordDisabled", n => { PerDevicePasswordDisabled = n.GetBoolValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "runSummary", n => { RunSummary = n.GetObjectValue<HardwareConfigurationRunSummary>(HardwareConfigurationRunSummary.CreateFromDiscriminatorValue); } },
-                { "userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<HardwareConfigurationUserState>(HardwareConfigurationUserState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "runSummary", n => { RunSummary = n.GetObjectValue<ApiSdk.Models.HardwareConfigurationRunSummary>(ApiSdk.Models.HardwareConfigurationRunSummary.CreateFromDiscriminatorValue); } },
+                { "userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationUserState>(ApiSdk.Models.HardwareConfigurationUserState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
         }
@@ -135,17 +135,17 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<HardwareConfigurationAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationAssignment>("assignments", Assignments);
             writer.WriteByteArrayValue("configurationFileContent", ConfigurationFileContent);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<HardwareConfigurationDeviceState>("deviceRunStates", DeviceRunStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationDeviceState>("deviceRunStates", DeviceRunStates);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("fileName", FileName);
-            writer.WriteEnumValue<HardwareConfigurationFormat>("hardwareConfigurationFormat", HardwareConfigurationFormat);
+            writer.WriteEnumValue<ApiSdk.Models.HardwareConfigurationFormat>("hardwareConfigurationFormat", HardwareConfigurationFormat);
             writer.WriteBoolValue("perDevicePasswordDisabled", PerDevicePasswordDisabled);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteObjectValue<HardwareConfigurationRunSummary>("runSummary", RunSummary);
-            writer.WriteCollectionOfObjectValues<HardwareConfigurationUserState>("userRunStates", UserRunStates);
+            writer.WriteObjectValue<ApiSdk.Models.HardwareConfigurationRunSummary>("runSummary", RunSummary);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HardwareConfigurationUserState>("userRunStates", UserRunStates);
             writer.WriteIntValue("version", Version);
         }
     }

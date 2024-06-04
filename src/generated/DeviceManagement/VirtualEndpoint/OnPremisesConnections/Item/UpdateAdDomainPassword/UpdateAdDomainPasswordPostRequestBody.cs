@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.Upd
         public string AdDomainPassword { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateAdDomainPasswordPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword.UpdateAdDomainPasswordPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateAdDomainPasswordPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.Upd
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateAdDomainPasswordPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword.UpdateAdDomainPasswordPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateAdDomainPasswordPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword.UpdateAdDomainPasswordPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateAdDomainPasswordPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.Item.UpdateAdDomainPassword.UpdateAdDomainPasswordPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

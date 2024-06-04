@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string DisplayVersion { get; set; }
 #endif
         /// <summary>A list of possible states for application status on an individual device. When devices contact the Intune service and find targeted application enforcement intent, the status of the enforcement is recorded and becomes accessible in the Graph API. Since the application status is identified during device interaction with the Intune service, status records do not immediately appear upon application group assignment; it is created only after the assignment is evaluated in the service and devices start receiving the policy during check-ins.</summary>
-        public ResultantAppState? InstallState { get; set; }
+        public ApiSdk.Models.ResultantAppState? InstallState { get; set; }
         /// <summary>Indicates the status of the mobile app on the device.</summary>
         public ApiSdk.Models.MobileAppIntent? MobileAppIntent { get; set; }
         /// <summary>The OdataType property</summary>
@@ -52,13 +52,13 @@ namespace ApiSdk.Models
         /// <summary>The supported platforms for the app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileAppSupportedDeviceType>? SupportedDeviceTypes { get; set; }
+        public List<ApiSdk.Models.MobileAppSupportedDeviceType>? SupportedDeviceTypes { get; set; }
 #nullable restore
 #else
-        public List<MobileAppSupportedDeviceType> SupportedDeviceTypes { get; set; }
+        public List<ApiSdk.Models.MobileAppSupportedDeviceType> SupportedDeviceTypes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MobileAppIntentAndStateDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MobileAppIntentAndStateDetail"/> and sets the default values.
         /// </summary>
         public MobileAppIntentAndStateDetail()
         {
@@ -67,12 +67,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppIntentAndStateDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppIntentAndStateDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MobileAppIntentAndStateDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MobileAppIntentAndStateDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppIntentAndStateDetail();
+            return new ApiSdk.Models.MobileAppIntentAndStateDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,10 +85,10 @@ namespace ApiSdk.Models
                 { "applicationId", n => { ApplicationId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
-                { "installState", n => { InstallState = n.GetEnumValue<ResultantAppState>(); } },
-                { "mobileAppIntent", n => { MobileAppIntent = n.GetEnumValue<MobileAppIntent>(); } },
+                { "installState", n => { InstallState = n.GetEnumValue<ApiSdk.Models.ResultantAppState>(); } },
+                { "mobileAppIntent", n => { MobileAppIntent = n.GetEnumValue<ApiSdk.Models.MobileAppIntent>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "supportedDeviceTypes", n => { SupportedDeviceTypes = n.GetCollectionOfObjectValues<MobileAppSupportedDeviceType>(MobileAppSupportedDeviceType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "supportedDeviceTypes", n => { SupportedDeviceTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileAppSupportedDeviceType>(ApiSdk.Models.MobileAppSupportedDeviceType.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -101,10 +101,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("applicationId", ApplicationId);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("displayVersion", DisplayVersion);
-            writer.WriteEnumValue<ResultantAppState>("installState", InstallState);
-            writer.WriteEnumValue<MobileAppIntent>("mobileAppIntent", MobileAppIntent);
+            writer.WriteEnumValue<ApiSdk.Models.ResultantAppState>("installState", InstallState);
+            writer.WriteEnumValue<ApiSdk.Models.MobileAppIntent>("mobileAppIntent", MobileAppIntent);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<MobileAppSupportedDeviceType>("supportedDeviceTypes", SupportedDeviceTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileAppSupportedDeviceType>("supportedDeviceTypes", SupportedDeviceTypes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

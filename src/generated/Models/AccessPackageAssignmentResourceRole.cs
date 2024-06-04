@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentResourceRole : Entity, IParsable
+    public class AccessPackageAssignmentResourceRole : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The access package assignments resulting in this role assignment. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignment>? AccessPackageAssignments { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignment>? AccessPackageAssignments { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignment> AccessPackageAssignments { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignment> AccessPackageAssignments { get; set; }
 #endif
         /// <summary>The accessPackageResourceRole property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,12 +69,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageAssignmentResourceRole"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageAssignmentResourceRole"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageAssignmentResourceRole CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessPackageAssignmentResourceRole CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageAssignmentResourceRole();
+            return new ApiSdk.Models.AccessPackageAssignmentResourceRole();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +84,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignment>(ApiSdk.Models.AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "accessPackageResourceRole", n => { AccessPackageResourceRole = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue); } },
                 { "accessPackageResourceScope", n => { AccessPackageResourceScope = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue); } },
                 { "accessPackageSubject", n => { AccessPackageSubject = n.GetObjectValue<ApiSdk.Models.AccessPackageSubject>(ApiSdk.Models.AccessPackageSubject.CreateFromDiscriminatorValue); } },
@@ -101,7 +101,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignment>("accessPackageAssignments", AccessPackageAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignment>("accessPackageAssignments", AccessPackageAssignments);
             writer.WriteObjectValue<ApiSdk.Models.AccessPackageResourceRole>("accessPackageResourceRole", AccessPackageResourceRole);
             writer.WriteObjectValue<ApiSdk.Models.AccessPackageResourceScope>("accessPackageResourceScope", AccessPackageResourceScope);
             writer.WriteObjectValue<ApiSdk.Models.AccessPackageSubject>("accessPackageSubject", AccessPackageSubject);

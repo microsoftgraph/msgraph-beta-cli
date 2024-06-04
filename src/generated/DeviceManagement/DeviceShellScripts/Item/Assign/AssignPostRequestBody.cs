@@ -16,21 +16,21 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign
         /// <summary>The deviceManagementScriptAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptAssignment>? DeviceManagementScriptAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptAssignment>? DeviceManagementScriptAssignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptAssignment> DeviceManagementScriptAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptAssignment> DeviceManagementScriptAssignments { get; set; }
 #endif
         /// <summary>The deviceManagementScriptGroupAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptGroupAssignment>? DeviceManagementScriptGroupAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment>? DeviceManagementScriptGroupAssignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptGroupAssignment> DeviceManagementScriptGroupAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment> DeviceManagementScriptGroupAssignments { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign.AssignPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign.AssignPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign.AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign.AssignPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,8 +54,8 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceManagementScriptAssignments", n => { DeviceManagementScriptAssignments = n.GetCollectionOfObjectValues<DeviceManagementScriptAssignment>(DeviceManagementScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceManagementScriptGroupAssignments", n => { DeviceManagementScriptGroupAssignments = n.GetCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>(DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceManagementScriptAssignments", n => { DeviceManagementScriptAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptAssignment>(ApiSdk.Models.DeviceManagementScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceManagementScriptGroupAssignments", n => { DeviceManagementScriptGroupAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>(ApiSdk.Models.DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptAssignment>("deviceManagementScriptAssignments", DeviceManagementScriptAssignments);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>("deviceManagementScriptGroupAssignments", DeviceManagementScriptGroupAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptAssignment>("deviceManagementScriptAssignments", DeviceManagementScriptAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>("deviceManagementScriptGroupAssignments", DeviceManagementScriptGroupAssignments);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

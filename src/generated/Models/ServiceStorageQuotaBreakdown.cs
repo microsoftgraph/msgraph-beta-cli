@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ServiceStorageQuotaBreakdown : StorageQuotaBreakdown, IParsable
+    public class ServiceStorageQuotaBreakdown : ApiSdk.Models.StorageQuotaBreakdown, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceStorageQuotaBreakdown"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceStorageQuotaBreakdown"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ServiceStorageQuotaBreakdown CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ServiceStorageQuotaBreakdown CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServiceStorageQuotaBreakdown();
+            return new ApiSdk.Models.ServiceStorageQuotaBreakdown();
         }
         /// <summary>
         /// The deserialization information for the current model

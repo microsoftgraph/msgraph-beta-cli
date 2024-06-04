@@ -61,14 +61,14 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignmentRequests.Ite
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignmentRequests.Item.Cancel.CancelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CancelRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources/{governanceResource%2Did}/roleAssignmentRequests/{governanceRoleAssignmentRequest%2Did}/cancel", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Item.RoleAssignmentRequests.Item.Cancel.CancelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CancelRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/resources/{governanceResource%2Did}/roleAssignmentRequests/{governanceRoleAssignmentRequest%2Did}/cancel", rawUrl)

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SymantecCodeSigningCertificate : Entity, IParsable
+    public class SymantecCodeSigningCertificate : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The Windows Symantec Code-Signing Certificate in the raw data format.</summary>
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string Password { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public CertificateStatus? Status { get; set; }
+        public ApiSdk.Models.CertificateStatus? Status { get; set; }
         /// <summary>The Subject value for the cert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,12 +67,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SymantecCodeSigningCertificate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SymantecCodeSigningCertificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SymantecCodeSigningCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SymantecCodeSigningCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SymantecCodeSigningCertificate();
+            return new ApiSdk.Models.SymantecCodeSigningCertificate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +87,7 @@ namespace ApiSdk.Models
                 { "issuer", n => { Issuer = n.GetStringValue(); } },
                 { "issuerName", n => { IssuerName = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<CertificateStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CertificateStatus>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
                 { "subjectName", n => { SubjectName = n.GetStringValue(); } },
                 { "uploadDateTime", n => { UploadDateTime = n.GetDateTimeOffsetValue(); } },
@@ -106,7 +106,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("issuer", Issuer);
             writer.WriteStringValue("issuerName", IssuerName);
             writer.WriteStringValue("password", Password);
-            writer.WriteEnumValue<CertificateStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateStatus>("status", Status);
             writer.WriteStringValue("subject", Subject);
             writer.WriteStringValue("subjectName", SubjectName);
             writer.WriteDateTimeOffsetValue("uploadDateTime", UploadDateTime);

@@ -23,7 +23,7 @@ namespace ApiSdk.Models.ExternalConnectors
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RankingHint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExternalConnectors.RankingHint"/> and sets the default values.
         /// </summary>
         public RankingHint()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models.ExternalConnectors
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RankingHint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalConnectors.RankingHint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RankingHint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ExternalConnectors.RankingHint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RankingHint();
+            return new ApiSdk.Models.ExternalConnectors.RankingHint();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.ExternalConnectors
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "importanceScore", n => { ImportanceScore = n.GetEnumValue<ImportanceScore>(); } },
+                { "importanceScore", n => { ImportanceScore = n.GetEnumValue<ApiSdk.Models.ExternalConnectors.ImportanceScore>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace ApiSdk.Models.ExternalConnectors
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ImportanceScore>("importanceScore", ImportanceScore);
+            writer.WriteEnumValue<ApiSdk.Models.ExternalConnectors.ImportanceScore>("importanceScore", ImportanceScore);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

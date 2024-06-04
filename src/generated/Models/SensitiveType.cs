@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SensitiveType : Entity, IParsable
+    public class SensitiveType : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The classificationMethod property</summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string RulePackageType { get; set; }
 #endif
         /// <summary>The scope property</summary>
-        public SensitiveTypeScope? Scope { get; set; }
+        public ApiSdk.Models.SensitiveTypeScope? Scope { get; set; }
         /// <summary>The sensitiveTypeSource property</summary>
         public ApiSdk.Models.SensitiveTypeSource? SensitiveTypeSource { get; set; }
         /// <summary>The state property</summary>
@@ -67,12 +67,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SensitiveType"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SensitiveType"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SensitiveType CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SensitiveType CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SensitiveType();
+            return new ApiSdk.Models.SensitiveType();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,14 +82,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ClassificationMethod>(); } },
+                { "classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ApiSdk.Models.ClassificationMethod>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "publisherName", n => { PublisherName = n.GetStringValue(); } },
                 { "rulePackageId", n => { RulePackageId = n.GetStringValue(); } },
                 { "rulePackageType", n => { RulePackageType = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<SensitiveTypeScope>(); } },
-                { "sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<SensitiveTypeSource>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<ApiSdk.Models.SensitiveTypeScope>(); } },
+                { "sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<ApiSdk.Models.SensitiveTypeSource>(); } },
                 { "state", n => { State = n.GetStringValue(); } },
             };
         }
@@ -101,14 +101,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ClassificationMethod>("classificationMethod", ClassificationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.ClassificationMethod>("classificationMethod", ClassificationMethod);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("publisherName", PublisherName);
             writer.WriteStringValue("rulePackageId", RulePackageId);
             writer.WriteStringValue("rulePackageType", RulePackageType);
-            writer.WriteEnumValue<SensitiveTypeScope>("scope", Scope);
-            writer.WriteEnumValue<SensitiveTypeSource>("sensitiveTypeSource", SensitiveTypeSource);
+            writer.WriteEnumValue<ApiSdk.Models.SensitiveTypeScope>("scope", Scope);
+            writer.WriteEnumValue<ApiSdk.Models.SensitiveTypeSource>("sensitiveTypeSource", SensitiveTypeSource);
             writer.WriteStringValue("state", State);
         }
     }

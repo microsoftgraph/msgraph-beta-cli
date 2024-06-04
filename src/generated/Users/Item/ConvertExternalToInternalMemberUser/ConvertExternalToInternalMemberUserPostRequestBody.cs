@@ -38,7 +38,7 @@ namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConvertExternalToInternalMemberUserPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ConvertExternalToInternalMemberUser.ConvertExternalToInternalMemberUserPostRequestBody"/> and sets the default values.
         /// </summary>
         public ConvertExternalToInternalMemberUserPostRequestBody()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Users.Item.ConvertExternalToInternalMemberUser
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConvertExternalToInternalMemberUserPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.ConvertExternalToInternalMemberUser.ConvertExternalToInternalMemberUserPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConvertExternalToInternalMemberUserPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.ConvertExternalToInternalMemberUser.ConvertExternalToInternalMemberUserPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConvertExternalToInternalMemberUserPostRequestBody();
+            return new ApiSdk.Users.Item.ConvertExternalToInternalMemberUser.ConvertExternalToInternalMemberUserPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

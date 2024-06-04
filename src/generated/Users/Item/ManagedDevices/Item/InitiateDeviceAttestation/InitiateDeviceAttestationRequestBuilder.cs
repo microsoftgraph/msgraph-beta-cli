@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.InitiateDeviceAttestation
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="InitiateDeviceAttestationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.InitiateDeviceAttestation.InitiateDeviceAttestationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public InitiateDeviceAttestationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/initiateDeviceAttestation", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="InitiateDeviceAttestationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.InitiateDeviceAttestation.InitiateDeviceAttestationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public InitiateDeviceAttestationRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/initiateDeviceAttestation", rawUrl)

@@ -62,14 +62,14 @@ namespace ApiSdk.Print.Printers.Item.GetCapabilities
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetCapabilitiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.GetCapabilities.GetCapabilitiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetCapabilitiesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printers/{printer%2Did}/getCapabilities()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetCapabilitiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.GetCapabilities.GetCapabilitiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetCapabilitiesRequestBuilder(string rawUrl) : base("{+baseurl}/print/printers/{printer%2Did}/getCapabilities()", rawUrl)

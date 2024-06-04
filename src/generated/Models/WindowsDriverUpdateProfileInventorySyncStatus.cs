@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Windows DnF update inventory sync state.</summary>
-        public WindowsDriverUpdateProfileInventorySyncState? DriverInventorySyncState { get; set; }
+        public ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncState? DriverInventorySyncState { get; set; }
         /// <summary>The last successful sync date and time in UTC.</summary>
         public DateTimeOffset? LastSuccessfulSyncDateTime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDriverUpdateProfileInventorySyncStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus"/> and sets the default values.
         /// </summary>
         public WindowsDriverUpdateProfileInventorySyncStatus()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDriverUpdateProfileInventorySyncStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsDriverUpdateProfileInventorySyncStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDriverUpdateProfileInventorySyncStatus();
+            return new ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "driverInventorySyncState", n => { DriverInventorySyncState = n.GetEnumValue<WindowsDriverUpdateProfileInventorySyncState>(); } },
+                { "driverInventorySyncState", n => { DriverInventorySyncState = n.GetEnumValue<ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncState>(); } },
                 { "lastSuccessfulSyncDateTime", n => { LastSuccessfulSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<WindowsDriverUpdateProfileInventorySyncState>("driverInventorySyncState", DriverInventorySyncState);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncState>("driverInventorySyncState", DriverInventorySyncState);
             writer.WriteDateTimeOffsetValue("lastSuccessfulSyncDateTime", LastSuccessfulSyncDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConversionUserDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConversionUserDetails"/> and sets the default values.
         /// </summary>
         public ConversionUserDetails()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConversionUserDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConversionUserDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConversionUserDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConversionUserDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConversionUserDetails();
+            return new ApiSdk.Models.ConversionUserDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

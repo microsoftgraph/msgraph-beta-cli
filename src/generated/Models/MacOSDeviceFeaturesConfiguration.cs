@@ -9,25 +9,25 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS device features configuration profile.
     /// </summary>
-    public class MacOSDeviceFeaturesConfiguration : AppleDeviceFeaturesConfigurationBase, IParsable
+    public class MacOSDeviceFeaturesConfiguration : ApiSdk.Models.AppleDeviceFeaturesConfigurationBase, IParsable
     {
         /// <summary>Whether to show admin host information on the login window.</summary>
         public bool? AdminShowHostInfo { get; set; }
         /// <summary>Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSAssociatedDomainsItem>? AppAssociatedDomains { get; set; }
+        public List<ApiSdk.Models.MacOSAssociatedDomainsItem>? AppAssociatedDomains { get; set; }
 #nullable restore
 #else
-        public List<MacOSAssociatedDomainsItem> AppAssociatedDomains { get; set; }
+        public List<ApiSdk.Models.MacOSAssociatedDomainsItem> AppAssociatedDomains { get; set; }
 #endif
         /// <summary>DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app&apos;s ID, and the value should be a string in the form of &apos;service:domain&apos; where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? AssociatedDomains { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? AssociatedDomains { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> AssociatedDomains { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> AssociatedDomains { get; set; }
 #endif
         /// <summary>Whether to show the name and password dialog or a list of users on the login window.</summary>
         public bool? AuthorizedUsersListHidden { get; set; }
@@ -44,10 +44,10 @@ namespace ApiSdk.Models
         /// <summary>List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSLaunchItem>? AutoLaunchItems { get; set; }
+        public List<ApiSdk.Models.MacOSLaunchItem>? AutoLaunchItems { get; set; }
 #nullable restore
 #else
-        public List<MacOSLaunchItem> AutoLaunchItems { get; set; }
+        public List<ApiSdk.Models.MacOSLaunchItem> AutoLaunchItems { get; set; }
 #endif
         /// <summary>Whether the Other user will disregard use of the console special user name.</summary>
         public bool? ConsoleAccessDisabled { get; set; }
@@ -56,13 +56,13 @@ namespace ApiSdk.Models
         /// <summary>A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IpRange>? ContentCachingClientListenRanges { get; set; }
+        public List<ApiSdk.Models.IpRange>? ContentCachingClientListenRanges { get; set; }
 #nullable restore
 #else
-        public List<IpRange> ContentCachingClientListenRanges { get; set; }
+        public List<ApiSdk.Models.IpRange> ContentCachingClientListenRanges { get; set; }
 #endif
         /// <summary>Determines which clients a content cache will serve.</summary>
-        public MacOSContentCachingClientPolicy? ContentCachingClientPolicy { get; set; }
+        public ApiSdk.Models.MacOSContentCachingClientPolicy? ContentCachingClientPolicy { get; set; }
         /// <summary>The path to the directory used to store cached content. The value must be (or end with) /Library/Application Support/Apple/AssetCache/Data</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,39 +92,39 @@ namespace ApiSdk.Models
         public List<string> ContentCachingParents { get; set; }
 #endif
         /// <summary>Determines how content caches select a parent cache.</summary>
-        public MacOSContentCachingParentSelectionPolicy? ContentCachingParentSelectionPolicy { get; set; }
+        public ApiSdk.Models.MacOSContentCachingParentSelectionPolicy? ContentCachingParentSelectionPolicy { get; set; }
         /// <summary>A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IpRange>? ContentCachingPeerFilterRanges { get; set; }
+        public List<ApiSdk.Models.IpRange>? ContentCachingPeerFilterRanges { get; set; }
 #nullable restore
 #else
-        public List<IpRange> ContentCachingPeerFilterRanges { get; set; }
+        public List<ApiSdk.Models.IpRange> ContentCachingPeerFilterRanges { get; set; }
 #endif
         /// <summary>A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IpRange>? ContentCachingPeerListenRanges { get; set; }
+        public List<ApiSdk.Models.IpRange>? ContentCachingPeerListenRanges { get; set; }
 #nullable restore
 #else
-        public List<IpRange> ContentCachingPeerListenRanges { get; set; }
+        public List<ApiSdk.Models.IpRange> ContentCachingPeerListenRanges { get; set; }
 #endif
         /// <summary>Determines which content caches other content caches will peer with.</summary>
-        public MacOSContentCachingPeerPolicy? ContentCachingPeerPolicy { get; set; }
+        public ApiSdk.Models.MacOSContentCachingPeerPolicy? ContentCachingPeerPolicy { get; set; }
         /// <summary>Sets the port used for content caching. If the value is 0, a random available port will be selected. Valid values 0 to 65535</summary>
         public int? ContentCachingPort { get; set; }
         /// <summary>A list of custom IP ranges that Apple&apos;s content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IpRange>? ContentCachingPublicRanges { get; set; }
+        public List<ApiSdk.Models.IpRange>? ContentCachingPublicRanges { get; set; }
 #nullable restore
 #else
-        public List<IpRange> ContentCachingPublicRanges { get; set; }
+        public List<ApiSdk.Models.IpRange> ContentCachingPublicRanges { get; set; }
 #endif
         /// <summary>Display content caching alerts as system notifications.</summary>
         public bool? ContentCachingShowAlerts { get; set; }
         /// <summary>Indicates the type of content allowed to be cached by Apple&apos;s content caching service.</summary>
-        public MacOSContentCachingType? ContentCachingType { get; set; }
+        public ApiSdk.Models.MacOSContentCachingType? ContentCachingType { get; set; }
         /// <summary>Custom text to be displayed on the login window.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,15 +166,15 @@ namespace ApiSdk.Models
         /// <summary>PKINIT Certificate for the authentication with single sign-on extensions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MacOSCertificateProfileBase? SingleSignOnExtensionPkinitCertificate { get; set; }
+        public ApiSdk.Models.MacOSCertificateProfileBase? SingleSignOnExtensionPkinitCertificate { get; set; }
 #nullable restore
 #else
-        public MacOSCertificateProfileBase SingleSignOnExtensionPkinitCertificate { get; set; }
+        public ApiSdk.Models.MacOSCertificateProfileBase SingleSignOnExtensionPkinitCertificate { get; set; }
 #endif
         /// <summary>Whether to hide the Sleep menu item on the login window.</summary>
         public bool? SleepDisabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSDeviceFeaturesConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSDeviceFeaturesConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSDeviceFeaturesConfiguration() : base()
         {
@@ -183,12 +183,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSDeviceFeaturesConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSDeviceFeaturesConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSDeviceFeaturesConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSDeviceFeaturesConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSDeviceFeaturesConfiguration();
+            return new ApiSdk.Models.MacOSDeviceFeaturesConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -199,19 +199,19 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "adminShowHostInfo", n => { AdminShowHostInfo = n.GetBoolValue(); } },
-                { "appAssociatedDomains", n => { AppAssociatedDomains = n.GetCollectionOfObjectValues<MacOSAssociatedDomainsItem>(MacOSAssociatedDomainsItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "associatedDomains", n => { AssociatedDomains = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appAssociatedDomains", n => { AppAssociatedDomains = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSAssociatedDomainsItem>(ApiSdk.Models.MacOSAssociatedDomainsItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedDomains", n => { AssociatedDomains = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "authorizedUsersListHidden", n => { AuthorizedUsersListHidden = n.GetBoolValue(); } },
                 { "authorizedUsersListHideAdminUsers", n => { AuthorizedUsersListHideAdminUsers = n.GetBoolValue(); } },
                 { "authorizedUsersListHideLocalUsers", n => { AuthorizedUsersListHideLocalUsers = n.GetBoolValue(); } },
                 { "authorizedUsersListHideMobileAccounts", n => { AuthorizedUsersListHideMobileAccounts = n.GetBoolValue(); } },
                 { "authorizedUsersListIncludeNetworkUsers", n => { AuthorizedUsersListIncludeNetworkUsers = n.GetBoolValue(); } },
                 { "authorizedUsersListShowOtherManagedUsers", n => { AuthorizedUsersListShowOtherManagedUsers = n.GetBoolValue(); } },
-                { "autoLaunchItems", n => { AutoLaunchItems = n.GetCollectionOfObjectValues<MacOSLaunchItem>(MacOSLaunchItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "autoLaunchItems", n => { AutoLaunchItems = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSLaunchItem>(ApiSdk.Models.MacOSLaunchItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "consoleAccessDisabled", n => { ConsoleAccessDisabled = n.GetBoolValue(); } },
                 { "contentCachingBlockDeletion", n => { ContentCachingBlockDeletion = n.GetBoolValue(); } },
-                { "contentCachingClientListenRanges", n => { ContentCachingClientListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "contentCachingClientPolicy", n => { ContentCachingClientPolicy = n.GetEnumValue<MacOSContentCachingClientPolicy>(); } },
+                { "contentCachingClientListenRanges", n => { ContentCachingClientListenRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.IpRange>(ApiSdk.Models.IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingClientPolicy", n => { ContentCachingClientPolicy = n.GetEnumValue<ApiSdk.Models.MacOSContentCachingClientPolicy>(); } },
                 { "contentCachingDataPath", n => { ContentCachingDataPath = n.GetStringValue(); } },
                 { "contentCachingDisableConnectionSharing", n => { ContentCachingDisableConnectionSharing = n.GetBoolValue(); } },
                 { "contentCachingEnabled", n => { ContentCachingEnabled = n.GetBoolValue(); } },
@@ -219,15 +219,15 @@ namespace ApiSdk.Models
                 { "contentCachingKeepAwake", n => { ContentCachingKeepAwake = n.GetBoolValue(); } },
                 { "contentCachingLogClientIdentities", n => { ContentCachingLogClientIdentities = n.GetBoolValue(); } },
                 { "contentCachingMaxSizeBytes", n => { ContentCachingMaxSizeBytes = n.GetLongValue(); } },
-                { "contentCachingParentSelectionPolicy", n => { ContentCachingParentSelectionPolicy = n.GetEnumValue<MacOSContentCachingParentSelectionPolicy>(); } },
+                { "contentCachingParentSelectionPolicy", n => { ContentCachingParentSelectionPolicy = n.GetEnumValue<ApiSdk.Models.MacOSContentCachingParentSelectionPolicy>(); } },
                 { "contentCachingParents", n => { ContentCachingParents = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "contentCachingPeerFilterRanges", n => { ContentCachingPeerFilterRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "contentCachingPeerListenRanges", n => { ContentCachingPeerListenRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "contentCachingPeerPolicy", n => { ContentCachingPeerPolicy = n.GetEnumValue<MacOSContentCachingPeerPolicy>(); } },
+                { "contentCachingPeerFilterRanges", n => { ContentCachingPeerFilterRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.IpRange>(ApiSdk.Models.IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingPeerListenRanges", n => { ContentCachingPeerListenRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.IpRange>(ApiSdk.Models.IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingPeerPolicy", n => { ContentCachingPeerPolicy = n.GetEnumValue<ApiSdk.Models.MacOSContentCachingPeerPolicy>(); } },
                 { "contentCachingPort", n => { ContentCachingPort = n.GetIntValue(); } },
-                { "contentCachingPublicRanges", n => { ContentCachingPublicRanges = n.GetCollectionOfObjectValues<IpRange>(IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contentCachingPublicRanges", n => { ContentCachingPublicRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.IpRange>(ApiSdk.Models.IpRange.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contentCachingShowAlerts", n => { ContentCachingShowAlerts = n.GetBoolValue(); } },
-                { "contentCachingType", n => { ContentCachingType = n.GetEnumValue<MacOSContentCachingType>(); } },
+                { "contentCachingType", n => { ContentCachingType = n.GetEnumValue<ApiSdk.Models.MacOSContentCachingType>(); } },
                 { "logOutDisabledWhileLoggedIn", n => { LogOutDisabledWhileLoggedIn = n.GetBoolValue(); } },
                 { "loginWindowText", n => { LoginWindowText = n.GetStringValue(); } },
                 { "macOSSingleSignOnExtension", n => { MacOSSingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.MacOSSingleSignOnExtension>(ApiSdk.Models.MacOSSingleSignOnExtension.CreateFromDiscriminatorValue); } },
@@ -238,7 +238,7 @@ namespace ApiSdk.Models
                 { "shutDownDisabled", n => { ShutDownDisabled = n.GetBoolValue(); } },
                 { "shutDownDisabledWhileLoggedIn", n => { ShutDownDisabledWhileLoggedIn = n.GetBoolValue(); } },
                 { "singleSignOnExtension", n => { SingleSignOnExtension = n.GetObjectValue<ApiSdk.Models.SingleSignOnExtension>(ApiSdk.Models.SingleSignOnExtension.CreateFromDiscriminatorValue); } },
-                { "singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<MacOSCertificateProfileBase>(MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "singleSignOnExtensionPkinitCertificate", n => { SingleSignOnExtensionPkinitCertificate = n.GetObjectValue<ApiSdk.Models.MacOSCertificateProfileBase>(ApiSdk.Models.MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "sleepDisabled", n => { SleepDisabled = n.GetBoolValue(); } },
             };
         }
@@ -251,19 +251,19 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("adminShowHostInfo", AdminShowHostInfo);
-            writer.WriteCollectionOfObjectValues<MacOSAssociatedDomainsItem>("appAssociatedDomains", AppAssociatedDomains);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("associatedDomains", AssociatedDomains);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSAssociatedDomainsItem>("appAssociatedDomains", AppAssociatedDomains);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("associatedDomains", AssociatedDomains);
             writer.WriteBoolValue("authorizedUsersListHidden", AuthorizedUsersListHidden);
             writer.WriteBoolValue("authorizedUsersListHideAdminUsers", AuthorizedUsersListHideAdminUsers);
             writer.WriteBoolValue("authorizedUsersListHideLocalUsers", AuthorizedUsersListHideLocalUsers);
             writer.WriteBoolValue("authorizedUsersListHideMobileAccounts", AuthorizedUsersListHideMobileAccounts);
             writer.WriteBoolValue("authorizedUsersListIncludeNetworkUsers", AuthorizedUsersListIncludeNetworkUsers);
             writer.WriteBoolValue("authorizedUsersListShowOtherManagedUsers", AuthorizedUsersListShowOtherManagedUsers);
-            writer.WriteCollectionOfObjectValues<MacOSLaunchItem>("autoLaunchItems", AutoLaunchItems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSLaunchItem>("autoLaunchItems", AutoLaunchItems);
             writer.WriteBoolValue("consoleAccessDisabled", ConsoleAccessDisabled);
             writer.WriteBoolValue("contentCachingBlockDeletion", ContentCachingBlockDeletion);
-            writer.WriteCollectionOfObjectValues<IpRange>("contentCachingClientListenRanges", ContentCachingClientListenRanges);
-            writer.WriteEnumValue<MacOSContentCachingClientPolicy>("contentCachingClientPolicy", ContentCachingClientPolicy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IpRange>("contentCachingClientListenRanges", ContentCachingClientListenRanges);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSContentCachingClientPolicy>("contentCachingClientPolicy", ContentCachingClientPolicy);
             writer.WriteStringValue("contentCachingDataPath", ContentCachingDataPath);
             writer.WriteBoolValue("contentCachingDisableConnectionSharing", ContentCachingDisableConnectionSharing);
             writer.WriteBoolValue("contentCachingEnabled", ContentCachingEnabled);
@@ -272,14 +272,14 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("contentCachingLogClientIdentities", ContentCachingLogClientIdentities);
             writer.WriteLongValue("contentCachingMaxSizeBytes", ContentCachingMaxSizeBytes);
             writer.WriteCollectionOfPrimitiveValues<string>("contentCachingParents", ContentCachingParents);
-            writer.WriteEnumValue<MacOSContentCachingParentSelectionPolicy>("contentCachingParentSelectionPolicy", ContentCachingParentSelectionPolicy);
-            writer.WriteCollectionOfObjectValues<IpRange>("contentCachingPeerFilterRanges", ContentCachingPeerFilterRanges);
-            writer.WriteCollectionOfObjectValues<IpRange>("contentCachingPeerListenRanges", ContentCachingPeerListenRanges);
-            writer.WriteEnumValue<MacOSContentCachingPeerPolicy>("contentCachingPeerPolicy", ContentCachingPeerPolicy);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSContentCachingParentSelectionPolicy>("contentCachingParentSelectionPolicy", ContentCachingParentSelectionPolicy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IpRange>("contentCachingPeerFilterRanges", ContentCachingPeerFilterRanges);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IpRange>("contentCachingPeerListenRanges", ContentCachingPeerListenRanges);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSContentCachingPeerPolicy>("contentCachingPeerPolicy", ContentCachingPeerPolicy);
             writer.WriteIntValue("contentCachingPort", ContentCachingPort);
-            writer.WriteCollectionOfObjectValues<IpRange>("contentCachingPublicRanges", ContentCachingPublicRanges);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IpRange>("contentCachingPublicRanges", ContentCachingPublicRanges);
             writer.WriteBoolValue("contentCachingShowAlerts", ContentCachingShowAlerts);
-            writer.WriteEnumValue<MacOSContentCachingType>("contentCachingType", ContentCachingType);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSContentCachingType>("contentCachingType", ContentCachingType);
             writer.WriteStringValue("loginWindowText", LoginWindowText);
             writer.WriteBoolValue("logOutDisabledWhileLoggedIn", LogOutDisabledWhileLoggedIn);
             writer.WriteObjectValue<ApiSdk.Models.MacOSSingleSignOnExtension>("macOSSingleSignOnExtension", MacOSSingleSignOnExtension);
@@ -290,7 +290,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("shutDownDisabled", ShutDownDisabled);
             writer.WriteBoolValue("shutDownDisabledWhileLoggedIn", ShutDownDisabledWhileLoggedIn);
             writer.WriteObjectValue<ApiSdk.Models.SingleSignOnExtension>("singleSignOnExtension", SingleSignOnExtension);
-            writer.WriteObjectValue<MacOSCertificateProfileBase>("singleSignOnExtensionPkinitCertificate", SingleSignOnExtensionPkinitCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.MacOSCertificateProfileBase>("singleSignOnExtensionPkinitCertificate", SingleSignOnExtensionPkinitCertificate);
             writer.WriteBoolValue("sleepDisabled", SleepDisabled);
         }
     }

@@ -50,7 +50,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RestoreCloudPcPostRequestBody>(RestoreCloudPcPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcPostRequestBody>(ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -70,14 +70,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RestoreCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RestoreCloudPcRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/restoreCloudPc", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RestoreCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RestoreCloudPcRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/restoreCloudPc", rawUrl)
@@ -92,11 +92,11 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc
         [Obsolete("The restoreCloudPc API is deprecated and will stop returning on Sep 30, 2023. Please use restore instead as of 2023-07/restoreCloudPc")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.Item.RestoreCloudPc.RestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

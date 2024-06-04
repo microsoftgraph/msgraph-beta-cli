@@ -7,34 +7,34 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TrustFrameworkKeySet : Entity, IParsable
+    public class TrustFrameworkKeySet : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of the keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TrustFrameworkKey>? Keys { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKey>? Keys { get; set; }
 #nullable restore
 #else
-        public List<TrustFrameworkKey> Keys { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKey> Keys { get; set; }
 #endif
         /// <summary>A collection of the keys.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TrustFrameworkKey_v2>? KeysV2 { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKey_v2>? KeysV2 { get; set; }
 #nullable restore
 #else
-        public List<TrustFrameworkKey_v2> KeysV2 { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKey_v2> KeysV2 { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrustFrameworkKeySet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrustFrameworkKeySet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TrustFrameworkKeySet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TrustFrameworkKeySet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrustFrameworkKeySet();
+            return new ApiSdk.Models.TrustFrameworkKeySet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "keys", n => { Keys = n.GetCollectionOfObjectValues<TrustFrameworkKey>(TrustFrameworkKey.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "keys_v2", n => { KeysV2 = n.GetCollectionOfObjectValues<TrustFrameworkKey_v2>(TrustFrameworkKey_v2.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keys", n => { Keys = n.GetCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKey>(ApiSdk.Models.TrustFrameworkKey.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keys_v2", n => { KeysV2 = n.GetCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKey_v2>(ApiSdk.Models.TrustFrameworkKey_v2.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<TrustFrameworkKey>("keys", Keys);
-            writer.WriteCollectionOfObjectValues<TrustFrameworkKey_v2>("keys_v2", KeysV2);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKey>("keys", Keys);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKey_v2>("keys_v2", KeysV2);
         }
     }
 }

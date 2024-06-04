@@ -18,10 +18,10 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.C
         /// <summary>The notes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Notes { get; set; }
+        public ApiSdk.Models.ItemBody? Notes { get; set; }
 #nullable restore
 #else
-        public ItemBody Notes { get; set; }
+        public ApiSdk.Models.ItemBody Notes { get; set; }
 #endif
         /// <summary>The onBehalfOfUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.C
         public string OnBehalfOfUserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClockInPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.ClockIn.ClockInPostRequestBody"/> and sets the default values.
         /// </summary>
         public ClockInPostRequestBody()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.C
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClockInPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.ClockIn.ClockInPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ClockInPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.ClockIn.ClockInPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClockInPostRequestBody();
+            return new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.ClockIn.ClockInPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.C
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
-                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "notes", n => { Notes = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
                 { "onBehalfOfUserId", n => { OnBehalfOfUserId = n.GetStringValue(); } },
             };
         }
@@ -69,7 +69,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.TimeCards.C
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("atApprovedLocation", AtApprovedLocation);
-            writer.WriteObjectValue<ItemBody>("notes", Notes);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("notes", Notes);
             writer.WriteStringValue("onBehalfOfUserId", OnBehalfOfUserId);
             writer.WriteAdditionalData(AdditionalData);
         }

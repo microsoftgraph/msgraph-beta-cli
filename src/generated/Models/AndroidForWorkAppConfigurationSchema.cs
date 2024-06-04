@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Schema describing an Android for Work application&apos;s custom configurations.
     /// </summary>
-    public class AndroidForWorkAppConfigurationSchema : Entity, IParsable
+    public class AndroidForWorkAppConfigurationSchema : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,20 +22,20 @@ namespace ApiSdk.Models
         /// <summary>Collection of items each representing a named configuration option in the schema</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidForWorkAppConfigurationSchemaItem>? SchemaItems { get; set; }
+        public List<ApiSdk.Models.AndroidForWorkAppConfigurationSchemaItem>? SchemaItems { get; set; }
 #nullable restore
 #else
-        public List<AndroidForWorkAppConfigurationSchemaItem> SchemaItems { get; set; }
+        public List<ApiSdk.Models.AndroidForWorkAppConfigurationSchemaItem> SchemaItems { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkAppConfigurationSchema"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkAppConfigurationSchema"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkAppConfigurationSchema CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkAppConfigurationSchema CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidForWorkAppConfigurationSchema();
+            return new ApiSdk.Models.AndroidForWorkAppConfigurationSchema();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "exampleJson", n => { ExampleJson = n.GetByteArrayValue(); } },
-                { "schemaItems", n => { SchemaItems = n.GetCollectionOfObjectValues<AndroidForWorkAppConfigurationSchemaItem>(AndroidForWorkAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schemaItems", n => { SchemaItems = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidForWorkAppConfigurationSchemaItem>(ApiSdk.Models.AndroidForWorkAppConfigurationSchemaItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteByteArrayValue("exampleJson", ExampleJson);
-            writer.WriteCollectionOfObjectValues<AndroidForWorkAppConfigurationSchemaItem>("schemaItems", SchemaItems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidForWorkAppConfigurationSchemaItem>("schemaItems", SchemaItems);
         }
     }
 }

@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows 8.1 Phone and Mobile PFX Import certificate profile
     /// </summary>
-    public class WindowsPhone81ImportedPFXCertificateProfile : WindowsCertificateProfileBase, IParsable
+    public class WindowsPhone81ImportedPFXCertificateProfile : ApiSdk.Models.WindowsCertificateProfileBase, IParsable
     {
         /// <summary>PFX Import Options.</summary>
         public ApiSdk.Models.IntendedPurpose? IntendedPurpose { get; set; }
         /// <summary>Certificate state for devices. This collection can contain a maximum of 2147483647 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81ImportedPFXCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPhone81ImportedPFXCertificateProfile"/> and sets the default values.
         /// </summary>
         public WindowsPhone81ImportedPFXCertificateProfile() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPhone81ImportedPFXCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPhone81ImportedPFXCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsPhone81ImportedPFXCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsPhone81ImportedPFXCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsPhone81ImportedPFXCertificateProfile();
+            return new ApiSdk.Models.WindowsPhone81ImportedPFXCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +46,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<IntendedPurpose>(); } },
-                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<ApiSdk.Models.IntendedPurpose>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>(ApiSdk.Models.ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -58,8 +58,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<IntendedPurpose>("intendedPurpose", IntendedPurpose);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
+            writer.WriteEnumValue<ApiSdk.Models.IntendedPurpose>("intendedPurpose", IntendedPurpose);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
         }
     }
 }

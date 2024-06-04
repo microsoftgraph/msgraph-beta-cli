@@ -13,14 +13,14 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The availabilityType property</summary>
-        public BookingsServiceAvailabilityType? AvailabilityType { get; set; }
+        public ApiSdk.Models.BookingsServiceAvailabilityType? AvailabilityType { get; set; }
         /// <summary>The hours of operation in a week. The business hours value is set to null if the availability type isn&apos;t customWeeklyHours.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingWorkHours>? BusinessHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours>? BusinessHours { get; set; }
 #nullable restore
 #else
-        public List<BookingWorkHours> BusinessHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours> BusinessHours { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BookingsAvailability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BookingsAvailability"/> and sets the default values.
         /// </summary>
         public BookingsAvailability()
         {
@@ -40,16 +40,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingsAvailability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingsAvailability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BookingsAvailability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.BookingsAvailability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.bookingsAvailabilityWindow" => new BookingsAvailabilityWindow(),
-                _ => new BookingsAvailability(),
+                "#microsoft.graph.bookingsAvailabilityWindow" => new ApiSdk.Models.BookingsAvailabilityWindow(),
+                _ => new ApiSdk.Models.BookingsAvailability(),
             };
         }
         /// <summary>
@@ -60,8 +60,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "availabilityType", n => { AvailabilityType = n.GetEnumValue<BookingsServiceAvailabilityType>(); } },
-                { "businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "availabilityType", n => { AvailabilityType = n.GetEnumValue<ApiSdk.Models.BookingsServiceAvailabilityType>(); } },
+                { "businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>(ApiSdk.Models.BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -72,8 +72,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<BookingsServiceAvailabilityType>("availabilityType", AvailabilityType);
-            writer.WriteCollectionOfObjectValues<BookingWorkHours>("businessHours", BusinessHours);
+            writer.WriteEnumValue<ApiSdk.Models.BookingsServiceAvailabilityType>("availabilityType", AvailabilityType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>("businessHours", BusinessHours);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

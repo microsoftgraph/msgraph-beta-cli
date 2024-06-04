@@ -61,14 +61,14 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GetActiveKey
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetActiveKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.GetActiveKey.GetActiveKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetActiveKeyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/getActiveKey()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetActiveKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.GetActiveKey.GetActiveKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetActiveKeyRequestBuilder(string rawUrl) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/getActiveKey()", rawUrl)

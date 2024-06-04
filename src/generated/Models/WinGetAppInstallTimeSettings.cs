@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>Whether the local device time or UTC time should be used when determining the deadline times.</summary>
         public bool? UseLocalTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WinGetAppInstallTimeSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WinGetAppInstallTimeSettings"/> and sets the default values.
         /// </summary>
         public WinGetAppInstallTimeSettings()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WinGetAppInstallTimeSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WinGetAppInstallTimeSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WinGetAppInstallTimeSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WinGetAppInstallTimeSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WinGetAppInstallTimeSettings();
+            return new ApiSdk.Models.WinGetAppInstallTimeSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

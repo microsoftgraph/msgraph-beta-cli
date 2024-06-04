@@ -31,13 +31,13 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Traffic forwarding policies associated with this profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicyLink>? Policies { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyLink>? Policies { get; set; }
 #nullable restore
 #else
-        public List<PolicyLink> Policies { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyLink> Policies { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public Status? State { get; set; }
+        public ApiSdk.Models.Networkaccess.Status? State { get; set; }
         /// <summary>Profile version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,17 +49,17 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Profile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Profile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Profile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Profile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.filteringProfile" => new FilteringProfile(),
-                "#microsoft.graph.networkaccess.forwardingProfile" => new ForwardingProfile(),
-                _ => new Profile(),
+                "#microsoft.graph.networkaccess.filteringProfile" => new ApiSdk.Models.Networkaccess.FilteringProfile(),
+                "#microsoft.graph.networkaccess.forwardingProfile" => new ApiSdk.Models.Networkaccess.ForwardingProfile(),
+                _ => new ApiSdk.Models.Networkaccess.Profile(),
             };
         }
         /// <summary>
@@ -73,8 +73,8 @@ namespace ApiSdk.Models.Networkaccess
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "policies", n => { Policies = n.GetCollectionOfObjectValues<PolicyLink>(PolicyLink.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "state", n => { State = n.GetEnumValue<Status>(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyLink>(ApiSdk.Models.Networkaccess.PolicyLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.Networkaccess.Status>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -89,8 +89,8 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteStringValue("description", Description);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<PolicyLink>("policies", Policies);
-            writer.WriteEnumValue<Status>("state", State);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyLink>("policies", Policies);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Status>("state", State);
             writer.WriteStringValue("version", Version);
         }
     }

@@ -27,7 +27,7 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.</summary>
         public TimeSpan? Timeout { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="OcrSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Ediscovery.OcrSettings"/> and sets the default values.
         /// </summary>
         public OcrSettings()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OcrSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.OcrSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OcrSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Ediscovery.OcrSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OcrSettings();
+            return new ApiSdk.Models.Ediscovery.OcrSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

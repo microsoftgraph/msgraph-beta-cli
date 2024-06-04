@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Windows 10 Application type.</summary>
-        public Windows10AppType? AppType { get; set; }
+        public ApiSdk.Models.Windows10AppType? AppType { get; set; }
         /// <summary>Identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10AssociatedApps"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10AssociatedApps"/> and sets the default values.
         /// </summary>
         public Windows10AssociatedApps()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10AssociatedApps"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10AssociatedApps"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Windows10AssociatedApps CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Windows10AssociatedApps CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10AssociatedApps();
+            return new ApiSdk.Models.Windows10AssociatedApps();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appType", n => { AppType = n.GetEnumValue<Windows10AppType>(); } },
+                { "appType", n => { AppType = n.GetEnumValue<ApiSdk.Models.Windows10AppType>(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<Windows10AppType>("appType", AppType);
+            writer.WriteEnumValue<ApiSdk.Models.Windows10AppType>("appType", AppType);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

@@ -113,7 +113,7 @@ namespace ApiSdk.Models
         public string Qi { get; set; }
 #endif
         /// <summary>Status of the key. The possible values are: enabled, disabled, unknownFutureValue.</summary>
-        public TrustFrameworkKeyStatus? Status { get; set; }
+        public ApiSdk.Models.TrustFrameworkKeyStatus? Status { get; set; }
         /// <summary>The use (public key use) parameter identifies the intended use of the public key. The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -139,7 +139,7 @@ namespace ApiSdk.Models
         public string X5t { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TrustFrameworkKey"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrustFrameworkKey"/> and sets the default values.
         /// </summary>
         public TrustFrameworkKey()
         {
@@ -148,12 +148,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrustFrameworkKey"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrustFrameworkKey"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TrustFrameworkKey CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TrustFrameworkKey CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrustFrameworkKey();
+            return new ApiSdk.Models.TrustFrameworkKey();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -177,7 +177,7 @@ namespace ApiSdk.Models
                 { "p", n => { P = n.GetStringValue(); } },
                 { "q", n => { Q = n.GetStringValue(); } },
                 { "qi", n => { Qi = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<TrustFrameworkKeyStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.TrustFrameworkKeyStatus>(); } },
                 { "use", n => { Use = n.GetStringValue(); } },
                 { "x5c", n => { X5c = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "x5t", n => { X5t = n.GetStringValue(); } },
@@ -204,7 +204,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("p", P);
             writer.WriteStringValue("q", Q);
             writer.WriteStringValue("qi", Qi);
-            writer.WriteEnumValue<TrustFrameworkKeyStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.TrustFrameworkKeyStatus>("status", Status);
             writer.WriteStringValue("use", Use);
             writer.WriteCollectionOfPrimitiveValues<string>("x5c", X5c);
             writer.WriteStringValue("x5t", X5t);

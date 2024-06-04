@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// A mobileApp that is based on a referenced application in a Win32CatalogApp repository
     /// </summary>
-    public class Win32CatalogApp : Win32LobApp, IParsable
+    public class Win32CatalogApp : ApiSdk.Models.Win32LobApp, IParsable
     {
         /// <summary>The latest available catalog package the app is upgradeable to. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MobileAppCatalogPackage? LatestUpgradeCatalogPackage { get; set; }
+        public ApiSdk.Models.MobileAppCatalogPackage? LatestUpgradeCatalogPackage { get; set; }
 #nullable restore
 #else
-        public MobileAppCatalogPackage LatestUpgradeCatalogPackage { get; set; }
+        public ApiSdk.Models.MobileAppCatalogPackage LatestUpgradeCatalogPackage { get; set; }
 #endif
         /// <summary>The mobileAppCatalogPackageId property references the mobileAppCatalogPackage entity which contains information about an application catalog package that can be deployed to Intune-managed devices</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,13 +30,13 @@ namespace ApiSdk.Models
         /// <summary>The current catalog package the app is synced from. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MobileAppCatalogPackage? ReferencedCatalogPackage { get; set; }
+        public ApiSdk.Models.MobileAppCatalogPackage? ReferencedCatalogPackage { get; set; }
 #nullable restore
 #else
-        public MobileAppCatalogPackage ReferencedCatalogPackage { get; set; }
+        public ApiSdk.Models.MobileAppCatalogPackage ReferencedCatalogPackage { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Win32CatalogApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Win32CatalogApp"/> and sets the default values.
         /// </summary>
         public Win32CatalogApp() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Win32CatalogApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Win32CatalogApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Win32CatalogApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Win32CatalogApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Win32CatalogApp();
+            return new ApiSdk.Models.Win32CatalogApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "latestUpgradeCatalogPackage", n => { LatestUpgradeCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
+                { "latestUpgradeCatalogPackage", n => { LatestUpgradeCatalogPackage = n.GetObjectValue<ApiSdk.Models.MobileAppCatalogPackage>(ApiSdk.Models.MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
                 { "mobileAppCatalogPackageId", n => { MobileAppCatalogPackageId = n.GetStringValue(); } },
-                { "referencedCatalogPackage", n => { ReferencedCatalogPackage = n.GetObjectValue<MobileAppCatalogPackage>(MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
+                { "referencedCatalogPackage", n => { ReferencedCatalogPackage = n.GetObjectValue<ApiSdk.Models.MobileAppCatalogPackage>(ApiSdk.Models.MobileAppCatalogPackage.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<MobileAppCatalogPackage>("latestUpgradeCatalogPackage", LatestUpgradeCatalogPackage);
+            writer.WriteObjectValue<ApiSdk.Models.MobileAppCatalogPackage>("latestUpgradeCatalogPackage", LatestUpgradeCatalogPackage);
             writer.WriteStringValue("mobileAppCatalogPackageId", MobileAppCatalogPackageId);
-            writer.WriteObjectValue<MobileAppCatalogPackage>("referencedCatalogPackage", ReferencedCatalogPackage);
+            writer.WriteObjectValue<ApiSdk.Models.MobileAppCatalogPackage>("referencedCatalogPackage", ReferencedCatalogPackage);
         }
     }
 }

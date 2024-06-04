@@ -12,16 +12,16 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
-        public RemediationAction? Action { get; set; }
+        public ApiSdk.Models.Security.RemediationAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The analyzedEmails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AnalyzedEmail>? AnalyzedEmails { get; set; }
+        public List<ApiSdk.Models.Security.AnalyzedEmail>? AnalyzedEmails { get; set; }
 #nullable restore
 #else
-        public List<AnalyzedEmail> AnalyzedEmails { get; set; }
+        public List<ApiSdk.Models.Security.AnalyzedEmail> AnalyzedEmails { get; set; }
 #endif
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,9 +42,9 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
         /// <summary>The remediateSendersCopy property</summary>
         public bool? RemediateSendersCopy { get; set; }
         /// <summary>The severity property</summary>
-        public RemediationSeverity? Severity { get; set; }
+        public ApiSdk.Models.Security.RemediationSeverity? Severity { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RemediatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate.RemediatePostRequestBody"/> and sets the default values.
         /// </summary>
         public RemediatePostRequestBody()
         {
@@ -53,12 +53,12 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RemediatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate.RemediatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RemediatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate.RemediatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RemediatePostRequestBody();
+            return new ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRemediate.RemediatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,12 +68,12 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<RemediationAction>(); } },
-                { "analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<AnalyzedEmail>(AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Security.RemediationAction>(); } },
+                { "analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.AnalyzedEmail>(ApiSdk.Models.Security.AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "remediateSendersCopy", n => { RemediateSendersCopy = n.GetBoolValue(); } },
-                { "severity", n => { Severity = n.GetEnumValue<RemediationSeverity>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.Security.RemediationSeverity>(); } },
             };
         }
         /// <summary>
@@ -83,12 +83,12 @@ namespace ApiSdk.Security.Collaboration.AnalyzedEmails.MicrosoftGraphSecurityRem
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<RemediationAction>("action", Action);
-            writer.WriteCollectionOfObjectValues<AnalyzedEmail>("analyzedEmails", AnalyzedEmails);
+            writer.WriteEnumValue<ApiSdk.Models.Security.RemediationAction>("action", Action);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.AnalyzedEmail>("analyzedEmails", AnalyzedEmails);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("remediateSendersCopy", RemediateSendersCopy);
-            writer.WriteEnumValue<RemediationSeverity>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.Security.RemediationSeverity>("severity", Severity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -19,7 +19,7 @@ namespace ApiSdk.Models.Networkaccess
         public ApiSdk.Models.Networkaccess.Policy Policy { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public Status? State { get; set; }
+        public ApiSdk.Models.Networkaccess.Status? State { get; set; }
         /// <summary>Version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,17 +31,17 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicyLink"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PolicyLink"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicyLink CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.PolicyLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.filteringPolicyLink" => new FilteringPolicyLink(),
-                "#microsoft.graph.networkaccess.forwardingPolicyLink" => new ForwardingPolicyLink(),
-                _ => new PolicyLink(),
+                "#microsoft.graph.networkaccess.filteringPolicyLink" => new ApiSdk.Models.Networkaccess.FilteringPolicyLink(),
+                "#microsoft.graph.networkaccess.forwardingPolicyLink" => new ApiSdk.Models.Networkaccess.ForwardingPolicyLink(),
+                _ => new ApiSdk.Models.Networkaccess.PolicyLink(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models.Networkaccess
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.Networkaccess.Policy>(ApiSdk.Models.Networkaccess.Policy.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<Status>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.Networkaccess.Status>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace ApiSdk.Models.Networkaccess
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.Policy>("policy", Policy);
-            writer.WriteEnumValue<Status>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Status>("state", State);
             writer.WriteStringValue("version", Version);
         }
     }

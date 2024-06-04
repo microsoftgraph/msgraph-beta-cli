@@ -29,7 +29,7 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The update build revision number of the product revision. Read-only.</summary>
         public int? UpdateBuildRevision { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="BuildVersionDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.BuildVersionDetails"/> and sets the default values.
         /// </summary>
         public BuildVersionDetails()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BuildVersionDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.BuildVersionDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BuildVersionDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.BuildVersionDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BuildVersionDetails();
+            return new ApiSdk.Models.WindowsUpdates.BuildVersionDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

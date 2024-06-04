@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDevice
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncWithAppleDeviceEnrollmentProgramRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDeviceEnrollmentProgram.SyncWithAppleDeviceEnrollmentProgramRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SyncWithAppleDeviceEnrollmentProgramRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/syncWithAppleDeviceEnrollmentProgram", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncWithAppleDeviceEnrollmentProgramRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDeviceEnrollmentProgram.SyncWithAppleDeviceEnrollmentProgramRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SyncWithAppleDeviceEnrollmentProgramRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/syncWithAppleDeviceEnrollmentProgram", rawUrl)

@@ -12,7 +12,7 @@ namespace ApiSdk.Models
     public class CompanyPortalBlockedAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Action on a device that can be executed in the Company Portal</summary>
-        public CompanyPortalAction? Action { get; set; }
+        public ApiSdk.Models.CompanyPortalAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
@@ -26,9 +26,9 @@ namespace ApiSdk.Models
         /// <summary>Owner type of device.</summary>
         public ApiSdk.Models.OwnerType? OwnerType { get; set; }
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? Platform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? Platform { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CompanyPortalBlockedAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CompanyPortalBlockedAction"/> and sets the default values.
         /// </summary>
         public CompanyPortalBlockedAction()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompanyPortalBlockedAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CompanyPortalBlockedAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CompanyPortalBlockedAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CompanyPortalBlockedAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompanyPortalBlockedAction();
+            return new ApiSdk.Models.CompanyPortalBlockedAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,10 +52,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<CompanyPortalAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.CompanyPortalAction>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
-                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<ApiSdk.Models.OwnerType>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
             };
         }
         /// <summary>
@@ -65,10 +65,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<CompanyPortalAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.CompanyPortalAction>("action", Action);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<OwnerType>("ownerType", OwnerType);
-            writer.WriteEnumValue<DevicePlatformType>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.OwnerType>("ownerType", OwnerType);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("platform", Platform);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

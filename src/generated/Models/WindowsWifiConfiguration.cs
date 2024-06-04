@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Configuration.
     /// </summary>
-    public class WindowsWifiConfiguration : DeviceConfiguration, IParsable
+    public class WindowsWifiConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Specify whether the wifi connection should connect automatically when in range.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         /// <summary>Specify whether to force FIPS compliance.</summary>
         public bool? ForceFIPSCompliance { get; set; }
         /// <summary>Specify the metered connection limit type for the wifi connection. Possible values are: unrestricted, fixed, variable.</summary>
-        public MeteredConnectionLimitType? MeteredConnectionLimit { get; set; }
+        public ApiSdk.Models.MeteredConnectionLimitType? MeteredConnectionLimit { get; set; }
         /// <summary>Specify the network configuration name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         /// <summary>Specify the port for the proxy server.</summary>
         public int? ProxyManualPort { get; set; }
         /// <summary>Specify the proxy setting for Wi-Fi configuration. Possible values are: none, manual, automatic, unknownFutureValue.</summary>
-        public WiFiProxySetting? ProxySetting { get; set; }
+        public ApiSdk.Models.WiFiProxySetting? ProxySetting { get; set; }
         /// <summary>Specify the SSID of the wifi connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         /// <summary>Specify the Wifi Security Type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.</summary>
         public ApiSdk.Models.WiFiSecurityType? WifiSecurityType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsWifiConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsWifiConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsWifiConfiguration() : base()
         {
@@ -77,16 +77,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsWifiConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsWifiConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsWifiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsWifiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsWifiEnterpriseEAPConfiguration" => new WindowsWifiEnterpriseEAPConfiguration(),
-                _ => new WindowsWifiConfiguration(),
+                "#microsoft.graph.windowsWifiEnterpriseEAPConfiguration" => new ApiSdk.Models.WindowsWifiEnterpriseEAPConfiguration(),
+                _ => new ApiSdk.Models.WindowsWifiConfiguration(),
             };
         }
         /// <summary>
@@ -101,15 +101,15 @@ namespace ApiSdk.Models
                 { "connectToPreferredNetwork", n => { ConnectToPreferredNetwork = n.GetBoolValue(); } },
                 { "connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
                 { "forceFIPSCompliance", n => { ForceFIPSCompliance = n.GetBoolValue(); } },
-                { "meteredConnectionLimit", n => { MeteredConnectionLimit = n.GetEnumValue<MeteredConnectionLimitType>(); } },
+                { "meteredConnectionLimit", n => { MeteredConnectionLimit = n.GetEnumValue<ApiSdk.Models.MeteredConnectionLimitType>(); } },
                 { "networkName", n => { NetworkName = n.GetStringValue(); } },
                 { "preSharedKey", n => { PreSharedKey = n.GetStringValue(); } },
                 { "proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
                 { "proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
                 { "proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
-                { "proxySetting", n => { ProxySetting = n.GetEnumValue<WiFiProxySetting>(); } },
+                { "proxySetting", n => { ProxySetting = n.GetEnumValue<ApiSdk.Models.WiFiProxySetting>(); } },
                 { "ssid", n => { Ssid = n.GetStringValue(); } },
-                { "wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<WiFiSecurityType>(); } },
+                { "wifiSecurityType", n => { WifiSecurityType = n.GetEnumValue<ApiSdk.Models.WiFiSecurityType>(); } },
             };
         }
         /// <summary>
@@ -124,15 +124,15 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("connectToPreferredNetwork", ConnectToPreferredNetwork);
             writer.WriteBoolValue("connectWhenNetworkNameIsHidden", ConnectWhenNetworkNameIsHidden);
             writer.WriteBoolValue("forceFIPSCompliance", ForceFIPSCompliance);
-            writer.WriteEnumValue<MeteredConnectionLimitType>("meteredConnectionLimit", MeteredConnectionLimit);
+            writer.WriteEnumValue<ApiSdk.Models.MeteredConnectionLimitType>("meteredConnectionLimit", MeteredConnectionLimit);
             writer.WriteStringValue("networkName", NetworkName);
             writer.WriteStringValue("preSharedKey", PreSharedKey);
             writer.WriteStringValue("proxyAutomaticConfigurationUrl", ProxyAutomaticConfigurationUrl);
             writer.WriteStringValue("proxyManualAddress", ProxyManualAddress);
             writer.WriteIntValue("proxyManualPort", ProxyManualPort);
-            writer.WriteEnumValue<WiFiProxySetting>("proxySetting", ProxySetting);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiProxySetting>("proxySetting", ProxySetting);
             writer.WriteStringValue("ssid", Ssid);
-            writer.WriteEnumValue<WiFiSecurityType>("wifiSecurityType", WifiSecurityType);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiSecurityType>("wifiSecurityType", WifiSecurityType);
         }
     }
 }

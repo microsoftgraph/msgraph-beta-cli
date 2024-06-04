@@ -53,9 +53,9 @@ namespace ApiSdk.Models.ManagedTenants
         public string OdataType { get; set; }
 #endif
         /// <summary>The valueType property</summary>
-        public ManagementParameterValueType? ValueType { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementParameterValueType? ValueType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TemplateParameter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.TemplateParameter"/> and sets the default values.
         /// </summary>
         public TemplateParameter()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TemplateParameter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.TemplateParameter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TemplateParameter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.TemplateParameter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TemplateParameter();
+            return new ApiSdk.Models.ManagedTenants.TemplateParameter();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +84,7 @@ namespace ApiSdk.Models.ManagedTenants
                 { "jsonAllowedValues", n => { JsonAllowedValues = n.GetStringValue(); } },
                 { "jsonDefaultValue", n => { JsonDefaultValue = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "valueType", n => { ValueType = n.GetEnumValue<ManagementParameterValueType>(); } },
+                { "valueType", n => { ValueType = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementParameterValueType>(); } },
             };
         }
         /// <summary>
@@ -99,7 +99,7 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteStringValue("jsonAllowedValues", JsonAllowedValues);
             writer.WriteStringValue("jsonDefaultValue", JsonDefaultValue);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ManagementParameterValueType>("valueType", ValueType);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementParameterValueType>("valueType", ValueType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

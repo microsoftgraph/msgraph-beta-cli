@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the iosGeneralDeviceConfiguration resource.
     /// </summary>
-    public class IosGeneralDeviceConfiguration : DeviceConfiguration, IParsable
+    public class IosGeneralDeviceConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Indicates whether or not to allow account modification when the device is in supervised mode.</summary>
         public bool? AccountBlockModification { get; set; }
@@ -44,10 +44,10 @@ namespace ApiSdk.Models
         /// <summary>Gets or sets the list of iOS apps allowed to autonomously enter Single App Mode. Supervised only. iOS 7.0 and later. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? AppsSingleAppModeList { get; set; }
+        public List<ApiSdk.Models.AppListItem>? AppsSingleAppModeList { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> AppsSingleAppModeList { get; set; }
+        public List<ApiSdk.Models.AppListItem> AppsSingleAppModeList { get; set; }
 #endif
         /// <summary>Indicates whether or not to block the automatic downloading of apps purchased on other devices when the device is in supervised mode (iOS 9.0 and later).</summary>
         public bool? AppStoreBlockAutomaticDownloads { get; set; }
@@ -62,13 +62,13 @@ namespace ApiSdk.Models
         /// <summary>List of apps in the visibility list (either visible/launchable apps list or hidden/unlaunchable apps list, controlled by AppsVisibilityListType) (iOS 9.3 and later). This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? AppsVisibilityList { get; set; }
+        public List<ApiSdk.Models.AppListItem>? AppsVisibilityList { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> AppsVisibilityList { get; set; }
+        public List<ApiSdk.Models.AppListItem> AppsVisibilityList { get; set; }
 #endif
         /// <summary>Possible values of the compliance app list.</summary>
-        public AppListType? AppsVisibilityListType { get; set; }
+        public ApiSdk.Models.AppListType? AppsVisibilityListType { get; set; }
         /// <summary>Indicates whether or not to force user authentication before autofilling passwords and credit card information in Safari and other apps on supervised devices.</summary>
         public bool? AutoFillForceAuthentication { get; set; }
         /// <summary>Blocks users from unlocking their device with Apple Watch. Available for devices running iOS and iPadOS versions 14.5 and later.</summary>
@@ -106,14 +106,14 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not to allow the teacher to lock apps or the device without prompting the student. Supervised only.</summary>
         public bool? ClassroomForceUnpromptedAppAndDeviceLock { get; set; }
         /// <summary>Possible values of the compliance app list.</summary>
-        public AppListType? CompliantAppListType { get; set; }
+        public ApiSdk.Models.AppListType? CompliantAppListType { get; set; }
         /// <summary>List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? CompliantAppsList { get; set; }
+        public List<ApiSdk.Models.AppListItem>? CompliantAppsList { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> CompliantAppsList { get; set; }
+        public List<ApiSdk.Models.AppListItem> CompliantAppsList { get; set; }
 #endif
         /// <summary>Indicates whether or not to block the user from installing configuration profiles and certificates interactively when the device is in supervised mode.</summary>
         public bool? ConfigurationProfileBlockChanges { get; set; }
@@ -254,7 +254,7 @@ namespace ApiSdk.Models
         public string KioskModeAppStoreUrl { get; set; }
 #endif
         /// <summary>App source options for iOS kiosk mode.</summary>
-        public IosKioskModeAppType? KioskModeAppType { get; set; }
+        public ApiSdk.Models.IosKioskModeAppType? KioskModeAppType { get; set; }
         /// <summary>Indicates whether or not to block device auto lock while in kiosk mode.</summary>
         public bool? KioskModeBlockAutoLock { get; set; }
         /// <summary>Indicates whether or not to block use of the ringer switch while in kiosk mode.</summary>
@@ -306,7 +306,7 @@ namespace ApiSdk.Models
         /// <summary>Open-in management controls how people share data between unmanaged and managed apps. Setting this to true enforces copy/paste restrictions based on how you configured Block viewing corporate documents in unmanaged apps  and  Block viewing non-corporate documents in corporate apps.</summary>
         public bool? ManagedPasteboardRequired { get; set; }
         /// <summary>Apps rating as in media content</summary>
-        public RatingAppsType? MediaContentRatingApps { get; set; }
+        public ApiSdk.Models.RatingAppsType? MediaContentRatingApps { get; set; }
         /// <summary>Media content rating settings for Australia</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -384,10 +384,10 @@ namespace ApiSdk.Models
         /// <summary>List of managed apps and the network rules that applies to them. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosNetworkUsageRule>? NetworkUsageRules { get; set; }
+        public List<ApiSdk.Models.IosNetworkUsageRule>? NetworkUsageRules { get; set; }
 #nullable restore
 #else
-        public List<IosNetworkUsageRule> NetworkUsageRules { get; set; }
+        public List<ApiSdk.Models.IosNetworkUsageRule> NetworkUsageRules { get; set; }
 #endif
         /// <summary>Disable NFC to prevent devices from pairing with other NFC-enabled devices. Available for iOS/iPadOS devices running 14.2 and later.</summary>
         public bool? NfcBlocked { get; set; }
@@ -420,7 +420,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not to require a passcode.</summary>
         public bool? PasscodeRequired { get; set; }
         /// <summary>Possible values of required passwords.</summary>
-        public RequiredPasswordType? PasscodeRequiredType { get; set; }
+        public ApiSdk.Models.RequiredPasswordType? PasscodeRequiredType { get; set; }
         /// <summary>Number of sign in failures allowed before wiping the device. Valid values 2 to 11</summary>
         public int? PasscodeSignInFailureCountBeforeWipe { get; set; }
         /// <summary>Indicates whether or not to block sharing passwords with the AirDrop passwords feature iOS 12.0 and later).</summary>
@@ -446,7 +446,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not to block popups in Safari.</summary>
         public bool? SafariBlockPopups { get; set; }
         /// <summary>Web Browser Cookie Settings.</summary>
-        public WebBrowserCookieSettings? SafariCookieSettings { get; set; }
+        public ApiSdk.Models.WebBrowserCookieSettings? SafariCookieSettings { get; set; }
         /// <summary>URLs matching the patterns listed here will be considered managed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -500,7 +500,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not Wi-Fi remains on, even when device is in airplane mode. Available for devices running iOS and iPadOS, versions 13.0 and later.</summary>
         public bool? WifiPowerOnForced { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosGeneralDeviceConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosGeneralDeviceConfiguration"/> and sets the default values.
         /// </summary>
         public IosGeneralDeviceConfiguration() : base()
         {
@@ -509,12 +509,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosGeneralDeviceConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosGeneralDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosGeneralDeviceConfiguration();
+            return new ApiSdk.Models.IosGeneralDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -544,9 +544,9 @@ namespace ApiSdk.Models
                 { "applePersonalizedAdsBlocked", n => { ApplePersonalizedAdsBlocked = n.GetBoolValue(); } },
                 { "appleWatchBlockPairing", n => { AppleWatchBlockPairing = n.GetBoolValue(); } },
                 { "appleWatchForceWristDetection", n => { AppleWatchForceWristDetection = n.GetBoolValue(); } },
-                { "appsSingleAppModeList", n => { AppsSingleAppModeList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "appsVisibilityList", n => { AppsVisibilityList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "appsVisibilityListType", n => { AppsVisibilityListType = n.GetEnumValue<AppListType>(); } },
+                { "appsSingleAppModeList", n => { AppsSingleAppModeList = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appsVisibilityList", n => { AppsVisibilityList = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appsVisibilityListType", n => { AppsVisibilityListType = n.GetEnumValue<ApiSdk.Models.AppListType>(); } },
                 { "autoFillForceAuthentication", n => { AutoFillForceAuthentication = n.GetBoolValue(); } },
                 { "autoUnlockBlocked", n => { AutoUnlockBlocked = n.GetBoolValue(); } },
                 { "blockSystemAppRemoval", n => { BlockSystemAppRemoval = n.GetBoolValue(); } },
@@ -565,8 +565,8 @@ namespace ApiSdk.Models
                 { "classroomForceAutomaticallyJoinClasses", n => { ClassroomForceAutomaticallyJoinClasses = n.GetBoolValue(); } },
                 { "classroomForceRequestPermissionToLeaveClasses", n => { ClassroomForceRequestPermissionToLeaveClasses = n.GetBoolValue(); } },
                 { "classroomForceUnpromptedAppAndDeviceLock", n => { ClassroomForceUnpromptedAppAndDeviceLock = n.GetBoolValue(); } },
-                { "compliantAppListType", n => { CompliantAppListType = n.GetEnumValue<AppListType>(); } },
-                { "compliantAppsList", n => { CompliantAppsList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "compliantAppListType", n => { CompliantAppListType = n.GetEnumValue<ApiSdk.Models.AppListType>(); } },
+                { "compliantAppsList", n => { CompliantAppsList = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "configurationProfileBlockChanges", n => { ConfigurationProfileBlockChanges = n.GetBoolValue(); } },
                 { "contactsAllowManagedToUnmanagedWrite", n => { ContactsAllowManagedToUnmanagedWrite = n.GetBoolValue(); } },
                 { "contactsAllowUnmanagedToManagedRead", n => { ContactsAllowUnmanagedToManagedRead = n.GetBoolValue(); } },
@@ -630,7 +630,7 @@ namespace ApiSdk.Models
                 { "kioskModeAllowVolumeButtons", n => { KioskModeAllowVolumeButtons = n.GetBoolValue(); } },
                 { "kioskModeAllowZoomSettings", n => { KioskModeAllowZoomSettings = n.GetBoolValue(); } },
                 { "kioskModeAppStoreUrl", n => { KioskModeAppStoreUrl = n.GetStringValue(); } },
-                { "kioskModeAppType", n => { KioskModeAppType = n.GetEnumValue<IosKioskModeAppType>(); } },
+                { "kioskModeAppType", n => { KioskModeAppType = n.GetEnumValue<ApiSdk.Models.IosKioskModeAppType>(); } },
                 { "kioskModeBlockAutoLock", n => { KioskModeBlockAutoLock = n.GetBoolValue(); } },
                 { "kioskModeBlockRingerSwitch", n => { KioskModeBlockRingerSwitch = n.GetBoolValue(); } },
                 { "kioskModeBlockScreenRotation", n => { KioskModeBlockScreenRotation = n.GetBoolValue(); } },
@@ -650,7 +650,7 @@ namespace ApiSdk.Models
                 { "lockScreenBlockPassbook", n => { LockScreenBlockPassbook = n.GetBoolValue(); } },
                 { "lockScreenBlockTodayView", n => { LockScreenBlockTodayView = n.GetBoolValue(); } },
                 { "managedPasteboardRequired", n => { ManagedPasteboardRequired = n.GetBoolValue(); } },
-                { "mediaContentRatingApps", n => { MediaContentRatingApps = n.GetEnumValue<RatingAppsType>(); } },
+                { "mediaContentRatingApps", n => { MediaContentRatingApps = n.GetEnumValue<ApiSdk.Models.RatingAppsType>(); } },
                 { "mediaContentRatingAustralia", n => { MediaContentRatingAustralia = n.GetObjectValue<ApiSdk.Models.MediaContentRatingAustralia>(ApiSdk.Models.MediaContentRatingAustralia.CreateFromDiscriminatorValue); } },
                 { "mediaContentRatingCanada", n => { MediaContentRatingCanada = n.GetObjectValue<ApiSdk.Models.MediaContentRatingCanada>(ApiSdk.Models.MediaContentRatingCanada.CreateFromDiscriminatorValue); } },
                 { "mediaContentRatingFrance", n => { MediaContentRatingFrance = n.GetObjectValue<ApiSdk.Models.MediaContentRatingFrance>(ApiSdk.Models.MediaContentRatingFrance.CreateFromDiscriminatorValue); } },
@@ -661,7 +661,7 @@ namespace ApiSdk.Models
                 { "mediaContentRatingUnitedKingdom", n => { MediaContentRatingUnitedKingdom = n.GetObjectValue<ApiSdk.Models.MediaContentRatingUnitedKingdom>(ApiSdk.Models.MediaContentRatingUnitedKingdom.CreateFromDiscriminatorValue); } },
                 { "mediaContentRatingUnitedStates", n => { MediaContentRatingUnitedStates = n.GetObjectValue<ApiSdk.Models.MediaContentRatingUnitedStates>(ApiSdk.Models.MediaContentRatingUnitedStates.CreateFromDiscriminatorValue); } },
                 { "messagesBlocked", n => { MessagesBlocked = n.GetBoolValue(); } },
-                { "networkUsageRules", n => { NetworkUsageRules = n.GetCollectionOfObjectValues<IosNetworkUsageRule>(IosNetworkUsageRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "networkUsageRules", n => { NetworkUsageRules = n.GetCollectionOfObjectValues<ApiSdk.Models.IosNetworkUsageRule>(ApiSdk.Models.IosNetworkUsageRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "nfcBlocked", n => { NfcBlocked = n.GetBoolValue(); } },
                 { "notificationsBlockSettingsModification", n => { NotificationsBlockSettingsModification = n.GetBoolValue(); } },
                 { "onDeviceOnlyDictationForced", n => { OnDeviceOnlyDictationForced = n.GetBoolValue(); } },
@@ -677,7 +677,7 @@ namespace ApiSdk.Models
                 { "passcodeMinutesOfInactivityBeforeScreenTimeout", n => { PasscodeMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
                 { "passcodePreviousPasscodeBlockCount", n => { PasscodePreviousPasscodeBlockCount = n.GetIntValue(); } },
                 { "passcodeRequired", n => { PasscodeRequired = n.GetBoolValue(); } },
-                { "passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
+                { "passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<ApiSdk.Models.RequiredPasswordType>(); } },
                 { "passcodeSignInFailureCountBeforeWipe", n => { PasscodeSignInFailureCountBeforeWipe = n.GetIntValue(); } },
                 { "passwordBlockAirDropSharing", n => { PasswordBlockAirDropSharing = n.GetBoolValue(); } },
                 { "passwordBlockAutoFill", n => { PasswordBlockAutoFill = n.GetBoolValue(); } },
@@ -690,7 +690,7 @@ namespace ApiSdk.Models
                 { "safariBlockJavaScript", n => { SafariBlockJavaScript = n.GetBoolValue(); } },
                 { "safariBlockPopups", n => { SafariBlockPopups = n.GetBoolValue(); } },
                 { "safariBlocked", n => { SafariBlocked = n.GetBoolValue(); } },
-                { "safariCookieSettings", n => { SafariCookieSettings = n.GetEnumValue<WebBrowserCookieSettings>(); } },
+                { "safariCookieSettings", n => { SafariCookieSettings = n.GetEnumValue<ApiSdk.Models.WebBrowserCookieSettings>(); } },
                 { "safariManagedDomains", n => { SafariManagedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "safariPasswordAutoFillDomains", n => { SafariPasswordAutoFillDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "safariRequireFraudWarning", n => { SafariRequireFraudWarning = n.GetBoolValue(); } },
@@ -736,14 +736,14 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("appleWatchBlockPairing", AppleWatchBlockPairing);
             writer.WriteBoolValue("appleWatchForceWristDetection", AppleWatchForceWristDetection);
             writer.WriteBoolValue("appRemovalBlocked", AppRemovalBlocked);
-            writer.WriteCollectionOfObjectValues<AppListItem>("appsSingleAppModeList", AppsSingleAppModeList);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("appsSingleAppModeList", AppsSingleAppModeList);
             writer.WriteBoolValue("appStoreBlockAutomaticDownloads", AppStoreBlockAutomaticDownloads);
             writer.WriteBoolValue("appStoreBlocked", AppStoreBlocked);
             writer.WriteBoolValue("appStoreBlockInAppPurchases", AppStoreBlockInAppPurchases);
             writer.WriteBoolValue("appStoreBlockUIAppInstallation", AppStoreBlockUIAppInstallation);
             writer.WriteBoolValue("appStoreRequirePassword", AppStoreRequirePassword);
-            writer.WriteCollectionOfObjectValues<AppListItem>("appsVisibilityList", AppsVisibilityList);
-            writer.WriteEnumValue<AppListType>("appsVisibilityListType", AppsVisibilityListType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("appsVisibilityList", AppsVisibilityList);
+            writer.WriteEnumValue<ApiSdk.Models.AppListType>("appsVisibilityListType", AppsVisibilityListType);
             writer.WriteBoolValue("autoFillForceAuthentication", AutoFillForceAuthentication);
             writer.WriteBoolValue("autoUnlockBlocked", AutoUnlockBlocked);
             writer.WriteBoolValue("blockSystemAppRemoval", BlockSystemAppRemoval);
@@ -762,8 +762,8 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("classroomForceAutomaticallyJoinClasses", ClassroomForceAutomaticallyJoinClasses);
             writer.WriteBoolValue("classroomForceRequestPermissionToLeaveClasses", ClassroomForceRequestPermissionToLeaveClasses);
             writer.WriteBoolValue("classroomForceUnpromptedAppAndDeviceLock", ClassroomForceUnpromptedAppAndDeviceLock);
-            writer.WriteEnumValue<AppListType>("compliantAppListType", CompliantAppListType);
-            writer.WriteCollectionOfObjectValues<AppListItem>("compliantAppsList", CompliantAppsList);
+            writer.WriteEnumValue<ApiSdk.Models.AppListType>("compliantAppListType", CompliantAppListType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("compliantAppsList", CompliantAppsList);
             writer.WriteBoolValue("configurationProfileBlockChanges", ConfigurationProfileBlockChanges);
             writer.WriteBoolValue("contactsAllowManagedToUnmanagedWrite", ContactsAllowManagedToUnmanagedWrite);
             writer.WriteBoolValue("contactsAllowUnmanagedToManagedRead", ContactsAllowUnmanagedToManagedRead);
@@ -827,7 +827,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("kioskModeAllowVolumeButtons", KioskModeAllowVolumeButtons);
             writer.WriteBoolValue("kioskModeAllowZoomSettings", KioskModeAllowZoomSettings);
             writer.WriteStringValue("kioskModeAppStoreUrl", KioskModeAppStoreUrl);
-            writer.WriteEnumValue<IosKioskModeAppType>("kioskModeAppType", KioskModeAppType);
+            writer.WriteEnumValue<ApiSdk.Models.IosKioskModeAppType>("kioskModeAppType", KioskModeAppType);
             writer.WriteBoolValue("kioskModeBlockAutoLock", KioskModeBlockAutoLock);
             writer.WriteBoolValue("kioskModeBlockRingerSwitch", KioskModeBlockRingerSwitch);
             writer.WriteBoolValue("kioskModeBlockScreenRotation", KioskModeBlockScreenRotation);
@@ -847,7 +847,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("lockScreenBlockPassbook", LockScreenBlockPassbook);
             writer.WriteBoolValue("lockScreenBlockTodayView", LockScreenBlockTodayView);
             writer.WriteBoolValue("managedPasteboardRequired", ManagedPasteboardRequired);
-            writer.WriteEnumValue<RatingAppsType>("mediaContentRatingApps", MediaContentRatingApps);
+            writer.WriteEnumValue<ApiSdk.Models.RatingAppsType>("mediaContentRatingApps", MediaContentRatingApps);
             writer.WriteObjectValue<ApiSdk.Models.MediaContentRatingAustralia>("mediaContentRatingAustralia", MediaContentRatingAustralia);
             writer.WriteObjectValue<ApiSdk.Models.MediaContentRatingCanada>("mediaContentRatingCanada", MediaContentRatingCanada);
             writer.WriteObjectValue<ApiSdk.Models.MediaContentRatingFrance>("mediaContentRatingFrance", MediaContentRatingFrance);
@@ -858,7 +858,7 @@ namespace ApiSdk.Models
             writer.WriteObjectValue<ApiSdk.Models.MediaContentRatingUnitedKingdom>("mediaContentRatingUnitedKingdom", MediaContentRatingUnitedKingdom);
             writer.WriteObjectValue<ApiSdk.Models.MediaContentRatingUnitedStates>("mediaContentRatingUnitedStates", MediaContentRatingUnitedStates);
             writer.WriteBoolValue("messagesBlocked", MessagesBlocked);
-            writer.WriteCollectionOfObjectValues<IosNetworkUsageRule>("networkUsageRules", NetworkUsageRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosNetworkUsageRule>("networkUsageRules", NetworkUsageRules);
             writer.WriteBoolValue("nfcBlocked", NfcBlocked);
             writer.WriteBoolValue("notificationsBlockSettingsModification", NotificationsBlockSettingsModification);
             writer.WriteBoolValue("onDeviceOnlyDictationForced", OnDeviceOnlyDictationForced);
@@ -874,7 +874,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("passcodeMinutesOfInactivityBeforeScreenTimeout", PasscodeMinutesOfInactivityBeforeScreenTimeout);
             writer.WriteIntValue("passcodePreviousPasscodeBlockCount", PasscodePreviousPasscodeBlockCount);
             writer.WriteBoolValue("passcodeRequired", PasscodeRequired);
-            writer.WriteEnumValue<RequiredPasswordType>("passcodeRequiredType", PasscodeRequiredType);
+            writer.WriteEnumValue<ApiSdk.Models.RequiredPasswordType>("passcodeRequiredType", PasscodeRequiredType);
             writer.WriteIntValue("passcodeSignInFailureCountBeforeWipe", PasscodeSignInFailureCountBeforeWipe);
             writer.WriteBoolValue("passwordBlockAirDropSharing", PasswordBlockAirDropSharing);
             writer.WriteBoolValue("passwordBlockAutoFill", PasswordBlockAutoFill);
@@ -887,7 +887,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("safariBlocked", SafariBlocked);
             writer.WriteBoolValue("safariBlockJavaScript", SafariBlockJavaScript);
             writer.WriteBoolValue("safariBlockPopups", SafariBlockPopups);
-            writer.WriteEnumValue<WebBrowserCookieSettings>("safariCookieSettings", SafariCookieSettings);
+            writer.WriteEnumValue<ApiSdk.Models.WebBrowserCookieSettings>("safariCookieSettings", SafariCookieSettings);
             writer.WriteCollectionOfPrimitiveValues<string>("safariManagedDomains", SafariManagedDomains);
             writer.WriteCollectionOfPrimitiveValues<string>("safariPasswordAutoFillDomains", SafariPasswordAutoFillDomains);
             writer.WriteBoolValue("safariRequireFraudWarning", SafariRequireFraudWarning);

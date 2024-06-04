@@ -7,50 +7,50 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WorkbookDocumentTask : Entity, IParsable
+    public class WorkbookDocumentTask : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of user identities the task is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkbookEmailIdentity>? Assignees { get; set; }
+        public List<ApiSdk.Models.WorkbookEmailIdentity>? Assignees { get; set; }
 #nullable restore
 #else
-        public List<WorkbookEmailIdentity> Assignees { get; set; }
+        public List<ApiSdk.Models.WorkbookEmailIdentity> Assignees { get; set; }
 #endif
         /// <summary>A collection of task change histories.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkbookDocumentTaskChange>? Changes { get; set; }
+        public List<ApiSdk.Models.WorkbookDocumentTaskChange>? Changes { get; set; }
 #nullable restore
 #else
-        public List<WorkbookDocumentTaskChange> Changes { get; set; }
+        public List<ApiSdk.Models.WorkbookDocumentTaskChange> Changes { get; set; }
 #endif
         /// <summary>The comment that the task is associated with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookComment? Comment { get; set; }
+        public ApiSdk.Models.WorkbookComment? Comment { get; set; }
 #nullable restore
 #else
-        public WorkbookComment Comment { get; set; }
+        public ApiSdk.Models.WorkbookComment Comment { get; set; }
 #endif
         /// <summary>The identity of the user who completed the task. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookEmailIdentity? CompletedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity? CompletedBy { get; set; }
 #nullable restore
 #else
-        public WorkbookEmailIdentity CompletedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity CompletedBy { get; set; }
 #endif
         /// <summary>Date and time when the task was completed. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
         /// <summary>A user identity that creates the task. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookEmailIdentity? CreatedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity? CreatedBy { get; set; }
 #nullable restore
 #else
-        public WorkbookEmailIdentity CreatedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity CreatedBy { get; set; }
 #endif
         /// <summary>Date and time when the task was created. Nullable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         /// <summary>Start and due date of the task. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookDocumentTaskSchedule? StartAndDueDateTime { get; set; }
+        public ApiSdk.Models.WorkbookDocumentTaskSchedule? StartAndDueDateTime { get; set; }
 #nullable restore
 #else
-        public WorkbookDocumentTaskSchedule StartAndDueDateTime { get; set; }
+        public ApiSdk.Models.WorkbookDocumentTaskSchedule StartAndDueDateTime { get; set; }
 #endif
         /// <summary>The title of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,12 +77,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkbookDocumentTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkbookDocumentTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkbookDocumentTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WorkbookDocumentTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkbookDocumentTask();
+            return new ApiSdk.Models.WorkbookDocumentTask();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,16 +92,16 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "changes", n => { Changes = n.GetCollectionOfObjectValues<WorkbookDocumentTaskChange>(WorkbookDocumentTaskChange.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "comment", n => { Comment = n.GetObjectValue<WorkbookComment>(WorkbookComment.CreateFromDiscriminatorValue); } },
-                { "completedBy", n => { CompletedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "assignees", n => { Assignees = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkbookEmailIdentity>(ApiSdk.Models.WorkbookEmailIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "changes", n => { Changes = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkbookDocumentTaskChange>(ApiSdk.Models.WorkbookDocumentTaskChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "comment", n => { Comment = n.GetObjectValue<ApiSdk.Models.WorkbookComment>(ApiSdk.Models.WorkbookComment.CreateFromDiscriminatorValue); } },
+                { "completedBy", n => { CompletedBy = n.GetObjectValue<ApiSdk.Models.WorkbookEmailIdentity>(ApiSdk.Models.WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
                 { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.WorkbookEmailIdentity>(ApiSdk.Models.WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "percentComplete", n => { PercentComplete = n.GetIntValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
-                { "startAndDueDateTime", n => { StartAndDueDateTime = n.GetObjectValue<WorkbookDocumentTaskSchedule>(WorkbookDocumentTaskSchedule.CreateFromDiscriminatorValue); } },
+                { "startAndDueDateTime", n => { StartAndDueDateTime = n.GetObjectValue<ApiSdk.Models.WorkbookDocumentTaskSchedule>(ApiSdk.Models.WorkbookDocumentTaskSchedule.CreateFromDiscriminatorValue); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -113,16 +113,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WorkbookEmailIdentity>("assignees", Assignees);
-            writer.WriteCollectionOfObjectValues<WorkbookDocumentTaskChange>("changes", Changes);
-            writer.WriteObjectValue<WorkbookComment>("comment", Comment);
-            writer.WriteObjectValue<WorkbookEmailIdentity>("completedBy", CompletedBy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkbookEmailIdentity>("assignees", Assignees);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkbookDocumentTaskChange>("changes", Changes);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookComment>("comment", Comment);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookEmailIdentity>("completedBy", CompletedBy);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
-            writer.WriteObjectValue<WorkbookEmailIdentity>("createdBy", CreatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookEmailIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteIntValue("percentComplete", PercentComplete);
             writer.WriteIntValue("priority", Priority);
-            writer.WriteObjectValue<WorkbookDocumentTaskSchedule>("startAndDueDateTime", StartAndDueDateTime);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookDocumentTaskSchedule>("startAndDueDateTime", StartAndDueDateTime);
             writer.WriteStringValue("title", Title);
         }
     }

@@ -56,14 +56,14 @@ namespace ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemovePersonalDataRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item.RemovePersonalData.RemovePersonalDataRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemovePersonalDataRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}/tenants/{tenantReference%2DtenantId}/removePersonalData", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemovePersonalDataRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.OutboundSharedUserProfiles.Item.Tenants.Item.RemovePersonalData.RemovePersonalDataRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemovePersonalDataRequestBuilder(string rawUrl) : base("{+baseurl}/directory/outboundSharedUserProfiles/{outboundSharedUserProfile%2DuserId}/tenants/{tenantReference%2DtenantId}/removePersonalData", rawUrl)

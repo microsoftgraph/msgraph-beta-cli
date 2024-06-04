@@ -22,7 +22,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
         public ApiSdk.Models.TenantSetupInfo TenantSetupInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CompleteSetupPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody"/> and sets the default values.
         /// </summary>
         public CompleteSetupPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompleteSetupPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CompleteSetupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompleteSetupPostRequestBody();
+            return new ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

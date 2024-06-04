@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InactiveGroupFinding : Finding, IParsable
+    public class InactiveGroupFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionSummary property</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The group property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemIdentity? Group { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity? Group { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemIdentity Group { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity Group { get; set; }
 #endif
         /// <summary>The permissionsCreepIndex property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InactiveGroupFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InactiveGroupFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InactiveGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InactiveGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InactiveGroupFinding();
+            return new ApiSdk.Models.InactiveGroupFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
-                { "group", n => { Group = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "group", n => { Group = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>(ApiSdk.Models.AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.ActionSummary>("actionSummary", ActionSummary);
-            writer.WriteObjectValue<AuthorizationSystemIdentity>("group", Group);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>("group", Group);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
         }
     }

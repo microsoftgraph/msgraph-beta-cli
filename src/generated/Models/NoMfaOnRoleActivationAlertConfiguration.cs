@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class NoMfaOnRoleActivationAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
+    public class NoMfaOnRoleActivationAlertConfiguration : ApiSdk.Models.UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="NoMfaOnRoleActivationAlertConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.NoMfaOnRoleActivationAlertConfiguration"/> and sets the default values.
         /// </summary>
         public NoMfaOnRoleActivationAlertConfiguration() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NoMfaOnRoleActivationAlertConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.NoMfaOnRoleActivationAlertConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new NoMfaOnRoleActivationAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.NoMfaOnRoleActivationAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NoMfaOnRoleActivationAlertConfiguration();
+            return new ApiSdk.Models.NoMfaOnRoleActivationAlertConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

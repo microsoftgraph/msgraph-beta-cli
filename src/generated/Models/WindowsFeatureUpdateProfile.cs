@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Feature Update Profile
     /// </summary>
-    public class WindowsFeatureUpdateProfile : Entity, IParsable
+    public class WindowsFeatureUpdateProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of group assignments of the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsFeatureUpdateProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsFeatureUpdateProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<WindowsFeatureUpdateProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsFeatureUpdateProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>The date time that the profile was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -72,20 +72,20 @@ namespace ApiSdk.Models
         /// <summary>The windows update rollout settings, including offer start date time, offer end date time, and days between each set of offers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsUpdateRolloutSettings? RolloutSettings { get; set; }
+        public ApiSdk.Models.WindowsUpdateRolloutSettings? RolloutSettings { get; set; }
 #nullable restore
 #else
-        public WindowsUpdateRolloutSettings RolloutSettings { get; set; }
+        public ApiSdk.Models.WindowsUpdateRolloutSettings RolloutSettings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsFeatureUpdateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsFeatureUpdateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsFeatureUpdateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsFeatureUpdateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsFeatureUpdateProfile();
+            return new ApiSdk.Models.WindowsFeatureUpdateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,7 +95,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsFeatureUpdateProfileAssignment>(WindowsFeatureUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsFeatureUpdateProfileAssignment>(ApiSdk.Models.WindowsFeatureUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deployableContentDisplayName", n => { DeployableContentDisplayName = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -106,7 +106,7 @@ namespace ApiSdk.Models
                 { "installLatestWindows10OnWindows11IneligibleDevice", n => { InstallLatestWindows10OnWindows11IneligibleDevice = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "rolloutSettings", n => { RolloutSettings = n.GetObjectValue<WindowsUpdateRolloutSettings>(WindowsUpdateRolloutSettings.CreateFromDiscriminatorValue); } },
+                { "rolloutSettings", n => { RolloutSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdateRolloutSettings>(ApiSdk.Models.WindowsUpdateRolloutSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -117,7 +117,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WindowsFeatureUpdateProfileAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsFeatureUpdateProfileAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("deployableContentDisplayName", DeployableContentDisplayName);
             writer.WriteStringValue("description", Description);
@@ -128,7 +128,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("installLatestWindows10OnWindows11IneligibleDevice", InstallLatestWindows10OnWindows11IneligibleDevice);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteObjectValue<WindowsUpdateRolloutSettings>("rolloutSettings", RolloutSettings);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdateRolloutSettings>("rolloutSettings", RolloutSettings);
         }
     }
 }

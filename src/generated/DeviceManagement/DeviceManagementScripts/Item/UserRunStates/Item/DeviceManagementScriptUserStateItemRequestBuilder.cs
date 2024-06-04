@@ -71,7 +71,7 @@ namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Ite
         {
             var command = new Command("device-run-states");
             command.Description = "Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceManagementScriptUserState entity.";
-            var builder = new DeviceRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Item.DeviceRunStates.DeviceRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -184,7 +184,7 @@ namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Ite
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceManagementScriptUserState>(DeviceManagementScriptUserState.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagementScriptUserState>(ApiSdk.Models.DeviceManagementScriptUserState.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -206,14 +206,14 @@ namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Ite
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementScriptUserStateItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Item.DeviceManagementScriptUserStateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceManagementScriptUserStateItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}/userRunStates/{deviceManagementScriptUserState%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementScriptUserStateItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Item.DeviceManagementScriptUserStateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceManagementScriptUserStateItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceManagementScripts/{deviceManagementScript%2Did}/userRunStates/{deviceManagementScriptUserState%2Did}{?%24expand,%24select}", rawUrl)
@@ -245,11 +245,11 @@ namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Ite
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Item.DeviceManagementScriptUserStateItemRequestBuilder.DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Item.DeviceManagementScriptUserStateItemRequestBuilder.DeviceManagementScriptUserStateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -265,11 +265,11 @@ namespace ApiSdk.DeviceManagement.DeviceManagementScripts.Item.UserRunStates.Ite
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementScriptUserState body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementScriptUserState body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementScriptUserState body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementScriptUserState body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

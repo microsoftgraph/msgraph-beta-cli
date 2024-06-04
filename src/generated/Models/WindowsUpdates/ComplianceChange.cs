@@ -27,16 +27,16 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ComplianceChange"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ComplianceChange"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ComplianceChange CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.ComplianceChange CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.contentApproval" => new ContentApproval(),
-                _ => new ComplianceChange(),
+                "#microsoft.graph.windowsUpdates.contentApproval" => new ApiSdk.Models.WindowsUpdates.ContentApproval(),
+                _ => new ApiSdk.Models.WindowsUpdates.ComplianceChange(),
             };
         }
         /// <summary>

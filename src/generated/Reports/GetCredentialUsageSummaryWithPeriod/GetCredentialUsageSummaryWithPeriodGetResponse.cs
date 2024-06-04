@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod
 {
     #pragma warning disable CS1591
-    public class GetCredentialUsageSummaryWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetCredentialUsageSummaryWithPeriodGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CredentialUsageSummary>? Value { get; set; }
+        public List<ApiSdk.Models.CredentialUsageSummary>? Value { get; set; }
 #nullable restore
 #else
-        public List<CredentialUsageSummary> Value { get; set; }
+        public List<ApiSdk.Models.CredentialUsageSummary> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetCredentialUsageSummaryWithPeriodGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod.GetCredentialUsageSummaryWithPeriodGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetCredentialUsageSummaryWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod.GetCredentialUsageSummaryWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetCredentialUsageSummaryWithPeriodGetResponse();
+            return new ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod.GetCredentialUsageSummaryWithPeriodGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CredentialUsageSummary>(CredentialUsageSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CredentialUsageSummary>(ApiSdk.Models.CredentialUsageSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CredentialUsageSummary>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CredentialUsageSummary>("value", Value);
         }
     }
 }

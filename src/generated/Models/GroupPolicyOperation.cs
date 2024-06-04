@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity represents an group policy operation.
     /// </summary>
-    public class GroupPolicyOperation : Entity, IParsable
+    public class GroupPolicyOperation : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The date and time the entity was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Type of Group Policy operation status.</summary>
-        public GroupPolicyOperationStatus? OperationStatus { get; set; }
+        public ApiSdk.Models.GroupPolicyOperationStatus? OperationStatus { get; set; }
         /// <summary>Type of Group Policy operation.</summary>
-        public GroupPolicyOperationType? OperationType { get; set; }
+        public ApiSdk.Models.GroupPolicyOperationType? OperationType { get; set; }
         /// <summary>The group policy operation status detail.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyOperation();
+            return new ApiSdk.Models.GroupPolicyOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "operationStatus", n => { OperationStatus = n.GetEnumValue<GroupPolicyOperationStatus>(); } },
-                { "operationType", n => { OperationType = n.GetEnumValue<GroupPolicyOperationType>(); } },
+                { "operationStatus", n => { OperationStatus = n.GetEnumValue<ApiSdk.Models.GroupPolicyOperationStatus>(); } },
+                { "operationType", n => { OperationType = n.GetEnumValue<ApiSdk.Models.GroupPolicyOperationType>(); } },
                 { "statusDetails", n => { StatusDetails = n.GetStringValue(); } },
             };
         }
@@ -58,8 +58,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<GroupPolicyOperationStatus>("operationStatus", OperationStatus);
-            writer.WriteEnumValue<GroupPolicyOperationType>("operationType", OperationType);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyOperationStatus>("operationStatus", OperationStatus);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyOperationType>("operationType", OperationType);
             writer.WriteStringValue("statusDetails", StatusDetails);
         }
     }

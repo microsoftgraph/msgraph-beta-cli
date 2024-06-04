@@ -31,7 +31,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
         {
             var command = new Command("account");
             command.Description = "Provides operations to manage the account property of the microsoft.graph.salesInvoiceLine entity.";
-            var builder = new AccountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.Account.AccountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -106,7 +106,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
         {
             var command = new Command("item");
             command.Description = "Provides operations to manage the item property of the microsoft.graph.salesInvoiceLine entity.";
-            var builder = new ItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.Item.ItemRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -160,7 +160,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SalesInvoiceLine>(SalesInvoiceLine.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.SalesInvoiceLine>(ApiSdk.Models.SalesInvoiceLine.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -182,14 +182,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesInvoiceLineItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.SalesInvoiceLineItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SalesInvoiceLineItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoiceLines/{salesInvoiceLine%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesInvoiceLineItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.SalesInvoiceLineItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SalesInvoiceLineItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoiceLines/{salesInvoiceLine%2Did}{?%24expand,%24select}", rawUrl)
@@ -202,11 +202,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesInvoiceLineItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.SalesInvoiceLineItemRequestBuilder.SalesInvoiceLineItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesInvoiceLineItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item.SalesInvoiceLineItemRequestBuilder.SalesInvoiceLineItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -222,11 +222,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoiceLines.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SalesInvoiceLine body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesInvoiceLine body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SalesInvoiceLine body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesInvoiceLine body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

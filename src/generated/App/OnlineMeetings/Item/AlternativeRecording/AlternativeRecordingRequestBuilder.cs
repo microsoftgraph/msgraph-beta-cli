@@ -146,14 +146,14 @@ namespace ApiSdk.App.OnlineMeetings.Item.AlternativeRecording
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlternativeRecordingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.App.OnlineMeetings.Item.AlternativeRecording.AlternativeRecordingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AlternativeRecordingRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/alternativeRecording", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlternativeRecordingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.App.OnlineMeetings.Item.AlternativeRecording.AlternativeRecordingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AlternativeRecordingRequestBuilder(string rawUrl) : base("{+baseurl}/app/onlineMeetings/{onlineMeeting%2Did}/alternativeRecording", rawUrl)

@@ -54,7 +54,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BulkRestoreCloudPcPostRequestBody>(BulkRestoreCloudPcPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcPostRequestBody>(ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -75,14 +75,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BulkRestoreCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BulkRestoreCloudPcRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/bulkRestoreCloudPc", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BulkRestoreCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BulkRestoreCloudPcRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/bulkRestoreCloudPc", rawUrl)
@@ -97,11 +97,11 @@ namespace ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc
         [Obsolete("The bulkRestoreCloudPc action is deprecated and will stop supporting on September 24, 2023. Please use bulk action entity api. as of 2023-05/bulkRestoreCloudPc")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(BulkRestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(BulkRestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

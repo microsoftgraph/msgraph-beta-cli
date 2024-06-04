@@ -7,34 +7,34 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AssignedComputeInstanceDetails : Entity, IParsable
+    public class AssignedComputeInstanceDetails : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a set of S3 buckets accessed by this EC2 instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthorizationSystemResource>? AccessedStorageBuckets { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemResource>? AccessedStorageBuckets { get; set; }
 #nullable restore
 #else
-        public List<AuthorizationSystemResource> AccessedStorageBuckets { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemResource> AccessedStorageBuckets { get; set; }
 #endif
         /// <summary>assigned EC2 instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemResource? AssignedComputeInstance { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource? AssignedComputeInstance { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemResource AssignedComputeInstance { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource AssignedComputeInstance { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignedComputeInstanceDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AssignedComputeInstanceDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AssignedComputeInstanceDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AssignedComputeInstanceDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignedComputeInstanceDetails();
+            return new ApiSdk.Models.AssignedComputeInstanceDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessedStorageBuckets", n => { AccessedStorageBuckets = n.GetCollectionOfObjectValues<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "assignedComputeInstance", n => { AssignedComputeInstance = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessedStorageBuckets", n => { AccessedStorageBuckets = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemResource>(ApiSdk.Models.AuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedComputeInstance", n => { AssignedComputeInstance = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemResource>(ApiSdk.Models.AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AuthorizationSystemResource>("accessedStorageBuckets", AccessedStorageBuckets);
-            writer.WriteObjectValue<AuthorizationSystemResource>("assignedComputeInstance", AssignedComputeInstance);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemResource>("accessedStorageBuckets", AccessedStorageBuckets);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemResource>("assignedComputeInstance", AssignedComputeInstance);
         }
     }
 }

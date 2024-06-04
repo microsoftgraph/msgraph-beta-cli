@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementUserRightsLocalUserOrGroup>? LocalUsersOrGroups { get; set; }
+        public List<ApiSdk.Models.DeviceManagementUserRightsLocalUserOrGroup>? LocalUsersOrGroups { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementUserRightsLocalUserOrGroup> LocalUsersOrGroups { get; set; }
+        public List<ApiSdk.Models.DeviceManagementUserRightsLocalUserOrGroup> LocalUsersOrGroups { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>State Management Setting.</summary>
-        public StateManagementSetting? State { get; set; }
+        public ApiSdk.Models.StateManagementSetting? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementUserRightsSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementUserRightsSetting"/> and sets the default values.
         /// </summary>
         public DeviceManagementUserRightsSetting()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementUserRightsSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementUserRightsSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementUserRightsSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementUserRightsSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementUserRightsSetting();
+            return new ApiSdk.Models.DeviceManagementUserRightsSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,9 +56,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "localUsersOrGroups", n => { LocalUsersOrGroups = n.GetCollectionOfObjectValues<DeviceManagementUserRightsLocalUserOrGroup>(DeviceManagementUserRightsLocalUserOrGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "localUsersOrGroups", n => { LocalUsersOrGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementUserRightsLocalUserOrGroup>(ApiSdk.Models.DeviceManagementUserRightsLocalUserOrGroup.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<StateManagementSetting>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.StateManagementSetting>(); } },
             };
         }
         /// <summary>
@@ -68,9 +68,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DeviceManagementUserRightsLocalUserOrGroup>("localUsersOrGroups", LocalUsersOrGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementUserRightsLocalUserOrGroup>("localUsersOrGroups", LocalUsersOrGroups);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<StateManagementSetting>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.StateManagementSetting>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

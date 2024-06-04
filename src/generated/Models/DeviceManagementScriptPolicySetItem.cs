@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for device management script PolicySetItem.
     /// </summary>
-    public class DeviceManagementScriptPolicySetItem : PolicySetItem, IParsable
+    public class DeviceManagementScriptPolicySetItem : ApiSdk.Models.PolicySetItem, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementScriptPolicySetItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementScriptPolicySetItem"/> and sets the default values.
         /// </summary>
         public DeviceManagementScriptPolicySetItem() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScriptPolicySetItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScriptPolicySetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScriptPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScriptPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScriptPolicySetItem();
+            return new ApiSdk.Models.DeviceManagementScriptPolicySetItem();
         }
         /// <summary>
         /// The deserialization information for the current model

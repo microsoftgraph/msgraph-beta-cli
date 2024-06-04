@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ManagedDeviceReportedApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedDeviceReportedApp"/> and sets the default values.
         /// </summary>
         public ManagedDeviceReportedApp()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedDeviceReportedApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedDeviceReportedApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ManagedDeviceReportedApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedDeviceReportedApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedDeviceReportedApp();
+            return new ApiSdk.Models.ManagedDeviceReportedApp();
         }
         /// <summary>
         /// The deserialization information for the current model

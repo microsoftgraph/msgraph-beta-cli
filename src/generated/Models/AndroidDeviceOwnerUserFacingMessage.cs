@@ -24,10 +24,10 @@ namespace ApiSdk.Models
         /// <summary>The list of &lt;locale, message&gt; pairs. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? LocalizedMessages { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? LocalizedMessages { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> LocalizedMessages { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> LocalizedMessages { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerUserFacingMessage"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerUserFacingMessage()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerUserFacingMessage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidDeviceOwnerUserFacingMessage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerUserFacingMessage();
+            return new ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "defaultMessage", n => { DefaultMessage = n.GetStringValue(); } },
-                { "localizedMessages", n => { LocalizedMessages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "localizedMessages", n => { LocalizedMessages = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("defaultMessage", DefaultMessage);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("localizedMessages", LocalizedMessages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("localizedMessages", LocalizedMessages);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

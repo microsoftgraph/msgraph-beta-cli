@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         /// <summary>The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments</summary>
         public DateTimeOffset? SynchronizationStartDate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationCustomization"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationCustomization"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationCustomization()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationCustomization"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationCustomization"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationSynchronizationCustomization CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationSynchronizationCustomization CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationSynchronizationCustomization();
+            return new ApiSdk.Models.EducationSynchronizationCustomization();
         }
         /// <summary>
         /// The deserialization information for the current model

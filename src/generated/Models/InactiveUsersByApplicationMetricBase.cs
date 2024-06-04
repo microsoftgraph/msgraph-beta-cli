@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InactiveUsersByApplicationMetricBase : Entity, IParsable
+    public class InactiveUsersByApplicationMetricBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InactiveUsersByApplicationMetricBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InactiveUsersByApplicationMetricBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InactiveUsersByApplicationMetricBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InactiveUsersByApplicationMetricBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.dailyInactiveUsersByApplicationMetric" => new DailyInactiveUsersByApplicationMetric(),
-                "#microsoft.graph.monthlyInactiveUsersByApplicationMetric" => new MonthlyInactiveUsersByApplicationMetric(),
-                _ => new InactiveUsersByApplicationMetricBase(),
+                "#microsoft.graph.dailyInactiveUsersByApplicationMetric" => new ApiSdk.Models.DailyInactiveUsersByApplicationMetric(),
+                "#microsoft.graph.monthlyInactiveUsersByApplicationMetric" => new ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric(),
+                _ => new ApiSdk.Models.InactiveUsersByApplicationMetricBase(),
             };
         }
         /// <summary>

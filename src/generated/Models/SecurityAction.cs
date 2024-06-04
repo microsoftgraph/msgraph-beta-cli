@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SecurityAction : Entity, IParsable
+    public class SecurityAction : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Reason for invoking this action.</summary>
@@ -49,10 +49,10 @@ namespace ApiSdk.Models
         /// <summary>Error info when the action fails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ResultInfo? ErrorInfo { get; set; }
+        public ApiSdk.Models.ResultInfo? ErrorInfo { get; set; }
 #nullable restore
 #else
-        public ResultInfo ErrorInfo { get; set; }
+        public ApiSdk.Models.ResultInfo ErrorInfo { get; set; }
 #endif
         /// <summary>Timestamp when this action was last updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastActionDateTime { get; set; }
@@ -67,21 +67,21 @@ namespace ApiSdk.Models
         /// <summary>Collection of parameters (key-value pairs) necessary to invoke the action, for example, URL or fileHash to block.). Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? Parameters { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? Parameters { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> Parameters { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> Parameters { get; set; }
 #endif
         /// <summary>Collection of securityActionState to keep the history of an action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SecurityActionState>? States { get; set; }
+        public List<ApiSdk.Models.SecurityActionState>? States { get; set; }
 #nullable restore
 #else
-        public List<SecurityActionState> States { get; set; }
+        public List<ApiSdk.Models.SecurityActionState> States { get; set; }
 #endif
         /// <summary>Status of the action. Possible values are: NotStarted, Running, Completed, Failed.</summary>
-        public OperationStatus? Status { get; set; }
+        public ApiSdk.Models.OperationStatus? Status { get; set; }
         /// <summary>The user principal name of the signed-in user that submitted  (POST) the action. The user should be extracted from the auth token and not entered manually by the calling application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,20 +93,20 @@ namespace ApiSdk.Models
         /// <summary>Complex Type containing details about the Security product/service vendor, provider, and sub-provider (for example, vendor=Microsoft; provider=Windows Defender ATP; sub-provider=AppLocker).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityVendorInformation? VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation? VendorInformation { get; set; }
 #nullable restore
 #else
-        public SecurityVendorInformation VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation VendorInformation { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecurityAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityAction();
+            return new ApiSdk.Models.SecurityAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -122,14 +122,14 @@ namespace ApiSdk.Models
                 { "clientContext", n => { ClientContext = n.GetStringValue(); } },
                 { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "errorInfo", n => { ErrorInfo = n.GetObjectValue<ResultInfo>(ResultInfo.CreateFromDiscriminatorValue); } },
+                { "errorInfo", n => { ErrorInfo = n.GetObjectValue<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "states", n => { States = n.GetCollectionOfObjectValues<SecurityActionState>(SecurityActionState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "states", n => { States = n.GetCollectionOfObjectValues<ApiSdk.Models.SecurityActionState>(ApiSdk.Models.SecurityActionState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.OperationStatus>(); } },
                 { "user", n => { User = n.GetStringValue(); } },
-                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<ApiSdk.Models.SecurityVendorInformation>(ApiSdk.Models.SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -146,14 +146,14 @@ namespace ApiSdk.Models
             writer.WriteStringValue("clientContext", ClientContext);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<ResultInfo>("errorInfo", ErrorInfo);
+            writer.WriteObjectValue<ApiSdk.Models.ResultInfo>("errorInfo", ErrorInfo);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("parameters", Parameters);
-            writer.WriteCollectionOfObjectValues<SecurityActionState>("states", States);
-            writer.WriteEnumValue<OperationStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("parameters", Parameters);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SecurityActionState>("states", States);
+            writer.WriteEnumValue<ApiSdk.Models.OperationStatus>("status", Status);
             writer.WriteStringValue("user", User);
-            writer.WriteObjectValue<SecurityVendorInformation>("vendorInformation", VendorInformation);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityVendorInformation>("vendorInformation", VendorInformation);
         }
     }
 }

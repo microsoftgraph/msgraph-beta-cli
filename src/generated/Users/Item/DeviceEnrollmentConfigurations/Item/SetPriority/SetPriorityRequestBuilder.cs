@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SetPriorityPostRequestBody>(SetPriorityPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody>(ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SetPriorityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SetPriorityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/setPriority", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SetPriorityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SetPriorityRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}/setPriority", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SetPriorityPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SetPriorityPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

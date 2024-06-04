@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// The security baseline compliance state of a setting for a device
     /// </summary>
-    public class SecurityBaselineSettingState : Entity, IParsable
+    public class SecurityBaselineSettingState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The policies that contribute to this setting instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SecurityBaselineContributingPolicy>? ContributingPolicies { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineContributingPolicy>? ContributingPolicies { get; set; }
 #nullable restore
 #else
-        public List<SecurityBaselineContributingPolicy> ContributingPolicies { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineContributingPolicy> ContributingPolicies { get; set; }
 #endif
         /// <summary>The error code if the setting is in error state</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,22 +62,22 @@ namespace ApiSdk.Models
         /// <summary>The policies that contribute to this setting instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SettingSource>? SourcePolicies { get; set; }
+        public List<ApiSdk.Models.SettingSource>? SourcePolicies { get; set; }
 #nullable restore
 #else
-        public List<SettingSource> SourcePolicies { get; set; }
+        public List<ApiSdk.Models.SettingSource> SourcePolicies { get; set; }
 #endif
         /// <summary>Security Baseline Compliance State</summary>
-        public SecurityBaselineComplianceState? State { get; set; }
+        public ApiSdk.Models.SecurityBaselineComplianceState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityBaselineSettingState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityBaselineSettingState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityBaselineSettingState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecurityBaselineSettingState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityBaselineSettingState();
+            return new ApiSdk.Models.SecurityBaselineSettingState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,14 +87,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "contributingPolicies", n => { ContributingPolicies = n.GetCollectionOfObjectValues<SecurityBaselineContributingPolicy>(SecurityBaselineContributingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "contributingPolicies", n => { ContributingPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineContributingPolicy>(ApiSdk.Models.SecurityBaselineContributingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
                 { "settingCategoryId", n => { SettingCategoryId = n.GetStringValue(); } },
                 { "settingCategoryName", n => { SettingCategoryName = n.GetStringValue(); } },
                 { "settingId", n => { SettingId = n.GetStringValue(); } },
                 { "settingName", n => { SettingName = n.GetStringValue(); } },
-                { "sourcePolicies", n => { SourcePolicies = n.GetCollectionOfObjectValues<SettingSource>(SettingSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
+                { "sourcePolicies", n => { SourcePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.SettingSource>(ApiSdk.Models.SettingSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.SecurityBaselineComplianceState>(); } },
             };
         }
         /// <summary>
@@ -105,14 +105,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<SecurityBaselineContributingPolicy>("contributingPolicies", ContributingPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineContributingPolicy>("contributingPolicies", ContributingPolicies);
             writer.WriteStringValue("errorCode", ErrorCode);
             writer.WriteStringValue("settingCategoryId", SettingCategoryId);
             writer.WriteStringValue("settingCategoryName", SettingCategoryName);
             writer.WriteStringValue("settingId", SettingId);
             writer.WriteStringValue("settingName", SettingName);
-            writer.WriteCollectionOfObjectValues<SettingSource>("sourcePolicies", SourcePolicies);
-            writer.WriteEnumValue<SecurityBaselineComplianceState>("state", State);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SettingSource>("sourcePolicies", SourcePolicies);
+            writer.WriteEnumValue<ApiSdk.Models.SecurityBaselineComplianceState>("state", State);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>Indicates whether the class group display name should be set on create.</summary>
         public bool? WriteDisplayNameOnCreateOnly { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AdditionalClassGroupOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.AdditionalClassGroupOptions"/> and sets the default values.
         /// </summary>
         public AdditionalClassGroupOptions()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdditionalClassGroupOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.AdditionalClassGroupOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AdditionalClassGroupOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.AdditionalClassGroupOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdditionalClassGroupOptions();
+            return new ApiSdk.Models.IndustryData.AdditionalClassGroupOptions();
         }
         /// <summary>
         /// The deserialization information for the current model

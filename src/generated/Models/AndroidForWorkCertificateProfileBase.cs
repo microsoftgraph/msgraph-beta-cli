@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Android For Work certificate profile base.
     /// </summary>
-    public class AndroidForWorkCertificateProfileBase : DeviceConfiguration, IParsable
+    public class AndroidForWorkCertificateProfileBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Certificate Validity Period Options.</summary>
         public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodScale { get; set; }
@@ -18,27 +18,27 @@ namespace ApiSdk.Models
         /// <summary>Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
 #nullable restore
 #else
-        public List<ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
 #endif
         /// <summary>Certificate renewal threshold percentage. Valid values 1 to 99</summary>
         public int? RenewalThresholdPercentage { get; set; }
         /// <summary>Trusted Root Certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidForWorkTrustedRootCertificate? RootCertificate { get; set; }
+        public ApiSdk.Models.AndroidForWorkTrustedRootCertificate? RootCertificate { get; set; }
 #nullable restore
 #else
-        public AndroidForWorkTrustedRootCertificate RootCertificate { get; set; }
+        public ApiSdk.Models.AndroidForWorkTrustedRootCertificate RootCertificate { get; set; }
 #endif
         /// <summary>Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.</summary>
         public ApiSdk.Models.SubjectAlternativeNameType? SubjectAlternativeNameType { get; set; }
         /// <summary>Subject Name Format Options.</summary>
         public ApiSdk.Models.SubjectNameFormat? SubjectNameFormat { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkCertificateProfileBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidForWorkCertificateProfileBase"/> and sets the default values.
         /// </summary>
         public AndroidForWorkCertificateProfileBase() : base()
         {
@@ -47,17 +47,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkCertificateProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkCertificateProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkCertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkCertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.androidForWorkPkcsCertificateProfile" => new AndroidForWorkPkcsCertificateProfile(),
-                "#microsoft.graph.androidForWorkScepCertificateProfile" => new AndroidForWorkScepCertificateProfile(),
-                _ => new AndroidForWorkCertificateProfileBase(),
+                "#microsoft.graph.androidForWorkPkcsCertificateProfile" => new ApiSdk.Models.AndroidForWorkPkcsCertificateProfile(),
+                "#microsoft.graph.androidForWorkScepCertificateProfile" => new ApiSdk.Models.AndroidForWorkScepCertificateProfile(),
+                _ => new ApiSdk.Models.AndroidForWorkCertificateProfileBase(),
             };
         }
         /// <summary>
@@ -68,13 +68,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<AndroidForWorkTrustedRootCertificate>(AndroidForWorkTrustedRootCertificate.CreateFromDiscriminatorValue); } },
-                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<ApiSdk.Models.AndroidForWorkTrustedRootCertificate>(ApiSdk.Models.AndroidForWorkTrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<ApiSdk.Models.SubjectAlternativeNameType>(); } },
+                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<ApiSdk.Models.SubjectNameFormat>(); } },
             };
         }
         /// <summary>
@@ -85,13 +85,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
             writer.WriteIntValue("certificateValidityPeriodValue", CertificateValidityPeriodValue);
-            writer.WriteCollectionOfObjectValues<ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
             writer.WriteIntValue("renewalThresholdPercentage", RenewalThresholdPercentage);
-            writer.WriteObjectValue<AndroidForWorkTrustedRootCertificate>("rootCertificate", RootCertificate);
-            writer.WriteEnumValue<SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
-            writer.WriteEnumValue<SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidForWorkTrustedRootCertificate>("rootCertificate", RootCertificate);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
         }
     }
 }

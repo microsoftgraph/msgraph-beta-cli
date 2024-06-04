@@ -12,7 +12,7 @@ namespace ApiSdk.Models
     public class MacOsVppAppRevokeLicensesActionResult : IAdditionalDataHolder, IParsable
     {
         /// <summary>Possible types of reasons for an Apple Volume Purchase Program token action failure.</summary>
-        public VppTokenActionFailureReason? ActionFailureReason { get; set; }
+        public ApiSdk.Models.VppTokenActionFailureReason? ActionFailureReason { get; set; }
         /// <summary>Action name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOsVppAppRevokeLicensesActionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult"/> and sets the default values.
         /// </summary>
         public MacOsVppAppRevokeLicensesActionResult()
         {
@@ -67,12 +67,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOsVppAppRevokeLicensesActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MacOsVppAppRevokeLicensesActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOsVppAppRevokeLicensesActionResult();
+            return new ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actionFailureReason", n => { ActionFailureReason = n.GetEnumValue<VppTokenActionFailureReason>(); } },
+                { "actionFailureReason", n => { ActionFailureReason = n.GetEnumValue<ApiSdk.Models.VppTokenActionFailureReason>(); } },
                 { "actionName", n => { ActionName = n.GetStringValue(); } },
-                { "actionState", n => { ActionState = n.GetEnumValue<ActionState>(); } },
+                { "actionState", n => { ActionState = n.GetEnumValue<ApiSdk.Models.ActionState>(); } },
                 { "failedLicensesCount", n => { FailedLicensesCount = n.GetIntValue(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
@@ -101,9 +101,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<VppTokenActionFailureReason>("actionFailureReason", ActionFailureReason);
+            writer.WriteEnumValue<ApiSdk.Models.VppTokenActionFailureReason>("actionFailureReason", ActionFailureReason);
             writer.WriteStringValue("actionName", ActionName);
-            writer.WriteEnumValue<ActionState>("actionState", ActionState);
+            writer.WriteEnumValue<ApiSdk.Models.ActionState>("actionState", ActionState);
             writer.WriteIntValue("failedLicensesCount", FailedLicensesCount);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);

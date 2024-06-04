@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string TrackId { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreAppTrack"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidManagedStoreAppTrack"/> and sets the default values.
         /// </summary>
         public AndroidManagedStoreAppTrack()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreAppTrack"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreAppTrack"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidManagedStoreAppTrack CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidManagedStoreAppTrack CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedStoreAppTrack();
+            return new ApiSdk.Models.AndroidManagedStoreAppTrack();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The complianceState property</summary>
-        public ComplianceStatus? ComplianceState { get; set; }
+        public ApiSdk.Models.ComplianceStatus? ComplianceState { get; set; }
         /// <summary>Device Compliance PolicyId</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
         public string ManagedDeviceName { get; set; }
 #endif
         /// <summary>Management agent type.</summary>
-        public ManagementAgentType? ManagementAgent { get; set; }
+        public ApiSdk.Models.ManagementAgentType? ManagementAgent { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Owner type of device.</summary>
-        public ManagedDeviceOwnerType? OwnerType { get; set; }
+        public ApiSdk.Models.ManagedDeviceOwnerType? OwnerType { get; set; }
         /// <summary>Managed Device Retire After DateTime</summary>
         public DateTimeOffset? RetireAfterDateTime { get; set; }
         /// <summary>List of Scope Tags for this Entity instance.</summary>
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
         public List<string> RoleScopeTagIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RetireScheduledManagedDevice"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RetireScheduledManagedDevice"/> and sets the default values.
         /// </summary>
         public RetireScheduledManagedDevice()
         {
@@ -89,12 +89,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RetireScheduledManagedDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RetireScheduledManagedDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RetireScheduledManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.RetireScheduledManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RetireScheduledManagedDevice();
+            return new ApiSdk.Models.RetireScheduledManagedDevice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,16 +104,16 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "complianceState", n => { ComplianceState = n.GetEnumValue<ComplianceStatus>(); } },
+                { "complianceState", n => { ComplianceState = n.GetEnumValue<ApiSdk.Models.ComplianceStatus>(); } },
                 { "deviceCompliancePolicyId", n => { DeviceCompliancePolicyId = n.GetStringValue(); } },
                 { "deviceCompliancePolicyName", n => { DeviceCompliancePolicyName = n.GetStringValue(); } },
-                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<ApiSdk.Models.DeviceType>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
                 { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
-                { "managementAgent", n => { ManagementAgent = n.GetEnumValue<ManagementAgentType>(); } },
+                { "managementAgent", n => { ManagementAgent = n.GetEnumValue<ApiSdk.Models.ManagementAgentType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "ownerType", n => { OwnerType = n.GetEnumValue<ManagedDeviceOwnerType>(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<ApiSdk.Models.ManagedDeviceOwnerType>(); } },
                 { "retireAfterDateTime", n => { RetireAfterDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
@@ -125,16 +125,16 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ComplianceStatus>("complianceState", ComplianceState);
+            writer.WriteEnumValue<ApiSdk.Models.ComplianceStatus>("complianceState", ComplianceState);
             writer.WriteStringValue("deviceCompliancePolicyId", DeviceCompliancePolicyId);
             writer.WriteStringValue("deviceCompliancePolicyName", DeviceCompliancePolicyName);
-            writer.WriteEnumValue<DeviceType>("deviceType", DeviceType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceType>("deviceType", DeviceType);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
             writer.WriteStringValue("managedDeviceName", ManagedDeviceName);
-            writer.WriteEnumValue<ManagementAgentType>("managementAgent", ManagementAgent);
+            writer.WriteEnumValue<ApiSdk.Models.ManagementAgentType>("managementAgent", ManagementAgent);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ManagedDeviceOwnerType>("ownerType", OwnerType);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedDeviceOwnerType>("ownerType", OwnerType);
             writer.WriteDateTimeOffsetValue("retireAfterDateTime", RetireAfterDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteAdditionalData(AdditionalData);

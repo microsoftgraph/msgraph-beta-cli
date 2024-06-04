@@ -9,25 +9,25 @@ namespace ApiSdk.Models
     /// <summary>
     /// This entity contains the properties used to assign a windows feature update profile to a group.
     /// </summary>
-    public class WindowsFeatureUpdateProfileAssignment : Entity, IParsable
+    public class WindowsFeatureUpdateProfileAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The assignment target that the feature update profile is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget? Target { get; set; }
 #nullable restore
 #else
-        public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget Target { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsFeatureUpdateProfileAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsFeatureUpdateProfileAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsFeatureUpdateProfileAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsFeatureUpdateProfileAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsFeatureUpdateProfileAssignment();
+            return new ApiSdk.Models.WindowsFeatureUpdateProfileAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>(ApiSdk.Models.DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceAndAppManagementAssignmentTarget>("target", Target);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>("target", Target);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GenericError"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GenericError"/> and sets the default values.
         /// </summary>
         public GenericError()
         {
@@ -46,16 +46,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GenericError"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GenericError"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GenericError CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.GenericError CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.accessReviewError" => new AccessReviewError(),
-                _ => new GenericError(),
+                "#microsoft.graph.accessReviewError" => new ApiSdk.Models.AccessReviewError(),
+                _ => new ApiSdk.Models.GenericError(),
             };
         }
         /// <summary>

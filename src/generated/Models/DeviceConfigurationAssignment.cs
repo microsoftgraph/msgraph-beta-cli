@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// The device configuration assignment entity assigns an AAD group to a specific device configuration.
     /// </summary>
-    public class DeviceConfigurationAssignment : Entity, IParsable
+    public class DeviceConfigurationAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The admin intent to apply or remove the profile. Possible values are: apply, remove.</summary>
-        public DeviceConfigAssignmentIntent? Intent { get; set; }
+        public ApiSdk.Models.DeviceConfigAssignmentIntent? Intent { get; set; }
         /// <summary>Represents source of assignment.</summary>
-        public DeviceAndAppManagementAssignmentSource? Source { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentSource? Source { get; set; }
         /// <summary>The identifier of the source of the assignment. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,20 +26,20 @@ namespace ApiSdk.Models
         /// <summary>The assignment target for the device configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget? Target { get; set; }
 #nullable restore
 #else
-        public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget Target { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceConfigurationAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceConfigurationAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceConfigurationAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceConfigurationAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceConfigurationAssignment();
+            return new ApiSdk.Models.DeviceConfigurationAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,10 +49,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "intent", n => { Intent = n.GetEnumValue<DeviceConfigAssignmentIntent>(); } },
-                { "source", n => { Source = n.GetEnumValue<DeviceAndAppManagementAssignmentSource>(); } },
+                { "intent", n => { Intent = n.GetEnumValue<ApiSdk.Models.DeviceConfigAssignmentIntent>(); } },
+                { "source", n => { Source = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>(); } },
                 { "sourceId", n => { SourceId = n.GetStringValue(); } },
-                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>(ApiSdk.Models.DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,9 +63,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DeviceConfigAssignmentIntent>("intent", Intent);
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentSource>("source", Source);
-            writer.WriteObjectValue<DeviceAndAppManagementAssignmentTarget>("target", Target);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceConfigAssignmentIntent>("intent", Intent);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>("source", Source);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>("target", Target);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics device scope entity contains device scope configuration values use to apply filtering on the endpoint analytics reports.
     /// </summary>
-    public class UserExperienceAnalyticsDeviceScope : Entity, IParsable
+    public class UserExperienceAnalyticsDeviceScope : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the creation date and time for the custom device scope.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates the last updated date and time for the custom device scope.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.</summary>
-        public DeviceScopeOperator? Operator { get; set; }
+        public ApiSdk.Models.DeviceScopeOperator? Operator { get; set; }
         /// <summary>The unique identifier of the person (admin) who created the device scope configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,9 +38,9 @@ namespace ApiSdk.Models
         public string OwnerId { get; set; }
 #endif
         /// <summary>Device scope configuration parameter. It will be expend in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.</summary>
-        public DeviceScopeParameter? Parameter { get; set; }
+        public ApiSdk.Models.DeviceScopeParameter? Parameter { get; set; }
         /// <summary>Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.</summary>
-        public DeviceScopeStatus? Status { get; set; }
+        public ApiSdk.Models.DeviceScopeStatus? Status { get; set; }
         /// <summary>The device scope configuration query clause value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsDeviceScope"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsDeviceScope"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsDeviceScope CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsDeviceScope CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsDeviceScope();
+            return new ApiSdk.Models.UserExperienceAnalyticsDeviceScope();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,10 +80,10 @@ namespace ApiSdk.Models
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<DeviceScopeOperator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<ApiSdk.Models.DeviceScopeOperator>(); } },
                 { "ownerId", n => { OwnerId = n.GetStringValue(); } },
-                { "parameter", n => { Parameter = n.GetEnumValue<DeviceScopeParameter>(); } },
-                { "status", n => { Status = n.GetEnumValue<DeviceScopeStatus>(); } },
+                { "parameter", n => { Parameter = n.GetEnumValue<ApiSdk.Models.DeviceScopeParameter>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DeviceScopeStatus>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
                 { "valueObjectId", n => { ValueObjectId = n.GetStringValue(); } },
             };
@@ -101,10 +101,10 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("isBuiltIn", IsBuiltIn);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<DeviceScopeOperator>("operator", Operator);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceScopeOperator>("operator", Operator);
             writer.WriteStringValue("ownerId", OwnerId);
-            writer.WriteEnumValue<DeviceScopeParameter>("parameter", Parameter);
-            writer.WriteEnumValue<DeviceScopeStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceScopeParameter>("parameter", Parameter);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceScopeStatus>("status", Status);
             writer.WriteStringValue("value", Value);
             writer.WriteStringValue("valueObjectId", ValueObjectId);
         }

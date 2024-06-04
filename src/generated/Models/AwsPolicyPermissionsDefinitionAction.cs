@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsPolicyPermissionsDefinitionAction : AwsPermissionsDefinitionAction, IParsable
+    public class AwsPolicyPermissionsDefinitionAction : ApiSdk.Models.AwsPermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>ID for the role.</summary>
@@ -21,13 +21,13 @@ namespace ApiSdk.Models
         /// <summary>The policies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PermissionsDefinitionAwsPolicy>? Policies { get; set; }
+        public List<ApiSdk.Models.PermissionsDefinitionAwsPolicy>? Policies { get; set; }
 #nullable restore
 #else
-        public List<PermissionsDefinitionAwsPolicy> Policies { get; set; }
+        public List<ApiSdk.Models.PermissionsDefinitionAwsPolicy> Policies { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsPolicyPermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsPolicyPermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public AwsPolicyPermissionsDefinitionAction() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsPolicyPermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsPolicyPermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsPolicyPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsPolicyPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsPolicyPermissionsDefinitionAction();
+            return new ApiSdk.Models.AwsPolicyPermissionsDefinitionAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignToRoleId", n => { AssignToRoleId = n.GetStringValue(); } },
-                { "policies", n => { Policies = n.GetCollectionOfObjectValues<PermissionsDefinitionAwsPolicy>(PermissionsDefinitionAwsPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<ApiSdk.Models.PermissionsDefinitionAwsPolicy>(ApiSdk.Models.PermissionsDefinitionAwsPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("assignToRoleId", AssignToRoleId);
-            writer.WriteCollectionOfObjectValues<PermissionsDefinitionAwsPolicy>("policies", Policies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PermissionsDefinitionAwsPolicy>("policies", Policies);
         }
     }
 }

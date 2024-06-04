@@ -26,13 +26,13 @@ namespace ApiSdk.Models
         /// <summary>Object containing detailed information about the error and its remediation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementTroubleshootingErrorDetails? TroubleshootingErrorDetails { get; set; }
+        public ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails? TroubleshootingErrorDetails { get; set; }
 #nullable restore
 #else
-        public DeviceManagementTroubleshootingErrorDetails TroubleshootingErrorDetails { get; set; }
+        public ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails TroubleshootingErrorDetails { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MobileAppTroubleshootingHistoryItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MobileAppTroubleshootingHistoryItem"/> and sets the default values.
         /// </summary>
         public MobileAppTroubleshootingHistoryItem()
         {
@@ -41,20 +41,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppTroubleshootingHistoryItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppTroubleshootingHistoryItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MobileAppTroubleshootingHistoryItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MobileAppTroubleshootingHistoryItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.mobileAppTroubleshootingAppPolicyCreationHistory" => new MobileAppTroubleshootingAppPolicyCreationHistory(),
-                "#microsoft.graph.mobileAppTroubleshootingAppStateHistory" => new MobileAppTroubleshootingAppStateHistory(),
-                "#microsoft.graph.mobileAppTroubleshootingAppTargetHistory" => new MobileAppTroubleshootingAppTargetHistory(),
-                "#microsoft.graph.mobileAppTroubleshootingAppUpdateHistory" => new MobileAppTroubleshootingAppUpdateHistory(),
-                "#microsoft.graph.mobileAppTroubleshootingDeviceCheckinHistory" => new MobileAppTroubleshootingDeviceCheckinHistory(),
-                _ => new MobileAppTroubleshootingHistoryItem(),
+                "#microsoft.graph.mobileAppTroubleshootingAppPolicyCreationHistory" => new ApiSdk.Models.MobileAppTroubleshootingAppPolicyCreationHistory(),
+                "#microsoft.graph.mobileAppTroubleshootingAppStateHistory" => new ApiSdk.Models.MobileAppTroubleshootingAppStateHistory(),
+                "#microsoft.graph.mobileAppTroubleshootingAppTargetHistory" => new ApiSdk.Models.MobileAppTroubleshootingAppTargetHistory(),
+                "#microsoft.graph.mobileAppTroubleshootingAppUpdateHistory" => new ApiSdk.Models.MobileAppTroubleshootingAppUpdateHistory(),
+                "#microsoft.graph.mobileAppTroubleshootingDeviceCheckinHistory" => new ApiSdk.Models.MobileAppTroubleshootingDeviceCheckinHistory(),
+                _ => new ApiSdk.Models.MobileAppTroubleshootingHistoryItem(),
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             {
                 { "occurrenceDateTime", n => { OccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "troubleshootingErrorDetails", n => { TroubleshootingErrorDetails = n.GetObjectValue<DeviceManagementTroubleshootingErrorDetails>(DeviceManagementTroubleshootingErrorDetails.CreateFromDiscriminatorValue); } },
+                { "troubleshootingErrorDetails", n => { TroubleshootingErrorDetails = n.GetObjectValue<ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails>(ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("occurrenceDateTime", OccurrenceDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<DeviceManagementTroubleshootingErrorDetails>("troubleshootingErrorDetails", TroubleshootingErrorDetails);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails>("troubleshootingErrorDetails", TroubleshootingErrorDetails);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -94,7 +94,7 @@ namespace ApiSdk.Models
         public string PublisherName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ElevationRequestApplicationDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ElevationRequestApplicationDetail"/> and sets the default values.
         /// </summary>
         public ElevationRequestApplicationDetail()
         {
@@ -103,12 +103,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ElevationRequestApplicationDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ElevationRequestApplicationDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ElevationRequestApplicationDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ElevationRequestApplicationDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ElevationRequestApplicationDetail();
+            return new ApiSdk.Models.ElevationRequestApplicationDetail();
         }
         /// <summary>
         /// The deserialization information for the current model

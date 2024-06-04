@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// Choice Setting Collection Instance Template
     /// </summary>
-    public class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate : DeviceManagementConfigurationSettingInstanceTemplate, IParsable
+    public class DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate : ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate, IParsable
     {
         /// <summary>Linked policy may append values which are not present in the template.</summary>
         public bool? AllowUnmanagedValues { get; set; }
         /// <summary>Choice Setting Collection Value Template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationChoiceSettingValueTemplate>? ChoiceSettingCollectionValueTemplate { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate>? ChoiceSettingCollectionValueTemplate { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationChoiceSettingValueTemplate> ChoiceSettingCollectionValueTemplate { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate> ChoiceSettingCollectionValueTemplate { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "allowUnmanagedValues", n => { AllowUnmanagedValues = n.GetBoolValue(); } },
-                { "choiceSettingCollectionValueTemplate", n => { ChoiceSettingCollectionValueTemplate = n.GetCollectionOfObjectValues<DeviceManagementConfigurationChoiceSettingValueTemplate>(DeviceManagementConfigurationChoiceSettingValueTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "choiceSettingCollectionValueTemplate", n => { ChoiceSettingCollectionValueTemplate = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate>(ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("allowUnmanagedValues", AllowUnmanagedValues);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationChoiceSettingValueTemplate>("choiceSettingCollectionValueTemplate", ChoiceSettingCollectionValueTemplate);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate>("choiceSettingCollectionValueTemplate", ChoiceSettingCollectionValueTemplate);
         }
     }
 }

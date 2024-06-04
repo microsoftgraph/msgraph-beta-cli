@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomSecurityAttributeAudit : Entity, IParsable
+    public class CustomSecurityAttributeAudit : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityDateTime property</summary>
@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The additionalDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? AdditionalDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue>? AdditionalDetails { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> AdditionalDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue> AdditionalDetails { get; set; }
 #endif
         /// <summary>The category property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace ApiSdk.Models
         /// <summary>The initiatedBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuditActivityInitiator? InitiatedBy { get; set; }
+        public ApiSdk.Models.AuditActivityInitiator? InitiatedBy { get; set; }
 #nullable restore
 #else
-        public AuditActivityInitiator InitiatedBy { get; set; }
+        public ApiSdk.Models.AuditActivityInitiator InitiatedBy { get; set; }
 #endif
         /// <summary>The loggedByService property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         public string OperationType { get; set; }
 #endif
         /// <summary>The result property</summary>
-        public OperationResult? Result { get; set; }
+        public ApiSdk.Models.OperationResult? Result { get; set; }
         /// <summary>The resultReason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,10 +81,10 @@ namespace ApiSdk.Models
         /// <summary>The targetResources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TargetResource>? TargetResources { get; set; }
+        public List<ApiSdk.Models.TargetResource>? TargetResources { get; set; }
 #nullable restore
 #else
-        public List<TargetResource> TargetResources { get; set; }
+        public List<ApiSdk.Models.TargetResource> TargetResources { get; set; }
 #endif
         /// <summary>The userAgent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,12 +97,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomSecurityAttributeAudit"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomSecurityAttributeAudit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomSecurityAttributeAudit CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomSecurityAttributeAudit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomSecurityAttributeAudit();
+            return new ApiSdk.Models.CustomSecurityAttributeAudit();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,15 +114,15 @@ namespace ApiSdk.Models
             {
                 { "activityDateTime", n => { ActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 { "activityDisplayName", n => { ActivityDisplayName = n.GetStringValue(); } },
-                { "additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "category", n => { Category = n.GetStringValue(); } },
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
-                { "initiatedBy", n => { InitiatedBy = n.GetObjectValue<AuditActivityInitiator>(AuditActivityInitiator.CreateFromDiscriminatorValue); } },
+                { "initiatedBy", n => { InitiatedBy = n.GetObjectValue<ApiSdk.Models.AuditActivityInitiator>(ApiSdk.Models.AuditActivityInitiator.CreateFromDiscriminatorValue); } },
                 { "loggedByService", n => { LoggedByService = n.GetStringValue(); } },
                 { "operationType", n => { OperationType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<OperationResult>(); } },
+                { "result", n => { Result = n.GetEnumValue<ApiSdk.Models.OperationResult>(); } },
                 { "resultReason", n => { ResultReason = n.GetStringValue(); } },
-                { "targetResources", n => { TargetResources = n.GetCollectionOfObjectValues<TargetResource>(TargetResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "targetResources", n => { TargetResources = n.GetCollectionOfObjectValues<ApiSdk.Models.TargetResource>(ApiSdk.Models.TargetResource.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "userAgent", n => { UserAgent = n.GetStringValue(); } },
             };
         }
@@ -136,15 +136,15 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("activityDateTime", ActivityDateTime);
             writer.WriteStringValue("activityDisplayName", ActivityDisplayName);
-            writer.WriteCollectionOfObjectValues<KeyValue>("additionalDetails", AdditionalDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("additionalDetails", AdditionalDetails);
             writer.WriteStringValue("category", Category);
             writer.WriteStringValue("correlationId", CorrelationId);
-            writer.WriteObjectValue<AuditActivityInitiator>("initiatedBy", InitiatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.AuditActivityInitiator>("initiatedBy", InitiatedBy);
             writer.WriteStringValue("loggedByService", LoggedByService);
             writer.WriteStringValue("operationType", OperationType);
-            writer.WriteEnumValue<OperationResult>("result", Result);
+            writer.WriteEnumValue<ApiSdk.Models.OperationResult>("result", Result);
             writer.WriteStringValue("resultReason", ResultReason);
-            writer.WriteCollectionOfObjectValues<TargetResource>("targetResources", TargetResources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TargetResource>("targetResources", TargetResources);
             writer.WriteStringValue("userAgent", UserAgent);
         }
     }

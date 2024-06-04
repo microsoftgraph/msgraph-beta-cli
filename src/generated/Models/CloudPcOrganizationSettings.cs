@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcOrganizationSettings : Entity, IParsable
+    public class CloudPcOrganizationSettings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.</summary>
@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn&apos;t support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Microsoft Entra ID with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.</summary>
         public bool? EnableSingleSignOn { get; set; }
         /// <summary>The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.</summary>
-        public CloudPcOperatingSystem? OsVersion { get; set; }
+        public ApiSdk.Models.CloudPcOperatingSystem? OsVersion { get; set; }
         /// <summary>The account type of the user on provisioned Cloud PCs. The possible values are: standardUser, administrator, unknownFutureValue.</summary>
-        public CloudPcUserAccountType? UserAccountType { get; set; }
+        public ApiSdk.Models.CloudPcUserAccountType? UserAccountType { get; set; }
         /// <summary>Represents the Cloud PC organization settings for a tenant. A tenant has only one cloudPcOrganizationSettings object. The default language value en-US.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcWindowsSettings? WindowsSettings { get; set; }
+        public ApiSdk.Models.CloudPcWindowsSettings? WindowsSettings { get; set; }
 #nullable restore
 #else
-        public CloudPcWindowsSettings WindowsSettings { get; set; }
+        public ApiSdk.Models.CloudPcWindowsSettings WindowsSettings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcOrganizationSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcOrganizationSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcOrganizationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcOrganizationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcOrganizationSettings();
+            return new ApiSdk.Models.CloudPcOrganizationSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,9 +46,9 @@ namespace ApiSdk.Models
             {
                 { "enableMEMAutoEnroll", n => { EnableMEMAutoEnroll = n.GetBoolValue(); } },
                 { "enableSingleSignOn", n => { EnableSingleSignOn = n.GetBoolValue(); } },
-                { "osVersion", n => { OsVersion = n.GetEnumValue<CloudPcOperatingSystem>(); } },
-                { "userAccountType", n => { UserAccountType = n.GetEnumValue<CloudPcUserAccountType>(); } },
-                { "windowsSettings", n => { WindowsSettings = n.GetObjectValue<CloudPcWindowsSettings>(CloudPcWindowsSettings.CreateFromDiscriminatorValue); } },
+                { "osVersion", n => { OsVersion = n.GetEnumValue<ApiSdk.Models.CloudPcOperatingSystem>(); } },
+                { "userAccountType", n => { UserAccountType = n.GetEnumValue<ApiSdk.Models.CloudPcUserAccountType>(); } },
+                { "windowsSettings", n => { WindowsSettings = n.GetObjectValue<ApiSdk.Models.CloudPcWindowsSettings>(ApiSdk.Models.CloudPcWindowsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteBoolValue("enableMEMAutoEnroll", EnableMEMAutoEnroll);
             writer.WriteBoolValue("enableSingleSignOn", EnableSingleSignOn);
-            writer.WriteEnumValue<CloudPcOperatingSystem>("osVersion", OsVersion);
-            writer.WriteEnumValue<CloudPcUserAccountType>("userAccountType", UserAccountType);
-            writer.WriteObjectValue<CloudPcWindowsSettings>("windowsSettings", WindowsSettings);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOperatingSystem>("osVersion", OsVersion);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcUserAccountType>("userAccountType", UserAccountType);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcWindowsSettings>("windowsSettings", WindowsSettings);
         }
     }
 }

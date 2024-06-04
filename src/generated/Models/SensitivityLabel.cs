@@ -7,20 +7,20 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SensitivityLabel : Entity, IParsable
+    public class SensitivityLabel : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicableTo property</summary>
-        public SensitivityLabelTarget? ApplicableTo { get; set; }
+        public ApiSdk.Models.SensitivityLabelTarget? ApplicableTo { get; set; }
         /// <summary>The applicationMode property</summary>
         public ApiSdk.Models.ApplicationMode? ApplicationMode { get; set; }
         /// <summary>The assignedPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LabelPolicy>? AssignedPolicies { get; set; }
+        public List<ApiSdk.Models.LabelPolicy>? AssignedPolicies { get; set; }
 #nullable restore
 #else
-        public List<LabelPolicy> AssignedPolicies { get; set; }
+        public List<ApiSdk.Models.LabelPolicy> AssignedPolicies { get; set; }
 #endif
         /// <summary>The autoLabeling property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,10 +53,10 @@ namespace ApiSdk.Models
         /// <summary>The labelActions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LabelActionBase>? LabelActions { get; set; }
+        public List<ApiSdk.Models.LabelActionBase>? LabelActions { get; set; }
 #nullable restore
 #else
-        public List<LabelActionBase> LabelActions { get; set; }
+        public List<ApiSdk.Models.LabelActionBase> LabelActions { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,10 +71,10 @@ namespace ApiSdk.Models
         /// <summary>The sublabels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitivityLabel>? Sublabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel>? Sublabels { get; set; }
 #nullable restore
 #else
-        public List<SensitivityLabel> Sublabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel> Sublabels { get; set; }
 #endif
         /// <summary>The toolTip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,12 +87,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SensitivityLabel"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SensitivityLabel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SensitivityLabel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SensitivityLabel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SensitivityLabel();
+            return new ApiSdk.Models.SensitivityLabel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,18 +102,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
-                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApplicationMode>(); } },
-                { "assignedPolicies", n => { AssignedPolicies = n.GetCollectionOfObjectValues<LabelPolicy>(LabelPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<ApiSdk.Models.SensitivityLabelTarget>(); } },
+                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApiSdk.Models.ApplicationMode>(); } },
+                { "assignedPolicies", n => { AssignedPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.LabelPolicy>(ApiSdk.Models.LabelPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "autoLabeling", n => { AutoLabeling = n.GetObjectValue<ApiSdk.Models.AutoLabeling>(ApiSdk.Models.AutoLabeling.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
                 { "isEndpointProtectionEnabled", n => { IsEndpointProtectionEnabled = n.GetBoolValue(); } },
-                { "labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<LabelActionBase>(LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<ApiSdk.Models.LabelActionBase>(ApiSdk.Models.LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
-                { "sublabels", n => { Sublabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sublabels", n => { Sublabels = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>(ApiSdk.Models.SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "toolTip", n => { ToolTip = n.GetStringValue(); } },
             };
         }
@@ -125,18 +125,18 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<SensitivityLabelTarget>("applicableTo", ApplicableTo);
-            writer.WriteEnumValue<ApplicationMode>("applicationMode", ApplicationMode);
-            writer.WriteCollectionOfObjectValues<LabelPolicy>("assignedPolicies", AssignedPolicies);
+            writer.WriteEnumValue<ApiSdk.Models.SensitivityLabelTarget>("applicableTo", ApplicableTo);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationMode>("applicationMode", ApplicationMode);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LabelPolicy>("assignedPolicies", AssignedPolicies);
             writer.WriteObjectValue<ApiSdk.Models.AutoLabeling>("autoLabeling", AutoLabeling);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isDefault", IsDefault);
             writer.WriteBoolValue("isEndpointProtectionEnabled", IsEndpointProtectionEnabled);
-            writer.WriteCollectionOfObjectValues<LabelActionBase>("labelActions", LabelActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LabelActionBase>("labelActions", LabelActions);
             writer.WriteStringValue("name", Name);
             writer.WriteIntValue("priority", Priority);
-            writer.WriteCollectionOfObjectValues<SensitivityLabel>("sublabels", Sublabels);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>("sublabels", Sublabels);
             writer.WriteStringValue("toolTip", ToolTip);
         }
     }

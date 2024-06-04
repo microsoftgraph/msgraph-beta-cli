@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Flag enum representing the allowed macOS system extension types.</summary>
-        public MacOSSystemExtensionType? AllowedTypes { get; set; }
+        public ApiSdk.Models.MacOSSystemExtensionType? AllowedTypes { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string TeamIdentifier { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSSystemExtensionTypeMapping"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSSystemExtensionTypeMapping"/> and sets the default values.
         /// </summary>
         public MacOSSystemExtensionTypeMapping()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSSystemExtensionTypeMapping"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSSystemExtensionTypeMapping"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MacOSSystemExtensionTypeMapping CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MacOSSystemExtensionTypeMapping CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSSystemExtensionTypeMapping();
+            return new ApiSdk.Models.MacOSSystemExtensionTypeMapping();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowedTypes", n => { AllowedTypes = n.GetEnumValue<MacOSSystemExtensionType>(); } },
+                { "allowedTypes", n => { AllowedTypes = n.GetEnumValue<ApiSdk.Models.MacOSSystemExtensionType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "teamIdentifier", n => { TeamIdentifier = n.GetStringValue(); } },
             };
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<MacOSSystemExtensionType>("allowedTypes", AllowedTypes);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSystemExtensionType>("allowedTypes", AllowedTypes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("teamIdentifier", TeamIdentifier);
             writer.WriteAdditionalData(AdditionalData);

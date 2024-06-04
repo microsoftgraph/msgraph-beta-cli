@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The security baseline compliance state summary of the security baseline for a device.
     /// </summary>
-    public class SecurityBaselineDeviceState : Entity, IParsable
+    public class SecurityBaselineDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Display name of the device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string ManagedDeviceId { get; set; }
 #endif
         /// <summary>Security Baseline Compliance State</summary>
-        public SecurityBaselineComplianceState? State { get; set; }
+        public ApiSdk.Models.SecurityBaselineComplianceState? State { get; set; }
         /// <summary>User Principal Name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityBaselineDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityBaselineDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityBaselineDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecurityBaselineDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityBaselineDeviceState();
+            return new ApiSdk.Models.SecurityBaselineDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
                 { "deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
                 { "lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<SecurityBaselineComplianceState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.SecurityBaselineComplianceState>(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceDisplayName", DeviceDisplayName);
             writer.WriteDateTimeOffsetValue("lastReportedDateTime", LastReportedDateTime);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
-            writer.WriteEnumValue<SecurityBaselineComplianceState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.SecurityBaselineComplianceState>("state", State);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }
     }

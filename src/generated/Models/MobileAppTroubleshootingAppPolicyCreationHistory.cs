@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// History Item contained in the Mobile App Troubleshooting Event.
     /// </summary>
-    public class MobileAppTroubleshootingAppPolicyCreationHistory : MobileAppTroubleshootingHistoryItem, IParsable
+    public class MobileAppTroubleshootingAppPolicyCreationHistory : ApiSdk.Models.MobileAppTroubleshootingHistoryItem, IParsable
     {
         /// <summary>Error code for the failure, empty if no failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppTroubleshootingAppPolicyCreationHistory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppTroubleshootingAppPolicyCreationHistory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppTroubleshootingAppPolicyCreationHistory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppTroubleshootingAppPolicyCreationHistory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppTroubleshootingAppPolicyCreationHistory();
+            return new ApiSdk.Models.MobileAppTroubleshootingAppPolicyCreationHistory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,7 +40,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "runState", n => { RunState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("errorCode", ErrorCode);
-            writer.WriteEnumValue<RunState>("runState", RunState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("runState", RunState);
         }
     }
 }

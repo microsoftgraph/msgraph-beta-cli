@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AddHeader : MarkContent, IParsable
+    public class AddHeader : ApiSdk.Models.MarkContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The alignment property</summary>
@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>The margin property</summary>
         public int? Margin { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AddHeader"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AddHeader"/> and sets the default values.
         /// </summary>
         public AddHeader() : base()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddHeader"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AddHeader"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AddHeader CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AddHeader CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddHeader();
+            return new ApiSdk.Models.AddHeader();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alignment", n => { Alignment = n.GetEnumValue<Alignment>(); } },
+                { "alignment", n => { Alignment = n.GetEnumValue<ApiSdk.Models.Alignment>(); } },
                 { "margin", n => { Margin = n.GetIntValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Alignment>("alignment", Alignment);
+            writer.WriteEnumValue<ApiSdk.Models.Alignment>("alignment", Alignment);
             writer.WriteIntValue("margin", Margin);
         }
     }

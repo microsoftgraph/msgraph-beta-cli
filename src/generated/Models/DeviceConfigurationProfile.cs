@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The listing service profile entity contains the meta data of an Intune configuration profile 
     /// </summary>
-    public class DeviceConfigurationProfile : Entity, IParsable
+    public class DeviceConfigurationProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Account Id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceConfigurationProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceConfigurationProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceConfigurationProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceConfigurationProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceConfigurationProfile();
+            return new ApiSdk.Models.DeviceConfigurationProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,9 +75,9 @@ namespace ApiSdk.Models
                 { "configurationTechnologies", n => { ConfigurationTechnologies = n.GetIntValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "platformType", n => { PlatformType = n.GetEnumValue<PlatformType>(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.PlatformType>(); } },
                 { "profileName", n => { ProfileName = n.GetStringValue(); } },
-                { "profileType", n => { ProfileType = n.GetEnumValue<ProfileType>(); } },
+                { "profileType", n => { ProfileType = n.GetEnumValue<ApiSdk.Models.ProfileType>(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
@@ -94,9 +94,9 @@ namespace ApiSdk.Models
             writer.WriteIntValue("configurationTechnologies", ConfigurationTechnologies);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<PlatformType>("platformType", PlatformType);
+            writer.WriteEnumValue<ApiSdk.Models.PlatformType>("platformType", PlatformType);
             writer.WriteStringValue("profileName", ProfileName);
-            writer.WriteEnumValue<ProfileType>("profileType", ProfileType);
+            writer.WriteEnumValue<ApiSdk.Models.ProfileType>("profileType", ProfileType);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteStringValue("templateId", TemplateId);
         }

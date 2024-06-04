@@ -59,7 +59,7 @@ namespace ApiSdk.EmployeeExperience.Goals
         {
             var command = new Command("export-jobs");
             command.Description = "Provides operations to manage the exportJobs property of the microsoft.graph.goals entity.";
-            var builder = new ExportJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.EmployeeExperience.Goals.ExportJobs.ExportJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -170,14 +170,14 @@ namespace ApiSdk.EmployeeExperience.Goals
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GoalsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.EmployeeExperience.Goals.GoalsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GoalsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/employeeExperience/goals{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GoalsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.EmployeeExperience.Goals.GoalsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GoalsRequestBuilder(string rawUrl) : base("{+baseurl}/employeeExperience/goals{?%24expand,%24select}", rawUrl)
@@ -209,11 +209,11 @@ namespace ApiSdk.EmployeeExperience.Goals
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GoalsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.EmployeeExperience.Goals.GoalsRequestBuilder.GoalsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GoalsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.EmployeeExperience.Goals.GoalsRequestBuilder.GoalsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

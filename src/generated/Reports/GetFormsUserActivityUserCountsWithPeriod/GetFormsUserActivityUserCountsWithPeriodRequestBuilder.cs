@@ -61,14 +61,14 @@ namespace ApiSdk.Reports.GetFormsUserActivityUserCountsWithPeriod
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetFormsUserActivityUserCountsWithPeriodRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.GetFormsUserActivityUserCountsWithPeriod.GetFormsUserActivityUserCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetFormsUserActivityUserCountsWithPeriodRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/getFormsUserActivityUserCounts(period='{period}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetFormsUserActivityUserCountsWithPeriodRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.GetFormsUserActivityUserCountsWithPeriod.GetFormsUserActivityUserCountsWithPeriodRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetFormsUserActivityUserCountsWithPeriodRequestBuilder(string rawUrl) : base("{+baseurl}/reports/getFormsUserActivityUserCounts(period='{period}')", rawUrl)

@@ -15,10 +15,10 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Returns the tags that are a child of a tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Tag>? ChildTags { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag>? ChildTags { get; set; }
 #nullable restore
 #else
-        public List<Tag> ChildTags { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag> ChildTags { get; set; }
 #endif
         /// <summary>The user who created the tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,20 +49,20 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Returns the parent tag of the specified tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Tag? Parent { get; set; }
+        public ApiSdk.Models.Ediscovery.Tag? Parent { get; set; }
 #nullable restore
 #else
-        public Tag Parent { get; set; }
+        public ApiSdk.Models.Ediscovery.Tag Parent { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Tag"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.Tag"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Tag CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.Tag CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Tag();
+            return new ApiSdk.Models.Ediscovery.Tag();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,13 +72,13 @@ namespace ApiSdk.Models.Ediscovery
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "childSelectability", n => { ChildSelectability = n.GetEnumValue<ChildSelectability>(); } },
-                { "childTags", n => { ChildTags = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "childSelectability", n => { ChildSelectability = n.GetEnumValue<ApiSdk.Models.Ediscovery.ChildSelectability>(); } },
+                { "childTags", n => { ChildTags = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>(ApiSdk.Models.Ediscovery.Tag.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<Tag>(Tag.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.Ediscovery.Tag>(ApiSdk.Models.Ediscovery.Tag.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,13 +89,13 @@ namespace ApiSdk.Models.Ediscovery
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ChildSelectability>("childSelectability", ChildSelectability);
-            writer.WriteCollectionOfObjectValues<Tag>("childTags", ChildTags);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.ChildSelectability>("childSelectability", ChildSelectability);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>("childTags", ChildTags);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<Tag>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.Tag>("parent", Parent);
         }
     }
 }

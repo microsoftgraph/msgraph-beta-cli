@@ -13,18 +13,18 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Specifies the audience to which content is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeploymentAudience? Audience { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentAudience? Audience { get; set; }
 #nullable restore
 #else
-        public DeploymentAudience Audience { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentAudience Audience { get; set; }
 #endif
         /// <summary>Specifies what content to deploy. Cannot be changed. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeployableContent? Content { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeployableContent? Content { get; set; }
 #nullable restore
 #else
-        public DeployableContent Content { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeployableContent Content { get; set; }
 #endif
         /// <summary>The date and time the deployment was created. Returned by default. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -33,28 +33,28 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Settings specified on the specific deployment governing how to deploy content. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeploymentSettings? Settings { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentSettings? Settings { get; set; }
 #nullable restore
 #else
-        public DeploymentSettings Settings { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentSettings Settings { get; set; }
 #endif
         /// <summary>Execution status of the deployment. Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeploymentState? State { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentState? State { get; set; }
 #nullable restore
 #else
-        public DeploymentState State { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentState State { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Deployment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.Deployment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Deployment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.Deployment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Deployment();
+            return new ApiSdk.Models.WindowsUpdates.Deployment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,12 +64,12 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "audience", n => { Audience = n.GetObjectValue<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue); } },
-                { "content", n => { Content = n.GetObjectValue<DeployableContent>(DeployableContent.CreateFromDiscriminatorValue); } },
+                { "audience", n => { Audience = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentAudience>(ApiSdk.Models.WindowsUpdates.DeploymentAudience.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeployableContent>(ApiSdk.Models.WindowsUpdates.DeployableContent.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "settings", n => { Settings = n.GetObjectValue<DeploymentSettings>(DeploymentSettings.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetObjectValue<DeploymentState>(DeploymentState.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentState>(ApiSdk.Models.WindowsUpdates.DeploymentState.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -80,12 +80,12 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeploymentAudience>("audience", Audience);
-            writer.WriteObjectValue<DeployableContent>("content", Content);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentAudience>("audience", Audience);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeployableContent>("content", Content);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<DeploymentSettings>("settings", Settings);
-            writer.WriteObjectValue<DeploymentState>("state", State);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>("settings", Settings);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentState>("state", State);
         }
     }
 }

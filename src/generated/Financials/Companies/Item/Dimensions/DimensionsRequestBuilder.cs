@@ -31,7 +31,7 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new DimensionItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Dimensions.Item.DimensionItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildDimensionValuesNavCommand());
             executables.Add(builder.BuildGetCommand());
             return new(executables, commands);
@@ -44,7 +44,7 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Dimensions.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -156,14 +156,14 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DimensionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.Dimensions.DimensionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DimensionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/dimensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DimensionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.Dimensions.DimensionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DimensionsRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/dimensions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -176,11 +176,11 @@ namespace ApiSdk.Financials.Companies.Item.Dimensions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DimensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.Dimensions.DimensionsRequestBuilder.DimensionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DimensionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.Dimensions.DimensionsRequestBuilder.DimensionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

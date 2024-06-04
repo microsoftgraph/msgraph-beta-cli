@@ -96,14 +96,14 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceMa
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/monitoring/alertRecords/microsoft.graph.deviceManagement.getPortalNotifications(){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/monitoring/alertRecords/microsoft.graph.deviceManagement.getPortalNotifications(){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -116,11 +116,11 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceMa
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilder.MicrosoftGraphDeviceManagementGetPortalNotificationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

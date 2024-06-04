@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ValueBasedAttribute : CustomClaimAttributeBase, IParsable
+    public class ValueBasedAttribute : ApiSdk.Models.CustomClaimAttributeBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The static value to be used an the attribute.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ValueBasedAttribute"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ValueBasedAttribute"/> and sets the default values.
         /// </summary>
         public ValueBasedAttribute() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValueBasedAttribute"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ValueBasedAttribute"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ValueBasedAttribute CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ValueBasedAttribute CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ValueBasedAttribute();
+            return new ApiSdk.Models.ValueBasedAttribute();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -23,9 +23,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The tenantDiskEncryptionType property</summary>
-        public CloudPcDiskEncryptionType? TenantDiskEncryptionType { get; set; }
+        public ApiSdk.Models.CloudPcDiskEncryptionType? TenantDiskEncryptionType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcTenantEncryptionSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcTenantEncryptionSetting"/> and sets the default values.
         /// </summary>
         public CloudPcTenantEncryptionSetting()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcTenantEncryptionSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcTenantEncryptionSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcTenantEncryptionSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcTenantEncryptionSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcTenantEncryptionSetting();
+            return new ApiSdk.Models.CloudPcTenantEncryptionSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
             {
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "tenantDiskEncryptionType", n => { TenantDiskEncryptionType = n.GetEnumValue<CloudPcDiskEncryptionType>(); } },
+                { "tenantDiskEncryptionType", n => { TenantDiskEncryptionType = n.GetEnumValue<ApiSdk.Models.CloudPcDiskEncryptionType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CloudPcDiskEncryptionType>("tenantDiskEncryptionType", TenantDiskEncryptionType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcDiskEncryptionType>("tenantDiskEncryptionType", TenantDiskEncryptionType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

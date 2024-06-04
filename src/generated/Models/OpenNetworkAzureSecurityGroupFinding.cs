@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OpenNetworkAzureSecurityGroupFinding : Finding, IParsable
+    public class OpenNetworkAzureSecurityGroupFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The inboundPorts property</summary>
@@ -21,28 +21,28 @@ namespace ApiSdk.Models
         /// <summary>The securityGroup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemResource? SecurityGroup { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource? SecurityGroup { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemResource SecurityGroup { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource SecurityGroup { get; set; }
 #endif
         /// <summary>Represents a virtual machine in an authorization system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualMachineDetails>? VirtualMachines { get; set; }
+        public List<ApiSdk.Models.VirtualMachineDetails>? VirtualMachines { get; set; }
 #nullable restore
 #else
-        public List<VirtualMachineDetails> VirtualMachines { get; set; }
+        public List<ApiSdk.Models.VirtualMachineDetails> VirtualMachines { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OpenNetworkAzureSecurityGroupFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OpenNetworkAzureSecurityGroupFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OpenNetworkAzureSecurityGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OpenNetworkAzureSecurityGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OpenNetworkAzureSecurityGroupFinding();
+            return new ApiSdk.Models.OpenNetworkAzureSecurityGroupFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
-                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
-                { "virtualMachines", n => { VirtualMachines = n.GetCollectionOfObjectValues<VirtualMachineDetails>(VirtualMachineDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemResource>(ApiSdk.Models.AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "virtualMachines", n => { VirtualMachines = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualMachineDetails>(ApiSdk.Models.VirtualMachineDetails.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.InboundPorts>("inboundPorts", InboundPorts);
-            writer.WriteObjectValue<AuthorizationSystemResource>("securityGroup", SecurityGroup);
-            writer.WriteCollectionOfObjectValues<VirtualMachineDetails>("virtualMachines", VirtualMachines);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemResource>("securityGroup", SecurityGroup);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualMachineDetails>("virtualMachines", VirtualMachines);
         }
     }
 }

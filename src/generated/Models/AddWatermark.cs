@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AddWatermark : MarkContent, IParsable
+    public class AddWatermark : ApiSdk.Models.MarkContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The orientation property</summary>
-        public PageOrientation? Orientation { get; set; }
+        public ApiSdk.Models.PageOrientation? Orientation { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AddWatermark"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AddWatermark"/> and sets the default values.
         /// </summary>
         public AddWatermark() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddWatermark"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AddWatermark"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AddWatermark CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AddWatermark CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddWatermark();
+            return new ApiSdk.Models.AddWatermark();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "orientation", n => { Orientation = n.GetEnumValue<PageOrientation>(); } },
+                { "orientation", n => { Orientation = n.GetEnumValue<ApiSdk.Models.PageOrientation>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<PageOrientation>("orientation", Orientation);
+            writer.WriteEnumValue<ApiSdk.Models.PageOrientation>("orientation", Orientation);
         }
     }
 }

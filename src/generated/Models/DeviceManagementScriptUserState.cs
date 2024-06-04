@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for user run state of the device management script.
     /// </summary>
-    public class DeviceManagementScriptUserState : Entity, IParsable
+    public class DeviceManagementScriptUserState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>List of run states for this script across all devices of specific user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptDeviceState>? DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptDeviceState>? DeviceRunStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptDeviceState> DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptDeviceState> DeviceRunStates { get; set; }
 #endif
         /// <summary>Error device count for specific user.</summary>
         public int? ErrorDeviceCount { get; set; }
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScriptUserState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScriptUserState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScriptUserState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScriptUserState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScriptUserState();
+            return new ApiSdk.Models.DeviceManagementScriptUserState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<DeviceManagementScriptDeviceState>(DeviceManagementScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptDeviceState>(ApiSdk.Models.DeviceManagementScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "errorDeviceCount", n => { ErrorDeviceCount = n.GetIntValue(); } },
                 { "successDeviceCount", n => { SuccessDeviceCount = n.GetIntValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptDeviceState>("deviceRunStates", DeviceRunStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptDeviceState>("deviceRunStates", DeviceRunStates);
             writer.WriteIntValue("errorDeviceCount", ErrorDeviceCount);
             writer.WriteIntValue("successDeviceCount", SuccessDeviceCount);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

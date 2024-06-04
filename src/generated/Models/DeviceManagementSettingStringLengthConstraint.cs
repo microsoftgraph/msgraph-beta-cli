@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint enforcing a given string length range
     /// </summary>
-    public class DeviceManagementSettingStringLengthConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingStringLengthConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>The maximum permitted string length</summary>
         public int? MaximumLength { get; set; }
         /// <summary>The minimum permitted string length</summary>
         public int? MinimumLength { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingStringLengthConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingStringLengthConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingStringLengthConstraint() : base()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingStringLengthConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingStringLengthConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingStringLengthConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingStringLengthConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingStringLengthConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingStringLengthConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

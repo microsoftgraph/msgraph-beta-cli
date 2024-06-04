@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// Settings for Android For Work.
     /// </summary>
-    public class AndroidForWorkSettings : Entity, IParsable
+    public class AndroidForWorkSettings : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Bind status of the tenant with the Google EMM API</summary>
-        public AndroidForWorkBindStatus? BindStatus { get; set; }
+        public ApiSdk.Models.AndroidForWorkBindStatus? BindStatus { get; set; }
         /// <summary>Indicates if this account is flighting for Android Device Owner Management with CloudDPC.</summary>
         public bool? DeviceOwnerManagementEnabled { get; set; }
         /// <summary>Android for Work device management targeting type for the account</summary>
-        public AndroidForWorkEnrollmentTarget? EnrollmentTarget { get; set; }
+        public ApiSdk.Models.AndroidForWorkEnrollmentTarget? EnrollmentTarget { get; set; }
         /// <summary>Last completion time for app sync</summary>
         public DateTimeOffset? LastAppSyncDateTime { get; set; }
         /// <summary>Sync status of the tenant with the Google EMM API</summary>
-        public AndroidForWorkSyncStatus? LastAppSyncStatus { get; set; }
+        public ApiSdk.Models.AndroidForWorkSyncStatus? LastAppSyncStatus { get; set; }
         /// <summary>Last modification time for Android for Work settings</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Organization name used when onboarding Android for Work</summary>
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidForWorkSettings();
+            return new ApiSdk.Models.AndroidForWorkSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,11 +65,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "bindStatus", n => { BindStatus = n.GetEnumValue<AndroidForWorkBindStatus>(); } },
+                { "bindStatus", n => { BindStatus = n.GetEnumValue<ApiSdk.Models.AndroidForWorkBindStatus>(); } },
                 { "deviceOwnerManagementEnabled", n => { DeviceOwnerManagementEnabled = n.GetBoolValue(); } },
-                { "enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<AndroidForWorkEnrollmentTarget>(); } },
+                { "enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<ApiSdk.Models.AndroidForWorkEnrollmentTarget>(); } },
                 { "lastAppSyncDateTime", n => { LastAppSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                { "lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<AndroidForWorkSyncStatus>(); } },
+                { "lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<ApiSdk.Models.AndroidForWorkSyncStatus>(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "ownerOrganizationName", n => { OwnerOrganizationName = n.GetStringValue(); } },
                 { "ownerUserPrincipalName", n => { OwnerUserPrincipalName = n.GetStringValue(); } },
@@ -84,11 +84,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AndroidForWorkBindStatus>("bindStatus", BindStatus);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidForWorkBindStatus>("bindStatus", BindStatus);
             writer.WriteBoolValue("deviceOwnerManagementEnabled", DeviceOwnerManagementEnabled);
-            writer.WriteEnumValue<AndroidForWorkEnrollmentTarget>("enrollmentTarget", EnrollmentTarget);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidForWorkEnrollmentTarget>("enrollmentTarget", EnrollmentTarget);
             writer.WriteDateTimeOffsetValue("lastAppSyncDateTime", LastAppSyncDateTime);
-            writer.WriteEnumValue<AndroidForWorkSyncStatus>("lastAppSyncStatus", LastAppSyncStatus);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidForWorkSyncStatus>("lastAppSyncStatus", LastAppSyncStatus);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("ownerOrganizationName", OwnerOrganizationName);
             writer.WriteStringValue("ownerUserPrincipalName", OwnerUserPrincipalName);

@@ -53,7 +53,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GenerateKeyPostRequestBody>(GenerateKeyPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyPostRequestBody>(ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -74,14 +74,14 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GenerateKeyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/generateKey", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GenerateKeyRequestBuilder(string rawUrl) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/generateKey", rawUrl)
@@ -95,11 +95,11 @@ namespace ApiSdk.TrustFramework.KeySets.Item.GenerateKey
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GenerateKeyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GenerateKeyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TrustFramework.KeySets.Item.GenerateKey.GenerateKeyPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

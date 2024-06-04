@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsSecretInformationAccessFinding : Finding, IParsable
+    public class AwsSecretInformationAccessFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemIdentity? Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity? Identity { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemIdentity Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity Identity { get; set; }
 #endif
         /// <summary>The identityDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,23 +35,23 @@ namespace ApiSdk.Models
         public ApiSdk.Models.PermissionsCreepIndex PermissionsCreepIndex { get; set; }
 #endif
         /// <summary>The secretInformationWebServices property</summary>
-        public AwsSecretInformationWebServices? SecretInformationWebServices { get; set; }
+        public ApiSdk.Models.AwsSecretInformationWebServices? SecretInformationWebServices { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsSecretInformationAccessFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsSecretInformationAccessFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsSecretInformationAccessFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsSecretInformationAccessFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.secretInformationAccessAwsResourceFinding" => new SecretInformationAccessAwsResourceFinding(),
-                "#microsoft.graph.secretInformationAccessAwsRoleFinding" => new SecretInformationAccessAwsRoleFinding(),
-                "#microsoft.graph.secretInformationAccessAwsServerlessFunctionFinding" => new SecretInformationAccessAwsServerlessFunctionFinding(),
-                "#microsoft.graph.secretInformationAccessAwsUserFinding" => new SecretInformationAccessAwsUserFinding(),
-                _ => new AwsSecretInformationAccessFinding(),
+                "#microsoft.graph.secretInformationAccessAwsResourceFinding" => new ApiSdk.Models.SecretInformationAccessAwsResourceFinding(),
+                "#microsoft.graph.secretInformationAccessAwsRoleFinding" => new ApiSdk.Models.SecretInformationAccessAwsRoleFinding(),
+                "#microsoft.graph.secretInformationAccessAwsServerlessFunctionFinding" => new ApiSdk.Models.SecretInformationAccessAwsServerlessFunctionFinding(),
+                "#microsoft.graph.secretInformationAccessAwsUserFinding" => new ApiSdk.Models.SecretInformationAccessAwsUserFinding(),
+                _ => new ApiSdk.Models.AwsSecretInformationAccessFinding(),
             };
         }
         /// <summary>
@@ -62,10 +62,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>(ApiSdk.Models.AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
                 { "identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                { "secretInformationWebServices", n => { SecretInformationWebServices = n.GetEnumValue<AwsSecretInformationWebServices>(); } },
+                { "secretInformationWebServices", n => { SecretInformationWebServices = n.GetEnumValue<ApiSdk.Models.AwsSecretInformationWebServices>(); } },
             };
         }
         /// <summary>
@@ -76,10 +76,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AuthorizationSystemIdentity>("identity", Identity);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>("identity", Identity);
             writer.WriteObjectValue<ApiSdk.Models.IdentityDetails>("identityDetails", IdentityDetails);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
-            writer.WriteEnumValue<AwsSecretInformationWebServices>("secretInformationWebServices", SecretInformationWebServices);
+            writer.WriteEnumValue<ApiSdk.Models.AwsSecretInformationWebServices>("secretInformationWebServices", SecretInformationWebServices);
         }
     }
 }

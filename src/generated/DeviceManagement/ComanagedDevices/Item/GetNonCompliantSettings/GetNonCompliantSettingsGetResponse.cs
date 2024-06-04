@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings
 {
     #pragma warning disable CS1591
-    public class GetNonCompliantSettingsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetNonCompliantSettingsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceCompliancePolicySettingState>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceCompliancePolicySettingState>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceCompliancePolicySettingState> Value { get; set; }
+        public List<ApiSdk.Models.DeviceCompliancePolicySettingState> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetNonCompliantSettingsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings.GetNonCompliantSettingsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetNonCompliantSettingsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings.GetNonCompliantSettingsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetNonCompliantSettingsGetResponse();
+            return new ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings.GetNonCompliantSettingsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceCompliancePolicySettingState>(DeviceCompliancePolicySettingState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceCompliancePolicySettingState>(ApiSdk.Models.DeviceCompliancePolicySettingState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetNonCompliantSettings
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceCompliancePolicySettingState>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceCompliancePolicySettingState>("value", Value);
         }
     }
 }

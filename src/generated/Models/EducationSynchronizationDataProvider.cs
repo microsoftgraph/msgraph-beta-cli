@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationDataProvider"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationDataProvider"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationDataProvider()
         {
@@ -30,18 +30,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationDataProvider"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationDataProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationSynchronizationDataProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationSynchronizationDataProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.educationCsvDataProvider" => new EducationCsvDataProvider(),
-                "#microsoft.graph.educationOneRosterApiDataProvider" => new EducationOneRosterApiDataProvider(),
-                "#microsoft.graph.educationPowerSchoolDataProvider" => new EducationPowerSchoolDataProvider(),
-                _ => new EducationSynchronizationDataProvider(),
+                "#microsoft.graph.educationCsvDataProvider" => new ApiSdk.Models.EducationCsvDataProvider(),
+                "#microsoft.graph.educationOneRosterApiDataProvider" => new ApiSdk.Models.EducationOneRosterApiDataProvider(),
+                "#microsoft.graph.educationPowerSchoolDataProvider" => new ApiSdk.Models.EducationPowerSchoolDataProvider(),
+                _ => new ApiSdk.Models.EducationSynchronizationDataProvider(),
             };
         }
         /// <summary>

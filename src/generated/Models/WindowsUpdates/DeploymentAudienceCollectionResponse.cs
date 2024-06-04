@@ -13,20 +13,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeploymentAudience>? Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.DeploymentAudience>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeploymentAudience> Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.DeploymentAudience> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeploymentAudienceCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.DeploymentAudienceCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeploymentAudienceCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.DeploymentAudienceCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeploymentAudienceCollectionResponse();
+            return new ApiSdk.Models.WindowsUpdates.DeploymentAudienceCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.DeploymentAudience>(ApiSdk.Models.WindowsUpdates.DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeploymentAudience>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.DeploymentAudience>("value", Value);
         }
     }
 }

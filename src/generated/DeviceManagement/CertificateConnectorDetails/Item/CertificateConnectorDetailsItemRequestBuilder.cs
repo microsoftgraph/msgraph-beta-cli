@@ -118,7 +118,7 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item
         {
             var command = new Command("get-health-metrics");
             command.Description = "Provides operations to call the getHealthMetrics method.";
-            var builder = new GetHealthMetricsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetrics.GetHealthMetricsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -135,7 +135,7 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item
         {
             var command = new Command("get-health-metric-time-series");
             command.Description = "Provides operations to call the getHealthMetricTimeSeries method.";
-            var builder = new GetHealthMetricTimeSeriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetricTimeSeries.GetHealthMetricTimeSeriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -196,14 +196,14 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CertificateConnectorDetailsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.CertificateConnectorDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CertificateConnectorDetailsItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/certificateConnectorDetails/{certificateConnectorDetails%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CertificateConnectorDetailsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.CertificateConnectorDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CertificateConnectorDetailsItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/certificateConnectorDetails/{certificateConnectorDetails%2Did}{?%24expand,%24select}", rawUrl)
@@ -235,11 +235,11 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CertificateConnectorDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.CertificateConnectorDetailsItemRequestBuilder.CertificateConnectorDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CertificateConnectorDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.CertificateConnectorDetailsItemRequestBuilder.CertificateConnectorDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -31,7 +31,7 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new PrintDocumentItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.Item.PrintDocumentItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildContentNavCommand());
             commands.Add(builder.BuildCreateUploadSessionNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -47,7 +47,7 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -93,7 +93,7 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PrintDocument>(PrintDocument.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PrintDocument>(ApiSdk.Models.PrintDocument.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -224,14 +224,14 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DocumentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.DocumentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DocumentsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/jobs/{printJob%2Did}/documents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DocumentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.DocumentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DocumentsRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/jobs/{printJob%2Did}/documents{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -245,11 +245,11 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents.DocumentsRequestBuilder.DocumentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -266,11 +266,11 @@ namespace ApiSdk.Print.PrinterShares.Item.Jobs.Item.Documents
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(PrintDocument body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.PrintDocument body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(PrintDocument body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.PrintDocument body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

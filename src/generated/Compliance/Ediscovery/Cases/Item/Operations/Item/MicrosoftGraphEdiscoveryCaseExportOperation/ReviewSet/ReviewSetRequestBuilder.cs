@@ -81,14 +81,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraph
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReviewSetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet.ReviewSetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReviewSetRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations/{caseOperation%2Did}/microsoft.graph.ediscovery.caseExportOperation/reviewSet{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReviewSetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet.ReviewSetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReviewSetRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations/{caseOperation%2Did}/microsoft.graph.ediscovery.caseExportOperation/reviewSet{?%24expand,%24select}", rawUrl)
@@ -102,11 +102,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraph
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReviewSetRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet.ReviewSetRequestBuilder.ReviewSetRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReviewSetRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.MicrosoftGraphEdiscoveryCaseExportOperation.ReviewSet.ReviewSetRequestBuilder.ReviewSetRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

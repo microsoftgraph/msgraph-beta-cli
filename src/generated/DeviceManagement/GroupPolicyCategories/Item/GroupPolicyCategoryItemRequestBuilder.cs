@@ -33,7 +33,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         {
             var command = new Command("children");
             command.Description = "Provides operations to manage the children property of the microsoft.graph.groupPolicyCategory entity.";
-            var builder = new ChildrenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyCategories.Item.Children.ChildrenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -59,7 +59,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         {
             var command = new Command("definition-file");
             command.Description = "Provides operations to manage the definitionFile property of the microsoft.graph.groupPolicyCategory entity.";
-            var builder = new DefinitionFileRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyCategories.Item.DefinitionFile.DefinitionFileRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -76,7 +76,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         {
             var command = new Command("definitions");
             command.Description = "Provides operations to manage the definitions property of the microsoft.graph.groupPolicyCategory entity.";
-            var builder = new DefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyCategories.Item.Definitions.DefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -189,7 +189,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         {
             var command = new Command("parent");
             command.Description = "Provides operations to manage the parent property of the microsoft.graph.groupPolicyCategory entity.";
-            var builder = new ParentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyCategories.Item.Parent.ParentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -229,7 +229,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GroupPolicyCategory>(ApiSdk.Models.GroupPolicyCategory.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -250,14 +250,14 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyCategoryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyCategories.Item.GroupPolicyCategoryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GroupPolicyCategoryItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/groupPolicyCategories/{groupPolicyCategory%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyCategoryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyCategories.Item.GroupPolicyCategoryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GroupPolicyCategoryItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/groupPolicyCategories/{groupPolicyCategory%2Did}{?%24expand,%24select}", rawUrl)
@@ -289,11 +289,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyCategoryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyCategories.Item.GroupPolicyCategoryItemRequestBuilder.GroupPolicyCategoryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyCategoryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyCategories.Item.GroupPolicyCategoryItemRequestBuilder.GroupPolicyCategoryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -309,11 +309,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyCategories.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(GroupPolicyCategory body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GroupPolicyCategory body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(GroupPolicyCategory body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GroupPolicyCategory body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

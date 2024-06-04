@@ -13,20 +13,20 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicyRule>? Value { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyRule>? Value { get; set; }
 #nullable restore
 #else
-        public List<PolicyRule> Value { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyRule> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicyRuleCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PolicyRuleCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicyRuleCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.PolicyRuleCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PolicyRuleCollectionResponse();
+            return new ApiSdk.Models.Networkaccess.PolicyRuleCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PolicyRule>(PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyRule>(ApiSdk.Models.Networkaccess.PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PolicyRule>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyRule>("value", Value);
         }
     }
 }

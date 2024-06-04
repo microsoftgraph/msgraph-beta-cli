@@ -55,14 +55,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.PostAndSend
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PostAndSendRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.Item.PostAndSend.PostAndSendRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PostAndSendRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices/{salesInvoice%2Did}/postAndSend", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PostAndSendRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.Item.PostAndSend.PostAndSendRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PostAndSendRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices/{salesInvoice%2Did}/postAndSend", rawUrl)

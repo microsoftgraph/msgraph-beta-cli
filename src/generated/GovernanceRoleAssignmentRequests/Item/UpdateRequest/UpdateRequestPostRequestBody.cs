@@ -40,13 +40,13 @@ namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest
         /// <summary>The schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernanceSchedule? Schedule { get; set; }
+        public ApiSdk.Models.GovernanceSchedule? Schedule { get; set; }
 #nullable restore
 #else
-        public GovernanceSchedule Schedule { get; set; }
+        public ApiSdk.Models.GovernanceSchedule Schedule { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateRequestPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest.UpdateRequestPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateRequestPostRequestBody()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateRequestPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest.UpdateRequestPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateRequestPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest.UpdateRequestPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateRequestPostRequestBody();
+            return new ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest.UpdateRequestPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest
                 { "assignmentState", n => { AssignmentState = n.GetStringValue(); } },
                 { "decision", n => { Decision = n.GetStringValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<ApiSdk.Models.GovernanceSchedule>(ApiSdk.Models.GovernanceSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace ApiSdk.GovernanceRoleAssignmentRequests.Item.UpdateRequest
             writer.WriteStringValue("assignmentState", AssignmentState);
             writer.WriteStringValue("decision", Decision);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteObjectValue<GovernanceSchedule>("schedule", Schedule);
+            writer.WriteObjectValue<ApiSdk.Models.GovernanceSchedule>("schedule", Schedule);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

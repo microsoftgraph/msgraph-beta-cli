@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
 {
     #pragma warning disable CS1591
-    public class BulkResizePostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class BulkResizePostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcRemoteActionResult>? Value { get; set; }
+        public List<ApiSdk.Models.CloudPcRemoteActionResult>? Value { get; set; }
 #nullable restore
 #else
-        public List<CloudPcRemoteActionResult> Value { get; set; }
+        public List<ApiSdk.Models.CloudPcRemoteActionResult> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BulkResizePostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BulkResizePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BulkResizePostResponse();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcRemoteActionResult>(CloudPcRemoteActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcRemoteActionResult>(ApiSdk.Models.CloudPcRemoteActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CloudPcRemoteActionResult>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcRemoteActionResult>("value", Value);
         }
     }
 }

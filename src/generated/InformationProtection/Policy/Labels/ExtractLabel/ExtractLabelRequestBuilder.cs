@@ -49,7 +49,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ExtractLabelPostRequestBody>(ExtractLabelPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelPostRequestBody>(ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -69,14 +69,14 @@ namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExtractLabelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExtractLabelRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/informationProtection/policy/labels/extractLabel", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExtractLabelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExtractLabelRequestBuilder(string rawUrl) : base("{+baseurl}/informationProtection/policy/labels/extractLabel", rawUrl)
@@ -91,11 +91,11 @@ namespace ApiSdk.InformationProtection.Policy.Labels.ExtractLabel
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ExtractLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ExtractLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -13,308 +13,308 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>Aggregate view of device compliance policies across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AggregatedPolicyCompliance>? AggregatedPolicyCompliances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>? AggregatedPolicyCompliances { get; set; }
 #nullable restore
 #else
-        public List<AggregatedPolicyCompliance> AggregatedPolicyCompliances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance> AggregatedPolicyCompliances { get; set; }
 #endif
         /// <summary>The appPerformances property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppPerformance>? AppPerformances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AppPerformance>? AppPerformances { get; set; }
 #nullable restore
 #else
-        public List<AppPerformance> AppPerformances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AppPerformance> AppPerformances { get; set; }
 #endif
         /// <summary>The collection of audit events across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuditEvent>? AuditEvents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AuditEvent>? AuditEvents { get; set; }
 #nullable restore
 #else
-        public List<AuditEvent> AuditEvents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AuditEvent> AuditEvents { get; set; }
 #endif
         /// <summary>The collection of cloud PC connections across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcConnection>? CloudPcConnections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcConnection>? CloudPcConnections { get; set; }
 #nullable restore
 #else
-        public List<CloudPcConnection> CloudPcConnections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcConnection> CloudPcConnections { get; set; }
 #endif
         /// <summary>The collection of cloud PC devices across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcDevice>? CloudPcDevices { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcDevice>? CloudPcDevices { get; set; }
 #nullable restore
 #else
-        public List<CloudPcDevice> CloudPcDevices { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcDevice> CloudPcDevices { get; set; }
 #endif
         /// <summary>Overview of cloud PC information across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcOverview>? CloudPcsOverview { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcOverview>? CloudPcsOverview { get; set; }
 #nullable restore
 #else
-        public List<CloudPcOverview> CloudPcsOverview { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CloudPcOverview> CloudPcsOverview { get; set; }
 #endif
         /// <summary>Aggregate view of conditional access policy coverage across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessPolicyCoverage>? ConditionalAccessPolicyCoverages { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ConditionalAccessPolicyCoverage>? ConditionalAccessPolicyCoverages { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessPolicyCoverage> ConditionalAccessPolicyCoverages { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ConditionalAccessPolicyCoverage> ConditionalAccessPolicyCoverages { get; set; }
 #endif
         /// <summary>Summary information for user registration for multi-factor authentication and self service password reset across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CredentialUserRegistrationsSummary>? CredentialUserRegistrationsSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CredentialUserRegistrationsSummary>? CredentialUserRegistrationsSummaries { get; set; }
 #nullable restore
 #else
-        public List<CredentialUserRegistrationsSummary> CredentialUserRegistrationsSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.CredentialUserRegistrationsSummary> CredentialUserRegistrationsSummaries { get; set; }
 #endif
         /// <summary>The deviceAppPerformances property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceAppPerformance>? DeviceAppPerformances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceAppPerformance>? DeviceAppPerformances { get; set; }
 #nullable restore
 #else
-        public List<DeviceAppPerformance> DeviceAppPerformances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceAppPerformance> DeviceAppPerformances { get; set; }
 #endif
         /// <summary>Summary information for device compliance policy setting states across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceCompliancePolicySettingStateSummary>? DeviceCompliancePolicySettingStateSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceCompliancePolicySettingStateSummary>? DeviceCompliancePolicySettingStateSummaries { get; set; }
 #nullable restore
 #else
-        public List<DeviceCompliancePolicySettingStateSummary> DeviceCompliancePolicySettingStateSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceCompliancePolicySettingStateSummary> DeviceCompliancePolicySettingStateSummaries { get; set; }
 #endif
         /// <summary>The deviceHealthStatuses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthStatus>? DeviceHealthStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceHealthStatus>? DeviceHealthStatuses { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthStatus> DeviceHealthStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.DeviceHealthStatus> DeviceHealthStatuses { get; set; }
 #endif
         /// <summary>The collection of compliance for managed devices across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCompliance>? ManagedDeviceCompliances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedDeviceCompliance>? ManagedDeviceCompliances { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCompliance> ManagedDeviceCompliances { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedDeviceCompliance> ManagedDeviceCompliances { get; set; }
 #endif
         /// <summary>Trend insights for device compliance across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceComplianceTrend>? ManagedDeviceComplianceTrends { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedDeviceComplianceTrend>? ManagedDeviceComplianceTrends { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceComplianceTrend> ManagedDeviceComplianceTrends { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedDeviceComplianceTrend> ManagedDeviceComplianceTrends { get; set; }
 #endif
         /// <summary>The managedTenantAlertLogs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantAlertLog>? ManagedTenantAlertLogs { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertLog>? ManagedTenantAlertLogs { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantAlertLog> ManagedTenantAlertLogs { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertLog> ManagedTenantAlertLogs { get; set; }
 #endif
         /// <summary>The managedTenantAlertRuleDefinitions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantAlertRuleDefinition>? ManagedTenantAlertRuleDefinitions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition>? ManagedTenantAlertRuleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantAlertRuleDefinition> ManagedTenantAlertRuleDefinitions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition> ManagedTenantAlertRuleDefinitions { get; set; }
 #endif
         /// <summary>The managedTenantAlertRules property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantAlertRule>? ManagedTenantAlertRules { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule>? ManagedTenantAlertRules { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantAlertRule> ManagedTenantAlertRules { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule> ManagedTenantAlertRules { get; set; }
 #endif
         /// <summary>The managedTenantAlerts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantAlert>? ManagedTenantAlerts { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>? ManagedTenantAlerts { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantAlert> ManagedTenantAlerts { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlert> ManagedTenantAlerts { get; set; }
 #endif
         /// <summary>The managedTenantApiNotifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantApiNotification>? ManagedTenantApiNotifications { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantApiNotification>? ManagedTenantApiNotifications { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantApiNotification> ManagedTenantApiNotifications { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantApiNotification> ManagedTenantApiNotifications { get; set; }
 #endif
         /// <summary>The managedTenantEmailNotifications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantEmailNotification>? ManagedTenantEmailNotifications { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>? ManagedTenantEmailNotifications { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantEmailNotification> ManagedTenantEmailNotifications { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification> ManagedTenantEmailNotifications { get; set; }
 #endif
         /// <summary>The managedTenantTicketingEndpoints property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantTicketingEndpoint>? ManagedTenantTicketingEndpoints { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantTicketingEndpoint>? ManagedTenantTicketingEndpoints { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantTicketingEndpoint> ManagedTenantTicketingEndpoints { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantTicketingEndpoint> ManagedTenantTicketingEndpoints { get; set; }
 #endif
         /// <summary>The collection of baseline management actions across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementAction>? ManagementActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementAction>? ManagementActions { get; set; }
 #nullable restore
 #else
-        public List<ManagementAction> ManagementActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementAction> ManagementActions { get; set; }
 #endif
         /// <summary>The tenant level status of management actions across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementActionTenantDeploymentStatus>? ManagementActionTenantDeploymentStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus>? ManagementActionTenantDeploymentStatuses { get; set; }
 #nullable restore
 #else
-        public List<ManagementActionTenantDeploymentStatus> ManagementActionTenantDeploymentStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus> ManagementActionTenantDeploymentStatuses { get; set; }
 #endif
         /// <summary>The collection of baseline management intents across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementIntent>? ManagementIntents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementIntent>? ManagementIntents { get; set; }
 #nullable restore
 #else
-        public List<ManagementIntent> ManagementIntents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementIntent> ManagementIntents { get; set; }
 #endif
         /// <summary>The managementTemplateCollections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateCollection>? ManagementTemplateCollections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>? ManagementTemplateCollections { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateCollection> ManagementTemplateCollections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection> ManagementTemplateCollections { get; set; }
 #endif
         /// <summary>The managementTemplateCollectionTenantSummaries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateCollectionTenantSummary>? ManagementTemplateCollectionTenantSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionTenantSummary>? ManagementTemplateCollectionTenantSummaries { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateCollectionTenantSummary> ManagementTemplateCollectionTenantSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionTenantSummary> ManagementTemplateCollectionTenantSummaries { get; set; }
 #endif
         /// <summary>The collection of baseline management templates across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplate>? ManagementTemplates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplate>? ManagementTemplates { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplate> ManagementTemplates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplate> ManagementTemplates { get; set; }
 #endif
         /// <summary>The managementTemplateSteps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStep>? ManagementTemplateSteps { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>? ManagementTemplateSteps { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStep> ManagementTemplateSteps { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStep> ManagementTemplateSteps { get; set; }
 #endif
         /// <summary>The managementTemplateStepTenantSummaries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStepTenantSummary>? ManagementTemplateStepTenantSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepTenantSummary>? ManagementTemplateStepTenantSummaries { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStepTenantSummary> ManagementTemplateStepTenantSummaries { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepTenantSummary> ManagementTemplateStepTenantSummaries { get; set; }
 #endif
         /// <summary>The managementTemplateStepVersions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStepVersion>? ManagementTemplateStepVersions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>? ManagementTemplateStepVersions { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStepVersion> ManagementTemplateStepVersions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion> ManagementTemplateStepVersions { get; set; }
 #endif
         /// <summary>The collection of role assignments to a signed-in user for a managed tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MyRole>? MyRoles { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.MyRole>? MyRoles { get; set; }
 #nullable restore
 #else
-        public List<MyRole> MyRoles { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.MyRole> MyRoles { get; set; }
 #endif
         /// <summary>The collection of a logical grouping of managed tenants used by the multi-tenant management platform.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantGroup>? TenantGroups { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantGroup>? TenantGroups { get; set; }
 #nullable restore
 #else
-        public List<TenantGroup> TenantGroups { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantGroup> TenantGroups { get; set; }
 #endif
         /// <summary>The collection of tenants associated with the managing entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Tenant>? Tenants { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Tenant>? Tenants { get; set; }
 #nullable restore
 #else
-        public List<Tenant> Tenants { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Tenant> Tenants { get; set; }
 #endif
         /// <summary>The collection of tenant level customized information across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantCustomizedInformation>? TenantsCustomizedInformation { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantCustomizedInformation>? TenantsCustomizedInformation { get; set; }
 #nullable restore
 #else
-        public List<TenantCustomizedInformation> TenantsCustomizedInformation { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantCustomizedInformation> TenantsCustomizedInformation { get; set; }
 #endif
         /// <summary>The collection tenant level detailed information across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantDetailedInformation>? TenantsDetailedInformation { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantDetailedInformation>? TenantsDetailedInformation { get; set; }
 #nullable restore
 #else
-        public List<TenantDetailedInformation> TenantsDetailedInformation { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantDetailedInformation> TenantsDetailedInformation { get; set; }
 #endif
         /// <summary>The collection of tenant tags across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantTag>? TenantTags { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantTag>? TenantTags { get; set; }
 #nullable restore
 #else
-        public List<TenantTag> TenantTags { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantTag> TenantTags { get; set; }
 #endif
         /// <summary>The state of malware for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsDeviceMalwareState>? WindowsDeviceMalwareStates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WindowsDeviceMalwareState>? WindowsDeviceMalwareStates { get; set; }
 #nullable restore
 #else
-        public List<WindowsDeviceMalwareState> WindowsDeviceMalwareStates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WindowsDeviceMalwareState> WindowsDeviceMalwareStates { get; set; }
 #endif
         /// <summary>The protection state for Windows devices, registered with Microsoft Endpoint Manager, across managed tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsProtectionState>? WindowsProtectionStates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WindowsProtectionState>? WindowsProtectionStates { get; set; }
 #nullable restore
 #else
-        public List<WindowsProtectionState> WindowsProtectionStates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WindowsProtectionState> WindowsProtectionStates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedTenant"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagedTenant"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedTenant CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagedTenant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedTenant();
+            return new ApiSdk.Models.ManagedTenants.ManagedTenant();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -324,43 +324,43 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "aggregatedPolicyCompliances", n => { AggregatedPolicyCompliances = n.GetCollectionOfObjectValues<AggregatedPolicyCompliance>(AggregatedPolicyCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "appPerformances", n => { AppPerformances = n.GetCollectionOfObjectValues<AppPerformance>(AppPerformance.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "auditEvents", n => { AuditEvents = n.GetCollectionOfObjectValues<AuditEvent>(AuditEvent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "cloudPcConnections", n => { CloudPcConnections = n.GetCollectionOfObjectValues<CloudPcConnection>(CloudPcConnection.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "cloudPcDevices", n => { CloudPcDevices = n.GetCollectionOfObjectValues<CloudPcDevice>(CloudPcDevice.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "cloudPcsOverview", n => { CloudPcsOverview = n.GetCollectionOfObjectValues<CloudPcOverview>(CloudPcOverview.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "conditionalAccessPolicyCoverages", n => { ConditionalAccessPolicyCoverages = n.GetCollectionOfObjectValues<ConditionalAccessPolicyCoverage>(ConditionalAccessPolicyCoverage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "credentialUserRegistrationsSummaries", n => { CredentialUserRegistrationsSummaries = n.GetCollectionOfObjectValues<CredentialUserRegistrationsSummary>(CredentialUserRegistrationsSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceAppPerformances", n => { DeviceAppPerformances = n.GetCollectionOfObjectValues<DeviceAppPerformance>(DeviceAppPerformance.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceCompliancePolicySettingStateSummaries", n => { DeviceCompliancePolicySettingStateSummaries = n.GetCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummary>(DeviceCompliancePolicySettingStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceHealthStatuses", n => { DeviceHealthStatuses = n.GetCollectionOfObjectValues<DeviceHealthStatus>(DeviceHealthStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedDeviceComplianceTrends", n => { ManagedDeviceComplianceTrends = n.GetCollectionOfObjectValues<ManagedDeviceComplianceTrend>(ManagedDeviceComplianceTrend.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedDeviceCompliances", n => { ManagedDeviceCompliances = n.GetCollectionOfObjectValues<ManagedDeviceCompliance>(ManagedDeviceCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantAlertLogs", n => { ManagedTenantAlertLogs = n.GetCollectionOfObjectValues<ManagedTenantAlertLog>(ManagedTenantAlertLog.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantAlertRuleDefinitions", n => { ManagedTenantAlertRuleDefinitions = n.GetCollectionOfObjectValues<ManagedTenantAlertRuleDefinition>(ManagedTenantAlertRuleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantAlertRules", n => { ManagedTenantAlertRules = n.GetCollectionOfObjectValues<ManagedTenantAlertRule>(ManagedTenantAlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantAlerts", n => { ManagedTenantAlerts = n.GetCollectionOfObjectValues<ManagedTenantAlert>(ManagedTenantAlert.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantApiNotifications", n => { ManagedTenantApiNotifications = n.GetCollectionOfObjectValues<ManagedTenantApiNotification>(ManagedTenantApiNotification.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantEmailNotifications", n => { ManagedTenantEmailNotifications = n.GetCollectionOfObjectValues<ManagedTenantEmailNotification>(ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenantTicketingEndpoints", n => { ManagedTenantTicketingEndpoints = n.GetCollectionOfObjectValues<ManagedTenantTicketingEndpoint>(ManagedTenantTicketingEndpoint.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementActionTenantDeploymentStatuses", n => { ManagementActionTenantDeploymentStatuses = n.GetCollectionOfObjectValues<ManagementActionTenantDeploymentStatus>(ManagementActionTenantDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementActions", n => { ManagementActions = n.GetCollectionOfObjectValues<ManagementAction>(ManagementAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementIntents", n => { ManagementIntents = n.GetCollectionOfObjectValues<ManagementIntent>(ManagementIntent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateCollectionTenantSummaries", n => { ManagementTemplateCollectionTenantSummaries = n.GetCollectionOfObjectValues<ManagementTemplateCollectionTenantSummary>(ManagementTemplateCollectionTenantSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ManagementTemplateCollection>(ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateStepTenantSummaries", n => { ManagementTemplateStepTenantSummaries = n.GetCollectionOfObjectValues<ManagementTemplateStepTenantSummary>(ManagementTemplateStepTenantSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateStepVersions", n => { ManagementTemplateStepVersions = n.GetCollectionOfObjectValues<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ManagementTemplate>(ManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "myRoles", n => { MyRoles = n.GetCollectionOfObjectValues<MyRole>(MyRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenantGroups", n => { TenantGroups = n.GetCollectionOfObjectValues<TenantGroup>(TenantGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenantTags", n => { TenantTags = n.GetCollectionOfObjectValues<TenantTag>(TenantTag.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenants", n => { Tenants = n.GetCollectionOfObjectValues<Tenant>(Tenant.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenantsCustomizedInformation", n => { TenantsCustomizedInformation = n.GetCollectionOfObjectValues<TenantCustomizedInformation>(TenantCustomizedInformation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenantsDetailedInformation", n => { TenantsDetailedInformation = n.GetCollectionOfObjectValues<TenantDetailedInformation>(TenantDetailedInformation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "windowsDeviceMalwareStates", n => { WindowsDeviceMalwareStates = n.GetCollectionOfObjectValues<WindowsDeviceMalwareState>(WindowsDeviceMalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "windowsProtectionStates", n => { WindowsProtectionStates = n.GetCollectionOfObjectValues<WindowsProtectionState>(WindowsProtectionState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "aggregatedPolicyCompliances", n => { AggregatedPolicyCompliances = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>(ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appPerformances", n => { AppPerformances = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AppPerformance>(ApiSdk.Models.ManagedTenants.AppPerformance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "auditEvents", n => { AuditEvents = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AuditEvent>(ApiSdk.Models.ManagedTenants.AuditEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "cloudPcConnections", n => { CloudPcConnections = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcConnection>(ApiSdk.Models.ManagedTenants.CloudPcConnection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "cloudPcDevices", n => { CloudPcDevices = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcDevice>(ApiSdk.Models.ManagedTenants.CloudPcDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "cloudPcsOverview", n => { CloudPcsOverview = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcOverview>(ApiSdk.Models.ManagedTenants.CloudPcOverview.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessPolicyCoverages", n => { ConditionalAccessPolicyCoverages = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ConditionalAccessPolicyCoverage>(ApiSdk.Models.ManagedTenants.ConditionalAccessPolicyCoverage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "credentialUserRegistrationsSummaries", n => { CredentialUserRegistrationsSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CredentialUserRegistrationsSummary>(ApiSdk.Models.ManagedTenants.CredentialUserRegistrationsSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceAppPerformances", n => { DeviceAppPerformances = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceAppPerformance>(ApiSdk.Models.ManagedTenants.DeviceAppPerformance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceCompliancePolicySettingStateSummaries", n => { DeviceCompliancePolicySettingStateSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceCompliancePolicySettingStateSummary>(ApiSdk.Models.ManagedTenants.DeviceCompliancePolicySettingStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceHealthStatuses", n => { DeviceHealthStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceHealthStatus>(ApiSdk.Models.ManagedTenants.DeviceHealthStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedDeviceComplianceTrends", n => { ManagedDeviceComplianceTrends = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedDeviceComplianceTrend>(ApiSdk.Models.ManagedTenants.ManagedDeviceComplianceTrend.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedDeviceCompliances", n => { ManagedDeviceCompliances = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedDeviceCompliance>(ApiSdk.Models.ManagedTenants.ManagedDeviceCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantAlertLogs", n => { ManagedTenantAlertLogs = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertLog>(ApiSdk.Models.ManagedTenants.ManagedTenantAlertLog.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantAlertRuleDefinitions", n => { ManagedTenantAlertRuleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition>(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantAlertRules", n => { ManagedTenantAlertRules = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule>(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantAlerts", n => { ManagedTenantAlerts = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>(ApiSdk.Models.ManagedTenants.ManagedTenantAlert.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantApiNotifications", n => { ManagedTenantApiNotifications = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantApiNotification>(ApiSdk.Models.ManagedTenants.ManagedTenantApiNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantEmailNotifications", n => { ManagedTenantEmailNotifications = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>(ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenantTicketingEndpoints", n => { ManagedTenantTicketingEndpoints = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantTicketingEndpoint>(ApiSdk.Models.ManagedTenants.ManagedTenantTicketingEndpoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementActionTenantDeploymentStatuses", n => { ManagementActionTenantDeploymentStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus>(ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementActions", n => { ManagementActions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementAction>(ApiSdk.Models.ManagedTenants.ManagementAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementIntents", n => { ManagementIntents = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementIntent>(ApiSdk.Models.ManagedTenants.ManagementIntent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateCollectionTenantSummaries", n => { ManagementTemplateCollectionTenantSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionTenantSummary>(ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionTenantSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>(ApiSdk.Models.ManagedTenants.ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateStepTenantSummaries", n => { ManagementTemplateStepTenantSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepTenantSummary>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepTenantSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateStepVersions", n => { ManagementTemplateStepVersions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>(ApiSdk.Models.ManagedTenants.ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplate>(ApiSdk.Models.ManagedTenants.ManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "myRoles", n => { MyRoles = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.MyRole>(ApiSdk.Models.ManagedTenants.MyRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantGroups", n => { TenantGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantGroup>(ApiSdk.Models.ManagedTenants.TenantGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantTags", n => { TenantTags = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantTag>(ApiSdk.Models.ManagedTenants.TenantTag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenants", n => { Tenants = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Tenant>(ApiSdk.Models.ManagedTenants.Tenant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantsCustomizedInformation", n => { TenantsCustomizedInformation = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantCustomizedInformation>(ApiSdk.Models.ManagedTenants.TenantCustomizedInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantsDetailedInformation", n => { TenantsDetailedInformation = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantDetailedInformation>(ApiSdk.Models.ManagedTenants.TenantDetailedInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "windowsDeviceMalwareStates", n => { WindowsDeviceMalwareStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WindowsDeviceMalwareState>(ApiSdk.Models.ManagedTenants.WindowsDeviceMalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "windowsProtectionStates", n => { WindowsProtectionStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WindowsProtectionState>(ApiSdk.Models.ManagedTenants.WindowsProtectionState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -371,43 +371,43 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AggregatedPolicyCompliance>("aggregatedPolicyCompliances", AggregatedPolicyCompliances);
-            writer.WriteCollectionOfObjectValues<AppPerformance>("appPerformances", AppPerformances);
-            writer.WriteCollectionOfObjectValues<AuditEvent>("auditEvents", AuditEvents);
-            writer.WriteCollectionOfObjectValues<CloudPcConnection>("cloudPcConnections", CloudPcConnections);
-            writer.WriteCollectionOfObjectValues<CloudPcDevice>("cloudPcDevices", CloudPcDevices);
-            writer.WriteCollectionOfObjectValues<CloudPcOverview>("cloudPcsOverview", CloudPcsOverview);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessPolicyCoverage>("conditionalAccessPolicyCoverages", ConditionalAccessPolicyCoverages);
-            writer.WriteCollectionOfObjectValues<CredentialUserRegistrationsSummary>("credentialUserRegistrationsSummaries", CredentialUserRegistrationsSummaries);
-            writer.WriteCollectionOfObjectValues<DeviceAppPerformance>("deviceAppPerformances", DeviceAppPerformances);
-            writer.WriteCollectionOfObjectValues<DeviceCompliancePolicySettingStateSummary>("deviceCompliancePolicySettingStateSummaries", DeviceCompliancePolicySettingStateSummaries);
-            writer.WriteCollectionOfObjectValues<DeviceHealthStatus>("deviceHealthStatuses", DeviceHealthStatuses);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCompliance>("managedDeviceCompliances", ManagedDeviceCompliances);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceComplianceTrend>("managedDeviceComplianceTrends", ManagedDeviceComplianceTrends);
-            writer.WriteCollectionOfObjectValues<ManagedTenantAlertLog>("managedTenantAlertLogs", ManagedTenantAlertLogs);
-            writer.WriteCollectionOfObjectValues<ManagedTenantAlertRuleDefinition>("managedTenantAlertRuleDefinitions", ManagedTenantAlertRuleDefinitions);
-            writer.WriteCollectionOfObjectValues<ManagedTenantAlertRule>("managedTenantAlertRules", ManagedTenantAlertRules);
-            writer.WriteCollectionOfObjectValues<ManagedTenantAlert>("managedTenantAlerts", ManagedTenantAlerts);
-            writer.WriteCollectionOfObjectValues<ManagedTenantApiNotification>("managedTenantApiNotifications", ManagedTenantApiNotifications);
-            writer.WriteCollectionOfObjectValues<ManagedTenantEmailNotification>("managedTenantEmailNotifications", ManagedTenantEmailNotifications);
-            writer.WriteCollectionOfObjectValues<ManagedTenantTicketingEndpoint>("managedTenantTicketingEndpoints", ManagedTenantTicketingEndpoints);
-            writer.WriteCollectionOfObjectValues<ManagementAction>("managementActions", ManagementActions);
-            writer.WriteCollectionOfObjectValues<ManagementActionTenantDeploymentStatus>("managementActionTenantDeploymentStatuses", ManagementActionTenantDeploymentStatuses);
-            writer.WriteCollectionOfObjectValues<ManagementIntent>("managementIntents", ManagementIntents);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateCollection>("managementTemplateCollections", ManagementTemplateCollections);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateCollectionTenantSummary>("managementTemplateCollectionTenantSummaries", ManagementTemplateCollectionTenantSummaries);
-            writer.WriteCollectionOfObjectValues<ManagementTemplate>("managementTemplates", ManagementTemplates);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStep>("managementTemplateSteps", ManagementTemplateSteps);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStepTenantSummary>("managementTemplateStepTenantSummaries", ManagementTemplateStepTenantSummaries);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStepVersion>("managementTemplateStepVersions", ManagementTemplateStepVersions);
-            writer.WriteCollectionOfObjectValues<MyRole>("myRoles", MyRoles);
-            writer.WriteCollectionOfObjectValues<TenantGroup>("tenantGroups", TenantGroups);
-            writer.WriteCollectionOfObjectValues<Tenant>("tenants", Tenants);
-            writer.WriteCollectionOfObjectValues<TenantCustomizedInformation>("tenantsCustomizedInformation", TenantsCustomizedInformation);
-            writer.WriteCollectionOfObjectValues<TenantDetailedInformation>("tenantsDetailedInformation", TenantsDetailedInformation);
-            writer.WriteCollectionOfObjectValues<TenantTag>("tenantTags", TenantTags);
-            writer.WriteCollectionOfObjectValues<WindowsDeviceMalwareState>("windowsDeviceMalwareStates", WindowsDeviceMalwareStates);
-            writer.WriteCollectionOfObjectValues<WindowsProtectionState>("windowsProtectionStates", WindowsProtectionStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>("aggregatedPolicyCompliances", AggregatedPolicyCompliances);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AppPerformance>("appPerformances", AppPerformances);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AuditEvent>("auditEvents", AuditEvents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcConnection>("cloudPcConnections", CloudPcConnections);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcDevice>("cloudPcDevices", CloudPcDevices);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CloudPcOverview>("cloudPcsOverview", CloudPcsOverview);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ConditionalAccessPolicyCoverage>("conditionalAccessPolicyCoverages", ConditionalAccessPolicyCoverages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.CredentialUserRegistrationsSummary>("credentialUserRegistrationsSummaries", CredentialUserRegistrationsSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceAppPerformance>("deviceAppPerformances", DeviceAppPerformances);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceCompliancePolicySettingStateSummary>("deviceCompliancePolicySettingStateSummaries", DeviceCompliancePolicySettingStateSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.DeviceHealthStatus>("deviceHealthStatuses", DeviceHealthStatuses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedDeviceCompliance>("managedDeviceCompliances", ManagedDeviceCompliances);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedDeviceComplianceTrend>("managedDeviceComplianceTrends", ManagedDeviceComplianceTrends);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertLog>("managedTenantAlertLogs", ManagedTenantAlertLogs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition>("managedTenantAlertRuleDefinitions", ManagedTenantAlertRuleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule>("managedTenantAlertRules", ManagedTenantAlertRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>("managedTenantAlerts", ManagedTenantAlerts);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantApiNotification>("managedTenantApiNotifications", ManagedTenantApiNotifications);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>("managedTenantEmailNotifications", ManagedTenantEmailNotifications);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantTicketingEndpoint>("managedTenantTicketingEndpoints", ManagedTenantTicketingEndpoints);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementAction>("managementActions", ManagementActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus>("managementActionTenantDeploymentStatuses", ManagementActionTenantDeploymentStatuses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementIntent>("managementIntents", ManagementIntents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>("managementTemplateCollections", ManagementTemplateCollections);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionTenantSummary>("managementTemplateCollectionTenantSummaries", ManagementTemplateCollectionTenantSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplate>("managementTemplates", ManagementTemplates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>("managementTemplateSteps", ManagementTemplateSteps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepTenantSummary>("managementTemplateStepTenantSummaries", ManagementTemplateStepTenantSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>("managementTemplateStepVersions", ManagementTemplateStepVersions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.MyRole>("myRoles", MyRoles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantGroup>("tenantGroups", TenantGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Tenant>("tenants", Tenants);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantCustomizedInformation>("tenantsCustomizedInformation", TenantsCustomizedInformation);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantDetailedInformation>("tenantsDetailedInformation", TenantsDetailedInformation);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantTag>("tenantTags", TenantTags);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WindowsDeviceMalwareState>("windowsDeviceMalwareStates", WindowsDeviceMalwareStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WindowsProtectionState>("windowsProtectionStates", WindowsProtectionStates);
         }
     }
 }

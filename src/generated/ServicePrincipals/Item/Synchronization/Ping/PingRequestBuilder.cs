@@ -59,14 +59,14 @@ namespace ApiSdk.ServicePrincipals.Item.Synchronization.Ping
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ServicePrincipals.Item.Synchronization.Ping.PingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PingRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/Ping()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ServicePrincipals.Item.Synchronization.Ping.PingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PingRequestBuilder(string rawUrl) : base("{+baseurl}/servicePrincipals/{servicePrincipal%2Did}/synchronization/Ping()", rawUrl)

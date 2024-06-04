@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>The system health details for a teamworkDevice.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? ComputeHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? ComputeHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth ComputeHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth ComputeHealth { get; set; }
 #endif
         /// <summary>The health details about the HDMI ingest of a device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? HdmiIngestHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? HdmiIngestHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth HdmiIngestHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth HdmiIngestHealth { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkHardwareHealth"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkHardwareHealth"/> and sets the default values.
         /// </summary>
         public TeamworkHardwareHealth()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkHardwareHealth"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkHardwareHealth"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkHardwareHealth CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkHardwareHealth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkHardwareHealth();
+            return new ApiSdk.Models.TeamworkHardwareHealth();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,8 +61,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "computeHealth", n => { ComputeHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
-                { "hdmiIngestHealth", n => { HdmiIngestHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "computeHealth", n => { ComputeHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "hdmiIngestHealth", n => { HdmiIngestHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -73,8 +73,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("computeHealth", ComputeHealth);
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("hdmiIngestHealth", HdmiIngestHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("computeHealth", ComputeHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("hdmiIngestHealth", HdmiIngestHealth);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

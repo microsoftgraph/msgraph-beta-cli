@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ProtectGroup : LabelActionBase, IParsable
+    public class ProtectGroup : ApiSdk.Models.LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allowEmailFromGuestUsers property</summary>
@@ -15,9 +15,9 @@ namespace ApiSdk.Models
         /// <summary>The allowGuestUsers property</summary>
         public bool? AllowGuestUsers { get; set; }
         /// <summary>The privacy property</summary>
-        public GroupPrivacy? Privacy { get; set; }
+        public ApiSdk.Models.GroupPrivacy? Privacy { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ProtectGroup"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ProtectGroup"/> and sets the default values.
         /// </summary>
         public ProtectGroup() : base()
         {
@@ -26,12 +26,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ProtectGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ProtectGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProtectGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ProtectGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ProtectGroup();
+            return new ApiSdk.Models.ProtectGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
             {
                 { "allowEmailFromGuestUsers", n => { AllowEmailFromGuestUsers = n.GetBoolValue(); } },
                 { "allowGuestUsers", n => { AllowGuestUsers = n.GetBoolValue(); } },
-                { "privacy", n => { Privacy = n.GetEnumValue<GroupPrivacy>(); } },
+                { "privacy", n => { Privacy = n.GetEnumValue<ApiSdk.Models.GroupPrivacy>(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteBoolValue("allowEmailFromGuestUsers", AllowEmailFromGuestUsers);
             writer.WriteBoolValue("allowGuestUsers", AllowGuestUsers);
-            writer.WriteEnumValue<GroupPrivacy>("privacy", Privacy);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPrivacy>("privacy", Privacy);
         }
     }
 }

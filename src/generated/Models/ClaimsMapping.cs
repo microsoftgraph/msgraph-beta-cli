@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClaimsMapping"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ClaimsMapping"/> and sets the default values.
         /// </summary>
         public ClaimsMapping()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClaimsMapping"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ClaimsMapping"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ClaimsMapping CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ClaimsMapping CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClaimsMapping();
+            return new ApiSdk.Models.ClaimsMapping();
         }
         /// <summary>
         /// The deserialization information for the current model

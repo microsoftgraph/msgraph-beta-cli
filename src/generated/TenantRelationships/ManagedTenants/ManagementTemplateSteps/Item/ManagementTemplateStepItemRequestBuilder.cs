@@ -32,7 +32,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
         {
             var command = new Command("accepted-version");
             command.Description = "Provides operations to manage the acceptedVersion property of the microsoft.graph.managedTenants.managementTemplateStep entity.";
-            var builder = new AcceptedVersionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.AcceptedVersion.AcceptedVersionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -136,7 +136,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
         {
             var command = new Command("management-template");
             command.Description = "Provides operations to manage the managementTemplate property of the microsoft.graph.managedTenants.managementTemplateStep entity.";
-            var builder = new ManagementTemplateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplate.ManagementTemplateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -176,7 +176,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>(ApiSdk.Models.ManagedTenants.ManagementTemplateStep.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -204,7 +204,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
         {
             var command = new Command("versions");
             command.Description = "Provides operations to manage the versions property of the microsoft.graph.managedTenants.managementTemplateStep entity.";
-            var builder = new VersionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.Versions.VersionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -223,14 +223,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagementTemplateStepItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplateStepItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ManagementTemplateStepItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/managedTenants/managementTemplateSteps/{managementTemplateStep%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagementTemplateStepItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplateStepItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ManagementTemplateStepItemRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/managedTenants/managementTemplateSteps/{managementTemplateStep%2Did}{?%24expand,%24select}", rawUrl)
@@ -262,11 +262,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagementTemplateStepItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplateStepItemRequestBuilder.ManagementTemplateStepItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagementTemplateStepItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item.ManagementTemplateStepItemRequestBuilder.ManagementTemplateStepItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -282,11 +282,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ManagementTemplateStep body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagementTemplateStep body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ManagementTemplateStep body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagementTemplateStep body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

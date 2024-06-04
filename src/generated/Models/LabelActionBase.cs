@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LabelActionBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LabelActionBase"/> and sets the default values.
         /// </summary>
         public LabelActionBase()
         {
@@ -38,25 +38,25 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LabelActionBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LabelActionBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LabelActionBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.LabelActionBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.addFooter" => new AddFooter(),
-                "#microsoft.graph.addHeader" => new AddHeader(),
-                "#microsoft.graph.addWatermark" => new AddWatermark(),
-                "#microsoft.graph.encryptContent" => new EncryptContent(),
-                "#microsoft.graph.encryptWithTemplate" => new EncryptWithTemplate(),
-                "#microsoft.graph.encryptWithUserDefinedRights" => new EncryptWithUserDefinedRights(),
-                "#microsoft.graph.markContent" => new MarkContent(),
-                "#microsoft.graph.protectGroup" => new ProtectGroup(),
-                "#microsoft.graph.protectOnlineMeetingAction" => new ProtectOnlineMeetingAction(),
-                "#microsoft.graph.protectSite" => new ProtectSite(),
-                _ => new LabelActionBase(),
+                "#microsoft.graph.addFooter" => new ApiSdk.Models.AddFooter(),
+                "#microsoft.graph.addHeader" => new ApiSdk.Models.AddHeader(),
+                "#microsoft.graph.addWatermark" => new ApiSdk.Models.AddWatermark(),
+                "#microsoft.graph.encryptContent" => new ApiSdk.Models.EncryptContent(),
+                "#microsoft.graph.encryptWithTemplate" => new ApiSdk.Models.EncryptWithTemplate(),
+                "#microsoft.graph.encryptWithUserDefinedRights" => new ApiSdk.Models.EncryptWithUserDefinedRights(),
+                "#microsoft.graph.markContent" => new ApiSdk.Models.MarkContent(),
+                "#microsoft.graph.protectGroup" => new ApiSdk.Models.ProtectGroup(),
+                "#microsoft.graph.protectOnlineMeetingAction" => new ApiSdk.Models.ProtectOnlineMeetingAction(),
+                "#microsoft.graph.protectSite" => new ApiSdk.Models.ProtectSite(),
+                _ => new ApiSdk.Models.LabelActionBase(),
             };
         }
         /// <summary>

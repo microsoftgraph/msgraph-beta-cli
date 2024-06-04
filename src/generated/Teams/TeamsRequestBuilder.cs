@@ -36,7 +36,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("all-messages");
             command.Description = "Provides operations to call the allMessages method.";
-            var builder = new AllMessagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.AllMessages.AllMessagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -53,7 +53,7 @@ namespace ApiSdk.Teams
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new TeamItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.Item.TeamItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAllChannelsNavCommand());
             commands.Add(builder.BuildArchiveNavCommand());
             commands.Add(builder.BuildChannelsNavCommand());
@@ -87,7 +87,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -150,7 +150,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("get-all-messages");
             command.Description = "Provides operations to call the getAllMessages method.";
-            var builder = new GetAllMessagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.GetAllMessages.GetAllMessagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -167,7 +167,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("get-open-shifts");
             command.Description = "Provides operations to call the getOpenShifts method.";
-            var builder = new GetOpenShiftsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.GetOpenShifts.GetOpenShiftsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -184,7 +184,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("get-shifts");
             command.Description = "Provides operations to call the getShifts method.";
-            var builder = new GetShiftsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.GetShifts.GetShiftsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -201,7 +201,7 @@ namespace ApiSdk.Teams
         {
             var command = new Command("get-times-off");
             command.Description = "Provides operations to call the getTimesOff method.";
-            var builder = new GetTimesOffRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teams.GetTimesOff.GetTimesOffRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -308,14 +308,14 @@ namespace ApiSdk.Teams
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teams.TeamsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TeamsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teams.TeamsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TeamsRequestBuilder(string rawUrl) : base("{+baseurl}/teams{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -328,11 +328,11 @@ namespace ApiSdk.Teams
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teams.TeamsRequestBuilder.TeamsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

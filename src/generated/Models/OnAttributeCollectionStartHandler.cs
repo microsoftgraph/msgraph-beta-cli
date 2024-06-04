@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnAttributeCollectionStartHandler"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OnAttributeCollectionStartHandler"/> and sets the default values.
         /// </summary>
         public OnAttributeCollectionStartHandler()
         {
@@ -30,16 +30,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnAttributeCollectionStartHandler"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnAttributeCollectionStartHandler"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OnAttributeCollectionStartHandler CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OnAttributeCollectionStartHandler CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.onAttributeCollectionStartCustomExtensionHandler" => new OnAttributeCollectionStartCustomExtensionHandler(),
-                _ => new OnAttributeCollectionStartHandler(),
+                "#microsoft.graph.onAttributeCollectionStartCustomExtensionHandler" => new ApiSdk.Models.OnAttributeCollectionStartCustomExtensionHandler(),
+                _ => new ApiSdk.Models.OnAttributeCollectionStartHandler(),
             };
         }
         /// <summary>

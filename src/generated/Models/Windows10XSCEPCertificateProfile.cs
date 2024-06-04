@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows X SCEP Certificate configuration profile
     /// </summary>
-    public class Windows10XSCEPCertificateProfile : Windows10XCertificateProfile, IParsable
+    public class Windows10XSCEPCertificateProfile : ApiSdk.Models.Windows10XCertificateProfile, IParsable
     {
         /// <summary>CertificateStore types</summary>
         public ApiSdk.Models.CertificateStore? CertificateStore { get; set; }
@@ -20,25 +20,25 @@ namespace ApiSdk.Models
         /// <summary>Extended Key Usage (EKU) settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
 #nullable restore
 #else
-        public List<ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
 #endif
         /// <summary>SCEP Hash Algorithm.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HashAlgorithms?>? HashAlgorithm { get; set; }
+        public List<ApiSdk.Models.HashAlgorithms?>? HashAlgorithm { get; set; }
 #nullable restore
 #else
-        public List<HashAlgorithms?> HashAlgorithm { get; set; }
+        public List<ApiSdk.Models.HashAlgorithms?> HashAlgorithm { get; set; }
 #endif
         /// <summary>Key Size Options.</summary>
         public ApiSdk.Models.KeySize? KeySize { get; set; }
         /// <summary>Key Storage Provider (KSP) Import Options.</summary>
-        public KeyStorageProviderOption? KeyStorageProvider { get; set; }
+        public ApiSdk.Models.KeyStorageProviderOption? KeyStorageProvider { get; set; }
         /// <summary>Key Usage Options.</summary>
-        public KeyUsages? KeyUsage { get; set; }
+        public ApiSdk.Models.KeyUsages? KeyUsage { get; set; }
         /// <summary>Certificate renewal threshold percentage</summary>
         public int? RenewalThresholdPercentage { get; set; }
         /// <summary>Trusted Root Certificate ID</summary>
@@ -54,10 +54,10 @@ namespace ApiSdk.Models
         /// <summary>Custom AAD Attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Windows10XCustomSubjectAlternativeName>? SubjectAlternativeNameFormats { get; set; }
+        public List<ApiSdk.Models.Windows10XCustomSubjectAlternativeName>? SubjectAlternativeNameFormats { get; set; }
 #nullable restore
 #else
-        public List<Windows10XCustomSubjectAlternativeName> SubjectAlternativeNameFormats { get; set; }
+        public List<ApiSdk.Models.Windows10XCustomSubjectAlternativeName> SubjectAlternativeNameFormats { get; set; }
 #endif
         /// <summary>Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public string SubjectNameFormatString { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10XSCEPCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10XSCEPCertificateProfile"/> and sets the default values.
         /// </summary>
         public Windows10XSCEPCertificateProfile() : base()
         {
@@ -77,12 +77,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10XSCEPCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10XSCEPCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10XSCEPCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10XSCEPCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10XSCEPCertificateProfile();
+            return new ApiSdk.Models.Windows10XSCEPCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,18 +92,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
-                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<ApiSdk.Models.CertificateStore>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "hashAlgorithm", n => { HashAlgorithm = n.GetCollectionOfEnumValues<HashAlgorithms>()?.ToList(); } },
-                { "keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
-                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
-                { "keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hashAlgorithm", n => { HashAlgorithm = n.GetCollectionOfEnumValues<ApiSdk.Models.HashAlgorithms>()?.ToList(); } },
+                { "keySize", n => { KeySize = n.GetEnumValue<ApiSdk.Models.KeySize>(); } },
+                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<ApiSdk.Models.KeyStorageProviderOption>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApiSdk.Models.KeyUsages>(); } },
                 { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
                 { "rootCertificateId", n => { RootCertificateId = n.GetGuidValue(); } },
                 { "scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "subjectAlternativeNameFormats", n => { SubjectAlternativeNameFormats = n.GetCollectionOfObjectValues<Windows10XCustomSubjectAlternativeName>(Windows10XCustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "subjectAlternativeNameFormats", n => { SubjectAlternativeNameFormats = n.GetCollectionOfObjectValues<ApiSdk.Models.Windows10XCustomSubjectAlternativeName>(ApiSdk.Models.Windows10XCustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
             };
         }
@@ -115,18 +115,18 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CertificateStore>("certificateStore", CertificateStore);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateStore>("certificateStore", CertificateStore);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
             writer.WriteIntValue("certificateValidityPeriodValue", CertificateValidityPeriodValue);
-            writer.WriteCollectionOfObjectValues<ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
-            writer.WriteCollectionOfEnumValues<HashAlgorithms>("hashAlgorithm", HashAlgorithm);
-            writer.WriteEnumValue<KeySize>("keySize", KeySize);
-            writer.WriteEnumValue<KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
-            writer.WriteEnumValue<KeyUsages>("keyUsage", KeyUsage);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.HashAlgorithms>("hashAlgorithm", HashAlgorithm);
+            writer.WriteEnumValue<ApiSdk.Models.KeySize>("keySize", KeySize);
+            writer.WriteEnumValue<ApiSdk.Models.KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
+            writer.WriteEnumValue<ApiSdk.Models.KeyUsages>("keyUsage", KeyUsage);
             writer.WriteIntValue("renewalThresholdPercentage", RenewalThresholdPercentage);
             writer.WriteGuidValue("rootCertificateId", RootCertificateId);
             writer.WriteCollectionOfPrimitiveValues<string>("scepServerUrls", ScepServerUrls);
-            writer.WriteCollectionOfObjectValues<Windows10XCustomSubjectAlternativeName>("subjectAlternativeNameFormats", SubjectAlternativeNameFormats);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Windows10XCustomSubjectAlternativeName>("subjectAlternativeNameFormats", SubjectAlternativeNameFormats);
             writer.WriteStringValue("subjectNameFormatString", SubjectNameFormatString);
         }
     }

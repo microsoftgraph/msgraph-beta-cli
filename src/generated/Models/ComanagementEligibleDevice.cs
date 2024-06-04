@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Co-Management eligibility state
     /// </summary>
-    public class ComanagementEligibleDevice : Entity, IParsable
+    public class ComanagementEligibleDevice : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Device registration status.</summary>
-        public DeviceRegistrationState? ClientRegistrationStatus { get; set; }
+        public ApiSdk.Models.DeviceRegistrationState? ClientRegistrationStatus { get; set; }
         /// <summary>DeviceName</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>EntitySource</summary>
         public int? EntitySource { get; set; }
         /// <summary>Management agent type.</summary>
-        public ManagementAgentType? ManagementAgents { get; set; }
+        public ApiSdk.Models.ManagementAgentType? ManagementAgents { get; set; }
         /// <summary>Management state of device in Microsoft Intune.</summary>
         public ApiSdk.Models.ManagementState? ManagementState { get; set; }
         /// <summary>Manufacturer</summary>
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
         public string SerialNumber { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public ComanagementEligibleType? Status { get; set; }
+        public ApiSdk.Models.ComanagementEligibleType? Status { get; set; }
         /// <summary>UPN</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -124,12 +124,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ComanagementEligibleDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ComanagementEligibleDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ComanagementEligibleDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ComanagementEligibleDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ComanagementEligibleDevice();
+            return new ApiSdk.Models.ComanagementEligibleDevice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -139,21 +139,21 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "clientRegistrationStatus", n => { ClientRegistrationStatus = n.GetEnumValue<DeviceRegistrationState>(); } },
+                { "clientRegistrationStatus", n => { ClientRegistrationStatus = n.GetEnumValue<ApiSdk.Models.DeviceRegistrationState>(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
-                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceType>(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<ApiSdk.Models.DeviceType>(); } },
                 { "entitySource", n => { EntitySource = n.GetIntValue(); } },
-                { "managementAgents", n => { ManagementAgents = n.GetEnumValue<ManagementAgentType>(); } },
-                { "managementState", n => { ManagementState = n.GetEnumValue<ManagementState>(); } },
+                { "managementAgents", n => { ManagementAgents = n.GetEnumValue<ApiSdk.Models.ManagementAgentType>(); } },
+                { "managementState", n => { ManagementState = n.GetEnumValue<ApiSdk.Models.ManagementState>(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 { "mdmStatus", n => { MdmStatus = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "osDescription", n => { OsDescription = n.GetStringValue(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
-                { "ownerType", n => { OwnerType = n.GetEnumValue<OwnerType>(); } },
+                { "ownerType", n => { OwnerType = n.GetEnumValue<ApiSdk.Models.OwnerType>(); } },
                 { "referenceId", n => { ReferenceId = n.GetStringValue(); } },
                 { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ComanagementEligibleType>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ComanagementEligibleType>(); } },
                 { "upn", n => { Upn = n.GetStringValue(); } },
                 { "userEmail", n => { UserEmail = n.GetStringValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
@@ -168,21 +168,21 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DeviceRegistrationState>("clientRegistrationStatus", ClientRegistrationStatus);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceRegistrationState>("clientRegistrationStatus", ClientRegistrationStatus);
             writer.WriteStringValue("deviceName", DeviceName);
-            writer.WriteEnumValue<DeviceType>("deviceType", DeviceType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceType>("deviceType", DeviceType);
             writer.WriteIntValue("entitySource", EntitySource);
-            writer.WriteEnumValue<ManagementAgentType>("managementAgents", ManagementAgents);
-            writer.WriteEnumValue<ManagementState>("managementState", ManagementState);
+            writer.WriteEnumValue<ApiSdk.Models.ManagementAgentType>("managementAgents", ManagementAgents);
+            writer.WriteEnumValue<ApiSdk.Models.ManagementState>("managementState", ManagementState);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("mdmStatus", MdmStatus);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("osDescription", OsDescription);
             writer.WriteStringValue("osVersion", OsVersion);
-            writer.WriteEnumValue<OwnerType>("ownerType", OwnerType);
+            writer.WriteEnumValue<ApiSdk.Models.OwnerType>("ownerType", OwnerType);
             writer.WriteStringValue("referenceId", ReferenceId);
             writer.WriteStringValue("serialNumber", SerialNumber);
-            writer.WriteEnumValue<ComanagementEligibleType>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ComanagementEligibleType>("status", Status);
             writer.WriteStringValue("upn", Upn);
             writer.WriteStringValue("userEmail", UserEmail);
             writer.WriteStringValue("userId", UserId);

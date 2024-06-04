@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcBulkAction : Entity, IParsable
+    public class CloudPcBulkAction : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Run summary of this bulk action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcBulkActionSummary? ActionSummary { get; set; }
+        public ApiSdk.Models.CloudPcBulkActionSummary? ActionSummary { get; set; }
 #nullable restore
 #else
-        public CloudPcBulkActionSummary ActionSummary { get; set; }
+        public ApiSdk.Models.CloudPcBulkActionSummary ActionSummary { get; set; }
 #endif
         /// <summary>The cloudPcIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,25 +41,25 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcBulkAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcBulkAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcBulkAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcBulkAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.cloudPcBulkDisasterRecoveryFailback" => new CloudPcBulkDisasterRecoveryFailback(),
-                "#microsoft.graph.cloudPcBulkDisasterRecoveryFailover" => new CloudPcBulkDisasterRecoveryFailover(),
-                "#microsoft.graph.cloudPcBulkModifyDiskEncryptionType" => new CloudPcBulkModifyDiskEncryptionType(),
-                "#microsoft.graph.cloudPcBulkPowerOff" => new CloudPcBulkPowerOff(),
-                "#microsoft.graph.cloudPcBulkPowerOn" => new CloudPcBulkPowerOn(),
-                "#microsoft.graph.cloudPcBulkReprovision" => new CloudPcBulkReprovision(),
-                "#microsoft.graph.cloudPcBulkResize" => new CloudPcBulkResize(),
-                "#microsoft.graph.cloudPcBulkRestart" => new CloudPcBulkRestart(),
-                "#microsoft.graph.cloudPcBulkRestore" => new CloudPcBulkRestore(),
-                "#microsoft.graph.cloudPcBulkTroubleshoot" => new CloudPcBulkTroubleshoot(),
-                _ => new CloudPcBulkAction(),
+                "#microsoft.graph.cloudPcBulkDisasterRecoveryFailback" => new ApiSdk.Models.CloudPcBulkDisasterRecoveryFailback(),
+                "#microsoft.graph.cloudPcBulkDisasterRecoveryFailover" => new ApiSdk.Models.CloudPcBulkDisasterRecoveryFailover(),
+                "#microsoft.graph.cloudPcBulkModifyDiskEncryptionType" => new ApiSdk.Models.CloudPcBulkModifyDiskEncryptionType(),
+                "#microsoft.graph.cloudPcBulkPowerOff" => new ApiSdk.Models.CloudPcBulkPowerOff(),
+                "#microsoft.graph.cloudPcBulkPowerOn" => new ApiSdk.Models.CloudPcBulkPowerOn(),
+                "#microsoft.graph.cloudPcBulkReprovision" => new ApiSdk.Models.CloudPcBulkReprovision(),
+                "#microsoft.graph.cloudPcBulkResize" => new ApiSdk.Models.CloudPcBulkResize(),
+                "#microsoft.graph.cloudPcBulkRestart" => new ApiSdk.Models.CloudPcBulkRestart(),
+                "#microsoft.graph.cloudPcBulkRestore" => new ApiSdk.Models.CloudPcBulkRestore(),
+                "#microsoft.graph.cloudPcBulkTroubleshoot" => new ApiSdk.Models.CloudPcBulkTroubleshoot(),
+                _ => new ApiSdk.Models.CloudPcBulkAction(),
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actionSummary", n => { ActionSummary = n.GetObjectValue<CloudPcBulkActionSummary>(CloudPcBulkActionSummary.CreateFromDiscriminatorValue); } },
+                { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.CloudPcBulkActionSummary>(ApiSdk.Models.CloudPcBulkActionSummary.CreateFromDiscriminatorValue); } },
                 { "cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<CloudPcBulkActionSummary>("actionSummary", ActionSummary);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcBulkActionSummary>("actionSummary", ActionSummary);
             writer.WriteCollectionOfPrimitiveValues<string>("cloudPcIds", CloudPcIds);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);

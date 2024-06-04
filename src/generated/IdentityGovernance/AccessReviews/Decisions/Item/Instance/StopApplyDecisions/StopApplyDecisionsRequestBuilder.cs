@@ -49,14 +49,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.StopAp
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopApplyDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.StopApplyDecisions.StopApplyDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public StopApplyDecisionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/stopApplyDecisions", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopApplyDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.StopApplyDecisions.StopApplyDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public StopApplyDecisionsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/stopApplyDecisions", rawUrl)

@@ -60,7 +60,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws
         {
             var command = new Command("findings");
             command.Description = "Provides operations to manage the findings property of the microsoft.graph.permissionsAnalytics entity.";
-            var builder = new FindingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.Findings.FindingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -178,7 +178,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws
         {
             var command = new Command("permissions-creep-index-distributions");
             command.Description = "Provides operations to manage the permissionsCreepIndexDistributions property of the microsoft.graph.permissionsAnalytics entity.";
-            var builder = new PermissionsCreepIndexDistributionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.PermissionsCreepIndexDistributions.PermissionsCreepIndexDistributionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -198,14 +198,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AwsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.AwsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AwsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/permissionsAnalytics/aws{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AwsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.AwsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AwsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/permissionsAnalytics/aws{?%24expand,%24select}", rawUrl)
@@ -237,11 +237,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AwsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.AwsRequestBuilder.AwsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AwsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.AwsRequestBuilder.AwsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -56,13 +56,13 @@ namespace ApiSdk.Models
         /// <summary>Links to helpful documentation about this failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementTroubleshootingErrorResource>? Resources { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTroubleshootingErrorResource>? Resources { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementTroubleshootingErrorResource> Resources { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTroubleshootingErrorResource> Resources { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTroubleshootingErrorDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails"/> and sets the default values.
         /// </summary>
         public DeviceManagementTroubleshootingErrorDetails()
         {
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementTroubleshootingErrorDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementTroubleshootingErrorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementTroubleshootingErrorDetails();
+            return new ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
                 { "failureDetails", n => { FailureDetails = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "remediation", n => { Remediation = n.GetStringValue(); } },
-                { "resources", n => { Resources = n.GetCollectionOfObjectValues<DeviceManagementTroubleshootingErrorResource>(DeviceManagementTroubleshootingErrorResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTroubleshootingErrorResource>(ApiSdk.Models.DeviceManagementTroubleshootingErrorResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -106,7 +106,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("failureDetails", FailureDetails);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("remediation", Remediation);
-            writer.WriteCollectionOfObjectValues<DeviceManagementTroubleshootingErrorResource>("resources", Resources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTroubleshootingErrorResource>("resources", Resources);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

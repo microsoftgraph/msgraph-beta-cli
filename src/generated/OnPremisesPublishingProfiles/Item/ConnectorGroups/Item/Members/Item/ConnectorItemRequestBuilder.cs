@@ -25,7 +25,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.
         {
             var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of onPremisesPublishingProfile entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             foreach (var cmd in execCommands)
@@ -35,14 +35,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item.ConnectorItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConnectorItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/members/{connector%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item.ConnectorItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConnectorItemRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/members/{connector%2Did}", rawUrl)

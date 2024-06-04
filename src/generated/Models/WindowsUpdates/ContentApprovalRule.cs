@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class ContentApprovalRule : ComplianceChangeRule, IParsable
+    public class ContentApprovalRule : ApiSdk.Models.WindowsUpdates.ComplianceChangeRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A filter to determine which content matches the rule on an ongoing basis.</summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The time before the deployment starts represented in ISO 8601 format for durations.</summary>
         public TimeSpan? DurationBeforeDeploymentStart { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ContentApprovalRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.ContentApprovalRule"/> and sets the default values.
         /// </summary>
         public ContentApprovalRule() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContentApprovalRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ContentApprovalRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ContentApprovalRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.ContentApprovalRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContentApprovalRule();
+            return new ApiSdk.Models.WindowsUpdates.ContentApprovalRule();
         }
         /// <summary>
         /// The deserialization information for the current model

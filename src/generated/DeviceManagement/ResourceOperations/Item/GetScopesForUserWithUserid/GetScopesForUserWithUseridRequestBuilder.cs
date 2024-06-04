@@ -108,14 +108,14 @@ namespace ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUs
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetScopesForUserWithUseridRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUserid.GetScopesForUserWithUseridRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetScopesForUserWithUseridRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}/getScopesForUser(userid='{userid}'){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetScopesForUserWithUseridRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUserid.GetScopesForUserWithUseridRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetScopesForUserWithUseridRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/resourceOperations/{resourceOperation%2Did}/getScopesForUser(userid='{userid}'){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -128,11 +128,11 @@ namespace ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUs
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetScopesForUserWithUseridRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUserid.GetScopesForUserWithUseridRequestBuilder.GetScopesForUserWithUseridRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetScopesForUserWithUseridRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ResourceOperations.Item.GetScopesForUserWithUserid.GetScopesForUserWithUseridRequestBuilder.GetScopesForUserWithUseridRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

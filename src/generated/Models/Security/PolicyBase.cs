@@ -47,20 +47,20 @@ namespace ApiSdk.Models.Security
         /// <summary>The lastModifiedDateTime property</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The status property</summary>
-        public PolicyStatus? Status { get; set; }
+        public ApiSdk.Models.Security.PolicyStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicyBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.PolicyBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicyBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.PolicyBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.ediscoveryHoldPolicy" => new EdiscoveryHoldPolicy(),
-                _ => new PolicyBase(),
+                "#microsoft.graph.security.ediscoveryHoldPolicy" => new ApiSdk.Models.Security.EdiscoveryHoldPolicy(),
+                _ => new ApiSdk.Models.Security.PolicyBase(),
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace ApiSdk.Models.Security
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<PolicyStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Security.PolicyStatus>(); } },
             };
         }
         /// <summary>
@@ -94,7 +94,7 @@ namespace ApiSdk.Models.Security
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<PolicyStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.Security.PolicyStatus>("status", Status);
         }
     }
 }

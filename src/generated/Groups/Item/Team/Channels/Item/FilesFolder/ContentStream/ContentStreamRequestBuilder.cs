@@ -164,14 +164,14 @@ namespace ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder.ContentStream
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ContentStreamRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/filesFolder/contentStream", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.Channels.Item.FilesFolder.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentStreamRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/channels/{channel%2Did}/filesFolder/contentStream", rawUrl)

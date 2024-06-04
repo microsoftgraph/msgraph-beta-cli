@@ -66,7 +66,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("aggregated-policy-compliances");
             command.Description = "Provides operations to manage the aggregatedPolicyCompliances property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new AggregatedPolicyCompliancesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.AggregatedPolicyCompliances.AggregatedPolicyCompliancesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -93,7 +93,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("app-performances");
             command.Description = "Provides operations to manage the appPerformances property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new AppPerformancesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.AppPerformances.AppPerformancesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -120,7 +120,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("audit-events");
             command.Description = "Provides operations to manage the auditEvents property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new AuditEventsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.AuditEvents.AuditEventsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -147,7 +147,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("cloud-pc-connections");
             command.Description = "Provides operations to manage the cloudPcConnections property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new CloudPcConnectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.CloudPcConnections.CloudPcConnectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -174,7 +174,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("cloud-pc-devices");
             command.Description = "Provides operations to manage the cloudPcDevices property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new CloudPcDevicesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.CloudPcDevices.CloudPcDevicesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -201,7 +201,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("cloud-pcs-overview");
             command.Description = "Provides operations to manage the cloudPcsOverview property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new CloudPcsOverviewRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.CloudPcsOverview.CloudPcsOverviewRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -228,7 +228,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("conditional-access-policy-coverages");
             command.Description = "Provides operations to manage the conditionalAccessPolicyCoverages property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ConditionalAccessPolicyCoveragesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ConditionalAccessPolicyCoverages.ConditionalAccessPolicyCoveragesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -255,7 +255,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("credential-user-registrations-summaries");
             command.Description = "Provides operations to manage the credentialUserRegistrationsSummaries property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new CredentialUserRegistrationsSummariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.CredentialUserRegistrationsSummaries.CredentialUserRegistrationsSummariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -311,7 +311,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("device-app-performances");
             command.Description = "Provides operations to manage the deviceAppPerformances property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new DeviceAppPerformancesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.DeviceAppPerformances.DeviceAppPerformancesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -338,7 +338,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("device-compliance-policy-setting-state-summaries");
             command.Description = "Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new DeviceCompliancePolicySettingStateSummariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.DeviceCompliancePolicySettingStateSummaries.DeviceCompliancePolicySettingStateSummariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -365,7 +365,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("device-health-statuses");
             command.Description = "Provides operations to manage the deviceHealthStatuses property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new DeviceHealthStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.DeviceHealthStatuses.DeviceHealthStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -438,7 +438,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-device-compliances");
             command.Description = "Provides operations to manage the managedDeviceCompliances property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedDeviceCompliancesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceCompliances.ManagedDeviceCompliancesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -465,7 +465,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-device-compliance-trends");
             command.Description = "Provides operations to manage the managedDeviceComplianceTrends property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedDeviceComplianceTrendsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedDeviceComplianceTrends.ManagedDeviceComplianceTrendsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -492,7 +492,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-alert-logs");
             command.Description = "Provides operations to manage the managedTenantAlertLogs property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantAlertLogsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertLogs.ManagedTenantAlertLogsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -519,7 +519,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-alert-rule-definitions");
             command.Description = "Provides operations to manage the managedTenantAlertRuleDefinitions property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantAlertRuleDefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRuleDefinitions.ManagedTenantAlertRuleDefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -546,7 +546,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-alert-rules");
             command.Description = "Provides operations to manage the managedTenantAlertRules property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantAlertRulesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.ManagedTenantAlertRulesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -573,7 +573,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-alerts");
             command.Description = "Provides operations to manage the managedTenantAlerts property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantAlertsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlerts.ManagedTenantAlertsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -600,7 +600,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-api-notifications");
             command.Description = "Provides operations to manage the managedTenantApiNotifications property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantApiNotificationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantApiNotifications.ManagedTenantApiNotificationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -627,7 +627,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-email-notifications");
             command.Description = "Provides operations to manage the managedTenantEmailNotifications property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantEmailNotificationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantEmailNotifications.ManagedTenantEmailNotificationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -654,7 +654,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("managed-tenant-ticketing-endpoints");
             command.Description = "Provides operations to manage the managedTenantTicketingEndpoints property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagedTenantTicketingEndpointsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantTicketingEndpoints.ManagedTenantTicketingEndpointsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -681,7 +681,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-actions");
             command.Description = "Provides operations to manage the managementActions property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementActionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementActions.ManagementActionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -708,7 +708,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-action-tenant-deployment-statuses");
             command.Description = "Provides operations to manage the managementActionTenantDeploymentStatuses property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementActionTenantDeploymentStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.ManagementActionTenantDeploymentStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -736,7 +736,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-intents");
             command.Description = "Provides operations to manage the managementIntents property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementIntentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementIntents.ManagementIntentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -763,7 +763,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-template-collections");
             command.Description = "Provides operations to manage the managementTemplateCollections property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplateCollectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollections.ManagementTemplateCollectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -790,7 +790,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-template-collection-tenant-summaries");
             command.Description = "Provides operations to manage the managementTemplateCollectionTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplateCollectionTenantSummariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateCollectionTenantSummaries.ManagementTemplateCollectionTenantSummariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -817,7 +817,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-templates");
             command.Description = "Provides operations to manage the managementTemplates property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplates.ManagementTemplatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -844,7 +844,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-template-steps");
             command.Description = "Provides operations to manage the managementTemplateSteps property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplateStepsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateSteps.ManagementTemplateStepsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -871,7 +871,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-template-step-tenant-summaries");
             command.Description = "Provides operations to manage the managementTemplateStepTenantSummaries property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplateStepTenantSummariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepTenantSummaries.ManagementTemplateStepTenantSummariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -898,7 +898,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("management-template-step-versions");
             command.Description = "Provides operations to manage the managementTemplateStepVersions property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new ManagementTemplateStepVersionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagementTemplateStepVersions.ManagementTemplateStepVersionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -925,7 +925,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("my-roles");
             command.Description = "Provides operations to manage the myRoles property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new MyRolesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.MyRoles.MyRolesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -970,7 +970,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ManagedTenant>(ManagedTenant.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenant>(ApiSdk.Models.ManagedTenants.ManagedTenant.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -997,7 +997,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("tenant-groups");
             command.Description = "Provides operations to manage the tenantGroups property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new TenantGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.TenantGroups.TenantGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1025,7 +1025,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("tenants-customized-information");
             command.Description = "Provides operations to manage the tenantsCustomizedInformation property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new TenantsCustomizedInformationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.TenantsCustomizedInformation.TenantsCustomizedInformationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1052,7 +1052,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("tenants-detailed-information");
             command.Description = "Provides operations to manage the tenantsDetailedInformation property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new TenantsDetailedInformationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.TenantsDetailedInformation.TenantsDetailedInformationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1079,7 +1079,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("tenants");
             command.Description = "Provides operations to manage the tenants property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new TenantsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.Tenants.TenantsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1106,7 +1106,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("tenant-tags");
             command.Description = "Provides operations to manage the tenantTags property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new TenantTagsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.TenantTags.TenantTagsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1133,7 +1133,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("windows-device-malware-states");
             command.Description = "Provides operations to manage the windowsDeviceMalwareStates property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new WindowsDeviceMalwareStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.WindowsDeviceMalwareStates.WindowsDeviceMalwareStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1160,7 +1160,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         {
             var command = new Command("windows-protection-states");
             command.Description = "Provides operations to manage the windowsProtectionStates property of the microsoft.graph.managedTenants.managedTenant entity.";
-            var builder = new WindowsProtectionStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.WindowsProtectionStates.WindowsProtectionStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1180,14 +1180,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedTenantsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ManagedTenantsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/managedTenants{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedTenantsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ManagedTenantsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/managedTenants{?%24expand,%24select}", rawUrl)
@@ -1219,11 +1219,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagedTenantsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantsRequestBuilder.ManagedTenantsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagedTenantsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantsRequestBuilder.ManagedTenantsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -1239,11 +1239,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ManagedTenant body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagedTenant body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ManagedTenant body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagedTenant body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

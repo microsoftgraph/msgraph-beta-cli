@@ -53,7 +53,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphW
         public List<string> RemoveMembers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateAudienceByIdPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudienceById.UpdateAudienceByIdPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateAudienceByIdPostRequestBody()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphW
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateAudienceByIdPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudienceById.UpdateAudienceByIdPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateAudienceByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudienceById.UpdateAudienceByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateAudienceByIdPostRequestBody();
+            return new ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.MicrosoftGraphWindowsUpdatesUpdateAudienceById.UpdateAudienceByIdPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

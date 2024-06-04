@@ -30,7 +30,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new DetectedAppItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.Item.DetectedAppItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildGetCommand());
             return new(executables, new(0));
         }
@@ -42,7 +42,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -154,14 +154,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DetectedAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.DetectedAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DetectedAppsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/detectedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DetectedAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.DetectedAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DetectedAppsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/detectedApps{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -174,11 +174,11 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DetectedAppsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.DetectedAppsRequestBuilder.DetectedAppsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DetectedAppsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ComanagedDevices.Item.DetectedApps.DetectedAppsRequestBuilder.DetectedAppsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

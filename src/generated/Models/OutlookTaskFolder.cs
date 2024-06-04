@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OutlookTaskFolder : Entity, IParsable
+    public class OutlookTaskFolder : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The version of the task folder.</summary>
@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties { get; set; }
 #nullable restore
 #else
-        public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
 #endif
         /// <summary>The name of the task folder.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,28 +41,28 @@ namespace ApiSdk.Models
         /// <summary>The collection of single-value extended properties defined for the task folder. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties { get; set; }
 #nullable restore
 #else
-        public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
 #endif
         /// <summary>The tasks in this task folder. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OutlookTask>? Tasks { get; set; }
+        public List<ApiSdk.Models.OutlookTask>? Tasks { get; set; }
 #nullable restore
 #else
-        public List<OutlookTask> Tasks { get; set; }
+        public List<ApiSdk.Models.OutlookTask> Tasks { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OutlookTaskFolder"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OutlookTaskFolder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OutlookTaskFolder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OutlookTaskFolder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OutlookTaskFolder();
+            return new ApiSdk.Models.OutlookTaskFolder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,11 +74,11 @@ namespace ApiSdk.Models
             {
                 { "changeKey", n => { ChangeKey = n.GetStringValue(); } },
                 { "isDefaultFolder", n => { IsDefaultFolder = n.GetBoolValue(); } },
-                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.MultiValueLegacyExtendedProperty>(ApiSdk.Models.MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parentGroupKey", n => { ParentGroupKey = n.GetGuidValue(); } },
-                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<OutlookTask>(OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.SingleValueLegacyExtendedProperty>(ApiSdk.Models.SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<ApiSdk.Models.OutlookTask>(ApiSdk.Models.OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -91,11 +91,11 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("changeKey", ChangeKey);
             writer.WriteBoolValue("isDefaultFolder", IsDefaultFolder);
-            writer.WriteCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
             writer.WriteStringValue("name", Name);
             writer.WriteGuidValue("parentGroupKey", ParentGroupKey);
-            writer.WriteCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", SingleValueExtendedProperties);
-            writer.WriteCollectionOfObjectValues<OutlookTask>("tasks", Tasks);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", SingleValueExtendedProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OutlookTask>("tasks", Tasks);
         }
     }
 }

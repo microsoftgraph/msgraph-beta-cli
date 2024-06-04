@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign
 {
     #pragma warning disable CS1591
-    public class AssignPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class AssignPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationPolicyAssignment>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationPolicyAssignment> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign.AssignPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AssignPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign.AssignPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignPostResponse();
+            return new ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign.AssignPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>(DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>(ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.CompliancePolicies.Item.Assign
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>("value", Value);
         }
     }
 }

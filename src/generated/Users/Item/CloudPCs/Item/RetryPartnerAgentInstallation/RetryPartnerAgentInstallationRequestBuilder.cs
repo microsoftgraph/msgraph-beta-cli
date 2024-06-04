@@ -56,14 +56,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.RetryPartnerAgentInstallation
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetryPartnerAgentInstallationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.RetryPartnerAgentInstallation.RetryPartnerAgentInstallationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetryPartnerAgentInstallationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/retryPartnerAgentInstallation", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetryPartnerAgentInstallationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.RetryPartnerAgentInstallation.RetryPartnerAgentInstallationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetryPartnerAgentInstallationRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/retryPartnerAgentInstallation", rawUrl)

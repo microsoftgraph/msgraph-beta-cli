@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// A setting instance representing a string value
     /// </summary>
-    public class DeviceManagementStringSettingInstance : DeviceManagementSettingInstance, IParsable
+    public class DeviceManagementStringSettingInstance : ApiSdk.Models.DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The string value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementStringSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementStringSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementStringSettingInstance() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementStringSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementStringSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementStringSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementStringSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementStringSettingInstance();
+            return new ApiSdk.Models.DeviceManagementStringSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -16,13 +16,13 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TiIndicator>? Value { get; set; }
+        public List<ApiSdk.Models.TiIndicator>? Value { get; set; }
 #nullable restore
 #else
-        public List<TiIndicator> Value { get; set; }
+        public List<ApiSdk.Models.TiIndicator> Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateTiIndicatorsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateTiIndicatorsPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateTiIndicatorsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateTiIndicatorsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateTiIndicatorsPostRequestBody();
+            return new ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<TiIndicator>(TiIndicator.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.TiIndicator>(ApiSdk.Models.TiIndicator.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TiIndicator>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TiIndicator>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

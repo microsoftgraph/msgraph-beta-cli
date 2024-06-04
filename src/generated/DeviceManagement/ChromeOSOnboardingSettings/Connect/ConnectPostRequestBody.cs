@@ -29,7 +29,7 @@ namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect
         public string OwnerUserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConnectPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect.ConnectPostRequestBody"/> and sets the default values.
         /// </summary>
         public ConnectPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConnectPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect.ConnectPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConnectPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect.ConnectPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConnectPostRequestBody();
+            return new ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Connect.ConnectPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

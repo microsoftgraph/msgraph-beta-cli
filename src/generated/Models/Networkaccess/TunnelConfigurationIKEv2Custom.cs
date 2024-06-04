@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class TunnelConfigurationIKEv2Custom : TunnelConfiguration, IParsable
+    public class TunnelConfigurationIKEv2Custom : ApiSdk.Models.Networkaccess.TunnelConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dhGroup property</summary>
@@ -25,7 +25,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>a standard specifiying Security Association lifetime with recommended values from an RFC standard.</summary>
         public long? SaLifeTimeSeconds { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TunnelConfigurationIKEv2Custom"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Custom"/> and sets the default values.
         /// </summary>
         public TunnelConfigurationIKEv2Custom() : base()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TunnelConfigurationIKEv2Custom"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Custom"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TunnelConfigurationIKEv2Custom CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Custom CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TunnelConfigurationIKEv2Custom();
+            return new ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Custom();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,12 +49,12 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "dhGroup", n => { DhGroup = n.GetEnumValue<DhGroup>(); } },
-                { "ikeEncryption", n => { IkeEncryption = n.GetEnumValue<IkeEncryption>(); } },
-                { "ikeIntegrity", n => { IkeIntegrity = n.GetEnumValue<IkeIntegrity>(); } },
-                { "ipSecEncryption", n => { IpSecEncryption = n.GetEnumValue<IpSecEncryption>(); } },
-                { "ipSecIntegrity", n => { IpSecIntegrity = n.GetEnumValue<IpSecIntegrity>(); } },
-                { "pfsGroup", n => { PfsGroup = n.GetEnumValue<PfsGroup>(); } },
+                { "dhGroup", n => { DhGroup = n.GetEnumValue<ApiSdk.Models.Networkaccess.DhGroup>(); } },
+                { "ikeEncryption", n => { IkeEncryption = n.GetEnumValue<ApiSdk.Models.Networkaccess.IkeEncryption>(); } },
+                { "ikeIntegrity", n => { IkeIntegrity = n.GetEnumValue<ApiSdk.Models.Networkaccess.IkeIntegrity>(); } },
+                { "ipSecEncryption", n => { IpSecEncryption = n.GetEnumValue<ApiSdk.Models.Networkaccess.IpSecEncryption>(); } },
+                { "ipSecIntegrity", n => { IpSecIntegrity = n.GetEnumValue<ApiSdk.Models.Networkaccess.IpSecIntegrity>(); } },
+                { "pfsGroup", n => { PfsGroup = n.GetEnumValue<ApiSdk.Models.Networkaccess.PfsGroup>(); } },
                 { "saLifeTimeSeconds", n => { SaLifeTimeSeconds = n.GetLongValue(); } },
             };
         }
@@ -66,12 +66,12 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DhGroup>("dhGroup", DhGroup);
-            writer.WriteEnumValue<IkeEncryption>("ikeEncryption", IkeEncryption);
-            writer.WriteEnumValue<IkeIntegrity>("ikeIntegrity", IkeIntegrity);
-            writer.WriteEnumValue<IpSecEncryption>("ipSecEncryption", IpSecEncryption);
-            writer.WriteEnumValue<IpSecIntegrity>("ipSecIntegrity", IpSecIntegrity);
-            writer.WriteEnumValue<PfsGroup>("pfsGroup", PfsGroup);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.DhGroup>("dhGroup", DhGroup);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.IkeEncryption>("ikeEncryption", IkeEncryption);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.IkeIntegrity>("ikeIntegrity", IkeIntegrity);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.IpSecEncryption>("ipSecEncryption", IpSecEncryption);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.IpSecIntegrity>("ipSecIntegrity", IpSecIntegrity);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.PfsGroup>("pfsGroup", PfsGroup);
             writer.WriteLongValue("saLifeTimeSeconds", SaLifeTimeSeconds);
         }
     }

@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.ResetPasscode
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetPasscodeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.ResetPasscode.ResetPasscodeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResetPasscodeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/resetPasscode", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetPasscodeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.ResetPasscode.ResetPasscodeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResetPasscodeRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/resetPasscode", rawUrl)

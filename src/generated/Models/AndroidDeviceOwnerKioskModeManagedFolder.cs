@@ -32,10 +32,10 @@ namespace ApiSdk.Models
         /// <summary>Items to be added to managed folder. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerKioskModeFolderItem>? Items { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerKioskModeFolderItem> Items { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderItem> Items { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerKioskModeManagedFolder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerKioskModeManagedFolder()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerKioskModeManagedFolder"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidDeviceOwnerKioskModeManagedFolder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerKioskModeManagedFolder();
+            return new ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
             {
                 { "folderIdentifier", n => { FolderIdentifier = n.GetStringValue(); } },
                 { "folderName", n => { FolderName = n.GetStringValue(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<AndroidDeviceOwnerKioskModeFolderItem>(AndroidDeviceOwnerKioskModeFolderItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderItem>(ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("folderIdentifier", FolderIdentifier);
             writer.WriteStringValue("folderName", FolderName);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerKioskModeFolderItem>("items", Items);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderItem>("items", Items);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

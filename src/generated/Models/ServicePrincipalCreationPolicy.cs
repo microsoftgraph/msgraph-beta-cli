@@ -7,29 +7,29 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ServicePrincipalCreationPolicy : PolicyBase, IParsable
+    public class ServicePrincipalCreationPolicy : ApiSdk.Models.PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The excludes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicePrincipalCreationConditionSet>? Excludes { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationConditionSet>? Excludes { get; set; }
 #nullable restore
 #else
-        public List<ServicePrincipalCreationConditionSet> Excludes { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationConditionSet> Excludes { get; set; }
 #endif
         /// <summary>The includes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicePrincipalCreationConditionSet>? Includes { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationConditionSet>? Includes { get; set; }
 #nullable restore
 #else
-        public List<ServicePrincipalCreationConditionSet> Includes { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationConditionSet> Includes { get; set; }
 #endif
         /// <summary>The isBuiltIn property</summary>
         public bool? IsBuiltIn { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ServicePrincipalCreationPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServicePrincipalCreationPolicy"/> and sets the default values.
         /// </summary>
         public ServicePrincipalCreationPolicy() : base()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServicePrincipalCreationPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServicePrincipalCreationPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ServicePrincipalCreationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ServicePrincipalCreationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServicePrincipalCreationPolicy();
+            return new ApiSdk.Models.ServicePrincipalCreationPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "excludes", n => { Excludes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "includes", n => { Includes = n.GetCollectionOfObjectValues<ServicePrincipalCreationConditionSet>(ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "excludes", n => { Excludes = n.GetCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationConditionSet>(ApiSdk.Models.ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includes", n => { Includes = n.GetCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationConditionSet>(ApiSdk.Models.ServicePrincipalCreationConditionSet.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
             };
         }
@@ -66,8 +66,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ServicePrincipalCreationConditionSet>("excludes", Excludes);
-            writer.WriteCollectionOfObjectValues<ServicePrincipalCreationConditionSet>("includes", Includes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationConditionSet>("excludes", Excludes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationConditionSet>("includes", Includes);
             writer.WriteBoolValue("isBuiltIn", IsBuiltIn);
         }
     }

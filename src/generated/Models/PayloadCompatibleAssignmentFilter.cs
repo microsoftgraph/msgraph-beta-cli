@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for Payload Compatible Assignment Filter.
     /// </summary>
-    public class PayloadCompatibleAssignmentFilter : DeviceAndAppManagementAssignmentFilter, IParsable
+    public class PayloadCompatibleAssignmentFilter : ApiSdk.Models.DeviceAndAppManagementAssignmentFilter, IParsable
     {
         /// <summary>Represents the payload type AssignmentFilter is being assigned to.</summary>
-        public AssignmentFilterPayloadType? PayloadType { get; set; }
+        public ApiSdk.Models.AssignmentFilterPayloadType? PayloadType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PayloadCompatibleAssignmentFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PayloadCompatibleAssignmentFilter"/> and sets the default values.
         /// </summary>
         public PayloadCompatibleAssignmentFilter() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PayloadCompatibleAssignmentFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PayloadCompatibleAssignmentFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PayloadCompatibleAssignmentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PayloadCompatibleAssignmentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PayloadCompatibleAssignmentFilter();
+            return new ApiSdk.Models.PayloadCompatibleAssignmentFilter();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "payloadType", n => { PayloadType = n.GetEnumValue<AssignmentFilterPayloadType>(); } },
+                { "payloadType", n => { PayloadType = n.GetEnumValue<ApiSdk.Models.AssignmentFilterPayloadType>(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AssignmentFilterPayloadType>("payloadType", PayloadType);
+            writer.WriteEnumValue<ApiSdk.Models.AssignmentFilterPayloadType>("payloadType", PayloadType);
         }
     }
 }

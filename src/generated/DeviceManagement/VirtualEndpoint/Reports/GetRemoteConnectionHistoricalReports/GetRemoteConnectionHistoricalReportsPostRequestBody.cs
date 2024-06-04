@@ -57,7 +57,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHis
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetRemoteConnectionHistoricalReportsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports.GetRemoteConnectionHistoricalReportsPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetRemoteConnectionHistoricalReportsPostRequestBody()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHis
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetRemoteConnectionHistoricalReportsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports.GetRemoteConnectionHistoricalReportsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetRemoteConnectionHistoricalReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports.GetRemoteConnectionHistoricalReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetRemoteConnectionHistoricalReportsPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRemoteConnectionHistoricalReports.GetRemoteConnectionHistoricalReportsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

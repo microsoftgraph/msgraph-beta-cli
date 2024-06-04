@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The windowsAutopilotDeviceIdentity resource represents a Windows Autopilot Device.
     /// </summary>
-    public class WindowsAutopilotDeviceIdentity : Entity, IParsable
+    public class WindowsAutopilotDeviceIdentity : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Addressable user name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,17 +38,17 @@ namespace ApiSdk.Models
         /// <summary>Deployment profile currently assigned to the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsAutopilotDeploymentProfile? DeploymentProfile { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentProfile? DeploymentProfile { get; set; }
 #nullable restore
 #else
-        public WindowsAutopilotDeploymentProfile DeploymentProfile { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentProfile DeploymentProfile { get; set; }
 #endif
         /// <summary>Profile set time of the Windows autopilot device.</summary>
         public DateTimeOffset? DeploymentProfileAssignedDateTime { get; set; }
         /// <summary>The deploymentProfileAssignmentDetailedStatus property</summary>
-        public WindowsAutopilotProfileAssignmentDetailedStatus? DeploymentProfileAssignmentDetailedStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotProfileAssignmentDetailedStatus? DeploymentProfileAssignmentDetailedStatus { get; set; }
         /// <summary>The deploymentProfileAssignmentStatus property</summary>
-        public WindowsAutopilotProfileAssignmentStatus? DeploymentProfileAssignmentStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotProfileAssignmentStatus? DeploymentProfileAssignmentStatus { get; set; }
         /// <summary>Surface Hub Device Account Password</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -94,10 +94,10 @@ namespace ApiSdk.Models
         /// <summary>Deployment profile intended to be assigned to the Windows autopilot device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsAutopilotDeploymentProfile? IntendedDeploymentProfile { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentProfile? IntendedDeploymentProfile { get; set; }
 #nullable restore
 #else
-        public WindowsAutopilotDeploymentProfile IntendedDeploymentProfile { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentProfile IntendedDeploymentProfile { get; set; }
 #endif
         /// <summary>Intune Last Contacted Date Time of the Windows autopilot device.</summary>
         public DateTimeOffset? LastContactedDateTime { get; set; }
@@ -142,7 +142,7 @@ namespace ApiSdk.Models
         public string PurchaseOrderIdentifier { get; set; }
 #endif
         /// <summary>Device remediation status, indicating whether or not hardware has been changed for an Autopilot-registered device.</summary>
-        public WindowsAutopilotDeviceRemediationState? RemediationState { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeviceRemediationState? RemediationState { get; set; }
         /// <summary>RemediationState set time of Autopilot device.</summary>
         public DateTimeOffset? RemediationStateLastModifiedDateTime { get; set; }
         /// <summary>Resource Name.</summary>
@@ -178,7 +178,7 @@ namespace ApiSdk.Models
         public string SystemFamily { get; set; }
 #endif
         /// <summary>Userless enrollment block status, indicating whether the next device enrollment will be blocked.</summary>
-        public WindowsAutopilotUserlessEnrollmentStatus? UserlessEnrollmentStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotUserlessEnrollmentStatus? UserlessEnrollmentStatus { get; set; }
         /// <summary>User Principal Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -190,12 +190,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsAutopilotDeviceIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsAutopilotDeviceIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsAutopilotDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsAutopilotDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsAutopilotDeviceIdentity();
+            return new ApiSdk.Models.WindowsAutopilotDeviceIdentity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -208,31 +208,31 @@ namespace ApiSdk.Models
                 { "addressableUserName", n => { AddressableUserName = n.GetStringValue(); } },
                 { "azureActiveDirectoryDeviceId", n => { AzureActiveDirectoryDeviceId = n.GetStringValue(); } },
                 { "azureAdDeviceId", n => { AzureAdDeviceId = n.GetStringValue(); } },
-                { "deploymentProfile", n => { DeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
+                { "deploymentProfile", n => { DeploymentProfile = n.GetObjectValue<ApiSdk.Models.WindowsAutopilotDeploymentProfile>(ApiSdk.Models.WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
                 { "deploymentProfileAssignedDateTime", n => { DeploymentProfileAssignedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deploymentProfileAssignmentDetailedStatus", n => { DeploymentProfileAssignmentDetailedStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentDetailedStatus>(); } },
-                { "deploymentProfileAssignmentStatus", n => { DeploymentProfileAssignmentStatus = n.GetEnumValue<WindowsAutopilotProfileAssignmentStatus>(); } },
+                { "deploymentProfileAssignmentDetailedStatus", n => { DeploymentProfileAssignmentDetailedStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotProfileAssignmentDetailedStatus>(); } },
+                { "deploymentProfileAssignmentStatus", n => { DeploymentProfileAssignmentStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotProfileAssignmentStatus>(); } },
                 { "deviceAccountPassword", n => { DeviceAccountPassword = n.GetStringValue(); } },
                 { "deviceAccountUpn", n => { DeviceAccountUpn = n.GetStringValue(); } },
                 { "deviceFriendlyName", n => { DeviceFriendlyName = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<ApiSdk.Models.EnrollmentState>(); } },
                 { "groupTag", n => { GroupTag = n.GetStringValue(); } },
-                { "intendedDeploymentProfile", n => { IntendedDeploymentProfile = n.GetObjectValue<WindowsAutopilotDeploymentProfile>(WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
+                { "intendedDeploymentProfile", n => { IntendedDeploymentProfile = n.GetObjectValue<ApiSdk.Models.WindowsAutopilotDeploymentProfile>(ApiSdk.Models.WindowsAutopilotDeploymentProfile.CreateFromDiscriminatorValue); } },
                 { "lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "productKey", n => { ProductKey = n.GetStringValue(); } },
                 { "purchaseOrderIdentifier", n => { PurchaseOrderIdentifier = n.GetStringValue(); } },
-                { "remediationState", n => { RemediationState = n.GetEnumValue<WindowsAutopilotDeviceRemediationState>(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotDeviceRemediationState>(); } },
                 { "remediationStateLastModifiedDateTime", n => { RemediationStateLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "resourceName", n => { ResourceName = n.GetStringValue(); } },
                 { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
                 { "skuNumber", n => { SkuNumber = n.GetStringValue(); } },
                 { "systemFamily", n => { SystemFamily = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                { "userlessEnrollmentStatus", n => { UserlessEnrollmentStatus = n.GetEnumValue<WindowsAutopilotUserlessEnrollmentStatus>(); } },
+                { "userlessEnrollmentStatus", n => { UserlessEnrollmentStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotUserlessEnrollmentStatus>(); } },
             };
         }
         /// <summary>
@@ -246,30 +246,30 @@ namespace ApiSdk.Models
             writer.WriteStringValue("addressableUserName", AddressableUserName);
             writer.WriteStringValue("azureActiveDirectoryDeviceId", AzureActiveDirectoryDeviceId);
             writer.WriteStringValue("azureAdDeviceId", AzureAdDeviceId);
-            writer.WriteObjectValue<WindowsAutopilotDeploymentProfile>("deploymentProfile", DeploymentProfile);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsAutopilotDeploymentProfile>("deploymentProfile", DeploymentProfile);
             writer.WriteDateTimeOffsetValue("deploymentProfileAssignedDateTime", DeploymentProfileAssignedDateTime);
-            writer.WriteEnumValue<WindowsAutopilotProfileAssignmentDetailedStatus>("deploymentProfileAssignmentDetailedStatus", DeploymentProfileAssignmentDetailedStatus);
-            writer.WriteEnumValue<WindowsAutopilotProfileAssignmentStatus>("deploymentProfileAssignmentStatus", DeploymentProfileAssignmentStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotProfileAssignmentDetailedStatus>("deploymentProfileAssignmentDetailedStatus", DeploymentProfileAssignmentDetailedStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotProfileAssignmentStatus>("deploymentProfileAssignmentStatus", DeploymentProfileAssignmentStatus);
             writer.WriteStringValue("deviceAccountPassword", DeviceAccountPassword);
             writer.WriteStringValue("deviceAccountUpn", DeviceAccountUpn);
             writer.WriteStringValue("deviceFriendlyName", DeviceFriendlyName);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<EnrollmentState>("enrollmentState", EnrollmentState);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentState>("enrollmentState", EnrollmentState);
             writer.WriteStringValue("groupTag", GroupTag);
-            writer.WriteObjectValue<WindowsAutopilotDeploymentProfile>("intendedDeploymentProfile", IntendedDeploymentProfile);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsAutopilotDeploymentProfile>("intendedDeploymentProfile", IntendedDeploymentProfile);
             writer.WriteDateTimeOffsetValue("lastContactedDateTime", LastContactedDateTime);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("model", Model);
             writer.WriteStringValue("productKey", ProductKey);
             writer.WriteStringValue("purchaseOrderIdentifier", PurchaseOrderIdentifier);
-            writer.WriteEnumValue<WindowsAutopilotDeviceRemediationState>("remediationState", RemediationState);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotDeviceRemediationState>("remediationState", RemediationState);
             writer.WriteDateTimeOffsetValue("remediationStateLastModifiedDateTime", RemediationStateLastModifiedDateTime);
             writer.WriteStringValue("resourceName", ResourceName);
             writer.WriteStringValue("serialNumber", SerialNumber);
             writer.WriteStringValue("skuNumber", SkuNumber);
             writer.WriteStringValue("systemFamily", SystemFamily);
-            writer.WriteEnumValue<WindowsAutopilotUserlessEnrollmentStatus>("userlessEnrollmentStatus", UserlessEnrollmentStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotUserlessEnrollmentStatus>("userlessEnrollmentStatus", UserlessEnrollmentStatus);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }
     }

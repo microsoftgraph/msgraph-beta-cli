@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSettingDefinition : Entity, IParsable
+    public class DeviceManagementConfigurationSettingDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessTypes property</summary>
-        public DeviceManagementConfigurationSettingAccessTypes? AccessTypes { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingAccessTypes? AccessTypes { get; set; }
         /// <summary>Details which device setting is applicable on. Supports: $filters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingApplicability? Applicability { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingApplicability? Applicability { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingApplicability Applicability { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingApplicability Applicability { get; set; }
 #endif
         /// <summary>Base CSP Path</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,10 +87,10 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether the setting is required or not</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingOccurrence? Occurrence { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingOccurrence? Occurrence { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingOccurrence Occurrence { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingOccurrence Occurrence { get; set; }
 #endif
         /// <summary>Offset CSP Path from Base</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,10 +103,10 @@ namespace ApiSdk.Models
         /// <summary>List of referred setting information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationReferredSettingInformation>? ReferredSettingInformationList { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationReferredSettingInformation>? ReferredSettingInformationList { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationReferredSettingInformation> ReferredSettingInformationList { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationReferredSettingInformation> ReferredSettingInformationList { get; set; }
 #endif
         /// <summary>Root setting definition id if the setting is a child setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,9 +117,9 @@ namespace ApiSdk.Models
         public string RootDefinitionId { get; set; }
 #endif
         /// <summary>Supported setting types</summary>
-        public DeviceManagementConfigurationSettingUsage? SettingUsage { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingUsage? SettingUsage { get; set; }
         /// <summary>Setting control type representation in the UX</summary>
-        public DeviceManagementConfigurationControlType? UxBehavior { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationControlType? UxBehavior { get; set; }
         /// <summary>Item Version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -129,26 +129,26 @@ namespace ApiSdk.Models
         public string Version { get; set; }
 #endif
         /// <summary>Supported setting types</summary>
-        public DeviceManagementConfigurationSettingVisibility? Visibility { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingVisibility? Visibility { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition" => new DeviceManagementConfigurationChoiceSettingCollectionDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition" => new DeviceManagementConfigurationChoiceSettingDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition" => new DeviceManagementConfigurationRedirectSettingDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionDefinition" => new DeviceManagementConfigurationSettingGroupCollectionDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationSettingGroupDefinition" => new DeviceManagementConfigurationSettingGroupDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition" => new DeviceManagementConfigurationSimpleSettingCollectionDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingDefinition" => new DeviceManagementConfigurationSimpleSettingDefinition(),
-                _ => new DeviceManagementConfigurationSettingDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingDefinition" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition" => new ApiSdk.Models.DeviceManagementConfigurationRedirectSettingDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionDefinition" => new ApiSdk.Models.DeviceManagementConfigurationSettingGroupCollectionDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationSettingGroupDefinition" => new ApiSdk.Models.DeviceManagementConfigurationSettingGroupDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingCollectionDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingDefinition" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingDefinition(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSettingDefinition(),
             };
         }
         /// <summary>
@@ -159,8 +159,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessTypes", n => { AccessTypes = n.GetEnumValue<DeviceManagementConfigurationSettingAccessTypes>(); } },
-                { "applicability", n => { Applicability = n.GetObjectValue<DeviceManagementConfigurationSettingApplicability>(DeviceManagementConfigurationSettingApplicability.CreateFromDiscriminatorValue); } },
+                { "accessTypes", n => { AccessTypes = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingAccessTypes>(); } },
+                { "applicability", n => { Applicability = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingApplicability>(ApiSdk.Models.DeviceManagementConfigurationSettingApplicability.CreateFromDiscriminatorValue); } },
                 { "baseUri", n => { BaseUri = n.GetStringValue(); } },
                 { "categoryId", n => { CategoryId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -169,14 +169,14 @@ namespace ApiSdk.Models
                 { "infoUrls", n => { InfoUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "keywords", n => { Keywords = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "occurrence", n => { Occurrence = n.GetObjectValue<DeviceManagementConfigurationSettingOccurrence>(DeviceManagementConfigurationSettingOccurrence.CreateFromDiscriminatorValue); } },
+                { "occurrence", n => { Occurrence = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingOccurrence>(ApiSdk.Models.DeviceManagementConfigurationSettingOccurrence.CreateFromDiscriminatorValue); } },
                 { "offsetUri", n => { OffsetUri = n.GetStringValue(); } },
-                { "referredSettingInformationList", n => { ReferredSettingInformationList = n.GetCollectionOfObjectValues<DeviceManagementConfigurationReferredSettingInformation>(DeviceManagementConfigurationReferredSettingInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "referredSettingInformationList", n => { ReferredSettingInformationList = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationReferredSettingInformation>(ApiSdk.Models.DeviceManagementConfigurationReferredSettingInformation.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "rootDefinitionId", n => { RootDefinitionId = n.GetStringValue(); } },
-                { "settingUsage", n => { SettingUsage = n.GetEnumValue<DeviceManagementConfigurationSettingUsage>(); } },
-                { "uxBehavior", n => { UxBehavior = n.GetEnumValue<DeviceManagementConfigurationControlType>(); } },
+                { "settingUsage", n => { SettingUsage = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingUsage>(); } },
+                { "uxBehavior", n => { UxBehavior = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationControlType>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<DeviceManagementConfigurationSettingVisibility>(); } },
+                { "visibility", n => { Visibility = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingVisibility>(); } },
             };
         }
         /// <summary>
@@ -187,8 +187,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DeviceManagementConfigurationSettingAccessTypes>("accessTypes", AccessTypes);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingApplicability>("applicability", Applicability);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingAccessTypes>("accessTypes", AccessTypes);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingApplicability>("applicability", Applicability);
             writer.WriteStringValue("baseUri", BaseUri);
             writer.WriteStringValue("categoryId", CategoryId);
             writer.WriteStringValue("description", Description);
@@ -197,14 +197,14 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("infoUrls", InfoUrls);
             writer.WriteCollectionOfPrimitiveValues<string>("keywords", Keywords);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingOccurrence>("occurrence", Occurrence);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingOccurrence>("occurrence", Occurrence);
             writer.WriteStringValue("offsetUri", OffsetUri);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationReferredSettingInformation>("referredSettingInformationList", ReferredSettingInformationList);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationReferredSettingInformation>("referredSettingInformationList", ReferredSettingInformationList);
             writer.WriteStringValue("rootDefinitionId", RootDefinitionId);
-            writer.WriteEnumValue<DeviceManagementConfigurationSettingUsage>("settingUsage", SettingUsage);
-            writer.WriteEnumValue<DeviceManagementConfigurationControlType>("uxBehavior", UxBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingUsage>("settingUsage", SettingUsage);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationControlType>("uxBehavior", UxBehavior);
             writer.WriteStringValue("version", Version);
-            writer.WriteEnumValue<DeviceManagementConfigurationSettingVisibility>("visibility", Visibility);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingVisibility>("visibility", Visibility);
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         /// <summary>Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999</summary>
         public int? ScheduledForEnrollmentCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ComanagementEligibleDevicesSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ComanagementEligibleDevicesSummary"/> and sets the default values.
         /// </summary>
         public ComanagementEligibleDevicesSummary()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ComanagementEligibleDevicesSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ComanagementEligibleDevicesSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ComanagementEligibleDevicesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ComanagementEligibleDevicesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ComanagementEligibleDevicesSummary();
+            return new ApiSdk.Models.ComanagementEligibleDevicesSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

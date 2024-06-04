@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsPolicy : Entity, IParsable
+    public class AwsPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The awsPolicyType property</summary>
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsPolicy();
+            return new ApiSdk.Models.AwsPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "awsPolicyType", n => { AwsPolicyType = n.GetEnumValue<AwsPolicyType>(); } },
+                { "awsPolicyType", n => { AwsPolicyType = n.GetEnumValue<ApiSdk.Models.AwsPolicyType>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
             };
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AwsPolicyType>("awsPolicyType", AwsPolicyType);
+            writer.WriteEnumValue<ApiSdk.Models.AwsPolicyType>("awsPolicyType", AwsPolicyType);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
         }

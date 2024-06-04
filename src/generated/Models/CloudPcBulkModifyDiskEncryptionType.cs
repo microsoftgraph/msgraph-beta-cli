@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcBulkModifyDiskEncryptionType : CloudPcBulkAction, IParsable
+    public class CloudPcBulkModifyDiskEncryptionType : ApiSdk.Models.CloudPcBulkAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The diskEncryptionType property</summary>
-        public CloudPcDiskEncryptionType? DiskEncryptionType { get; set; }
+        public ApiSdk.Models.CloudPcDiskEncryptionType? DiskEncryptionType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcBulkModifyDiskEncryptionType"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcBulkModifyDiskEncryptionType"/> and sets the default values.
         /// </summary>
         public CloudPcBulkModifyDiskEncryptionType() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcBulkModifyDiskEncryptionType"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcBulkModifyDiskEncryptionType"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcBulkModifyDiskEncryptionType CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcBulkModifyDiskEncryptionType CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcBulkModifyDiskEncryptionType();
+            return new ApiSdk.Models.CloudPcBulkModifyDiskEncryptionType();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "diskEncryptionType", n => { DiskEncryptionType = n.GetEnumValue<CloudPcDiskEncryptionType>(); } },
+                { "diskEncryptionType", n => { DiskEncryptionType = n.GetEnumValue<ApiSdk.Models.CloudPcDiskEncryptionType>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CloudPcDiskEncryptionType>("diskEncryptionType", DiskEncryptionType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcDiskEncryptionType>("diskEncryptionType", DiskEncryptionType);
         }
     }
 }

@@ -13,10 +13,10 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>List of administrativeUnitInfo of the call participant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AdministrativeUnitInfo>? AdministrativeUnitInfos { get; set; }
+        public List<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>? AdministrativeUnitInfos { get; set; }
 #nullable restore
 #else
-        public List<AdministrativeUnitInfo> AdministrativeUnitInfos { get; set; }
+        public List<ApiSdk.Models.CallRecords.AdministrativeUnitInfo> AdministrativeUnitInfos { get; set; }
 #endif
         /// <summary>The identity of the call participant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,17 +29,17 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ParticipantBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CallRecords.ParticipantBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ParticipantBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CallRecords.ParticipantBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.callRecords.organizer" => new Organizer(),
-                "#microsoft.graph.callRecords.participant" => new Participant(),
-                _ => new ParticipantBase(),
+                "#microsoft.graph.callRecords.organizer" => new ApiSdk.Models.CallRecords.Organizer(),
+                "#microsoft.graph.callRecords.participant" => new ApiSdk.Models.CallRecords.Participant(),
+                _ => new ApiSdk.Models.CallRecords.ParticipantBase(),
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.Models.CallRecords
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<AdministrativeUnitInfo>(AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>(ApiSdk.Models.CallRecords.AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.CommunicationsIdentitySet>(ApiSdk.Models.CommunicationsIdentitySet.CreateFromDiscriminatorValue); } },
             };
         }
@@ -62,7 +62,7 @@ namespace ApiSdk.Models.CallRecords
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AdministrativeUnitInfo>("administrativeUnitInfos", AdministrativeUnitInfos);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>("administrativeUnitInfos", AdministrativeUnitInfos);
             writer.WriteObjectValue<ApiSdk.Models.CommunicationsIdentitySet>("identity", Identity);
         }
     }

@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         /// <summary>The unique id for the request</summary>
         public Guid? PowerliftId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PowerliftDownloadRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PowerliftDownloadRequest"/> and sets the default values.
         /// </summary>
         public PowerliftDownloadRequest()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PowerliftDownloadRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PowerliftDownloadRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PowerliftDownloadRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PowerliftDownloadRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PowerliftDownloadRequest();
+            return new ApiSdk.Models.PowerliftDownloadRequest();
         }
         /// <summary>
         /// The deserialization information for the current model

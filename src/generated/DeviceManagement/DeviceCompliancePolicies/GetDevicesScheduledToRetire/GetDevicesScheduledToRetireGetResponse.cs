@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledToRetire
 {
     #pragma warning disable CS1591
-    public class GetDevicesScheduledToRetireGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetDevicesScheduledToRetireGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RetireScheduledManagedDevice>? Value { get; set; }
+        public List<ApiSdk.Models.RetireScheduledManagedDevice>? Value { get; set; }
 #nullable restore
 #else
-        public List<RetireScheduledManagedDevice> Value { get; set; }
+        public List<ApiSdk.Models.RetireScheduledManagedDevice> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetDevicesScheduledToRetireGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledToRetire.GetDevicesScheduledToRetireGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetDevicesScheduledToRetireGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledToRetire.GetDevicesScheduledToRetireGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetDevicesScheduledToRetireGetResponse();
+            return new ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledToRetire.GetDevicesScheduledToRetireGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledTo
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<RetireScheduledManagedDevice>(RetireScheduledManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.RetireScheduledManagedDevice>(ApiSdk.Models.RetireScheduledManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.GetDevicesScheduledTo
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RetireScheduledManagedDevice>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.RetireScheduledManagedDevice>("value", Value);
         }
     }
 }

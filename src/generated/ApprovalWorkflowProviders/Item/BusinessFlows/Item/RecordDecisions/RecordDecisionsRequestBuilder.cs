@@ -48,7 +48,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisio
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RecordDecisionsPostRequestBody>(RecordDecisionsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsPostRequestBody>(ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisio
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RecordDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RecordDecisionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}/recordDecisions", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RecordDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RecordDecisionsRequestBuilder(string rawUrl) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}/recordDecisions", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisio
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

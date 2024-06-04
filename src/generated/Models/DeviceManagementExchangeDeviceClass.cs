@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Criteria which defines the type of device this access rule will apply to</summary>
-        public DeviceManagementExchangeAccessRuleType? Type { get; set; }
+        public ApiSdk.Models.DeviceManagementExchangeAccessRuleType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementExchangeDeviceClass"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementExchangeDeviceClass"/> and sets the default values.
         /// </summary>
         public DeviceManagementExchangeDeviceClass()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementExchangeDeviceClass"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementExchangeDeviceClass"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementExchangeDeviceClass CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementExchangeDeviceClass CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementExchangeDeviceClass();
+            return new ApiSdk.Models.DeviceManagementExchangeDeviceClass();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<DeviceManagementExchangeAccessRuleType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessRuleType>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceManagementExchangeAccessRuleType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessRuleType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

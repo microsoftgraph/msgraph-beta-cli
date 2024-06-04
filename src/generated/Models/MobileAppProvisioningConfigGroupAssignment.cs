@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains the properties used to assign an App provisioning configuration to a group.
     /// </summary>
-    public class MobileAppProvisioningConfigGroupAssignment : Entity, IParsable
+    public class MobileAppProvisioningConfigGroupAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The ID of the AAD group in which the app provisioning configuration is being targeted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppProvisioningConfigGroupAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppProvisioningConfigGroupAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppProvisioningConfigGroupAssignment();
+            return new ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model

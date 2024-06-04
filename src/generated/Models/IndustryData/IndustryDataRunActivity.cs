@@ -13,10 +13,10 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The flow that was run by this activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IndustryDataActivity? Activity { get; set; }
+        public ApiSdk.Models.IndustryData.IndustryDataActivity? Activity { get; set; }
 #nullable restore
 #else
-        public IndustryDataActivity Activity { get; set; }
+        public ApiSdk.Models.IndustryData.IndustryDataActivity Activity { get; set; }
 #endif
         /// <summary>An error object to diagnose critical failures in an activity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,21 +35,21 @@ namespace ApiSdk.Models.IndustryData
         public string DisplayName { get; private set; }
 #endif
         /// <summary>The status property</summary>
-        public IndustryDataActivityStatus? Status { get; set; }
+        public ApiSdk.Models.IndustryData.IndustryDataActivityStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataRunActivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataRunActivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IndustryDataRunActivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.IndustryDataRunActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.inboundFlowActivity" => new InboundFlowActivity(),
-                "#microsoft.graph.industryData.outboundFlowActivity" => new OutboundFlowActivity(),
-                _ => new IndustryDataRunActivity(),
+                "#microsoft.graph.industryData.inboundFlowActivity" => new ApiSdk.Models.IndustryData.InboundFlowActivity(),
+                "#microsoft.graph.industryData.outboundFlowActivity" => new ApiSdk.Models.IndustryData.OutboundFlowActivity(),
+                _ => new ApiSdk.Models.IndustryData.IndustryDataRunActivity(),
             };
         }
         /// <summary>
@@ -60,10 +60,10 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "activity", n => { Activity = n.GetObjectValue<IndustryDataActivity>(IndustryDataActivity.CreateFromDiscriminatorValue); } },
+                { "activity", n => { Activity = n.GetObjectValue<ApiSdk.Models.IndustryData.IndustryDataActivity>(ApiSdk.Models.IndustryData.IndustryDataActivity.CreateFromDiscriminatorValue); } },
                 { "blockingError", n => { BlockingError = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.IndustryData.IndustryDataActivityStatus>(); } },
             };
         }
         /// <summary>
@@ -74,8 +74,8 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<IndustryDataActivity>("activity", Activity);
-            writer.WriteEnumValue<IndustryDataActivityStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.IndustryDataActivity>("activity", Activity);
+            writer.WriteEnumValue<ApiSdk.Models.IndustryData.IndustryDataActivityStatus>("status", Status);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MessageEvent : Entity, IParsable
+    public class MessageEvent : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dateTime property</summary>
@@ -21,16 +21,16 @@ namespace ApiSdk.Models
         public string Description { get; set; }
 #endif
         /// <summary>The eventType property</summary>
-        public MessageEventType? EventType { get; set; }
+        public ApiSdk.Models.MessageEventType? EventType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MessageEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MessageEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MessageEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MessageEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MessageEvent();
+            return new ApiSdk.Models.MessageEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
             {
                 { "dateTime", n => { DateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "eventType", n => { EventType = n.GetEnumValue<MessageEventType>(); } },
+                { "eventType", n => { EventType = n.GetEnumValue<ApiSdk.Models.MessageEventType>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("dateTime", DateTime);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<MessageEventType>("eventType", EventType);
+            writer.WriteEnumValue<ApiSdk.Models.MessageEventType>("eventType", EventType);
         }
     }
 }

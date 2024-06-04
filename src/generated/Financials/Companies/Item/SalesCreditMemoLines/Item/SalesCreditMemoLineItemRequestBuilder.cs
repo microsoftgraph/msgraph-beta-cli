@@ -31,7 +31,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
         {
             var command = new Command("account");
             command.Description = "Provides operations to manage the account property of the microsoft.graph.salesCreditMemoLine entity.";
-            var builder = new AccountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.Account.AccountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -106,7 +106,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
         {
             var command = new Command("item");
             command.Description = "Provides operations to manage the item property of the microsoft.graph.salesCreditMemoLine entity.";
-            var builder = new ItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.Item.ItemRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -160,7 +160,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SalesCreditMemoLine>(SalesCreditMemoLine.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.SalesCreditMemoLine>(ApiSdk.Models.SalesCreditMemoLine.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -182,14 +182,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesCreditMemoLineItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.SalesCreditMemoLineItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SalesCreditMemoLineItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesCreditMemoLines/{salesCreditMemoLine%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesCreditMemoLineItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.SalesCreditMemoLineItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SalesCreditMemoLineItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesCreditMemoLines/{salesCreditMemoLine%2Did}{?%24expand,%24select}", rawUrl)
@@ -202,11 +202,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesCreditMemoLineItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.SalesCreditMemoLineItemRequestBuilder.SalesCreditMemoLineItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesCreditMemoLineItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item.SalesCreditMemoLineItemRequestBuilder.SalesCreditMemoLineItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -222,11 +222,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SalesCreditMemoLine body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesCreditMemoLine body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SalesCreditMemoLine body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesCreditMemoLine body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

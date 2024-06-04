@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         /// <summary>The rank of the email address. A rank is used as a sort key, in relation to the other returned results. A higher rank value corresponds to a more relevant result. Relevance is determined by communication, collaboration, and business relationship signals.</summary>
         public double? Rank { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RankedEmailAddress"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RankedEmailAddress"/> and sets the default values.
         /// </summary>
         public RankedEmailAddress()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RankedEmailAddress"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RankedEmailAddress"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RankedEmailAddress CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.RankedEmailAddress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RankedEmailAddress();
+            return new ApiSdk.Models.RankedEmailAddress();
         }
         /// <summary>
         /// The deserialization information for the current model

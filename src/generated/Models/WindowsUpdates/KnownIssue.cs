@@ -21,30 +21,30 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The knownIssueHistories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KnownIssueHistoryItem>? KnownIssueHistories { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem>? KnownIssueHistories { get; set; }
 #nullable restore
 #else
-        public List<KnownIssueHistoryItem> KnownIssueHistories { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem> KnownIssueHistories { get; set; }
 #endif
         /// <summary>The date and time when the known issue was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>Knowledge base article associated with the release when the known issue was first reported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public KnowledgeBaseArticle? OriginatingKnowledgeBaseArticle { get; set; }
+        public ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle? OriginatingKnowledgeBaseArticle { get; set; }
 #nullable restore
 #else
-        public KnowledgeBaseArticle OriginatingKnowledgeBaseArticle { get; set; }
+        public ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle OriginatingKnowledgeBaseArticle { get; set; }
 #endif
         /// <summary>The date and time when the known issue was resolved or mitigated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ResolvedDateTime { get; set; }
         /// <summary>Knowledge base article associated with the release when the known issue was resolved or mitigated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public KnowledgeBaseArticle? ResolvingKnowledgeBaseArticle { get; set; }
+        public ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle? ResolvingKnowledgeBaseArticle { get; set; }
 #nullable restore
 #else
-        public KnowledgeBaseArticle ResolvingKnowledgeBaseArticle { get; set; }
+        public ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle ResolvingKnowledgeBaseArticle { get; set; }
 #endif
         /// <summary>The safeguardHoldIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The date and time when the known issue was first reported. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The status property</summary>
-        public WindowsReleaseHealthStatus? Status { get; set; }
+        public ApiSdk.Models.WindowsUpdates.WindowsReleaseHealthStatus? Status { get; set; }
         /// <summary>The title of the known issue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -77,12 +77,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KnownIssue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.KnownIssue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new KnownIssue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.KnownIssue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KnownIssue();
+            return new ApiSdk.Models.WindowsUpdates.KnownIssue();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,14 +93,14 @@ namespace ApiSdk.Models.WindowsUpdates
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "knownIssueHistories", n => { KnownIssueHistories = n.GetCollectionOfObjectValues<KnownIssueHistoryItem>(KnownIssueHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "knownIssueHistories", n => { KnownIssueHistories = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem>(ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "originatingKnowledgeBaseArticle", n => { OriginatingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
+                { "originatingKnowledgeBaseArticle", n => { OriginatingKnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
                 { "resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "resolvingKnowledgeBaseArticle", n => { ResolvingKnowledgeBaseArticle = n.GetObjectValue<KnowledgeBaseArticle>(KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
+                { "resolvingKnowledgeBaseArticle", n => { ResolvingKnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
                 { "safeguardHoldIds", n => { SafeguardHoldIds = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<WindowsReleaseHealthStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.WindowsUpdates.WindowsReleaseHealthStatus>(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "webViewUrl", n => { WebViewUrl = n.GetStringValue(); } },
             };
@@ -114,14 +114,14 @@ namespace ApiSdk.Models.WindowsUpdates
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<KnownIssueHistoryItem>("knownIssueHistories", KnownIssueHistories);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem>("knownIssueHistories", KnownIssueHistories);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
-            writer.WriteObjectValue<KnowledgeBaseArticle>("originatingKnowledgeBaseArticle", OriginatingKnowledgeBaseArticle);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>("originatingKnowledgeBaseArticle", OriginatingKnowledgeBaseArticle);
             writer.WriteDateTimeOffsetValue("resolvedDateTime", ResolvedDateTime);
-            writer.WriteObjectValue<KnowledgeBaseArticle>("resolvingKnowledgeBaseArticle", ResolvingKnowledgeBaseArticle);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>("resolvingKnowledgeBaseArticle", ResolvingKnowledgeBaseArticle);
             writer.WriteCollectionOfPrimitiveValues<int?>("safeguardHoldIds", SafeguardHoldIds);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
-            writer.WriteEnumValue<WindowsReleaseHealthStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdates.WindowsReleaseHealthStatus>("status", Status);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("webViewUrl", WebViewUrl);
         }

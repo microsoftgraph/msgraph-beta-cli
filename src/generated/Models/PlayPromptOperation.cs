@@ -7,20 +7,20 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlayPromptOperation : CommsOperation, IParsable
+    public class PlayPromptOperation : ApiSdk.Models.CommsOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.</summary>
-        public PlayPromptCompletionReason? CompletionReason { get; set; }
+        public ApiSdk.Models.PlayPromptCompletionReason? CompletionReason { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlayPromptOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlayPromptOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlayPromptOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlayPromptOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlayPromptOperation();
+            return new ApiSdk.Models.PlayPromptOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "completionReason", n => { CompletionReason = n.GetEnumValue<PlayPromptCompletionReason>(); } },
+                { "completionReason", n => { CompletionReason = n.GetEnumValue<ApiSdk.Models.PlayPromptCompletionReason>(); } },
             };
         }
         /// <summary>
@@ -41,7 +41,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<PlayPromptCompletionReason>("completionReason", CompletionReason);
+            writer.WriteEnumValue<ApiSdk.Models.PlayPromptCompletionReason>("completionReason", CompletionReason);
         }
     }
 }

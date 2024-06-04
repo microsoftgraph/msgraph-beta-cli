@@ -52,7 +52,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BulkResizePostRequestBody>(BulkResizePostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostRequestBody>(ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -81,14 +81,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BulkResizeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BulkResizeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/bulkResize", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BulkResizeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BulkResizeRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/bulkResize", rawUrl)
@@ -103,11 +103,11 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize
         [Obsolete("The bulkResize action is deprecated and will stop supporting on September 24, 2023. Please use bulk action entity api. as of 2023-05/bulkResize")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(BulkResizePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(BulkResizePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.BulkResize.BulkResizePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

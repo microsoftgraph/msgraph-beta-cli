@@ -37,7 +37,7 @@ namespace ApiSdk.Models.ManagedTenants
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GraphAPIErrorDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails"/> and sets the default values.
         /// </summary>
         public GraphAPIErrorDetails()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GraphAPIErrorDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GraphAPIErrorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GraphAPIErrorDetails();
+            return new ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a staff member who provides services in a business.
     /// </summary>
-    public class BookingStaffMember : BookingPerson, IParsable
+    public class BookingStaffMember : ApiSdk.Models.BookingPerson, IParsable
     {
         /// <summary>True means that if the staff member is a Microsoft 365 user, the Bookings API would verify the staff member&apos;s availability in their personal calendar in Microsoft 365, before making a booking.</summary>
         public bool? AvailabilityIsAffectedByPersonalCalendar { get; set; }
@@ -22,9 +22,9 @@ namespace ApiSdk.Models
         /// <summary>The date, time and timezone when the staff member was last updated.</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>The membershipStatus property</summary>
-        public BookingStaffMembershipStatus? MembershipStatus { get; set; }
+        public ApiSdk.Models.BookingStaffMembershipStatus? MembershipStatus { get; set; }
         /// <summary>The role property</summary>
-        public BookingStaffRole? Role { get; set; }
+        public ApiSdk.Models.BookingStaffRole? Role { get; set; }
         /// <summary>The time zone of the staff member. For a list of possible values, see dateTimeTimeZone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,20 +38,20 @@ namespace ApiSdk.Models
         /// <summary>The range of hours each day of the week that the staff member is available for booking. By default, they&apos;re initialized to be the same as the businessHours property of the business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingWorkHours>? WorkingHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours>? WorkingHours { get; set; }
 #nullable restore
 #else
-        public List<BookingWorkHours> WorkingHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours> WorkingHours { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingStaffMember"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingStaffMember"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingStaffMember CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingStaffMember CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BookingStaffMember();
+            return new ApiSdk.Models.BookingStaffMember();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,11 +66,11 @@ namespace ApiSdk.Models
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "isEmailNotificationEnabled", n => { IsEmailNotificationEnabled = n.GetBoolValue(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "membershipStatus", n => { MembershipStatus = n.GetEnumValue<BookingStaffMembershipStatus>(); } },
-                { "role", n => { Role = n.GetEnumValue<BookingStaffRole>(); } },
+                { "membershipStatus", n => { MembershipStatus = n.GetEnumValue<ApiSdk.Models.BookingStaffMembershipStatus>(); } },
+                { "role", n => { Role = n.GetEnumValue<ApiSdk.Models.BookingStaffRole>(); } },
                 { "timeZone", n => { TimeZone = n.GetStringValue(); } },
                 { "useBusinessHours", n => { UseBusinessHours = n.GetBoolValue(); } },
-                { "workingHours", n => { WorkingHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workingHours", n => { WorkingHours = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>(ApiSdk.Models.BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -86,11 +86,11 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteBoolValue("isEmailNotificationEnabled", IsEmailNotificationEnabled);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
-            writer.WriteEnumValue<BookingStaffMembershipStatus>("membershipStatus", MembershipStatus);
-            writer.WriteEnumValue<BookingStaffRole>("role", Role);
+            writer.WriteEnumValue<ApiSdk.Models.BookingStaffMembershipStatus>("membershipStatus", MembershipStatus);
+            writer.WriteEnumValue<ApiSdk.Models.BookingStaffRole>("role", Role);
             writer.WriteStringValue("timeZone", TimeZone);
             writer.WriteBoolValue("useBusinessHours", UseBusinessHours);
-            writer.WriteCollectionOfObjectValues<BookingWorkHours>("workingHours", WorkingHours);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>("workingHours", WorkingHours);
         }
     }
 }

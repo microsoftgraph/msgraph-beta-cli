@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OnAttributeCollectionSubmitListener : AuthenticationEventListener, IParsable
+    public class OnAttributeCollectionSubmitListener : ApiSdk.Models.AuthenticationEventListener, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Configuration for what to invoke if the event resolves to this listener.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnAttributeCollectionSubmitHandler? Handler { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionSubmitHandler? Handler { get; set; }
 #nullable restore
 #else
-        public OnAttributeCollectionSubmitHandler Handler { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionSubmitHandler Handler { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnAttributeCollectionSubmitListener"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OnAttributeCollectionSubmitListener"/> and sets the default values.
         /// </summary>
         public OnAttributeCollectionSubmitListener() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnAttributeCollectionSubmitListener"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnAttributeCollectionSubmitListener"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnAttributeCollectionSubmitListener CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OnAttributeCollectionSubmitListener CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnAttributeCollectionSubmitListener();
+            return new ApiSdk.Models.OnAttributeCollectionSubmitListener();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "handler", n => { Handler = n.GetObjectValue<OnAttributeCollectionSubmitHandler>(OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
+                { "handler", n => { Handler = n.GetObjectValue<ApiSdk.Models.OnAttributeCollectionSubmitHandler>(ApiSdk.Models.OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<OnAttributeCollectionSubmitHandler>("handler", Handler);
+            writer.WriteObjectValue<ApiSdk.Models.OnAttributeCollectionSubmitHandler>("handler", Handler);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace ApiSdk.RoleManagement.Exchange
         {
             var command = new Command("custom-app-scopes");
             command.Description = "Provides operations to manage the customAppScopes property of the microsoft.graph.unifiedRbacApplication entity.";
-            var builder = new CustomAppScopesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.CustomAppScopes.CustomAppScopesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -154,7 +154,7 @@ namespace ApiSdk.RoleManagement.Exchange
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UnifiedRbacApplication>(UnifiedRbacApplication.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.UnifiedRbacApplication>(ApiSdk.Models.UnifiedRbacApplication.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -181,7 +181,7 @@ namespace ApiSdk.RoleManagement.Exchange
         {
             var command = new Command("resource-namespaces");
             command.Description = "Provides operations to manage the resourceNamespaces property of the microsoft.graph.unifiedRbacApplication entity.";
-            var builder = new ResourceNamespacesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.ResourceNamespaces.ResourceNamespacesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -208,7 +208,7 @@ namespace ApiSdk.RoleManagement.Exchange
         {
             var command = new Command("role-assignments");
             command.Description = "Provides operations to manage the roleAssignments property of the microsoft.graph.unifiedRbacApplication entity.";
-            var builder = new RoleAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.RoleAssignments.RoleAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -235,7 +235,7 @@ namespace ApiSdk.RoleManagement.Exchange
         {
             var command = new Command("role-definitions");
             command.Description = "Provides operations to manage the roleDefinitions property of the microsoft.graph.unifiedRbacApplication entity.";
-            var builder = new RoleDefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.RoleDefinitions.RoleDefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -262,7 +262,7 @@ namespace ApiSdk.RoleManagement.Exchange
         {
             var command = new Command("transitive-role-assignments");
             command.Description = "Provides operations to manage the transitiveRoleAssignments property of the microsoft.graph.unifiedRbacApplication entity.";
-            var builder = new TransitiveRoleAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.TransitiveRoleAssignments.TransitiveRoleAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -282,14 +282,14 @@ namespace ApiSdk.RoleManagement.Exchange
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExchangeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.Exchange.ExchangeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExchangeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/exchange{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExchangeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.Exchange.ExchangeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExchangeRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/exchange{?%24expand,%24select}", rawUrl)
@@ -321,11 +321,11 @@ namespace ApiSdk.RoleManagement.Exchange
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExchangeRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.Exchange.ExchangeRequestBuilder.ExchangeRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExchangeRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.Exchange.ExchangeRequestBuilder.ExchangeRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -341,11 +341,11 @@ namespace ApiSdk.RoleManagement.Exchange
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(UnifiedRbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.UnifiedRbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(UnifiedRbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.UnifiedRbacApplication body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

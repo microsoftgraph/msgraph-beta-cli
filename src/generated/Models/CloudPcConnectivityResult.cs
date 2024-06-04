@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>A list of failed health check items. If the status property is available, this property will be empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcHealthCheckItem>? FailedHealthCheckItems { get; set; }
+        public List<ApiSdk.Models.CloudPcHealthCheckItem>? FailedHealthCheckItems { get; set; }
 #nullable restore
 #else
-        public List<CloudPcHealthCheckItem> FailedHealthCheckItems { get; set; }
+        public List<ApiSdk.Models.CloudPcHealthCheckItem> FailedHealthCheckItems { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,11 +29,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public CloudPcConnectivityStatus? Status { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityStatus? Status { get; set; }
         /// <summary>Datetime when the status was updated. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? UpdatedDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcConnectivityResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcConnectivityResult"/> and sets the default values.
         /// </summary>
         public CloudPcConnectivityResult()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcConnectivityResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcConnectivityResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcConnectivityResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcConnectivityResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcConnectivityResult();
+            return new ApiSdk.Models.CloudPcConnectivityResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,9 +57,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "failedHealthCheckItems", n => { FailedHealthCheckItems = n.GetCollectionOfObjectValues<CloudPcHealthCheckItem>(CloudPcHealthCheckItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "failedHealthCheckItems", n => { FailedHealthCheckItems = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcHealthCheckItem>(ApiSdk.Models.CloudPcHealthCheckItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<CloudPcConnectivityStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CloudPcConnectivityStatus>(); } },
                 { "updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -70,9 +70,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<CloudPcHealthCheckItem>("failedHealthCheckItems", FailedHealthCheckItems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcHealthCheckItem>("failedHealthCheckItems", FailedHealthCheckItems);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CloudPcConnectivityStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcConnectivityStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedDateTime", UpdatedDateTime);
             writer.WriteAdditionalData(AdditionalData);
         }

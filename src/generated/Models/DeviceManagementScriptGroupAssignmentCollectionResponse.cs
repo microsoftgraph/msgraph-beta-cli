@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementScriptGroupAssignmentCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class DeviceManagementScriptGroupAssignmentCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptGroupAssignment>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptGroupAssignment> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScriptGroupAssignmentCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScriptGroupAssignmentCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScriptGroupAssignmentCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScriptGroupAssignmentCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScriptGroupAssignmentCollectionResponse();
+            return new ApiSdk.Models.DeviceManagementScriptGroupAssignmentCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>(DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>(ApiSdk.Models.DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>("value", Value);
         }
     }
 }

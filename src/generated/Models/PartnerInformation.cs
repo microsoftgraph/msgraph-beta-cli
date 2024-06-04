@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string CompanyName { get; set; }
 #endif
         /// <summary>The companyType property</summary>
-        public PartnerTenantType? CompanyType { get; set; }
+        public ApiSdk.Models.PartnerTenantType? CompanyType { get; set; }
         /// <summary>The helpUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
         public string SupportUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PartnerInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PartnerInformation"/> and sets the default values.
         /// </summary>
         public PartnerInformation()
         {
@@ -88,12 +88,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PartnerInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PartnerInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PartnerInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PartnerInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PartnerInformation();
+            return new ApiSdk.Models.PartnerInformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,7 +105,7 @@ namespace ApiSdk.Models
             {
                 { "commerceUrl", n => { CommerceUrl = n.GetStringValue(); } },
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
-                { "companyType", n => { CompanyType = n.GetEnumValue<PartnerTenantType>(); } },
+                { "companyType", n => { CompanyType = n.GetEnumValue<ApiSdk.Models.PartnerTenantType>(); } },
                 { "helpUrl", n => { HelpUrl = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "partnerTenantId", n => { PartnerTenantId = n.GetStringValue(); } },
@@ -123,7 +123,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("commerceUrl", CommerceUrl);
             writer.WriteStringValue("companyName", CompanyName);
-            writer.WriteEnumValue<PartnerTenantType>("companyType", CompanyType);
+            writer.WriteEnumValue<ApiSdk.Models.PartnerTenantType>("companyType", CompanyType);
             writer.WriteStringValue("helpUrl", HelpUrl);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("partnerTenantId", PartnerTenantId);

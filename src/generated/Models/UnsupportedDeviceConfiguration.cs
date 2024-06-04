@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// UnsupportedDeviceConfiguration is used when an entity cannot be mapped to another model-compliant subtype of deviceConfiguration.
     /// </summary>
-    public class UnsupportedDeviceConfiguration : DeviceConfiguration, IParsable
+    public class UnsupportedDeviceConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnsupportedDeviceConfigurationDetail>? Details { get; set; }
+        public List<ApiSdk.Models.UnsupportedDeviceConfigurationDetail>? Details { get; set; }
 #nullable restore
 #else
-        public List<UnsupportedDeviceConfigurationDetail> Details { get; set; }
+        public List<ApiSdk.Models.UnsupportedDeviceConfigurationDetail> Details { get; set; }
 #endif
         /// <summary>The type of entity that would be returned otherwise.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         public string OriginalEntityTypeName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnsupportedDeviceConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnsupportedDeviceConfiguration"/> and sets the default values.
         /// </summary>
         public UnsupportedDeviceConfiguration() : base()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnsupportedDeviceConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnsupportedDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnsupportedDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnsupportedDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnsupportedDeviceConfiguration();
+            return new ApiSdk.Models.UnsupportedDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "details", n => { Details = n.GetCollectionOfObjectValues<UnsupportedDeviceConfigurationDetail>(UnsupportedDeviceConfigurationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "details", n => { Details = n.GetCollectionOfObjectValues<ApiSdk.Models.UnsupportedDeviceConfigurationDetail>(ApiSdk.Models.UnsupportedDeviceConfigurationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "originalEntityTypeName", n => { OriginalEntityTypeName = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UnsupportedDeviceConfigurationDetail>("details", Details);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnsupportedDeviceConfigurationDetail>("details", Details);
             writer.WriteStringValue("originalEntityTypeName", OriginalEntityTypeName);
         }
     }

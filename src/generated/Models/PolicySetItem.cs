@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for PolicySet Item.
     /// </summary>
-    public class PolicySetItem : Entity, IParsable
+    public class PolicySetItem : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Creation time of the PolicySetItem.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -50,32 +50,32 @@ namespace ApiSdk.Models
         public string PayloadId { get; set; }
 #endif
         /// <summary>The enum to specify the status of PolicySet.</summary>
-        public PolicySetStatus? Status { get; set; }
+        public ApiSdk.Models.PolicySetStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicySetItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PolicySetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceCompliancePolicyPolicySetItem" => new DeviceCompliancePolicyPolicySetItem(),
-                "#microsoft.graph.deviceConfigurationPolicySetItem" => new DeviceConfigurationPolicySetItem(),
-                "#microsoft.graph.deviceManagementConfigurationPolicyPolicySetItem" => new DeviceManagementConfigurationPolicyPolicySetItem(),
-                "#microsoft.graph.deviceManagementScriptPolicySetItem" => new DeviceManagementScriptPolicySetItem(),
-                "#microsoft.graph.enrollmentRestrictionsConfigurationPolicySetItem" => new EnrollmentRestrictionsConfigurationPolicySetItem(),
-                "#microsoft.graph.iosLobAppProvisioningConfigurationPolicySetItem" => new IosLobAppProvisioningConfigurationPolicySetItem(),
-                "#microsoft.graph.managedAppProtectionPolicySetItem" => new ManagedAppProtectionPolicySetItem(),
-                "#microsoft.graph.managedDeviceMobileAppConfigurationPolicySetItem" => new ManagedDeviceMobileAppConfigurationPolicySetItem(),
-                "#microsoft.graph.mdmWindowsInformationProtectionPolicyPolicySetItem" => new MdmWindowsInformationProtectionPolicyPolicySetItem(),
-                "#microsoft.graph.mobileAppPolicySetItem" => new MobileAppPolicySetItem(),
-                "#microsoft.graph.targetedManagedAppConfigurationPolicySetItem" => new TargetedManagedAppConfigurationPolicySetItem(),
-                "#microsoft.graph.windows10EnrollmentCompletionPageConfigurationPolicySetItem" => new Windows10EnrollmentCompletionPageConfigurationPolicySetItem(),
-                "#microsoft.graph.windowsAutopilotDeploymentProfilePolicySetItem" => new WindowsAutopilotDeploymentProfilePolicySetItem(),
-                _ => new PolicySetItem(),
+                "#microsoft.graph.deviceCompliancePolicyPolicySetItem" => new ApiSdk.Models.DeviceCompliancePolicyPolicySetItem(),
+                "#microsoft.graph.deviceConfigurationPolicySetItem" => new ApiSdk.Models.DeviceConfigurationPolicySetItem(),
+                "#microsoft.graph.deviceManagementConfigurationPolicyPolicySetItem" => new ApiSdk.Models.DeviceManagementConfigurationPolicyPolicySetItem(),
+                "#microsoft.graph.deviceManagementScriptPolicySetItem" => new ApiSdk.Models.DeviceManagementScriptPolicySetItem(),
+                "#microsoft.graph.enrollmentRestrictionsConfigurationPolicySetItem" => new ApiSdk.Models.EnrollmentRestrictionsConfigurationPolicySetItem(),
+                "#microsoft.graph.iosLobAppProvisioningConfigurationPolicySetItem" => new ApiSdk.Models.IosLobAppProvisioningConfigurationPolicySetItem(),
+                "#microsoft.graph.managedAppProtectionPolicySetItem" => new ApiSdk.Models.ManagedAppProtectionPolicySetItem(),
+                "#microsoft.graph.managedDeviceMobileAppConfigurationPolicySetItem" => new ApiSdk.Models.ManagedDeviceMobileAppConfigurationPolicySetItem(),
+                "#microsoft.graph.mdmWindowsInformationProtectionPolicyPolicySetItem" => new ApiSdk.Models.MdmWindowsInformationProtectionPolicyPolicySetItem(),
+                "#microsoft.graph.mobileAppPolicySetItem" => new ApiSdk.Models.MobileAppPolicySetItem(),
+                "#microsoft.graph.targetedManagedAppConfigurationPolicySetItem" => new ApiSdk.Models.TargetedManagedAppConfigurationPolicySetItem(),
+                "#microsoft.graph.windows10EnrollmentCompletionPageConfigurationPolicySetItem" => new ApiSdk.Models.Windows10EnrollmentCompletionPageConfigurationPolicySetItem(),
+                "#microsoft.graph.windowsAutopilotDeploymentProfilePolicySetItem" => new ApiSdk.Models.WindowsAutopilotDeploymentProfilePolicySetItem(),
+                _ => new ApiSdk.Models.PolicySetItem(),
             };
         }
         /// <summary>
@@ -88,12 +88,12 @@ namespace ApiSdk.Models
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<ErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ApiSdk.Models.ErrorCode>(); } },
                 { "guidedDeploymentTags", n => { GuidedDeploymentTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "itemType", n => { ItemType = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "payloadId", n => { PayloadId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<PolicySetStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.PolicySetStatus>(); } },
             };
         }
         /// <summary>
@@ -106,12 +106,12 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<ErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<ApiSdk.Models.ErrorCode>("errorCode", ErrorCode);
             writer.WriteCollectionOfPrimitiveValues<string>("guidedDeploymentTags", GuidedDeploymentTags);
             writer.WriteStringValue("itemType", ItemType);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("payloadId", PayloadId);
-            writer.WriteEnumValue<PolicySetStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.PolicySetStatus>("status", Status);
         }
     }
 }

@@ -12,16 +12,16 @@ namespace ApiSdk.Models
     public class DeviceManagementExchangeAccessRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>Access Level in Exchange.</summary>
-        public DeviceManagementExchangeAccessLevel? AccessLevel { get; set; }
+        public ApiSdk.Models.DeviceManagementExchangeAccessLevel? AccessLevel { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Device Class which will be impacted by this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementExchangeDeviceClass? DeviceClass { get; set; }
+        public ApiSdk.Models.DeviceManagementExchangeDeviceClass? DeviceClass { get; set; }
 #nullable restore
 #else
-        public DeviceManagementExchangeDeviceClass DeviceClass { get; set; }
+        public ApiSdk.Models.DeviceManagementExchangeDeviceClass DeviceClass { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementExchangeAccessRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementExchangeAccessRule"/> and sets the default values.
         /// </summary>
         public DeviceManagementExchangeAccessRule()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementExchangeAccessRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementExchangeAccessRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementExchangeAccessRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementExchangeAccessRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementExchangeAccessRule();
+            return new ApiSdk.Models.DeviceManagementExchangeAccessRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessLevel", n => { AccessLevel = n.GetEnumValue<DeviceManagementExchangeAccessLevel>(); } },
-                { "deviceClass", n => { DeviceClass = n.GetObjectValue<DeviceManagementExchangeDeviceClass>(DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue); } },
+                { "accessLevel", n => { AccessLevel = n.GetEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessLevel>(); } },
+                { "deviceClass", n => { DeviceClass = n.GetObjectValue<ApiSdk.Models.DeviceManagementExchangeDeviceClass>(ApiSdk.Models.DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -68,8 +68,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DeviceManagementExchangeAccessLevel>("accessLevel", AccessLevel);
-            writer.WriteObjectValue<DeviceManagementExchangeDeviceClass>("deviceClass", DeviceClass);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessLevel>("accessLevel", AccessLevel);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementExchangeDeviceClass>("deviceClass", DeviceClass);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

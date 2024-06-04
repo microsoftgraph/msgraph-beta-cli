@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Encryption report per device
     /// </summary>
-    public class ManagedDeviceEncryptionState : Entity, IParsable
+    public class ManagedDeviceEncryptionState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Advanced BitLocker State. Possible values are: success, noUserConsent, osVolumeUnprotected, osVolumeTpmRequired, osVolumeTpmOnlyRequired, osVolumeTpmPinRequired, osVolumeTpmStartupKeyRequired, osVolumeTpmPinStartupKeyRequired, osVolumeEncryptionMethodMismatch, recoveryKeyBackupFailed, fixedDriveNotEncrypted, fixedDriveEncryptionMethodMismatch, loggedOnUserNonAdmin, windowsRecoveryEnvironmentNotConfigured, tpmNotAvailable, tpmNotReady, networkError.</summary>
-        public AdvancedBitLockerState? AdvancedBitLockerStates { get; set; }
+        public ApiSdk.Models.AdvancedBitLockerState? AdvancedBitLockerStates { get; set; }
         /// <summary>Device name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,15 +22,15 @@ namespace ApiSdk.Models
         public string DeviceName { get; set; }
 #endif
         /// <summary>Device type.</summary>
-        public DeviceTypes? DeviceType { get; set; }
+        public ApiSdk.Models.DeviceTypes? DeviceType { get; set; }
         /// <summary>The encryptionPolicySettingState property</summary>
-        public ComplianceStatus? EncryptionPolicySettingState { get; set; }
+        public ApiSdk.Models.ComplianceStatus? EncryptionPolicySettingState { get; set; }
         /// <summary>Encryption readiness state</summary>
         public ApiSdk.Models.EncryptionReadinessState? EncryptionReadinessState { get; set; }
         /// <summary>Encryption state</summary>
         public ApiSdk.Models.EncryptionState? EncryptionState { get; set; }
         /// <summary>FileVault State. Possible values are: success, driveEncryptedByUser, userDeferredEncryption, escrowNotEnabled.</summary>
-        public FileVaultState? FileVaultStates { get; set; }
+        public ApiSdk.Models.FileVaultState? FileVaultStates { get; set; }
         /// <summary>Operating system version of the device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,10 +42,10 @@ namespace ApiSdk.Models
         /// <summary>Policy Details</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EncryptionReportPolicyDetails>? PolicyDetails { get; set; }
+        public List<ApiSdk.Models.EncryptionReportPolicyDetails>? PolicyDetails { get; set; }
 #nullable restore
 #else
-        public List<EncryptionReportPolicyDetails> PolicyDetails { get; set; }
+        public List<ApiSdk.Models.EncryptionReportPolicyDetails> PolicyDetails { get; set; }
 #endif
         /// <summary>Device TPM Version</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -66,12 +66,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedDeviceEncryptionState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedDeviceEncryptionState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedDeviceEncryptionState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedDeviceEncryptionState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedDeviceEncryptionState();
+            return new ApiSdk.Models.ManagedDeviceEncryptionState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,15 +81,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "advancedBitLockerStates", n => { AdvancedBitLockerStates = n.GetEnumValue<AdvancedBitLockerState>(); } },
+                { "advancedBitLockerStates", n => { AdvancedBitLockerStates = n.GetEnumValue<ApiSdk.Models.AdvancedBitLockerState>(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
-                { "deviceType", n => { DeviceType = n.GetEnumValue<DeviceTypes>(); } },
-                { "encryptionPolicySettingState", n => { EncryptionPolicySettingState = n.GetEnumValue<ComplianceStatus>(); } },
-                { "encryptionReadinessState", n => { EncryptionReadinessState = n.GetEnumValue<EncryptionReadinessState>(); } },
-                { "encryptionState", n => { EncryptionState = n.GetEnumValue<EncryptionState>(); } },
-                { "fileVaultStates", n => { FileVaultStates = n.GetEnumValue<FileVaultState>(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<ApiSdk.Models.DeviceTypes>(); } },
+                { "encryptionPolicySettingState", n => { EncryptionPolicySettingState = n.GetEnumValue<ApiSdk.Models.ComplianceStatus>(); } },
+                { "encryptionReadinessState", n => { EncryptionReadinessState = n.GetEnumValue<ApiSdk.Models.EncryptionReadinessState>(); } },
+                { "encryptionState", n => { EncryptionState = n.GetEnumValue<ApiSdk.Models.EncryptionState>(); } },
+                { "fileVaultStates", n => { FileVaultStates = n.GetEnumValue<ApiSdk.Models.FileVaultState>(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
-                { "policyDetails", n => { PolicyDetails = n.GetCollectionOfObjectValues<EncryptionReportPolicyDetails>(EncryptionReportPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policyDetails", n => { PolicyDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.EncryptionReportPolicyDetails>(ApiSdk.Models.EncryptionReportPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "tpmSpecificationVersion", n => { TpmSpecificationVersion = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
@@ -102,15 +102,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AdvancedBitLockerState>("advancedBitLockerStates", AdvancedBitLockerStates);
+            writer.WriteEnumValue<ApiSdk.Models.AdvancedBitLockerState>("advancedBitLockerStates", AdvancedBitLockerStates);
             writer.WriteStringValue("deviceName", DeviceName);
-            writer.WriteEnumValue<DeviceTypes>("deviceType", DeviceType);
-            writer.WriteEnumValue<ComplianceStatus>("encryptionPolicySettingState", EncryptionPolicySettingState);
-            writer.WriteEnumValue<EncryptionReadinessState>("encryptionReadinessState", EncryptionReadinessState);
-            writer.WriteEnumValue<EncryptionState>("encryptionState", EncryptionState);
-            writer.WriteEnumValue<FileVaultState>("fileVaultStates", FileVaultStates);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceTypes>("deviceType", DeviceType);
+            writer.WriteEnumValue<ApiSdk.Models.ComplianceStatus>("encryptionPolicySettingState", EncryptionPolicySettingState);
+            writer.WriteEnumValue<ApiSdk.Models.EncryptionReadinessState>("encryptionReadinessState", EncryptionReadinessState);
+            writer.WriteEnumValue<ApiSdk.Models.EncryptionState>("encryptionState", EncryptionState);
+            writer.WriteEnumValue<ApiSdk.Models.FileVaultState>("fileVaultStates", FileVaultStates);
             writer.WriteStringValue("osVersion", OsVersion);
-            writer.WriteCollectionOfObjectValues<EncryptionReportPolicyDetails>("policyDetails", PolicyDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EncryptionReportPolicyDetails>("policyDetails", PolicyDetails);
             writer.WriteStringValue("tpmSpecificationVersion", TpmSpecificationVersion);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }

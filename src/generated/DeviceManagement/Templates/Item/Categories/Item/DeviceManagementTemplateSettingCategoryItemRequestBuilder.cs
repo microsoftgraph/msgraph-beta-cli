@@ -158,7 +158,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceManagementTemplateSettingCategory>(DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagementTemplateSettingCategory>(ApiSdk.Models.DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -187,7 +187,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
         {
             var command = new Command("recommended-settings");
             command.Description = "Provides operations to manage the recommendedSettings property of the microsoft.graph.deviceManagementTemplateSettingCategory entity.";
-            var builder = new RecommendedSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.Categories.Item.RecommendedSettings.RecommendedSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -214,7 +214,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
         {
             var command = new Command("setting-definitions");
             command.Description = "Provides operations to manage the settingDefinitions property of the microsoft.graph.deviceManagementSettingCategory entity.";
-            var builder = new SettingDefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.Categories.Item.SettingDefinitions.SettingDefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -234,14 +234,14 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTemplateSettingCategoryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.Categories.Item.DeviceManagementTemplateSettingCategoryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceManagementTemplateSettingCategoryItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/categories/{deviceManagementTemplateSettingCategory%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTemplateSettingCategoryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.Categories.Item.DeviceManagementTemplateSettingCategoryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceManagementTemplateSettingCategoryItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/categories/{deviceManagementTemplateSettingCategory%2Did}{?%24expand,%24select}", rawUrl)
@@ -273,11 +273,11 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementTemplateSettingCategoryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Templates.Item.Categories.Item.DeviceManagementTemplateSettingCategoryItemRequestBuilder.DeviceManagementTemplateSettingCategoryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementTemplateSettingCategoryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Templates.Item.Categories.Item.DeviceManagementTemplateSettingCategoryItemRequestBuilder.DeviceManagementTemplateSettingCategoryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -293,11 +293,11 @@ namespace ApiSdk.DeviceManagement.Templates.Item.Categories.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementTemplateSettingCategory body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementTemplateSettingCategory body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementTemplateSettingCategory body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementTemplateSettingCategory body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

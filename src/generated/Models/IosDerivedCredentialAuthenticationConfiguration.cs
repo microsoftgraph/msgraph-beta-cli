@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// iOS Derived Credential profile.
     /// </summary>
-    public class IosDerivedCredentialAuthenticationConfiguration : DeviceConfiguration, IParsable
+    public class IosDerivedCredentialAuthenticationConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Tenant level settings for the Derived Credentials to be used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
 #nullable restore
 #else
-        public DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosDerivedCredentialAuthenticationConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosDerivedCredentialAuthenticationConfiguration"/> and sets the default values.
         /// </summary>
         public IosDerivedCredentialAuthenticationConfiguration() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosDerivedCredentialAuthenticationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosDerivedCredentialAuthenticationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosDerivedCredentialAuthenticationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosDerivedCredentialAuthenticationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosDerivedCredentialAuthenticationConfiguration();
+            return new ApiSdk.Models.IosDerivedCredentialAuthenticationConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>(ApiSdk.Models.DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
         }
     }
 }

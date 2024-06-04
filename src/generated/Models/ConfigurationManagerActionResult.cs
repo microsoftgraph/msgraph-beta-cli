@@ -9,21 +9,21 @@ namespace ApiSdk.Models
     /// <summary>
     /// Result of the ConfigurationManager action
     /// </summary>
-    public class ConfigurationManagerActionResult : DeviceActionResult, IParsable
+    public class ConfigurationManagerActionResult : ApiSdk.Models.DeviceActionResult, IParsable
     {
         /// <summary>Delivery state of Configuration Manager device action</summary>
-        public ConfigurationManagerActionDeliveryStatus? ActionDeliveryStatus { get; set; }
+        public ApiSdk.Models.ConfigurationManagerActionDeliveryStatus? ActionDeliveryStatus { get; set; }
         /// <summary>Error code of Configuration Manager action from client</summary>
         public int? ErrorCode { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConfigurationManagerActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConfigurationManagerActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConfigurationManagerActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ConfigurationManagerActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConfigurationManagerActionResult();
+            return new ApiSdk.Models.ConfigurationManagerActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actionDeliveryStatus", n => { ActionDeliveryStatus = n.GetEnumValue<ConfigurationManagerActionDeliveryStatus>(); } },
+                { "actionDeliveryStatus", n => { ActionDeliveryStatus = n.GetEnumValue<ApiSdk.Models.ConfigurationManagerActionDeliveryStatus>(); } },
                 { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
             };
         }
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ConfigurationManagerActionDeliveryStatus>("actionDeliveryStatus", ActionDeliveryStatus);
+            writer.WriteEnumValue<ApiSdk.Models.ConfigurationManagerActionDeliveryStatus>("actionDeliveryStatus", ActionDeliveryStatus);
             writer.WriteIntValue("errorCode", ErrorCode);
         }
     }

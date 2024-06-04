@@ -15,10 +15,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>A collection of role assignments for the managed tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.RoleAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<RoleAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.RoleAssignment> Assignments { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.ManagedTenants
         public string TenantId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MyRole"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.MyRole"/> and sets the default values.
         /// </summary>
         public MyRole()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MyRole"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.MyRole"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MyRole CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.MyRole CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MyRole();
+            return new ApiSdk.Models.ManagedTenants.MyRole();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<RoleAssignment>(RoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.RoleAssignment>(ApiSdk.Models.ManagedTenants.RoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.ManagedTenants
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<RoleAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.RoleAssignment>("assignments", Assignments);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteAdditionalData(AdditionalData);

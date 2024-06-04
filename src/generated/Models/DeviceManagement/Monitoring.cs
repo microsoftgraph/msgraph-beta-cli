@@ -13,28 +13,28 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The collection of records of alert events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AlertRecord>? AlertRecords { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRecord>? AlertRecords { get; set; }
 #nullable restore
 #else
-        public List<AlertRecord> AlertRecords { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRecord> AlertRecords { get; set; }
 #endif
         /// <summary>The collection of alert rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AlertRule>? AlertRules { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRule>? AlertRules { get; set; }
 #nullable restore
 #else
-        public List<AlertRule> AlertRules { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRule> AlertRules { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Monitoring"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.Monitoring"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Monitoring CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagement.Monitoring CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Monitoring();
+            return new ApiSdk.Models.DeviceManagement.Monitoring();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alertRecords", n => { AlertRecords = n.GetCollectionOfObjectValues<AlertRecord>(AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "alertRules", n => { AlertRules = n.GetCollectionOfObjectValues<AlertRule>(AlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRecords", n => { AlertRecords = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRecord>(ApiSdk.Models.DeviceManagement.AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRules", n => { AlertRules = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRule>(ApiSdk.Models.DeviceManagement.AlertRule.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models.DeviceManagement
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AlertRecord>("alertRecords", AlertRecords);
-            writer.WriteCollectionOfObjectValues<AlertRule>("alertRules", AlertRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRecord>("alertRecords", AlertRecords);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRule>("alertRules", AlertRules);
         }
     }
 }

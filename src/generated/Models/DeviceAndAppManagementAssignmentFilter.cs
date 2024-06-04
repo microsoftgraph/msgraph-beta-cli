@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for Assignment Filter.
     /// </summary>
-    public class DeviceAndAppManagementAssignmentFilter : Entity, IParsable
+    public class DeviceAndAppManagementAssignmentFilter : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Supported filter management types whether its devices or apps.</summary>
         public ApiSdk.Models.AssignmentFilterManagementType? AssignmentFilterManagementType { get; set; }
@@ -36,13 +36,13 @@ namespace ApiSdk.Models
         /// <summary>Indicates associated assignments for a specific filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PayloadByFilter>? Payloads { get; set; }
+        public List<ApiSdk.Models.PayloadByFilter>? Payloads { get; set; }
 #nullable restore
 #else
-        public List<PayloadByFilter> Payloads { get; set; }
+        public List<ApiSdk.Models.PayloadByFilter> Payloads { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? Platform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? Platform { get; set; }
         /// <summary>Indicates role scope tags assigned for the assignment filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,16 +62,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceAndAppManagementAssignmentFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceAndAppManagementAssignmentFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceAndAppManagementAssignmentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceAndAppManagementAssignmentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.payloadCompatibleAssignmentFilter" => new PayloadCompatibleAssignmentFilter(),
-                _ => new DeviceAndAppManagementAssignmentFilter(),
+                "#microsoft.graph.payloadCompatibleAssignmentFilter" => new ApiSdk.Models.PayloadCompatibleAssignmentFilter(),
+                _ => new ApiSdk.Models.DeviceAndAppManagementAssignmentFilter(),
             };
         }
         /// <summary>
@@ -82,13 +82,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignmentFilterManagementType", n => { AssignmentFilterManagementType = n.GetEnumValue<AssignmentFilterManagementType>(); } },
+                { "assignmentFilterManagementType", n => { AssignmentFilterManagementType = n.GetEnumValue<ApiSdk.Models.AssignmentFilterManagementType>(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "payloads", n => { Payloads = n.GetCollectionOfObjectValues<PayloadByFilter>(PayloadByFilter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "payloads", n => { Payloads = n.GetCollectionOfObjectValues<ApiSdk.Models.PayloadByFilter>(ApiSdk.Models.PayloadByFilter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
                 { "roleScopeTags", n => { RoleScopeTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "rule", n => { Rule = n.GetStringValue(); } },
             };
@@ -101,13 +101,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AssignmentFilterManagementType>("assignmentFilterManagementType", AssignmentFilterManagementType);
+            writer.WriteEnumValue<ApiSdk.Models.AssignmentFilterManagementType>("assignmentFilterManagementType", AssignmentFilterManagementType);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<PayloadByFilter>("payloads", Payloads);
-            writer.WriteEnumValue<DevicePlatformType>("platform", Platform);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PayloadByFilter>("payloads", Payloads);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("platform", Platform);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTags", RoleScopeTags);
             writer.WriteStringValue("rule", Rule);
         }

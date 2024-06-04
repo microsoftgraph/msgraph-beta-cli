@@ -16,13 +16,13 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus
         /// <summary>The reviewStatus property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcReviewStatus? ReviewStatus { get; set; }
+        public ApiSdk.Models.CloudPcReviewStatus? ReviewStatus { get; set; }
 #nullable restore
 #else
-        public CloudPcReviewStatus ReviewStatus { get; set; }
+        public ApiSdk.Models.CloudPcReviewStatus ReviewStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SetReviewStatusPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus.SetReviewStatusPostRequestBody"/> and sets the default values.
         /// </summary>
         public SetReviewStatusPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SetReviewStatusPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus.SetReviewStatusPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SetReviewStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus.SetReviewStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SetReviewStatusPostRequestBody();
+            return new ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus.SetReviewStatusPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "reviewStatus", n => { ReviewStatus = n.GetObjectValue<CloudPcReviewStatus>(CloudPcReviewStatus.CreateFromDiscriminatorValue); } },
+                { "reviewStatus", n => { ReviewStatus = n.GetObjectValue<ApiSdk.Models.CloudPcReviewStatus>(ApiSdk.Models.CloudPcReviewStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<CloudPcReviewStatus>("reviewStatus", ReviewStatus);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcReviewStatus>("reviewStatus", ReviewStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

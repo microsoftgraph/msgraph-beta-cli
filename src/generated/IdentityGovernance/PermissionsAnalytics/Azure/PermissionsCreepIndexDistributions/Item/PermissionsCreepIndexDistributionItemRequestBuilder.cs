@@ -30,7 +30,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepI
         {
             var command = new Command("authorization-system");
             command.Description = "Provides operations to manage the authorizationSystem property of the microsoft.graph.permissionsCreepIndexDistribution entity.";
-            var builder = new AuthorizationSystemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepIndexDistributions.Item.AuthorizationSystem.AuthorizationSystemRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -157,7 +157,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepI
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PermissionsCreepIndexDistribution>(PermissionsCreepIndexDistribution.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PermissionsCreepIndexDistribution>(ApiSdk.Models.PermissionsCreepIndexDistribution.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -178,14 +178,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepI
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsCreepIndexDistributionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepIndexDistributions.Item.PermissionsCreepIndexDistributionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PermissionsCreepIndexDistributionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/permissionsAnalytics/azure/permissionsCreepIndexDistributions/{permissionsCreepIndexDistribution%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsCreepIndexDistributionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepIndexDistributions.Item.PermissionsCreepIndexDistributionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PermissionsCreepIndexDistributionItemRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/permissionsAnalytics/azure/permissionsCreepIndexDistributions/{permissionsCreepIndexDistribution%2Did}{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepI
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsCreepIndexDistributionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepIndexDistributions.Item.PermissionsCreepIndexDistributionItemRequestBuilder.PermissionsCreepIndexDistributionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsCreepIndexDistributionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepIndexDistributions.Item.PermissionsCreepIndexDistributionItemRequestBuilder.PermissionsCreepIndexDistributionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -237,11 +237,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.PermissionsCreepI
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PermissionsCreepIndexDistribution body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PermissionsCreepIndexDistribution body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PermissionsCreepIndexDistribution body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PermissionsCreepIndexDistribution body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

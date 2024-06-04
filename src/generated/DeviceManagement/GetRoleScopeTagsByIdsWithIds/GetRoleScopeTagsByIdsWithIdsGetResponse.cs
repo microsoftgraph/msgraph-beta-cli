@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds
 {
     #pragma warning disable CS1591
-    public class GetRoleScopeTagsByIdsWithIdsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetRoleScopeTagsByIdsWithIdsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleScopeTag>? Value { get; set; }
+        public List<ApiSdk.Models.RoleScopeTag>? Value { get; set; }
 #nullable restore
 #else
-        public List<RoleScopeTag> Value { get; set; }
+        public List<ApiSdk.Models.RoleScopeTag> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetRoleScopeTagsByIdsWithIdsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds.GetRoleScopeTagsByIdsWithIdsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetRoleScopeTagsByIdsWithIdsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds.GetRoleScopeTagsByIdsWithIdsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetRoleScopeTagsByIdsWithIdsGetResponse();
+            return new ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds.GetRoleScopeTagsByIdsWithIdsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<RoleScopeTag>(RoleScopeTag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.RoleScopeTag>(ApiSdk.Models.RoleScopeTag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.GetRoleScopeTagsByIdsWithIds
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RoleScopeTag>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.RoleScopeTag>("value", Value);
         }
     }
 }

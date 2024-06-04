@@ -31,10 +31,10 @@ namespace ApiSdk.Models
         /// <summary>The details of the status of the role assignment request. It represents the evaluation results of different rules.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? StatusDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue>? StatusDetails { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> StatusDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue> StatusDetails { get; set; }
 #endif
         /// <summary>The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string SubStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceRoleAssignmentRequestStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GovernanceRoleAssignmentRequestStatus"/> and sets the default values.
         /// </summary>
         public GovernanceRoleAssignmentRequestStatus()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernanceRoleAssignmentRequestStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernanceRoleAssignmentRequestStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GovernanceRoleAssignmentRequestStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.GovernanceRoleAssignmentRequestStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernanceRoleAssignmentRequestStatus();
+            return new ApiSdk.Models.GovernanceRoleAssignmentRequestStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,7 +71,7 @@ namespace ApiSdk.Models
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
-                { "statusDetails", n => { StatusDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "statusDetails", n => { StatusDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "subStatus", n => { SubStatus = n.GetStringValue(); } },
             };
         }
@@ -84,7 +84,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("status", Status);
-            writer.WriteCollectionOfObjectValues<KeyValue>("statusDetails", StatusDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("statusDetails", StatusDetails);
             writer.WriteStringValue("subStatus", SubStatus);
             writer.WriteAdditionalData(AdditionalData);
         }

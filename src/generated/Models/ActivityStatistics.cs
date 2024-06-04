@@ -8,11 +8,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ActivityStatistics : Entity, IParsable
+    public class ActivityStatistics : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.</summary>
-        public AnalyticsActivityType? Activity { get; set; }
+        public ApiSdk.Models.AnalyticsActivityType? Activity { get; set; }
         /// <summary>Total hours spent on the activity. The value is represented in ISO 8601 format for durations.</summary>
         public TimeSpan? Duration { get; set; }
         /// <summary>Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be &apos;2019-07-03&apos; that follows the YYYY-MM-DD format.</summary>
@@ -30,20 +30,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ActivityStatistics"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ActivityStatistics"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.callActivityStatistics" => new CallActivityStatistics(),
-                "#microsoft.graph.chatActivityStatistics" => new ChatActivityStatistics(),
-                "#microsoft.graph.emailActivityStatistics" => new EmailActivityStatistics(),
-                "#microsoft.graph.focusActivityStatistics" => new FocusActivityStatistics(),
-                "#microsoft.graph.meetingActivityStatistics" => new MeetingActivityStatistics(),
-                _ => new ActivityStatistics(),
+                "#microsoft.graph.callActivityStatistics" => new ApiSdk.Models.CallActivityStatistics(),
+                "#microsoft.graph.chatActivityStatistics" => new ApiSdk.Models.ChatActivityStatistics(),
+                "#microsoft.graph.emailActivityStatistics" => new ApiSdk.Models.EmailActivityStatistics(),
+                "#microsoft.graph.focusActivityStatistics" => new ApiSdk.Models.FocusActivityStatistics(),
+                "#microsoft.graph.meetingActivityStatistics" => new ApiSdk.Models.MeetingActivityStatistics(),
+                _ => new ApiSdk.Models.ActivityStatistics(),
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "activity", n => { Activity = n.GetEnumValue<AnalyticsActivityType>(); } },
+                { "activity", n => { Activity = n.GetEnumValue<ApiSdk.Models.AnalyticsActivityType>(); } },
                 { "duration", n => { Duration = n.GetTimeSpanValue(); } },
                 { "endDate", n => { EndDate = n.GetDateValue(); } },
                 { "startDate", n => { StartDate = n.GetDateValue(); } },
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AnalyticsActivityType>("activity", Activity);
+            writer.WriteEnumValue<ApiSdk.Models.AnalyticsActivityType>("activity", Activity);
             writer.WriteTimeSpanValue("duration", Duration);
             writer.WriteDateValue("endDate", EndDate);
             writer.WriteDateValue("startDate", StartDate);

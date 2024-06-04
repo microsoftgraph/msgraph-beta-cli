@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ServiceInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServiceInformation"/> and sets the default values.
         /// </summary>
         public ServiceInformation()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ServiceInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ServiceInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServiceInformation();
+            return new ApiSdk.Models.ServiceInformation();
         }
         /// <summary>
         /// The deserialization information for the current model

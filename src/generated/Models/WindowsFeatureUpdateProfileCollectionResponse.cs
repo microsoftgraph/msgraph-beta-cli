@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WindowsFeatureUpdateProfileCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class WindowsFeatureUpdateProfileCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsFeatureUpdateProfile>? Value { get; set; }
+        public List<ApiSdk.Models.WindowsFeatureUpdateProfile>? Value { get; set; }
 #nullable restore
 #else
-        public List<WindowsFeatureUpdateProfile> Value { get; set; }
+        public List<ApiSdk.Models.WindowsFeatureUpdateProfile> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsFeatureUpdateProfileCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsFeatureUpdateProfileCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsFeatureUpdateProfileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsFeatureUpdateProfileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsFeatureUpdateProfileCollectionResponse();
+            return new ApiSdk.Models.WindowsFeatureUpdateProfileCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<WindowsFeatureUpdateProfile>(WindowsFeatureUpdateProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsFeatureUpdateProfile>(ApiSdk.Models.WindowsFeatureUpdateProfile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WindowsFeatureUpdateProfile>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsFeatureUpdateProfile>("value", Value);
         }
     }
 }

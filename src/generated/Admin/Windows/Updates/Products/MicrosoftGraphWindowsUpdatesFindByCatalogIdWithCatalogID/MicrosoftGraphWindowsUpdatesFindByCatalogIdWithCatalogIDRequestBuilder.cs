@@ -123,14 +123,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFind
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products/microsoft.graph.windowsUpdates.findByCatalogId(catalogID='{catalogID}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products/microsoft.graph.windowsUpdates.findByCatalogId(catalogID='{catalogID}'){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -143,11 +143,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFind
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

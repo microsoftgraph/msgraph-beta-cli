@@ -19,19 +19,19 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ProvisioningFlow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.ProvisioningFlow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.ProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.administrativeUnitProvisioningFlow" => new AdministrativeUnitProvisioningFlow(),
-                "#microsoft.graph.industryData.classGroupProvisioningFlow" => new ClassGroupProvisioningFlow(),
-                "#microsoft.graph.industryData.securityGroupProvisioningFlow" => new SecurityGroupProvisioningFlow(),
-                "#microsoft.graph.industryData.userProvisioningFlow" => new UserProvisioningFlow(),
-                _ => new ProvisioningFlow(),
+                "#microsoft.graph.industryData.administrativeUnitProvisioningFlow" => new ApiSdk.Models.IndustryData.AdministrativeUnitProvisioningFlow(),
+                "#microsoft.graph.industryData.classGroupProvisioningFlow" => new ApiSdk.Models.IndustryData.ClassGroupProvisioningFlow(),
+                "#microsoft.graph.industryData.securityGroupProvisioningFlow" => new ApiSdk.Models.IndustryData.SecurityGroupProvisioningFlow(),
+                "#microsoft.graph.industryData.userProvisioningFlow" => new ApiSdk.Models.IndustryData.UserProvisioningFlow(),
+                _ => new ApiSdk.Models.IndustryData.ProvisioningFlow(),
             };
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace ApiSdk.Models.IndustryData
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "readinessStatus", n => { ReadinessStatus = n.GetEnumValue<ReadinessStatus>(); } },
+                { "readinessStatus", n => { ReadinessStatus = n.GetEnumValue<ApiSdk.Models.IndustryData.ReadinessStatus>(); } },
             };
         }
         /// <summary>

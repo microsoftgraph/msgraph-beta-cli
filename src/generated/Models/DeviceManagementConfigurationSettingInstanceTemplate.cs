@@ -40,7 +40,7 @@ namespace ApiSdk.Models
         public string SettingInstanceTemplateId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingInstanceTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingInstanceTemplate()
         {
@@ -49,21 +49,21 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingInstanceTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationSettingInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstanceTemplate" => new DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate(),
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstanceTemplate" => new DeviceManagementConfigurationChoiceSettingInstanceTemplate(),
-                "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstanceTemplate" => new DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate(),
-                "#microsoft.graph.deviceManagementConfigurationGroupSettingInstanceTemplate" => new DeviceManagementConfigurationGroupSettingInstanceTemplate(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate" => new DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstanceTemplate" => new DeviceManagementConfigurationSimpleSettingInstanceTemplate(),
-                _ => new DeviceManagementConfigurationSettingInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationGroupSettingInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstanceTemplate" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstanceTemplate(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate(),
             };
         }
         /// <summary>

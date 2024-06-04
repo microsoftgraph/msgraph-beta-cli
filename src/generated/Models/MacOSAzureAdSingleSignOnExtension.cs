@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an Azure AD-type Single Sign-On extension profile for macOS devices.
     /// </summary>
-    public class MacOSAzureAdSingleSignOnExtension : MacOSSingleSignOnExtension, IParsable
+    public class MacOSAzureAdSingleSignOnExtension : ApiSdk.Models.MacOSSingleSignOnExtension, IParsable
     {
         /// <summary>An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,15 +22,15 @@ namespace ApiSdk.Models
         /// <summary>Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyTypedValuePair>? Configurations { get; set; }
+        public List<ApiSdk.Models.KeyTypedValuePair>? Configurations { get; set; }
 #nullable restore
 #else
-        public List<KeyTypedValuePair> Configurations { get; set; }
+        public List<ApiSdk.Models.KeyTypedValuePair> Configurations { get; set; }
 #endif
         /// <summary>Enables or disables shared device mode.</summary>
         public bool? EnableSharedDeviceMode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSAzureAdSingleSignOnExtension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSAzureAdSingleSignOnExtension"/> and sets the default values.
         /// </summary>
         public MacOSAzureAdSingleSignOnExtension() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSAzureAdSingleSignOnExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSAzureAdSingleSignOnExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSAzureAdSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSAzureAdSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSAzureAdSingleSignOnExtension();
+            return new ApiSdk.Models.MacOSAzureAdSingleSignOnExtension();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "bundleIdAccessControlList", n => { BundleIdAccessControlList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<KeyTypedValuePair>(KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyTypedValuePair>(ApiSdk.Models.KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "enableSharedDeviceMode", n => { EnableSharedDeviceMode = n.GetBoolValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("bundleIdAccessControlList", BundleIdAccessControlList);
-            writer.WriteCollectionOfObjectValues<KeyTypedValuePair>("configurations", Configurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyTypedValuePair>("configurations", Configurations);
             writer.WriteBoolValue("enableSharedDeviceMode", EnableSharedDeviceMode);
         }
     }

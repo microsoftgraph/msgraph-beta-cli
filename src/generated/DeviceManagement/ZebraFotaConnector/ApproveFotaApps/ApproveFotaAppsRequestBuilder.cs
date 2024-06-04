@@ -53,14 +53,14 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApproveFotaAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ApproveFotaAppsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/zebraFotaConnector/approveFotaApps", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApproveFotaAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ApproveFotaAppsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/zebraFotaConnector/approveFotaApps", rawUrl)

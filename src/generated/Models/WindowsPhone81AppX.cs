@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties and inherited properties for Windows Phone 8.1 AppX Line Of Business apps. Inherits from graph.mobileLobApp. Will be deprecated in February 2023.
     /// </summary>
-    public class WindowsPhone81AppX : MobileLobApp, IParsable
+    public class WindowsPhone81AppX : ApiSdk.Models.MobileLobApp, IParsable
     {
         /// <summary>Contains properties for Windows architecture.</summary>
-        public WindowsArchitecture? ApplicableArchitectures { get; set; }
+        public ApiSdk.Models.WindowsArchitecture? ApplicableArchitectures { get; set; }
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,10 +48,10 @@ namespace ApiSdk.Models
         /// <summary>The minimum operating system required for a Windows mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+        public ApiSdk.Models.WindowsMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
 #nullable restore
 #else
-        public WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+        public ApiSdk.Models.WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
 #endif
         /// <summary>The Phone Product Identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
         public string PhonePublisherId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81AppX"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPhone81AppX"/> and sets the default values.
         /// </summary>
         public WindowsPhone81AppX() : base()
         {
@@ -79,16 +79,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPhone81AppX"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPhone81AppX"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsPhone81AppX CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsPhone81AppX CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsPhone81AppXBundle" => new WindowsPhone81AppXBundle(),
-                _ => new WindowsPhone81AppX(),
+                "#microsoft.graph.windowsPhone81AppXBundle" => new ApiSdk.Models.WindowsPhone81AppXBundle(),
+                _ => new ApiSdk.Models.WindowsPhone81AppX(),
             };
         }
         /// <summary>
@@ -99,12 +99,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<ApiSdk.Models.WindowsArchitecture>(); } },
                 { "identityName", n => { IdentityName = n.GetStringValue(); } },
                 { "identityPublisherHash", n => { IdentityPublisherHash = n.GetStringValue(); } },
                 { "identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
                 { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<ApiSdk.Models.WindowsMinimumOperatingSystem>(ApiSdk.Models.WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
                 { "phoneProductIdentifier", n => { PhoneProductIdentifier = n.GetStringValue(); } },
                 { "phonePublisherId", n => { PhonePublisherId = n.GetStringValue(); } },
             };
@@ -117,12 +117,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);
             writer.WriteStringValue("identityName", IdentityName);
             writer.WriteStringValue("identityPublisherHash", IdentityPublisherHash);
             writer.WriteStringValue("identityResourceIdentifier", IdentityResourceIdentifier);
             writer.WriteStringValue("identityVersion", IdentityVersion);
-            writer.WriteObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", MinimumSupportedOperatingSystem);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", MinimumSupportedOperatingSystem);
             writer.WriteStringValue("phoneProductIdentifier", PhoneProductIdentifier);
             writer.WriteStringValue("phonePublisherId", PhonePublisherId);
         }

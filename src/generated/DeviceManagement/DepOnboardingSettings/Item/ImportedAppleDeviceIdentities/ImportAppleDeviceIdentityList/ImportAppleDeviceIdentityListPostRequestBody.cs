@@ -16,15 +16,15 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDevice
         /// <summary>The importedAppleDeviceIdentities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ImportedAppleDeviceIdentity>? ImportedAppleDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedAppleDeviceIdentity>? ImportedAppleDeviceIdentities { get; set; }
 #nullable restore
 #else
-        public List<ImportedAppleDeviceIdentity> ImportedAppleDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedAppleDeviceIdentity> ImportedAppleDeviceIdentities { get; set; }
 #endif
         /// <summary>The overwriteImportedDeviceIdentities property</summary>
         public bool? OverwriteImportedDeviceIdentities { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ImportAppleDeviceIdentityListPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.ImportAppleDeviceIdentityList.ImportAppleDeviceIdentityListPostRequestBody"/> and sets the default values.
         /// </summary>
         public ImportAppleDeviceIdentityListPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDevice
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImportAppleDeviceIdentityListPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.ImportAppleDeviceIdentityList.ImportAppleDeviceIdentityListPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ImportAppleDeviceIdentityListPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.ImportAppleDeviceIdentityList.ImportAppleDeviceIdentityListPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ImportAppleDeviceIdentityListPostRequestBody();
+            return new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.ImportAppleDeviceIdentityList.ImportAppleDeviceIdentityListPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDevice
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ImportedAppleDeviceIdentity>(ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.ImportedAppleDeviceIdentity>(ApiSdk.Models.ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "overwriteImportedDeviceIdentities", n => { OverwriteImportedDeviceIdentities = n.GetBoolValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDevice
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ImportedAppleDeviceIdentity>("importedAppleDeviceIdentities", ImportedAppleDeviceIdentities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ImportedAppleDeviceIdentity>("importedAppleDeviceIdentities", ImportedAppleDeviceIdentities);
             writer.WriteBoolValue("overwriteImportedDeviceIdentities", OverwriteImportedDeviceIdentities);
             writer.WriteAdditionalData(AdditionalData);
         }

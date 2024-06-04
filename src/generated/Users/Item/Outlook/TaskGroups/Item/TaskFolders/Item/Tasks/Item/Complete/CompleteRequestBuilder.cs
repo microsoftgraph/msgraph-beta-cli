@@ -92,14 +92,14 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete.CompleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CompleteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/outlook/taskGroups/{outlookTaskGroup%2Did}/taskFolders/{outlookTaskFolder%2Did}/tasks/{outlookTask%2Did}/complete", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete.CompleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CompleteRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/outlook/taskGroups/{outlookTaskGroup%2Did}/taskFolders/{outlookTaskFolder%2Did}/tasks/{outlookTask%2Did}/complete", rawUrl)

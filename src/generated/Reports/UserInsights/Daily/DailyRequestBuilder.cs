@@ -37,7 +37,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("active-users");
             command.Description = "Provides operations to manage the activeUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new ActiveUsersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.ActiveUsers.ActiveUsersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -63,7 +63,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("authentications");
             command.Description = "Provides operations to manage the authentications property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new AuthenticationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.Authentications.AuthenticationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -164,7 +164,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("inactive-users-by-application");
             command.Description = "Provides operations to manage the inactiveUsersByApplication property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new InactiveUsersByApplicationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.InactiveUsersByApplicationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -190,7 +190,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("inactive-users");
             command.Description = "Provides operations to manage the inactiveUsers property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new InactiveUsersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.InactiveUsers.InactiveUsersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -216,7 +216,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("mfa-completions");
             command.Description = "Provides operations to manage the mfaCompletions property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new MfaCompletionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.MfaCompletions.MfaCompletionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -260,7 +260,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DailyUserInsightMetricsRoot>(DailyUserInsightMetricsRoot.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DailyUserInsightMetricsRoot>(ApiSdk.Models.DailyUserInsightMetricsRoot.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -287,7 +287,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("sign-ups");
             command.Description = "Provides operations to manage the signUps property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new SignUpsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.SignUps.SignUpsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -313,7 +313,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("summary");
             command.Description = "Provides operations to manage the summary property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new SummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.Summary.SummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -339,7 +339,7 @@ namespace ApiSdk.Reports.UserInsights.Daily
         {
             var command = new Command("user-count");
             command.Description = "Provides operations to manage the userCount property of the microsoft.graph.dailyUserInsightMetricsRoot entity.";
-            var builder = new UserCountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.Daily.UserCount.UserCountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -358,14 +358,14 @@ namespace ApiSdk.Reports.UserInsights.Daily
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DailyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Daily.DailyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DailyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/userInsights/daily{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DailyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Daily.DailyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DailyRequestBuilder(string rawUrl) : base("{+baseurl}/reports/userInsights/daily{?%24expand,%24select}", rawUrl)
@@ -397,11 +397,11 @@ namespace ApiSdk.Reports.UserInsights.Daily
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DailyRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DailyRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Daily.DailyRequestBuilder.DailyRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -417,11 +417,11 @@ namespace ApiSdk.Reports.UserInsights.Daily
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DailyUserInsightMetricsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DailyUserInsightMetricsRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DailyUserInsightMetricsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DailyUserInsightMetricsRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

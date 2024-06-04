@@ -37,7 +37,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("connectors");
             command.Description = "Provides operations to manage the connectors property of the microsoft.graph.printer entity.";
-            var builder = new ConnectorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.Connectors.ConnectorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -99,7 +99,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("get-capabilities");
             command.Description = "Provides operations to call the getCapabilities method.";
-            var builder = new GetCapabilitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.GetCapabilities.GetCapabilitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -169,7 +169,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("jobs");
             command.Description = "Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.";
-            var builder = new JobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.Jobs.JobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -248,7 +248,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("reset-defaults");
             command.Description = "Provides operations to call the resetDefaults method.";
-            var builder = new ResetDefaultsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.ResetDefaults.ResetDefaultsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -265,7 +265,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("restore-factory-defaults");
             command.Description = "Provides operations to call the restoreFactoryDefaults method.";
-            var builder = new RestoreFactoryDefaultsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.RestoreFactoryDefaults.RestoreFactoryDefaultsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -282,7 +282,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("share");
             command.Description = "Provides operations to manage the share property of the microsoft.graph.printer entity.";
-            var builder = new ShareRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.Share.ShareRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -299,7 +299,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("shares");
             command.Description = "Provides operations to manage the shares property of the microsoft.graph.printer entity.";
-            var builder = new SharesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.Shares.SharesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -325,7 +325,7 @@ namespace ApiSdk.Print.Printers.Item
         {
             var command = new Command("task-triggers");
             command.Description = "Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.";
-            var builder = new TaskTriggersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.Printers.Item.TaskTriggers.TaskTriggersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -345,14 +345,14 @@ namespace ApiSdk.Print.Printers.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.PrinterItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrinterItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printers/{printer%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.PrinterItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrinterItemRequestBuilder(string rawUrl) : base("{+baseurl}/print/printers/{printer%2Did}{?%24expand,%24select}", rawUrl)
@@ -384,11 +384,11 @@ namespace ApiSdk.Print.Printers.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.Printers.Item.PrinterItemRequestBuilder.PrinterItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.Printers.Item.PrinterItemRequestBuilder.PrinterItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

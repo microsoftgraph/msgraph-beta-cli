@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EnumeratedDomains : ValidatingDomains, IParsable
+    public class EnumeratedDomains : ApiSdk.Models.ValidatingDomains, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of federated or managed root domains that Microsoft Entra ID validates.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public List<string> DomainNames { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EnumeratedDomains"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EnumeratedDomains"/> and sets the default values.
         /// </summary>
         public EnumeratedDomains() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnumeratedDomains"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EnumeratedDomains"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EnumeratedDomains CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EnumeratedDomains CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EnumeratedDomains();
+            return new ApiSdk.Models.EnumeratedDomains();
         }
         /// <summary>
         /// The deserialization information for the current model

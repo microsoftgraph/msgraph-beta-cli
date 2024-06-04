@@ -7,170 +7,170 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Profile : Entity, IParsable
+    public class Profile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The account property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserAccountInformation>? Account { get; set; }
+        public List<ApiSdk.Models.UserAccountInformation>? Account { get; set; }
 #nullable restore
 #else
-        public List<UserAccountInformation> Account { get; set; }
+        public List<ApiSdk.Models.UserAccountInformation> Account { get; set; }
 #endif
         /// <summary>Represents details of addresses associated with the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemAddress>? Addresses { get; set; }
+        public List<ApiSdk.Models.ItemAddress>? Addresses { get; set; }
 #nullable restore
 #else
-        public List<ItemAddress> Addresses { get; set; }
+        public List<ApiSdk.Models.ItemAddress> Addresses { get; set; }
 #endif
         /// <summary>Represents the details of meaningful dates associated with a person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonAnnualEvent>? Anniversaries { get; set; }
+        public List<ApiSdk.Models.PersonAnnualEvent>? Anniversaries { get; set; }
 #nullable restore
 #else
-        public List<PersonAnnualEvent> Anniversaries { get; set; }
+        public List<ApiSdk.Models.PersonAnnualEvent> Anniversaries { get; set; }
 #endif
         /// <summary>Represents the details of awards or honors associated with a person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonAward>? Awards { get; set; }
+        public List<ApiSdk.Models.PersonAward>? Awards { get; set; }
 #nullable restore
 #else
-        public List<PersonAward> Awards { get; set; }
+        public List<ApiSdk.Models.PersonAward> Awards { get; set; }
 #endif
         /// <summary>Represents the details of certifications associated with a person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonCertification>? Certifications { get; set; }
+        public List<ApiSdk.Models.PersonCertification>? Certifications { get; set; }
 #nullable restore
 #else
-        public List<PersonCertification> Certifications { get; set; }
+        public List<ApiSdk.Models.PersonCertification> Certifications { get; set; }
 #endif
         /// <summary>Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EducationalActivity>? EducationalActivities { get; set; }
+        public List<ApiSdk.Models.EducationalActivity>? EducationalActivities { get; set; }
 #nullable restore
 #else
-        public List<EducationalActivity> EducationalActivities { get; set; }
+        public List<ApiSdk.Models.EducationalActivity> EducationalActivities { get; set; }
 #endif
         /// <summary>Represents detailed information about email addresses associated with the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemEmail>? Emails { get; set; }
+        public List<ApiSdk.Models.ItemEmail>? Emails { get; set; }
 #nullable restore
 #else
-        public List<ItemEmail> Emails { get; set; }
+        public List<ApiSdk.Models.ItemEmail> Emails { get; set; }
 #endif
         /// <summary>Provides detailed information about interests the user has associated with themselves in various services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonInterest>? Interests { get; set; }
+        public List<ApiSdk.Models.PersonInterest>? Interests { get; set; }
 #nullable restore
 #else
-        public List<PersonInterest> Interests { get; set; }
+        public List<ApiSdk.Models.PersonInterest> Interests { get; set; }
 #endif
         /// <summary>Represents detailed information about languages that a user has added to their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LanguageProficiency>? Languages { get; set; }
+        public List<ApiSdk.Models.LanguageProficiency>? Languages { get; set; }
 #nullable restore
 #else
-        public List<LanguageProficiency> Languages { get; set; }
+        public List<ApiSdk.Models.LanguageProficiency> Languages { get; set; }
 #endif
         /// <summary>Represents the names a user has added to their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonName>? Names { get; set; }
+        public List<ApiSdk.Models.PersonName>? Names { get; set; }
 #nullable restore
 #else
-        public List<PersonName> Names { get; set; }
+        public List<ApiSdk.Models.PersonName> Names { get; set; }
 #endif
         /// <summary>Represents notes that a user has added to their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonAnnotation>? Notes { get; set; }
+        public List<ApiSdk.Models.PersonAnnotation>? Notes { get; set; }
 #nullable restore
 #else
-        public List<PersonAnnotation> Notes { get; set; }
+        public List<ApiSdk.Models.PersonAnnotation> Notes { get; set; }
 #endif
         /// <summary>Represents patents that a user has added to their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemPatent>? Patents { get; set; }
+        public List<ApiSdk.Models.ItemPatent>? Patents { get; set; }
 #nullable restore
 #else
-        public List<ItemPatent> Patents { get; set; }
+        public List<ApiSdk.Models.ItemPatent> Patents { get; set; }
 #endif
         /// <summary>Represents detailed information about phone numbers associated with a user in various services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemPhone>? Phones { get; set; }
+        public List<ApiSdk.Models.ItemPhone>? Phones { get; set; }
 #nullable restore
 #else
-        public List<ItemPhone> Phones { get; set; }
+        public List<ApiSdk.Models.ItemPhone> Phones { get; set; }
 #endif
         /// <summary>Represents detailed information about work positions associated with a user&apos;s profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkPosition>? Positions { get; set; }
+        public List<ApiSdk.Models.WorkPosition>? Positions { get; set; }
 #nullable restore
 #else
-        public List<WorkPosition> Positions { get; set; }
+        public List<ApiSdk.Models.WorkPosition> Positions { get; set; }
 #endif
         /// <summary>Represents detailed information about projects associated with a user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProjectParticipation>? Projects { get; set; }
+        public List<ApiSdk.Models.ProjectParticipation>? Projects { get; set; }
 #nullable restore
 #else
-        public List<ProjectParticipation> Projects { get; set; }
+        public List<ApiSdk.Models.ProjectParticipation> Projects { get; set; }
 #endif
         /// <summary>Represents details of any publications a user has added to their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemPublication>? Publications { get; set; }
+        public List<ApiSdk.Models.ItemPublication>? Publications { get; set; }
 #nullable restore
 #else
-        public List<ItemPublication> Publications { get; set; }
+        public List<ApiSdk.Models.ItemPublication> Publications { get; set; }
 #endif
         /// <summary>Represents detailed information about skills associated with a user in various services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SkillProficiency>? Skills { get; set; }
+        public List<ApiSdk.Models.SkillProficiency>? Skills { get; set; }
 #nullable restore
 #else
-        public List<SkillProficiency> Skills { get; set; }
+        public List<ApiSdk.Models.SkillProficiency> Skills { get; set; }
 #endif
         /// <summary>Represents web accounts the user has indicated they use or has added to their user profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WebAccount>? WebAccounts { get; set; }
+        public List<ApiSdk.Models.WebAccount>? WebAccounts { get; set; }
 #nullable restore
 #else
-        public List<WebAccount> WebAccounts { get; set; }
+        public List<ApiSdk.Models.WebAccount> WebAccounts { get; set; }
 #endif
         /// <summary>Represents detailed information about websites associated with a user in various services.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonWebsite>? Websites { get; set; }
+        public List<ApiSdk.Models.PersonWebsite>? Websites { get; set; }
 #nullable restore
 #else
-        public List<PersonWebsite> Websites { get; set; }
+        public List<ApiSdk.Models.PersonWebsite> Websites { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Profile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Profile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Profile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Profile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Profile();
+            return new ApiSdk.Models.Profile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -180,25 +180,25 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "account", n => { Account = n.GetCollectionOfObjectValues<UserAccountInformation>(UserAccountInformation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<ItemAddress>(ItemAddress.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "anniversaries", n => { Anniversaries = n.GetCollectionOfObjectValues<PersonAnnualEvent>(PersonAnnualEvent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "awards", n => { Awards = n.GetCollectionOfObjectValues<PersonAward>(PersonAward.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "certifications", n => { Certifications = n.GetCollectionOfObjectValues<PersonCertification>(PersonCertification.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "educationalActivities", n => { EducationalActivities = n.GetCollectionOfObjectValues<EducationalActivity>(EducationalActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "emails", n => { Emails = n.GetCollectionOfObjectValues<ItemEmail>(ItemEmail.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "interests", n => { Interests = n.GetCollectionOfObjectValues<PersonInterest>(PersonInterest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "languages", n => { Languages = n.GetCollectionOfObjectValues<LanguageProficiency>(LanguageProficiency.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "names", n => { Names = n.GetCollectionOfObjectValues<PersonName>(PersonName.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "notes", n => { Notes = n.GetCollectionOfObjectValues<PersonAnnotation>(PersonAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "patents", n => { Patents = n.GetCollectionOfObjectValues<ItemPatent>(ItemPatent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "phones", n => { Phones = n.GetCollectionOfObjectValues<ItemPhone>(ItemPhone.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "positions", n => { Positions = n.GetCollectionOfObjectValues<WorkPosition>(WorkPosition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "projects", n => { Projects = n.GetCollectionOfObjectValues<ProjectParticipation>(ProjectParticipation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "publications", n => { Publications = n.GetCollectionOfObjectValues<ItemPublication>(ItemPublication.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "skills", n => { Skills = n.GetCollectionOfObjectValues<SkillProficiency>(SkillProficiency.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "webAccounts", n => { WebAccounts = n.GetCollectionOfObjectValues<WebAccount>(WebAccount.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "websites", n => { Websites = n.GetCollectionOfObjectValues<PersonWebsite>(PersonWebsite.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "account", n => { Account = n.GetCollectionOfObjectValues<ApiSdk.Models.UserAccountInformation>(ApiSdk.Models.UserAccountInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemAddress>(ApiSdk.Models.ItemAddress.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "anniversaries", n => { Anniversaries = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonAnnualEvent>(ApiSdk.Models.PersonAnnualEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "awards", n => { Awards = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonAward>(ApiSdk.Models.PersonAward.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "certifications", n => { Certifications = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonCertification>(ApiSdk.Models.PersonCertification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "educationalActivities", n => { EducationalActivities = n.GetCollectionOfObjectValues<ApiSdk.Models.EducationalActivity>(ApiSdk.Models.EducationalActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emails", n => { Emails = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemEmail>(ApiSdk.Models.ItemEmail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "interests", n => { Interests = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonInterest>(ApiSdk.Models.PersonInterest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "languages", n => { Languages = n.GetCollectionOfObjectValues<ApiSdk.Models.LanguageProficiency>(ApiSdk.Models.LanguageProficiency.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "names", n => { Names = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonName>(ApiSdk.Models.PersonName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "notes", n => { Notes = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonAnnotation>(ApiSdk.Models.PersonAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "patents", n => { Patents = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemPatent>(ApiSdk.Models.ItemPatent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "phones", n => { Phones = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemPhone>(ApiSdk.Models.ItemPhone.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "positions", n => { Positions = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkPosition>(ApiSdk.Models.WorkPosition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "projects", n => { Projects = n.GetCollectionOfObjectValues<ApiSdk.Models.ProjectParticipation>(ApiSdk.Models.ProjectParticipation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publications", n => { Publications = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemPublication>(ApiSdk.Models.ItemPublication.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "skills", n => { Skills = n.GetCollectionOfObjectValues<ApiSdk.Models.SkillProficiency>(ApiSdk.Models.SkillProficiency.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "webAccounts", n => { WebAccounts = n.GetCollectionOfObjectValues<ApiSdk.Models.WebAccount>(ApiSdk.Models.WebAccount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "websites", n => { Websites = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonWebsite>(ApiSdk.Models.PersonWebsite.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -209,25 +209,25 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UserAccountInformation>("account", Account);
-            writer.WriteCollectionOfObjectValues<ItemAddress>("addresses", Addresses);
-            writer.WriteCollectionOfObjectValues<PersonAnnualEvent>("anniversaries", Anniversaries);
-            writer.WriteCollectionOfObjectValues<PersonAward>("awards", Awards);
-            writer.WriteCollectionOfObjectValues<PersonCertification>("certifications", Certifications);
-            writer.WriteCollectionOfObjectValues<EducationalActivity>("educationalActivities", EducationalActivities);
-            writer.WriteCollectionOfObjectValues<ItemEmail>("emails", Emails);
-            writer.WriteCollectionOfObjectValues<PersonInterest>("interests", Interests);
-            writer.WriteCollectionOfObjectValues<LanguageProficiency>("languages", Languages);
-            writer.WriteCollectionOfObjectValues<PersonName>("names", Names);
-            writer.WriteCollectionOfObjectValues<PersonAnnotation>("notes", Notes);
-            writer.WriteCollectionOfObjectValues<ItemPatent>("patents", Patents);
-            writer.WriteCollectionOfObjectValues<ItemPhone>("phones", Phones);
-            writer.WriteCollectionOfObjectValues<WorkPosition>("positions", Positions);
-            writer.WriteCollectionOfObjectValues<ProjectParticipation>("projects", Projects);
-            writer.WriteCollectionOfObjectValues<ItemPublication>("publications", Publications);
-            writer.WriteCollectionOfObjectValues<SkillProficiency>("skills", Skills);
-            writer.WriteCollectionOfObjectValues<WebAccount>("webAccounts", WebAccounts);
-            writer.WriteCollectionOfObjectValues<PersonWebsite>("websites", Websites);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserAccountInformation>("account", Account);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemAddress>("addresses", Addresses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonAnnualEvent>("anniversaries", Anniversaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonAward>("awards", Awards);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonCertification>("certifications", Certifications);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EducationalActivity>("educationalActivities", EducationalActivities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemEmail>("emails", Emails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonInterest>("interests", Interests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LanguageProficiency>("languages", Languages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonName>("names", Names);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonAnnotation>("notes", Notes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemPatent>("patents", Patents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemPhone>("phones", Phones);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkPosition>("positions", Positions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ProjectParticipation>("projects", Projects);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemPublication>("publications", Publications);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SkillProficiency>("skills", Skills);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WebAccount>("webAccounts", WebAccounts);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonWebsite>("websites", Websites);
         }
     }
 }

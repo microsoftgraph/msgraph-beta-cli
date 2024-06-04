@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class RelatedThreatIntelligence : RelatedResource, IParsable
+    public class RelatedThreatIntelligence : ApiSdk.Models.Networkaccess.RelatedResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The threatCount property</summary>
         public long? ThreatCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RelatedThreatIntelligence"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RelatedThreatIntelligence"/> and sets the default values.
         /// </summary>
         public RelatedThreatIntelligence() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RelatedThreatIntelligence"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RelatedThreatIntelligence"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RelatedThreatIntelligence CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.RelatedThreatIntelligence CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RelatedThreatIntelligence();
+            return new ApiSdk.Models.Networkaccess.RelatedThreatIntelligence();
         }
         /// <summary>
         /// The deserialization information for the current model

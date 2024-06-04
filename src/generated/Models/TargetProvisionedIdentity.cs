@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TargetProvisionedIdentity : Identity, IParsable
+    public class TargetProvisionedIdentity : ApiSdk.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="TargetProvisionedIdentity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TargetProvisionedIdentity"/> and sets the default values.
         /// </summary>
         public TargetProvisionedIdentity() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TargetProvisionedIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TargetProvisionedIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TargetProvisionedIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TargetProvisionedIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TargetProvisionedIdentity();
+            return new ApiSdk.Models.TargetProvisionedIdentity();
         }
         /// <summary>
         /// The deserialization information for the current model

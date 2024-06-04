@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the iOS device to connect to desired IKEv2 VPN endpoint.
     /// </summary>
-    public class IosikEv2VpnConfiguration : IosVpnConfiguration, IParsable
+    public class IosikEv2VpnConfiguration : ApiSdk.Models.IosVpnConfiguration, IParsable
     {
         /// <summary>Allows the use of child security association parameters by setting all parameters to the device&apos;s default unless explicitly specified.</summary>
         public bool? AllowDefaultChildSecurityAssociationParameters { get; set; }
@@ -18,23 +18,23 @@ namespace ApiSdk.Models
         /// <summary>AlwaysOn Configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AppleVpnAlwaysOnConfiguration? AlwaysOnConfiguration { get; set; }
+        public ApiSdk.Models.AppleVpnAlwaysOnConfiguration? AlwaysOnConfiguration { get; set; }
 #nullable restore
 #else
-        public AppleVpnAlwaysOnConfiguration AlwaysOnConfiguration { get; set; }
+        public ApiSdk.Models.AppleVpnAlwaysOnConfiguration AlwaysOnConfiguration { get; set; }
 #endif
         /// <summary>Child Security Association Parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosVpnSecurityAssociationParameters? ChildSecurityAssociationParameters { get; set; }
+        public ApiSdk.Models.IosVpnSecurityAssociationParameters? ChildSecurityAssociationParameters { get; set; }
 #nullable restore
 #else
-        public IosVpnSecurityAssociationParameters ChildSecurityAssociationParameters { get; set; }
+        public ApiSdk.Models.IosVpnSecurityAssociationParameters ChildSecurityAssociationParameters { get; set; }
 #endif
         /// <summary>The type of VPN client authentication type</summary>
-        public VpnClientAuthenticationType? ClientAuthenticationType { get; set; }
+        public ApiSdk.Models.VpnClientAuthenticationType? ClientAuthenticationType { get; set; }
         /// <summary>Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.</summary>
-        public VpnDeadPeerDetectionRate? DeadPeerDetectionRate { get; set; }
+        public ApiSdk.Models.VpnDeadPeerDetectionRate? DeadPeerDetectionRate { get; set; }
         /// <summary>Disable MOBIKE</summary>
         public bool? DisableMobilityAndMultihoming { get; set; }
         /// <summary>Disable Redirect</summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         /// <summary>Enable Use Internal Subnet Attributes.</summary>
         public bool? EnableUseInternalSubnetAttributes { get; set; }
         /// <summary>The type of VPN local identifier</summary>
-        public VpnLocalIdentifier? LocalIdentifier { get; set; }
+        public ApiSdk.Models.VpnLocalIdentifier? LocalIdentifier { get; set; }
         /// <summary>Maximum transmission unit. Valid values 1280 to 1400</summary>
         public int? MtuSizeInBytes { get; set; }
         /// <summary>Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN</summary>
@@ -64,10 +64,10 @@ namespace ApiSdk.Models
         /// <summary>Security Association Parameters</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosVpnSecurityAssociationParameters? SecurityAssociationParameters { get; set; }
+        public ApiSdk.Models.IosVpnSecurityAssociationParameters? SecurityAssociationParameters { get; set; }
 #nullable restore
 #else
-        public IosVpnSecurityAssociationParameters SecurityAssociationParameters { get; set; }
+        public ApiSdk.Models.IosVpnSecurityAssociationParameters SecurityAssociationParameters { get; set; }
 #endif
         /// <summary>Common name of the IKEv2 Server Certificate used in Server Authentication</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
         public string ServerCertificateIssuerCommonName { get; set; }
 #endif
         /// <summary>The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.</summary>
-        public VpnServerCertificateType? ServerCertificateType { get; set; }
+        public ApiSdk.Models.VpnServerCertificateType? ServerCertificateType { get; set; }
         /// <summary>Used when Shared Secret Authentication is selected</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -112,7 +112,7 @@ namespace ApiSdk.Models
         public string TlsMinimumVersion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosikEv2VpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosikEv2VpnConfiguration"/> and sets the default values.
         /// </summary>
         public IosikEv2VpnConfiguration() : base()
         {
@@ -121,12 +121,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosikEv2VpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosikEv2VpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosikEv2VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosikEv2VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosikEv2VpnConfiguration();
+            return new ApiSdk.Models.IosikEv2VpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,10 +138,10 @@ namespace ApiSdk.Models
             {
                 { "allowDefaultChildSecurityAssociationParameters", n => { AllowDefaultChildSecurityAssociationParameters = n.GetBoolValue(); } },
                 { "allowDefaultSecurityAssociationParameters", n => { AllowDefaultSecurityAssociationParameters = n.GetBoolValue(); } },
-                { "alwaysOnConfiguration", n => { AlwaysOnConfiguration = n.GetObjectValue<AppleVpnAlwaysOnConfiguration>(AppleVpnAlwaysOnConfiguration.CreateFromDiscriminatorValue); } },
-                { "childSecurityAssociationParameters", n => { ChildSecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
-                { "clientAuthenticationType", n => { ClientAuthenticationType = n.GetEnumValue<VpnClientAuthenticationType>(); } },
-                { "deadPeerDetectionRate", n => { DeadPeerDetectionRate = n.GetEnumValue<VpnDeadPeerDetectionRate>(); } },
+                { "alwaysOnConfiguration", n => { AlwaysOnConfiguration = n.GetObjectValue<ApiSdk.Models.AppleVpnAlwaysOnConfiguration>(ApiSdk.Models.AppleVpnAlwaysOnConfiguration.CreateFromDiscriminatorValue); } },
+                { "childSecurityAssociationParameters", n => { ChildSecurityAssociationParameters = n.GetObjectValue<ApiSdk.Models.IosVpnSecurityAssociationParameters>(ApiSdk.Models.IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
+                { "clientAuthenticationType", n => { ClientAuthenticationType = n.GetEnumValue<ApiSdk.Models.VpnClientAuthenticationType>(); } },
+                { "deadPeerDetectionRate", n => { DeadPeerDetectionRate = n.GetEnumValue<ApiSdk.Models.VpnDeadPeerDetectionRate>(); } },
                 { "disableMobilityAndMultihoming", n => { DisableMobilityAndMultihoming = n.GetBoolValue(); } },
                 { "disableRedirect", n => { DisableRedirect = n.GetBoolValue(); } },
                 { "enableAlwaysOnConfiguration", n => { EnableAlwaysOnConfiguration = n.GetBoolValue(); } },
@@ -149,13 +149,13 @@ namespace ApiSdk.Models
                 { "enableEAP", n => { EnableEAP = n.GetBoolValue(); } },
                 { "enablePerfectForwardSecrecy", n => { EnablePerfectForwardSecrecy = n.GetBoolValue(); } },
                 { "enableUseInternalSubnetAttributes", n => { EnableUseInternalSubnetAttributes = n.GetBoolValue(); } },
-                { "localIdentifier", n => { LocalIdentifier = n.GetEnumValue<VpnLocalIdentifier>(); } },
+                { "localIdentifier", n => { LocalIdentifier = n.GetEnumValue<ApiSdk.Models.VpnLocalIdentifier>(); } },
                 { "mtuSizeInBytes", n => { MtuSizeInBytes = n.GetIntValue(); } },
                 { "remoteIdentifier", n => { RemoteIdentifier = n.GetStringValue(); } },
-                { "securityAssociationParameters", n => { SecurityAssociationParameters = n.GetObjectValue<IosVpnSecurityAssociationParameters>(IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
+                { "securityAssociationParameters", n => { SecurityAssociationParameters = n.GetObjectValue<ApiSdk.Models.IosVpnSecurityAssociationParameters>(ApiSdk.Models.IosVpnSecurityAssociationParameters.CreateFromDiscriminatorValue); } },
                 { "serverCertificateCommonName", n => { ServerCertificateCommonName = n.GetStringValue(); } },
                 { "serverCertificateIssuerCommonName", n => { ServerCertificateIssuerCommonName = n.GetStringValue(); } },
-                { "serverCertificateType", n => { ServerCertificateType = n.GetEnumValue<VpnServerCertificateType>(); } },
+                { "serverCertificateType", n => { ServerCertificateType = n.GetEnumValue<ApiSdk.Models.VpnServerCertificateType>(); } },
                 { "sharedSecret", n => { SharedSecret = n.GetStringValue(); } },
                 { "tlsMaximumVersion", n => { TlsMaximumVersion = n.GetStringValue(); } },
                 { "tlsMinimumVersion", n => { TlsMinimumVersion = n.GetStringValue(); } },
@@ -171,10 +171,10 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteBoolValue("allowDefaultChildSecurityAssociationParameters", AllowDefaultChildSecurityAssociationParameters);
             writer.WriteBoolValue("allowDefaultSecurityAssociationParameters", AllowDefaultSecurityAssociationParameters);
-            writer.WriteObjectValue<AppleVpnAlwaysOnConfiguration>("alwaysOnConfiguration", AlwaysOnConfiguration);
-            writer.WriteObjectValue<IosVpnSecurityAssociationParameters>("childSecurityAssociationParameters", ChildSecurityAssociationParameters);
-            writer.WriteEnumValue<VpnClientAuthenticationType>("clientAuthenticationType", ClientAuthenticationType);
-            writer.WriteEnumValue<VpnDeadPeerDetectionRate>("deadPeerDetectionRate", DeadPeerDetectionRate);
+            writer.WriteObjectValue<ApiSdk.Models.AppleVpnAlwaysOnConfiguration>("alwaysOnConfiguration", AlwaysOnConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.IosVpnSecurityAssociationParameters>("childSecurityAssociationParameters", ChildSecurityAssociationParameters);
+            writer.WriteEnumValue<ApiSdk.Models.VpnClientAuthenticationType>("clientAuthenticationType", ClientAuthenticationType);
+            writer.WriteEnumValue<ApiSdk.Models.VpnDeadPeerDetectionRate>("deadPeerDetectionRate", DeadPeerDetectionRate);
             writer.WriteBoolValue("disableMobilityAndMultihoming", DisableMobilityAndMultihoming);
             writer.WriteBoolValue("disableRedirect", DisableRedirect);
             writer.WriteBoolValue("enableAlwaysOnConfiguration", EnableAlwaysOnConfiguration);
@@ -182,13 +182,13 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("enableEAP", EnableEAP);
             writer.WriteBoolValue("enablePerfectForwardSecrecy", EnablePerfectForwardSecrecy);
             writer.WriteBoolValue("enableUseInternalSubnetAttributes", EnableUseInternalSubnetAttributes);
-            writer.WriteEnumValue<VpnLocalIdentifier>("localIdentifier", LocalIdentifier);
+            writer.WriteEnumValue<ApiSdk.Models.VpnLocalIdentifier>("localIdentifier", LocalIdentifier);
             writer.WriteIntValue("mtuSizeInBytes", MtuSizeInBytes);
             writer.WriteStringValue("remoteIdentifier", RemoteIdentifier);
-            writer.WriteObjectValue<IosVpnSecurityAssociationParameters>("securityAssociationParameters", SecurityAssociationParameters);
+            writer.WriteObjectValue<ApiSdk.Models.IosVpnSecurityAssociationParameters>("securityAssociationParameters", SecurityAssociationParameters);
             writer.WriteStringValue("serverCertificateCommonName", ServerCertificateCommonName);
             writer.WriteStringValue("serverCertificateIssuerCommonName", ServerCertificateIssuerCommonName);
-            writer.WriteEnumValue<VpnServerCertificateType>("serverCertificateType", ServerCertificateType);
+            writer.WriteEnumValue<ApiSdk.Models.VpnServerCertificateType>("serverCertificateType", ServerCertificateType);
             writer.WriteStringValue("sharedSecret", SharedSecret);
             writer.WriteStringValue("tlsMaximumVersion", TlsMaximumVersion);
             writer.WriteStringValue("tlsMinimumVersion", TlsMinimumVersion);

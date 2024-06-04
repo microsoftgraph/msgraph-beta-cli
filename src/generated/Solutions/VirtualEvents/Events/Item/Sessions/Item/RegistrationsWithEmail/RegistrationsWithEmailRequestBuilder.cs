@@ -86,14 +86,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.Registrations
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RegistrationsWithEmailRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.RegistrationsWithEmail.RegistrationsWithEmailRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RegistrationsWithEmailRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/sessions/{virtualEventSession%2Did}/registrations(email='{email}'){?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RegistrationsWithEmailRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.RegistrationsWithEmail.RegistrationsWithEmailRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RegistrationsWithEmailRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/sessions/{virtualEventSession%2Did}/registrations(email='{email}'){?%24expand,%24select}", rawUrl)
@@ -106,11 +106,11 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.Registrations
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RegistrationsWithEmailRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.RegistrationsWithEmail.RegistrationsWithEmailRequestBuilder.RegistrationsWithEmailRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RegistrationsWithEmailRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Solutions.VirtualEvents.Events.Item.Sessions.Item.RegistrationsWithEmail.RegistrationsWithEmailRequestBuilder.RegistrationsWithEmailRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

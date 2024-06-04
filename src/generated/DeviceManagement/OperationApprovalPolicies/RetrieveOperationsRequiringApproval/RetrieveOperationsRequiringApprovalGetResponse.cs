@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval
 {
     #pragma warning disable CS1591
-    public class RetrieveOperationsRequiringApprovalGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class RetrieveOperationsRequiringApprovalGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OperationApprovalPolicySet>? Value { get; set; }
+        public List<ApiSdk.Models.OperationApprovalPolicySet>? Value { get; set; }
 #nullable restore
 #else
-        public List<OperationApprovalPolicySet> Value { get; set; }
+        public List<ApiSdk.Models.OperationApprovalPolicySet> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RetrieveOperationsRequiringApprovalGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RetrieveOperationsRequiringApprovalGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RetrieveOperationsRequiringApprovalGetResponse();
+            return new ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRe
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.OperationApprovalPolicySet>(ApiSdk.Models.OperationApprovalPolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRe
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OperationApprovalPolicySet>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OperationApprovalPolicySet>("value", Value);
         }
     }
 }

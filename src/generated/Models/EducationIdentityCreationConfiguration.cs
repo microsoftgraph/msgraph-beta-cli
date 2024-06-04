@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationIdentityCreationConfiguration : EducationIdentitySynchronizationConfiguration, IParsable
+    public class EducationIdentityCreationConfiguration : ApiSdk.Models.EducationIdentitySynchronizationConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The userDomains property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EducationIdentityDomain>? UserDomains { get; set; }
+        public List<ApiSdk.Models.EducationIdentityDomain>? UserDomains { get; set; }
 #nullable restore
 #else
-        public List<EducationIdentityDomain> UserDomains { get; set; }
+        public List<ApiSdk.Models.EducationIdentityDomain> UserDomains { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationIdentityCreationConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationIdentityCreationConfiguration"/> and sets the default values.
         /// </summary>
         public EducationIdentityCreationConfiguration() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationIdentityCreationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationIdentityCreationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationIdentityCreationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationIdentityCreationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationIdentityCreationConfiguration();
+            return new ApiSdk.Models.EducationIdentityCreationConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "userDomains", n => { UserDomains = n.GetCollectionOfObjectValues<EducationIdentityDomain>(EducationIdentityDomain.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userDomains", n => { UserDomains = n.GetCollectionOfObjectValues<ApiSdk.Models.EducationIdentityDomain>(ApiSdk.Models.EducationIdentityDomain.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<EducationIdentityDomain>("userDomains", UserDomains);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EducationIdentityDomain>("userDomains", UserDomains);
         }
     }
 }

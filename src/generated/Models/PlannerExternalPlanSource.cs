@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerExternalPlanSource : PlannerPlanCreation, IParsable
+    public class PlannerExternalPlanSource : ApiSdk.Models.PlannerPlanCreation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like &apos;com.constoso.customerSupport&apos;.</summary>
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string ExternalObjectId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerExternalPlanSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerExternalPlanSource"/> and sets the default values.
         /// </summary>
         public PlannerExternalPlanSource() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerExternalPlanSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerExternalPlanSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerExternalPlanSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerExternalPlanSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerExternalPlanSource();
+            return new ApiSdk.Models.PlannerExternalPlanSource();
         }
         /// <summary>
         /// The deserialization information for the current model

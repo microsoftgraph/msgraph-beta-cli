@@ -7,48 +7,48 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessPackageCatalog : Entity, IParsable
+    public class AccessPackageCatalog : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomCalloutExtension>? AccessPackageCustomWorkflowExtensions { get; set; }
+        public List<ApiSdk.Models.CustomCalloutExtension>? AccessPackageCustomWorkflowExtensions { get; set; }
 #nullable restore
 #else
-        public List<CustomCalloutExtension> AccessPackageCustomWorkflowExtensions { get; set; }
+        public List<ApiSdk.Models.CustomCalloutExtension> AccessPackageCustomWorkflowExtensions { get; set; }
 #endif
         /// <summary>The roles in each resource in a catalog. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceRole>? AccessPackageResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRole>? AccessPackageResourceRoles { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceRole> AccessPackageResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRole> AccessPackageResourceRoles { get; set; }
 #endif
         /// <summary>The accessPackageResources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResource>? AccessPackageResources { get; set; }
+        public List<ApiSdk.Models.AccessPackageResource>? AccessPackageResources { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResource> AccessPackageResources { get; set; }
+        public List<ApiSdk.Models.AccessPackageResource> AccessPackageResources { get; set; }
 #endif
         /// <summary>The accessPackageResourceScopes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceScope>? AccessPackageResourceScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceScope>? AccessPackageResourceScopes { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceScope> AccessPackageResourceScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceScope> AccessPackageResourceScopes { get; set; }
 #endif
         /// <summary>The access packages in this catalog. Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackage>? AccessPackages { get; set; }
+        public List<ApiSdk.Models.AccessPackage>? AccessPackages { get; set; }
 #nullable restore
 #else
-        public List<AccessPackage> AccessPackages { get; set; }
+        public List<ApiSdk.Models.AccessPackage> AccessPackages { get; set; }
 #endif
         /// <summary>Has the value Published if the access packages are available for management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,10 +79,10 @@ namespace ApiSdk.Models
         /// <summary>The customAccessPackageWorkflowExtensions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomAccessPackageWorkflowExtension>? CustomAccessPackageWorkflowExtensions { get; set; }
+        public List<ApiSdk.Models.CustomAccessPackageWorkflowExtension>? CustomAccessPackageWorkflowExtensions { get; set; }
 #nullable restore
 #else
-        public List<CustomAccessPackageWorkflowExtension> CustomAccessPackageWorkflowExtensions { get; set; }
+        public List<ApiSdk.Models.CustomAccessPackageWorkflowExtension> CustomAccessPackageWorkflowExtensions { get; set; }
 #endif
         /// <summary>The description of the access package catalog.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -115,12 +115,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageCatalog"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageCatalog"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageCatalog CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessPackageCatalog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageCatalog();
+            return new ApiSdk.Models.AccessPackageCatalog();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -130,16 +130,16 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessPackageCustomWorkflowExtensions", n => { AccessPackageCustomWorkflowExtensions = n.GetCollectionOfObjectValues<CustomCalloutExtension>(CustomCalloutExtension.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResources", n => { AccessPackageResources = n.GetCollectionOfObjectValues<AccessPackageResource>(AccessPackageResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackages", n => { AccessPackages = n.GetCollectionOfObjectValues<AccessPackage>(AccessPackage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageCustomWorkflowExtensions", n => { AccessPackageCustomWorkflowExtensions = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomCalloutExtension>(ApiSdk.Models.CustomCalloutExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResources", n => { AccessPackageResources = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackages", n => { AccessPackages = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "catalogStatus", n => { CatalogStatus = n.GetStringValue(); } },
                 { "catalogType", n => { CatalogType = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "customAccessPackageWorkflowExtensions", n => { CustomAccessPackageWorkflowExtensions = n.GetCollectionOfObjectValues<CustomAccessPackageWorkflowExtension>(CustomAccessPackageWorkflowExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customAccessPackageWorkflowExtensions", n => { CustomAccessPackageWorkflowExtensions = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomAccessPackageWorkflowExtension>(ApiSdk.Models.CustomAccessPackageWorkflowExtension.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isExternallyVisible", n => { IsExternallyVisible = n.GetBoolValue(); } },
@@ -155,16 +155,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CustomCalloutExtension>("accessPackageCustomWorkflowExtensions", AccessPackageCustomWorkflowExtensions);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceRole>("accessPackageResourceRoles", AccessPackageResourceRoles);
-            writer.WriteCollectionOfObjectValues<AccessPackageResource>("accessPackageResources", AccessPackageResources);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceScope>("accessPackageResourceScopes", AccessPackageResourceScopes);
-            writer.WriteCollectionOfObjectValues<AccessPackage>("accessPackages", AccessPackages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomCalloutExtension>("accessPackageCustomWorkflowExtensions", AccessPackageCustomWorkflowExtensions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRole>("accessPackageResourceRoles", AccessPackageResourceRoles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResource>("accessPackageResources", AccessPackageResources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceScope>("accessPackageResourceScopes", AccessPackageResourceScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackage>("accessPackages", AccessPackages);
             writer.WriteStringValue("catalogStatus", CatalogStatus);
             writer.WriteStringValue("catalogType", CatalogType);
             writer.WriteStringValue("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<CustomAccessPackageWorkflowExtension>("customAccessPackageWorkflowExtensions", CustomAccessPackageWorkflowExtensions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomAccessPackageWorkflowExtension>("customAccessPackageWorkflowExtensions", CustomAccessPackageWorkflowExtensions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isExternallyVisible", IsExternallyVisible);

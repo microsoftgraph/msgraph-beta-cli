@@ -14,9 +14,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Appl
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The policySettings property</summary>
-        public CloudPcPolicySettingType? PolicySettings { get; set; }
+        public ApiSdk.Models.CloudPcPolicySettingType? PolicySettings { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ApplyPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Apply.ApplyPostRequestBody"/> and sets the default values.
         /// </summary>
         public ApplyPostRequestBody()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Appl
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApplyPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Apply.ApplyPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApplyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Apply.ApplyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApplyPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Apply.ApplyPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,7 +40,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Appl
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "policySettings", n => { PolicySettings = n.GetEnumValue<CloudPcPolicySettingType>(); } },
+                { "policySettings", n => { PolicySettings = n.GetEnumValue<ApiSdk.Models.CloudPcPolicySettingType>(); } },
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.Item.Appl
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<CloudPcPolicySettingType>("policySettings", PolicySettings);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcPolicySettingType>("policySettings", PolicySettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

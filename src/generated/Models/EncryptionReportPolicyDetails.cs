@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string PolicyName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EncryptionReportPolicyDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EncryptionReportPolicyDetails"/> and sets the default values.
         /// </summary>
         public EncryptionReportPolicyDetails()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptionReportPolicyDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptionReportPolicyDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EncryptionReportPolicyDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EncryptionReportPolicyDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptionReportPolicyDetails();
+            return new ApiSdk.Models.EncryptionReportPolicyDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

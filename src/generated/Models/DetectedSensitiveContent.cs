@@ -7,44 +7,44 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DetectedSensitiveContent : DetectedSensitiveContentBase, IParsable
+    public class DetectedSensitiveContent : ApiSdk.Models.DetectedSensitiveContentBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The classificationAttributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ClassificationAttribute>? ClassificationAttributes { get; set; }
+        public List<ApiSdk.Models.ClassificationAttribute>? ClassificationAttributes { get; set; }
 #nullable restore
 #else
-        public List<ClassificationAttribute> ClassificationAttributes { get; set; }
+        public List<ApiSdk.Models.ClassificationAttribute> ClassificationAttributes { get; set; }
 #endif
         /// <summary>The classificationMethod property</summary>
         public ApiSdk.Models.ClassificationMethod? ClassificationMethod { get; set; }
         /// <summary>The matches property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitiveContentLocation>? Matches { get; set; }
+        public List<ApiSdk.Models.SensitiveContentLocation>? Matches { get; set; }
 #nullable restore
 #else
-        public List<SensitiveContentLocation> Matches { get; set; }
+        public List<ApiSdk.Models.SensitiveContentLocation> Matches { get; set; }
 #endif
         /// <summary>The scope property</summary>
-        public SensitiveTypeScope? Scope { get; set; }
+        public ApiSdk.Models.SensitiveTypeScope? Scope { get; set; }
         /// <summary>The sensitiveTypeSource property</summary>
         public ApiSdk.Models.SensitiveTypeSource? SensitiveTypeSource { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetectedSensitiveContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DetectedSensitiveContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DetectedSensitiveContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DetectedSensitiveContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.machineLearningDetectedSensitiveContent" => new MachineLearningDetectedSensitiveContent(),
-                _ => new DetectedSensitiveContent(),
+                "#microsoft.graph.machineLearningDetectedSensitiveContent" => new ApiSdk.Models.MachineLearningDetectedSensitiveContent(),
+                _ => new ApiSdk.Models.DetectedSensitiveContent(),
             };
         }
         /// <summary>
@@ -55,11 +55,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "classificationAttributes", n => { ClassificationAttributes = n.GetCollectionOfObjectValues<ClassificationAttribute>(ClassificationAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ClassificationMethod>(); } },
-                { "matches", n => { Matches = n.GetCollectionOfObjectValues<SensitiveContentLocation>(SensitiveContentLocation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "scope", n => { Scope = n.GetEnumValue<SensitiveTypeScope>(); } },
-                { "sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<SensitiveTypeSource>(); } },
+                { "classificationAttributes", n => { ClassificationAttributes = n.GetCollectionOfObjectValues<ApiSdk.Models.ClassificationAttribute>(ApiSdk.Models.ClassificationAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classificationMethod", n => { ClassificationMethod = n.GetEnumValue<ApiSdk.Models.ClassificationMethod>(); } },
+                { "matches", n => { Matches = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitiveContentLocation>(ApiSdk.Models.SensitiveContentLocation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scope", n => { Scope = n.GetEnumValue<ApiSdk.Models.SensitiveTypeScope>(); } },
+                { "sensitiveTypeSource", n => { SensitiveTypeSource = n.GetEnumValue<ApiSdk.Models.SensitiveTypeSource>(); } },
             };
         }
         /// <summary>
@@ -70,11 +70,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ClassificationAttribute>("classificationAttributes", ClassificationAttributes);
-            writer.WriteEnumValue<ClassificationMethod>("classificationMethod", ClassificationMethod);
-            writer.WriteCollectionOfObjectValues<SensitiveContentLocation>("matches", Matches);
-            writer.WriteEnumValue<SensitiveTypeScope>("scope", Scope);
-            writer.WriteEnumValue<SensitiveTypeSource>("sensitiveTypeSource", SensitiveTypeSource);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ClassificationAttribute>("classificationAttributes", ClassificationAttributes);
+            writer.WriteEnumValue<ApiSdk.Models.ClassificationMethod>("classificationMethod", ClassificationMethod);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitiveContentLocation>("matches", Matches);
+            writer.WriteEnumValue<ApiSdk.Models.SensitiveTypeScope>("scope", Scope);
+            writer.WriteEnumValue<ApiSdk.Models.SensitiveTypeSource>("sensitiveTypeSource", SensitiveTypeSource);
         }
     }
 }

@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Autopilot Deployment Profile
     /// </summary>
-    public class WindowsAutopilotDeploymentProfile : Entity, IParsable
+    public class WindowsAutopilotDeploymentProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of assigned devices for the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsAutopilotDeviceIdentity>? AssignedDevices { get; set; }
+        public List<ApiSdk.Models.WindowsAutopilotDeviceIdentity>? AssignedDevices { get; set; }
 #nullable restore
 #else
-        public List<WindowsAutopilotDeviceIdentity> AssignedDevices { get; set; }
+        public List<ApiSdk.Models.WindowsAutopilotDeviceIdentity> AssignedDevices { get; set; }
 #endif
         /// <summary>The list of group assignments for the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsAutopilotDeploymentProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<WindowsAutopilotDeploymentProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>Profile creation time</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         public string DeviceNameTemplate { get; set; }
 #endif
         /// <summary>The deviceType property</summary>
-        public WindowsAutopilotDeviceType? DeviceType { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeviceType? DeviceType { get; set; }
         /// <summary>Name of the profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,10 +60,10 @@ namespace ApiSdk.Models
         /// <summary>Enrollment status screen setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsEnrollmentStatusScreenSettings? EnrollmentStatusScreenSettings { get; set; }
+        public ApiSdk.Models.WindowsEnrollmentStatusScreenSettings? EnrollmentStatusScreenSettings { get; set; }
 #nullable restore
 #else
-        public WindowsEnrollmentStatusScreenSettings EnrollmentStatusScreenSettings { get; set; }
+        public ApiSdk.Models.WindowsEnrollmentStatusScreenSettings EnrollmentStatusScreenSettings { get; set; }
 #endif
         /// <summary>HardwareHash Extraction for the profile</summary>
         public bool? ExtractHardwareHash { get; set; }
@@ -124,17 +124,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsAutopilotDeploymentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsAutopilotDeploymentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.activeDirectoryWindowsAutopilotDeploymentProfile" => new ActiveDirectoryWindowsAutopilotDeploymentProfile(),
-                "#microsoft.graph.azureADWindowsAutopilotDeploymentProfile" => new AzureADWindowsAutopilotDeploymentProfile(),
-                _ => new WindowsAutopilotDeploymentProfile(),
+                "#microsoft.graph.activeDirectoryWindowsAutopilotDeploymentProfile" => new ApiSdk.Models.ActiveDirectoryWindowsAutopilotDeploymentProfile(),
+                "#microsoft.graph.azureADWindowsAutopilotDeploymentProfile" => new ApiSdk.Models.AzureADWindowsAutopilotDeploymentProfile(),
+                _ => new ApiSdk.Models.WindowsAutopilotDeploymentProfile(),
             };
         }
         /// <summary>
@@ -145,15 +145,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignedDevices", n => { AssignedDevices = n.GetCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>(WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsAutopilotDeploymentProfileAssignment>(WindowsAutopilotDeploymentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedDevices", n => { AssignedDevices = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsAutopilotDeviceIdentity>(ApiSdk.Models.WindowsAutopilotDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment>(ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "deviceNameTemplate", n => { DeviceNameTemplate = n.GetStringValue(); } },
-                { "deviceType", n => { DeviceType = n.GetEnumValue<WindowsAutopilotDeviceType>(); } },
+                { "deviceType", n => { DeviceType = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotDeviceType>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enableWhiteGlove", n => { EnableWhiteGlove = n.GetBoolValue(); } },
-                { "enrollmentStatusScreenSettings", n => { EnrollmentStatusScreenSettings = n.GetObjectValue<WindowsEnrollmentStatusScreenSettings>(WindowsEnrollmentStatusScreenSettings.CreateFromDiscriminatorValue); } },
+                { "enrollmentStatusScreenSettings", n => { EnrollmentStatusScreenSettings = n.GetObjectValue<ApiSdk.Models.WindowsEnrollmentStatusScreenSettings>(ApiSdk.Models.WindowsEnrollmentStatusScreenSettings.CreateFromDiscriminatorValue); } },
                 { "extractHardwareHash", n => { ExtractHardwareHash = n.GetBoolValue(); } },
                 { "hardwareHashExtractionEnabled", n => { HardwareHashExtractionEnabled = n.GetBoolValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
@@ -174,15 +174,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WindowsAutopilotDeviceIdentity>("assignedDevices", AssignedDevices);
-            writer.WriteCollectionOfObjectValues<WindowsAutopilotDeploymentProfileAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsAutopilotDeviceIdentity>("assignedDevices", AssignedDevices);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("deviceNameTemplate", DeviceNameTemplate);
-            writer.WriteEnumValue<WindowsAutopilotDeviceType>("deviceType", DeviceType);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotDeviceType>("deviceType", DeviceType);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enableWhiteGlove", EnableWhiteGlove);
-            writer.WriteObjectValue<WindowsEnrollmentStatusScreenSettings>("enrollmentStatusScreenSettings", EnrollmentStatusScreenSettings);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsEnrollmentStatusScreenSettings>("enrollmentStatusScreenSettings", EnrollmentStatusScreenSettings);
             writer.WriteBoolValue("extractHardwareHash", ExtractHardwareHash);
             writer.WriteBoolValue("hardwareHashExtractionEnabled", HardwareHashExtractionEnabled);
             writer.WriteStringValue("language", Language);

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties used to assign a device management script to a group.
     /// </summary>
-    public class DeviceManagementScriptGroupAssignment : Entity, IParsable
+    public class DeviceManagementScriptGroupAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The Id of the Azure Active Directory group we are targeting the script to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScriptGroupAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScriptGroupAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScriptGroupAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScriptGroupAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScriptGroupAssignment();
+            return new ApiSdk.Models.DeviceManagementScriptGroupAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model

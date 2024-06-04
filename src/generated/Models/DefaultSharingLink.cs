@@ -23,11 +23,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The default sharing link role. The possible values are: none, view, edit, manageList, review, restrictedView, submitOnly, unknownFutureValue.</summary>
-        public SharingRole? Role { get; set; }
+        public ApiSdk.Models.SharingRole? Role { get; set; }
         /// <summary>The default sharing link scope. The possible values are: anyone, organization, specificPeople, anonymous, users, unknownFutureValue.</summary>
-        public SharingScope? Scope { get; set; }
+        public ApiSdk.Models.SharingScope? Scope { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DefaultSharingLink"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DefaultSharingLink"/> and sets the default values.
         /// </summary>
         public DefaultSharingLink()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DefaultSharingLink"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DefaultSharingLink"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DefaultSharingLink CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DefaultSharingLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DefaultSharingLink();
+            return new ApiSdk.Models.DefaultSharingLink();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models
             {
                 { "defaultToExistingAccess", n => { DefaultToExistingAccess = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "role", n => { Role = n.GetEnumValue<SharingRole>(); } },
-                { "scope", n => { Scope = n.GetEnumValue<SharingScope>(); } },
+                { "role", n => { Role = n.GetEnumValue<ApiSdk.Models.SharingRole>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<ApiSdk.Models.SharingScope>(); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("defaultToExistingAccess", DefaultToExistingAccess);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<SharingRole>("role", Role);
-            writer.WriteEnumValue<SharingScope>("scope", Scope);
+            writer.WriteEnumValue<ApiSdk.Models.SharingRole>("role", Role);
+            writer.WriteEnumValue<ApiSdk.Models.SharingScope>("scope", Scope);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

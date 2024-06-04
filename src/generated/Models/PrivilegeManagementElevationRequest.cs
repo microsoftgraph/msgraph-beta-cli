@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// These are elevation approval requests for EPM support arbitrated scenario initiated by IW user that admins can take action on.
     /// </summary>
-    public class PrivilegeManagementElevationRequest : Entity, IParsable
+    public class PrivilegeManagementElevationRequest : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Details of the application which is being requested to elevate, allowing the admin to understand the identity of the application. It includes file info such as FilePath, FileHash, FilePublisher, and etc. Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ElevationRequestApplicationDetail? ApplicationDetail { get; set; }
+        public ApiSdk.Models.ElevationRequestApplicationDetail? ApplicationDetail { get; set; }
 #nullable restore
 #else
-        public ElevationRequestApplicationDetail ApplicationDetail { get; set; }
+        public ApiSdk.Models.ElevationRequestApplicationDetail ApplicationDetail { get; set; }
 #endif
         /// <summary>The device name used to initiate the elevation request. For example: &apos;cotonso-laptop&apos;. Returned by default. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -92,16 +92,16 @@ namespace ApiSdk.Models
         public string ReviewerJustification { get; set; }
 #endif
         /// <summary>Indicates state of elevation request</summary>
-        public ElevationRequestState? Status { get; set; }
+        public ApiSdk.Models.ElevationRequestState? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegeManagementElevationRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegeManagementElevationRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegeManagementElevationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegeManagementElevationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegeManagementElevationRequest();
+            return new ApiSdk.Models.PrivilegeManagementElevationRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,7 +111,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicationDetail", n => { ApplicationDetail = n.GetObjectValue<ElevationRequestApplicationDetail>(ElevationRequestApplicationDetail.CreateFromDiscriminatorValue); } },
+                { "applicationDetail", n => { ApplicationDetail = n.GetObjectValue<ApiSdk.Models.ElevationRequestApplicationDetail>(ApiSdk.Models.ElevationRequestApplicationDetail.CreateFromDiscriminatorValue); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "requestCreatedDateTime", n => { RequestCreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "requestExpiryDateTime", n => { RequestExpiryDateTime = n.GetDateTimeOffsetValue(); } },
@@ -124,7 +124,7 @@ namespace ApiSdk.Models
                 { "reviewCompletedByUserPrincipalName", n => { ReviewCompletedByUserPrincipalName = n.GetStringValue(); } },
                 { "reviewCompletedDateTime", n => { ReviewCompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "reviewerJustification", n => { ReviewerJustification = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ElevationRequestState>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ElevationRequestState>(); } },
             };
         }
         /// <summary>
@@ -135,7 +135,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ElevationRequestApplicationDetail>("applicationDetail", ApplicationDetail);
+            writer.WriteObjectValue<ApiSdk.Models.ElevationRequestApplicationDetail>("applicationDetail", ApplicationDetail);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteDateTimeOffsetValue("requestCreatedDateTime", RequestCreatedDateTime);
             writer.WriteStringValue("requestedByUserId", RequestedByUserId);
@@ -148,7 +148,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("reviewCompletedByUserPrincipalName", ReviewCompletedByUserPrincipalName);
             writer.WriteDateTimeOffsetValue("reviewCompletedDateTime", ReviewCompletedDateTime);
             writer.WriteStringValue("reviewerJustification", ReviewerJustification);
-            writer.WriteEnumValue<ElevationRequestState>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ElevationRequestState>("status", Status);
         }
     }
 }

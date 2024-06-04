@@ -11,20 +11,20 @@ namespace ApiSdk.Models.WindowsUpdates
     #pragma warning restore CS1591
     {
         /// <summary>The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.</summary>
-        public ResourceConnectionState? State { get; set; }
+        public ApiSdk.Models.WindowsUpdates.ResourceConnectionState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ResourceConnection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ResourceConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ResourceConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.ResourceConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.operationalInsightsConnection" => new OperationalInsightsConnection(),
-                _ => new ResourceConnection(),
+                "#microsoft.graph.windowsUpdates.operationalInsightsConnection" => new ApiSdk.Models.WindowsUpdates.OperationalInsightsConnection(),
+                _ => new ApiSdk.Models.WindowsUpdates.ResourceConnection(),
             };
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "state", n => { State = n.GetEnumValue<ResourceConnectionState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.WindowsUpdates.ResourceConnectionState>(); } },
             };
         }
         /// <summary>
@@ -46,7 +46,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ResourceConnectionState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdates.ResourceConnectionState>("state", State);
         }
     }
 }

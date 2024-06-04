@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class DisableUserResponseAction : ResponseAction, IParsable
+    public class DisableUserResponseAction : ApiSdk.Models.Security.ResponseAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier property</summary>
-        public DisableUserEntityIdentifier? Identifier { get; set; }
+        public ApiSdk.Models.Security.DisableUserEntityIdentifier? Identifier { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DisableUserResponseAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.DisableUserResponseAction"/> and sets the default values.
         /// </summary>
         public DisableUserResponseAction() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DisableUserResponseAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.DisableUserResponseAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DisableUserResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.DisableUserResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DisableUserResponseAction();
+            return new ApiSdk.Models.Security.DisableUserResponseAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "identifier", n => { Identifier = n.GetEnumValue<DisableUserEntityIdentifier>(); } },
+                { "identifier", n => { Identifier = n.GetEnumValue<ApiSdk.Models.Security.DisableUserEntityIdentifier>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DisableUserEntityIdentifier>("identifier", Identifier);
+            writer.WriteEnumValue<ApiSdk.Models.Security.DisableUserEntityIdentifier>("identifier", Identifier);
         }
     }
 }

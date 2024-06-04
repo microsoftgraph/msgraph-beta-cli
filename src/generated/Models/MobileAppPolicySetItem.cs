@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for mobile app PolicySetItem.
     /// </summary>
-    public class MobileAppPolicySetItem : PolicySetItem, IParsable
+    public class MobileAppPolicySetItem : ApiSdk.Models.PolicySetItem, IParsable
     {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
-        public InstallIntent? Intent { get; set; }
+        public ApiSdk.Models.InstallIntent? Intent { get; set; }
         /// <summary>Settings of the MobileAppPolicySetItem.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MobileAppAssignmentSettings? Settings { get; set; }
+        public ApiSdk.Models.MobileAppAssignmentSettings? Settings { get; set; }
 #nullable restore
 #else
-        public MobileAppAssignmentSettings Settings { get; set; }
+        public ApiSdk.Models.MobileAppAssignmentSettings Settings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MobileAppPolicySetItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MobileAppPolicySetItem"/> and sets the default values.
         /// </summary>
         public MobileAppPolicySetItem() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppPolicySetItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppPolicySetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppPolicySetItem();
+            return new ApiSdk.Models.MobileAppPolicySetItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +46,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "intent", n => { Intent = n.GetEnumValue<InstallIntent>(); } },
-                { "settings", n => { Settings = n.GetObjectValue<MobileAppAssignmentSettings>(MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
+                { "intent", n => { Intent = n.GetEnumValue<ApiSdk.Models.InstallIntent>(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.MobileAppAssignmentSettings>(ApiSdk.Models.MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -58,8 +58,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<InstallIntent>("intent", Intent);
-            writer.WriteObjectValue<MobileAppAssignmentSettings>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.InstallIntent>("intent", Intent);
+            writer.WriteObjectValue<ApiSdk.Models.MobileAppAssignmentSettings>("settings", Settings);
         }
     }
 }

@@ -15,24 +15,24 @@ namespace ApiSdk.Models
         /// <summary>The collate property</summary>
         public bool? Collate { get; set; }
         /// <summary>The colorMode property</summary>
-        public PrintColorMode? ColorMode { get; set; }
+        public ApiSdk.Models.PrintColorMode? ColorMode { get; set; }
         /// <summary>The copies property</summary>
         public int? Copies { get; set; }
         /// <summary>The dpi property</summary>
         public int? Dpi { get; set; }
         /// <summary>The duplexMode property</summary>
-        public PrintDuplexMode? DuplexMode { get; set; }
+        public ApiSdk.Models.PrintDuplexMode? DuplexMode { get; set; }
         /// <summary>The feedDirection property</summary>
-        public PrinterFeedDirection? FeedDirection { get; set; }
+        public ApiSdk.Models.PrinterFeedDirection? FeedDirection { get; set; }
         /// <summary>The feedOrientation property</summary>
-        public PrinterFeedOrientation? FeedOrientation { get; set; }
+        public ApiSdk.Models.PrinterFeedOrientation? FeedOrientation { get; set; }
         /// <summary>The finishings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintFinishing?>? Finishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?>? Finishings { get; set; }
 #nullable restore
 #else
-        public List<PrintFinishing?> Finishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?> Finishings { get; set; }
 #endif
         /// <summary>The fitPdfToPage property</summary>
         public bool? FitPdfToPage { get; set; }
@@ -47,10 +47,10 @@ namespace ApiSdk.Models
         /// <summary>The margin property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PrintMargin? Margin { get; set; }
+        public ApiSdk.Models.PrintMargin? Margin { get; set; }
 #nullable restore
 #else
-        public PrintMargin Margin { get; set; }
+        public ApiSdk.Models.PrintMargin Margin { get; set; }
 #endif
         /// <summary>The mediaSize property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         public string MediaType { get; set; }
 #endif
         /// <summary>The multipageLayout property</summary>
-        public PrintMultipageLayout? MultipageLayout { get; set; }
+        public ApiSdk.Models.PrintMultipageLayout? MultipageLayout { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The orientation property</summary>
-        public PrintOrientation? Orientation { get; set; }
+        public ApiSdk.Models.PrintOrientation? Orientation { get; set; }
         /// <summary>The outputBin property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,19 +91,19 @@ namespace ApiSdk.Models
         /// <summary>The pageRanges property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IntegerRange>? PageRanges { get; set; }
+        public List<ApiSdk.Models.IntegerRange>? PageRanges { get; set; }
 #nullable restore
 #else
-        public List<IntegerRange> PageRanges { get; set; }
+        public List<ApiSdk.Models.IntegerRange> PageRanges { get; set; }
 #endif
         /// <summary>The pagesPerSheet property</summary>
         public int? PagesPerSheet { get; set; }
         /// <summary>The quality property</summary>
-        public PrintQuality? Quality { get; set; }
+        public ApiSdk.Models.PrintQuality? Quality { get; set; }
         /// <summary>The scaling property</summary>
-        public PrintScaling? Scaling { get; set; }
+        public ApiSdk.Models.PrintScaling? Scaling { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterDocumentConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PrinterDocumentConfiguration"/> and sets the default values.
         /// </summary>
         public PrinterDocumentConfiguration()
         {
@@ -112,12 +112,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrinterDocumentConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrinterDocumentConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PrinterDocumentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PrinterDocumentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrinterDocumentConfiguration();
+            return new ApiSdk.Models.PrinterDocumentConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -128,26 +128,26 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "collate", n => { Collate = n.GetBoolValue(); } },
-                { "colorMode", n => { ColorMode = n.GetEnumValue<PrintColorMode>(); } },
+                { "colorMode", n => { ColorMode = n.GetEnumValue<ApiSdk.Models.PrintColorMode>(); } },
                 { "copies", n => { Copies = n.GetIntValue(); } },
                 { "dpi", n => { Dpi = n.GetIntValue(); } },
-                { "duplexMode", n => { DuplexMode = n.GetEnumValue<PrintDuplexMode>(); } },
-                { "feedDirection", n => { FeedDirection = n.GetEnumValue<PrinterFeedDirection>(); } },
-                { "feedOrientation", n => { FeedOrientation = n.GetEnumValue<PrinterFeedOrientation>(); } },
-                { "finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
+                { "duplexMode", n => { DuplexMode = n.GetEnumValue<ApiSdk.Models.PrintDuplexMode>(); } },
+                { "feedDirection", n => { FeedDirection = n.GetEnumValue<ApiSdk.Models.PrinterFeedDirection>(); } },
+                { "feedOrientation", n => { FeedOrientation = n.GetEnumValue<ApiSdk.Models.PrinterFeedOrientation>(); } },
+                { "finishings", n => { Finishings = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>()?.ToList(); } },
                 { "fitPdfToPage", n => { FitPdfToPage = n.GetBoolValue(); } },
                 { "inputBin", n => { InputBin = n.GetStringValue(); } },
-                { "margin", n => { Margin = n.GetObjectValue<PrintMargin>(PrintMargin.CreateFromDiscriminatorValue); } },
+                { "margin", n => { Margin = n.GetObjectValue<ApiSdk.Models.PrintMargin>(ApiSdk.Models.PrintMargin.CreateFromDiscriminatorValue); } },
                 { "mediaSize", n => { MediaSize = n.GetStringValue(); } },
                 { "mediaType", n => { MediaType = n.GetStringValue(); } },
-                { "multipageLayout", n => { MultipageLayout = n.GetEnumValue<PrintMultipageLayout>(); } },
+                { "multipageLayout", n => { MultipageLayout = n.GetEnumValue<ApiSdk.Models.PrintMultipageLayout>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "orientation", n => { Orientation = n.GetEnumValue<PrintOrientation>(); } },
+                { "orientation", n => { Orientation = n.GetEnumValue<ApiSdk.Models.PrintOrientation>(); } },
                 { "outputBin", n => { OutputBin = n.GetStringValue(); } },
-                { "pageRanges", n => { PageRanges = n.GetCollectionOfObjectValues<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "pageRanges", n => { PageRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.IntegerRange>(ApiSdk.Models.IntegerRange.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "pagesPerSheet", n => { PagesPerSheet = n.GetIntValue(); } },
-                { "quality", n => { Quality = n.GetEnumValue<PrintQuality>(); } },
-                { "scaling", n => { Scaling = n.GetEnumValue<PrintScaling>(); } },
+                { "quality", n => { Quality = n.GetEnumValue<ApiSdk.Models.PrintQuality>(); } },
+                { "scaling", n => { Scaling = n.GetEnumValue<ApiSdk.Models.PrintScaling>(); } },
             };
         }
         /// <summary>
@@ -158,26 +158,26 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("collate", Collate);
-            writer.WriteEnumValue<PrintColorMode>("colorMode", ColorMode);
+            writer.WriteEnumValue<ApiSdk.Models.PrintColorMode>("colorMode", ColorMode);
             writer.WriteIntValue("copies", Copies);
             writer.WriteIntValue("dpi", Dpi);
-            writer.WriteEnumValue<PrintDuplexMode>("duplexMode", DuplexMode);
-            writer.WriteEnumValue<PrinterFeedDirection>("feedDirection", FeedDirection);
-            writer.WriteEnumValue<PrinterFeedOrientation>("feedOrientation", FeedOrientation);
-            writer.WriteCollectionOfEnumValues<PrintFinishing>("finishings", Finishings);
+            writer.WriteEnumValue<ApiSdk.Models.PrintDuplexMode>("duplexMode", DuplexMode);
+            writer.WriteEnumValue<ApiSdk.Models.PrinterFeedDirection>("feedDirection", FeedDirection);
+            writer.WriteEnumValue<ApiSdk.Models.PrinterFeedOrientation>("feedOrientation", FeedOrientation);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>("finishings", Finishings);
             writer.WriteBoolValue("fitPdfToPage", FitPdfToPage);
             writer.WriteStringValue("inputBin", InputBin);
-            writer.WriteObjectValue<PrintMargin>("margin", Margin);
+            writer.WriteObjectValue<ApiSdk.Models.PrintMargin>("margin", Margin);
             writer.WriteStringValue("mediaSize", MediaSize);
             writer.WriteStringValue("mediaType", MediaType);
-            writer.WriteEnumValue<PrintMultipageLayout>("multipageLayout", MultipageLayout);
+            writer.WriteEnumValue<ApiSdk.Models.PrintMultipageLayout>("multipageLayout", MultipageLayout);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PrintOrientation>("orientation", Orientation);
+            writer.WriteEnumValue<ApiSdk.Models.PrintOrientation>("orientation", Orientation);
             writer.WriteStringValue("outputBin", OutputBin);
-            writer.WriteCollectionOfObjectValues<IntegerRange>("pageRanges", PageRanges);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IntegerRange>("pageRanges", PageRanges);
             writer.WriteIntValue("pagesPerSheet", PagesPerSheet);
-            writer.WriteEnumValue<PrintQuality>("quality", Quality);
-            writer.WriteEnumValue<PrintScaling>("scaling", Scaling);
+            writer.WriteEnumValue<ApiSdk.Models.PrintQuality>("quality", Quality);
+            writer.WriteEnumValue<ApiSdk.Models.PrintScaling>("scaling", Scaling);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

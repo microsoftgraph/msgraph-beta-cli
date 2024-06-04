@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EncryptContent : LabelActionBase, IParsable
+    public class EncryptContent : ApiSdk.Models.LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The encryptWith property</summary>
         public ApiSdk.Models.EncryptWith? EncryptWith { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EncryptContent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EncryptContent"/> and sets the default values.
         /// </summary>
         public EncryptContent() : base()
         {
@@ -22,17 +22,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EncryptContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EncryptContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.encryptWithTemplate" => new EncryptWithTemplate(),
-                "#microsoft.graph.encryptWithUserDefinedRights" => new EncryptWithUserDefinedRights(),
-                _ => new EncryptContent(),
+                "#microsoft.graph.encryptWithTemplate" => new ApiSdk.Models.EncryptWithTemplate(),
+                "#microsoft.graph.encryptWithUserDefinedRights" => new ApiSdk.Models.EncryptWithUserDefinedRights(),
+                _ => new ApiSdk.Models.EncryptContent(),
             };
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "encryptWith", n => { EncryptWith = n.GetEnumValue<EncryptWith>(); } },
+                { "encryptWith", n => { EncryptWith = n.GetEnumValue<ApiSdk.Models.EncryptWith>(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<EncryptWith>("encryptWith", EncryptWith);
+            writer.WriteEnumValue<ApiSdk.Models.EncryptWith>("encryptWith", EncryptWith);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Security
         public string Period { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RuleSchedule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.RuleSchedule"/> and sets the default values.
         /// </summary>
         public RuleSchedule()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RuleSchedule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.RuleSchedule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RuleSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.RuleSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RuleSchedule();
+            return new ApiSdk.Models.Security.RuleSchedule();
         }
         /// <summary>
         /// The deserialization information for the current model

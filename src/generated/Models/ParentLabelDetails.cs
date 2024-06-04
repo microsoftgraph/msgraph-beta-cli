@@ -57,10 +57,10 @@ namespace ApiSdk.Models
         /// <summary>The parent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ParentLabelDetails? Parent { get; set; }
+        public ApiSdk.Models.ParentLabelDetails? Parent { get; set; }
 #nullable restore
 #else
-        public ParentLabelDetails Parent { get; set; }
+        public ApiSdk.Models.ParentLabelDetails Parent { get; set; }
 #endif
         /// <summary>The sensitivity value of the label, where lower is less sensitive.</summary>
         public int? Sensitivity { get; set; }
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         public string Tooltip { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ParentLabelDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ParentLabelDetails"/> and sets the default values.
         /// </summary>
         public ParentLabelDetails()
         {
@@ -82,16 +82,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ParentLabelDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ParentLabelDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ParentLabelDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ParentLabelDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.labelDetails" => new LabelDetails(),
-                _ => new ParentLabelDetails(),
+                "#microsoft.graph.labelDetails" => new ApiSdk.Models.LabelDetails(),
+                _ => new ApiSdk.Models.ParentLabelDetails(),
             };
         }
         /// <summary>
@@ -108,7 +108,7 @@ namespace ApiSdk.Models
                 { "isActive", n => { IsActive = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.ParentLabelDetails>(ApiSdk.Models.ParentLabelDetails.CreateFromDiscriminatorValue); } },
                 { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
@@ -126,7 +126,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("isActive", IsActive);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<ParentLabelDetails>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.ParentLabelDetails>("parent", Parent);
             writer.WriteIntValue("sensitivity", Sensitivity);
             writer.WriteStringValue("tooltip", Tooltip);
             writer.WriteAdditionalData(AdditionalData);

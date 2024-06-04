@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Policy used to configure detailed management settings for a specified set of apps for all users not targeted by a TargetedManagedAppProtection Policy
     /// </summary>
-    public class DefaultManagedAppProtection : ManagedAppProtection, IParsable
+    public class DefaultManagedAppProtection : ApiSdk.Models.ManagedAppProtection, IParsable
     {
         /// <summary>Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work. (Android only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,34 +38,34 @@ namespace ApiSdk.Models
         /// <summary>Indicates  if content sync for widgets is allowed for iOS on App Protection Policies</summary>
         public bool? AllowWidgetContentSync { get; set; }
         /// <summary>Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.</summary>
-        public ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfAndroidDeviceManufacturerNotAllowed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAndroidDeviceManufacturerNotAllowed { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfAndroidDeviceModelNotAllowed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAndroidDeviceModelNotAllowed { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfAndroidSafetyNetAppsVerificationFailed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAndroidSafetyNetAppsVerificationFailed { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfAndroidSafetyNetDeviceAttestationFailed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAndroidSafetyNetDeviceAttestationFailed { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfDeviceLockNotSet { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfDeviceLockNotSet { get; set; }
         /// <summary>If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.</summary>
-        public ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanHigh { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanHigh { get; set; }
         /// <summary>If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.</summary>
-        public ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanLow { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanLow { get; set; }
         /// <summary>If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.</summary>
-        public ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanMedium { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfDevicePasscodeComplexityLessThanMedium { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfIosDeviceModelNotAllowed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfIosDeviceModelNotAllowed { get; set; }
         /// <summary>Represents the level to which app data is encrypted for managed apps</summary>
-        public ManagedAppDataEncryptionType? AppDataEncryptionType { get; set; }
+        public ApiSdk.Models.ManagedAppDataEncryptionType? AppDataEncryptionType { get; set; }
         /// <summary>List of apps to which the policy is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedMobileApp>? Apps { get; set; }
+        public List<ApiSdk.Models.ManagedMobileApp>? Apps { get; set; }
 #nullable restore
 #else
-        public List<ManagedMobileApp> Apps { get; set; }
+        public List<ApiSdk.Models.ManagedMobileApp> Apps { get; set; }
 #endif
         /// <summary>Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True. (Android Only)</summary>
         public bool? BiometricAuthenticationBlocked { get; set; }
@@ -124,20 +124,20 @@ namespace ApiSdk.Models
         /// <summary>A set of string key and string value pairs to be sent to the affected users, unalterned by this service</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? CustomSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? CustomSettings { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> CustomSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> CustomSettings { get; set; }
 #endif
         /// <summary>Count of apps to which the current policy is deployed.</summary>
         public int? DeployedAppCount { get; set; }
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
+        public ApiSdk.Models.ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
 #nullable restore
 #else
-        public ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
+        public ApiSdk.Models.ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
 #endif
         /// <summary>Defines if any kind of lock must be required on device. (android only)</summary>
         public bool? DeviceLockRequired { get; set; }
@@ -150,18 +150,18 @@ namespace ApiSdk.Models
         /// <summary>Android App packages in this list will be exempt from the policy and will be able to receive data from managed apps. (Android only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? ExemptedAppPackages { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? ExemptedAppPackages { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> ExemptedAppPackages { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> ExemptedAppPackages { get; set; }
 #endif
         /// <summary>iOS Apps in this list will be exempt from the policy and will be able to receive data from managed apps. (iOS Only)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? ExemptedAppProtocols { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? ExemptedAppProtocols { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> ExemptedAppProtocols { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> ExemptedAppProtocols { get; set; }
 #endif
         /// <summary>Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)</summary>
         public bool? FaceIdBlocked { get; set; }
@@ -270,11 +270,11 @@ namespace ApiSdk.Models
         /// <summary>Require user to apply Class 3 Biometrics on their Android device.</summary>
         public bool? RequireClass3Biometrics { get; set; }
         /// <summary>An admin enforced Android SafetyNet Device Attestation requirement on a managed app.</summary>
-        public AndroidManagedAppSafetyNetAppsVerificationType? RequiredAndroidSafetyNetAppsVerificationType { get; set; }
+        public ApiSdk.Models.AndroidManagedAppSafetyNetAppsVerificationType? RequiredAndroidSafetyNetAppsVerificationType { get; set; }
         /// <summary>An admin enforced Android SafetyNet Device Attestation requirement on a managed app.</summary>
-        public AndroidManagedAppSafetyNetDeviceAttestationType? RequiredAndroidSafetyNetDeviceAttestationType { get; set; }
+        public ApiSdk.Models.AndroidManagedAppSafetyNetDeviceAttestationType? RequiredAndroidSafetyNetDeviceAttestationType { get; set; }
         /// <summary>An admin enforced Android SafetyNet evaluation type requirement on a managed app.</summary>
-        public AndroidManagedAppSafetyNetEvaluationType? RequiredAndroidSafetyNetEvaluationType { get; set; }
+        public ApiSdk.Models.AndroidManagedAppSafetyNetEvaluationType? RequiredAndroidSafetyNetEvaluationType { get; set; }
         /// <summary>A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.</summary>
         public bool? RequirePinAfterBiometricChange { get; set; }
         /// <summary>Indicates whether screen capture is blocked. (Android only)</summary>
@@ -286,7 +286,7 @@ namespace ApiSdk.Models
         /// <summary>Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped</summary>
         public int? WipeAfterCompanyPortalUpdateDeferralInDays { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DefaultManagedAppProtection"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DefaultManagedAppProtection"/> and sets the default values.
         /// </summary>
         public DefaultManagedAppProtection() : base()
         {
@@ -295,12 +295,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DefaultManagedAppProtection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DefaultManagedAppProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DefaultManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DefaultManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DefaultManagedAppProtection();
+            return new ApiSdk.Models.DefaultManagedAppProtection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -314,18 +314,18 @@ namespace ApiSdk.Models
                 { "allowedAndroidDeviceManufacturers", n => { AllowedAndroidDeviceManufacturers = n.GetStringValue(); } },
                 { "allowedAndroidDeviceModels", n => { AllowedAndroidDeviceModels = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "allowedIosDeviceModels", n => { AllowedIosDeviceModels = n.GetStringValue(); } },
-                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
-                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceManufacturerNotAllowed", n => { AppActionIfAndroidDeviceManufacturerNotAllowed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidDeviceModelNotAllowed", n => { AppActionIfAndroidDeviceModelNotAllowed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetAppsVerificationFailed", n => { AppActionIfAndroidSafetyNetAppsVerificationFailed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfAndroidSafetyNetDeviceAttestationFailed", n => { AppActionIfAndroidSafetyNetDeviceAttestationFailed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfDeviceLockNotSet", n => { AppActionIfDeviceLockNotSet = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanHigh", n => { AppActionIfDevicePasscodeComplexityLessThanHigh = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanLow", n => { AppActionIfDevicePasscodeComplexityLessThanLow = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfDevicePasscodeComplexityLessThanMedium", n => { AppActionIfDevicePasscodeComplexityLessThanMedium = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ApiSdk.Models.ManagedAppDataEncryptionType>(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedMobileApp>(ApiSdk.Models.ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "biometricAuthenticationBlocked", n => { BiometricAuthenticationBlocked = n.GetBoolValue(); } },
                 { "blockAfterCompanyPortalUpdateDeferralInDays", n => { BlockAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
                 { "connectToVpnOnLaunch", n => { ConnectToVpnOnLaunch = n.GetBoolValue(); } },
@@ -335,15 +335,15 @@ namespace ApiSdk.Models
                 { "customDialerAppDisplayName", n => { CustomDialerAppDisplayName = n.GetStringValue(); } },
                 { "customDialerAppPackageId", n => { CustomDialerAppPackageId = n.GetStringValue(); } },
                 { "customDialerAppProtocol", n => { CustomDialerAppProtocol = n.GetStringValue(); } },
-                { "customSettings", n => { CustomSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customSettings", n => { CustomSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
-                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ApiSdk.Models.ManagedAppPolicyDeploymentSummary>(ApiSdk.Models.ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
                 { "deviceLockRequired", n => { DeviceLockRequired = n.GetBoolValue(); } },
                 { "disableAppEncryptionIfDeviceEncryptionIsEnabled", n => { DisableAppEncryptionIfDeviceEncryptionIsEnabled = n.GetBoolValue(); } },
                 { "disableProtectionOfManagedOutboundOpenInData", n => { DisableProtectionOfManagedOutboundOpenInData = n.GetBoolValue(); } },
                 { "encryptAppData", n => { EncryptAppData = n.GetBoolValue(); } },
-                { "exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exemptedAppPackages", n => { ExemptedAppPackages = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
                 { "filterOpenInToOnlyManagedApps", n => { FilterOpenInToOnlyManagedApps = n.GetBoolValue(); } },
                 { "fingerprintAndBiometricEnabled", n => { FingerprintAndBiometricEnabled = n.GetBoolValue(); } },
@@ -362,9 +362,9 @@ namespace ApiSdk.Models
                 { "protectInboundDataFromUnknownSources", n => { ProtectInboundDataFromUnknownSources = n.GetBoolValue(); } },
                 { "requireClass3Biometrics", n => { RequireClass3Biometrics = n.GetBoolValue(); } },
                 { "requirePinAfterBiometricChange", n => { RequirePinAfterBiometricChange = n.GetBoolValue(); } },
-                { "requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>(); } },
-                { "requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
-                { "requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<AndroidManagedAppSafetyNetEvaluationType>(); } },
+                { "requiredAndroidSafetyNetAppsVerificationType", n => { RequiredAndroidSafetyNetAppsVerificationType = n.GetEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetAppsVerificationType>(); } },
+                { "requiredAndroidSafetyNetDeviceAttestationType", n => { RequiredAndroidSafetyNetDeviceAttestationType = n.GetEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetDeviceAttestationType>(); } },
+                { "requiredAndroidSafetyNetEvaluationType", n => { RequiredAndroidSafetyNetEvaluationType = n.GetEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetEvaluationType>(); } },
                 { "screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
                 { "thirdPartyKeyboardsBlocked", n => { ThirdPartyKeyboardsBlocked = n.GetBoolValue(); } },
                 { "warnAfterCompanyPortalUpdateDeferralInDays", n => { WarnAfterCompanyPortalUpdateDeferralInDays = n.GetIntValue(); } },
@@ -383,18 +383,18 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("allowedAndroidDeviceModels", AllowedAndroidDeviceModels);
             writer.WriteStringValue("allowedIosDeviceModels", AllowedIosDeviceModels);
             writer.WriteBoolValue("allowWidgetContentSync", AllowWidgetContentSync);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidDeviceManufacturerNotAllowed", AppActionIfAndroidDeviceManufacturerNotAllowed);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidDeviceModelNotAllowed", AppActionIfAndroidDeviceModelNotAllowed);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidSafetyNetAppsVerificationFailed", AppActionIfAndroidSafetyNetAppsVerificationFailed);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAndroidSafetyNetDeviceAttestationFailed", AppActionIfAndroidSafetyNetDeviceAttestationFailed);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfDeviceLockNotSet", AppActionIfDeviceLockNotSet);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanHigh", AppActionIfDevicePasscodeComplexityLessThanHigh);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanLow", AppActionIfDevicePasscodeComplexityLessThanLow);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanMedium", AppActionIfDevicePasscodeComplexityLessThanMedium);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfIosDeviceModelNotAllowed", AppActionIfIosDeviceModelNotAllowed);
-            writer.WriteEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", AppDataEncryptionType);
-            writer.WriteCollectionOfObjectValues<ManagedMobileApp>("apps", Apps);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAndroidDeviceManufacturerNotAllowed", AppActionIfAndroidDeviceManufacturerNotAllowed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAndroidDeviceModelNotAllowed", AppActionIfAndroidDeviceModelNotAllowed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAndroidSafetyNetAppsVerificationFailed", AppActionIfAndroidSafetyNetAppsVerificationFailed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAndroidSafetyNetDeviceAttestationFailed", AppActionIfAndroidSafetyNetDeviceAttestationFailed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfDeviceLockNotSet", AppActionIfDeviceLockNotSet);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanHigh", AppActionIfDevicePasscodeComplexityLessThanHigh);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanLow", AppActionIfDevicePasscodeComplexityLessThanLow);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfDevicePasscodeComplexityLessThanMedium", AppActionIfDevicePasscodeComplexityLessThanMedium);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfIosDeviceModelNotAllowed", AppActionIfIosDeviceModelNotAllowed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppDataEncryptionType>("appDataEncryptionType", AppDataEncryptionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedMobileApp>("apps", Apps);
             writer.WriteBoolValue("biometricAuthenticationBlocked", BiometricAuthenticationBlocked);
             writer.WriteIntValue("blockAfterCompanyPortalUpdateDeferralInDays", BlockAfterCompanyPortalUpdateDeferralInDays);
             writer.WriteBoolValue("connectToVpnOnLaunch", ConnectToVpnOnLaunch);
@@ -404,15 +404,15 @@ namespace ApiSdk.Models
             writer.WriteStringValue("customDialerAppDisplayName", CustomDialerAppDisplayName);
             writer.WriteStringValue("customDialerAppPackageId", CustomDialerAppPackageId);
             writer.WriteStringValue("customDialerAppProtocol", CustomDialerAppProtocol);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("customSettings", CustomSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("customSettings", CustomSettings);
             writer.WriteIntValue("deployedAppCount", DeployedAppCount);
-            writer.WriteObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", DeploymentSummary);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedAppPolicyDeploymentSummary>("deploymentSummary", DeploymentSummary);
             writer.WriteBoolValue("deviceLockRequired", DeviceLockRequired);
             writer.WriteBoolValue("disableAppEncryptionIfDeviceEncryptionIsEnabled", DisableAppEncryptionIfDeviceEncryptionIsEnabled);
             writer.WriteBoolValue("disableProtectionOfManagedOutboundOpenInData", DisableProtectionOfManagedOutboundOpenInData);
             writer.WriteBoolValue("encryptAppData", EncryptAppData);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("exemptedAppPackages", ExemptedAppPackages);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("exemptedAppProtocols", ExemptedAppProtocols);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("exemptedAppPackages", ExemptedAppPackages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("exemptedAppProtocols", ExemptedAppProtocols);
             writer.WriteBoolValue("faceIdBlocked", FaceIdBlocked);
             writer.WriteBoolValue("filterOpenInToOnlyManagedApps", FilterOpenInToOnlyManagedApps);
             writer.WriteBoolValue("fingerprintAndBiometricEnabled", FingerprintAndBiometricEnabled);
@@ -430,9 +430,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("minimumWipeSdkVersion", MinimumWipeSdkVersion);
             writer.WriteBoolValue("protectInboundDataFromUnknownSources", ProtectInboundDataFromUnknownSources);
             writer.WriteBoolValue("requireClass3Biometrics", RequireClass3Biometrics);
-            writer.WriteEnumValue<AndroidManagedAppSafetyNetAppsVerificationType>("requiredAndroidSafetyNetAppsVerificationType", RequiredAndroidSafetyNetAppsVerificationType);
-            writer.WriteEnumValue<AndroidManagedAppSafetyNetDeviceAttestationType>("requiredAndroidSafetyNetDeviceAttestationType", RequiredAndroidSafetyNetDeviceAttestationType);
-            writer.WriteEnumValue<AndroidManagedAppSafetyNetEvaluationType>("requiredAndroidSafetyNetEvaluationType", RequiredAndroidSafetyNetEvaluationType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetAppsVerificationType>("requiredAndroidSafetyNetAppsVerificationType", RequiredAndroidSafetyNetAppsVerificationType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetDeviceAttestationType>("requiredAndroidSafetyNetDeviceAttestationType", RequiredAndroidSafetyNetDeviceAttestationType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedAppSafetyNetEvaluationType>("requiredAndroidSafetyNetEvaluationType", RequiredAndroidSafetyNetEvaluationType);
             writer.WriteBoolValue("requirePinAfterBiometricChange", RequirePinAfterBiometricChange);
             writer.WriteBoolValue("screenCaptureBlocked", ScreenCaptureBlocked);
             writer.WriteBoolValue("thirdPartyKeyboardsBlocked", ThirdPartyKeyboardsBlocked);

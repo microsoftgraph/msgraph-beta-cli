@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The type of Windows kiosk app.</summary>
-        public WindowsKioskAppType? AppType { get; set; }
+        public ApiSdk.Models.WindowsKioskAppType? AppType { get; set; }
         /// <summary>Allow the app to be auto-launched in multi-app kiosk mode</summary>
         public bool? AutoLaunch { get; set; }
         /// <summary>Represents the friendly name of an app</summary>
@@ -34,9 +34,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The tile size of Windows app in the start layout.</summary>
-        public WindowsAppStartLayoutTileSize? StartLayoutTileSize { get; set; }
+        public ApiSdk.Models.WindowsAppStartLayoutTileSize? StartLayoutTileSize { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskAppBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskAppBase"/> and sets the default values.
         /// </summary>
         public WindowsKioskAppBase()
         {
@@ -45,18 +45,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskAppBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskAppBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsKioskAppBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsKioskAppBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsKioskDesktopApp" => new WindowsKioskDesktopApp(),
-                "#microsoft.graph.windowsKioskUWPApp" => new WindowsKioskUWPApp(),
-                "#microsoft.graph.windowsKioskWin32App" => new WindowsKioskWin32App(),
-                _ => new WindowsKioskAppBase(),
+                "#microsoft.graph.windowsKioskDesktopApp" => new ApiSdk.Models.WindowsKioskDesktopApp(),
+                "#microsoft.graph.windowsKioskUWPApp" => new ApiSdk.Models.WindowsKioskUWPApp(),
+                "#microsoft.graph.windowsKioskWin32App" => new ApiSdk.Models.WindowsKioskWin32App(),
+                _ => new ApiSdk.Models.WindowsKioskAppBase(),
             };
         }
         /// <summary>
@@ -67,11 +67,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appType", n => { AppType = n.GetEnumValue<WindowsKioskAppType>(); } },
+                { "appType", n => { AppType = n.GetEnumValue<ApiSdk.Models.WindowsKioskAppType>(); } },
                 { "autoLaunch", n => { AutoLaunch = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "startLayoutTileSize", n => { StartLayoutTileSize = n.GetEnumValue<WindowsAppStartLayoutTileSize>(); } },
+                { "startLayoutTileSize", n => { StartLayoutTileSize = n.GetEnumValue<ApiSdk.Models.WindowsAppStartLayoutTileSize>(); } },
             };
         }
         /// <summary>
@@ -81,11 +81,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<WindowsKioskAppType>("appType", AppType);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsKioskAppType>("appType", AppType);
             writer.WriteBoolValue("autoLaunch", AutoLaunch);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<WindowsAppStartLayoutTileSize>("startLayoutTileSize", StartLayoutTileSize);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAppStartLayoutTileSize>("startLayoutTileSize", StartLayoutTileSize);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

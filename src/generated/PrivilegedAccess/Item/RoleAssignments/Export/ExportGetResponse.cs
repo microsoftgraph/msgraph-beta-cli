@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export
 {
     #pragma warning disable CS1591
-    public class ExportGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class ExportGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExportGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExportGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExportGetResponse();
+            return new ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

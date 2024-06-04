@@ -25,10 +25,10 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>List of all the modalities used in the call. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Modality?>? Modalities { get; set; }
+        public List<ApiSdk.Models.CallRecords.Modality?>? Modalities { get; set; }
 #nullable restore
 #else
-        public List<Modality?> Modalities { get; set; }
+        public List<ApiSdk.Models.CallRecords.Modality?> Modalities { get; set; }
 #endif
         /// <summary>The organizing party&apos;s identity. The organizer property is deprecated and will stop returning data on June 30, 2026. Going forward, use the organizer_v2 relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,34 +57,34 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>List of distinct participants in the call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Participant>? ParticipantsV2 { get; set; }
+        public List<ApiSdk.Models.CallRecords.Participant>? ParticipantsV2 { get; set; }
 #nullable restore
 #else
-        public List<Participant> ParticipantsV2 { get; set; }
+        public List<ApiSdk.Models.CallRecords.Participant> ParticipantsV2 { get; set; }
 #endif
         /// <summary>List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Session>? Sessions { get; set; }
+        public List<ApiSdk.Models.CallRecords.Session>? Sessions { get; set; }
 #nullable restore
 #else
-        public List<Session> Sessions { get; set; }
+        public List<ApiSdk.Models.CallRecords.Session> Sessions { get; set; }
 #endif
         /// <summary>UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The type property</summary>
-        public CallType? Type { get; set; }
+        public ApiSdk.Models.CallRecords.CallType? Type { get; set; }
         /// <summary>Monotonically increasing version of the call record. Higher version call records with the same ID include additional data compared to the lower version.</summary>
         public long? Version { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CallRecord"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CallRecords.CallRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CallRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CallRecords.CallRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CallRecord();
+            return new ApiSdk.Models.CallRecords.CallRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,14 +97,14 @@ namespace ApiSdk.Models.CallRecords
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
                 { "joinWebUrl", n => { JoinWebUrl = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "modalities", n => { Modalities = n.GetCollectionOfEnumValues<Modality>()?.ToList(); } },
+                { "modalities", n => { Modalities = n.GetCollectionOfEnumValues<ApiSdk.Models.CallRecords.Modality>()?.ToList(); } },
                 { "organizer", n => { Organizer = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "organizer_v2", n => { OrganizerV2 = n.GetObjectValue<ApiSdk.Models.CallRecords.Organizer>(ApiSdk.Models.CallRecords.Organizer.CreateFromDiscriminatorValue); } },
                 { "participants", n => { Participants = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "participants_v2", n => { ParticipantsV2 = n.GetCollectionOfObjectValues<Participant>(Participant.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<Session>(Session.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "participants_v2", n => { ParticipantsV2 = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.Participant>(ApiSdk.Models.CallRecords.Participant.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.Session>(ApiSdk.Models.CallRecords.Session.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                { "type", n => { Type = n.GetEnumValue<CallType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.CallRecords.CallType>(); } },
                 { "version", n => { Version = n.GetLongValue(); } },
             };
         }
@@ -119,14 +119,14 @@ namespace ApiSdk.Models.CallRecords
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
             writer.WriteStringValue("joinWebUrl", JoinWebUrl);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfEnumValues<Modality>("modalities", Modalities);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.CallRecords.Modality>("modalities", Modalities);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("organizer", Organizer);
             writer.WriteObjectValue<ApiSdk.Models.CallRecords.Organizer>("organizer_v2", OrganizerV2);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentitySet>("participants", Participants);
-            writer.WriteCollectionOfObjectValues<Participant>("participants_v2", ParticipantsV2);
-            writer.WriteCollectionOfObjectValues<Session>("sessions", Sessions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.Participant>("participants_v2", ParticipantsV2);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.Session>("sessions", Sessions);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
-            writer.WriteEnumValue<CallType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.CallRecords.CallType>("type", Type);
             writer.WriteLongValue("version", Version);
         }
     }

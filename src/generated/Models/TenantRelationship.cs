@@ -16,26 +16,26 @@ namespace ApiSdk.Models
         /// <summary>The customer who has a delegated admin relationship with a Microsoft partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DelegatedAdminCustomer>? DelegatedAdminCustomers { get; set; }
+        public List<ApiSdk.Models.DelegatedAdminCustomer>? DelegatedAdminCustomers { get; set; }
 #nullable restore
 #else
-        public List<DelegatedAdminCustomer> DelegatedAdminCustomers { get; set; }
+        public List<ApiSdk.Models.DelegatedAdminCustomer> DelegatedAdminCustomers { get; set; }
 #endif
         /// <summary>The details of the delegated administrative privileges that a Microsoft partner has in a customer tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DelegatedAdminRelationship>? DelegatedAdminRelationships { get; set; }
+        public List<ApiSdk.Models.DelegatedAdminRelationship>? DelegatedAdminRelationships { get; set; }
 #nullable restore
 #else
-        public List<DelegatedAdminRelationship> DelegatedAdminRelationships { get; set; }
+        public List<ApiSdk.Models.DelegatedAdminRelationship> DelegatedAdminRelationships { get; set; }
 #endif
         /// <summary>The operations available to interact with the multi-tenant management platform.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedTenant? ManagedTenants { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenant? ManagedTenants { get; set; }
 #nullable restore
 #else
-        public ManagedTenant ManagedTenants { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenant ManagedTenants { get; set; }
 #endif
         /// <summary>Defines an organization with more than one instance of Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TenantRelationship"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TenantRelationship"/> and sets the default values.
         /// </summary>
         public TenantRelationship()
         {
@@ -63,12 +63,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TenantRelationship"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TenantRelationship"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TenantRelationship CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TenantRelationship CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TenantRelationship();
+            return new ApiSdk.Models.TenantRelationship();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,9 +78,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "delegatedAdminCustomers", n => { DelegatedAdminCustomers = n.GetCollectionOfObjectValues<DelegatedAdminCustomer>(DelegatedAdminCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "delegatedAdminRelationships", n => { DelegatedAdminRelationships = n.GetCollectionOfObjectValues<DelegatedAdminRelationship>(DelegatedAdminRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedTenants", n => { ManagedTenants = n.GetObjectValue<ManagedTenant>(ManagedTenant.CreateFromDiscriminatorValue); } },
+                { "delegatedAdminCustomers", n => { DelegatedAdminCustomers = n.GetCollectionOfObjectValues<ApiSdk.Models.DelegatedAdminCustomer>(ApiSdk.Models.DelegatedAdminCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "delegatedAdminRelationships", n => { DelegatedAdminRelationships = n.GetCollectionOfObjectValues<ApiSdk.Models.DelegatedAdminRelationship>(ApiSdk.Models.DelegatedAdminRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedTenants", n => { ManagedTenants = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenant>(ApiSdk.Models.ManagedTenants.ManagedTenant.CreateFromDiscriminatorValue); } },
                 { "multiTenantOrganization", n => { MultiTenantOrganization = n.GetObjectValue<ApiSdk.Models.MultiTenantOrganization>(ApiSdk.Models.MultiTenantOrganization.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -92,9 +92,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DelegatedAdminCustomer>("delegatedAdminCustomers", DelegatedAdminCustomers);
-            writer.WriteCollectionOfObjectValues<DelegatedAdminRelationship>("delegatedAdminRelationships", DelegatedAdminRelationships);
-            writer.WriteObjectValue<ManagedTenant>("managedTenants", ManagedTenants);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DelegatedAdminCustomer>("delegatedAdminCustomers", DelegatedAdminCustomers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DelegatedAdminRelationship>("delegatedAdminRelationships", DelegatedAdminRelationships);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenant>("managedTenants", ManagedTenants);
             writer.WriteObjectValue<ApiSdk.Models.MultiTenantOrganization>("multiTenantOrganization", MultiTenantOrganization);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

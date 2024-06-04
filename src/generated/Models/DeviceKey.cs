@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceKey"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceKey"/> and sets the default values.
         /// </summary>
         public DeviceKey()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceKey"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceKey"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceKey CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceKey CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceKey();
+            return new ApiSdk.Models.DeviceKey();
         }
         /// <summary>
         /// The deserialization information for the current model

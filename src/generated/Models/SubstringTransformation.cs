@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SubstringTransformation : CustomClaimTransformation, IParsable
+    public class SubstringTransformation : ApiSdk.Models.CustomClaimTransformation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The start index of the substring operation, where 0 is the first character in the string.</summary>
@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>The maximum length of the string, starting from the provided index.</summary>
         public int? Length { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SubstringTransformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SubstringTransformation"/> and sets the default values.
         /// </summary>
         public SubstringTransformation() : base()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SubstringTransformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SubstringTransformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SubstringTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SubstringTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SubstringTransformation();
+            return new ApiSdk.Models.SubstringTransformation();
         }
         /// <summary>
         /// The deserialization information for the current model

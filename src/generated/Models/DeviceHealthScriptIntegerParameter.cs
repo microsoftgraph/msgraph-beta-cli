@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Properties of the  Integer script parameter.
     /// </summary>
-    public class DeviceHealthScriptIntegerParameter : DeviceHealthScriptParameter, IParsable
+    public class DeviceHealthScriptIntegerParameter : ApiSdk.Models.DeviceHealthScriptParameter, IParsable
     {
         /// <summary>The default value of Integer param. Valid values -2147483648 to 2147483647</summary>
         public int? DefaultValue { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptIntegerParameter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptIntegerParameter"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptIntegerParameter() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptIntegerParameter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptIntegerParameter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceHealthScriptIntegerParameter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceHealthScriptIntegerParameter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptIntegerParameter();
+            return new ApiSdk.Models.DeviceHealthScriptIntegerParameter();
         }
         /// <summary>
         /// The deserialization information for the current model

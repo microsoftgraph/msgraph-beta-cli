@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.RevokeTo
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.RevokeToken.RevokeTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RevokeTokenRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles/{androidForWorkEnrollmentProfile%2Did}/revokeToken", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkEnrollmentProfiles.Item.RevokeToken.RevokeTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RevokeTokenRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidForWorkEnrollmentProfiles/{androidForWorkEnrollmentProfile%2Did}/revokeToken", rawUrl)

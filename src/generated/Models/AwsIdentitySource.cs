@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsIdentitySource : PermissionsDefinitionIdentitySource, IParsable
+    public class AwsIdentitySource : ApiSdk.Models.PermissionsDefinitionIdentitySource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorizationSystemInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PermissionsDefinitionAuthorizationSystem? AuthorizationSystemInfo { get; set; }
+        public ApiSdk.Models.PermissionsDefinitionAuthorizationSystem? AuthorizationSystemInfo { get; set; }
 #nullable restore
 #else
-        public PermissionsDefinitionAuthorizationSystem AuthorizationSystemInfo { get; set; }
+        public ApiSdk.Models.PermissionsDefinitionAuthorizationSystem AuthorizationSystemInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsIdentitySource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsIdentitySource"/> and sets the default values.
         /// </summary>
         public AwsIdentitySource() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsIdentitySource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsIdentitySource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsIdentitySource();
+            return new ApiSdk.Models.AwsIdentitySource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authorizationSystemInfo", n => { AuthorizationSystemInfo = n.GetObjectValue<PermissionsDefinitionAuthorizationSystem>(PermissionsDefinitionAuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "authorizationSystemInfo", n => { AuthorizationSystemInfo = n.GetObjectValue<ApiSdk.Models.PermissionsDefinitionAuthorizationSystem>(ApiSdk.Models.PermissionsDefinitionAuthorizationSystem.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PermissionsDefinitionAuthorizationSystem>("authorizationSystemInfo", AuthorizationSystemInfo);
+            writer.WriteObjectValue<ApiSdk.Models.PermissionsDefinitionAuthorizationSystem>("authorizationSystemInfo", AuthorizationSystemInfo);
         }
     }
 }

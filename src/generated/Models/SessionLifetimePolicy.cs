@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SessionLifetimePolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SessionLifetimePolicy"/> and sets the default values.
         /// </summary>
         public SessionLifetimePolicy()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SessionLifetimePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SessionLifetimePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SessionLifetimePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SessionLifetimePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SessionLifetimePolicy();
+            return new ApiSdk.Models.SessionLifetimePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "detail", n => { Detail = n.GetStringValue(); } },
-                { "expirationRequirement", n => { ExpirationRequirement = n.GetEnumValue<ExpirationRequirement>(); } },
+                { "expirationRequirement", n => { ExpirationRequirement = n.GetEnumValue<ApiSdk.Models.ExpirationRequirement>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detail", Detail);
-            writer.WriteEnumValue<ExpirationRequirement>("expirationRequirement", ExpirationRequirement);
+            writer.WriteEnumValue<ApiSdk.Models.ExpirationRequirement>("expirationRequirement", ExpirationRequirement);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

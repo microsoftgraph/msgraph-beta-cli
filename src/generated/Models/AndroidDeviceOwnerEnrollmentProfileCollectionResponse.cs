@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AndroidDeviceOwnerEnrollmentProfileCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class AndroidDeviceOwnerEnrollmentProfileCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerEnrollmentProfile>? Value { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfile>? Value { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerEnrollmentProfile> Value { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfile> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerEnrollmentProfileCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerEnrollmentProfileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerEnrollmentProfileCollectionResponse();
+            return new ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<AndroidDeviceOwnerEnrollmentProfile>(AndroidDeviceOwnerEnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfile>(ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerEnrollmentProfile>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfile>("value", Value);
         }
     }
 }

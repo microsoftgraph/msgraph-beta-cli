@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskUser"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskUser"/> and sets the default values.
         /// </summary>
         public WindowsKioskUser()
         {
@@ -31,22 +31,22 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskUser"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskUser"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsKioskUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsKioskUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsKioskActiveDirectoryGroup" => new WindowsKioskActiveDirectoryGroup(),
-                "#microsoft.graph.windowsKioskAutologon" => new WindowsKioskAutologon(),
-                "#microsoft.graph.windowsKioskAzureADGroup" => new WindowsKioskAzureADGroup(),
-                "#microsoft.graph.windowsKioskAzureADUser" => new WindowsKioskAzureADUser(),
-                "#microsoft.graph.windowsKioskLocalGroup" => new WindowsKioskLocalGroup(),
-                "#microsoft.graph.windowsKioskLocalUser" => new WindowsKioskLocalUser(),
-                "#microsoft.graph.windowsKioskVisitor" => new WindowsKioskVisitor(),
-                _ => new WindowsKioskUser(),
+                "#microsoft.graph.windowsKioskActiveDirectoryGroup" => new ApiSdk.Models.WindowsKioskActiveDirectoryGroup(),
+                "#microsoft.graph.windowsKioskAutologon" => new ApiSdk.Models.WindowsKioskAutologon(),
+                "#microsoft.graph.windowsKioskAzureADGroup" => new ApiSdk.Models.WindowsKioskAzureADGroup(),
+                "#microsoft.graph.windowsKioskAzureADUser" => new ApiSdk.Models.WindowsKioskAzureADUser(),
+                "#microsoft.graph.windowsKioskLocalGroup" => new ApiSdk.Models.WindowsKioskLocalGroup(),
+                "#microsoft.graph.windowsKioskLocalUser" => new ApiSdk.Models.WindowsKioskLocalUser(),
+                "#microsoft.graph.windowsKioskVisitor" => new ApiSdk.Models.WindowsKioskVisitor(),
+                _ => new ApiSdk.Models.WindowsKioskUser(),
             };
         }
         /// <summary>

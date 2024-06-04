@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         /// <summary>The total number of user experience analytics device scopes that are enabled. Valid values -2147483648 to 2147483647</summary>
         public int? TotalDeviceScopesEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UserExperienceAnalyticsDeviceScopeSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserExperienceAnalyticsDeviceScopeSummary"/> and sets the default values.
         /// </summary>
         public UserExperienceAnalyticsDeviceScopeSummary()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsDeviceScopeSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsDeviceScopeSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserExperienceAnalyticsDeviceScopeSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserExperienceAnalyticsDeviceScopeSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsDeviceScopeSummary();
+            return new ApiSdk.Models.UserExperienceAnalyticsDeviceScopeSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics battery health capacity entity contains count of devices broken down into 3 categories - devices with capacity &gt; 80%, devices with capacity 50-80% and devices with capacity &lt; 50 %.This API provides the count of devices in these 3 categories..
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthCapacityDetails : Entity, IParsable
+    public class UserExperienceAnalyticsBatteryHealthCapacityDetails : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Number of active devices within the tenant. Valid values 0 to 2147483647</summary>
         public int? ActiveDevices { get; set; }
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsBatteryHealthCapacityDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsBatteryHealthCapacityDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsBatteryHealthCapacityDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthCapacityDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsBatteryHealthCapacityDetails();
+            return new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthCapacityDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

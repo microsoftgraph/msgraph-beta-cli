@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         /// <summary>When the observation was recorded on the service.</summary>
         public DateTimeOffset? RecordedDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ItemActivityTimeSet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ItemActivityTimeSet"/> and sets the default values.
         /// </summary>
         public ItemActivityTimeSet()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemActivityTimeSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemActivityTimeSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ItemActivityTimeSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ItemActivityTimeSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ItemActivityTimeSet();
+            return new ApiSdk.Models.ItemActivityTimeSet();
         }
         /// <summary>
         /// The deserialization information for the current model

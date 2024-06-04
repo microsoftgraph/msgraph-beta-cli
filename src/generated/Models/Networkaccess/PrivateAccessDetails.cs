@@ -65,7 +65,7 @@ namespace ApiSdk.Models.Networkaccess
         public ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails ThirdPartyTokenDetails { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrivateAccessDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.PrivateAccessDetails"/> and sets the default values.
         /// </summary>
         public PrivateAccessDetails()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivateAccessDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PrivateAccessDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PrivateAccessDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.PrivateAccessDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivateAccessDetails();
+            return new ApiSdk.Models.Networkaccess.PrivateAccessDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,8 +89,8 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
-                { "connectionStatus", n => { ConnectionStatus = n.GetEnumValue<ConnectionStatus>(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<ApiSdk.Models.Networkaccess.AccessType>(); } },
+                { "connectionStatus", n => { ConnectionStatus = n.GetEnumValue<ApiSdk.Models.Networkaccess.ConnectionStatus>(); } },
                 { "connectorId", n => { ConnectorId = n.GetStringValue(); } },
                 { "connectorIp", n => { ConnectorIp = n.GetStringValue(); } },
                 { "connectorName", n => { ConnectorName = n.GetStringValue(); } },
@@ -106,8 +106,8 @@ namespace ApiSdk.Models.Networkaccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AccessType>("accessType", AccessType);
-            writer.WriteEnumValue<ConnectionStatus>("connectionStatus", ConnectionStatus);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.AccessType>("accessType", AccessType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ConnectionStatus>("connectionStatus", ConnectionStatus);
             writer.WriteStringValue("connectorId", ConnectorId);
             writer.WriteStringValue("connectorIp", ConnectorIp);
             writer.WriteStringValue("connectorName", ConnectorName);

@@ -74,14 +74,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.Item.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.Item.AgentGroups.Item.Ref.RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}/agents/{onPremisesAgent%2Did}/agentGroups/{onPremisesAgentGroup%2Did1}/$ref", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.Item.AgentGroups.Item.Ref.RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RefRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}/agents/{onPremisesAgent%2Did}/agentGroups/{onPremisesAgentGroup%2Did1}/$ref", rawUrl)

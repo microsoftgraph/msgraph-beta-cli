@@ -67,14 +67,14 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.Confirm
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConfirmRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.Confirm.ConfirmRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConfirmRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/schedule/timeCards/{timeCard%2Did}/confirm", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConfirmRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.Confirm.ConfirmRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConfirmRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/schedule/timeCards/{timeCard%2Did}/confirm", rawUrl)

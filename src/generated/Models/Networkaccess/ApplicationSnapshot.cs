@@ -29,7 +29,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ApplicationSnapshot"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.ApplicationSnapshot"/> and sets the default values.
         /// </summary>
         public ApplicationSnapshot()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApplicationSnapshot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ApplicationSnapshot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApplicationSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.ApplicationSnapshot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApplicationSnapshot();
+            return new ApiSdk.Models.Networkaccess.ApplicationSnapshot();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents the health thresholds of a health metric
     /// </summary>
-    public class MicrosoftTunnelHealthThreshold : Entity, IParsable
+    public class MicrosoftTunnelHealthThreshold : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The threshold for being healthy based on default health status metrics: CPU usage healthy &lt; 50%, Memory usage healthy &lt; 50%, Disk space healthy &gt; 5GB, Latency healthy &lt; 10ms, health metrics can be customized. Read-only.</summary>
         public long? DefaultHealthyThreshold { get; set; }
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftTunnelHealthThreshold"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftTunnelHealthThreshold"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftTunnelHealthThreshold CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MicrosoftTunnelHealthThreshold CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftTunnelHealthThreshold();
+            return new ApiSdk.Models.MicrosoftTunnelHealthThreshold();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>List of Settings that depends on this option</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSettingDependedOnBy>? DependedOnBy { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>? DependedOnBy { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSettingDependedOnBy> DependedOnBy { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy> DependedOnBy { get; set; }
 #endif
         /// <summary>List of dependent settings for this option</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationDependentOn>? DependentOn { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationDependentOn>? DependentOn { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationDependentOn> DependentOn { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationDependentOn> DependentOn { get; set; }
 #endif
         /// <summary>Description of the option</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,13 +79,13 @@ namespace ApiSdk.Models
         /// <summary>Value of the option</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingValue? OptionValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValue? OptionValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingValue OptionValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValue OptionValue { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationOptionDefinition"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationOptionDefinition"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationOptionDefinition()
         {
@@ -94,12 +94,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationOptionDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationOptionDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationOptionDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationOptionDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationOptionDefinition();
+            return new ApiSdk.Models.DeviceManagementConfigurationOptionDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,15 +109,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>(ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationDependentOn>(ApiSdk.Models.DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "helpText", n => { HelpText = n.GetStringValue(); } },
                 { "itemId", n => { ItemId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "optionValue", n => { OptionValue = n.GetObjectValue<DeviceManagementConfigurationSettingValue>(DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
+                { "optionValue", n => { OptionValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValue>(ApiSdk.Models.DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -127,15 +127,15 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>("dependedOnBy", DependedOnBy);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>("dependentOn", DependentOn);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>("dependedOnBy", DependedOnBy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationDependentOn>("dependentOn", DependentOn);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("helpText", HelpText);
             writer.WriteStringValue("itemId", ItemId);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingValue>("optionValue", OptionValue);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValue>("optionValue", OptionValue);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

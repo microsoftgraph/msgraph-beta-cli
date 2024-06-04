@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>Start of a time window during which agents can receive updates</summary>
         public Time? UpdateWindowStartTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateWindow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UpdateWindow"/> and sets the default values.
         /// </summary>
         public UpdateWindow()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateWindow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UpdateWindow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateWindow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UpdateWindow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateWindow();
+            return new ApiSdk.Models.UpdateWindow();
         }
         /// <summary>
         /// The deserialization information for the current model

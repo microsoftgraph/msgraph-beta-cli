@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BusinessScenarioProperties"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BusinessScenarioProperties"/> and sets the default values.
         /// </summary>
         public BusinessScenarioProperties()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BusinessScenarioProperties"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BusinessScenarioProperties"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BusinessScenarioProperties CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.BusinessScenarioProperties CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BusinessScenarioProperties();
+            return new ApiSdk.Models.BusinessScenarioProperties();
         }
         /// <summary>
         /// The deserialization information for the current model

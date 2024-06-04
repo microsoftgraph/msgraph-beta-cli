@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The automatic property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EvaluateLabelJobResult? Automatic { get; set; }
+        public ApiSdk.Models.EvaluateLabelJobResult? Automatic { get; set; }
 #nullable restore
 #else
-        public EvaluateLabelJobResult Automatic { get; set; }
+        public ApiSdk.Models.EvaluateLabelJobResult Automatic { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The recommended property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EvaluateLabelJobResult? Recommended { get; set; }
+        public ApiSdk.Models.EvaluateLabelJobResult? Recommended { get; set; }
 #nullable restore
 #else
-        public EvaluateLabelJobResult Recommended { get; set; }
+        public ApiSdk.Models.EvaluateLabelJobResult Recommended { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluateLabelJobResultGroup"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EvaluateLabelJobResultGroup"/> and sets the default values.
         /// </summary>
         public EvaluateLabelJobResultGroup()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateLabelJobResultGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EvaluateLabelJobResultGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluateLabelJobResultGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EvaluateLabelJobResultGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateLabelJobResultGroup();
+            return new ApiSdk.Models.EvaluateLabelJobResultGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "automatic", n => { Automatic = n.GetObjectValue<EvaluateLabelJobResult>(EvaluateLabelJobResult.CreateFromDiscriminatorValue); } },
+                { "automatic", n => { Automatic = n.GetObjectValue<ApiSdk.Models.EvaluateLabelJobResult>(ApiSdk.Models.EvaluateLabelJobResult.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "recommended", n => { Recommended = n.GetObjectValue<EvaluateLabelJobResult>(EvaluateLabelJobResult.CreateFromDiscriminatorValue); } },
+                { "recommended", n => { Recommended = n.GetObjectValue<ApiSdk.Models.EvaluateLabelJobResult>(ApiSdk.Models.EvaluateLabelJobResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<EvaluateLabelJobResult>("automatic", Automatic);
+            writer.WriteObjectValue<ApiSdk.Models.EvaluateLabelJobResult>("automatic", Automatic);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<EvaluateLabelJobResult>("recommended", Recommended);
+            writer.WriteObjectValue<ApiSdk.Models.EvaluateLabelJobResult>("recommended", Recommended);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

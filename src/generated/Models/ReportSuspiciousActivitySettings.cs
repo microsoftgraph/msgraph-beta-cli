@@ -29,11 +29,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public AdvancedConfigState? State { get; set; }
+        public ApiSdk.Models.AdvancedConfigState? State { get; set; }
         /// <summary>Specifies the number the user enters on their phone to report the MFA prompt as suspicious.</summary>
         public int? VoiceReportingCode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ReportSuspiciousActivitySettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ReportSuspiciousActivitySettings"/> and sets the default values.
         /// </summary>
         public ReportSuspiciousActivitySettings()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReportSuspiciousActivitySettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ReportSuspiciousActivitySettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ReportSuspiciousActivitySettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ReportSuspiciousActivitySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReportSuspiciousActivitySettings();
+            return new ApiSdk.Models.ReportSuspiciousActivitySettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
             {
                 { "includeTarget", n => { IncludeTarget = n.GetObjectValue<ApiSdk.Models.IncludeTarget>(ApiSdk.Models.IncludeTarget.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<AdvancedConfigState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.AdvancedConfigState>(); } },
                 { "voiceReportingCode", n => { VoiceReportingCode = n.GetIntValue(); } },
             };
         }
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.IncludeTarget>("includeTarget", IncludeTarget);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AdvancedConfigState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.AdvancedConfigState>("state", State);
             writer.WriteIntValue("voiceReportingCode", VoiceReportingCode);
             writer.WriteAdditionalData(AdditionalData);
         }

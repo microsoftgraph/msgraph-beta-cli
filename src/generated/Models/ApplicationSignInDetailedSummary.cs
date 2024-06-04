@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ApplicationSignInDetailedSummary : Entity, IParsable
+    public class ApplicationSignInDetailedSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -33,20 +33,20 @@ namespace ApiSdk.Models
         /// <summary>Details of the sign-in status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInStatus? Status { get; set; }
+        public ApiSdk.Models.SignInStatus? Status { get; set; }
 #nullable restore
 #else
-        public SignInStatus Status { get; set; }
+        public ApiSdk.Models.SignInStatus Status { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApplicationSignInDetailedSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ApplicationSignInDetailedSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ApplicationSignInDetailedSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ApplicationSignInDetailedSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApplicationSignInDetailedSummary();
+            return new ApiSdk.Models.ApplicationSignInDetailedSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
                 { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "signInCount", n => { SignInCount = n.GetLongValue(); } },
-                { "status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetObjectValue<ApiSdk.Models.SignInStatus>(ApiSdk.Models.SignInStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("appDisplayName", AppDisplayName);
             writer.WriteStringValue("appId", AppId);
             writer.WriteLongValue("signInCount", SignInCount);
-            writer.WriteObjectValue<SignInStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.SignInStatus>("status", Status);
         }
     }
 }

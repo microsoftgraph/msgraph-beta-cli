@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove.RemoveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemoveRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles/{groupPolicyUploadedDefinitionFile%2Did}/remove", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove.RemoveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemoveRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles/{groupPolicyUploadedDefinitionFile%2Did}/remove", rawUrl)

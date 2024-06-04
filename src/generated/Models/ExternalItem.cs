@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExternalItem : Entity, IParsable
+    public class ExternalItem : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acl property</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ExternalItemContent? Content { get; set; }
+        public ApiSdk.Models.ExternalItemContent? Content { get; set; }
 #nullable restore
 #else
-        public ExternalItemContent Content { get; set; }
+        public ApiSdk.Models.ExternalItemContent Content { get; set; }
 #endif
         /// <summary>The properties property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExternalItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExternalItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExternalItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExternalItem();
+            return new ApiSdk.Models.ExternalItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "acl", n => { Acl = n.GetCollectionOfObjectValues<ApiSdk.Models.Acl>(ApiSdk.Models.Acl.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "content", n => { Content = n.GetObjectValue<ExternalItemContent>(ExternalItemContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<ApiSdk.Models.ExternalItemContent>(ApiSdk.Models.ExternalItemContent.CreateFromDiscriminatorValue); } },
                 { "properties", n => { Properties = n.GetObjectValue<ApiSdk.Models.Properties>(ApiSdk.Models.Properties.CreateFromDiscriminatorValue); } },
             };
         }
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.Acl>("acl", Acl);
-            writer.WriteObjectValue<ExternalItemContent>("content", Content);
+            writer.WriteObjectValue<ApiSdk.Models.ExternalItemContent>("content", Content);
             writer.WriteObjectValue<ApiSdk.Models.Properties>("properties", Properties);
         }
     }

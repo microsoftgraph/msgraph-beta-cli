@@ -139,7 +139,7 @@ namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<CustomSecurityAttributeAudit>(CustomSecurityAttributeAudit.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.CustomSecurityAttributeAudit>(ApiSdk.Models.CustomSecurityAttributeAudit.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -160,14 +160,14 @@ namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomSecurityAttributeAuditItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item.CustomSecurityAttributeAuditItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CustomSecurityAttributeAuditItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomSecurityAttributeAuditItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item.CustomSecurityAttributeAuditItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CustomSecurityAttributeAuditItemRequestBuilder(string rawUrl) : base("{+baseurl}/auditLogs/customSecurityAttributeAudits/{customSecurityAttributeAudit%2Did}{?%24expand,%24select}", rawUrl)
@@ -199,11 +199,11 @@ namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustomSecurityAttributeAuditItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item.CustomSecurityAttributeAuditItemRequestBuilder.CustomSecurityAttributeAuditItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustomSecurityAttributeAuditItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item.CustomSecurityAttributeAuditItemRequestBuilder.CustomSecurityAttributeAuditItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -219,11 +219,11 @@ namespace ApiSdk.AuditLogs.CustomSecurityAttributeAudits.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(CustomSecurityAttributeAudit body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CustomSecurityAttributeAudit body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(CustomSecurityAttributeAudit body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CustomSecurityAttributeAudit body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

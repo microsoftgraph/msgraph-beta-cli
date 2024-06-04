@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Contains properties for Windows architecture.</summary>
-        public WindowsArchitecture? ApplicableArchitecture { get; set; }
+        public ApiSdk.Models.WindowsArchitecture? ApplicableArchitecture { get; set; }
         /// <summary>The Display Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,10 +58,10 @@ namespace ApiSdk.Models
         /// <summary>The value for the minimum applicable operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
+        public ApiSdk.Models.WindowsMinimumOperatingSystem? MinimumSupportedOperatingSystem { get; set; }
 #nullable restore
 #else
-        public WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
+        public ApiSdk.Models.WindowsMinimumOperatingSystem MinimumSupportedOperatingSystem { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPackageInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPackageInformation"/> and sets the default values.
         /// </summary>
         public WindowsPackageInformation()
         {
@@ -81,12 +81,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPackageInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPackageInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsPackageInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsPackageInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsPackageInformation();
+            return new ApiSdk.Models.WindowsPackageInformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,13 +96,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "applicableArchitecture", n => { ApplicableArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "applicableArchitecture", n => { ApplicableArchitecture = n.GetEnumValue<ApiSdk.Models.WindowsArchitecture>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "identityName", n => { IdentityName = n.GetStringValue(); } },
                 { "identityPublisher", n => { IdentityPublisher = n.GetStringValue(); } },
                 { "identityResourceIdentifier", n => { IdentityResourceIdentifier = n.GetStringValue(); } },
                 { "identityVersion", n => { IdentityVersion = n.GetStringValue(); } },
-                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<WindowsMinimumOperatingSystem>(WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
+                { "minimumSupportedOperatingSystem", n => { MinimumSupportedOperatingSystem = n.GetObjectValue<ApiSdk.Models.WindowsMinimumOperatingSystem>(ApiSdk.Models.WindowsMinimumOperatingSystem.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -113,13 +113,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<WindowsArchitecture>("applicableArchitecture", ApplicableArchitecture);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsArchitecture>("applicableArchitecture", ApplicableArchitecture);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("identityName", IdentityName);
             writer.WriteStringValue("identityPublisher", IdentityPublisher);
             writer.WriteStringValue("identityResourceIdentifier", IdentityResourceIdentifier);
             writer.WriteStringValue("identityVersion", IdentityVersion);
-            writer.WriteObjectValue<WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", MinimumSupportedOperatingSystem);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsMinimumOperatingSystem>("minimumSupportedOperatingSystem", MinimumSupportedOperatingSystem);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

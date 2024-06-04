@@ -19,7 +19,7 @@ namespace ApiSdk.Models.IdentityGovernance
         public List<ApiSdk.Models.Group> Groups { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GroupBasedSubjectSet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.GroupBasedSubjectSet"/> and sets the default values.
         /// </summary>
         public GroupBasedSubjectSet() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupBasedSubjectSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.GroupBasedSubjectSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupBasedSubjectSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IdentityGovernance.GroupBasedSubjectSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupBasedSubjectSet();
+            return new ApiSdk.Models.IdentityGovernance.GroupBasedSubjectSet();
         }
         /// <summary>
         /// The deserialization information for the current model

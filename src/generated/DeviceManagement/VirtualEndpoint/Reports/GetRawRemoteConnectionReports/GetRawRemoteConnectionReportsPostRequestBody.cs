@@ -57,7 +57,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnection
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetRawRemoteConnectionReportsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports.GetRawRemoteConnectionReportsPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetRawRemoteConnectionReportsPostRequestBody()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnection
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetRawRemoteConnectionReportsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports.GetRawRemoteConnectionReportsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetRawRemoteConnectionReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports.GetRawRemoteConnectionReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetRawRemoteConnectionReportsPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetRawRemoteConnectionReports.GetRawRemoteConnectionReportsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

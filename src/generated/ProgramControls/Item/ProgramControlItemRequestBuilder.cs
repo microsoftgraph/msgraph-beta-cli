@@ -141,7 +141,7 @@ namespace ApiSdk.ProgramControls.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ProgramControl>(ProgramControl.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ProgramControl>(ApiSdk.Models.ProgramControl.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -169,7 +169,7 @@ namespace ApiSdk.ProgramControls.Item
         {
             var command = new Command("program");
             command.Description = "Provides operations to manage the program property of the microsoft.graph.programControl entity.";
-            var builder = new ProgramRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ProgramControls.Item.Program.ProgramRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildControlsNavCommand());
@@ -187,14 +187,14 @@ namespace ApiSdk.ProgramControls.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProgramControlItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ProgramControls.Item.ProgramControlItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProgramControlItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/programControls/{programControl%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProgramControlItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ProgramControls.Item.ProgramControlItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProgramControlItemRequestBuilder(string rawUrl) : base("{+baseurl}/programControls/{programControl%2Did}{?%24expand,%24select}", rawUrl)
@@ -226,11 +226,11 @@ namespace ApiSdk.ProgramControls.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProgramControlItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ProgramControls.Item.ProgramControlItemRequestBuilder.ProgramControlItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProgramControlItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ProgramControls.Item.ProgramControlItemRequestBuilder.ProgramControlItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -246,11 +246,11 @@ namespace ApiSdk.ProgramControls.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ProgramControl body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ProgramControl body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ProgramControl body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ProgramControl body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

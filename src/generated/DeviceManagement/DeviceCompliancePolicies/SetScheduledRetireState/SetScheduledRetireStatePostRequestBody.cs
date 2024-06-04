@@ -24,9 +24,9 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireSta
         /// <summary>The scopedToAllDevices property</summary>
         public bool? ScopedToAllDevices { get; set; }
         /// <summary>Cancel or confirm scheduled retire </summary>
-        public ScheduledRetireState? State { get; set; }
+        public ApiSdk.Models.ScheduledRetireState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SetScheduledRetireStatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState.SetScheduledRetireStatePostRequestBody"/> and sets the default values.
         /// </summary>
         public SetScheduledRetireStatePostRequestBody()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireSta
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SetScheduledRetireStatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState.SetScheduledRetireStatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SetScheduledRetireStatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState.SetScheduledRetireStatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SetScheduledRetireStatePostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireState.SetScheduledRetireStatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireSta
             {
                 { "managedDeviceIds", n => { ManagedDeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "scopedToAllDevices", n => { ScopedToAllDevices = n.GetBoolValue(); } },
-                { "state", n => { State = n.GetEnumValue<ScheduledRetireState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ScheduledRetireState>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.SetScheduledRetireSta
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("managedDeviceIds", ManagedDeviceIds);
             writer.WriteBoolValue("scopedToAllDevices", ScopedToAllDevices);
-            writer.WriteEnumValue<ScheduledRetireState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ScheduledRetireState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MachineLearningDetectedSensitiveContent : DetectedSensitiveContent, IParsable
+    public class MachineLearningDetectedSensitiveContent : ApiSdk.Models.DetectedSensitiveContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The matchTolerance property</summary>
-        public MlClassificationMatchTolerance? MatchTolerance { get; set; }
+        public ApiSdk.Models.MlClassificationMatchTolerance? MatchTolerance { get; set; }
         /// <summary>The modelVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MachineLearningDetectedSensitiveContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MachineLearningDetectedSensitiveContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MachineLearningDetectedSensitiveContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MachineLearningDetectedSensitiveContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MachineLearningDetectedSensitiveContent();
+            return new ApiSdk.Models.MachineLearningDetectedSensitiveContent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "matchTolerance", n => { MatchTolerance = n.GetEnumValue<MlClassificationMatchTolerance>(); } },
+                { "matchTolerance", n => { MatchTolerance = n.GetEnumValue<ApiSdk.Models.MlClassificationMatchTolerance>(); } },
                 { "modelVersion", n => { ModelVersion = n.GetStringValue(); } },
             };
         }
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MlClassificationMatchTolerance>("matchTolerance", MatchTolerance);
+            writer.WriteEnumValue<ApiSdk.Models.MlClassificationMatchTolerance>("matchTolerance", MatchTolerance);
             writer.WriteStringValue("modelVersion", ModelVersion);
         }
     }

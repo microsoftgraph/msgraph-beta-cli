@@ -31,7 +31,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("authentication-context-class-references");
             command.Description = "Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new AuthenticationContextClassReferencesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.AuthenticationContextClassReferences.AuthenticationContextClassReferencesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -58,7 +58,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("authentication-strength");
             command.Description = "Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new AuthenticationStrengthRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.AuthenticationStrength.AuthenticationStrengthRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAuthenticationMethodModesNavCommand());
@@ -84,7 +84,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("authentication-strengths");
             command.Description = "Provides operations to manage the authenticationStrengths property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new AuthenticationStrengthsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationStrengthsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAuthenticationMethodModesNavCommand());
@@ -110,7 +110,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("evaluate");
             command.Description = "Provides operations to call the evaluate method.";
-            var builder = new EvaluateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.Evaluate.EvaluateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -127,7 +127,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("named-locations");
             command.Description = "Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new NamedLocationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.NamedLocations.NamedLocationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -154,7 +154,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("policies");
             command.Description = "Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new PoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.Policies.PoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -181,7 +181,7 @@ namespace ApiSdk.Identity.ConditionalAccess
         {
             var command = new Command("templates");
             command.Description = "Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.";
-            var builder = new TemplatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.Templates.TemplatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -200,14 +200,14 @@ namespace ApiSdk.Identity.ConditionalAccess
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.ConditionalAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConditionalAccessRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity/conditionalAccess", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.ConditionalAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConditionalAccessRequestBuilder(string rawUrl) : base("{+baseurl}/identity/conditionalAccess", rawUrl)

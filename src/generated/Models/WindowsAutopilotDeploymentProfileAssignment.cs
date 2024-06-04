@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// An assignment of a Windows Autopilot deployment profile to an AAD group.
     /// </summary>
-    public class WindowsAutopilotDeploymentProfileAssignment : Entity, IParsable
+    public class WindowsAutopilotDeploymentProfileAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Represents source of assignment.</summary>
-        public DeviceAndAppManagementAssignmentSource? Source { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentSource? Source { get; set; }
         /// <summary>Identifier for resource used for deployment to a group</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,20 +24,20 @@ namespace ApiSdk.Models
         /// <summary>The assignment target for the Windows Autopilot deployment profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget? Target { get; set; }
 #nullable restore
 #else
-        public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget Target { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsAutopilotDeploymentProfileAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsAutopilotDeploymentProfileAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsAutopilotDeploymentProfileAssignment();
+            return new ApiSdk.Models.WindowsAutopilotDeploymentProfileAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,9 +47,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "source", n => { Source = n.GetEnumValue<DeviceAndAppManagementAssignmentSource>(); } },
+                { "source", n => { Source = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>(); } },
                 { "sourceId", n => { SourceId = n.GetStringValue(); } },
-                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>(ApiSdk.Models.DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentSource>("source", Source);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>("source", Source);
             writer.WriteStringValue("sourceId", SourceId);
-            writer.WriteObjectValue<DeviceAndAppManagementAssignmentTarget>("target", Target);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>("target", Target);
         }
     }
 }

@@ -16,13 +16,13 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
         /// <summary>The assets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? Assets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? Assets { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> Assets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> Assets { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RemoveMembersPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesRemoveMembers.RemoveMembersPostRequestBody"/> and sets the default values.
         /// </summary>
         public RemoveMembersPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RemoveMembersPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesRemoveMembers.RemoveMembersPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RemoveMembersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesRemoveMembers.RemoveMembersPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RemoveMembersPostRequestBody();
+            return new ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesRemoveMembers.RemoveMembersPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("assets", Assets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("assets", Assets);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

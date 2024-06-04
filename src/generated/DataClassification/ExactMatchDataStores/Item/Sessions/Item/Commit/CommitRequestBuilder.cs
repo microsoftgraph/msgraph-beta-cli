@@ -55,14 +55,14 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Comm
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CommitRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Commit.CommitRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CommitRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}/commit", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CommitRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Commit.CommitRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CommitRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}/commit", rawUrl)

@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Security
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether the tenant allow-or-block list is an allow or block. The possible values are: allow, block, and unkownFutureValue.</summary>
-        public TenantAllowBlockListAction? Action { get; set; }
+        public ApiSdk.Models.Security.TenantAllowBlockListAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies when the tenant allow-block-list expires in date time.</summary>
@@ -35,13 +35,13 @@ namespace ApiSdk.Models.Security
         /// <summary>Contains the result of the submission that lead to the tenant allow-block-list entry creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantAllowBlockListEntryResult>? Results { get; set; }
+        public List<ApiSdk.Models.Security.TenantAllowBlockListEntryResult>? Results { get; set; }
 #nullable restore
 #else
-        public List<TenantAllowBlockListEntryResult> Results { get; set; }
+        public List<ApiSdk.Models.Security.TenantAllowBlockListEntryResult> Results { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TenantAllowOrBlockListAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.TenantAllowOrBlockListAction"/> and sets the default values.
         /// </summary>
         public TenantAllowOrBlockListAction()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TenantAllowOrBlockListAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.TenantAllowOrBlockListAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TenantAllowOrBlockListAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.TenantAllowOrBlockListAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TenantAllowOrBlockListAction();
+            return new ApiSdk.Models.Security.TenantAllowOrBlockListAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,11 +65,11 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<TenantAllowBlockListAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Security.TenantAllowBlockListAction>(); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "note", n => { Note = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "results", n => { Results = n.GetCollectionOfObjectValues<TenantAllowBlockListEntryResult>(TenantAllowBlockListEntryResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "results", n => { Results = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.TenantAllowBlockListEntryResult>(ApiSdk.Models.Security.TenantAllowBlockListEntryResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace ApiSdk.Models.Security
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<TenantAllowBlockListAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.Security.TenantAllowBlockListAction>("action", Action);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteStringValue("note", Note);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<TenantAllowBlockListEntryResult>("results", Results);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.TenantAllowBlockListEntryResult>("results", Results);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

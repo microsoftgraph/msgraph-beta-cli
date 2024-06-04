@@ -9,28 +9,28 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties used to assign a WinGet app to a group.
     /// </summary>
-    public class WinGetAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
+    public class WinGetAppAssignmentSettings : ApiSdk.Models.MobileAppAssignmentSettings, IParsable
     {
         /// <summary>The install time settings to apply for this app assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WinGetAppInstallTimeSettings? InstallTimeSettings { get; set; }
+        public ApiSdk.Models.WinGetAppInstallTimeSettings? InstallTimeSettings { get; set; }
 #nullable restore
 #else
-        public WinGetAppInstallTimeSettings InstallTimeSettings { get; set; }
+        public ApiSdk.Models.WinGetAppInstallTimeSettings InstallTimeSettings { get; set; }
 #endif
         /// <summary>Contains value for notification status.</summary>
-        public WinGetAppNotification? Notifications { get; set; }
+        public ApiSdk.Models.WinGetAppNotification? Notifications { get; set; }
         /// <summary>The reboot settings to apply for this app assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WinGetAppRestartSettings? RestartSettings { get; set; }
+        public ApiSdk.Models.WinGetAppRestartSettings? RestartSettings { get; set; }
 #nullable restore
 #else
-        public WinGetAppRestartSettings RestartSettings { get; set; }
+        public ApiSdk.Models.WinGetAppRestartSettings RestartSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WinGetAppAssignmentSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WinGetAppAssignmentSettings"/> and sets the default values.
         /// </summary>
         public WinGetAppAssignmentSettings() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WinGetAppAssignmentSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WinGetAppAssignmentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WinGetAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WinGetAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WinGetAppAssignmentSettings();
+            return new ApiSdk.Models.WinGetAppAssignmentSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,9 +54,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "installTimeSettings", n => { InstallTimeSettings = n.GetObjectValue<WinGetAppInstallTimeSettings>(WinGetAppInstallTimeSettings.CreateFromDiscriminatorValue); } },
-                { "notifications", n => { Notifications = n.GetEnumValue<WinGetAppNotification>(); } },
-                { "restartSettings", n => { RestartSettings = n.GetObjectValue<WinGetAppRestartSettings>(WinGetAppRestartSettings.CreateFromDiscriminatorValue); } },
+                { "installTimeSettings", n => { InstallTimeSettings = n.GetObjectValue<ApiSdk.Models.WinGetAppInstallTimeSettings>(ApiSdk.Models.WinGetAppInstallTimeSettings.CreateFromDiscriminatorValue); } },
+                { "notifications", n => { Notifications = n.GetEnumValue<ApiSdk.Models.WinGetAppNotification>(); } },
+                { "restartSettings", n => { RestartSettings = n.GetObjectValue<ApiSdk.Models.WinGetAppRestartSettings>(ApiSdk.Models.WinGetAppRestartSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,9 +67,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<WinGetAppInstallTimeSettings>("installTimeSettings", InstallTimeSettings);
-            writer.WriteEnumValue<WinGetAppNotification>("notifications", Notifications);
-            writer.WriteObjectValue<WinGetAppRestartSettings>("restartSettings", RestartSettings);
+            writer.WriteObjectValue<ApiSdk.Models.WinGetAppInstallTimeSettings>("installTimeSettings", InstallTimeSettings);
+            writer.WriteEnumValue<ApiSdk.Models.WinGetAppNotification>("notifications", Notifications);
+            writer.WriteObjectValue<ApiSdk.Models.WinGetAppRestartSettings>("restartSettings", RestartSettings);
         }
     }
 }

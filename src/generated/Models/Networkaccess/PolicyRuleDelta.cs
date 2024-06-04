@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Networkaccess
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
-        public ForwardingRuleAction? Action { get; set; }
+        public ApiSdk.Models.Networkaccess.ForwardingRuleAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Networkaccess
         public string RuleId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PolicyRuleDelta"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.PolicyRuleDelta"/> and sets the default values.
         /// </summary>
         public PolicyRuleDelta()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicyRuleDelta"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PolicyRuleDelta"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PolicyRuleDelta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.PolicyRuleDelta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PolicyRuleDelta();
+            return new ApiSdk.Models.Networkaccess.PolicyRuleDelta();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<ForwardingRuleAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Networkaccess.ForwardingRuleAction>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "ruleId", n => { RuleId = n.GetStringValue(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models.Networkaccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ForwardingRuleAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ForwardingRuleAction>("action", Action);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("ruleId", RuleId);
             writer.WriteAdditionalData(AdditionalData);

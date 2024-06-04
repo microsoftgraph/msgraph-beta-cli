@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a Microsoft Bookings Business.
     /// </summary>
-    public class BookingBusiness : BookingNamedEntity, IParsable
+    public class BookingBusiness : ApiSdk.Models.BookingNamedEntity, IParsable
     {
         /// <summary>The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PhysicalAddress? Address { get; set; }
+        public ApiSdk.Models.PhysicalAddress? Address { get; set; }
 #nullable restore
 #else
-        public PhysicalAddress Address { get; set; }
+        public ApiSdk.Models.PhysicalAddress Address { get; set; }
 #endif
         /// <summary>All the appointments of this business. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingAppointment>? Appointments { get; set; }
+        public List<ApiSdk.Models.BookingAppointment>? Appointments { get; set; }
 #nullable restore
 #else
-        public List<BookingAppointment> Appointments { get; set; }
+        public List<ApiSdk.Models.BookingAppointment> Appointments { get; set; }
 #endif
         /// <summary>Settings for the published booking page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,10 +38,10 @@ namespace ApiSdk.Models
         /// <summary>The hours of operation for the business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingWorkHours>? BusinessHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours>? BusinessHours { get; set; }
 #nullable restore
 #else
-        public List<BookingWorkHours> BusinessHours { get; set; }
+        public List<ApiSdk.Models.BookingWorkHours> BusinessHours { get; set; }
 #endif
         /// <summary>The type of business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,28 +54,28 @@ namespace ApiSdk.Models
         /// <summary>The set of appointments of this business in a specified date range. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingAppointment>? CalendarView { get; set; }
+        public List<ApiSdk.Models.BookingAppointment>? CalendarView { get; set; }
 #nullable restore
 #else
-        public List<BookingAppointment> CalendarView { get; set; }
+        public List<ApiSdk.Models.BookingAppointment> CalendarView { get; set; }
 #endif
         /// <summary>The date, time and timezone when the booking business was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>All the customers of this business. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingCustomer>? Customers { get; set; }
+        public List<ApiSdk.Models.BookingCustomer>? Customers { get; set; }
 #nullable restore
 #else
-        public List<BookingCustomer> Customers { get; set; }
+        public List<ApiSdk.Models.BookingCustomer> Customers { get; set; }
 #endif
         /// <summary>All custom questions of this business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingCustomQuestion>? CustomQuestions { get; set; }
+        public List<ApiSdk.Models.BookingCustomQuestion>? CustomQuestions { get; set; }
 #nullable restore
 #else
-        public List<BookingCustomQuestion> CustomQuestions { get; set; }
+        public List<ApiSdk.Models.BookingCustomQuestion> CustomQuestions { get; set; }
 #endif
         /// <summary>The code for the currency that the business operates in on Microsoft Bookings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,26 +124,26 @@ namespace ApiSdk.Models
         /// <summary>Specifies how bookings can be created for this business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public BookingSchedulingPolicy? SchedulingPolicy { get; set; }
+        public ApiSdk.Models.BookingSchedulingPolicy? SchedulingPolicy { get; set; }
 #nullable restore
 #else
-        public BookingSchedulingPolicy SchedulingPolicy { get; set; }
+        public ApiSdk.Models.BookingSchedulingPolicy SchedulingPolicy { get; set; }
 #endif
         /// <summary>All the services offered by this business. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingService>? Services { get; set; }
+        public List<ApiSdk.Models.BookingService>? Services { get; set; }
 #nullable restore
 #else
-        public List<BookingService> Services { get; set; }
+        public List<ApiSdk.Models.BookingService> Services { get; set; }
 #endif
         /// <summary>All the staff members that provide services in this business. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingStaffMember>? StaffMembers { get; set; }
+        public List<ApiSdk.Models.BookingStaffMember>? StaffMembers { get; set; }
 #nullable restore
 #else
-        public List<BookingStaffMember> StaffMembers { get; set; }
+        public List<ApiSdk.Models.BookingStaffMember> StaffMembers { get; set; }
 #endif
         /// <summary>The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -154,7 +154,7 @@ namespace ApiSdk.Models
         public string WebSiteUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BookingBusiness"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BookingBusiness"/> and sets the default values.
         /// </summary>
         public BookingBusiness() : base()
         {
@@ -163,12 +163,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingBusiness"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingBusiness"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingBusiness CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingBusiness CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BookingBusiness();
+            return new ApiSdk.Models.BookingBusiness();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -178,15 +178,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "address", n => { Address = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
-                { "appointments", n => { Appointments = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "address", n => { Address = n.GetObjectValue<ApiSdk.Models.PhysicalAddress>(ApiSdk.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "appointments", n => { Appointments = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingAppointment>(ApiSdk.Models.BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "bookingPageSettings", n => { BookingPageSettings = n.GetObjectValue<ApiSdk.Models.BookingPageSettings>(ApiSdk.Models.BookingPageSettings.CreateFromDiscriminatorValue); } },
-                { "businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<BookingWorkHours>(BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "businessHours", n => { BusinessHours = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>(ApiSdk.Models.BookingWorkHours.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "businessType", n => { BusinessType = n.GetStringValue(); } },
-                { "calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<BookingAppointment>(BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "calendarView", n => { CalendarView = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingAppointment>(ApiSdk.Models.BookingAppointment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "customQuestions", n => { CustomQuestions = n.GetCollectionOfObjectValues<BookingCustomQuestion>(BookingCustomQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomer>(BookingCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customQuestions", n => { CustomQuestions = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingCustomQuestion>(ApiSdk.Models.BookingCustomQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customers", n => { Customers = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingCustomer>(ApiSdk.Models.BookingCustomer.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "defaultCurrencyIso", n => { DefaultCurrencyIso = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "isPublished", n => { IsPublished = n.GetBoolValue(); } },
@@ -194,9 +194,9 @@ namespace ApiSdk.Models
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "publicUrl", n => { PublicUrl = n.GetStringValue(); } },
-                { "schedulingPolicy", n => { SchedulingPolicy = n.GetObjectValue<BookingSchedulingPolicy>(BookingSchedulingPolicy.CreateFromDiscriminatorValue); } },
-                { "services", n => { Services = n.GetCollectionOfObjectValues<BookingService>(BookingService.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "staffMembers", n => { StaffMembers = n.GetCollectionOfObjectValues<BookingStaffMember>(BookingStaffMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schedulingPolicy", n => { SchedulingPolicy = n.GetObjectValue<ApiSdk.Models.BookingSchedulingPolicy>(ApiSdk.Models.BookingSchedulingPolicy.CreateFromDiscriminatorValue); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingService>(ApiSdk.Models.BookingService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "staffMembers", n => { StaffMembers = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingStaffMember>(ApiSdk.Models.BookingStaffMember.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "webSiteUrl", n => { WebSiteUrl = n.GetStringValue(); } },
             };
         }
@@ -208,23 +208,23 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PhysicalAddress>("address", Address);
-            writer.WriteCollectionOfObjectValues<BookingAppointment>("appointments", Appointments);
+            writer.WriteObjectValue<ApiSdk.Models.PhysicalAddress>("address", Address);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingAppointment>("appointments", Appointments);
             writer.WriteObjectValue<ApiSdk.Models.BookingPageSettings>("bookingPageSettings", BookingPageSettings);
-            writer.WriteCollectionOfObjectValues<BookingWorkHours>("businessHours", BusinessHours);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingWorkHours>("businessHours", BusinessHours);
             writer.WriteStringValue("businessType", BusinessType);
-            writer.WriteCollectionOfObjectValues<BookingAppointment>("calendarView", CalendarView);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingAppointment>("calendarView", CalendarView);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<BookingCustomer>("customers", Customers);
-            writer.WriteCollectionOfObjectValues<BookingCustomQuestion>("customQuestions", CustomQuestions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingCustomer>("customers", Customers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingCustomQuestion>("customQuestions", CustomQuestions);
             writer.WriteStringValue("defaultCurrencyIso", DefaultCurrencyIso);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("languageTag", LanguageTag);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteStringValue("phone", Phone);
-            writer.WriteObjectValue<BookingSchedulingPolicy>("schedulingPolicy", SchedulingPolicy);
-            writer.WriteCollectionOfObjectValues<BookingService>("services", Services);
-            writer.WriteCollectionOfObjectValues<BookingStaffMember>("staffMembers", StaffMembers);
+            writer.WriteObjectValue<ApiSdk.Models.BookingSchedulingPolicy>("schedulingPolicy", SchedulingPolicy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingService>("services", Services);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingStaffMember>("staffMembers", StaffMembers);
             writer.WriteStringValue("webSiteUrl", WebSiteUrl);
         }
     }

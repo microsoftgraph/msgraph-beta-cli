@@ -42,13 +42,13 @@ namespace ApiSdk.Models
         /// <summary>The reason where the link comes from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceAndAppManagementAssignmentSource?>? Sources { get; set; }
+        public List<ApiSdk.Models.DeviceAndAppManagementAssignmentSource?>? Sources { get; set; }
 #nullable restore
 #else
-        public List<DeviceAndAppManagementAssignmentSource?> Sources { get; set; }
+        public List<ApiSdk.Models.DeviceAndAppManagementAssignmentSource?> Sources { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HasPayloadLinkResultItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.HasPayloadLinkResultItem"/> and sets the default values.
         /// </summary>
         public HasPayloadLinkResultItem()
         {
@@ -57,12 +57,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HasPayloadLinkResultItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HasPayloadLinkResultItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static HasPayloadLinkResultItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.HasPayloadLinkResultItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HasPayloadLinkResultItem();
+            return new ApiSdk.Models.HasPayloadLinkResultItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
                 { "hasLink", n => { HasLink = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "payloadId", n => { PayloadId = n.GetStringValue(); } },
-                { "sources", n => { Sources = n.GetCollectionOfEnumValues<DeviceAndAppManagementAssignmentSource>()?.ToList(); } },
+                { "sources", n => { Sources = n.GetCollectionOfEnumValues<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("hasLink", HasLink);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("payloadId", PayloadId);
-            writer.WriteCollectionOfEnumValues<DeviceAndAppManagementAssignmentSource>("sources", Sources);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>("sources", Sources);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

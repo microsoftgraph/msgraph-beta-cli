@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LabelPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LabelPolicy"/> and sets the default values.
         /// </summary>
         public LabelPolicy()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LabelPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LabelPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LabelPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.LabelPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LabelPolicy();
+            return new ApiSdk.Models.LabelPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

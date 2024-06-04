@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for Group Assignment of a Mobile App.
     /// </summary>
-    public class MobileAppAssignment : Entity, IParsable
+    public class MobileAppAssignment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Possible values for the install intent chosen by the admin.</summary>
-        public InstallIntent? Intent { get; set; }
+        public ApiSdk.Models.InstallIntent? Intent { get; set; }
         /// <summary>The settings for target assignment defined by the admin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MobileAppAssignmentSettings? Settings { get; set; }
+        public ApiSdk.Models.MobileAppAssignmentSettings? Settings { get; set; }
 #nullable restore
 #else
-        public MobileAppAssignmentSettings Settings { get; set; }
+        public ApiSdk.Models.MobileAppAssignmentSettings Settings { get; set; }
 #endif
         /// <summary>Represents source of assignment.</summary>
-        public DeviceAndAppManagementAssignmentSource? Source { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentSource? Source { get; set; }
         /// <summary>The identifier of the source of the assignment. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,20 +34,20 @@ namespace ApiSdk.Models
         /// <summary>The target group assignment defined by the admin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceAndAppManagementAssignmentTarget? Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget? Target { get; set; }
 #nullable restore
 #else
-        public DeviceAndAppManagementAssignmentTarget Target { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget Target { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppAssignment();
+            return new ApiSdk.Models.MobileAppAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,11 +57,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "intent", n => { Intent = n.GetEnumValue<InstallIntent>(); } },
-                { "settings", n => { Settings = n.GetObjectValue<MobileAppAssignmentSettings>(MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetEnumValue<DeviceAndAppManagementAssignmentSource>(); } },
+                { "intent", n => { Intent = n.GetEnumValue<ApiSdk.Models.InstallIntent>(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.MobileAppAssignmentSettings>(ApiSdk.Models.MobileAppAssignmentSettings.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>(); } },
                 { "sourceId", n => { SourceId = n.GetStringValue(); } },
-                { "target", n => { Target = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>(ApiSdk.Models.DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -72,10 +72,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<InstallIntent>("intent", Intent);
-            writer.WriteObjectValue<MobileAppAssignmentSettings>("settings", Settings);
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentSource>("source", Source);
-            writer.WriteObjectValue<DeviceAndAppManagementAssignmentTarget>("target", Target);
+            writer.WriteEnumValue<ApiSdk.Models.InstallIntent>("intent", Intent);
+            writer.WriteObjectValue<ApiSdk.Models.MobileAppAssignmentSettings>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentSource>("source", Source);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>("target", Target);
         }
     }
 }

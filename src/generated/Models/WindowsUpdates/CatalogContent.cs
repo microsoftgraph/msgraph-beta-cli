@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class CatalogContent : DeployableContent, IParsable
+    public class CatalogContent : ApiSdk.Models.WindowsUpdates.DeployableContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The catalogEntry property</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public ApiSdk.Models.WindowsUpdates.CatalogEntry CatalogEntry { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CatalogContent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.CatalogContent"/> and sets the default values.
         /// </summary>
         public CatalogContent() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CatalogContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.CatalogContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CatalogContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.CatalogContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CatalogContent();
+            return new ApiSdk.Models.WindowsUpdates.CatalogContent();
         }
         /// <summary>
         /// The deserialization information for the current model

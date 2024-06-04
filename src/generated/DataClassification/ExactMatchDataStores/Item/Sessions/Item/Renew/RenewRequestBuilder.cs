@@ -66,14 +66,14 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Rene
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RenewRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Renew.RenewRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RenewRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}/renew", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RenewRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Renew.RenewRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RenewRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}/renew", rawUrl)

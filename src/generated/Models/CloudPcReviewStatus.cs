@@ -67,9 +67,9 @@ namespace ApiSdk.Models
         public string SubscriptionName { get; set; }
 #endif
         /// <summary>The userAccessLevel property</summary>
-        public CloudPcUserAccessLevel? UserAccessLevel { get; set; }
+        public ApiSdk.Models.CloudPcUserAccessLevel? UserAccessLevel { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcReviewStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcReviewStatus"/> and sets the default values.
         /// </summary>
         public CloudPcReviewStatus()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcReviewStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcReviewStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcReviewStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcReviewStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcReviewStatus();
+            return new ApiSdk.Models.CloudPcReviewStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,7 +102,7 @@ namespace ApiSdk.Models
                 { "reviewStartDateTime", n => { ReviewStartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
                 { "subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
-                { "userAccessLevel", n => { UserAccessLevel = n.GetEnumValue<CloudPcUserAccessLevel>(); } },
+                { "userAccessLevel", n => { UserAccessLevel = n.GetEnumValue<ApiSdk.Models.CloudPcUserAccessLevel>(); } },
             };
         }
         /// <summary>
@@ -121,7 +121,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("reviewStartDateTime", ReviewStartDateTime);
             writer.WriteStringValue("subscriptionId", SubscriptionId);
             writer.WriteStringValue("subscriptionName", SubscriptionName);
-            writer.WriteEnumValue<CloudPcUserAccessLevel>("userAccessLevel", UserAccessLevel);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcUserAccessLevel>("userAccessLevel", UserAccessLevel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

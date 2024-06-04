@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string ScriptContent { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSAppScript"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSAppScript"/> and sets the default values.
         /// </summary>
         public MacOSAppScript()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSAppScript"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSAppScript"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MacOSAppScript CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MacOSAppScript CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSAppScript();
+            return new ApiSdk.Models.MacOSAppScript();
         }
         /// <summary>
         /// The deserialization information for the current model

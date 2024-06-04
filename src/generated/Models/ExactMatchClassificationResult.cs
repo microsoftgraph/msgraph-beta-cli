@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>The classification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExactMatchDetectedSensitiveContent>? Classification { get; set; }
+        public List<ApiSdk.Models.ExactMatchDetectedSensitiveContent>? Classification { get; set; }
 #nullable restore
 #else
-        public List<ExactMatchDetectedSensitiveContent> Classification { get; set; }
+        public List<ApiSdk.Models.ExactMatchDetectedSensitiveContent> Classification { get; set; }
 #endif
         /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ClassificationError>? Errors { get; set; }
+        public List<ApiSdk.Models.ClassificationError>? Errors { get; set; }
 #nullable restore
 #else
-        public List<ClassificationError> Errors { get; set; }
+        public List<ApiSdk.Models.ClassificationError> Errors { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchClassificationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExactMatchClassificationResult"/> and sets the default values.
         /// </summary>
         public ExactMatchClassificationResult()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExactMatchClassificationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExactMatchClassificationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExactMatchClassificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ExactMatchClassificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExactMatchClassificationResult();
+            return new ApiSdk.Models.ExactMatchClassificationResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,8 +61,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "classification", n => { Classification = n.GetCollectionOfObjectValues<ExactMatchDetectedSensitiveContent>(ExactMatchDetectedSensitiveContent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<ClassificationError>(ClassificationError.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classification", n => { Classification = n.GetCollectionOfObjectValues<ApiSdk.Models.ExactMatchDetectedSensitiveContent>(ApiSdk.Models.ExactMatchDetectedSensitiveContent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<ApiSdk.Models.ClassificationError>(ApiSdk.Models.ClassificationError.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -73,8 +73,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ExactMatchDetectedSensitiveContent>("classification", Classification);
-            writer.WriteCollectionOfObjectValues<ClassificationError>("errors", Errors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExactMatchDetectedSensitiveContent>("classification", Classification);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ClassificationError>("errors", Errors);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

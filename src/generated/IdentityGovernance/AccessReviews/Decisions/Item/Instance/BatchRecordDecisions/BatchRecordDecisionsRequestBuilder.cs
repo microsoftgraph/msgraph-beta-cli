@@ -44,7 +44,7 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchR
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BatchRecordDecisionsPostRequestBody>(BatchRecordDecisionsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsPostRequestBody>(ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -63,14 +63,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchR
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BatchRecordDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BatchRecordDecisionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/batchRecordDecisions", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BatchRecordDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BatchRecordDecisionsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/batchRecordDecisions", rawUrl)
@@ -84,11 +84,11 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchR
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(BatchRecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(BatchRecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.BatchRecordDecisions.BatchRecordDecisionsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OnPremisesAgentGroupCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class OnPremisesAgentGroupCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgentGroup>? Value { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup>? Value { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgentGroup> Value { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesAgentGroupCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesAgentGroupCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnPremisesAgentGroupCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OnPremisesAgentGroupCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesAgentGroupCollectionResponse();
+            return new ApiSdk.Models.OnPremisesAgentGroupCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>(ApiSdk.Models.OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgentGroup>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>("value", Value);
         }
     }
 }

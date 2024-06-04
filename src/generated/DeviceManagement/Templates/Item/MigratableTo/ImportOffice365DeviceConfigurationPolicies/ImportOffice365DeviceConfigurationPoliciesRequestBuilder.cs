@@ -72,14 +72,14 @@ namespace ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365Dev
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ImportOffice365DeviceConfigurationPoliciesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365DeviceConfigurationPolicies.ImportOffice365DeviceConfigurationPoliciesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ImportOffice365DeviceConfigurationPoliciesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/importOffice365DeviceConfigurationPolicies", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ImportOffice365DeviceConfigurationPoliciesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.MigratableTo.ImportOffice365DeviceConfigurationPolicies.ImportOffice365DeviceConfigurationPoliciesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ImportOffice365DeviceConfigurationPoliciesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}/migratableTo/importOffice365DeviceConfigurationPolicies", rawUrl)

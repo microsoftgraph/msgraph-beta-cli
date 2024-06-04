@@ -11,7 +11,7 @@ namespace ApiSdk.Models.ManagedTenants
     #pragma warning restore CS1591
     {
         /// <summary>The category property</summary>
-        public ManagementCategory? Category { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementCategory? Category { get; set; }
         /// <summary>The description for the management action. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,20 +41,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of workload actions associated with the management action. Required. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkloadAction>? WorkloadActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadAction>? WorkloadActions { get; set; }
 #nullable restore
 #else
-        public List<WorkloadAction> WorkloadActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadAction> WorkloadActions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementAction();
+            return new ApiSdk.Models.ManagedTenants.ManagementAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,12 +64,12 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "referenceTemplateId", n => { ReferenceTemplateId = n.GetStringValue(); } },
                 { "referenceTemplateVersion", n => { ReferenceTemplateVersion = n.GetIntValue(); } },
-                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadAction>(ApiSdk.Models.ManagedTenants.WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -80,12 +80,12 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ManagementCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>("category", Category);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("referenceTemplateId", ReferenceTemplateId);
             writer.WriteIntValue("referenceTemplateVersion", ReferenceTemplateVersion);
-            writer.WriteCollectionOfObjectValues<WorkloadAction>("workloadActions", WorkloadActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadAction>("workloadActions", WorkloadActions);
         }
     }
 }

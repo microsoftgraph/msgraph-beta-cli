@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>Collection of blocked actions on the company portal as per platform and device ownership types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CompanyPortalBlockedAction>? CompanyPortalBlockedActions { get; set; }
+        public List<ApiSdk.Models.CompanyPortalBlockedAction>? CompanyPortalBlockedActions { get; set; }
 #nullable restore
 #else
-        public List<CompanyPortalBlockedAction> CompanyPortalBlockedActions { get; set; }
+        public List<ApiSdk.Models.CompanyPortalBlockedAction> CompanyPortalBlockedActions { get; set; }
 #endif
         /// <summary>Email address of the person/organization responsible for IT support.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -80,10 +80,10 @@ namespace ApiSdk.Models
         /// <summary>Logo image displayed in Company Portal apps which have a dark background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? DarkBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent? DarkBackgroundLogo { get; set; }
 #nullable restore
 #else
-        public MimeContent DarkBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent DarkBackgroundLogo { get; set; }
 #endif
         /// <summary>Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.</summary>
         public bool? DisableClientTelemetry { get; set; }
@@ -98,7 +98,7 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>Options available for enrollment flow customization</summary>
-        public EnrollmentAvailabilityOptions? EnrollmentAvailability { get; set; }
+        public ApiSdk.Models.EnrollmentAvailabilityOptions? EnrollmentAvailability { get; set; }
         /// <summary>Boolean that represents whether the adminsistrator has disabled the &apos;Factory Reset&apos; action on corporate owned devices.</summary>
         public bool? IsFactoryResetDisabled { get; set; }
         /// <summary>Boolean that represents whether the adminsistrator has disabled the &apos;Remove Device&apos; action on corporate owned devices.</summary>
@@ -106,18 +106,18 @@ namespace ApiSdk.Models
         /// <summary>Customized image displayed in Company Portal app landing page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? LandingPageCustomizedImage { get; set; }
+        public ApiSdk.Models.MimeContent? LandingPageCustomizedImage { get; set; }
 #nullable restore
 #else
-        public MimeContent LandingPageCustomizedImage { get; set; }
+        public ApiSdk.Models.MimeContent LandingPageCustomizedImage { get; set; }
 #endif
         /// <summary>Logo image displayed in Company Portal apps which have a light background behind the logo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? LightBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent? LightBackgroundLogo { get; set; }
 #nullable restore
 #else
-        public MimeContent LightBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent LightBackgroundLogo { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,13 +176,13 @@ namespace ApiSdk.Models
         /// <summary>Primary theme color used in the Company Portal applications and web portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RgbColor? ThemeColor { get; set; }
+        public ApiSdk.Models.RgbColor? ThemeColor { get; set; }
 #nullable restore
 #else
-        public RgbColor ThemeColor { get; set; }
+        public ApiSdk.Models.RgbColor ThemeColor { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IntuneBrand"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IntuneBrand"/> and sets the default values.
         /// </summary>
         public IntuneBrand()
         {
@@ -191,12 +191,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IntuneBrand"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IntuneBrand"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IntuneBrand CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IntuneBrand CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IntuneBrand();
+            return new ApiSdk.Models.IntuneBrand();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -206,7 +206,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<CompanyPortalBlockedAction>(CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<ApiSdk.Models.CompanyPortalBlockedAction>(ApiSdk.Models.CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
                 { "contactITName", n => { ContactITName = n.GetStringValue(); } },
                 { "contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
@@ -214,15 +214,15 @@ namespace ApiSdk.Models
                 { "customCanSeePrivacyMessage", n => { CustomCanSeePrivacyMessage = n.GetStringValue(); } },
                 { "customCantSeePrivacyMessage", n => { CustomCantSeePrivacyMessage = n.GetStringValue(); } },
                 { "customPrivacyMessage", n => { CustomPrivacyMessage = n.GetStringValue(); } },
-                { "darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "darkBackgroundLogo", n => { DarkBackgroundLogo = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
                 { "disableClientTelemetry", n => { DisableClientTelemetry = n.GetBoolValue(); } },
                 { "disableDeviceCategorySelection", n => { DisableDeviceCategorySelection = n.GetBoolValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<EnrollmentAvailabilityOptions>(); } },
+                { "enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<ApiSdk.Models.EnrollmentAvailabilityOptions>(); } },
                 { "isFactoryResetDisabled", n => { IsFactoryResetDisabled = n.GetBoolValue(); } },
                 { "isRemoveDeviceDisabled", n => { IsRemoveDeviceDisabled = n.GetBoolValue(); } },
-                { "landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
-                { "lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
+                { "lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
                 { "onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
@@ -235,7 +235,7 @@ namespace ApiSdk.Models
                 { "showLogo", n => { ShowLogo = n.GetBoolValue(); } },
                 { "showNameNextToLogo", n => { ShowNameNextToLogo = n.GetBoolValue(); } },
                 { "showOfficeWebApps", n => { ShowOfficeWebApps = n.GetBoolValue(); } },
-                { "themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
+                { "themeColor", n => { ThemeColor = n.GetObjectValue<ApiSdk.Models.RgbColor>(ApiSdk.Models.RgbColor.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -245,7 +245,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<CompanyPortalBlockedAction>("companyPortalBlockedActions", CompanyPortalBlockedActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CompanyPortalBlockedAction>("companyPortalBlockedActions", CompanyPortalBlockedActions);
             writer.WriteStringValue("contactITEmailAddress", ContactITEmailAddress);
             writer.WriteStringValue("contactITName", ContactITName);
             writer.WriteStringValue("contactITNotes", ContactITNotes);
@@ -253,15 +253,15 @@ namespace ApiSdk.Models
             writer.WriteStringValue("customCanSeePrivacyMessage", CustomCanSeePrivacyMessage);
             writer.WriteStringValue("customCantSeePrivacyMessage", CustomCantSeePrivacyMessage);
             writer.WriteStringValue("customPrivacyMessage", CustomPrivacyMessage);
-            writer.WriteObjectValue<MimeContent>("darkBackgroundLogo", DarkBackgroundLogo);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("darkBackgroundLogo", DarkBackgroundLogo);
             writer.WriteBoolValue("disableClientTelemetry", DisableClientTelemetry);
             writer.WriteBoolValue("disableDeviceCategorySelection", DisableDeviceCategorySelection);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<EnrollmentAvailabilityOptions>("enrollmentAvailability", EnrollmentAvailability);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentAvailabilityOptions>("enrollmentAvailability", EnrollmentAvailability);
             writer.WriteBoolValue("isFactoryResetDisabled", IsFactoryResetDisabled);
             writer.WriteBoolValue("isRemoveDeviceDisabled", IsRemoveDeviceDisabled);
-            writer.WriteObjectValue<MimeContent>("landingPageCustomizedImage", LandingPageCustomizedImage);
-            writer.WriteObjectValue<MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("landingPageCustomizedImage", LandingPageCustomizedImage);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("onlineSupportSiteName", OnlineSupportSiteName);
             writer.WriteStringValue("onlineSupportSiteUrl", OnlineSupportSiteUrl);
@@ -274,7 +274,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("showLogo", ShowLogo);
             writer.WriteBoolValue("showNameNextToLogo", ShowNameNextToLogo);
             writer.WriteBoolValue("showOfficeWebApps", ShowOfficeWebApps);
-            writer.WriteObjectValue<RgbColor>("themeColor", ThemeColor);
+            writer.WriteObjectValue<ApiSdk.Models.RgbColor>("themeColor", ThemeColor);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

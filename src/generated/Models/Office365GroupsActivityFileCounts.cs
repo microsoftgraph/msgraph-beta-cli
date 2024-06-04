@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Office365GroupsActivityFileCounts : Entity, IParsable
+    public class Office365GroupsActivityFileCounts : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of files that were viewed, edited, shared, or synced in the group&apos;s SharePoint document library.</summary>
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Office365GroupsActivityFileCounts"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Office365GroupsActivityFileCounts"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Office365GroupsActivityFileCounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Office365GroupsActivityFileCounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Office365GroupsActivityFileCounts();
+            return new ApiSdk.Models.Office365GroupsActivityFileCounts();
         }
         /// <summary>
         /// The deserialization information for the current model

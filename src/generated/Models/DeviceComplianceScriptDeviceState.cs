@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for device run state of the device compliance script.
     /// </summary>
-    public class DeviceComplianceScriptDeviceState : Entity, IParsable
+    public class DeviceComplianceScriptDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the type of execution status of the device management script.</summary>
-        public RunState? DetectionState { get; set; }
+        public ApiSdk.Models.RunState? DetectionState { get; set; }
         /// <summary>The next timestamp of when the device compliance script is expected to execute</summary>
         public DateTimeOffset? ExpectedStateUpdateDateTime { get; set; }
         /// <summary>The last timestamp of when the device compliance script executed</summary>
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceComplianceScriptDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceComplianceScriptDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceComplianceScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceComplianceScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceComplianceScriptDeviceState();
+            return new ApiSdk.Models.DeviceComplianceScriptDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
                 { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
@@ -78,7 +78,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<RunState>("detectionState", DetectionState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("detectionState", DetectionState);
             writer.WriteDateTimeOffsetValue("expectedStateUpdateDateTime", ExpectedStateUpdateDateTime);
             writer.WriteDateTimeOffsetValue("lastStateUpdateDateTime", LastStateUpdateDateTime);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);

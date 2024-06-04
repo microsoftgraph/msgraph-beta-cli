@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExtractAlphaTransformation : CustomClaimTransformation, IParsable
+    public class ExtractAlphaTransformation : ApiSdk.Models.CustomClaimTransformation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type property</summary>
-        public TransformationExtractType? Type { get; set; }
+        public ApiSdk.Models.TransformationExtractType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ExtractAlphaTransformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExtractAlphaTransformation"/> and sets the default values.
         /// </summary>
         public ExtractAlphaTransformation() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExtractAlphaTransformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExtractAlphaTransformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExtractAlphaTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExtractAlphaTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExtractAlphaTransformation();
+            return new ApiSdk.Models.ExtractAlphaTransformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "type", n => { Type = n.GetEnumValue<TransformationExtractType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.TransformationExtractType>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<TransformationExtractType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.TransformationExtractType>("type", Type);
         }
     }
 }

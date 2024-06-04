@@ -62,14 +62,14 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Ite
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UsageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Item.Usage.UsageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UsageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity/conditionalAccess/authenticationStrengths/policies/{authenticationStrengthPolicy%2Did}/usage()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UsageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.Item.Usage.UsageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UsageRequestBuilder(string rawUrl) : base("{+baseurl}/identity/conditionalAccess/authenticationStrengths/policies/{authenticationStrengthPolicy%2Did}/usage()", rawUrl)

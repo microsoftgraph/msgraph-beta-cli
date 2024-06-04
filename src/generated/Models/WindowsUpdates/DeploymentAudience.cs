@@ -21,28 +21,28 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Specifies the assets to exclude from the audience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? Exclusions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? Exclusions { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> Exclusions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> Exclusions { get; set; }
 #endif
         /// <summary>Specifies the assets to include in the audience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? Members { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? Members { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> Members { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> Members { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeploymentAudience"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.DeploymentAudience"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeploymentAudience CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.DeploymentAudience CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeploymentAudience();
+            return new ApiSdk.Models.WindowsUpdates.DeploymentAudience();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models.WindowsUpdates
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "applicableContent", n => { ApplicableContent = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ApplicableContent>(ApiSdk.Models.WindowsUpdates.ApplicableContent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "exclusions", n => { Exclusions = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "members", n => { Members = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exclusions", n => { Exclusions = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace ApiSdk.Models.WindowsUpdates
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ApplicableContent>("applicableContent", ApplicableContent);
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("exclusions", Exclusions);
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("members", Members);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("exclusions", Exclusions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("members", Members);
         }
     }
 }

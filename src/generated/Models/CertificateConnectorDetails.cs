@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity used to retrieve information about Intune Certificate Connectors.
     /// </summary>
-    public class CertificateConnectorDetails : Entity, IParsable
+    public class CertificateConnectorDetails : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Connector name (set during enrollment).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CertificateConnectorDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CertificateConnectorDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CertificateConnectorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CertificateConnectorDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CertificateConnectorDetails();
+            return new ApiSdk.Models.CertificateConnectorDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

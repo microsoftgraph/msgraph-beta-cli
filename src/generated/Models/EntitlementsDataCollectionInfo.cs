@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EntitlementsDataCollectionInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EntitlementsDataCollectionInfo"/> and sets the default values.
         /// </summary>
         public EntitlementsDataCollectionInfo()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EntitlementsDataCollectionInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EntitlementsDataCollectionInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EntitlementsDataCollectionInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EntitlementsDataCollectionInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.entitlementsDataCollection" => new EntitlementsDataCollection(),
-                "#microsoft.graph.noEntitlementsDataCollection" => new NoEntitlementsDataCollection(),
-                _ => new EntitlementsDataCollectionInfo(),
+                "#microsoft.graph.entitlementsDataCollection" => new ApiSdk.Models.EntitlementsDataCollection(),
+                "#microsoft.graph.noEntitlementsDataCollection" => new ApiSdk.Models.NoEntitlementsDataCollection(),
+                _ => new ApiSdk.Models.EntitlementsDataCollectionInfo(),
             };
         }
         /// <summary>

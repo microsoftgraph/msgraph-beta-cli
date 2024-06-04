@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExactMatchSessionBase : ExactMatchJobBase, IParsable
+    public class ExactMatchSessionBase : ApiSdk.Models.ExactMatchJobBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The dataStoreId property</summary>
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         /// <summary>The uploadCompletionDateTime property</summary>
         public DateTimeOffset? UploadCompletionDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchSessionBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExactMatchSessionBase"/> and sets the default values.
         /// </summary>
         public ExactMatchSessionBase() : base()
         {
@@ -48,16 +48,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExactMatchSessionBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExactMatchSessionBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExactMatchSessionBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExactMatchSessionBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.exactMatchSession" => new ExactMatchSession(),
-                _ => new ExactMatchSessionBase(),
+                "#microsoft.graph.exactMatchSession" => new ApiSdk.Models.ExactMatchSession(),
+                _ => new ApiSdk.Models.ExactMatchSessionBase(),
             };
         }
         /// <summary>

@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The input property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TransformationAttribute? Input { get; set; }
+        public ApiSdk.Models.TransformationAttribute? Input { get; set; }
 #nullable restore
 #else
-        public TransformationAttribute Input { get; set; }
+        public ApiSdk.Models.TransformationAttribute Input { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomClaimTransformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomClaimTransformation"/> and sets the default values.
         /// </summary>
         public CustomClaimTransformation()
         {
@@ -38,30 +38,30 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomClaimTransformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomClaimTransformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomClaimTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomClaimTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.containsTransformation" => new ContainsTransformation(),
-                "#microsoft.graph.endsWithTransformation" => new EndsWithTransformation(),
-                "#microsoft.graph.extractAlphaTransformation" => new ExtractAlphaTransformation(),
-                "#microsoft.graph.extractMailPrefixTransformation" => new ExtractMailPrefixTransformation(),
-                "#microsoft.graph.extractNumberTransformation" => new ExtractNumberTransformation(),
-                "#microsoft.graph.extractTransformation" => new ExtractTransformation(),
-                "#microsoft.graph.ifEmptyTransformation" => new IfEmptyTransformation(),
-                "#microsoft.graph.ifNotEmptyTransformation" => new IfNotEmptyTransformation(),
-                "#microsoft.graph.joinTransformation" => new JoinTransformation(),
-                "#microsoft.graph.regexReplaceTransformation" => new RegexReplaceTransformation(),
-                "#microsoft.graph.startsWithTransformation" => new StartsWithTransformation(),
-                "#microsoft.graph.substringTransformation" => new SubstringTransformation(),
-                "#microsoft.graph.toLowercaseTransformation" => new ToLowercaseTransformation(),
-                "#microsoft.graph.toUppercaseTransformation" => new ToUppercaseTransformation(),
-                "#microsoft.graph.trimTransformation" => new TrimTransformation(),
-                _ => new CustomClaimTransformation(),
+                "#microsoft.graph.containsTransformation" => new ApiSdk.Models.ContainsTransformation(),
+                "#microsoft.graph.endsWithTransformation" => new ApiSdk.Models.EndsWithTransformation(),
+                "#microsoft.graph.extractAlphaTransformation" => new ApiSdk.Models.ExtractAlphaTransformation(),
+                "#microsoft.graph.extractMailPrefixTransformation" => new ApiSdk.Models.ExtractMailPrefixTransformation(),
+                "#microsoft.graph.extractNumberTransformation" => new ApiSdk.Models.ExtractNumberTransformation(),
+                "#microsoft.graph.extractTransformation" => new ApiSdk.Models.ExtractTransformation(),
+                "#microsoft.graph.ifEmptyTransformation" => new ApiSdk.Models.IfEmptyTransformation(),
+                "#microsoft.graph.ifNotEmptyTransformation" => new ApiSdk.Models.IfNotEmptyTransformation(),
+                "#microsoft.graph.joinTransformation" => new ApiSdk.Models.JoinTransformation(),
+                "#microsoft.graph.regexReplaceTransformation" => new ApiSdk.Models.RegexReplaceTransformation(),
+                "#microsoft.graph.startsWithTransformation" => new ApiSdk.Models.StartsWithTransformation(),
+                "#microsoft.graph.substringTransformation" => new ApiSdk.Models.SubstringTransformation(),
+                "#microsoft.graph.toLowercaseTransformation" => new ApiSdk.Models.ToLowercaseTransformation(),
+                "#microsoft.graph.toUppercaseTransformation" => new ApiSdk.Models.ToUppercaseTransformation(),
+                "#microsoft.graph.trimTransformation" => new ApiSdk.Models.TrimTransformation(),
+                _ => new ApiSdk.Models.CustomClaimTransformation(),
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "input", n => { Input = n.GetObjectValue<TransformationAttribute>(TransformationAttribute.CreateFromDiscriminatorValue); } },
+                { "input", n => { Input = n.GetObjectValue<ApiSdk.Models.TransformationAttribute>(ApiSdk.Models.TransformationAttribute.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TransformationAttribute>("input", Input);
+            writer.WriteObjectValue<ApiSdk.Models.TransformationAttribute>("input", Input);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

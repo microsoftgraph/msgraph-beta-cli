@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EncryptWithTemplate : EncryptContent, IParsable
+    public class EncryptWithTemplate : ApiSdk.Models.EncryptContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The availableForEncryption property</summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string TemplateId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EncryptWithTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EncryptWithTemplate"/> and sets the default values.
         /// </summary>
         public EncryptWithTemplate() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptWithTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptWithTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EncryptWithTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EncryptWithTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptWithTemplate();
+            return new ApiSdk.Models.EncryptWithTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model

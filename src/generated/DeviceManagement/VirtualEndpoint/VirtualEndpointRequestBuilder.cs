@@ -49,7 +49,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("audit-events");
             command.Description = "Provides operations to manage the auditEvents property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new AuditEventsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.AuditEvents.AuditEventsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -77,7 +77,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("bulk-actions");
             command.Description = "Provides operations to manage the bulkActions property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new BulkActionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.BulkActions.BulkActionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -104,7 +104,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("cloud-p-cs");
             command.Description = "Provides operations to manage the cloudPCs property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new CloudPCsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.CloudPCsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildBulkResizeNavCommand());
@@ -134,7 +134,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("cross-cloud-government-organization-mapping");
             command.Description = "Provides operations to manage the crossCloudGovernmentOrganizationMapping property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new CrossCloudGovernmentOrganizationMappingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.CrossCloudGovernmentOrganizationMapping.CrossCloudGovernmentOrganizationMappingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -182,7 +182,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("device-images");
             command.Description = "Provides operations to manage the deviceImages property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new DeviceImagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.DeviceImages.DeviceImagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -210,7 +210,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("external-partner-settings");
             command.Description = "Provides operations to manage the externalPartnerSettings property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new ExternalPartnerSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.ExternalPartnerSettings.ExternalPartnerSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -237,7 +237,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("front-line-service-plans");
             command.Description = "Provides operations to manage the frontLineServicePlans property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new FrontLineServicePlansRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.FrontLineServicePlans.FrontLineServicePlansRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -264,7 +264,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("gallery-images");
             command.Description = "Provides operations to manage the galleryImages property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new GalleryImagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.GalleryImages.GalleryImagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -337,7 +337,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("get-effective-permissions");
             command.Description = "Provides operations to call the getEffectivePermissions method.";
-            var builder = new GetEffectivePermissionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.GetEffectivePermissions.GetEffectivePermissionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -354,7 +354,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("on-premises-connections");
             command.Description = "Provides operations to manage the onPremisesConnections property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new OnPremisesConnectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.OnPremisesConnections.OnPremisesConnectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -381,7 +381,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("organization-settings");
             command.Description = "Provides operations to manage the organizationSettings property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new OrganizationSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.OrganizationSettings.OrganizationSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -445,7 +445,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("provisioning-policies");
             command.Description = "Provides operations to manage the provisioningPolicies property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new ProvisioningPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ProvisioningPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildApplyConfigNavCommand());
@@ -473,7 +473,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("reports");
             command.Description = "Provides operations to manage the reports property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new ReportsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.ReportsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -512,7 +512,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("retrieve-scoped-permissions");
             command.Description = "Provides operations to call the retrieveScopedPermissions method.";
-            var builder = new RetrieveScopedPermissionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveScopedPermissions.RetrieveScopedPermissionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -529,7 +529,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("retrieve-tenant-encryption-setting");
             command.Description = "Provides operations to call the retrieveTenantEncryptionSetting method.";
-            var builder = new RetrieveTenantEncryptionSettingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.RetrieveTenantEncryptionSetting.RetrieveTenantEncryptionSettingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -546,7 +546,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("service-plans");
             command.Description = "Provides operations to manage the servicePlans property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new ServicePlansRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.ServicePlans.ServicePlansRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -573,7 +573,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("shared-use-service-plans");
             command.Description = "Provides operations to manage the sharedUseServicePlans property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new SharedUseServicePlansRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.SharedUseServicePlans.SharedUseServicePlansRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -600,7 +600,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("snapshots");
             command.Description = "Provides operations to manage the snapshots property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new SnapshotsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.SnapshotsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -629,7 +629,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("supported-regions");
             command.Description = "Provides operations to manage the supportedRegions property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new SupportedRegionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.SupportedRegions.SupportedRegionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -656,7 +656,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         {
             var command = new Command("user-settings");
             command.Description = "Provides operations to manage the userSettings property of the microsoft.graph.virtualEndpoint entity.";
-            var builder = new UserSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.VirtualEndpoint.UserSettings.UserSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -676,14 +676,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="VirtualEndpointRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.VirtualEndpointRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public VirtualEndpointRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="VirtualEndpointRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.VirtualEndpointRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public VirtualEndpointRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint{?%24expand,%24select}", rawUrl)
@@ -715,11 +715,11 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEndpointRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.VirtualEndpoint.VirtualEndpointRequestBuilder.VirtualEndpointRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<VirtualEndpointRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.VirtualEndpoint.VirtualEndpointRequestBuilder.VirtualEndpointRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

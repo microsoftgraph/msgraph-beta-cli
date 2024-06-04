@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Security
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AnalyzedEmailUrl"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.AnalyzedEmailUrl"/> and sets the default values.
         /// </summary>
         public AnalyzedEmailUrl()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AnalyzedEmailUrl"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AnalyzedEmailUrl"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AnalyzedEmailUrl CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.AnalyzedEmailUrl CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AnalyzedEmailUrl();
+            return new ApiSdk.Models.Security.AnalyzedEmailUrl();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,7 +74,7 @@ namespace ApiSdk.Models.Security
                 { "detectionMethod", n => { DetectionMethod = n.GetStringValue(); } },
                 { "detonationDetails", n => { DetonationDetails = n.GetObjectValue<ApiSdk.Models.Security.DetonationDetails>(ApiSdk.Models.Security.DetonationDetails.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
+                { "threatType", n => { ThreatType = n.GetEnumValue<ApiSdk.Models.Security.ThreatType>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -88,7 +88,7 @@ namespace ApiSdk.Models.Security
             writer.WriteStringValue("detectionMethod", DetectionMethod);
             writer.WriteObjectValue<ApiSdk.Models.Security.DetonationDetails>("detonationDetails", DetonationDetails);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ThreatType>("threatType", ThreatType);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ThreatType>("threatType", ThreatType);
             writer.WriteStringValue("url", Url);
             writer.WriteAdditionalData(AdditionalData);
         }

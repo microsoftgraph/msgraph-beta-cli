@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.GetSuggestedEnrollmentLimitWithEnrollmentType
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GetSuggestedEnrollmentLimitWithEnrollmentType.GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType='{enrollmentType}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GetSuggestedEnrollmentLimitWithEnrollmentType.GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetSuggestedEnrollmentLimitWithEnrollmentTypeRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/getSuggestedEnrollmentLimit(enrollmentType='{enrollmentType}')", rawUrl)

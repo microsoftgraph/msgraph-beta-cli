@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics anomaly entity contains device details.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyDevice : Entity, IParsable
+    public class UserExperienceAnalyticsAnomalyDevice : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The unique identifier of the anomaly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         public string DeviceName { get; set; }
 #endif
         /// <summary>Indicates the status of the device in the correlation group. Eg: Device status can be anomalous, affected, at risk.</summary>
-        public UserExperienceAnalyticsDeviceStatus? DeviceStatus { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsDeviceStatus? DeviceStatus { get; set; }
         /// <summary>The name of the OS installed on the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,12 +84,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsAnomalyDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsAnomalyDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsAnomalyDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsAnomalyDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsAnomalyDevice();
+            return new ApiSdk.Models.UserExperienceAnalyticsAnomalyDevice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,7 +107,7 @@ namespace ApiSdk.Models
                 { "deviceManufacturer", n => { DeviceManufacturer = n.GetStringValue(); } },
                 { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
-                { "deviceStatus", n => { DeviceStatus = n.GetEnumValue<UserExperienceAnalyticsDeviceStatus>(); } },
+                { "deviceStatus", n => { DeviceStatus = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsDeviceStatus>(); } },
                 { "osName", n => { OsName = n.GetStringValue(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
             };
@@ -128,7 +128,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceManufacturer", DeviceManufacturer);
             writer.WriteStringValue("deviceModel", DeviceModel);
             writer.WriteStringValue("deviceName", DeviceName);
-            writer.WriteEnumValue<UserExperienceAnalyticsDeviceStatus>("deviceStatus", DeviceStatus);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsDeviceStatus>("deviceStatus", DeviceStatus);
             writer.WriteStringValue("osName", OsName);
             writer.WriteStringValue("osVersion", OsVersion);
         }

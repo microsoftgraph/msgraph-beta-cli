@@ -31,10 +31,10 @@ namespace ApiSdk.Models
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Label?>? Labels { get; set; }
+        public List<ApiSdk.Models.Label?>? Labels { get; set; }
 #nullable restore
 #else
-        public List<Label?> Labels { get; set; }
+        public List<ApiSdk.Models.Label?> Labels { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,9 +53,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public PropertyType? Type { get; set; }
+        public ApiSdk.Models.PropertyType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Property"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Property"/> and sets the default values.
         /// </summary>
         public Property()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Property"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Property"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Property CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Property CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Property();
+            return new ApiSdk.Models.Property();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,10 +84,10 @@ namespace ApiSdk.Models
                 { "isRefinable", n => { IsRefinable = n.GetBoolValue(); } },
                 { "isRetrievable", n => { IsRetrievable = n.GetBoolValue(); } },
                 { "isSearchable", n => { IsSearchable = n.GetBoolValue(); } },
-                { "labels", n => { Labels = n.GetCollectionOfEnumValues<Label>()?.ToList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfEnumValues<ApiSdk.Models.Label>()?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<PropertyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.PropertyType>(); } },
             };
         }
         /// <summary>
@@ -102,10 +102,10 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("isRefinable", IsRefinable);
             writer.WriteBoolValue("isRetrievable", IsRetrievable);
             writer.WriteBoolValue("isSearchable", IsSearchable);
-            writer.WriteCollectionOfEnumValues<Label>("labels", Labels);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.Label>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PropertyType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.PropertyType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

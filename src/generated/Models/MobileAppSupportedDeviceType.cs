@@ -38,9 +38,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Device type.</summary>
-        public DeviceType? Type { get; set; }
+        public ApiSdk.Models.DeviceType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MobileAppSupportedDeviceType"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MobileAppSupportedDeviceType"/> and sets the default values.
         /// </summary>
         public MobileAppSupportedDeviceType()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppSupportedDeviceType"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppSupportedDeviceType"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MobileAppSupportedDeviceType CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MobileAppSupportedDeviceType CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppSupportedDeviceType();
+            return new ApiSdk.Models.MobileAppSupportedDeviceType();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
                 { "maximumOperatingSystemVersion", n => { MaximumOperatingSystemVersion = n.GetStringValue(); } },
                 { "minimumOperatingSystemVersion", n => { MinimumOperatingSystemVersion = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<DeviceType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.DeviceType>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("maximumOperatingSystemVersion", MaximumOperatingSystemVersion);
             writer.WriteStringValue("minimumOperatingSystemVersion", MinimumOperatingSystemVersion);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

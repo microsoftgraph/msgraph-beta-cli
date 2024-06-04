@@ -37,7 +37,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("apply-decisions");
             command.Description = "Provides operations to call the applyDecisions method.";
-            var builder = new ApplyDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.ApplyDecisions.ApplyDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -54,7 +54,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("decisions");
             command.Description = "Provides operations to manage the decisions property of the microsoft.graph.accessReview entity.";
-            var builder = new DecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.Decisions.DecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -170,7 +170,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("instances");
             command.Description = "Provides operations to manage the instances property of the microsoft.graph.accessReview entity.";
-            var builder = new InstancesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.Instances.InstancesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -197,7 +197,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("my-decisions");
             command.Description = "Provides operations to manage the myDecisions property of the microsoft.graph.accessReview entity.";
-            var builder = new MyDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.MyDecisions.MyDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -248,7 +248,7 @@ namespace ApiSdk.AccessReviews.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AccessReview>(AccessReview.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.AccessReview>(ApiSdk.Models.AccessReview.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -276,7 +276,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("reset-decisions");
             command.Description = "Provides operations to call the resetDecisions method.";
-            var builder = new ResetDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.ResetDecisions.ResetDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -293,7 +293,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("reviewers");
             command.Description = "Provides operations to manage the reviewers property of the microsoft.graph.accessReview entity.";
-            var builder = new ReviewersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.Reviewers.ReviewersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -320,7 +320,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("send-reminder");
             command.Description = "Provides operations to call the sendReminder method.";
-            var builder = new SendReminderRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.SendReminder.SendReminderRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -337,7 +337,7 @@ namespace ApiSdk.AccessReviews.Item
         {
             var command = new Command("stop");
             command.Description = "Provides operations to call the stop method.";
-            var builder = new StopRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AccessReviews.Item.Stop.StopRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -347,14 +347,14 @@ namespace ApiSdk.AccessReviews.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.AccessReviewItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AccessReviewItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/accessReviews/{accessReview%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.AccessReviewItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AccessReviewItemRequestBuilder(string rawUrl) : base("{+baseurl}/accessReviews/{accessReview%2Did}{?%24expand,%24select}", rawUrl)
@@ -386,11 +386,11 @@ namespace ApiSdk.AccessReviews.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AccessReviews.Item.AccessReviewItemRequestBuilder.AccessReviewItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AccessReviews.Item.AccessReviewItemRequestBuilder.AccessReviewItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -406,11 +406,11 @@ namespace ApiSdk.AccessReviews.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AccessReview body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AccessReview body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AccessReview body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AccessReview body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

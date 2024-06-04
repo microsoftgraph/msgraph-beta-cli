@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         /// <summary>The number of users who received a mail while the training campaign was in the &apos;in progress&apos; state.</summary>
         public int? SuccessfulMessageDeliveryCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TrainingNotificationDelivery"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrainingNotificationDelivery"/> and sets the default values.
         /// </summary>
         public TrainingNotificationDelivery()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrainingNotificationDelivery"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrainingNotificationDelivery"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TrainingNotificationDelivery CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TrainingNotificationDelivery CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrainingNotificationDelivery();
+            return new ApiSdk.Models.TrainingNotificationDelivery();
         }
         /// <summary>
         /// The deserialization information for the current model

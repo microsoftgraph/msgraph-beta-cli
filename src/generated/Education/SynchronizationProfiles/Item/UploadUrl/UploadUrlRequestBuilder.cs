@@ -60,14 +60,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UploadUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl.UploadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UploadUrlRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/uploadUrl()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UploadUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl.UploadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UploadUrlRequestBuilder(string rawUrl) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/uploadUrl()", rawUrl)

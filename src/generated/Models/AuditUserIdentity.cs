@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AuditUserIdentity : UserIdentity, IParsable
+    public class AuditUserIdentity : ApiSdk.Models.UserIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>For user sign ins, the identifier of the tenant that the user is a member of.</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string HomeTenantName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuditUserIdentity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuditUserIdentity"/> and sets the default values.
         /// </summary>
         public AuditUserIdentity() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuditUserIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuditUserIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuditUserIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AuditUserIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuditUserIdentity();
+            return new ApiSdk.Models.AuditUserIdentity();
         }
         /// <summary>
         /// The deserialization information for the current model

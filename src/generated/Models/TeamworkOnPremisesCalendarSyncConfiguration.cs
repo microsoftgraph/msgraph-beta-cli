@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string SmtpAddress { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkOnPremisesCalendarSyncConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkOnPremisesCalendarSyncConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkOnPremisesCalendarSyncConfiguration()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkOnPremisesCalendarSyncConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkOnPremisesCalendarSyncConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkOnPremisesCalendarSyncConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkOnPremisesCalendarSyncConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkOnPremisesCalendarSyncConfiguration();
+            return new ApiSdk.Models.TeamworkOnPremisesCalendarSyncConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

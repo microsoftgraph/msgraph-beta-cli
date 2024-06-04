@@ -139,7 +139,7 @@ namespace ApiSdk.DataClassification.SensitiveTypes.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SensitiveType>(SensitiveType.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.SensitiveType>(ApiSdk.Models.SensitiveType.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -160,14 +160,14 @@ namespace ApiSdk.DataClassification.SensitiveTypes.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SensitiveTypeItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.SensitiveTypes.Item.SensitiveTypeItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SensitiveTypeItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification/sensitiveTypes/{sensitiveType%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SensitiveTypeItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.SensitiveTypes.Item.SensitiveTypeItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SensitiveTypeItemRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification/sensitiveTypes/{sensitiveType%2Did}{?%24expand,%24select}", rawUrl)
@@ -199,11 +199,11 @@ namespace ApiSdk.DataClassification.SensitiveTypes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SensitiveTypeItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.SensitiveTypes.Item.SensitiveTypeItemRequestBuilder.SensitiveTypeItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SensitiveTypeItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.SensitiveTypes.Item.SensitiveTypeItemRequestBuilder.SensitiveTypeItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -219,11 +219,11 @@ namespace ApiSdk.DataClassification.SensitiveTypes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SensitiveType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SensitiveType body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SensitiveType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SensitiveType body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

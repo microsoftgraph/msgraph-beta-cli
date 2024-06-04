@@ -7,42 +7,42 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PermissionsManagement : Entity, IParsable
+    public class PermissionsManagement : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a change event of the scheduledPermissionsRequest entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PermissionsRequestChange>? PermissionsRequestChanges { get; set; }
+        public List<ApiSdk.Models.PermissionsRequestChange>? PermissionsRequestChanges { get; set; }
 #nullable restore
 #else
-        public List<PermissionsRequestChange> PermissionsRequestChanges { get; set; }
+        public List<ApiSdk.Models.PermissionsRequestChange> PermissionsRequestChanges { get; set; }
 #endif
         /// <summary>The scheduledPermissionsApprovals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Approval>? ScheduledPermissionsApprovals { get; set; }
+        public List<ApiSdk.Models.Approval>? ScheduledPermissionsApprovals { get; set; }
 #nullable restore
 #else
-        public List<Approval> ScheduledPermissionsApprovals { get; set; }
+        public List<ApiSdk.Models.Approval> ScheduledPermissionsApprovals { get; set; }
 #endif
         /// <summary>Represents a permissions request that Permissions Management uses to manage permissions for an identity on resources in the authorization system. This request can be granted, rejected or canceled by identities in Permissions Management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ScheduledPermissionsRequest>? ScheduledPermissionsRequests { get; set; }
+        public List<ApiSdk.Models.ScheduledPermissionsRequest>? ScheduledPermissionsRequests { get; set; }
 #nullable restore
 #else
-        public List<ScheduledPermissionsRequest> ScheduledPermissionsRequests { get; set; }
+        public List<ApiSdk.Models.ScheduledPermissionsRequest> ScheduledPermissionsRequests { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsManagement"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsManagement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PermissionsManagement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PermissionsManagement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PermissionsManagement();
+            return new ApiSdk.Models.PermissionsManagement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "permissionsRequestChanges", n => { PermissionsRequestChanges = n.GetCollectionOfObjectValues<PermissionsRequestChange>(PermissionsRequestChange.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "scheduledPermissionsApprovals", n => { ScheduledPermissionsApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "scheduledPermissionsRequests", n => { ScheduledPermissionsRequests = n.GetCollectionOfObjectValues<ScheduledPermissionsRequest>(ScheduledPermissionsRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "permissionsRequestChanges", n => { PermissionsRequestChanges = n.GetCollectionOfObjectValues<ApiSdk.Models.PermissionsRequestChange>(ApiSdk.Models.PermissionsRequestChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scheduledPermissionsApprovals", n => { ScheduledPermissionsApprovals = n.GetCollectionOfObjectValues<ApiSdk.Models.Approval>(ApiSdk.Models.Approval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scheduledPermissionsRequests", n => { ScheduledPermissionsRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.ScheduledPermissionsRequest>(ApiSdk.Models.ScheduledPermissionsRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PermissionsRequestChange>("permissionsRequestChanges", PermissionsRequestChanges);
-            writer.WriteCollectionOfObjectValues<Approval>("scheduledPermissionsApprovals", ScheduledPermissionsApprovals);
-            writer.WriteCollectionOfObjectValues<ScheduledPermissionsRequest>("scheduledPermissionsRequests", ScheduledPermissionsRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PermissionsRequestChange>("permissionsRequestChanges", PermissionsRequestChanges);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Approval>("scheduledPermissionsApprovals", ScheduledPermissionsApprovals);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ScheduledPermissionsRequest>("scheduledPermissionsRequests", ScheduledPermissionsRequests);
         }
     }
 }

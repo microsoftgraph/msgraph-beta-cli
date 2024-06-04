@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SequentialActivationRenewalsAlertIncident : UnifiedRoleManagementAlertIncident, IParsable
+    public class SequentialActivationRenewalsAlertIncident : ApiSdk.Models.UnifiedRoleManagementAlertIncident, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The length of sequential activation of the same role.</summary>
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
         /// <summary>Start date time of the sequential activation event.</summary>
         public DateTimeOffset? SequenceStartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SequentialActivationRenewalsAlertIncident"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SequentialActivationRenewalsAlertIncident"/> and sets the default values.
         /// </summary>
         public SequentialActivationRenewalsAlertIncident() : base()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SequentialActivationRenewalsAlertIncident"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SequentialActivationRenewalsAlertIncident"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SequentialActivationRenewalsAlertIncident CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SequentialActivationRenewalsAlertIncident CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SequentialActivationRenewalsAlertIncident();
+            return new ApiSdk.Models.SequentialActivationRenewalsAlertIncident();
         }
         /// <summary>
         /// The deserialization information for the current model

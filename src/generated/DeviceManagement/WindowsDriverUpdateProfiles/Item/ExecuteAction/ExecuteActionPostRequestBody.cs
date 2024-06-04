@@ -12,7 +12,7 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
     #pragma warning restore CS1591
     {
         /// <summary>An enum type to represent approval actions of single or list of drivers.</summary>
-        public DriverApprovalAction? ActionName { get; set; }
+        public ApiSdk.Models.DriverApprovalAction? ActionName { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The deploymentDate property</summary>
@@ -26,7 +26,7 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
         public List<string> DriverIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExecuteActionPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction.ExecuteActionPostRequestBody"/> and sets the default values.
         /// </summary>
         public ExecuteActionPostRequestBody()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExecuteActionPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction.ExecuteActionPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExecuteActionPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction.ExecuteActionPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExecuteActionPostRequestBody();
+            return new ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction.ExecuteActionPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actionName", n => { ActionName = n.GetEnumValue<DriverApprovalAction>(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<ApiSdk.Models.DriverApprovalAction>(); } },
                 { "deploymentDate", n => { DeploymentDate = n.GetDateTimeOffsetValue(); } },
                 { "driverIds", n => { DriverIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
@@ -62,7 +62,7 @@ namespace ApiSdk.DeviceManagement.WindowsDriverUpdateProfiles.Item.ExecuteAction
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DriverApprovalAction>("actionName", ActionName);
+            writer.WriteEnumValue<ApiSdk.Models.DriverApprovalAction>("actionName", ActionName);
             writer.WriteDateTimeOffsetValue("deploymentDate", DeploymentDate);
             writer.WriteCollectionOfPrimitiveValues<string>("driverIds", DriverIds);
             writer.WriteAdditionalData(AdditionalData);

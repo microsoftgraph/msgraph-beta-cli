@@ -135,14 +135,14 @@ namespace ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.ContentStream
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ContentStreamRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/driveItem/contentStream", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.Lists.Item.Items.Item.DriveItem.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentStreamRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/items/{listItem%2Did}/driveItem/contentStream", rawUrl)

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties used to assign an Android Managed Store mobile app to a group.
     /// </summary>
-    public class AndroidManagedStoreAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
+    public class AndroidManagedStoreAppAssignmentSettings : ApiSdk.Models.MobileAppAssignmentSettings, IParsable
     {
         /// <summary>The track IDs to enable for this app assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,9 +20,9 @@ namespace ApiSdk.Models
         public List<string> AndroidManagedStoreAppTrackIds { get; set; }
 #endif
         /// <summary>Prioritization for automatic updates of Android Managed Store apps set on assignment.</summary>
-        public AndroidManagedStoreAutoUpdateMode? AutoUpdateMode { get; set; }
+        public ApiSdk.Models.AndroidManagedStoreAutoUpdateMode? AutoUpdateMode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreAppAssignmentSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidManagedStoreAppAssignmentSettings"/> and sets the default values.
         /// </summary>
         public AndroidManagedStoreAppAssignmentSettings() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreAppAssignmentSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreAppAssignmentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedStoreAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedStoreAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedStoreAppAssignmentSettings();
+            return new ApiSdk.Models.AndroidManagedStoreAppAssignmentSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "androidManagedStoreAppTrackIds", n => { AndroidManagedStoreAppTrackIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "autoUpdateMode", n => { AutoUpdateMode = n.GetEnumValue<AndroidManagedStoreAutoUpdateMode>(); } },
+                { "autoUpdateMode", n => { AutoUpdateMode = n.GetEnumValue<ApiSdk.Models.AndroidManagedStoreAutoUpdateMode>(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("androidManagedStoreAppTrackIds", AndroidManagedStoreAppTrackIds);
-            writer.WriteEnumValue<AndroidManagedStoreAutoUpdateMode>("autoUpdateMode", AutoUpdateMode);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedStoreAutoUpdateMode>("autoUpdateMode", AutoUpdateMode);
         }
     }
 }

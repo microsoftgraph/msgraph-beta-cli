@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Notification Settings Alert Type.</summary>
-        public IosNotificationAlertType? AlertType { get; set; }
+        public ApiSdk.Models.IosNotificationAlertType? AlertType { get; set; }
         /// <summary>Application name to be associated with the bundleID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Determines when notification previews are visible on an iOS device. Previews can include things like text (from Messages and Mail) and invitation details (from Calendar). When configured, it will override the user&apos;s defined preview settings.</summary>
-        public IosNotificationPreviewVisibility? PreviewVisibility { get; set; }
+        public ApiSdk.Models.IosNotificationPreviewVisibility? PreviewVisibility { get; set; }
         /// <summary>Publisher to be associated with the bundleID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether sounds are allowed for this app.</summary>
         public bool? SoundsEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosNotificationSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosNotificationSettings"/> and sets the default values.
         /// </summary>
         public IosNotificationSettings()
         {
@@ -69,12 +69,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosNotificationSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosNotificationSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosNotificationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosNotificationSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosNotificationSettings();
+            return new ApiSdk.Models.IosNotificationSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,13 +84,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "alertType", n => { AlertType = n.GetEnumValue<IosNotificationAlertType>(); } },
+                { "alertType", n => { AlertType = n.GetEnumValue<ApiSdk.Models.IosNotificationAlertType>(); } },
                 { "appName", n => { AppName = n.GetStringValue(); } },
                 { "badgesEnabled", n => { BadgesEnabled = n.GetBoolValue(); } },
                 { "bundleID", n => { BundleID = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "previewVisibility", n => { PreviewVisibility = n.GetEnumValue<IosNotificationPreviewVisibility>(); } },
+                { "previewVisibility", n => { PreviewVisibility = n.GetEnumValue<ApiSdk.Models.IosNotificationPreviewVisibility>(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
                 { "showInNotificationCenter", n => { ShowInNotificationCenter = n.GetBoolValue(); } },
                 { "showOnLockScreen", n => { ShowOnLockScreen = n.GetBoolValue(); } },
@@ -104,13 +104,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<IosNotificationAlertType>("alertType", AlertType);
+            writer.WriteEnumValue<ApiSdk.Models.IosNotificationAlertType>("alertType", AlertType);
             writer.WriteStringValue("appName", AppName);
             writer.WriteBoolValue("badgesEnabled", BadgesEnabled);
             writer.WriteStringValue("bundleID", BundleID);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<IosNotificationPreviewVisibility>("previewVisibility", PreviewVisibility);
+            writer.WriteEnumValue<ApiSdk.Models.IosNotificationPreviewVisibility>("previewVisibility", PreviewVisibility);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteBoolValue("showInNotificationCenter", ShowInNotificationCenter);
             writer.WriteBoolValue("showOnLockScreen", ShowOnLockScreen);

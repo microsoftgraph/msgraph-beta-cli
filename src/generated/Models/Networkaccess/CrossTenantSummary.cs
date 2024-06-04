@@ -33,7 +33,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The number of unique users that performed cross-tenant access.</summary>
         public int? UserCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CrossTenantSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.CrossTenantSummary"/> and sets the default values.
         /// </summary>
         public CrossTenantSummary()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CrossTenantSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.CrossTenantSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CrossTenantSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.CrossTenantSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CrossTenantSummary();
+            return new ApiSdk.Models.Networkaccess.CrossTenantSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

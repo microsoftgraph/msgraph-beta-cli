@@ -60,14 +60,14 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MakeEligibleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible.MakeEligibleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MakeEligibleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/makeEligible", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MakeEligibleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible.MakeEligibleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MakeEligibleRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/makeEligible", rawUrl)

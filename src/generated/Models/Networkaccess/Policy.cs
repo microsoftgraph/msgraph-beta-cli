@@ -29,10 +29,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Represents the definition of the policy ruleset that makes up the core definition of a policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicyRule>? PolicyRules { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyRule>? PolicyRules { get; set; }
 #nullable restore
 #else
-        public List<PolicyRule> PolicyRules { get; set; }
+        public List<ApiSdk.Models.Networkaccess.PolicyRule> PolicyRules { get; set; }
 #endif
         /// <summary>Version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,17 +45,17 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Policy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Policy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Policy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Policy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.filteringPolicy" => new FilteringPolicy(),
-                "#microsoft.graph.networkaccess.forwardingPolicy" => new ForwardingPolicy(),
-                _ => new Policy(),
+                "#microsoft.graph.networkaccess.filteringPolicy" => new ApiSdk.Models.Networkaccess.FilteringPolicy(),
+                "#microsoft.graph.networkaccess.forwardingPolicy" => new ApiSdk.Models.Networkaccess.ForwardingPolicy(),
+                _ => new ApiSdk.Models.Networkaccess.Policy(),
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ApiSdk.Models.Networkaccess
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "policyRules", n => { PolicyRules = n.GetCollectionOfObjectValues<PolicyRule>(PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policyRules", n => { PolicyRules = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyRule>(ApiSdk.Models.Networkaccess.PolicyRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -82,7 +82,7 @@ namespace ApiSdk.Models.Networkaccess
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<PolicyRule>("policyRules", PolicyRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.PolicyRule>("policyRules", PolicyRules);
             writer.WriteStringValue("version", Version);
         }
     }

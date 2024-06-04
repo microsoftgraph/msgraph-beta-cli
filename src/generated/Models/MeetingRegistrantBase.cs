@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MeetingRegistrantBase : Entity, IParsable
+    public class MeetingRegistrantBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A unique web URL for the registrant to join the meeting. Read-only.</summary>
@@ -21,17 +21,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingRegistrantBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingRegistrantBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MeetingRegistrantBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MeetingRegistrantBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.externalMeetingRegistrant" => new ExternalMeetingRegistrant(),
-                "#microsoft.graph.meetingRegistrant" => new MeetingRegistrant(),
-                _ => new MeetingRegistrantBase(),
+                "#microsoft.graph.externalMeetingRegistrant" => new ApiSdk.Models.ExternalMeetingRegistrant(),
+                "#microsoft.graph.meetingRegistrant" => new ApiSdk.Models.MeetingRegistrant(),
+                _ => new ApiSdk.Models.MeetingRegistrantBase(),
             };
         }
         /// <summary>

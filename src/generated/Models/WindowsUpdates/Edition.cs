@@ -43,20 +43,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The servicingPeriods property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicingPeriod>? ServicingPeriods { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ServicingPeriod>? ServicingPeriods { get; set; }
 #nullable restore
 #else
-        public List<ServicingPeriod> ServicingPeriods { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ServicingPeriod> ServicingPeriods { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Edition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.Edition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Edition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.Edition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Edition();
+            return new ApiSdk.Models.WindowsUpdates.Edition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,7 +72,7 @@ namespace ApiSdk.Models.WindowsUpdates
                 { "isInService", n => { IsInService = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "releasedName", n => { ReleasedName = n.GetStringValue(); } },
-                { "servicingPeriods", n => { ServicingPeriods = n.GetCollectionOfObjectValues<ServicingPeriod>(ServicingPeriod.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servicingPeriods", n => { ServicingPeriods = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ServicingPeriod>(ApiSdk.Models.WindowsUpdates.ServicingPeriod.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace ApiSdk.Models.WindowsUpdates
             writer.WriteBoolValue("isInService", IsInService);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("releasedName", ReleasedName);
-            writer.WriteCollectionOfObjectValues<ServicingPeriod>("servicingPeriods", ServicingPeriods);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ServicingPeriod>("servicingPeriods", ServicingPeriods);
         }
     }
 }

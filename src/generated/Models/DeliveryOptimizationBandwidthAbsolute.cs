@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// Bandwidth limits in kilobytes per second.
     /// </summary>
-    public class DeliveryOptimizationBandwidthAbsolute : DeliveryOptimizationBandwidth, IParsable
+    public class DeliveryOptimizationBandwidthAbsolute : ApiSdk.Models.DeliveryOptimizationBandwidth, IParsable
     {
         /// <summary>Specifies the maximum download bandwidth in KiloBytes/second that the device can use across all concurrent download activities using Delivery Optimization. Valid values 0 to 4294967295</summary>
         public long? MaximumDownloadBandwidthInKilobytesPerSecond { get; set; }
         /// <summary>Specifies the maximum upload bandwidth in KiloBytes/second that a device will use across all concurrent upload activity using Delivery Optimization (0-4000000). Valid values 0 to 4000000</summary>
         public long? MaximumUploadBandwidthInKilobytesPerSecond { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeliveryOptimizationBandwidthAbsolute"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeliveryOptimizationBandwidthAbsolute"/> and sets the default values.
         /// </summary>
         public DeliveryOptimizationBandwidthAbsolute() : base()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeliveryOptimizationBandwidthAbsolute"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeliveryOptimizationBandwidthAbsolute"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeliveryOptimizationBandwidthAbsolute CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeliveryOptimizationBandwidthAbsolute CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeliveryOptimizationBandwidthAbsolute();
+            return new ApiSdk.Models.DeliveryOptimizationBandwidthAbsolute();
         }
         /// <summary>
         /// The deserialization information for the current model

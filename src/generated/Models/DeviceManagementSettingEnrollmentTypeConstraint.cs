@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint that enforces the enrollment types applied to a setting
     /// </summary>
-    public class DeviceManagementSettingEnrollmentTypeConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingEnrollmentTypeConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>List of enrollment types</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public List<string> EnrollmentTypes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingEnrollmentTypeConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingEnrollmentTypeConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingEnrollmentTypeConstraint() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingEnrollmentTypeConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingEnrollmentTypeConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingEnrollmentTypeConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingEnrollmentTypeConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingEnrollmentTypeConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingEnrollmentTypeConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

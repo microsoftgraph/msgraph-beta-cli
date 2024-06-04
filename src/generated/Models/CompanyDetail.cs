@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Address of the company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PhysicalAddress? Address { get; set; }
+        public ApiSdk.Models.PhysicalAddress? Address { get; set; }
 #nullable restore
 #else
-        public PhysicalAddress Address { get; set; }
+        public ApiSdk.Models.PhysicalAddress Address { get; set; }
 #endif
         /// <summary>Department Name within a company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CompanyDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CompanyDetail"/> and sets the default values.
         /// </summary>
         public CompanyDetail()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompanyDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CompanyDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CompanyDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CompanyDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompanyDetail();
+            return new ApiSdk.Models.CompanyDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,7 +93,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "address", n => { Address = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "address", n => { Address = n.GetObjectValue<ApiSdk.Models.PhysicalAddress>(ApiSdk.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "department", n => { Department = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -109,7 +109,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PhysicalAddress>("address", Address);
+            writer.WriteObjectValue<ApiSdk.Models.PhysicalAddress>("address", Address);
             writer.WriteStringValue("department", Department);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("@odata.type", OdataType);

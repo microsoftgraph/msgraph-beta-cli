@@ -39,9 +39,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The result property</summary>
-        public CloudPcConnectivityEventResult? Result { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityEventResult? Result { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcHealthCheckItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcHealthCheckItem"/> and sets the default values.
         /// </summary>
         public CloudPcHealthCheckItem()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcHealthCheckItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcHealthCheckItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcHealthCheckItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcHealthCheckItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcHealthCheckItem();
+            return new ApiSdk.Models.CloudPcHealthCheckItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastHealthCheckDateTime", n => { LastHealthCheckDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<CloudPcConnectivityEventResult>(); } },
+                { "result", n => { Result = n.GetEnumValue<ApiSdk.Models.CloudPcConnectivityEventResult>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastHealthCheckDateTime", LastHealthCheckDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CloudPcConnectivityEventResult>("result", Result);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcConnectivityEventResult>("result", Result);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device compliance setting State for a given device.
     /// </summary>
-    public class DeviceComplianceSettingState : Entity, IParsable
+    public class DeviceComplianceSettingState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The DateTime when device compliance grace period expires</summary>
         public DateTimeOffset? ComplianceGracePeriodExpirationDateTime { get; set; }
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string DeviceName { get; set; }
 #endif
         /// <summary>Device type.</summary>
-        public DeviceType? PlatformType { get; set; }
+        public ApiSdk.Models.DeviceType? PlatformType { get; set; }
         /// <summary>The setting class name and property name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         public string SettingName { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public ComplianceStatus? State { get; set; }
+        public ApiSdk.Models.ComplianceStatus? State { get; set; }
         /// <summary>The User email address that is being reported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -92,12 +92,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceComplianceSettingState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceComplianceSettingState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceComplianceSettingState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceComplianceSettingState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceComplianceSettingState();
+            return new ApiSdk.Models.DeviceComplianceSettingState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -111,10 +111,10 @@ namespace ApiSdk.Models
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
-                { "platformType", n => { PlatformType = n.GetEnumValue<DeviceType>(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.DeviceType>(); } },
                 { "setting", n => { Setting = n.GetStringValue(); } },
                 { "settingName", n => { SettingName = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<ComplianceStatus>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ComplianceStatus>(); } },
                 { "userEmail", n => { UserEmail = n.GetStringValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
@@ -133,10 +133,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceModel", DeviceModel);
             writer.WriteStringValue("deviceName", DeviceName);
-            writer.WriteEnumValue<DeviceType>("platformType", PlatformType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceType>("platformType", PlatformType);
             writer.WriteStringValue("setting", Setting);
             writer.WriteStringValue("settingName", SettingName);
-            writer.WriteEnumValue<ComplianceStatus>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ComplianceStatus>("state", State);
             writer.WriteStringValue("userEmail", UserEmail);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userName", UserName);

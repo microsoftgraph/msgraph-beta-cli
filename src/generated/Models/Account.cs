@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         public string SubCategory { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Account"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Account"/> and sets the default values.
         /// </summary>
         public Account()
         {
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Account"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Account"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Account CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Account CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Account();
+            return new ApiSdk.Models.Account();
         }
         /// <summary>
         /// The deserialization information for the current model

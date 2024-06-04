@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string UniqueId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkHardwareDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkHardwareDetail"/> and sets the default values.
         /// </summary>
         public TeamworkHardwareDetail()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkHardwareDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkHardwareDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkHardwareDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkHardwareDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkHardwareDetail();
+            return new ApiSdk.Models.TeamworkHardwareDetail();
         }
         /// <summary>
         /// The deserialization information for the current model

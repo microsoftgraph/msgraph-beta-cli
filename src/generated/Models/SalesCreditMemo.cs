@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>The billingPostalAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? BillingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? BillingPostalAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType BillingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType BillingPostalAddress { get; set; }
 #endif
         /// <summary>The billToCustomerId property</summary>
         public Guid? BillToCustomerId { get; set; }
@@ -160,10 +160,10 @@ namespace ApiSdk.Models
         /// <summary>The salesCreditMemoLines property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SalesCreditMemoLine>? SalesCreditMemoLines { get; set; }
+        public List<ApiSdk.Models.SalesCreditMemoLine>? SalesCreditMemoLines { get; set; }
 #nullable restore
 #else
-        public List<SalesCreditMemoLine> SalesCreditMemoLines { get; set; }
+        public List<ApiSdk.Models.SalesCreditMemoLine> SalesCreditMemoLines { get; set; }
 #endif
         /// <summary>The salesperson property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -176,10 +176,10 @@ namespace ApiSdk.Models
         /// <summary>The sellingPostalAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? SellingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? SellingPostalAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType SellingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType SellingPostalAddress { get; set; }
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -196,7 +196,7 @@ namespace ApiSdk.Models
         /// <summary>The totalTaxAmount property</summary>
         public decimal? TotalTaxAmount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SalesCreditMemo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SalesCreditMemo"/> and sets the default values.
         /// </summary>
         public SalesCreditMemo()
         {
@@ -205,12 +205,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SalesCreditMemo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SalesCreditMemo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SalesCreditMemo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SalesCreditMemo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SalesCreditMemo();
+            return new ApiSdk.Models.SalesCreditMemo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -223,7 +223,7 @@ namespace ApiSdk.Models
                 { "billToCustomerId", n => { BillToCustomerId = n.GetGuidValue(); } },
                 { "billToCustomerNumber", n => { BillToCustomerNumber = n.GetStringValue(); } },
                 { "billToName", n => { BillToName = n.GetStringValue(); } },
-                { "billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "creditMemoDate", n => { CreditMemoDate = n.GetDateValue(); } },
                 { "currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
                 { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
@@ -247,9 +247,9 @@ namespace ApiSdk.Models
                 { "paymentTermsId", n => { PaymentTermsId = n.GetGuidValue(); } },
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 { "pricesIncludeTax", n => { PricesIncludeTax = n.GetBoolValue(); } },
-                { "salesCreditMemoLines", n => { SalesCreditMemoLines = n.GetCollectionOfObjectValues<SalesCreditMemoLine>(SalesCreditMemoLine.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "salesCreditMemoLines", n => { SalesCreditMemoLines = n.GetCollectionOfObjectValues<ApiSdk.Models.SalesCreditMemoLine>(ApiSdk.Models.SalesCreditMemoLine.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "salesperson", n => { Salesperson = n.GetStringValue(); } },
-                { "sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "totalAmountExcludingTax", n => { TotalAmountExcludingTax = n.GetDecimalValue(); } },
                 { "totalAmountIncludingTax", n => { TotalAmountIncludingTax = n.GetDecimalValue(); } },
@@ -263,7 +263,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PostalAddressType>("billingPostalAddress", BillingPostalAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("billingPostalAddress", BillingPostalAddress);
             writer.WriteGuidValue("billToCustomerId", BillToCustomerId);
             writer.WriteStringValue("billToCustomerNumber", BillToCustomerNumber);
             writer.WriteStringValue("billToName", BillToName);
@@ -290,9 +290,9 @@ namespace ApiSdk.Models
             writer.WriteGuidValue("paymentTermsId", PaymentTermsId);
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteBoolValue("pricesIncludeTax", PricesIncludeTax);
-            writer.WriteCollectionOfObjectValues<SalesCreditMemoLine>("salesCreditMemoLines", SalesCreditMemoLines);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SalesCreditMemoLine>("salesCreditMemoLines", SalesCreditMemoLines);
             writer.WriteStringValue("salesperson", Salesperson);
-            writer.WriteObjectValue<PostalAddressType>("sellingPostalAddress", SellingPostalAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("sellingPostalAddress", SellingPostalAddress);
             writer.WriteStringValue("status", Status);
             writer.WriteDecimalValue("totalAmountExcludingTax", TotalAmountExcludingTax);
             writer.WriteDecimalValue("totalAmountIncludingTax", TotalAmountIncludingTax);

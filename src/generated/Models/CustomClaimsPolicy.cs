@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomClaimsPolicy : Entity, IParsable
+    public class CustomClaimsPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If specified, it overrides the content of the audience claim for WS-Federation and SAML2 protocols. A custom signing key must be used for audienceOverride to be applied, otherwise, the audienceOverride value is ignored. The value provided must be in the format of an absolute URI.</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>Defines which claims are present in the tokens affected by the policy, in addition to the basic claim and the core claim set. Inherited from customclaimbase.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomClaimBase>? Claims { get; set; }
+        public List<ApiSdk.Models.CustomClaimBase>? Claims { get; set; }
 #nullable restore
 #else
-        public List<CustomClaimBase> Claims { get; set; }
+        public List<ApiSdk.Models.CustomClaimBase> Claims { get; set; }
 #endif
         /// <summary>Indicates whether the application ID is added to the claim. It is relevant only for SAML2.0 and if a custom signing key is used. the default value is true. Optional.</summary>
         public bool? IncludeApplicationIdInIssuer { get; set; }
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomClaimsPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomClaimsPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomClaimsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomClaimsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomClaimsPolicy();
+            return new ApiSdk.Models.CustomClaimsPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "audienceOverride", n => { AudienceOverride = n.GetStringValue(); } },
-                { "claims", n => { Claims = n.GetCollectionOfObjectValues<CustomClaimBase>(CustomClaimBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "claims", n => { Claims = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomClaimBase>(ApiSdk.Models.CustomClaimBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "includeApplicationIdInIssuer", n => { IncludeApplicationIdInIssuer = n.GetBoolValue(); } },
                 { "includeBasicClaimSet", n => { IncludeBasicClaimSet = n.GetBoolValue(); } },
             };
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("audienceOverride", AudienceOverride);
-            writer.WriteCollectionOfObjectValues<CustomClaimBase>("claims", Claims);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomClaimBase>("claims", Claims);
             writer.WriteBoolValue("includeApplicationIdInIssuer", IncludeApplicationIdInIssuer);
             writer.WriteBoolValue("includeBasicClaimSet", IncludeBasicClaimSet);
         }

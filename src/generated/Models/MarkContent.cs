@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MarkContent : LabelActionBase, IParsable
+    public class MarkContent : ApiSdk.Models.LabelActionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fontColor property</summary>
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MarkContent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MarkContent"/> and sets the default values.
         /// </summary>
         public MarkContent() : base()
         {
@@ -38,18 +38,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MarkContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MarkContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MarkContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MarkContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.addFooter" => new AddFooter(),
-                "#microsoft.graph.addHeader" => new AddHeader(),
-                "#microsoft.graph.addWatermark" => new AddWatermark(),
-                _ => new MarkContent(),
+                "#microsoft.graph.addFooter" => new ApiSdk.Models.AddFooter(),
+                "#microsoft.graph.addHeader" => new ApiSdk.Models.AddHeader(),
+                "#microsoft.graph.addWatermark" => new ApiSdk.Models.AddWatermark(),
+                _ => new ApiSdk.Models.MarkContent(),
             };
         }
         /// <summary>

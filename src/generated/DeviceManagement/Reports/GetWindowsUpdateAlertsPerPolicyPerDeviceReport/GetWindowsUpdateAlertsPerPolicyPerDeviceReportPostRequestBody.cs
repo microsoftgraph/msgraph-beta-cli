@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDevi
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport.GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDevi
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport.GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport.GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport.GetWindowsUpdateAlertsPerPolicyPerDeviceReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

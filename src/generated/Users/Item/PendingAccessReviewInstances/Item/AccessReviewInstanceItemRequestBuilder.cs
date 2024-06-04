@@ -40,7 +40,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("accept-recommendations");
             command.Description = "Provides operations to call the acceptRecommendations method.";
-            var builder = new AcceptRecommendationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AcceptRecommendations.AcceptRecommendationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -57,7 +57,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("apply-decisions");
             command.Description = "Provides operations to call the applyDecisions method.";
-            var builder = new ApplyDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ApplyDecisions.ApplyDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -74,7 +74,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("batch-record-decisions");
             command.Description = "Provides operations to call the batchRecordDecisions method.";
-            var builder = new BatchRecordDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.BatchRecordDecisions.BatchRecordDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -91,7 +91,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("contacted-reviewers");
             command.Description = "Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.";
-            var builder = new ContactedReviewersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ContactedReviewers.ContactedReviewersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -118,7 +118,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("decisions");
             command.Description = "Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.";
-            var builder = new DecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Decisions.DecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -147,7 +147,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("definition");
             command.Description = "Provides operations to manage the definition property of the microsoft.graph.accessReviewInstance entity.";
-            var builder = new DefinitionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Definition.DefinitionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -291,7 +291,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AccessReviewInstance>(AccessReviewInstance.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.AccessReviewInstance>(ApiSdk.Models.AccessReviewInstance.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -320,7 +320,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("reset-decisions");
             command.Description = "Provides operations to call the resetDecisions method.";
-            var builder = new ResetDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ResetDecisions.ResetDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -337,7 +337,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("send-reminder");
             command.Description = "Provides operations to call the sendReminder method.";
-            var builder = new SendReminderRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.SendReminder.SendReminderRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -354,7 +354,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("stages");
             command.Description = "Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.";
-            var builder = new StagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stages.StagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -382,7 +382,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("stop-apply-decisions");
             command.Description = "Provides operations to call the stopApplyDecisions method.";
-            var builder = new StopApplyDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.StopApplyDecisions.StopApplyDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -399,7 +399,7 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         {
             var command = new Command("stop");
             command.Description = "Provides operations to call the stop method.";
-            var builder = new StopRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.PendingAccessReviewInstances.Item.Stop.StopRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -409,14 +409,14 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewInstanceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AccessReviewInstanceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AccessReviewInstanceItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewInstanceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AccessReviewInstanceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AccessReviewInstanceItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}{?%24expand,%24select}", rawUrl)
@@ -448,11 +448,11 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewInstanceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AccessReviewInstanceItemRequestBuilder.AccessReviewInstanceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessReviewInstanceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AccessReviewInstanceItemRequestBuilder.AccessReviewInstanceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -468,11 +468,11 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AccessReviewInstance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AccessReviewInstance body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AccessReviewInstance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AccessReviewInstance body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingValueDefinition"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingValueDefinition()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingValueDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationSettingValueDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinition" => new DeviceManagementConfigurationIntegerSettingValueDefinition(),
-                "#microsoft.graph.deviceManagementConfigurationStringSettingValueDefinition" => new DeviceManagementConfigurationStringSettingValueDefinition(),
-                _ => new DeviceManagementConfigurationSettingValueDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinition" => new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationStringSettingValueDefinition" => new ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefinition(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition(),
             };
         }
         /// <summary>

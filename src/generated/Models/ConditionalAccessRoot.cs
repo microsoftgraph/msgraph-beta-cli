@@ -7,66 +7,66 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ConditionalAccessRoot : Entity, IParsable
+    public class ConditionalAccessRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Read-only. Nullable. Returns a collection of the specified authentication context class references.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationContextClassReference>? AuthenticationContextClassReferences { get; set; }
+        public List<ApiSdk.Models.AuthenticationContextClassReference>? AuthenticationContextClassReferences { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationContextClassReference> AuthenticationContextClassReferences { get; set; }
+        public List<ApiSdk.Models.AuthenticationContextClassReference> AuthenticationContextClassReferences { get; set; }
 #endif
         /// <summary>Defines the authentication strength policies, valid authentication method combinations, and authentication method mode details that can be required by a conditional access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationStrengthRoot? AuthenticationStrength { get; set; }
+        public ApiSdk.Models.AuthenticationStrengthRoot? AuthenticationStrength { get; set; }
 #nullable restore
 #else
-        public AuthenticationStrengthRoot AuthenticationStrength { get; set; }
+        public ApiSdk.Models.AuthenticationStrengthRoot AuthenticationStrength { get; set; }
 #endif
         /// <summary>DEPRECATED. See the authenticationStrength relationship instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationStrengthRoot? AuthenticationStrengths { get; set; }
+        public ApiSdk.Models.AuthenticationStrengthRoot? AuthenticationStrengths { get; set; }
 #nullable restore
 #else
-        public AuthenticationStrengthRoot AuthenticationStrengths { get; set; }
+        public ApiSdk.Models.AuthenticationStrengthRoot AuthenticationStrengths { get; set; }
 #endif
         /// <summary>Read-only. Nullable. Returns a collection of the specified named locations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NamedLocation>? NamedLocations { get; set; }
+        public List<ApiSdk.Models.NamedLocation>? NamedLocations { get; set; }
 #nullable restore
 #else
-        public List<NamedLocation> NamedLocations { get; set; }
+        public List<ApiSdk.Models.NamedLocation> NamedLocations { get; set; }
 #endif
         /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessPolicy>? Policies { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessPolicy>? Policies { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessPolicy> Policies { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessPolicy> Policies { get; set; }
 #endif
         /// <summary>Read-only. Nullable. Returns a collection of the specified Conditional Access templates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessTemplate>? Templates { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessTemplate>? Templates { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessTemplate> Templates { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessTemplate> Templates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConditionalAccessRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ConditionalAccessRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessRoot();
+            return new ApiSdk.Models.ConditionalAccessRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationStrength", n => { AuthenticationStrength = n.GetObjectValue<AuthenticationStrengthRoot>(AuthenticationStrengthRoot.CreateFromDiscriminatorValue); } },
-                { "authenticationStrengths", n => { AuthenticationStrengths = n.GetObjectValue<AuthenticationStrengthRoot>(AuthenticationStrengthRoot.CreateFromDiscriminatorValue); } },
-                { "namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<NamedLocation>(NamedLocation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "policies", n => { Policies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "templates", n => { Templates = n.GetCollectionOfObjectValues<ConditionalAccessTemplate>(ConditionalAccessTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationContextClassReference>(ApiSdk.Models.AuthenticationContextClassReference.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationStrength", n => { AuthenticationStrength = n.GetObjectValue<ApiSdk.Models.AuthenticationStrengthRoot>(ApiSdk.Models.AuthenticationStrengthRoot.CreateFromDiscriminatorValue); } },
+                { "authenticationStrengths", n => { AuthenticationStrengths = n.GetObjectValue<ApiSdk.Models.AuthenticationStrengthRoot>(ApiSdk.Models.AuthenticationStrengthRoot.CreateFromDiscriminatorValue); } },
+                { "namedLocations", n => { NamedLocations = n.GetCollectionOfObjectValues<ApiSdk.Models.NamedLocation>(ApiSdk.Models.NamedLocation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessPolicy>(ApiSdk.Models.ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "templates", n => { Templates = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessTemplate>(ApiSdk.Models.ConditionalAccessTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -92,12 +92,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AuthenticationContextClassReference>("authenticationContextClassReferences", AuthenticationContextClassReferences);
-            writer.WriteObjectValue<AuthenticationStrengthRoot>("authenticationStrength", AuthenticationStrength);
-            writer.WriteObjectValue<AuthenticationStrengthRoot>("authenticationStrengths", AuthenticationStrengths);
-            writer.WriteCollectionOfObjectValues<NamedLocation>("namedLocations", NamedLocations);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("policies", Policies);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessTemplate>("templates", Templates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationContextClassReference>("authenticationContextClassReferences", AuthenticationContextClassReferences);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationStrengthRoot>("authenticationStrength", AuthenticationStrength);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationStrengthRoot>("authenticationStrengths", AuthenticationStrengths);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.NamedLocation>("namedLocations", NamedLocations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessPolicy>("policies", Policies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessTemplate>("templates", Templates);
         }
     }
 }

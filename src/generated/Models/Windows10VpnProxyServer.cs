@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// VPN Proxy Server.
     /// </summary>
-    public class Windows10VpnProxyServer : VpnProxyServer, IParsable
+    public class Windows10VpnProxyServer : ApiSdk.Models.VpnProxyServer, IParsable
     {
         /// <summary>Bypass proxy server for local address.</summary>
         public bool? BypassProxyServerForLocalAddress { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10VpnProxyServer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10VpnProxyServer"/> and sets the default values.
         /// </summary>
         public Windows10VpnProxyServer() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10VpnProxyServer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10VpnProxyServer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10VpnProxyServer();
+            return new ApiSdk.Models.Windows10VpnProxyServer();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships
         /// <summary>The relationships property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileAppRelationship>? Relationships { get; set; }
+        public List<ApiSdk.Models.MobileAppRelationship>? Relationships { get; set; }
 #nullable restore
 #else
-        public List<MobileAppRelationship> Relationships { get; set; }
+        public List<ApiSdk.Models.MobileAppRelationship> Relationships { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateRelationshipsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships.UpdateRelationshipsPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateRelationshipsPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateRelationshipsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships.UpdateRelationshipsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateRelationshipsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships.UpdateRelationshipsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateRelationshipsPostRequestBody();
+            return new ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships.UpdateRelationshipsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<MobileAppRelationship>(MobileAppRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "relationships", n => { Relationships = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileAppRelationship>(ApiSdk.Models.MobileAppRelationship.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.Item.UpdateRelationships
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<MobileAppRelationship>("relationships", Relationships);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileAppRelationship>("relationships", Relationships);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

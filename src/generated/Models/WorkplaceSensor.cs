@@ -45,9 +45,9 @@ namespace ApiSdk.Models
         public string SensorId { get; set; }
 #endif
         /// <summary>The sensorType property</summary>
-        public WorkplaceSensorType? SensorType { get; set; }
+        public ApiSdk.Models.WorkplaceSensorType? SensorType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WorkplaceSensor"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WorkplaceSensor"/> and sets the default values.
         /// </summary>
         public WorkplaceSensor()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkplaceSensor"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkplaceSensor"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WorkplaceSensor CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WorkplaceSensor CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkplaceSensor();
+            return new ApiSdk.Models.WorkplaceSensor();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "placeId", n => { PlaceId = n.GetStringValue(); } },
                 { "sensorId", n => { SensorId = n.GetStringValue(); } },
-                { "sensorType", n => { SensorType = n.GetEnumValue<WorkplaceSensorType>(); } },
+                { "sensorType", n => { SensorType = n.GetEnumValue<ApiSdk.Models.WorkplaceSensorType>(); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("placeId", PlaceId);
             writer.WriteStringValue("sensorId", SensorId);
-            writer.WriteEnumValue<WorkplaceSensorType>("sensorType", SensorType);
+            writer.WriteEnumValue<ApiSdk.Models.WorkplaceSensorType>("sensorType", SensorType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

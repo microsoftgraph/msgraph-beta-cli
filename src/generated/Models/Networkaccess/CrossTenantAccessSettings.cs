@@ -11,16 +11,16 @@ namespace ApiSdk.Models.Networkaccess
     #pragma warning restore CS1591
     {
         /// <summary>The networkPacketTaggingStatus property</summary>
-        public Status? NetworkPacketTaggingStatus { get; set; }
+        public ApiSdk.Models.Networkaccess.Status? NetworkPacketTaggingStatus { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CrossTenantAccessSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.CrossTenantAccessSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CrossTenantAccessSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.CrossTenantAccessSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CrossTenantAccessSettings();
+            return new ApiSdk.Models.Networkaccess.CrossTenantAccessSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -30,7 +30,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "networkPacketTaggingStatus", n => { NetworkPacketTaggingStatus = n.GetEnumValue<Status>(); } },
+                { "networkPacketTaggingStatus", n => { NetworkPacketTaggingStatus = n.GetEnumValue<ApiSdk.Models.Networkaccess.Status>(); } },
             };
         }
         /// <summary>
@@ -41,7 +41,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Status>("networkPacketTaggingStatus", NetworkPacketTaggingStatus);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Status>("networkPacketTaggingStatus", NetworkPacketTaggingStatus);
         }
     }
 }

@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// Setting instance within policy
     /// </summary>
-    public class DeviceManagementConfigurationChoiceSettingInstance : DeviceManagementConfigurationSettingInstance, IParsable
+    public class DeviceManagementConfigurationChoiceSettingInstance : ApiSdk.Models.DeviceManagementConfigurationSettingInstance, IParsable
     {
         /// <summary>The choiceSettingValue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationChoiceSettingValue? ChoiceSettingValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValue? ChoiceSettingValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationChoiceSettingValue ChoiceSettingValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValue ChoiceSettingValue { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationChoiceSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationChoiceSettingInstance() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationChoiceSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationChoiceSettingInstance();
+            return new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "choiceSettingValue", n => { ChoiceSettingValue = n.GetObjectValue<DeviceManagementConfigurationChoiceSettingValue>(DeviceManagementConfigurationChoiceSettingValue.CreateFromDiscriminatorValue); } },
+                { "choiceSettingValue", n => { ChoiceSettingValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValue>(ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementConfigurationChoiceSettingValue>("choiceSettingValue", ChoiceSettingValue);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValue>("choiceSettingValue", ChoiceSettingValue);
         }
     }
 }

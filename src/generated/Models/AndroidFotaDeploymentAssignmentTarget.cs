@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The AAD Group we are deploying firmware updates to
     /// </summary>
-    public class AndroidFotaDeploymentAssignmentTarget : DeviceAndAppManagementAssignmentTarget, IParsable
+    public class AndroidFotaDeploymentAssignmentTarget : ApiSdk.Models.DeviceAndAppManagementAssignmentTarget, IParsable
     {
         /// <summary>AAD Group Id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string GroupId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidFotaDeploymentAssignmentTarget"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget"/> and sets the default values.
         /// </summary>
         public AndroidFotaDeploymentAssignmentTarget() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidFotaDeploymentAssignmentTarget"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidFotaDeploymentAssignmentTarget CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidFotaDeploymentAssignmentTarget();
+            return new ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget();
         }
         /// <summary>
         /// The deserialization information for the current model

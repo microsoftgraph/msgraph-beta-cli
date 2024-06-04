@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>The defaultCommunicationSpeaker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheral? DefaultCommunicationSpeaker { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral? DefaultCommunicationSpeaker { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheral DefaultCommunicationSpeaker { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral DefaultCommunicationSpeaker { get; set; }
 #endif
         /// <summary>The defaultSpeaker property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheral? DefaultSpeaker { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral? DefaultSpeaker { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheral DefaultSpeaker { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral DefaultSpeaker { get; set; }
 #endif
         /// <summary>True if the communication speaker is optional. Used to compute the health state if the communication speaker is not optional.</summary>
         public bool? IsCommunicationSpeakerOptional { get; set; }
@@ -43,13 +43,13 @@ namespace ApiSdk.Models
         /// <summary>The speakers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamworkPeripheral>? Speakers { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheral>? Speakers { get; set; }
 #nullable restore
 #else
-        public List<TeamworkPeripheral> Speakers { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheral> Speakers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkSpeakerConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkSpeakerConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkSpeakerConfiguration()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkSpeakerConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkSpeakerConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkSpeakerConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkSpeakerConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkSpeakerConfiguration();
+            return new ApiSdk.Models.TeamworkSpeakerConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,12 +73,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultCommunicationSpeaker", n => { DefaultCommunicationSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
-                { "defaultSpeaker", n => { DefaultSpeaker = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "defaultCommunicationSpeaker", n => { DefaultCommunicationSpeaker = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "defaultSpeaker", n => { DefaultSpeaker = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue); } },
                 { "isCommunicationSpeakerOptional", n => { IsCommunicationSpeakerOptional = n.GetBoolValue(); } },
                 { "isSpeakerOptional", n => { IsSpeakerOptional = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "speakers", n => { Speakers = n.GetCollectionOfObjectValues<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "speakers", n => { Speakers = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -88,12 +88,12 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkPeripheral>("defaultCommunicationSpeaker", DefaultCommunicationSpeaker);
-            writer.WriteObjectValue<TeamworkPeripheral>("defaultSpeaker", DefaultSpeaker);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheral>("defaultCommunicationSpeaker", DefaultCommunicationSpeaker);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheral>("defaultSpeaker", DefaultSpeaker);
             writer.WriteBoolValue("isCommunicationSpeakerOptional", IsCommunicationSpeakerOptional);
             writer.WriteBoolValue("isSpeakerOptional", IsSpeakerOptional);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<TeamworkPeripheral>("speakers", Speakers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheral>("speakers", Speakers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

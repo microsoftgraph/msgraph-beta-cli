@@ -93,7 +93,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationalActivityDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationalActivityDetail"/> and sets the default values.
         /// </summary>
         public EducationalActivityDetail()
         {
@@ -102,12 +102,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationalActivityDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationalActivityDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationalActivityDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationalActivityDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationalActivityDetail();
+            return new ApiSdk.Models.EducationalActivityDetail();
         }
         /// <summary>
         /// The deserialization information for the current model

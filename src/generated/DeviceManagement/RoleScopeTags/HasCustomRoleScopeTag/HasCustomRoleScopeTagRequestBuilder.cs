@@ -53,14 +53,14 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasCustomRoleScopeTagRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public HasCustomRoleScopeTagRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/roleScopeTags/hasCustomRoleScopeTag()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasCustomRoleScopeTagRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public HasCustomRoleScopeTagRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/roleScopeTags/hasCustomRoleScopeTag()", rawUrl)

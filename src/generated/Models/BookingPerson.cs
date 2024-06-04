@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a booking customer or staff member.
     /// </summary>
-    public class BookingPerson : BookingNamedEntity, IParsable
+    public class BookingPerson : ApiSdk.Models.BookingNamedEntity, IParsable
     {
         /// <summary>The email address of the person.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string EmailAddress { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BookingPerson"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BookingPerson"/> and sets the default values.
         /// </summary>
         public BookingPerson() : base()
         {
@@ -29,17 +29,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingPerson"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingPerson"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingPerson CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingPerson CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.bookingCustomer" => new BookingCustomer(),
-                "#microsoft.graph.bookingStaffMember" => new BookingStaffMember(),
-                _ => new BookingPerson(),
+                "#microsoft.graph.bookingCustomer" => new ApiSdk.Models.BookingCustomer(),
+                "#microsoft.graph.bookingStaffMember" => new ApiSdk.Models.BookingStaffMember(),
+                _ => new ApiSdk.Models.BookingPerson(),
             };
         }
         /// <summary>

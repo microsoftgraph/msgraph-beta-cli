@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MeetingRegistrationQuestion : Entity, IParsable
+    public class MeetingRegistrationQuestion : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Answer input type of the custom registration question.</summary>
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingRegistrationQuestion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingRegistrationQuestion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MeetingRegistrationQuestion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MeetingRegistrationQuestion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MeetingRegistrationQuestion();
+            return new ApiSdk.Models.MeetingRegistrationQuestion();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "answerInputType", n => { AnswerInputType = n.GetEnumValue<AnswerInputType>(); } },
+                { "answerInputType", n => { AnswerInputType = n.GetEnumValue<ApiSdk.Models.AnswerInputType>(); } },
                 { "answerOptions", n => { AnswerOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isRequired", n => { IsRequired = n.GetBoolValue(); } },
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AnswerInputType>("answerInputType", AnswerInputType);
+            writer.WriteEnumValue<ApiSdk.Models.AnswerInputType>("answerInputType", AnswerInputType);
             writer.WriteCollectionOfPrimitiveValues<string>("answerOptions", AnswerOptions);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isRequired", IsRequired);

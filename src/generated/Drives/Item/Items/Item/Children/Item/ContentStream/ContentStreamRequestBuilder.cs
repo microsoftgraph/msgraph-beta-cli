@@ -182,14 +182,14 @@ namespace ApiSdk.Drives.Item.Items.Item.Children.Item.ContentStream
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Drives.Item.Items.Item.Children.Item.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ContentStreamRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}/contentStream", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Drives.Item.Items.Item.Children.Item.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentStreamRequestBuilder(string rawUrl) : base("{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/children/{driveItem%2Did1}/contentStream", rawUrl)

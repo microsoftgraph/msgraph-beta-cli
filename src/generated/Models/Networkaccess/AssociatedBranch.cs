@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class AssociatedBranch : Association, IParsable
+    public class AssociatedBranch : ApiSdk.Models.Networkaccess.Association, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Identifier for the branch.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models.Networkaccess
         public string BranchId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssociatedBranch"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.AssociatedBranch"/> and sets the default values.
         /// </summary>
         public AssociatedBranch() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssociatedBranch"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.AssociatedBranch"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AssociatedBranch CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.AssociatedBranch CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssociatedBranch();
+            return new ApiSdk.Models.Networkaccess.AssociatedBranch();
         }
         /// <summary>
         /// The deserialization information for the current model

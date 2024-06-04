@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Ediscovery
 {
     #pragma warning disable CS1591
-    public class NoncustodialDataSource : DataSourceContainer, IParsable
+    public class NoncustodialDataSource : ApiSdk.Models.Ediscovery.DataSourceContainer, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates if hold is applied to noncustodial data source (such as mailbox or site).</summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Ediscovery
         public ApiSdk.Models.Ediscovery.DataSource DataSource { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="NoncustodialDataSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Ediscovery.NoncustodialDataSource"/> and sets the default values.
         /// </summary>
         public NoncustodialDataSource() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NoncustodialDataSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.NoncustodialDataSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new NoncustodialDataSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.NoncustodialDataSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NoncustodialDataSource();
+            return new ApiSdk.Models.Ediscovery.NoncustodialDataSource();
         }
         /// <summary>
         /// The deserialization information for the current model

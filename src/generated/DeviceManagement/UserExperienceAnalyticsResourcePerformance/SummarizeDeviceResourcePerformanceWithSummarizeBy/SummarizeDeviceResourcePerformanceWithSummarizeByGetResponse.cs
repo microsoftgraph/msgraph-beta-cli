@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsResourcePerformance.SummarizeDeviceResourcePerformanceWithSummarizeBy
 {
     #pragma warning disable CS1591
-    public class SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsResourcePerformance.Sum
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.UserExperienceAnalyticsResourcePerformance.SummarizeDeviceResourcePerformanceWithSummarizeBy.SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.UserExperienceAnalyticsResourcePerformance.SummarizeDeviceResourcePerformanceWithSummarizeBy.SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse();
+            return new ApiSdk.DeviceManagement.UserExperienceAnalyticsResourcePerformance.SummarizeDeviceResourcePerformanceWithSummarizeBy.SummarizeDeviceResourcePerformanceWithSummarizeByGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

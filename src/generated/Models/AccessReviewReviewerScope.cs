@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessReviewReviewerScope : AccessReviewScope, IParsable
+    public class AccessReviewReviewerScope : ApiSdk.Models.AccessReviewScope, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The query specifying who will be the reviewer.</summary>
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string QueryType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewReviewerScope"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessReviewReviewerScope"/> and sets the default values.
         /// </summary>
         public AccessReviewReviewerScope() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewReviewerScope"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewReviewerScope"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReviewReviewerScope CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessReviewReviewerScope CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReviewReviewerScope();
+            return new ApiSdk.Models.AccessReviewReviewerScope();
         }
         /// <summary>
         /// The deserialization information for the current model

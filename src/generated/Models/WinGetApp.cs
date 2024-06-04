@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// A MobileApp that is based on a referenced application in a WinGet repository.
     /// </summary>
-    public class WinGetApp : MobileApp, IParsable
+    public class WinGetApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The install experience settings associated with this application, which are used to ensure the desired install experiences on the target device are taken into account. This includes the account type (System or User) that actions should be run as on target devices. Required at creation time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WinGetAppInstallExperience? InstallExperience { get; set; }
+        public ApiSdk.Models.WinGetAppInstallExperience? InstallExperience { get; set; }
 #nullable restore
 #else
-        public WinGetAppInstallExperience InstallExperience { get; set; }
+        public ApiSdk.Models.WinGetAppInstallExperience InstallExperience { get; set; }
 #endif
         /// <summary>Hash of package metadata properties used to validate that the application matches the metadata in the source repository.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         public string PackageIdentifier { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WinGetApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WinGetApp"/> and sets the default values.
         /// </summary>
         public WinGetApp() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WinGetApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WinGetApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WinGetApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WinGetApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WinGetApp();
+            return new ApiSdk.Models.WinGetApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "installExperience", n => { InstallExperience = n.GetObjectValue<WinGetAppInstallExperience>(WinGetAppInstallExperience.CreateFromDiscriminatorValue); } },
+                { "installExperience", n => { InstallExperience = n.GetObjectValue<ApiSdk.Models.WinGetAppInstallExperience>(ApiSdk.Models.WinGetAppInstallExperience.CreateFromDiscriminatorValue); } },
                 { "manifestHash", n => { ManifestHash = n.GetStringValue(); } },
                 { "packageIdentifier", n => { PackageIdentifier = n.GetStringValue(); } },
             };
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<WinGetAppInstallExperience>("installExperience", InstallExperience);
+            writer.WriteObjectValue<ApiSdk.Models.WinGetAppInstallExperience>("installExperience", InstallExperience);
             writer.WriteStringValue("manifestHash", ManifestHash);
             writer.WriteStringValue("packageIdentifier", PackageIdentifier);
         }

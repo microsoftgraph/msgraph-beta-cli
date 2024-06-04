@@ -13,39 +13,39 @@ namespace ApiSdk.Models.Security
         /// <summary>Specifies the admin review property that constitutes of who reviewed the user submission, when and what was it identified as.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SubmissionAdminReview? AdminReview { get; set; }
+        public ApiSdk.Models.Security.SubmissionAdminReview? AdminReview { get; set; }
 #nullable restore
 #else
-        public SubmissionAdminReview AdminReview { get; set; }
+        public ApiSdk.Models.Security.SubmissionAdminReview AdminReview { get; set; }
 #endif
         /// <summary>The category property</summary>
-        public SubmissionCategory? Category { get; set; }
+        public ApiSdk.Models.Security.SubmissionCategory? Category { get; set; }
         /// <summary>Specifies the source of the submission. The possible values are: microsoft,  other and unkownFutureValue.</summary>
-        public SubmissionClientSource? ClientSource { get; set; }
+        public ApiSdk.Models.Security.SubmissionClientSource? ClientSource { get; set; }
         /// <summary>Specifies the type of content being submitted. The possible values are: email, url, file, app and unkownFutureValue.</summary>
-        public SubmissionContentType? ContentType { get; set; }
+        public ApiSdk.Models.Security.SubmissionContentType? ContentType { get; set; }
         /// <summary>Specifies who submitted the email as a threat. Supports $filter = createdBy/email eq &apos;value&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SubmissionUserIdentity? CreatedBy { get; set; }
+        public ApiSdk.Models.Security.SubmissionUserIdentity? CreatedBy { get; set; }
 #nullable restore
 #else
-        public SubmissionUserIdentity CreatedBy { get; set; }
+        public ApiSdk.Models.Security.SubmissionUserIdentity CreatedBy { get; set; }
 #endif
         /// <summary>Specifies when the threat submission was created. Supports $filter = createdDateTime ge 2022-01-01T00:00:00Z and createdDateTime lt 2022-01-02T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Specifies the result of the analysis performed by Microsoft.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SubmissionResult? Result { get; set; }
+        public ApiSdk.Models.Security.SubmissionResult? Result { get; set; }
 #nullable restore
 #else
-        public SubmissionResult Result { get; set; }
+        public ApiSdk.Models.Security.SubmissionResult Result { get; set; }
 #endif
         /// <summary>Specifies the role of the submitter. Supports $filter = source eq &apos;value&apos;. The possible values are: administrator,  user and unkownFutureValue.</summary>
-        public SubmissionSource? Source { get; set; }
+        public ApiSdk.Models.Security.SubmissionSource? Source { get; set; }
         /// <summary>Indicates whether the threat submission has been analyzed by Microsoft. Supports $filter = status eq &apos;value&apos;. The possible values are: notStarted, running, succeeded, failed, skipped and unkownFutureValue.</summary>
-        public LongRunningOperationStatus? Status { get; set; }
+        public ApiSdk.Models.Security.LongRunningOperationStatus? Status { get; set; }
         /// <summary>Indicates the tenant id of the submitter. Not required when created using a POST operation. It&apos;s extracted from the token of the post API call.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,22 +57,22 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ThreatSubmission"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.ThreatSubmission"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ThreatSubmission CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.ThreatSubmission CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.emailContentThreatSubmission" => new EmailContentThreatSubmission(),
-                "#microsoft.graph.security.emailThreatSubmission" => new EmailThreatSubmission(),
-                "#microsoft.graph.security.emailUrlThreatSubmission" => new EmailUrlThreatSubmission(),
-                "#microsoft.graph.security.fileContentThreatSubmission" => new FileContentThreatSubmission(),
-                "#microsoft.graph.security.fileThreatSubmission" => new FileThreatSubmission(),
-                "#microsoft.graph.security.fileUrlThreatSubmission" => new FileUrlThreatSubmission(),
-                "#microsoft.graph.security.urlThreatSubmission" => new UrlThreatSubmission(),
-                _ => new ThreatSubmission(),
+                "#microsoft.graph.security.emailContentThreatSubmission" => new ApiSdk.Models.Security.EmailContentThreatSubmission(),
+                "#microsoft.graph.security.emailThreatSubmission" => new ApiSdk.Models.Security.EmailThreatSubmission(),
+                "#microsoft.graph.security.emailUrlThreatSubmission" => new ApiSdk.Models.Security.EmailUrlThreatSubmission(),
+                "#microsoft.graph.security.fileContentThreatSubmission" => new ApiSdk.Models.Security.FileContentThreatSubmission(),
+                "#microsoft.graph.security.fileThreatSubmission" => new ApiSdk.Models.Security.FileThreatSubmission(),
+                "#microsoft.graph.security.fileUrlThreatSubmission" => new ApiSdk.Models.Security.FileUrlThreatSubmission(),
+                "#microsoft.graph.security.urlThreatSubmission" => new ApiSdk.Models.Security.UrlThreatSubmission(),
+                _ => new ApiSdk.Models.Security.ThreatSubmission(),
             };
         }
         /// <summary>
@@ -83,15 +83,15 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "adminReview", n => { AdminReview = n.GetObjectValue<SubmissionAdminReview>(SubmissionAdminReview.CreateFromDiscriminatorValue); } },
-                { "category", n => { Category = n.GetEnumValue<SubmissionCategory>(); } },
-                { "clientSource", n => { ClientSource = n.GetEnumValue<SubmissionClientSource>(); } },
-                { "contentType", n => { ContentType = n.GetEnumValue<SubmissionContentType>(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<SubmissionUserIdentity>(SubmissionUserIdentity.CreateFromDiscriminatorValue); } },
+                { "adminReview", n => { AdminReview = n.GetObjectValue<ApiSdk.Models.Security.SubmissionAdminReview>(ApiSdk.Models.Security.SubmissionAdminReview.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.Security.SubmissionCategory>(); } },
+                { "clientSource", n => { ClientSource = n.GetEnumValue<ApiSdk.Models.Security.SubmissionClientSource>(); } },
+                { "contentType", n => { ContentType = n.GetEnumValue<ApiSdk.Models.Security.SubmissionContentType>(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.Security.SubmissionUserIdentity>(ApiSdk.Models.Security.SubmissionUserIdentity.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "result", n => { Result = n.GetObjectValue<SubmissionResult>(SubmissionResult.CreateFromDiscriminatorValue); } },
-                { "source", n => { Source = n.GetEnumValue<SubmissionSource>(); } },
-                { "status", n => { Status = n.GetEnumValue<LongRunningOperationStatus>(); } },
+                { "result", n => { Result = n.GetObjectValue<ApiSdk.Models.Security.SubmissionResult>(ApiSdk.Models.Security.SubmissionResult.CreateFromDiscriminatorValue); } },
+                { "source", n => { Source = n.GetEnumValue<ApiSdk.Models.Security.SubmissionSource>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Security.LongRunningOperationStatus>(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
@@ -103,15 +103,15 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<SubmissionAdminReview>("adminReview", AdminReview);
-            writer.WriteEnumValue<SubmissionCategory>("category", Category);
-            writer.WriteEnumValue<SubmissionClientSource>("clientSource", ClientSource);
-            writer.WriteEnumValue<SubmissionContentType>("contentType", ContentType);
-            writer.WriteObjectValue<SubmissionUserIdentity>("createdBy", CreatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.Security.SubmissionAdminReview>("adminReview", AdminReview);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionClientSource>("clientSource", ClientSource);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionContentType>("contentType", ContentType);
+            writer.WriteObjectValue<ApiSdk.Models.Security.SubmissionUserIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<SubmissionResult>("result", Result);
-            writer.WriteEnumValue<SubmissionSource>("source", Source);
-            writer.WriteEnumValue<LongRunningOperationStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.Security.SubmissionResult>("result", Result);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionSource>("source", Source);
+            writer.WriteEnumValue<ApiSdk.Models.Security.LongRunningOperationStatus>("status", Status);
             writer.WriteStringValue("tenantId", TenantId);
         }
     }

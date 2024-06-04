@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analyte connectivity issue entity.
     /// </summary>
-    public class CloudPCConnectivityIssue : Entity, IParsable
+    public class CloudPCConnectivityIssue : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The Intune DeviceId of the device the connection is associated with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPCConnectivityIssue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPCConnectivityIssue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPCConnectivityIssue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPCConnectivityIssue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPCConnectivityIssue();
+            return new ApiSdk.Models.CloudPCConnectivityIssue();
         }
         /// <summary>
         /// The deserialization information for the current model

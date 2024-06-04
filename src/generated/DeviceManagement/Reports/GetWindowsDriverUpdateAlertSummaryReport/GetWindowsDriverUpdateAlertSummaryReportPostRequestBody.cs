@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryRepo
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetWindowsDriverUpdateAlertSummaryReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport.GetWindowsDriverUpdateAlertSummaryReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetWindowsDriverUpdateAlertSummaryReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryRepo
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetWindowsDriverUpdateAlertSummaryReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport.GetWindowsDriverUpdateAlertSummaryReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetWindowsDriverUpdateAlertSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport.GetWindowsDriverUpdateAlertSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetWindowsDriverUpdateAlertSummaryReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport.GetWindowsDriverUpdateAlertSummaryReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

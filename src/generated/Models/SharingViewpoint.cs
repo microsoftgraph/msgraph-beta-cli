@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The sharingAbilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SharePointSharingAbilities? SharingAbilities { get; set; }
+        public ApiSdk.Models.SharePointSharingAbilities? SharingAbilities { get; set; }
 #nullable restore
 #else
-        public SharePointSharingAbilities SharingAbilities { get; set; }
+        public ApiSdk.Models.SharePointSharingAbilities SharingAbilities { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SharingViewpoint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SharingViewpoint"/> and sets the default values.
         /// </summary>
         public SharingViewpoint()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SharingViewpoint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SharingViewpoint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SharingViewpoint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SharingViewpoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SharingViewpoint();
+            return new ApiSdk.Models.SharingViewpoint();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             {
                 { "defaultSharingLink", n => { DefaultSharingLink = n.GetObjectValue<ApiSdk.Models.DefaultSharingLink>(ApiSdk.Models.DefaultSharingLink.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "sharingAbilities", n => { SharingAbilities = n.GetObjectValue<SharePointSharingAbilities>(SharePointSharingAbilities.CreateFromDiscriminatorValue); } },
+                { "sharingAbilities", n => { SharingAbilities = n.GetObjectValue<ApiSdk.Models.SharePointSharingAbilities>(ApiSdk.Models.SharePointSharingAbilities.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.DefaultSharingLink>("defaultSharingLink", DefaultSharingLink);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<SharePointSharingAbilities>("sharingAbilities", SharingAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.SharePointSharingAbilities>("sharingAbilities", SharingAbilities);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

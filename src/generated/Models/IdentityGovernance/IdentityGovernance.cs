@@ -39,10 +39,10 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>The lifecycleWorkflows property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LifecycleWorkflowsContainer? LifecycleWorkflows { get; set; }
+        public ApiSdk.Models.IdentityGovernance.LifecycleWorkflowsContainer? LifecycleWorkflows { get; set; }
 #nullable restore
 #else
-        public LifecycleWorkflowsContainer LifecycleWorkflows { get; set; }
+        public ApiSdk.Models.IdentityGovernance.LifecycleWorkflowsContainer LifecycleWorkflows { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,7 +93,7 @@ namespace ApiSdk.Models.IdentityGovernance
         public ApiSdk.Models.TermsOfUseContainer TermsOfUse { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IdentityGovernance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.IdentityGovernance"/> and sets the default values.
         /// </summary>
         public IdentityGovernance()
         {
@@ -102,12 +102,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IdentityGovernance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.IdentityGovernance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IdentityGovernance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityGovernance.IdentityGovernance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IdentityGovernance();
+            return new ApiSdk.Models.IdentityGovernance.IdentityGovernance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,7 +120,7 @@ namespace ApiSdk.Models.IdentityGovernance
                 { "accessReviews", n => { AccessReviews = n.GetObjectValue<ApiSdk.Models.AccessReviewSet>(ApiSdk.Models.AccessReviewSet.CreateFromDiscriminatorValue); } },
                 { "appConsent", n => { AppConsent = n.GetObjectValue<ApiSdk.Models.AppConsentApprovalRoute>(ApiSdk.Models.AppConsentApprovalRoute.CreateFromDiscriminatorValue); } },
                 { "entitlementManagement", n => { EntitlementManagement = n.GetObjectValue<ApiSdk.Models.EntitlementManagement>(ApiSdk.Models.EntitlementManagement.CreateFromDiscriminatorValue); } },
-                { "lifecycleWorkflows", n => { LifecycleWorkflows = n.GetObjectValue<LifecycleWorkflowsContainer>(LifecycleWorkflowsContainer.CreateFromDiscriminatorValue); } },
+                { "lifecycleWorkflows", n => { LifecycleWorkflows = n.GetObjectValue<ApiSdk.Models.IdentityGovernance.LifecycleWorkflowsContainer>(ApiSdk.Models.IdentityGovernance.LifecycleWorkflowsContainer.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "permissionsAnalytics", n => { PermissionsAnalytics = n.GetObjectValue<ApiSdk.Models.PermissionsAnalyticsAggregation>(ApiSdk.Models.PermissionsAnalyticsAggregation.CreateFromDiscriminatorValue); } },
                 { "permissionsManagement", n => { PermissionsManagement = n.GetObjectValue<ApiSdk.Models.PermissionsManagement>(ApiSdk.Models.PermissionsManagement.CreateFromDiscriminatorValue); } },
@@ -139,7 +139,7 @@ namespace ApiSdk.Models.IdentityGovernance
             writer.WriteObjectValue<ApiSdk.Models.AccessReviewSet>("accessReviews", AccessReviews);
             writer.WriteObjectValue<ApiSdk.Models.AppConsentApprovalRoute>("appConsent", AppConsent);
             writer.WriteObjectValue<ApiSdk.Models.EntitlementManagement>("entitlementManagement", EntitlementManagement);
-            writer.WriteObjectValue<LifecycleWorkflowsContainer>("lifecycleWorkflows", LifecycleWorkflows);
+            writer.WriteObjectValue<ApiSdk.Models.IdentityGovernance.LifecycleWorkflowsContainer>("lifecycleWorkflows", LifecycleWorkflows);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsAnalyticsAggregation>("permissionsAnalytics", PermissionsAnalytics);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsManagement>("permissionsManagement", PermissionsManagement);

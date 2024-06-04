@@ -15,7 +15,7 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
         /// <summary>The priority property</summary>
         public int? Priority { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SetPriorityPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody"/> and sets the default values.
         /// </summary>
         public SetPriorityPostRequestBody()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SetPriorityPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SetPriorityPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SetPriorityPostRequestBody();
+            return new ApiSdk.Users.Item.DeviceEnrollmentConfigurations.Item.SetPriority.SetPriorityPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

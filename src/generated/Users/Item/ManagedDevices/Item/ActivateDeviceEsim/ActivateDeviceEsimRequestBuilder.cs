@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ActivateDeviceEsimPostRequestBody>(ActivateDeviceEsimPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimPostRequestBody>(ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ActivateDeviceEsimRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ActivateDeviceEsimRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/activateDeviceEsim", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ActivateDeviceEsimRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ActivateDeviceEsimRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/activateDeviceEsim", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ActivateDeviceEsimPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ActivateDeviceEsimPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Users.Item.ManagedDevices.Item.ActivateDeviceEsim.ActivateDeviceEsimPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

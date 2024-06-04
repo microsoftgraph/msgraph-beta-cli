@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ConditionalAccessWhatIfPolicy : ConditionalAccessPolicy, IParsable
+    public class ConditionalAccessWhatIfPolicy : ApiSdk.Models.ConditionalAccessPolicy, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The policyApplies property</summary>
@@ -15,20 +15,20 @@ namespace ApiSdk.Models
         /// <summary>The reasons property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessWhatIfReasons?>? Reasons { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessWhatIfReasons?>? Reasons { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessWhatIfReasons?> Reasons { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessWhatIfReasons?> Reasons { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessWhatIfPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessWhatIfPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConditionalAccessWhatIfPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ConditionalAccessWhatIfPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessWhatIfPolicy();
+            return new ApiSdk.Models.ConditionalAccessWhatIfPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "policyApplies", n => { PolicyApplies = n.GetBoolValue(); } },
-                { "reasons", n => { Reasons = n.GetCollectionOfEnumValues<ConditionalAccessWhatIfReasons>()?.ToList(); } },
+                { "reasons", n => { Reasons = n.GetCollectionOfEnumValues<ApiSdk.Models.ConditionalAccessWhatIfReasons>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("policyApplies", PolicyApplies);
-            writer.WriteCollectionOfEnumValues<ConditionalAccessWhatIfReasons>("reasons", Reasons);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.ConditionalAccessWhatIfReasons>("reasons", Reasons);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ItemEmail : ItemFacet, IParsable
+    public class ItemEmail : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The email address itself.</summary>
@@ -27,9 +27,9 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public EmailType? Type { get; set; }
+        public ApiSdk.Models.EmailType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ItemEmail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ItemEmail"/> and sets the default values.
         /// </summary>
         public ItemEmail() : base()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemEmail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemEmail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ItemEmail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ItemEmail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ItemEmail();
+            return new ApiSdk.Models.ItemEmail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             {
                 { "address", n => { Address = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<EmailType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.EmailType>(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("address", Address);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<EmailType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.EmailType>("type", Type);
         }
     }
 }

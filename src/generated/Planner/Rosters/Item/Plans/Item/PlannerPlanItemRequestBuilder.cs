@@ -80,14 +80,14 @@ namespace ApiSdk.Planner.Rosters.Item.Plans.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerPlanItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.Rosters.Item.Plans.Item.PlannerPlanItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PlannerPlanItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/planner/rosters/{plannerRoster%2Did}/plans/{plannerPlan%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerPlanItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.Rosters.Item.Plans.Item.PlannerPlanItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PlannerPlanItemRequestBuilder(string rawUrl) : base("{+baseurl}/planner/rosters/{plannerRoster%2Did}/plans/{plannerPlan%2Did}{?%24expand,%24select}", rawUrl)
@@ -100,11 +100,11 @@ namespace ApiSdk.Planner.Rosters.Item.Plans.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Planner.Rosters.Item.Plans.Item.PlannerPlanItemRequestBuilder.PlannerPlanItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Planner.Rosters.Item.Plans.Item.PlannerPlanItemRequestBuilder.PlannerPlanItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

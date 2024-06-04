@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceAppManagement.MobileApps.ConvertFromMobileAppCatalogPacka
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.MobileApps.ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId.ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/mobileApps/convertFromMobileAppCatalogPackage(mobileAppCatalogPackageId='{mobileAppCatalogPackageId}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.MobileApps.ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageId.ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/mobileApps/convertFromMobileAppCatalogPackage(mobileAppCatalogPackageId='{mobileAppCatalogPackageId}')", rawUrl)

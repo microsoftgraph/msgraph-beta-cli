@@ -26,11 +26,11 @@ namespace ApiSdk.Models
         /// <summary>Diffie-Hellman Group</summary>
         public int? SecurityDiffieHellmanGroup { get; set; }
         /// <summary>Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.</summary>
-        public VpnEncryptionAlgorithmType? SecurityEncryptionAlgorithm { get; set; }
+        public ApiSdk.Models.VpnEncryptionAlgorithmType? SecurityEncryptionAlgorithm { get; set; }
         /// <summary>Integrity algorithm. Possible values are: sha2256, sha196, sha1160, sha2384, sha2_512, md5.</summary>
-        public VpnIntegrityAlgorithmType? SecurityIntegrityAlgorithm { get; set; }
+        public ApiSdk.Models.VpnIntegrityAlgorithmType? SecurityIntegrityAlgorithm { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosVpnSecurityAssociationParameters"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosVpnSecurityAssociationParameters"/> and sets the default values.
         /// </summary>
         public IosVpnSecurityAssociationParameters()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosVpnSecurityAssociationParameters"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosVpnSecurityAssociationParameters"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosVpnSecurityAssociationParameters CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosVpnSecurityAssociationParameters CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosVpnSecurityAssociationParameters();
+            return new ApiSdk.Models.IosVpnSecurityAssociationParameters();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,8 +57,8 @@ namespace ApiSdk.Models
                 { "lifetimeInMinutes", n => { LifetimeInMinutes = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "securityDiffieHellmanGroup", n => { SecurityDiffieHellmanGroup = n.GetIntValue(); } },
-                { "securityEncryptionAlgorithm", n => { SecurityEncryptionAlgorithm = n.GetEnumValue<VpnEncryptionAlgorithmType>(); } },
-                { "securityIntegrityAlgorithm", n => { SecurityIntegrityAlgorithm = n.GetEnumValue<VpnIntegrityAlgorithmType>(); } },
+                { "securityEncryptionAlgorithm", n => { SecurityEncryptionAlgorithm = n.GetEnumValue<ApiSdk.Models.VpnEncryptionAlgorithmType>(); } },
+                { "securityIntegrityAlgorithm", n => { SecurityIntegrityAlgorithm = n.GetEnumValue<ApiSdk.Models.VpnIntegrityAlgorithmType>(); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace ApiSdk.Models
             writer.WriteIntValue("lifetimeInMinutes", LifetimeInMinutes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("securityDiffieHellmanGroup", SecurityDiffieHellmanGroup);
-            writer.WriteEnumValue<VpnEncryptionAlgorithmType>("securityEncryptionAlgorithm", SecurityEncryptionAlgorithm);
-            writer.WriteEnumValue<VpnIntegrityAlgorithmType>("securityIntegrityAlgorithm", SecurityIntegrityAlgorithm);
+            writer.WriteEnumValue<ApiSdk.Models.VpnEncryptionAlgorithmType>("securityEncryptionAlgorithm", SecurityEncryptionAlgorithm);
+            writer.WriteEnumValue<ApiSdk.Models.VpnIntegrityAlgorithmType>("securityIntegrityAlgorithm", SecurityIntegrityAlgorithm);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

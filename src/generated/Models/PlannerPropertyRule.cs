@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Identifies which type of property rules is represented by this instance. The possible values are: taskRule, bucketRule, planRule, unknownFutureValue.</summary>
-        public PlannerRuleKind? RuleKind { get; set; }
+        public ApiSdk.Models.PlannerRuleKind? RuleKind { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerPropertyRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerPropertyRule"/> and sets the default values.
         /// </summary>
         public PlannerPropertyRule()
         {
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerPropertyRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerPropertyRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerPropertyRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerPropertyRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.plannerTaskPropertyRule" => new PlannerTaskPropertyRule(),
-                _ => new PlannerPropertyRule(),
+                "#microsoft.graph.plannerTaskPropertyRule" => new ApiSdk.Models.PlannerTaskPropertyRule(),
+                _ => new ApiSdk.Models.PlannerPropertyRule(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "ruleKind", n => { RuleKind = n.GetEnumValue<PlannerRuleKind>(); } },
+                { "ruleKind", n => { RuleKind = n.GetEnumValue<ApiSdk.Models.PlannerRuleKind>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PlannerRuleKind>("ruleKind", RuleKind);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerRuleKind>("ruleKind", RuleKind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

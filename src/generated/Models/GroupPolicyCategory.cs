@@ -9,31 +9,31 @@ namespace ApiSdk.Models
     /// <summary>
     /// The category entity stores the category of a group policy definition
     /// </summary>
-    public class GroupPolicyCategory : Entity, IParsable
+    public class GroupPolicyCategory : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The children categories</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyCategory>? Children { get; set; }
+        public List<ApiSdk.Models.GroupPolicyCategory>? Children { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyCategory> Children { get; set; }
+        public List<ApiSdk.Models.GroupPolicyCategory> Children { get; set; }
 #endif
         /// <summary>The id of the definition file the category came from</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinitionFile? DefinitionFile { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionFile? DefinitionFile { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinitionFile DefinitionFile { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionFile DefinitionFile { get; set; }
 #endif
         /// <summary>The immediate GroupPolicyDefinition children of the category</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyDefinition>? Definitions { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinition>? Definitions { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyDefinition> Definitions { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinition> Definitions { get; set; }
 #endif
         /// <summary>The string id of the category&apos;s display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,20 +52,20 @@ namespace ApiSdk.Models
         /// <summary>The parent category</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyCategory? Parent { get; set; }
+        public ApiSdk.Models.GroupPolicyCategory? Parent { get; set; }
 #nullable restore
 #else
-        public GroupPolicyCategory Parent { get; set; }
+        public ApiSdk.Models.GroupPolicyCategory Parent { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyCategory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyCategory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyCategory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyCategory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyCategory();
+            return new ApiSdk.Models.GroupPolicyCategory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,14 +75,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "children", n => { Children = n.GetCollectionOfObjectValues<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "definitionFile", n => { DefinitionFile = n.GetObjectValue<GroupPolicyDefinitionFile>(GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
-                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "children", n => { Children = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyCategory>(ApiSdk.Models.GroupPolicyCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "definitionFile", n => { DefinitionFile = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinitionFile>(ApiSdk.Models.GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinition>(ApiSdk.Models.GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "ingestionSource", n => { IngestionSource = n.GetEnumValue<IngestionSource>(); } },
+                { "ingestionSource", n => { IngestionSource = n.GetEnumValue<ApiSdk.Models.IngestionSource>(); } },
                 { "isRoot", n => { IsRoot = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.GroupPolicyCategory>(ApiSdk.Models.GroupPolicyCategory.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -93,14 +93,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GroupPolicyCategory>("children", Children);
-            writer.WriteObjectValue<GroupPolicyDefinitionFile>("definitionFile", DefinitionFile);
-            writer.WriteCollectionOfObjectValues<GroupPolicyDefinition>("definitions", Definitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyCategory>("children", Children);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinitionFile>("definitionFile", DefinitionFile);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinition>("definitions", Definitions);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<IngestionSource>("ingestionSource", IngestionSource);
+            writer.WriteEnumValue<ApiSdk.Models.IngestionSource>("ingestionSource", IngestionSource);
             writer.WriteBoolValue("isRoot", IsRoot);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<GroupPolicyCategory>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyCategory>("parent", Parent);
         }
     }
 }

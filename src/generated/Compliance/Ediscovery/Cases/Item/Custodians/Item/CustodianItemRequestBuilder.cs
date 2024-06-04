@@ -140,7 +140,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("last-index-operation");
             command.Description = "Provides operations to manage the lastIndexOperation property of the microsoft.graph.ediscovery.dataSourceContainer entity.";
-            var builder = new LastIndexOperationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.LastIndexOperation.LastIndexOperationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -157,7 +157,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("microsoft-graph-ediscovery-activate");
             command.Description = "Provides operations to call the activate method.";
-            var builder = new MicrosoftGraphEdiscoveryActivateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryActivate.MicrosoftGraphEdiscoveryActivateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -174,7 +174,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("microsoft-graph-ediscovery-apply-hold-by-id");
             command.Description = "Provides operations to call the applyHold method.";
-            var builder = new MicrosoftGraphEdiscoveryApplyHoldRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryApplyHold.MicrosoftGraphEdiscoveryApplyHoldRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -191,7 +191,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("microsoft-graph-ediscovery-release");
             command.Description = "Provides operations to call the release method.";
-            var builder = new MicrosoftGraphEdiscoveryReleaseRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryRelease.MicrosoftGraphEdiscoveryReleaseRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -208,7 +208,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("microsoft-graph-ediscovery-remove-hold-by-id");
             command.Description = "Provides operations to call the removeHold method.";
-            var builder = new MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryRemoveHold.MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -225,7 +225,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("microsoft-graph-ediscovery-update-index");
             command.Description = "Provides operations to call the updateIndex method.";
-            var builder = new MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.MicrosoftGraphEdiscoveryUpdateIndex.MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -301,7 +301,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("site-sources");
             command.Description = "Provides operations to manage the siteSources property of the microsoft.graph.ediscovery.custodian entity.";
-            var builder = new SiteSourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.SiteSources.SiteSourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -328,7 +328,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("unified-group-sources");
             command.Description = "Provides operations to manage the unifiedGroupSources property of the microsoft.graph.ediscovery.custodian entity.";
-            var builder = new UnifiedGroupSourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UnifiedGroupSources.UnifiedGroupSourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -355,7 +355,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         {
             var command = new Command("user-sources");
             command.Description = "Provides operations to manage the userSources property of the microsoft.graph.ediscovery.custodian entity.";
-            var builder = new UserSourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.UserSources.UserSourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -375,14 +375,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustodianItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.CustodianItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CustodianItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/custodians/{custodian%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustodianItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.CustodianItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CustodianItemRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/custodians/{custodian%2Did}{?%24expand,%24select}", rawUrl)
@@ -416,11 +416,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustodianItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.CustodianItemRequestBuilder.CustodianItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustodianItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.Item.CustodianItemRequestBuilder.CustodianItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
 {
     #pragma warning disable CS1591
-    public class RetrieveMyRequestsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class RetrieveMyRequestsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OperationApprovalRequest>? Value { get; set; }
+        public List<ApiSdk.Models.OperationApprovalRequest>? Value { get; set; }
 #nullable restore
 #else
-        public List<OperationApprovalRequest> Value { get; set; }
+        public List<ApiSdk.Models.OperationApprovalRequest> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RetrieveMyRequestsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RetrieveMyRequestsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RetrieveMyRequestsGetResponse();
+            return new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<OperationApprovalRequest>(OperationApprovalRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.OperationApprovalRequest>(ApiSdk.Models.OperationApprovalRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OperationApprovalRequest>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OperationApprovalRequest>("value", Value);
         }
     }
 }

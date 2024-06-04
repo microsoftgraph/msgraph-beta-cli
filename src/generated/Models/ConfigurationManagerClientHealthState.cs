@@ -26,9 +26,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Configuration manager client state</summary>
-        public ConfigurationManagerClientState? State { get; set; }
+        public ApiSdk.Models.ConfigurationManagerClientState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ConfigurationManagerClientHealthState"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConfigurationManagerClientHealthState"/> and sets the default values.
         /// </summary>
         public ConfigurationManagerClientHealthState()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConfigurationManagerClientHealthState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConfigurationManagerClientHealthState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConfigurationManagerClientHealthState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConfigurationManagerClientHealthState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConfigurationManagerClientHealthState();
+            return new ApiSdk.Models.ConfigurationManagerClientHealthState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
                 { "errorCode", n => { ErrorCode = n.GetIntValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<ConfigurationManagerClientState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ConfigurationManagerClientState>(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("errorCode", ErrorCode);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ConfigurationManagerClientState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ConfigurationManagerClientState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

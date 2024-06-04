@@ -141,7 +141,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<FilteringPolicy>(FilteringPolicy.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.FilteringPolicy>(ApiSdk.Models.Networkaccess.FilteringPolicy.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -169,7 +169,7 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
         {
             var command = new Command("policy-rules");
             command.Description = "Provides operations to manage the policyRules property of the microsoft.graph.networkaccess.policy entity.";
-            var builder = new PolicyRulesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.FilteringPolicies.Item.PolicyRules.PolicyRulesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -189,14 +189,14 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="FilteringPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.FilteringPolicies.Item.FilteringPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public FilteringPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/filteringPolicies/{filteringPolicy%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="FilteringPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.FilteringPolicies.Item.FilteringPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public FilteringPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/filteringPolicies/{filteringPolicy%2Did}{?%24expand,%24select}", rawUrl)
@@ -228,11 +228,11 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilteringPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.FilteringPolicies.Item.FilteringPolicyItemRequestBuilder.FilteringPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<FilteringPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.FilteringPolicies.Item.FilteringPolicyItemRequestBuilder.FilteringPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -248,11 +248,11 @@ namespace ApiSdk.NetworkAccess.FilteringPolicies.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(FilteringPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.FilteringPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(FilteringPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.FilteringPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

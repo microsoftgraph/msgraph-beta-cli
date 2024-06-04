@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public PermissionsDefinitionAction()
         {
@@ -30,24 +30,24 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.awsActionsPermissionsDefinitionAction" => new AwsActionsPermissionsDefinitionAction(),
-                "#microsoft.graph.awsPermissionsDefinitionAction" => new AwsPermissionsDefinitionAction(),
-                "#microsoft.graph.awsPolicyPermissionsDefinitionAction" => new AwsPolicyPermissionsDefinitionAction(),
-                "#microsoft.graph.azureActionPermissionsDefinitionAction" => new AzureActionPermissionsDefinitionAction(),
-                "#microsoft.graph.azurePermissionsDefinitionAction" => new AzurePermissionsDefinitionAction(),
-                "#microsoft.graph.azureRolePermissionsDefinitionAction" => new AzureRolePermissionsDefinitionAction(),
-                "#microsoft.graph.gcpActionPermissionsDefinitionAction" => new GcpActionPermissionsDefinitionAction(),
-                "#microsoft.graph.gcpPermissionsDefinitionAction" => new GcpPermissionsDefinitionAction(),
-                "#microsoft.graph.gcpRolePermissionsDefinitionAction" => new GcpRolePermissionsDefinitionAction(),
-                _ => new PermissionsDefinitionAction(),
+                "#microsoft.graph.awsActionsPermissionsDefinitionAction" => new ApiSdk.Models.AwsActionsPermissionsDefinitionAction(),
+                "#microsoft.graph.awsPermissionsDefinitionAction" => new ApiSdk.Models.AwsPermissionsDefinitionAction(),
+                "#microsoft.graph.awsPolicyPermissionsDefinitionAction" => new ApiSdk.Models.AwsPolicyPermissionsDefinitionAction(),
+                "#microsoft.graph.azureActionPermissionsDefinitionAction" => new ApiSdk.Models.AzureActionPermissionsDefinitionAction(),
+                "#microsoft.graph.azurePermissionsDefinitionAction" => new ApiSdk.Models.AzurePermissionsDefinitionAction(),
+                "#microsoft.graph.azureRolePermissionsDefinitionAction" => new ApiSdk.Models.AzureRolePermissionsDefinitionAction(),
+                "#microsoft.graph.gcpActionPermissionsDefinitionAction" => new ApiSdk.Models.GcpActionPermissionsDefinitionAction(),
+                "#microsoft.graph.gcpPermissionsDefinitionAction" => new ApiSdk.Models.GcpPermissionsDefinitionAction(),
+                "#microsoft.graph.gcpRolePermissionsDefinitionAction" => new ApiSdk.Models.GcpRolePermissionsDefinitionAction(),
+                _ => new ApiSdk.Models.PermissionsDefinitionAction(),
             };
         }
         /// <summary>

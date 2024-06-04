@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class UserMatchTargetReferenceValue : ReferenceValue, IParsable
+    public class UserMatchTargetReferenceValue : ApiSdk.Models.IndustryData.ReferenceValue, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="UserMatchTargetReferenceValue"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.UserMatchTargetReferenceValue"/> and sets the default values.
         /// </summary>
         public UserMatchTargetReferenceValue() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserMatchTargetReferenceValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.UserMatchTargetReferenceValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserMatchTargetReferenceValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.UserMatchTargetReferenceValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserMatchTargetReferenceValue();
+            return new ApiSdk.Models.IndustryData.UserMatchTargetReferenceValue();
         }
         /// <summary>
         /// The deserialization information for the current model

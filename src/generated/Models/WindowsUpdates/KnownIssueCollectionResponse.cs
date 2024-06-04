@@ -13,20 +13,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KnownIssue>? Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssue>? Value { get; set; }
 #nullable restore
 #else
-        public List<KnownIssue> Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssue> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KnownIssueCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.KnownIssueCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new KnownIssueCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.KnownIssueCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KnownIssueCollectionResponse();
+            return new ApiSdk.Models.WindowsUpdates.KnownIssueCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssue>(ApiSdk.Models.WindowsUpdates.KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<KnownIssue>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssue>("value", Value);
         }
     }
 }

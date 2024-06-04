@@ -51,14 +51,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.ReprovisionCloudPc
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReprovisionCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.ReprovisionCloudPc.ReprovisionCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReprovisionCloudPcRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/reprovisionCloudPc", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReprovisionCloudPcRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.ReprovisionCloudPc.ReprovisionCloudPcRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReprovisionCloudPcRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/reprovisionCloudPc", rawUrl)

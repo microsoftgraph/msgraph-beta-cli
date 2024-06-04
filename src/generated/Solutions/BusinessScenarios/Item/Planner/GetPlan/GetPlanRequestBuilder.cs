@@ -53,7 +53,7 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GetPlanPostRequestBody>(GetPlanPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanPostRequestBody>(ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -74,14 +74,14 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPlanRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetPlanRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/getPlan", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPlanRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetPlanRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/businessScenarios/{businessScenario%2Did}/planner/getPlan", rawUrl)
@@ -95,11 +95,11 @@ namespace ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetPlanPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetPlanPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Solutions.BusinessScenarios.Item.Planner.GetPlan.GetPlanPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

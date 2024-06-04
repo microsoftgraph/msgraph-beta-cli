@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PersonResponsibility : ItemFacet, IParsable
+    public class PersonResponsibility : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.</summary>
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PersonResponsibility"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonResponsibility"/> and sets the default values.
         /// </summary>
         public PersonResponsibility() : base()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonResponsibility"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonResponsibility"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PersonResponsibility CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PersonResponsibility CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonResponsibility();
+            return new ApiSdk.Models.PersonResponsibility();
         }
         /// <summary>
         /// The deserialization information for the current model

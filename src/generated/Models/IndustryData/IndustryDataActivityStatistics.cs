@@ -37,9 +37,9 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public IndustryDataActivityStatus? Status { get; set; }
+        public ApiSdk.Models.IndustryData.IndustryDataActivityStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataActivityStatistics"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.IndustryDataActivityStatistics"/> and sets the default values.
         /// </summary>
         public IndustryDataActivityStatistics()
         {
@@ -48,16 +48,16 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataActivityStatistics"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataActivityStatistics"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IndustryDataActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.IndustryDataActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.inboundActivityResults" => new InboundActivityResults(),
-                _ => new IndustryDataActivityStatistics(),
+                "#microsoft.graph.industryData.inboundActivityResults" => new ApiSdk.Models.IndustryData.InboundActivityResults(),
+                _ => new ApiSdk.Models.IndustryData.IndustryDataActivityStatistics(),
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace ApiSdk.Models.IndustryData
                 { "activityId", n => { ActivityId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<IndustryDataActivityStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.IndustryData.IndustryDataActivityStatus>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<IndustryDataActivityStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.IndustryData.IndustryDataActivityStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators
 {
     #pragma warning disable CS1591
-    public class DeleteTiIndicatorsPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class DeleteTiIndicatorsPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ResultInfo>? Value { get; set; }
+        public List<ApiSdk.Models.ResultInfo>? Value { get; set; }
 #nullable restore
 #else
-        public List<ResultInfo> Value { get; set; }
+        public List<ApiSdk.Models.ResultInfo> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeleteTiIndicatorsPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Security.TiIndicators.DeleteTiIndicators.DeleteTiIndicatorsPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeleteTiIndicatorsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Security.TiIndicators.DeleteTiIndicators.DeleteTiIndicatorsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeleteTiIndicatorsPostResponse();
+            return new ApiSdk.Security.TiIndicators.DeleteTiIndicators.DeleteTiIndicatorsPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<ResultInfo>(ResultInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ResultInfo>(ApiSdk.Models.ResultInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Security.TiIndicators.DeleteTiIndicators
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ResultInfo>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ResultInfo>("value", Value);
         }
     }
 }

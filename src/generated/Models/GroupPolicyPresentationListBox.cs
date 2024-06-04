@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an ADMX listBox element and an ADMX list element.
     /// </summary>
-    public class GroupPolicyPresentationListBox : GroupPolicyUploadedPresentation, IParsable
+    public class GroupPolicyPresentationListBox : ApiSdk.Models.GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.</summary>
         public bool? ExplicitValue { get; set; }
@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string ValuePrefix { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyPresentationListBox"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GroupPolicyPresentationListBox"/> and sets the default values.
         /// </summary>
         public GroupPolicyPresentationListBox() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationListBox"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationListBox"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationListBox CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationListBox CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationListBox();
+            return new ApiSdk.Models.GroupPolicyPresentationListBox();
         }
         /// <summary>
         /// The deserialization information for the current model

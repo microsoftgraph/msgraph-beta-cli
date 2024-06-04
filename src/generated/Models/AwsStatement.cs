@@ -23,13 +23,13 @@ namespace ApiSdk.Models
         /// <summary>The AWS conditions associated with the statement.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsCondition? Condition { get; set; }
+        public ApiSdk.Models.AwsCondition? Condition { get; set; }
 #nullable restore
 #else
-        public AwsCondition Condition { get; set; }
+        public ApiSdk.Models.AwsCondition Condition { get; set; }
 #endif
         /// <summary>The effect property</summary>
-        public AwsStatementEffect? Effect { get; set; }
+        public ApiSdk.Models.AwsStatementEffect? Effect { get; set; }
         /// <summary>AWS Not Actions</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +71,7 @@ namespace ApiSdk.Models
         public string StatementId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsStatement"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsStatement"/> and sets the default values.
         /// </summary>
         public AwsStatement()
         {
@@ -80,12 +80,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsStatement"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsStatement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AwsStatement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AwsStatement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsStatement();
+            return new ApiSdk.Models.AwsStatement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,8 +96,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actions", n => { Actions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "condition", n => { Condition = n.GetObjectValue<AwsCondition>(AwsCondition.CreateFromDiscriminatorValue); } },
-                { "effect", n => { Effect = n.GetEnumValue<AwsStatementEffect>(); } },
+                { "condition", n => { Condition = n.GetObjectValue<ApiSdk.Models.AwsCondition>(ApiSdk.Models.AwsCondition.CreateFromDiscriminatorValue); } },
+                { "effect", n => { Effect = n.GetEnumValue<ApiSdk.Models.AwsStatementEffect>(); } },
                 { "notActions", n => { NotActions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "notResources", n => { NotResources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -113,8 +113,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("actions", Actions);
-            writer.WriteObjectValue<AwsCondition>("condition", Condition);
-            writer.WriteEnumValue<AwsStatementEffect>("effect", Effect);
+            writer.WriteObjectValue<ApiSdk.Models.AwsCondition>("condition", Condition);
+            writer.WriteEnumValue<ApiSdk.Models.AwsStatementEffect>("effect", Effect);
             writer.WriteCollectionOfPrimitiveValues<string>("notActions", NotActions);
             writer.WriteCollectionOfPrimitiveValues<string>("notResources", NotResources);
             writer.WriteStringValue("@odata.type", OdataType);

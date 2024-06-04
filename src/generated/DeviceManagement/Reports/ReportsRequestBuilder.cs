@@ -101,7 +101,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("cached-report-configurations");
             command.Description = "Provides operations to manage the cachedReportConfigurations property of the microsoft.graph.deviceManagementReports entity.";
-            var builder = new CachedReportConfigurationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.CachedReportConfigurations.CachedReportConfigurationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -157,7 +157,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("export-jobs");
             command.Description = "Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.";
-            var builder = new ExportJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.ExportJobs.ExportJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -184,7 +184,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-active-malware-report");
             command.Description = "Provides operations to call the getActiveMalwareReport method.";
-            var builder = new GetActiveMalwareReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetActiveMalwareReport.GetActiveMalwareReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -201,7 +201,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-active-malware-summary-report");
             command.Description = "Provides operations to call the getActiveMalwareSummaryReport method.";
-            var builder = new GetActiveMalwareSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetActiveMalwareSummaryReport.GetActiveMalwareSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -218,7 +218,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-all-certificates-report");
             command.Description = "Provides operations to call the getAllCertificatesReport method.";
-            var builder = new GetAllCertificatesReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport.GetAllCertificatesReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -235,7 +235,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-apps-install-summary-report");
             command.Description = "Provides operations to call the getAppsInstallSummaryReport method.";
-            var builder = new GetAppsInstallSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport.GetAppsInstallSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -252,7 +252,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-app-status-overview-report");
             command.Description = "Provides operations to call the getAppStatusOverviewReport method.";
-            var builder = new GetAppStatusOverviewReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetAppStatusOverviewReport.GetAppStatusOverviewReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -269,7 +269,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-cached-report");
             command.Description = "Provides operations to call the getCachedReport method.";
-            var builder = new GetCachedReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCachedReport.GetCachedReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -286,7 +286,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-certificates-report");
             command.Description = "Provides operations to call the getCertificatesReport method.";
-            var builder = new GetCertificatesReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCertificatesReport.GetCertificatesReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -349,7 +349,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-policies-report-for-device");
             command.Description = "Provides operations to call the getCompliancePoliciesReportForDevice method.";
-            var builder = new GetCompliancePoliciesReportForDeviceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCompliancePoliciesReportForDevice.GetCompliancePoliciesReportForDeviceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -366,7 +366,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-policy-devices-report");
             command.Description = "Provides operations to call the getCompliancePolicyDevicesReport method.";
-            var builder = new GetCompliancePolicyDevicesReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDevicesReport.GetCompliancePolicyDevicesReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -383,7 +383,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-policy-device-summary-report");
             command.Description = "Provides operations to call the getCompliancePolicyDeviceSummaryReport method.";
-            var builder = new GetCompliancePolicyDeviceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport.GetCompliancePolicyDeviceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -400,7 +400,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-policy-non-compliance-report");
             command.Description = "Provides operations to call the getCompliancePolicyNonComplianceReport method.";
-            var builder = new GetCompliancePolicyNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCompliancePolicyNonComplianceReport.GetCompliancePolicyNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -417,7 +417,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-policy-non-compliance-summary-report");
             command.Description = "Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method.";
-            var builder = new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetCompliancePolicyNonComplianceSummaryReport.GetCompliancePolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -434,7 +434,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-setting-details-report");
             command.Description = "Provides operations to call the getComplianceSettingDetailsReport method.";
-            var builder = new GetComplianceSettingDetailsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetComplianceSettingDetailsReport.GetComplianceSettingDetailsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -451,7 +451,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-setting-non-compliance-report");
             command.Description = "Provides operations to call the getComplianceSettingNonComplianceReport method.";
-            var builder = new GetComplianceSettingNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetComplianceSettingNonComplianceReport.GetComplianceSettingNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -468,7 +468,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-compliance-settings-report");
             command.Description = "Provides operations to call the getComplianceSettingsReport method.";
-            var builder = new GetComplianceSettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetComplianceSettingsReport.GetComplianceSettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -485,7 +485,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-config-manager-device-policy-status-report");
             command.Description = "Provides operations to call the getConfigManagerDevicePolicyStatusReport method.";
-            var builder = new GetConfigManagerDevicePolicyStatusReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigManagerDevicePolicyStatusReport.GetConfigManagerDevicePolicyStatusReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -502,7 +502,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policies-report-for-device");
             command.Description = "Provides operations to call the getConfigurationPoliciesReportForDevice method.";
-            var builder = new GetConfigurationPoliciesReportForDeviceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPoliciesReportForDevice.GetConfigurationPoliciesReportForDeviceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -519,7 +519,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policy-devices-report");
             command.Description = "Provides operations to call the getConfigurationPolicyDevicesReport method.";
-            var builder = new GetConfigurationPolicyDevicesReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -536,7 +536,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policy-device-summary-report");
             command.Description = "Provides operations to call the getConfigurationPolicyDeviceSummaryReport method.";
-            var builder = new GetConfigurationPolicyDeviceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDeviceSummaryReport.GetConfigurationPolicyDeviceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -553,7 +553,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policy-non-compliance-report");
             command.Description = "Provides operations to call the getConfigurationPolicyNonComplianceReport method.";
-            var builder = new GetConfigurationPolicyNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceReport.GetConfigurationPolicyNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -570,7 +570,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policy-non-compliance-summary-report");
             command.Description = "Provides operations to call the getConfigurationPolicyNonComplianceSummaryReport method.";
-            var builder = new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyNonComplianceSummaryReport.GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -587,7 +587,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-policy-settings-device-summary-report");
             command.Description = "Provides operations to call the getConfigurationPolicySettingsDeviceSummaryReport method.";
-            var builder = new GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationPolicySettingsDeviceSummaryReport.GetConfigurationPolicySettingsDeviceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -604,7 +604,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-setting-details-report");
             command.Description = "Provides operations to call the getConfigurationSettingDetailsReport method.";
-            var builder = new GetConfigurationSettingDetailsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport.GetConfigurationSettingDetailsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -621,7 +621,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-setting-non-compliance-report");
             command.Description = "Provides operations to call the getConfigurationSettingNonComplianceReport method.";
-            var builder = new GetConfigurationSettingNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationSettingNonComplianceReport.GetConfigurationSettingNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -638,7 +638,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-configuration-settings-report");
             command.Description = "Provides operations to call the getConfigurationSettingsReport method.";
-            var builder = new GetConfigurationSettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetConfigurationSettingsReport.GetConfigurationSettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -655,7 +655,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-configuration-policy-settings-summary-report");
             command.Description = "Provides operations to call the getDeviceConfigurationPolicySettingsSummaryReport method.";
-            var builder = new GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceConfigurationPolicySettingsSummaryReport.GetDeviceConfigurationPolicySettingsSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -672,7 +672,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-configuration-policy-status-summary");
             command.Description = "Provides operations to call the getDeviceConfigurationPolicyStatusSummary method.";
-            var builder = new GetDeviceConfigurationPolicyStatusSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceConfigurationPolicyStatusSummary.GetDeviceConfigurationPolicyStatusSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -689,7 +689,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-install-status-report");
             command.Description = "Provides operations to call the getDeviceInstallStatusReport method.";
-            var builder = new GetDeviceInstallStatusReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport.GetDeviceInstallStatusReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -706,7 +706,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-management-intent-per-setting-contributing-profiles");
             command.Description = "Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.";
-            var builder = new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceManagementIntentPerSettingContributingProfiles.GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -723,7 +723,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-management-intent-settings-report");
             command.Description = "Provides operations to call the getDeviceManagementIntentSettingsReport method.";
-            var builder = new GetDeviceManagementIntentSettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceManagementIntentSettingsReport.GetDeviceManagementIntentSettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -740,7 +740,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-non-compliance-report");
             command.Description = "Provides operations to call the getDeviceNonComplianceReport method.";
-            var builder = new GetDeviceNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceNonComplianceReport.GetDeviceNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -757,7 +757,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-policies-compliance-report");
             command.Description = "Provides operations to call the getDevicePoliciesComplianceReport method.";
-            var builder = new GetDevicePoliciesComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDevicePoliciesComplianceReport.GetDevicePoliciesComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -774,7 +774,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-policy-settings-compliance-report");
             command.Description = "Provides operations to call the getDevicePolicySettingsComplianceReport method.";
-            var builder = new GetDevicePolicySettingsComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDevicePolicySettingsComplianceReport.GetDevicePolicySettingsComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -791,7 +791,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-devices-status-by-policy-platform-compliance-report");
             command.Description = "Provides operations to call the getDevicesStatusByPolicyPlatformComplianceReport method.";
-            var builder = new GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDevicesStatusByPolicyPlatformComplianceReport.GetDevicesStatusByPolicyPlatformComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -808,7 +808,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-devices-status-by-setting-report");
             command.Description = "Provides operations to call the getDevicesStatusBySettingReport method.";
-            var builder = new GetDevicesStatusBySettingReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDevicesStatusBySettingReport.GetDevicesStatusBySettingReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -825,7 +825,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-status-by-compliace-policy-report");
             command.Description = "Provides operations to call the getDeviceStatusByCompliacePolicyReport method.";
-            var builder = new GetDeviceStatusByCompliacePolicyReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceStatusByCompliacePolicyReport.GetDeviceStatusByCompliacePolicyReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -842,7 +842,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-status-by-compliance-policy-setting-report");
             command.Description = "Provides operations to call the getDeviceStatusByCompliancePolicySettingReport method.";
-            var builder = new GetDeviceStatusByCompliancePolicySettingReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceStatusByCompliancePolicySettingReport.GetDeviceStatusByCompliancePolicySettingReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -859,7 +859,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-status-summary-by-compliace-policy-report");
             command.Description = "Provides operations to call the getDeviceStatusSummaryByCompliacePolicyReport method.";
-            var builder = new GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceStatusSummaryByCompliacePolicyReport.GetDeviceStatusSummaryByCompliacePolicyReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -876,7 +876,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-device-status-summary-by-compliance-policy-settings-report");
             command.Description = "Provides operations to call the getDeviceStatusSummaryByCompliancePolicySettingsReport method.";
-            var builder = new GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDeviceStatusSummaryByCompliancePolicySettingsReport.GetDeviceStatusSummaryByCompliancePolicySettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -893,7 +893,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-devices-without-compliance-policy-report");
             command.Description = "Provides operations to call the getDevicesWithoutCompliancePolicyReport method.";
-            var builder = new GetDevicesWithoutCompliancePolicyReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetDevicesWithoutCompliancePolicyReport.GetDevicesWithoutCompliancePolicyReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -910,7 +910,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-encryption-report-for-devices");
             command.Description = "Provides operations to call the getEncryptionReportForDevices method.";
-            var builder = new GetEncryptionReportForDevicesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetEncryptionReportForDevices.GetEncryptionReportForDevicesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -927,7 +927,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-enrollment-configuration-policies-by-device");
             command.Description = "Provides operations to call the getEnrollmentConfigurationPoliciesByDevice method.";
-            var builder = new GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetEnrollmentConfigurationPoliciesByDevice.GetEnrollmentConfigurationPoliciesByDeviceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -944,7 +944,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-failed-mobile-apps-report");
             command.Description = "Provides operations to call the getFailedMobileAppsReport method.";
-            var builder = new GetFailedMobileAppsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetFailedMobileAppsReport.GetFailedMobileAppsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -961,7 +961,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-failed-mobile-apps-summary-report");
             command.Description = "Provides operations to call the getFailedMobileAppsSummaryReport method.";
-            var builder = new GetFailedMobileAppsSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetFailedMobileAppsSummaryReport.GetFailedMobileAppsSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -978,7 +978,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-group-policy-settings-device-settings-report");
             command.Description = "Provides operations to call the getGroupPolicySettingsDeviceSettingsReport method.";
-            var builder = new GetGroupPolicySettingsDeviceSettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetGroupPolicySettingsDeviceSettingsReport.GetGroupPolicySettingsDeviceSettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -995,7 +995,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-historical-report");
             command.Description = "Provides operations to call the getHistoricalReport method.";
-            var builder = new GetHistoricalReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetHistoricalReport.GetHistoricalReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1012,7 +1012,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-malware-summary-report");
             command.Description = "Provides operations to call the getMalwareSummaryReport method.";
-            var builder = new GetMalwareSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetMalwareSummaryReport.GetMalwareSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1029,7 +1029,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-mobile-application-management-app-configuration-report");
             command.Description = "Provides operations to call the getMobileApplicationManagementAppConfigurationReport method.";
-            var builder = new GetMobileApplicationManagementAppConfigurationReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetMobileApplicationManagementAppConfigurationReport.GetMobileApplicationManagementAppConfigurationReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1046,7 +1046,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-mobile-application-management-app-registration-summary-report");
             command.Description = "Provides operations to call the getMobileApplicationManagementAppRegistrationSummaryReport method.";
-            var builder = new GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetMobileApplicationManagementAppRegistrationSummaryReport.GetMobileApplicationManagementAppRegistrationSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1063,7 +1063,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-noncompliant-devices-and-settings-report");
             command.Description = "Provides operations to call the getNoncompliantDevicesAndSettingsReport method.";
-            var builder = new GetNoncompliantDevicesAndSettingsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetNoncompliantDevicesAndSettingsReport.GetNoncompliantDevicesAndSettingsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1080,7 +1080,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-policy-non-compliance-metadata");
             command.Description = "Provides operations to call the getPolicyNonComplianceMetadata method.";
-            var builder = new GetPolicyNonComplianceMetadataRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetPolicyNonComplianceMetadata.GetPolicyNonComplianceMetadataRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1097,7 +1097,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-policy-non-compliance-report");
             command.Description = "Provides operations to call the getPolicyNonComplianceReport method.";
-            var builder = new GetPolicyNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetPolicyNonComplianceReport.GetPolicyNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1114,7 +1114,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-policy-non-compliance-summary-report");
             command.Description = "Provides operations to call the getPolicyNonComplianceSummaryReport method.";
-            var builder = new GetPolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetPolicyNonComplianceSummaryReport.GetPolicyNonComplianceSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1131,7 +1131,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-quiet-time-policy-users-report");
             command.Description = "Provides operations to call the getQuietTimePolicyUsersReport method.";
-            var builder = new GetQuietTimePolicyUsersReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetQuietTimePolicyUsersReport.GetQuietTimePolicyUsersReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1148,7 +1148,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-quiet-time-policy-user-summary-report");
             command.Description = "Provides operations to call the getQuietTimePolicyUserSummaryReport method.";
-            var builder = new GetQuietTimePolicyUserSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetQuietTimePolicyUserSummaryReport.GetQuietTimePolicyUserSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1165,7 +1165,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-related-apps-status-report");
             command.Description = "Provides operations to call the getRelatedAppsStatusReport method.";
-            var builder = new GetRelatedAppsStatusReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetRelatedAppsStatusReport.GetRelatedAppsStatusReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1182,7 +1182,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-remote-assistance-sessions-report");
             command.Description = "Provides operations to call the getRemoteAssistanceSessionsReport method.";
-            var builder = new GetRemoteAssistanceSessionsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetRemoteAssistanceSessionsReport.GetRemoteAssistanceSessionsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1199,7 +1199,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-report-filters");
             command.Description = "Provides operations to call the getReportFilters method.";
-            var builder = new GetReportFiltersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetReportFilters.GetReportFiltersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1216,7 +1216,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-setting-non-compliance-report");
             command.Description = "Provides operations to call the getSettingNonComplianceReport method.";
-            var builder = new GetSettingNonComplianceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetSettingNonComplianceReport.GetSettingNonComplianceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1233,7 +1233,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-unhealthy-defender-agents-report");
             command.Description = "Provides operations to call the getUnhealthyDefenderAgentsReport method.";
-            var builder = new GetUnhealthyDefenderAgentsReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetUnhealthyDefenderAgentsReport.GetUnhealthyDefenderAgentsReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1250,7 +1250,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-unhealthy-firewall-report");
             command.Description = "Provides operations to call the getUnhealthyFirewallReport method.";
-            var builder = new GetUnhealthyFirewallReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetUnhealthyFirewallReport.GetUnhealthyFirewallReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1267,7 +1267,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-unhealthy-firewall-summary-report");
             command.Description = "Provides operations to call the getUnhealthyFirewallSummaryReport method.";
-            var builder = new GetUnhealthyFirewallSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetUnhealthyFirewallSummaryReport.GetUnhealthyFirewallSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1284,7 +1284,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-user-install-status-report");
             command.Description = "Provides operations to call the getUserInstallStatusReport method.";
-            var builder = new GetUserInstallStatusReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetUserInstallStatusReport.GetUserInstallStatusReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1301,7 +1301,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-driver-update-alerts-per-policy-per-device-report");
             command.Description = "Provides operations to call the getWindowsDriverUpdateAlertsPerPolicyPerDeviceReport method.";
-            var builder = new GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReport.GetWindowsDriverUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1318,7 +1318,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-driver-update-alert-summary-report");
             command.Description = "Provides operations to call the getWindowsDriverUpdateAlertSummaryReport method.";
-            var builder = new GetWindowsDriverUpdateAlertSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsDriverUpdateAlertSummaryReport.GetWindowsDriverUpdateAlertSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1335,7 +1335,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-quality-update-alerts-per-policy-per-device-report");
             command.Description = "Provides operations to call the getWindowsQualityUpdateAlertsPerPolicyPerDeviceReport method.";
-            var builder = new GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReport.GetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1352,7 +1352,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-quality-update-alert-summary-report");
             command.Description = "Provides operations to call the getWindowsQualityUpdateAlertSummaryReport method.";
-            var builder = new GetWindowsQualityUpdateAlertSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsQualityUpdateAlertSummaryReport.GetWindowsQualityUpdateAlertSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1369,7 +1369,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-update-alerts-per-policy-per-device-report");
             command.Description = "Provides operations to call the getWindowsUpdateAlertsPerPolicyPerDeviceReport method.";
-            var builder = new GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertsPerPolicyPerDeviceReport.GetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1386,7 +1386,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-windows-update-alert-summary-report");
             command.Description = "Provides operations to call the getWindowsUpdateAlertSummaryReport method.";
-            var builder = new GetWindowsUpdateAlertSummaryReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetWindowsUpdateAlertSummaryReport.GetWindowsUpdateAlertSummaryReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1403,7 +1403,7 @@ namespace ApiSdk.DeviceManagement.Reports
         {
             var command = new Command("get-zebra-fota-deployment-report");
             command.Description = "Provides operations to call the getZebraFotaDeploymentReport method.";
-            var builder = new GetZebraFotaDeploymentReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Reports.GetZebraFotaDeploymentReport.GetZebraFotaDeploymentReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -1438,7 +1438,7 @@ namespace ApiSdk.DeviceManagement.Reports
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceManagementReports>(DeviceManagementReports.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagementReports>(ApiSdk.Models.DeviceManagementReports.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -1458,14 +1458,14 @@ namespace ApiSdk.DeviceManagement.Reports
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReportsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReportsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports{?%24expand,%24select}", rawUrl)
@@ -1497,11 +1497,11 @@ namespace ApiSdk.DeviceManagement.Reports
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -1517,11 +1517,11 @@ namespace ApiSdk.DeviceManagement.Reports
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementReports body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementReports body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementReports body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementReports body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

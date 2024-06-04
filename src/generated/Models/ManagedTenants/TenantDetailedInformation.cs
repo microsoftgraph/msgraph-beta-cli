@@ -93,12 +93,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TenantDetailedInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.TenantDetailedInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TenantDetailedInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.TenantDetailedInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TenantDetailedInformation();
+            return new ApiSdk.Models.ManagedTenants.TenantDetailedInformation();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Any additional information about the Cloud PC status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? AdditionalInformation { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? AdditionalInformation { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> AdditionalInformation { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> AdditionalInformation { get; set; }
 #endif
         /// <summary>The code associated with the Cloud PC status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcStatusDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcStatusDetails"/> and sets the default values.
         /// </summary>
         public CloudPcStatusDetails()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcStatusDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcStatusDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcStatusDetails();
+            return new ApiSdk.Models.CloudPcStatusDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additionalInformation", n => { AdditionalInformation = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("additionalInformation", AdditionalInformation);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("additionalInformation", AdditionalInformation);
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("@odata.type", OdataType);

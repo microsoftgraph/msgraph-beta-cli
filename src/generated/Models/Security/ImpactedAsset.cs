@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ImpactedAsset"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.ImpactedAsset"/> and sets the default values.
         /// </summary>
         public ImpactedAsset()
         {
@@ -30,18 +30,18 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImpactedAsset"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.ImpactedAsset"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ImpactedAsset CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.ImpactedAsset CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.impactedDeviceAsset" => new ImpactedDeviceAsset(),
-                "#microsoft.graph.security.impactedMailboxAsset" => new ImpactedMailboxAsset(),
-                "#microsoft.graph.security.impactedUserAsset" => new ImpactedUserAsset(),
-                _ => new ImpactedAsset(),
+                "#microsoft.graph.security.impactedDeviceAsset" => new ApiSdk.Models.Security.ImpactedDeviceAsset(),
+                "#microsoft.graph.security.impactedMailboxAsset" => new ApiSdk.Models.Security.ImpactedMailboxAsset(),
+                "#microsoft.graph.security.impactedUserAsset" => new ApiSdk.Models.Security.ImpactedUserAsset(),
+                _ => new ApiSdk.Models.Security.ImpactedAsset(),
             };
         }
         /// <summary>

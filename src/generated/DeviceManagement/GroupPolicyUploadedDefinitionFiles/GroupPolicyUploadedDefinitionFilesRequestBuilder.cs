@@ -31,7 +31,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new GroupPolicyUploadedDefinitionFileItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyUploadedDefinitionFileItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAddLanguageFilesNavCommand());
             commands.Add(builder.BuildDefinitionsNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -52,7 +52,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -87,7 +87,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GroupPolicyUploadedDefinitionFile>(GroupPolicyUploadedDefinitionFile.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GroupPolicyUploadedDefinitionFile>(ApiSdk.Models.GroupPolicyUploadedDefinitionFile.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -203,14 +203,14 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyUploadedDefinitionFilesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.GroupPolicyUploadedDefinitionFilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GroupPolicyUploadedDefinitionFilesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyUploadedDefinitionFilesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.GroupPolicyUploadedDefinitionFilesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GroupPolicyUploadedDefinitionFilesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -223,11 +223,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyUploadedDefinitionFilesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.GroupPolicyUploadedDefinitionFilesRequestBuilder.GroupPolicyUploadedDefinitionFilesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyUploadedDefinitionFilesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.GroupPolicyUploadedDefinitionFilesRequestBuilder.GroupPolicyUploadedDefinitionFilesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -243,11 +243,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

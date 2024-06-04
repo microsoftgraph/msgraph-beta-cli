@@ -21,7 +21,7 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The category for the workload action. Possible values are: automated, manual, unknownFutureValue. Optional. Read-only.</summary>
-        public WorkloadActionCategory? Category { get; set; }
+        public ApiSdk.Models.ManagedTenants.WorkloadActionCategory? Category { get; set; }
         /// <summary>The description for the workload action. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,13 +65,13 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of settings associated with the workload action. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Setting>? Settings { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Setting>? Settings { get; set; }
 #nullable restore
 #else
-        public List<Setting> Settings { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Setting> Settings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WorkloadAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.WorkloadAction"/> and sets the default values.
         /// </summary>
         public WorkloadAction()
         {
@@ -80,12 +80,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkloadAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.WorkloadAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WorkloadAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.WorkloadAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkloadAction();
+            return new ApiSdk.Models.ManagedTenants.WorkloadAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,13 +96,13 @@ namespace ApiSdk.Models.ManagedTenants
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actionId", n => { ActionId = n.GetStringValue(); } },
-                { "category", n => { Category = n.GetEnumValue<WorkloadActionCategory>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.ManagedTenants.WorkloadActionCategory>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "licenses", n => { Licenses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "service", n => { Service = n.GetStringValue(); } },
-                { "settings", n => { Settings = n.GetCollectionOfObjectValues<Setting>(Setting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Setting>(ApiSdk.Models.ManagedTenants.Setting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -113,13 +113,13 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actionId", ActionId);
-            writer.WriteEnumValue<WorkloadActionCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.WorkloadActionCategory>("category", Category);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("licenses", Licenses);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("service", Service);
-            writer.WriteCollectionOfObjectValues<Setting>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Setting>("settings", Settings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

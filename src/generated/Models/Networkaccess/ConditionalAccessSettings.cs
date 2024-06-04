@@ -11,16 +11,16 @@ namespace ApiSdk.Models.Networkaccess
     #pragma warning restore CS1591
     {
         /// <summary>The signalingStatus property</summary>
-        public Status? SignalingStatus { get; set; }
+        public ApiSdk.Models.Networkaccess.Status? SignalingStatus { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ConditionalAccessSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConditionalAccessSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.ConditionalAccessSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessSettings();
+            return new ApiSdk.Models.Networkaccess.ConditionalAccessSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -30,7 +30,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "signalingStatus", n => { SignalingStatus = n.GetEnumValue<Status>(); } },
+                { "signalingStatus", n => { SignalingStatus = n.GetEnumValue<ApiSdk.Models.Networkaccess.Status>(); } },
             };
         }
         /// <summary>
@@ -41,7 +41,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Status>("signalingStatus", SignalingStatus);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Status>("signalingStatus", SignalingStatus);
         }
     }
 }

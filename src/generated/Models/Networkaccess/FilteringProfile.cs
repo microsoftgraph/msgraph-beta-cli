@@ -7,23 +7,23 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class FilteringProfile : Profile, IParsable
+    public class FilteringProfile : ApiSdk.Models.Networkaccess.Profile, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A set of associated policies defined to regulate access to resources or systems based on specific conditions. Automatically expanded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessPolicy>? ConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConditionalAccessPolicy>? ConditionalAccessPolicies { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessPolicy> ConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConditionalAccessPolicy> ConditionalAccessPolicies { get; set; }
 #endif
         /// <summary>The date and time when the filteringProfile was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The priority used to order the profile for processing within a list.</summary>
         public long? Priority { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="FilteringProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.FilteringProfile"/> and sets the default values.
         /// </summary>
         public FilteringProfile() : base()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FilteringProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.FilteringProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FilteringProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.FilteringProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FilteringProfile();
+            return new ApiSdk.Models.Networkaccess.FilteringProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConditionalAccessPolicy>(ApiSdk.Models.Networkaccess.ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "priority", n => { Priority = n.GetLongValue(); } },
             };
@@ -60,7 +60,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteLongValue("priority", Priority);
         }

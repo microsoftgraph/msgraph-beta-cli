@@ -15,50 +15,50 @@ namespace ApiSdk.Models
         /// <summary>A comment was added to the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CommentAction? Comment { get; set; }
+        public ApiSdk.Models.CommentAction? Comment { get; set; }
 #nullable restore
 #else
-        public CommentAction Comment { get; set; }
+        public ApiSdk.Models.CommentAction Comment { get; set; }
 #endif
         /// <summary>An item was created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CreateAction? Create { get; set; }
+        public ApiSdk.Models.CreateAction? Create { get; set; }
 #nullable restore
 #else
-        public CreateAction Create { get; set; }
+        public ApiSdk.Models.CreateAction Create { get; set; }
 #endif
         /// <summary>An item was deleted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeleteAction? Delete { get; set; }
+        public ApiSdk.Models.DeleteAction? Delete { get; set; }
 #nullable restore
 #else
-        public DeleteAction Delete { get; set; }
+        public ApiSdk.Models.DeleteAction Delete { get; set; }
 #endif
         /// <summary>An item was edited.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EditAction? Edit { get; set; }
+        public ApiSdk.Models.EditAction? Edit { get; set; }
 #nullable restore
 #else
-        public EditAction Edit { get; set; }
+        public ApiSdk.Models.EditAction Edit { get; set; }
 #endif
         /// <summary>A user was mentioned in the item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MentionAction? Mention { get; set; }
+        public ApiSdk.Models.MentionAction? Mention { get; set; }
 #nullable restore
 #else
-        public MentionAction Mention { get; set; }
+        public ApiSdk.Models.MentionAction Mention { get; set; }
 #endif
         /// <summary>An item was moved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MoveAction? Move { get; set; }
+        public ApiSdk.Models.MoveAction? Move { get; set; }
 #nullable restore
 #else
-        public MoveAction Move { get; set; }
+        public ApiSdk.Models.MoveAction Move { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,37 +71,37 @@ namespace ApiSdk.Models
         /// <summary>An item was renamed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RenameAction? Rename { get; set; }
+        public ApiSdk.Models.RenameAction? Rename { get; set; }
 #nullable restore
 #else
-        public RenameAction Rename { get; set; }
+        public ApiSdk.Models.RenameAction Rename { get; set; }
 #endif
         /// <summary>An item was restored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RestoreAction? Restore { get; set; }
+        public ApiSdk.Models.RestoreAction? Restore { get; set; }
 #nullable restore
 #else
-        public RestoreAction Restore { get; set; }
+        public ApiSdk.Models.RestoreAction Restore { get; set; }
 #endif
         /// <summary>An item was shared.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ShareAction? Share { get; set; }
+        public ApiSdk.Models.ShareAction? Share { get; set; }
 #nullable restore
 #else
-        public ShareAction Share { get; set; }
+        public ApiSdk.Models.ShareAction Share { get; set; }
 #endif
         /// <summary>An item was versioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VersionAction? Version { get; set; }
+        public ApiSdk.Models.VersionAction? Version { get; set; }
 #nullable restore
 #else
-        public VersionAction Version { get; set; }
+        public ApiSdk.Models.VersionAction Version { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ItemActionSet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ItemActionSet"/> and sets the default values.
         /// </summary>
         public ItemActionSet()
         {
@@ -110,12 +110,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemActionSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemActionSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ItemActionSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ItemActionSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ItemActionSet();
+            return new ApiSdk.Models.ItemActionSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -125,17 +125,17 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "comment", n => { Comment = n.GetObjectValue<CommentAction>(CommentAction.CreateFromDiscriminatorValue); } },
-                { "create", n => { Create = n.GetObjectValue<CreateAction>(CreateAction.CreateFromDiscriminatorValue); } },
-                { "delete", n => { Delete = n.GetObjectValue<DeleteAction>(DeleteAction.CreateFromDiscriminatorValue); } },
-                { "edit", n => { Edit = n.GetObjectValue<EditAction>(EditAction.CreateFromDiscriminatorValue); } },
-                { "mention", n => { Mention = n.GetObjectValue<MentionAction>(MentionAction.CreateFromDiscriminatorValue); } },
-                { "move", n => { Move = n.GetObjectValue<MoveAction>(MoveAction.CreateFromDiscriminatorValue); } },
+                { "comment", n => { Comment = n.GetObjectValue<ApiSdk.Models.CommentAction>(ApiSdk.Models.CommentAction.CreateFromDiscriminatorValue); } },
+                { "create", n => { Create = n.GetObjectValue<ApiSdk.Models.CreateAction>(ApiSdk.Models.CreateAction.CreateFromDiscriminatorValue); } },
+                { "delete", n => { Delete = n.GetObjectValue<ApiSdk.Models.DeleteAction>(ApiSdk.Models.DeleteAction.CreateFromDiscriminatorValue); } },
+                { "edit", n => { Edit = n.GetObjectValue<ApiSdk.Models.EditAction>(ApiSdk.Models.EditAction.CreateFromDiscriminatorValue); } },
+                { "mention", n => { Mention = n.GetObjectValue<ApiSdk.Models.MentionAction>(ApiSdk.Models.MentionAction.CreateFromDiscriminatorValue); } },
+                { "move", n => { Move = n.GetObjectValue<ApiSdk.Models.MoveAction>(ApiSdk.Models.MoveAction.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "rename", n => { Rename = n.GetObjectValue<RenameAction>(RenameAction.CreateFromDiscriminatorValue); } },
-                { "restore", n => { Restore = n.GetObjectValue<RestoreAction>(RestoreAction.CreateFromDiscriminatorValue); } },
-                { "share", n => { Share = n.GetObjectValue<ShareAction>(ShareAction.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetObjectValue<VersionAction>(VersionAction.CreateFromDiscriminatorValue); } },
+                { "rename", n => { Rename = n.GetObjectValue<ApiSdk.Models.RenameAction>(ApiSdk.Models.RenameAction.CreateFromDiscriminatorValue); } },
+                { "restore", n => { Restore = n.GetObjectValue<ApiSdk.Models.RestoreAction>(ApiSdk.Models.RestoreAction.CreateFromDiscriminatorValue); } },
+                { "share", n => { Share = n.GetObjectValue<ApiSdk.Models.ShareAction>(ApiSdk.Models.ShareAction.CreateFromDiscriminatorValue); } },
+                { "version", n => { Version = n.GetObjectValue<ApiSdk.Models.VersionAction>(ApiSdk.Models.VersionAction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -145,17 +145,17 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<CommentAction>("comment", Comment);
-            writer.WriteObjectValue<CreateAction>("create", Create);
-            writer.WriteObjectValue<DeleteAction>("delete", Delete);
-            writer.WriteObjectValue<EditAction>("edit", Edit);
-            writer.WriteObjectValue<MentionAction>("mention", Mention);
-            writer.WriteObjectValue<MoveAction>("move", Move);
+            writer.WriteObjectValue<ApiSdk.Models.CommentAction>("comment", Comment);
+            writer.WriteObjectValue<ApiSdk.Models.CreateAction>("create", Create);
+            writer.WriteObjectValue<ApiSdk.Models.DeleteAction>("delete", Delete);
+            writer.WriteObjectValue<ApiSdk.Models.EditAction>("edit", Edit);
+            writer.WriteObjectValue<ApiSdk.Models.MentionAction>("mention", Mention);
+            writer.WriteObjectValue<ApiSdk.Models.MoveAction>("move", Move);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<RenameAction>("rename", Rename);
-            writer.WriteObjectValue<RestoreAction>("restore", Restore);
-            writer.WriteObjectValue<ShareAction>("share", Share);
-            writer.WriteObjectValue<VersionAction>("version", Version);
+            writer.WriteObjectValue<ApiSdk.Models.RenameAction>("rename", Rename);
+            writer.WriteObjectValue<ApiSdk.Models.RestoreAction>("restore", Restore);
+            writer.WriteObjectValue<ApiSdk.Models.ShareAction>("share", Share);
+            writer.WriteObjectValue<ApiSdk.Models.VersionAction>("version", Version);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

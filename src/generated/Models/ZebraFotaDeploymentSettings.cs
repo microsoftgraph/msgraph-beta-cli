@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string DeviceModel { get; set; }
 #endif
         /// <summary>Represents various network types for Zebra FOTA deployment.</summary>
-        public ZebraFotaNetworkType? DownloadRuleNetworkType { get; set; }
+        public ApiSdk.Models.ZebraFotaNetworkType? DownloadRuleNetworkType { get; set; }
         /// <summary>Date and time in the device time zone when the download will start (e.g., 2018-07-25T10:20:32). The default value is UTC now and the maximum is 10 days from deployment creation.</summary>
         public DateTimeOffset? DownloadRuleStartDateTime { get; set; }
         /// <summary>A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).</summary>
@@ -79,13 +79,13 @@ namespace ApiSdk.Models
         /// <summary>Maximum 28 days. Default is 28 days. Sequence of dates are: 1) Download start date. 2) Install start date. 3) Schedule end date. If any of the values are not provided, the date provided in the preceding step of the sequence is used. If no values are provided, the string value of the current UTC is used.</summary>
         public int? ScheduleDurationInDays { get; set; }
         /// <summary>Represents various schedule modes for Zebra FOTA deployment.</summary>
-        public ZebraFotaScheduleMode? ScheduleMode { get; set; }
+        public ApiSdk.Models.ZebraFotaScheduleMode? ScheduleMode { get; set; }
         /// <summary>This attribute indicates the deployment time offset (e.g.180 represents an offset of +03:00, and -270 represents an offset of -04:30). The time offset is the time timezone where the devices are located. The deployment start and end data uses this timezone</summary>
         public int? TimeZoneOffsetInMinutes { get; set; }
         /// <summary>Represents various update types for Zebra FOTA deployment.</summary>
-        public ZebraFotaUpdateType? UpdateType { get; set; }
+        public ApiSdk.Models.ZebraFotaUpdateType? UpdateType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ZebraFotaDeploymentSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ZebraFotaDeploymentSettings"/> and sets the default values.
         /// </summary>
         public ZebraFotaDeploymentSettings()
         {
@@ -94,12 +94,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ZebraFotaDeploymentSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ZebraFotaDeploymentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ZebraFotaDeploymentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ZebraFotaDeploymentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ZebraFotaDeploymentSettings();
+            return new ApiSdk.Models.ZebraFotaDeploymentSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,7 +112,7 @@ namespace ApiSdk.Models
                 { "batteryRuleMinimumBatteryLevelPercentage", n => { BatteryRuleMinimumBatteryLevelPercentage = n.GetIntValue(); } },
                 { "batteryRuleRequireCharger", n => { BatteryRuleRequireCharger = n.GetBoolValue(); } },
                 { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
-                { "downloadRuleNetworkType", n => { DownloadRuleNetworkType = n.GetEnumValue<ZebraFotaNetworkType>(); } },
+                { "downloadRuleNetworkType", n => { DownloadRuleNetworkType = n.GetEnumValue<ApiSdk.Models.ZebraFotaNetworkType>(); } },
                 { "downloadRuleStartDateTime", n => { DownloadRuleStartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "firmwareTargetArtifactDescription", n => { FirmwareTargetArtifactDescription = n.GetStringValue(); } },
                 { "firmwareTargetBoardSupportPackageVersion", n => { FirmwareTargetBoardSupportPackageVersion = n.GetStringValue(); } },
@@ -123,9 +123,9 @@ namespace ApiSdk.Models
                 { "installRuleWindowStartTime", n => { InstallRuleWindowStartTime = n.GetTimeValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "scheduleDurationInDays", n => { ScheduleDurationInDays = n.GetIntValue(); } },
-                { "scheduleMode", n => { ScheduleMode = n.GetEnumValue<ZebraFotaScheduleMode>(); } },
+                { "scheduleMode", n => { ScheduleMode = n.GetEnumValue<ApiSdk.Models.ZebraFotaScheduleMode>(); } },
                 { "timeZoneOffsetInMinutes", n => { TimeZoneOffsetInMinutes = n.GetIntValue(); } },
-                { "updateType", n => { UpdateType = n.GetEnumValue<ZebraFotaUpdateType>(); } },
+                { "updateType", n => { UpdateType = n.GetEnumValue<ApiSdk.Models.ZebraFotaUpdateType>(); } },
             };
         }
         /// <summary>
@@ -138,7 +138,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("batteryRuleMinimumBatteryLevelPercentage", BatteryRuleMinimumBatteryLevelPercentage);
             writer.WriteBoolValue("batteryRuleRequireCharger", BatteryRuleRequireCharger);
             writer.WriteStringValue("deviceModel", DeviceModel);
-            writer.WriteEnumValue<ZebraFotaNetworkType>("downloadRuleNetworkType", DownloadRuleNetworkType);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaNetworkType>("downloadRuleNetworkType", DownloadRuleNetworkType);
             writer.WriteDateTimeOffsetValue("downloadRuleStartDateTime", DownloadRuleStartDateTime);
             writer.WriteStringValue("firmwareTargetArtifactDescription", FirmwareTargetArtifactDescription);
             writer.WriteStringValue("firmwareTargetBoardSupportPackageVersion", FirmwareTargetBoardSupportPackageVersion);
@@ -149,9 +149,9 @@ namespace ApiSdk.Models
             writer.WriteTimeValue("installRuleWindowStartTime", InstallRuleWindowStartTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("scheduleDurationInDays", ScheduleDurationInDays);
-            writer.WriteEnumValue<ZebraFotaScheduleMode>("scheduleMode", ScheduleMode);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaScheduleMode>("scheduleMode", ScheduleMode);
             writer.WriteIntValue("timeZoneOffsetInMinutes", TimeZoneOffsetInMinutes);
-            writer.WriteEnumValue<ZebraFotaUpdateType>("updateType", UpdateType);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaUpdateType>("updateType", UpdateType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Approve
         public string ReviewerJustification { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ApprovePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.Approve.ApprovePostRequestBody"/> and sets the default values.
         /// </summary>
         public ApprovePostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.Approve
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApprovePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.Approve.ApprovePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApprovePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ElevationRequests.Item.Approve.ApprovePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApprovePostRequestBody();
+            return new ApiSdk.DeviceManagement.ElevationRequests.Item.Approve.ApprovePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

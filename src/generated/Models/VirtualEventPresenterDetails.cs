@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Bio of the presenter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Bio { get; set; }
+        public ApiSdk.Models.ItemBody? Bio { get; set; }
 #nullable restore
 #else
-        public ItemBody Bio { get; set; }
+        public ApiSdk.Models.ItemBody Bio { get; set; }
 #endif
         /// <summary>The presenter&apos;s company name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
         public string TwitterProfileWebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VirtualEventPresenterDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VirtualEventPresenterDetails"/> and sets the default values.
         /// </summary>
         public VirtualEventPresenterDetails()
         {
@@ -86,12 +86,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventPresenterDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventPresenterDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VirtualEventPresenterDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VirtualEventPresenterDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VirtualEventPresenterDetails();
+            return new ApiSdk.Models.VirtualEventPresenterDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,7 +101,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bio", n => { Bio = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "bio", n => { Bio = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
                 { "linkedInProfileWebUrl", n => { LinkedInProfileWebUrl = n.GetStringValue(); } },
@@ -118,7 +118,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<ItemBody>("bio", Bio);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("bio", Bio);
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("jobTitle", JobTitle);
             writer.WriteStringValue("linkedInProfileWebUrl", LinkedInProfileWebUrl);

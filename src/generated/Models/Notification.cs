@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Notification : Entity, IParsable
+    public class Notification : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Sets how long (in seconds) this notification content stays in each platform&apos;s notification viewer. For example, when the notification is delivered to a Windows device, the value of this property is passed on to ToastNotification.ExpirationTime, which determines how long the toast notification stays in the user&apos;s Windows Action Center.</summary>
@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PayloadTypes? Payload { get; set; }
+        public ApiSdk.Models.PayloadTypes? Payload { get; set; }
 #nullable restore
 #else
-        public PayloadTypes Payload { get; set; }
+        public ApiSdk.Models.PayloadTypes Payload { get; set; }
 #endif
         /// <summary>Indicates the priority of a raw user notification. Visual notifications are sent with high priority by default. Valid values are None, High and Low.</summary>
         public ApiSdk.Models.Priority? Priority { get; set; }
@@ -43,20 +43,20 @@ namespace ApiSdk.Models
         /// <summary>Target policy object handles notification delivery policy for endpoint types that should be targeted (Windows, iOS, Android and WebPush) for the given user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TargetPolicyEndpoints? TargetPolicy { get; set; }
+        public ApiSdk.Models.TargetPolicyEndpoints? TargetPolicy { get; set; }
 #nullable restore
 #else
-        public TargetPolicyEndpoints TargetPolicy { get; set; }
+        public ApiSdk.Models.TargetPolicyEndpoints TargetPolicy { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Notification"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Notification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Notification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Notification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Notification();
+            return new ApiSdk.Models.Notification();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,10 +69,10 @@ namespace ApiSdk.Models
                 { "displayTimeToLive", n => { DisplayTimeToLive = n.GetIntValue(); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "groupName", n => { GroupName = n.GetStringValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<PayloadTypes>(PayloadTypes.CreateFromDiscriminatorValue); } },
-                { "priority", n => { Priority = n.GetEnumValue<Priority>(); } },
+                { "payload", n => { Payload = n.GetObjectValue<ApiSdk.Models.PayloadTypes>(ApiSdk.Models.PayloadTypes.CreateFromDiscriminatorValue); } },
+                { "priority", n => { Priority = n.GetEnumValue<ApiSdk.Models.Priority>(); } },
                 { "targetHostName", n => { TargetHostName = n.GetStringValue(); } },
-                { "targetPolicy", n => { TargetPolicy = n.GetObjectValue<TargetPolicyEndpoints>(TargetPolicyEndpoints.CreateFromDiscriminatorValue); } },
+                { "targetPolicy", n => { TargetPolicy = n.GetObjectValue<ApiSdk.Models.TargetPolicyEndpoints>(ApiSdk.Models.TargetPolicyEndpoints.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,10 +86,10 @@ namespace ApiSdk.Models
             writer.WriteIntValue("displayTimeToLive", DisplayTimeToLive);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteStringValue("groupName", GroupName);
-            writer.WriteObjectValue<PayloadTypes>("payload", Payload);
-            writer.WriteEnumValue<Priority>("priority", Priority);
+            writer.WriteObjectValue<ApiSdk.Models.PayloadTypes>("payload", Payload);
+            writer.WriteEnumValue<ApiSdk.Models.Priority>("priority", Priority);
             writer.WriteStringValue("targetHostName", TargetHostName);
-            writer.WriteObjectValue<TargetPolicyEndpoints>("targetPolicy", TargetPolicy);
+            writer.WriteObjectValue<ApiSdk.Models.TargetPolicyEndpoints>("targetPolicy", TargetPolicy);
         }
     }
 }

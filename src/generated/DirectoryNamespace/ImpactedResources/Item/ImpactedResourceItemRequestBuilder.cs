@@ -33,7 +33,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         {
             var command = new Command("complete");
             command.Description = "Provides operations to call the complete method.";
-            var builder = new CompleteRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.ImpactedResources.Item.Complete.CompleteRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -85,7 +85,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         {
             var command = new Command("dismiss");
             command.Description = "Provides operations to call the dismiss method.";
-            var builder = new DismissRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.ImpactedResources.Item.Dismiss.DismissRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -177,7 +177,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ImpactedResource>(ImpactedResource.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ImpactedResource>(ApiSdk.Models.ImpactedResource.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -205,7 +205,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         {
             var command = new Command("postpone");
             command.Description = "Provides operations to call the postpone method.";
-            var builder = new PostponeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.ImpactedResources.Item.Postpone.PostponeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -222,7 +222,7 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         {
             var command = new Command("reactivate");
             command.Description = "Provides operations to call the reactivate method.";
-            var builder = new ReactivateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate.ReactivateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -232,14 +232,14 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ImpactedResourceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.ImpactedResources.Item.ImpactedResourceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ImpactedResourceItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directory/impactedResources/{impactedResource%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ImpactedResourceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.ImpactedResources.Item.ImpactedResourceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ImpactedResourceItemRequestBuilder(string rawUrl) : base("{+baseurl}/directory/impactedResources/{impactedResource%2Did}{?%24expand,%24select}", rawUrl)
@@ -271,11 +271,11 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ImpactedResourceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DirectoryNamespace.ImpactedResources.Item.ImpactedResourceItemRequestBuilder.ImpactedResourceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ImpactedResourceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DirectoryNamespace.ImpactedResources.Item.ImpactedResourceItemRequestBuilder.ImpactedResourceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -291,11 +291,11 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ImpactedResource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ImpactedResource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ImpactedResource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ImpactedResource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

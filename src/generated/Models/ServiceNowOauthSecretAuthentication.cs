@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// App id for the ServiceNow client app.
     /// </summary>
-    public class ServiceNowOauthSecretAuthentication : ServiceNowAuthenticationMethod, IParsable
+    public class ServiceNowOauthSecretAuthentication : ApiSdk.Models.ServiceNowAuthenticationMethod, IParsable
     {
         /// <summary>Tenant appId registered with Azure AD</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string AppId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ServiceNowOauthSecretAuthentication"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServiceNowOauthSecretAuthentication"/> and sets the default values.
         /// </summary>
         public ServiceNowOauthSecretAuthentication() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceNowOauthSecretAuthentication"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceNowOauthSecretAuthentication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ServiceNowOauthSecretAuthentication CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ServiceNowOauthSecretAuthentication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServiceNowOauthSecretAuthentication();
+            return new ApiSdk.Models.ServiceNowOauthSecretAuthentication();
         }
         /// <summary>
         /// The deserialization information for the current model

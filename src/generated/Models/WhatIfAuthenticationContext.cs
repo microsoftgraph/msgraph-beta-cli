@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WhatIfAuthenticationContext : ConditionalAccessContext, IParsable
+    public class WhatIfAuthenticationContext : ApiSdk.Models.ConditionalAccessContext, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authenticationContext property</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string AuthenticationContext { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WhatIfAuthenticationContext"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WhatIfAuthenticationContext"/> and sets the default values.
         /// </summary>
         public WhatIfAuthenticationContext() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WhatIfAuthenticationContext"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WhatIfAuthenticationContext"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WhatIfAuthenticationContext CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WhatIfAuthenticationContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WhatIfAuthenticationContext();
+            return new ApiSdk.Models.WhatIfAuthenticationContext();
         }
         /// <summary>
         /// The deserialization information for the current model

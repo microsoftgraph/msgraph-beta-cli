@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudRealtimeCommunicationInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudRealtimeCommunicationInfo"/> and sets the default values.
         /// </summary>
         public CloudRealtimeCommunicationInfo()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudRealtimeCommunicationInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudRealtimeCommunicationInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudRealtimeCommunicationInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudRealtimeCommunicationInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudRealtimeCommunicationInfo();
+            return new ApiSdk.Models.CloudRealtimeCommunicationInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -170,7 +170,7 @@ namespace ApiSdk.Users.Item.Insights
         {
             var command = new Command("shared");
             command.Description = "Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.";
-            var builder = new SharedRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Insights.Shared.SharedRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -197,7 +197,7 @@ namespace ApiSdk.Users.Item.Insights
         {
             var command = new Command("trending");
             command.Description = "Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.";
-            var builder = new TrendingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Insights.Trending.TrendingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -224,7 +224,7 @@ namespace ApiSdk.Users.Item.Insights
         {
             var command = new Command("used");
             command.Description = "Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.";
-            var builder = new UsedRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Insights.Used.UsedRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -244,14 +244,14 @@ namespace ApiSdk.Users.Item.Insights
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="InsightsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Insights.InsightsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public InsightsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/insights{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="InsightsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Insights.InsightsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public InsightsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/insights{?%24expand,%24select}", rawUrl)
@@ -283,11 +283,11 @@ namespace ApiSdk.Users.Item.Insights
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InsightsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Insights.InsightsRequestBuilder.InsightsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InsightsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Insights.InsightsRequestBuilder.InsightsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

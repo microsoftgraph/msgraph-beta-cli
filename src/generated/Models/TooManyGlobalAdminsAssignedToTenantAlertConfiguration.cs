@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TooManyGlobalAdminsAssignedToTenantAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
+    public class TooManyGlobalAdminsAssignedToTenantAlertConfiguration : ApiSdk.Models.UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The threshold for the number of accounts assigned the Global Administrator role in the tenant. Triggers an alert if the number of global administrators in the tenant reaches or crosses this threshold value.</summary>
@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>Threshold of the percentage of global administrators out of all the role assignments in the tenant. Triggers an alert if the percentage in the tenant reaches or crosses this threshold value.</summary>
         public int? PercentageOfGlobalAdminsOutOfRolesThreshold { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TooManyGlobalAdminsAssignedToTenantAlertConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TooManyGlobalAdminsAssignedToTenantAlertConfiguration"/> and sets the default values.
         /// </summary>
         public TooManyGlobalAdminsAssignedToTenantAlertConfiguration() : base()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TooManyGlobalAdminsAssignedToTenantAlertConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TooManyGlobalAdminsAssignedToTenantAlertConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TooManyGlobalAdminsAssignedToTenantAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TooManyGlobalAdminsAssignedToTenantAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TooManyGlobalAdminsAssignedToTenantAlertConfiguration();
+            return new ApiSdk.Models.TooManyGlobalAdminsAssignedToTenantAlertConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

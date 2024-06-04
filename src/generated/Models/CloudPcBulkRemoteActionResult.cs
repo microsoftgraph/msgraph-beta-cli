@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public List<string> SuccessfulDeviceIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcBulkRemoteActionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcBulkRemoteActionResult"/> and sets the default values.
         /// </summary>
         public CloudPcBulkRemoteActionResult()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcBulkRemoteActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcBulkRemoteActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcBulkRemoteActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcBulkRemoteActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcBulkRemoteActionResult();
+            return new ApiSdk.Models.CloudPcBulkRemoteActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -39,7 +39,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PeerConnectivityConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration"/> and sets the default values.
         /// </summary>
         public PeerConnectivityConfiguration()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PeerConnectivityConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PeerConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PeerConnectivityConfiguration();
+            return new ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

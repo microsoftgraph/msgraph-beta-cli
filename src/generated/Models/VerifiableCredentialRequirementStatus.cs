@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VerifiableCredentialRequirementStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerifiableCredentialRequirementStatus"/> and sets the default values.
         /// </summary>
         public VerifiableCredentialRequirementStatus()
         {
@@ -30,18 +30,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerifiableCredentialRequirementStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerifiableCredentialRequirementStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VerifiableCredentialRequirementStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VerifiableCredentialRequirementStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.verifiableCredentialRequired" => new VerifiableCredentialRequired(),
-                "#microsoft.graph.verifiableCredentialRetrieved" => new VerifiableCredentialRetrieved(),
-                "#microsoft.graph.verifiableCredentialVerified" => new VerifiableCredentialVerified(),
-                _ => new VerifiableCredentialRequirementStatus(),
+                "#microsoft.graph.verifiableCredentialRequired" => new ApiSdk.Models.VerifiableCredentialRequired(),
+                "#microsoft.graph.verifiableCredentialRetrieved" => new ApiSdk.Models.VerifiableCredentialRetrieved(),
+                "#microsoft.graph.verifiableCredentialVerified" => new ApiSdk.Models.VerifiableCredentialVerified(),
+                _ => new ApiSdk.Models.VerifiableCredentialRequirementStatus(),
             };
         }
         /// <summary>

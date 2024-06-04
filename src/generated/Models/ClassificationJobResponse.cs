@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ClassificationJobResponse : JobResponseBase, IParsable
+    public class ClassificationJobResponse : ApiSdk.Models.JobResponseBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DetectedSensitiveContentWrapper? Result { get; set; }
+        public ApiSdk.Models.DetectedSensitiveContentWrapper? Result { get; set; }
 #nullable restore
 #else
-        public DetectedSensitiveContentWrapper Result { get; set; }
+        public ApiSdk.Models.DetectedSensitiveContentWrapper Result { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClassificationJobResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ClassificationJobResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ClassificationJobResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ClassificationJobResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClassificationJobResponse();
+            return new ApiSdk.Models.ClassificationJobResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "result", n => { Result = n.GetObjectValue<DetectedSensitiveContentWrapper>(DetectedSensitiveContentWrapper.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<ApiSdk.Models.DetectedSensitiveContentWrapper>(ApiSdk.Models.DetectedSensitiveContentWrapper.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DetectedSensitiveContentWrapper>("result", Result);
+            writer.WriteObjectValue<ApiSdk.Models.DetectedSensitiveContentWrapper>("result", Result);
         }
     }
 }

@@ -41,7 +41,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DimensionValue"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DimensionValue"/> and sets the default values.
         /// </summary>
         public DimensionValue()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DimensionValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DimensionValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DimensionValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DimensionValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DimensionValue();
+            return new ApiSdk.Models.DimensionValue();
         }
         /// <summary>
         /// The deserialization information for the current model

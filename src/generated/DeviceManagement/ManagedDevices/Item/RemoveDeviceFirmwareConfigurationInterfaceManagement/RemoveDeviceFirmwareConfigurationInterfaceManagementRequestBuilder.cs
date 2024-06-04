@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.RemoveDeviceFirmwareConfig
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.RemoveDeviceFirmwareConfigurationInterfaceManagement.RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/removeDeviceFirmwareConfigurationInterfaceManagement", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.RemoveDeviceFirmwareConfigurationInterfaceManagement.RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemoveDeviceFirmwareConfigurationInterfaceManagementRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/removeDeviceFirmwareConfigurationInterfaceManagement", rawUrl)

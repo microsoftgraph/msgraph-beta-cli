@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsCondition"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsCondition"/> and sets the default values.
         /// </summary>
         public AwsCondition()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsCondition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsCondition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AwsCondition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AwsCondition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsCondition();
+            return new ApiSdk.Models.AwsCondition();
         }
         /// <summary>
         /// The deserialization information for the current model

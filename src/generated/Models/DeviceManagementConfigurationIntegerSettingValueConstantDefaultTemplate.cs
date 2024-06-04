@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Integer Setting Value Constant Default Template
     /// </summary>
-    public class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate : DeviceManagementConfigurationIntegerSettingValueDefaultTemplate, IParsable
+    public class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate : ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate, IParsable
     {
         /// <summary>Default Constant Value. Valid values -2147483648 to 2147483647</summary>
         public int? ConstantValue { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model

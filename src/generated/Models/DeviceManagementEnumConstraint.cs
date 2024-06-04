@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint that enforces the setting value is from a permitted set of strings
     /// </summary>
-    public class DeviceManagementEnumConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementEnumConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>List of valid values for this string</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementEnumValue>? Values { get; set; }
+        public List<ApiSdk.Models.DeviceManagementEnumValue>? Values { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementEnumValue> Values { get; set; }
+        public List<ApiSdk.Models.DeviceManagementEnumValue> Values { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementEnumConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementEnumConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementEnumConstraint() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementEnumConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementEnumConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementEnumConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementEnumConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementEnumConstraint();
+            return new ApiSdk.Models.DeviceManagementEnumConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "values", n => { Values = n.GetCollectionOfObjectValues<DeviceManagementEnumValue>(DeviceManagementEnumValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "values", n => { Values = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementEnumValue>(ApiSdk.Models.DeviceManagementEnumValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementEnumValue>("values", Values);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementEnumValue>("values", Values);
         }
     }
 }

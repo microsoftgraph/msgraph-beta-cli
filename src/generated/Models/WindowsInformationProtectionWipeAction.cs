@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents wipe requests issued by tenant admin for Bring-Your-Own-Device(BYOD) Windows devices.
     /// </summary>
-    public class WindowsInformationProtectionWipeAction : Entity, IParsable
+    public class WindowsInformationProtectionWipeAction : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Last checkin time of the device that was targeted by this wipe action.</summary>
         public DateTimeOffset? LastCheckInDateTime { get; set; }
         /// <summary>The status property</summary>
-        public ActionState? Status { get; set; }
+        public ApiSdk.Models.ActionState? Status { get; set; }
         /// <summary>Targeted device Mac address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsInformationProtectionWipeAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsInformationProtectionWipeAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsInformationProtectionWipeAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsInformationProtectionWipeAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsInformationProtectionWipeAction();
+            return new ApiSdk.Models.WindowsInformationProtectionWipeAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "lastCheckInDateTime", n => { LastCheckInDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ActionState>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ActionState>(); } },
                 { "targetedDeviceMacAddress", n => { TargetedDeviceMacAddress = n.GetStringValue(); } },
                 { "targetedDeviceName", n => { TargetedDeviceName = n.GetStringValue(); } },
                 { "targetedDeviceRegistrationId", n => { TargetedDeviceRegistrationId = n.GetStringValue(); } },
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("lastCheckInDateTime", LastCheckInDateTime);
-            writer.WriteEnumValue<ActionState>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ActionState>("status", Status);
             writer.WriteStringValue("targetedDeviceMacAddress", TargetedDeviceMacAddress);
             writer.WriteStringValue("targetedDeviceName", TargetedDeviceName);
             writer.WriteStringValue("targetedDeviceRegistrationId", TargetedDeviceRegistrationId);

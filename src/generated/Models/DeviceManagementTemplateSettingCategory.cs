@@ -9,25 +9,25 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity representing a template setting category
     /// </summary>
-    public class DeviceManagementTemplateSettingCategory : DeviceManagementSettingCategory, IParsable
+    public class DeviceManagementTemplateSettingCategory : ApiSdk.Models.DeviceManagementSettingCategory, IParsable
     {
         /// <summary>The settings this category contains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementSettingInstance>? RecommendedSettings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance>? RecommendedSettings { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementSettingInstance> RecommendedSettings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance> RecommendedSettings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementTemplateSettingCategory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementTemplateSettingCategory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementTemplateSettingCategory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementTemplateSettingCategory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementTemplateSettingCategory();
+            return new ApiSdk.Models.DeviceManagementTemplateSettingCategory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "recommendedSettings", n => { RecommendedSettings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recommendedSettings", n => { RecommendedSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>(ApiSdk.Models.DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementSettingInstance>("recommendedSettings", RecommendedSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>("recommendedSettings", RecommendedSettings);
         }
     }
 }

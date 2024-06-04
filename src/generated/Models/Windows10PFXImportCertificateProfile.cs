@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Deprecated
     /// </summary>
-    public class Windows10PFXImportCertificateProfile : DeviceConfiguration, IParsable
+    public class Windows10PFXImportCertificateProfile : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Key Storage Provider (KSP) Import Options.</summary>
-        public KeyStorageProviderOption? KeyStorageProvider { get; set; }
+        public ApiSdk.Models.KeyStorageProviderOption? KeyStorageProvider { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10PFXImportCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10PFXImportCertificateProfile"/> and sets the default values.
         /// </summary>
         public Windows10PFXImportCertificateProfile() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10PFXImportCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10PFXImportCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10PFXImportCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10PFXImportCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10PFXImportCertificateProfile();
+            return new ApiSdk.Models.Windows10PFXImportCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
+                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<ApiSdk.Models.KeyStorageProviderOption>(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
+            writer.WriteEnumValue<ApiSdk.Models.KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
         }
     }
 }

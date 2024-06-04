@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExternalConnection : Entity, IParsable
+    public class ExternalConnection : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration property</summary>
@@ -30,18 +30,18 @@ namespace ApiSdk.Models
         /// <summary>The groups property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExternalGroup>? Groups { get; set; }
+        public List<ApiSdk.Models.ExternalGroup>? Groups { get; set; }
 #nullable restore
 #else
-        public List<ExternalGroup> Groups { get; set; }
+        public List<ApiSdk.Models.ExternalGroup> Groups { get; set; }
 #endif
         /// <summary>The items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExternalItem>? Items { get; set; }
+        public List<ApiSdk.Models.ExternalItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<ExternalItem> Items { get; set; }
+        public List<ApiSdk.Models.ExternalItem> Items { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,10 +54,10 @@ namespace ApiSdk.Models
         /// <summary>The operations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectionOperation>? Operations { get; set; }
+        public List<ApiSdk.Models.ConnectionOperation>? Operations { get; set; }
 #nullable restore
 #else
-        public List<ConnectionOperation> Operations { get; set; }
+        public List<ApiSdk.Models.ConnectionOperation> Operations { get; set; }
 #endif
         /// <summary>The schema property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,16 +68,16 @@ namespace ApiSdk.Models
         public ApiSdk.Models.Schema Schema { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public ConnectionState? State { get; private set; }
+        public ApiSdk.Models.ConnectionState? State { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExternalConnection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExternalConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExternalConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExternalConnection();
+            return new ApiSdk.Models.ExternalConnection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,12 +89,12 @@ namespace ApiSdk.Models
             {
                 { "configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.TeamsUserConfiguration.Configuration>(ApiSdk.Models.TeamsUserConfiguration.Configuration.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "groups", n => { Groups = n.GetCollectionOfObjectValues<ExternalGroup>(ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<ExternalItem>(ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groups", n => { Groups = n.GetCollectionOfObjectValues<ApiSdk.Models.ExternalGroup>(ApiSdk.Models.ExternalGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.ExternalItem>(ApiSdk.Models.ExternalItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.ConnectionOperation>(ApiSdk.Models.ConnectionOperation.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "schema", n => { Schema = n.GetObjectValue<ApiSdk.Models.Schema>(ApiSdk.Models.Schema.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<ConnectionState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ConnectionState>(); } },
             };
         }
         /// <summary>
@@ -107,10 +107,10 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.TeamsUserConfiguration.Configuration>("configuration", Configuration);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<ExternalGroup>("groups", Groups);
-            writer.WriteCollectionOfObjectValues<ExternalItem>("items", Items);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExternalGroup>("groups", Groups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExternalItem>("items", Items);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<ConnectionOperation>("operations", Operations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConnectionOperation>("operations", Operations);
             writer.WriteObjectValue<ApiSdk.Models.Schema>("schema", Schema);
         }
     }

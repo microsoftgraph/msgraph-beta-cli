@@ -7,102 +7,102 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TeamworkDeviceConfiguration : Entity, IParsable
+    public class TeamworkDeviceConfiguration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The camera configuration. Applicable only for Microsoft Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkCameraConfiguration? CameraConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkCameraConfiguration? CameraConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkCameraConfiguration CameraConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkCameraConfiguration CameraConfiguration { get; set; }
 #endif
         /// <summary>Identity of the user who created the device configuration document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? CreatedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet CreatedBy { get; set; }
 #endif
         /// <summary>The UTC date and time when the device configuration document was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The display configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkDisplayConfiguration? DisplayConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDisplayConfiguration? DisplayConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkDisplayConfiguration DisplayConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDisplayConfiguration DisplayConfiguration { get; set; }
 #endif
         /// <summary>The hardware configuration. Applicable only for Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkHardwareConfiguration? HardwareConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkHardwareConfiguration? HardwareConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkHardwareConfiguration HardwareConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkHardwareConfiguration HardwareConfiguration { get; set; }
 #endif
         /// <summary>Identity of the user who last modified the device configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? LastModifiedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? LastModifiedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet LastModifiedBy { get; set; }
+        public ApiSdk.Models.IdentitySet LastModifiedBy { get; set; }
 #endif
         /// <summary>The UTC date and time when the device configuration was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The microphone configuration. Applicable only for Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkMicrophoneConfiguration? MicrophoneConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkMicrophoneConfiguration? MicrophoneConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkMicrophoneConfiguration MicrophoneConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkMicrophoneConfiguration MicrophoneConfiguration { get; set; }
 #endif
         /// <summary>Information related to software versions for the device, such as firmware, operating system, Teams client, and admin agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkDeviceSoftwareVersions? SoftwareVersions { get; set; }
+        public ApiSdk.Models.TeamworkDeviceSoftwareVersions? SoftwareVersions { get; set; }
 #nullable restore
 #else
-        public TeamworkDeviceSoftwareVersions SoftwareVersions { get; set; }
+        public ApiSdk.Models.TeamworkDeviceSoftwareVersions SoftwareVersions { get; set; }
 #endif
         /// <summary>The speaker configuration. Applicable only for Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSpeakerConfiguration? SpeakerConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkSpeakerConfiguration? SpeakerConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkSpeakerConfiguration SpeakerConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkSpeakerConfiguration SpeakerConfiguration { get; set; }
 #endif
         /// <summary>The system configuration. Not applicable for Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSystemConfiguration? SystemConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkSystemConfiguration? SystemConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkSystemConfiguration SystemConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkSystemConfiguration SystemConfiguration { get; set; }
 #endif
         /// <summary>The Teams client configuration. Applicable only for Teams Rooms-enabled devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkTeamsClientConfiguration? TeamsClientConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkTeamsClientConfiguration? TeamsClientConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkTeamsClientConfiguration TeamsClientConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkTeamsClientConfiguration TeamsClientConfiguration { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkDeviceConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TeamworkDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TeamworkDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkDeviceConfiguration();
+            return new ApiSdk.Models.TeamworkDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,18 +112,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "cameraConfiguration", n => { CameraConfiguration = n.GetObjectValue<TeamworkCameraConfiguration>(TeamworkCameraConfiguration.CreateFromDiscriminatorValue); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "cameraConfiguration", n => { CameraConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkCameraConfiguration>(ApiSdk.Models.TeamworkCameraConfiguration.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "displayConfiguration", n => { DisplayConfiguration = n.GetObjectValue<TeamworkDisplayConfiguration>(TeamworkDisplayConfiguration.CreateFromDiscriminatorValue); } },
-                { "hardwareConfiguration", n => { HardwareConfiguration = n.GetObjectValue<TeamworkHardwareConfiguration>(TeamworkHardwareConfiguration.CreateFromDiscriminatorValue); } },
-                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "displayConfiguration", n => { DisplayConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkDisplayConfiguration>(ApiSdk.Models.TeamworkDisplayConfiguration.CreateFromDiscriminatorValue); } },
+                { "hardwareConfiguration", n => { HardwareConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkHardwareConfiguration>(ApiSdk.Models.TeamworkHardwareConfiguration.CreateFromDiscriminatorValue); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "microphoneConfiguration", n => { MicrophoneConfiguration = n.GetObjectValue<TeamworkMicrophoneConfiguration>(TeamworkMicrophoneConfiguration.CreateFromDiscriminatorValue); } },
-                { "softwareVersions", n => { SoftwareVersions = n.GetObjectValue<TeamworkDeviceSoftwareVersions>(TeamworkDeviceSoftwareVersions.CreateFromDiscriminatorValue); } },
-                { "speakerConfiguration", n => { SpeakerConfiguration = n.GetObjectValue<TeamworkSpeakerConfiguration>(TeamworkSpeakerConfiguration.CreateFromDiscriminatorValue); } },
-                { "systemConfiguration", n => { SystemConfiguration = n.GetObjectValue<TeamworkSystemConfiguration>(TeamworkSystemConfiguration.CreateFromDiscriminatorValue); } },
-                { "teamsClientConfiguration", n => { TeamsClientConfiguration = n.GetObjectValue<TeamworkTeamsClientConfiguration>(TeamworkTeamsClientConfiguration.CreateFromDiscriminatorValue); } },
+                { "microphoneConfiguration", n => { MicrophoneConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkMicrophoneConfiguration>(ApiSdk.Models.TeamworkMicrophoneConfiguration.CreateFromDiscriminatorValue); } },
+                { "softwareVersions", n => { SoftwareVersions = n.GetObjectValue<ApiSdk.Models.TeamworkDeviceSoftwareVersions>(ApiSdk.Models.TeamworkDeviceSoftwareVersions.CreateFromDiscriminatorValue); } },
+                { "speakerConfiguration", n => { SpeakerConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkSpeakerConfiguration>(ApiSdk.Models.TeamworkSpeakerConfiguration.CreateFromDiscriminatorValue); } },
+                { "systemConfiguration", n => { SystemConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkSystemConfiguration>(ApiSdk.Models.TeamworkSystemConfiguration.CreateFromDiscriminatorValue); } },
+                { "teamsClientConfiguration", n => { TeamsClientConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkTeamsClientConfiguration>(ApiSdk.Models.TeamworkTeamsClientConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -134,18 +134,18 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<TeamworkCameraConfiguration>("cameraConfiguration", CameraConfiguration);
-            writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkCameraConfiguration>("cameraConfiguration", CameraConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<TeamworkDisplayConfiguration>("displayConfiguration", DisplayConfiguration);
-            writer.WriteObjectValue<TeamworkHardwareConfiguration>("hardwareConfiguration", HardwareConfiguration);
-            writer.WriteObjectValue<IdentitySet>("lastModifiedBy", LastModifiedBy);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkDisplayConfiguration>("displayConfiguration", DisplayConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkHardwareConfiguration>("hardwareConfiguration", HardwareConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<TeamworkMicrophoneConfiguration>("microphoneConfiguration", MicrophoneConfiguration);
-            writer.WriteObjectValue<TeamworkDeviceSoftwareVersions>("softwareVersions", SoftwareVersions);
-            writer.WriteObjectValue<TeamworkSpeakerConfiguration>("speakerConfiguration", SpeakerConfiguration);
-            writer.WriteObjectValue<TeamworkSystemConfiguration>("systemConfiguration", SystemConfiguration);
-            writer.WriteObjectValue<TeamworkTeamsClientConfiguration>("teamsClientConfiguration", TeamsClientConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkMicrophoneConfiguration>("microphoneConfiguration", MicrophoneConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkDeviceSoftwareVersions>("softwareVersions", SoftwareVersions);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSpeakerConfiguration>("speakerConfiguration", SpeakerConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSystemConfiguration>("systemConfiguration", SystemConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkTeamsClientConfiguration>("teamsClientConfiguration", TeamsClientConfiguration);
         }
     }
 }

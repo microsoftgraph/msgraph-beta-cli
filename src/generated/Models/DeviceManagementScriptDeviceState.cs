@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for device run state of the device management script.
     /// </summary>
-    public class DeviceManagementScriptDeviceState : Entity, IParsable
+    public class DeviceManagementScriptDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Error code corresponding to erroneous execution of the device management script.</summary>
         public int? ErrorCode { get; set; }
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScriptDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScriptDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScriptDeviceState();
+            return new ApiSdk.Models.DeviceManagementScriptDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
                 { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedDevice", n => { ManagedDevice = n.GetObjectValue<ApiSdk.Models.ManagedDevice>(ApiSdk.Models.ManagedDevice.CreateFromDiscriminatorValue); } },
                 { "resultMessage", n => { ResultMessage = n.GetStringValue(); } },
-                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "runState", n => { RunState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastStateUpdateDateTime", LastStateUpdateDateTime);
             writer.WriteObjectValue<ApiSdk.Models.ManagedDevice>("managedDevice", ManagedDevice);
             writer.WriteStringValue("resultMessage", ResultMessage);
-            writer.WriteEnumValue<RunState>("runState", RunState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("runState", RunState);
         }
     }
 }

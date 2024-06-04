@@ -13,7 +13,7 @@ namespace ApiSdk.Models.Security
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Error code of the most recent run that encountered an error. The possible values are: queryExecutionFailed, queryExecutionThrottling, queryExceededResultSize, queryLimitsExceeded, queryTimeout, alertCreationFailed, alertReportNotFound, partialRowsFailed, unknownFutureValue.</summary>
-        public HuntingRuleErrorCode? ErrorCode { get; set; }
+        public ApiSdk.Models.Security.HuntingRuleErrorCode? ErrorCode { get; set; }
         /// <summary>Reason for failure when the custom detection last ran and failed. See the table below.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,9 +33,9 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>Status of custom detection when it was last run. The possible values are: running, completed, failed, partiallyFailed, unknownFutureValue.</summary>
-        public HuntingRuleRunStatus? Status { get; set; }
+        public ApiSdk.Models.Security.HuntingRuleRunStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RunDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.RunDetails"/> and sets the default values.
         /// </summary>
         public RunDetails()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RunDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.RunDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RunDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.RunDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RunDetails();
+            return new ApiSdk.Models.Security.RunDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,11 +59,11 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<HuntingRuleErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ApiSdk.Models.Security.HuntingRuleErrorCode>(); } },
                 { "failureReason", n => { FailureReason = n.GetStringValue(); } },
                 { "lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<HuntingRuleRunStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Security.HuntingRuleRunStatus>(); } },
             };
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace ApiSdk.Models.Security
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<HuntingRuleErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<ApiSdk.Models.Security.HuntingRuleErrorCode>("errorCode", ErrorCode);
             writer.WriteStringValue("failureReason", FailureReason);
             writer.WriteDateTimeOffsetValue("lastRunDateTime", LastRunDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<HuntingRuleRunStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.Security.HuntingRuleRunStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

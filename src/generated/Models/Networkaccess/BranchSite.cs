@@ -15,10 +15,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Specifies the connectivity details of all device links associated with a branch.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public BranchConnectivityConfiguration? ConnectivityConfiguration { get; set; }
+        public ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration? ConnectivityConfiguration { get; set; }
 #nullable restore
 #else
-        public BranchConnectivityConfiguration ConnectivityConfiguration { get; set; }
+        public ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration ConnectivityConfiguration { get; set; }
 #endif
         /// <summary>Determines the branch site status. The possible values are: pending, connected, inactive, error.</summary>
         public ApiSdk.Models.Networkaccess.ConnectivityState? ConnectivityState { get; set; }
@@ -33,18 +33,18 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Each unique CPE device associated with a branch is specified. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceLink>? DeviceLinks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.DeviceLink>? DeviceLinks { get; set; }
 #nullable restore
 #else
-        public List<DeviceLink> DeviceLinks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.DeviceLink> DeviceLinks { get; set; }
 #endif
         /// <summary>Each forwarding profile associated with a branch site is specified. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ForwardingProfile>? ForwardingProfiles { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ForwardingProfile>? ForwardingProfiles { get; set; }
 #nullable restore
 #else
-        public List<ForwardingProfile> ForwardingProfiles { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ForwardingProfile> ForwardingProfiles { get; set; }
 #endif
         /// <summary>last modified time.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -69,12 +69,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BranchSite"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.BranchSite"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BranchSite CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.BranchSite CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BranchSite();
+            return new ApiSdk.Models.Networkaccess.BranchSite();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,14 +85,14 @@ namespace ApiSdk.Models.Networkaccess
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "bandwidthCapacity", n => { BandwidthCapacity = n.GetLongValue(); } },
-                { "connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<BranchConnectivityConfiguration>(BranchConnectivityConfiguration.CreateFromDiscriminatorValue); } },
-                { "connectivityState", n => { ConnectivityState = n.GetEnumValue<ConnectivityState>(); } },
+                { "connectivityConfiguration", n => { ConnectivityConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration>(ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration.CreateFromDiscriminatorValue); } },
+                { "connectivityState", n => { ConnectivityState = n.GetEnumValue<ApiSdk.Models.Networkaccess.ConnectivityState>(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
-                { "deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<DeviceLink>(DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ForwardingProfile>(ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceLinks", n => { DeviceLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.DeviceLink>(ApiSdk.Models.Networkaccess.DeviceLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "forwardingProfiles", n => { ForwardingProfiles = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ForwardingProfile>(ApiSdk.Models.Networkaccess.ForwardingProfile.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<Region>(); } },
+                { "region", n => { Region = n.GetEnumValue<ApiSdk.Models.Networkaccess.Region>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -105,14 +105,14 @@ namespace ApiSdk.Models.Networkaccess
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteLongValue("bandwidthCapacity", BandwidthCapacity);
-            writer.WriteObjectValue<BranchConnectivityConfiguration>("connectivityConfiguration", ConnectivityConfiguration);
-            writer.WriteEnumValue<ConnectivityState>("connectivityState", ConnectivityState);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration>("connectivityConfiguration", ConnectivityConfiguration);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ConnectivityState>("connectivityState", ConnectivityState);
             writer.WriteStringValue("country", Country);
-            writer.WriteCollectionOfObjectValues<DeviceLink>("deviceLinks", DeviceLinks);
-            writer.WriteCollectionOfObjectValues<ForwardingProfile>("forwardingProfiles", ForwardingProfiles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.DeviceLink>("deviceLinks", DeviceLinks);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ForwardingProfile>("forwardingProfiles", ForwardingProfiles);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<Region>("region", Region);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Region>("region", Region);
             writer.WriteStringValue("version", Version);
         }
     }

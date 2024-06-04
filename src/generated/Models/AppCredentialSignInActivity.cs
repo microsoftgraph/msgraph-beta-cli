@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AppCredentialSignInActivity : Entity, IParsable
+    public class AppCredentialSignInActivity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The globally unique appId (also called client ID on the Microsoft Entra admin center) of the credential application.</summary>
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         /// <summary>The date and time when the credential was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The credentialOrigin property</summary>
-        public ApplicationKeyOrigin? CredentialOrigin { get; set; }
+        public ApiSdk.Models.ApplicationKeyOrigin? CredentialOrigin { get; set; }
         /// <summary>The date and time when the credential is set to expire. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ExpirationDateTime { get; set; }
         /// <summary>The key ID of the credential.</summary>
@@ -41,9 +41,9 @@ namespace ApiSdk.Models
         public string KeyId { get; set; }
 #endif
         /// <summary>Specifies the key type. The possible values are: clientSecret, certificate, unknownFutureValue.</summary>
-        public ApplicationKeyType? KeyType { get; set; }
+        public ApiSdk.Models.ApplicationKeyType? KeyType { get; set; }
         /// <summary>Specifies what the key was used for. The possible values are: sign, verify, unknownFutureValue.</summary>
-        public ApplicationKeyUsage? KeyUsage { get; set; }
+        public ApiSdk.Models.ApplicationKeyUsage? KeyUsage { get; set; }
         /// <summary>The ID of the accessed resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppCredentialSignInActivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppCredentialSignInActivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppCredentialSignInActivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppCredentialSignInActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppCredentialSignInActivity();
+            return new ApiSdk.Models.AppCredentialSignInActivity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,11 +89,11 @@ namespace ApiSdk.Models
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "appObjectId", n => { AppObjectId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "credentialOrigin", n => { CredentialOrigin = n.GetEnumValue<ApplicationKeyOrigin>(); } },
+                { "credentialOrigin", n => { CredentialOrigin = n.GetEnumValue<ApiSdk.Models.ApplicationKeyOrigin>(); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "keyId", n => { KeyId = n.GetStringValue(); } },
-                { "keyType", n => { KeyType = n.GetEnumValue<ApplicationKeyType>(); } },
-                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApplicationKeyUsage>(); } },
+                { "keyType", n => { KeyType = n.GetEnumValue<ApiSdk.Models.ApplicationKeyType>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApiSdk.Models.ApplicationKeyUsage>(); } },
                 { "resourceId", n => { ResourceId = n.GetStringValue(); } },
                 { "servicePrincipalObjectId", n => { ServicePrincipalObjectId = n.GetStringValue(); } },
                 { "signInActivity", n => { SignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
@@ -110,11 +110,11 @@ namespace ApiSdk.Models
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("appObjectId", AppObjectId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteEnumValue<ApplicationKeyOrigin>("credentialOrigin", CredentialOrigin);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationKeyOrigin>("credentialOrigin", CredentialOrigin);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteStringValue("keyId", KeyId);
-            writer.WriteEnumValue<ApplicationKeyType>("keyType", KeyType);
-            writer.WriteEnumValue<ApplicationKeyUsage>("keyUsage", KeyUsage);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationKeyType>("keyType", KeyType);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationKeyUsage>("keyUsage", KeyUsage);
             writer.WriteStringValue("resourceId", ResourceId);
             writer.WriteStringValue("servicePrincipalObjectId", ServicePrincipalObjectId);
             writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("signInActivity", SignInActivity);

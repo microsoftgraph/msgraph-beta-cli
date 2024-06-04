@@ -9,30 +9,30 @@ namespace ApiSdk.Models
     /// <summary>
     /// Android Device Owner PFX Import certificate profile
     /// </summary>
-    public class AndroidDeviceOwnerImportedPFXCertificateProfile : AndroidDeviceOwnerCertificateProfileBase, IParsable
+    public class AndroidDeviceOwnerImportedPFXCertificateProfile : ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase, IParsable
     {
         /// <summary>Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.</summary>
-        public AndroidDeviceOwnerCertificateAccessType? CertificateAccessType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType? CertificateAccessType { get; set; }
         /// <summary>PFX Import Options.</summary>
         public ApiSdk.Models.IntendedPurpose? IntendedPurpose { get; set; }
         /// <summary>Certificate state for devices. This collection can contain a maximum of 2147483647 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
 #endif
         /// <summary>Certificate access information. This collection can contain a maximum of 50 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerSilentCertificateAccess>? SilentCertificateAccessDetails { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>? SilentCertificateAccessDetails { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerSilentCertificateAccess> SilentCertificateAccessDetails { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess> SilentCertificateAccessDetails { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerImportedPFXCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerImportedPFXCertificateProfile"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerImportedPFXCertificateProfile() : base()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerImportedPFXCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerImportedPFXCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerImportedPFXCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerImportedPFXCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerImportedPFXCertificateProfile();
+            return new ApiSdk.Models.AndroidDeviceOwnerImportedPFXCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,10 +56,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateAccessType", n => { CertificateAccessType = n.GetEnumValue<AndroidDeviceOwnerCertificateAccessType>(); } },
-                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<IntendedPurpose>(); } },
-                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "silentCertificateAccessDetails", n => { SilentCertificateAccessDetails = n.GetCollectionOfObjectValues<AndroidDeviceOwnerSilentCertificateAccess>(AndroidDeviceOwnerSilentCertificateAccess.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "certificateAccessType", n => { CertificateAccessType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType>(); } },
+                { "intendedPurpose", n => { IntendedPurpose = n.GetEnumValue<ApiSdk.Models.IntendedPurpose>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>(ApiSdk.Models.ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "silentCertificateAccessDetails", n => { SilentCertificateAccessDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>(ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -70,10 +70,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AndroidDeviceOwnerCertificateAccessType>("certificateAccessType", CertificateAccessType);
-            writer.WriteEnumValue<IntendedPurpose>("intendedPurpose", IntendedPurpose);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerSilentCertificateAccess>("silentCertificateAccessDetails", SilentCertificateAccessDetails);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType>("certificateAccessType", CertificateAccessType);
+            writer.WriteEnumValue<ApiSdk.Models.IntendedPurpose>("intendedPurpose", IntendedPurpose);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>("silentCertificateAccessDetails", SilentCertificateAccessDetails);
         }
     }
 }

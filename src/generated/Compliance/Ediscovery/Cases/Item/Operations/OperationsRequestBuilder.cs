@@ -32,7 +32,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new CaseOperationItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Item.CaseOperationItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildMicrosoftGraphEdiscoveryCaseExportOperationByIdNavCommand());
@@ -47,7 +47,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -88,7 +88,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<CaseOperation>(CaseOperation.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Ediscovery.CaseOperation>(ApiSdk.Models.Ediscovery.CaseOperation.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -219,7 +219,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
         {
             var command = new Command("microsoft-graph-ediscovery-case-export-operation");
             command.Description = "Casts the previous resource to caseExportOperation.";
-            var builder = new MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.MicrosoftGraphEdiscoveryCaseExportOperation.MicrosoftGraphEdiscoveryCaseExportOperationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -235,14 +235,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OperationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.OperationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OperationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OperationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.OperationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OperationsRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/operations{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -256,11 +256,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.OperationsRequestBuilder.OperationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.OperationsRequestBuilder.OperationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -277,11 +277,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.Operations
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(CaseOperation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.Ediscovery.CaseOperation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(CaseOperation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.Ediscovery.CaseOperation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

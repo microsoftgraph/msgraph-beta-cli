@@ -44,7 +44,7 @@ namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UpdateSoftwarePostRequestBody>(UpdateSoftwarePostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwarePostRequestBody>(ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwarePostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -63,14 +63,14 @@ namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateSoftwareRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwareRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UpdateSoftwareRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/updateSoftware", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateSoftwareRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwareRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UpdateSoftwareRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/updateSoftware", rawUrl)
@@ -84,11 +84,11 @@ namespace ApiSdk.Teamwork.Devices.Item.UpdateSoftware
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UpdateSoftwarePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwarePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UpdateSoftwarePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwarePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

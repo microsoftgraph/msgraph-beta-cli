@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>The billingPostalAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? BillingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? BillingPostalAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType BillingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType BillingPostalAddress { get; set; }
 #endif
         /// <summary>The billToCustomerId property</summary>
         public Guid? BillToCustomerId { get; set; }
@@ -154,10 +154,10 @@ namespace ApiSdk.Models
         /// <summary>The salesOrderLines property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SalesOrderLine>? SalesOrderLines { get; set; }
+        public List<ApiSdk.Models.SalesOrderLine>? SalesOrderLines { get; set; }
 #nullable restore
 #else
-        public List<SalesOrderLine> SalesOrderLines { get; set; }
+        public List<ApiSdk.Models.SalesOrderLine> SalesOrderLines { get; set; }
 #endif
         /// <summary>The salesperson property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -170,18 +170,18 @@ namespace ApiSdk.Models
         /// <summary>The sellingPostalAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? SellingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? SellingPostalAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType SellingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType SellingPostalAddress { get; set; }
 #endif
         /// <summary>The shippingPostalAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? ShippingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? ShippingPostalAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType ShippingPostalAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType ShippingPostalAddress { get; set; }
 #endif
         /// <summary>The shipToContact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -214,7 +214,7 @@ namespace ApiSdk.Models
         /// <summary>The totalTaxAmount property</summary>
         public decimal? TotalTaxAmount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SalesOrder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SalesOrder"/> and sets the default values.
         /// </summary>
         public SalesOrder()
         {
@@ -223,12 +223,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SalesOrder"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SalesOrder"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SalesOrder CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SalesOrder CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SalesOrder();
+            return new ApiSdk.Models.SalesOrder();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -241,7 +241,7 @@ namespace ApiSdk.Models
                 { "billToCustomerId", n => { BillToCustomerId = n.GetGuidValue(); } },
                 { "billToCustomerNumber", n => { BillToCustomerNumber = n.GetStringValue(); } },
                 { "billToName", n => { BillToName = n.GetStringValue(); } },
-                { "billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "billingPostalAddress", n => { BillingPostalAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
                 { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
                 { "currencyId", n => { CurrencyId = n.GetGuidValue(); } },
@@ -265,12 +265,12 @@ namespace ApiSdk.Models
                 { "phoneNumber", n => { PhoneNumber = n.GetStringValue(); } },
                 { "pricesIncludeTax", n => { PricesIncludeTax = n.GetBoolValue(); } },
                 { "requestedDeliveryDate", n => { RequestedDeliveryDate = n.GetDateValue(); } },
-                { "salesOrderLines", n => { SalesOrderLines = n.GetCollectionOfObjectValues<SalesOrderLine>(SalesOrderLine.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "salesOrderLines", n => { SalesOrderLines = n.GetCollectionOfObjectValues<ApiSdk.Models.SalesOrderLine>(ApiSdk.Models.SalesOrderLine.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "salesperson", n => { Salesperson = n.GetStringValue(); } },
-                { "sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "sellingPostalAddress", n => { SellingPostalAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "shipToContact", n => { ShipToContact = n.GetStringValue(); } },
                 { "shipToName", n => { ShipToName = n.GetStringValue(); } },
-                { "shippingPostalAddress", n => { ShippingPostalAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "shippingPostalAddress", n => { ShippingPostalAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "totalAmountExcludingTax", n => { TotalAmountExcludingTax = n.GetDecimalValue(); } },
                 { "totalAmountIncludingTax", n => { TotalAmountIncludingTax = n.GetDecimalValue(); } },
@@ -284,7 +284,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PostalAddressType>("billingPostalAddress", BillingPostalAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("billingPostalAddress", BillingPostalAddress);
             writer.WriteGuidValue("billToCustomerId", BillToCustomerId);
             writer.WriteStringValue("billToCustomerNumber", BillToCustomerNumber);
             writer.WriteStringValue("billToName", BillToName);
@@ -311,10 +311,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("phoneNumber", PhoneNumber);
             writer.WriteBoolValue("pricesIncludeTax", PricesIncludeTax);
             writer.WriteDateValue("requestedDeliveryDate", RequestedDeliveryDate);
-            writer.WriteCollectionOfObjectValues<SalesOrderLine>("salesOrderLines", SalesOrderLines);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SalesOrderLine>("salesOrderLines", SalesOrderLines);
             writer.WriteStringValue("salesperson", Salesperson);
-            writer.WriteObjectValue<PostalAddressType>("sellingPostalAddress", SellingPostalAddress);
-            writer.WriteObjectValue<PostalAddressType>("shippingPostalAddress", ShippingPostalAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("sellingPostalAddress", SellingPostalAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("shippingPostalAddress", ShippingPostalAddress);
             writer.WriteStringValue("shipToContact", ShipToContact);
             writer.WriteStringValue("shipToName", ShipToName);
             writer.WriteStringValue("status", Status);

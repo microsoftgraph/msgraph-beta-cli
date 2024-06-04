@@ -120,7 +120,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
         {
             var command = new Command("links");
             command.Description = "Provides operations to manage the links property of the microsoft.graph.networkaccess.branchConnectivityConfiguration entity.";
-            var builder = new LinksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.Links.LinksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -171,7 +171,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BranchConnectivityConfiguration>(BranchConnectivityConfiguration.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration>(ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -192,14 +192,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectivityConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConnectivityConfigurationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectivityConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConnectivityConfigurationRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/connectivityConfiguration{?%24expand,%24select}", rawUrl)
@@ -233,11 +233,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectivityConfigurationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder.ConnectivityConfigurationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectivityConfigurationRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder.ConnectivityConfigurationRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -254,11 +254,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfigurat
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BranchConnectivityConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BranchConnectivityConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

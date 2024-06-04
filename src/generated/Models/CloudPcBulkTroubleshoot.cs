@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcBulkTroubleshoot : CloudPcBulkAction, IParsable
+    public class CloudPcBulkTroubleshoot : ApiSdk.Models.CloudPcBulkAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcBulkTroubleshoot"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcBulkTroubleshoot"/> and sets the default values.
         /// </summary>
         public CloudPcBulkTroubleshoot() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcBulkTroubleshoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcBulkTroubleshoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcBulkTroubleshoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcBulkTroubleshoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcBulkTroubleshoot();
+            return new ApiSdk.Models.CloudPcBulkTroubleshoot();
         }
         /// <summary>
         /// The deserialization information for the current model

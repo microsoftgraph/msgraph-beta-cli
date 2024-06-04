@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AzureADAuthentication : Entity, IParsable
+    public class AzureADAuthentication : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A list of monthly serviceLevelAgreementAttainment objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServiceLevelAgreementAttainment>? Attainments { get; set; }
+        public List<ApiSdk.Models.ServiceLevelAgreementAttainment>? Attainments { get; set; }
 #nullable restore
 #else
-        public List<ServiceLevelAgreementAttainment> Attainments { get; set; }
+        public List<ApiSdk.Models.ServiceLevelAgreementAttainment> Attainments { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureADAuthentication"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureADAuthentication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureADAuthentication CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureADAuthentication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureADAuthentication();
+            return new ApiSdk.Models.AzureADAuthentication();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "attainments", n => { Attainments = n.GetCollectionOfObjectValues<ServiceLevelAgreementAttainment>(ServiceLevelAgreementAttainment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "attainments", n => { Attainments = n.GetCollectionOfObjectValues<ApiSdk.Models.ServiceLevelAgreementAttainment>(ApiSdk.Models.ServiceLevelAgreementAttainment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ServiceLevelAgreementAttainment>("attainments", Attainments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServiceLevelAgreementAttainment>("attainments", Attainments);
         }
     }
 }

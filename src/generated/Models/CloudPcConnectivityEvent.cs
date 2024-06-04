@@ -23,9 +23,9 @@ namespace ApiSdk.Models
         public string EventName { get; set; }
 #endif
         /// <summary>The eventResult property</summary>
-        public CloudPcConnectivityEventResult? EventResult { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityEventResult? EventResult { get; set; }
         /// <summary>The eventType property</summary>
-        public CloudPcConnectivityEventType? EventType { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityEventType? EventType { get; set; }
         /// <summary>Additional message for this event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcConnectivityEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcConnectivityEvent"/> and sets the default values.
         /// </summary>
         public CloudPcConnectivityEvent()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcConnectivityEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcConnectivityEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcConnectivityEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcConnectivityEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcConnectivityEvent();
+            return new ApiSdk.Models.CloudPcConnectivityEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,8 +69,8 @@ namespace ApiSdk.Models
             {
                 { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
                 { "eventName", n => { EventName = n.GetStringValue(); } },
-                { "eventResult", n => { EventResult = n.GetEnumValue<CloudPcConnectivityEventResult>(); } },
-                { "eventType", n => { EventType = n.GetEnumValue<CloudPcConnectivityEventType>(); } },
+                { "eventResult", n => { EventResult = n.GetEnumValue<ApiSdk.Models.CloudPcConnectivityEventResult>(); } },
+                { "eventType", n => { EventType = n.GetEnumValue<ApiSdk.Models.CloudPcConnectivityEventType>(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -84,8 +84,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("eventName", EventName);
-            writer.WriteEnumValue<CloudPcConnectivityEventResult>("eventResult", EventResult);
-            writer.WriteEnumValue<CloudPcConnectivityEventType>("eventType", EventType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcConnectivityEventResult>("eventResult", EventResult);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcConnectivityEventType>("eventType", EventType);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

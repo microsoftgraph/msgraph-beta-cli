@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InformationProtectionPolicy : Entity, IParsable
+    public class InformationProtectionPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The labels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<InformationProtectionLabel>? Labels { get; set; }
+        public List<ApiSdk.Models.InformationProtectionLabel>? Labels { get; set; }
 #nullable restore
 #else
-        public List<InformationProtectionLabel> Labels { get; set; }
+        public List<ApiSdk.Models.InformationProtectionLabel> Labels { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InformationProtectionPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InformationProtectionPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InformationProtectionPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InformationProtectionPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InformationProtectionPolicy();
+            return new ApiSdk.Models.InformationProtectionPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "labels", n => { Labels = n.GetCollectionOfObjectValues<InformationProtectionLabel>(InformationProtectionLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfObjectValues<ApiSdk.Models.InformationProtectionLabel>(ApiSdk.Models.InformationProtectionLabel.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<InformationProtectionLabel>("labels", Labels);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.InformationProtectionLabel>("labels", Labels);
         }
     }
 }

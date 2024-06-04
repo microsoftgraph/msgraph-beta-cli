@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for device run state of the device health script.
     /// </summary>
-    public class DeviceHealthScriptDeviceState : Entity, IParsable
+    public class DeviceHealthScriptDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>A list of the assignment filter ids used for health script applicability evaluation</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public List<string> AssignmentFilterIds { get; set; }
 #endif
         /// <summary>Indicates the type of execution status of the device management script.</summary>
-        public RunState? DetectionState { get; set; }
+        public ApiSdk.Models.RunState? DetectionState { get; set; }
         /// <summary>The next timestamp of when the device health script is expected to execute</summary>
         public DateTimeOffset? ExpectedStateUpdateDateTime { get; set; }
         /// <summary>The last timestamp of when the device health script executed</summary>
@@ -80,12 +80,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceHealthScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceHealthScriptDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptDeviceState();
+            return new ApiSdk.Models.DeviceHealthScriptDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -96,7 +96,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
                 { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
@@ -106,7 +106,7 @@ namespace ApiSdk.Models
                 { "preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
                 { "preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
                 { "remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
-                { "remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<ApiSdk.Models.RemediationState>(); } },
             };
         }
         /// <summary>
@@ -118,7 +118,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("assignmentFilterIds", AssignmentFilterIds);
-            writer.WriteEnumValue<RunState>("detectionState", DetectionState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("detectionState", DetectionState);
             writer.WriteDateTimeOffsetValue("expectedStateUpdateDateTime", ExpectedStateUpdateDateTime);
             writer.WriteDateTimeOffsetValue("lastStateUpdateDateTime", LastStateUpdateDateTime);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
@@ -128,7 +128,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("preRemediationDetectionScriptError", PreRemediationDetectionScriptError);
             writer.WriteStringValue("preRemediationDetectionScriptOutput", PreRemediationDetectionScriptOutput);
             writer.WriteStringValue("remediationScriptError", RemediationScriptError);
-            writer.WriteEnumValue<RemediationState>("remediationState", RemediationState);
+            writer.WriteEnumValue<ApiSdk.Models.RemediationState>("remediationState", RemediationState);
         }
     }
 }

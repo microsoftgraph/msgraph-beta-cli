@@ -33,7 +33,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         {
             var command = new Command("cancel");
             command.Description = "Provides operations to call the cancel method.";
-            var builder = new CancelRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Cancel.CancelRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -50,7 +50,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         {
             var command = new Command("commit");
             command.Description = "Provides operations to call the commit method.";
-            var builder = new CommitRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Commit.CommitRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -194,7 +194,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ExactMatchSession>(ExactMatchSession.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ExactMatchSession>(ApiSdk.Models.ExactMatchSession.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -223,7 +223,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         {
             var command = new Command("renew");
             command.Description = "Provides operations to call the renew method.";
-            var builder = new RenewRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.Renew.RenewRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -240,7 +240,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         {
             var command = new Command("upload-agent");
             command.Description = "Provides operations to manage the uploadAgent property of the microsoft.graph.exactMatchSession entity.";
-            var builder = new UploadAgentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.UploadAgent.UploadAgentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -252,14 +252,14 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchSessionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.ExactMatchSessionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExactMatchSessionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchSessionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.ExactMatchSessionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExactMatchSessionItemRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}/sessions/{exactMatchSession%2Did}{?%24expand,%24select}", rawUrl)
@@ -291,11 +291,11 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExactMatchSessionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.ExactMatchSessionItemRequestBuilder.ExactMatchSessionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExactMatchSessionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item.ExactMatchSessionItemRequestBuilder.ExactMatchSessionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -311,11 +311,11 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ExactMatchSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ExactMatchSession body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ExactMatchSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ExactMatchSession body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

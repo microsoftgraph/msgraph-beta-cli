@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCount
         /// <summary>The value property</summary>
         public int? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime.GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse"/> and sets the default values.
         /// </summary>
         public GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCount
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime.GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime.GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse();
+            return new ApiSdk.DeviceManagement.DepOnboardingSettings.GetExpiringVppTokenCountWithExpiringBeforeDateTime.GetExpiringVppTokenCountWithExpiringBeforeDateTimeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

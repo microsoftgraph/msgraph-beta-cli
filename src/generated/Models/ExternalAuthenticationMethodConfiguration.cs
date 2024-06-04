@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExternalAuthenticationMethodConfiguration : AuthenticationMethodConfiguration, IParsable
+    public class ExternalAuthenticationMethodConfiguration : ApiSdk.Models.AuthenticationMethodConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>appId for the app registration in Microsoft Entra ID representing the integration with the external provider.</summary>
@@ -29,10 +29,10 @@ namespace ApiSdk.Models
         /// <summary>A collection of groups that are enabled to use an authentication method as part of an authentication method policy in Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationMethodTarget>? IncludeTargets { get; set; }
+        public List<ApiSdk.Models.AuthenticationMethodTarget>? IncludeTargets { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationMethodTarget> IncludeTargets { get; set; }
+        public List<ApiSdk.Models.AuthenticationMethodTarget> IncludeTargets { get; set; }
 #endif
         /// <summary>The openIdConnectSetting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.OpenIdConnectSetting OpenIdConnectSetting { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExternalAuthenticationMethodConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExternalAuthenticationMethodConfiguration"/> and sets the default values.
         /// </summary>
         public ExternalAuthenticationMethodConfiguration() : base()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExternalAuthenticationMethodConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalAuthenticationMethodConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExternalAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExternalAuthenticationMethodConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExternalAuthenticationMethodConfiguration();
+            return new ApiSdk.Models.ExternalAuthenticationMethodConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             {
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<AuthenticationMethodTarget>(AuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationMethodTarget>(ApiSdk.Models.AuthenticationMethodTarget.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "openIdConnectSetting", n => { OpenIdConnectSetting = n.GetObjectValue<ApiSdk.Models.OpenIdConnectSetting>(ApiSdk.Models.OpenIdConnectSetting.CreateFromDiscriminatorValue); } },
             };
         }
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<AuthenticationMethodTarget>("includeTargets", IncludeTargets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationMethodTarget>("includeTargets", IncludeTargets);
             writer.WriteObjectValue<ApiSdk.Models.OpenIdConnectSetting>("openIdConnectSetting", OpenIdConnectSetting);
         }
     }

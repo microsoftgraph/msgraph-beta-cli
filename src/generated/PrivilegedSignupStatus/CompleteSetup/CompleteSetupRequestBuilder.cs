@@ -50,7 +50,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<CompleteSetupPostRequestBody>(CompleteSetupPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody>(ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -79,14 +79,14 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteSetupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CompleteSetupRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedSignupStatus/completeSetup", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteSetupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CompleteSetupRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedSignupStatus/completeSetup", rawUrl)
@@ -100,11 +100,11 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(CompleteSetupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(CompleteSetupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class InboundActivityResults : IndustryDataActivityStatistics, IParsable
+    public class InboundActivityResults : ApiSdk.Models.IndustryData.IndustryDataActivityStatistics, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of errors encountered while processing the inbound flow.</summary>
@@ -15,55 +15,55 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>Counts of active and inactive groups processed by the inbound flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IndustryDataRunEntityCountMetric? Groups { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric? Groups { get; private set; }
 #nullable restore
 #else
-        public IndustryDataRunEntityCountMetric Groups { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric Groups { get; private set; }
 #endif
         /// <summary>Number of people matched to a Microsoft Entra user, by role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IndustryDataRunRoleCountMetric>? MatchedPeopleByRole { get; private set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric>? MatchedPeopleByRole { get; private set; }
 #nullable restore
 #else
-        public List<IndustryDataRunRoleCountMetric> MatchedPeopleByRole { get; private set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric> MatchedPeopleByRole { get; private set; }
 #endif
         /// <summary>Counts of active and inactive memberships processed by the inbound flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IndustryDataRunEntityCountMetric? Memberships { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric? Memberships { get; private set; }
 #nullable restore
 #else
-        public IndustryDataRunEntityCountMetric Memberships { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric Memberships { get; private set; }
 #endif
         /// <summary>Counts of active and inactive organizations processed by the inbound flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IndustryDataRunEntityCountMetric? Organizations { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric? Organizations { get; private set; }
 #nullable restore
 #else
-        public IndustryDataRunEntityCountMetric Organizations { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric Organizations { get; private set; }
 #endif
         /// <summary>Counts of active and inactive people processed by the inbound flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IndustryDataRunEntityCountMetric? People { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric? People { get; private set; }
 #nullable restore
 #else
-        public IndustryDataRunEntityCountMetric People { get; private set; }
+        public ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric People { get; private set; }
 #endif
         /// <summary>Number of people not matched to a Microsoft Entra user, by role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IndustryDataRunRoleCountMetric>? UnmatchedPeopleByRole { get; private set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric>? UnmatchedPeopleByRole { get; private set; }
 #nullable restore
 #else
-        public List<IndustryDataRunRoleCountMetric> UnmatchedPeopleByRole { get; private set; }
+        public List<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric> UnmatchedPeopleByRole { get; private set; }
 #endif
         /// <summary>Number of warnings encountered while processing the inbound flow.</summary>
         public int? Warnings { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="InboundActivityResults"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.InboundActivityResults"/> and sets the default values.
         /// </summary>
         public InboundActivityResults() : base()
         {
@@ -72,12 +72,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InboundActivityResults"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.InboundActivityResults"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InboundActivityResults CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.InboundActivityResults CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InboundActivityResults();
+            return new ApiSdk.Models.IndustryData.InboundActivityResults();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,12 +88,12 @@ namespace ApiSdk.Models.IndustryData
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "errors", n => { Errors = n.GetIntValue(); } },
-                { "groups", n => { Groups = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                { "matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "memberships", n => { Memberships = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                { "organizations", n => { Organizations = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                { "people", n => { People = n.GetObjectValue<IndustryDataRunEntityCountMetric>(IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
-                { "unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<IndustryDataRunRoleCountMetric>(IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groups", n => { Groups = n.GetObjectValue<ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "matchedPeopleByRole", n => { MatchedPeopleByRole = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "memberships", n => { Memberships = n.GetObjectValue<ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "organizations", n => { Organizations = n.GetObjectValue<ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "people", n => { People = n.GetObjectValue<ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric.CreateFromDiscriminatorValue); } },
+                { "unmatchedPeopleByRole", n => { UnmatchedPeopleByRole = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric>(ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "warnings", n => { Warnings = n.GetIntValue(); } },
             };
         }

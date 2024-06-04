@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Event representing an Apple Vpp Token Troubleshooting Event.
     /// </summary>
-    public class AppleVppTokenTroubleshootingEvent : DeviceManagementTroubleshootingEvent, IParsable
+    public class AppleVppTokenTroubleshootingEvent : ApiSdk.Models.DeviceManagementTroubleshootingEvent, IParsable
     {
         /// <summary>Apple Volume Purchase Program Token Identifier.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppleVppTokenTroubleshootingEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppleVppTokenTroubleshootingEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppleVppTokenTroubleshootingEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppleVppTokenTroubleshootingEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppleVppTokenTroubleshootingEvent();
+            return new ApiSdk.Models.AppleVppTokenTroubleshootingEvent();
         }
         /// <summary>
         /// The deserialization information for the current model

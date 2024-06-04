@@ -59,14 +59,14 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.It
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateDownloadUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item.GenerateDownloadUrl.GenerateDownloadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GenerateDownloadUrlRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses/{microsoftTunnelServerLogCollectionResponse%2Did}/generateDownloadUrl", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateDownloadUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelServerLogCollectionResponses.Item.GenerateDownloadUrl.GenerateDownloadUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GenerateDownloadUrlRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/microsoftTunnelServerLogCollectionResponses/{microsoftTunnelServerLogCollectionResponse%2Did}/generateDownloadUrl", rawUrl)

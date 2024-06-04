@@ -29,7 +29,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item.CreateCopy
         public string DisplayName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CreateCopyPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.CreateCopy.CreateCopyPostRequestBody"/> and sets the default values.
         /// </summary>
         public CreateCopyPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.DeviceManagement.Intents.Item.CreateCopy
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CreateCopyPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Intents.Item.CreateCopy.CreateCopyPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CreateCopyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Intents.Item.CreateCopy.CreateCopyPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CreateCopyPostRequestBody();
+            return new ApiSdk.DeviceManagement.Intents.Item.CreateCopy.CreateCopyPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

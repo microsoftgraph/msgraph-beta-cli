@@ -33,7 +33,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The traffic classification. The allowed values are internet, private, microsoft365, all, and unknownFutureValue.</summary>
         public ApiSdk.Models.Networkaccess.TrafficType? TrafficType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DestinationSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.DestinationSummary"/> and sets the default values.
         /// </summary>
         public DestinationSummary()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DestinationSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.DestinationSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DestinationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.DestinationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DestinationSummary();
+            return new ApiSdk.Models.Networkaccess.DestinationSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "count", n => { Count = n.GetLongValue(); } },
                 { "destination", n => { Destination = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficType>(); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteLongValue("count", Count);
             writer.WriteStringValue("destination", Destination);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<TrafficType>("trafficType", TrafficType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficType>("trafficType", TrafficType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

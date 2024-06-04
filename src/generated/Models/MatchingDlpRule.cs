@@ -13,10 +13,10 @@ namespace ApiSdk.Models
         /// <summary>The actions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DlpActionInfo>? Actions { get; set; }
+        public List<ApiSdk.Models.DlpActionInfo>? Actions { get; set; }
 #nullable restore
 #else
-        public List<DlpActionInfo> Actions { get; set; }
+        public List<ApiSdk.Models.DlpActionInfo> Actions { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public string RuleName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MatchingDlpRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MatchingDlpRule"/> and sets the default values.
         /// </summary>
         public MatchingDlpRule()
         {
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MatchingDlpRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MatchingDlpRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MatchingDlpRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MatchingDlpRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MatchingDlpRule();
+            return new ApiSdk.Models.MatchingDlpRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,14 +91,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actions", n => { Actions = n.GetCollectionOfObjectValues<DlpActionInfo>(DlpActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<ApiSdk.Models.DlpActionInfo>(ApiSdk.Models.DlpActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isMostRestrictive", n => { IsMostRestrictive = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "policyId", n => { PolicyId = n.GetStringValue(); } },
                 { "policyName", n => { PolicyName = n.GetStringValue(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "ruleId", n => { RuleId = n.GetStringValue(); } },
-                { "ruleMode", n => { RuleMode = n.GetEnumValue<RuleMode>(); } },
+                { "ruleMode", n => { RuleMode = n.GetEnumValue<ApiSdk.Models.RuleMode>(); } },
                 { "ruleName", n => { RuleName = n.GetStringValue(); } },
             };
         }
@@ -109,14 +109,14 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DlpActionInfo>("actions", Actions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DlpActionInfo>("actions", Actions);
             writer.WriteBoolValue("isMostRestrictive", IsMostRestrictive);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("policyId", PolicyId);
             writer.WriteStringValue("policyName", PolicyName);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("ruleId", RuleId);
-            writer.WriteEnumValue<RuleMode>("ruleMode", RuleMode);
+            writer.WriteEnumValue<ApiSdk.Models.RuleMode>("ruleMode", RuleMode);
             writer.WriteStringValue("ruleName", RuleName);
             writer.WriteAdditionalData(AdditionalData);
         }

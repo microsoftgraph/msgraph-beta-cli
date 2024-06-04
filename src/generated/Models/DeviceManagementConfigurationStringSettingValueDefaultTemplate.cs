@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationStringSettingValueDefaultTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefaultTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationStringSettingValueDefaultTemplate()
         {
@@ -31,16 +31,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationStringSettingValueDefaultTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefaultTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationStringSettingValueDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationStringSettingValueConstantDefaultTemplate" => new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate(),
-                _ => new DeviceManagementConfigurationStringSettingValueDefaultTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationStringSettingValueConstantDefaultTemplate" => new ApiSdk.Models.DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefaultTemplate(),
             };
         }
         /// <summary>

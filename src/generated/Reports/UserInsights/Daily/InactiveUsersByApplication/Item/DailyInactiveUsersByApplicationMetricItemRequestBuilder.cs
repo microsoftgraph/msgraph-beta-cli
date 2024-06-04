@@ -75,14 +75,14 @@ namespace ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DailyInactiveUsersByApplicationMetricItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item.DailyInactiveUsersByApplicationMetricItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DailyInactiveUsersByApplicationMetricItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/userInsights/daily/inactiveUsersByApplication/{dailyInactiveUsersByApplicationMetric%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DailyInactiveUsersByApplicationMetricItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item.DailyInactiveUsersByApplicationMetricItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DailyInactiveUsersByApplicationMetricItemRequestBuilder(string rawUrl) : base("{+baseurl}/reports/userInsights/daily/inactiveUsersByApplication/{dailyInactiveUsersByApplicationMetric%2Did}{?%24expand,%24select}", rawUrl)
@@ -96,11 +96,11 @@ namespace ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item
         [Obsolete("The Inactive Users By Application Metric is deprecated and will stop returning data on February 16, 2024. Please use the existing Inactive Users API. as of 2024-02/Remove_Breakdown_APIs")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DailyInactiveUsersByApplicationMetricItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item.DailyInactiveUsersByApplicationMetricItemRequestBuilder.DailyInactiveUsersByApplicationMetricItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DailyInactiveUsersByApplicationMetricItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.UserInsights.Daily.InactiveUsersByApplication.Item.DailyInactiveUsersByApplicationMetricItemRequestBuilder.DailyInactiveUsersByApplicationMetricItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

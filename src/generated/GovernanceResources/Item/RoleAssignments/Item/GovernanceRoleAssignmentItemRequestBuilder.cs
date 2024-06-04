@@ -132,7 +132,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         {
             var command = new Command("linked-eligible-role-assignment");
             command.Description = "Provides operations to manage the linkedEligibleRoleAssignment property of the microsoft.graph.governanceRoleAssignment entity.";
-            var builder = new LinkedEligibleRoleAssignmentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment.LinkedEligibleRoleAssignmentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -177,7 +177,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GovernanceRoleAssignment>(GovernanceRoleAssignment.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GovernanceRoleAssignment>(ApiSdk.Models.GovernanceRoleAssignment.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -206,7 +206,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         {
             var command = new Command("resource");
             command.Description = "Provides operations to manage the resource property of the microsoft.graph.governanceRoleAssignment entity.";
-            var builder = new ResourceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceResources.Item.RoleAssignments.Item.Resource.ResourceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -223,7 +223,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         {
             var command = new Command("role-definition");
             command.Description = "Provides operations to manage the roleDefinition property of the microsoft.graph.governanceRoleAssignment entity.";
-            var builder = new RoleDefinitionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceResources.Item.RoleAssignments.Item.RoleDefinition.RoleDefinitionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -249,7 +249,7 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         {
             var command = new Command("subject");
             command.Description = "Provides operations to manage the subject property of the microsoft.graph.governanceRoleAssignment entity.";
-            var builder = new SubjectRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceResources.Item.RoleAssignments.Item.Subject.SubjectRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -261,14 +261,14 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceRoleAssignmentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Item.RoleAssignments.Item.GovernanceRoleAssignmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GovernanceRoleAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceRoleAssignmentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Item.RoleAssignments.Item.GovernanceRoleAssignmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GovernanceRoleAssignmentItemRequestBuilder(string rawUrl) : base("{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}{?%24expand,%24select}", rawUrl)
@@ -300,11 +300,11 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GovernanceRoleAssignmentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceResources.Item.RoleAssignments.Item.GovernanceRoleAssignmentItemRequestBuilder.GovernanceRoleAssignmentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GovernanceRoleAssignmentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceResources.Item.RoleAssignments.Item.GovernanceRoleAssignmentItemRequestBuilder.GovernanceRoleAssignmentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -320,11 +320,11 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

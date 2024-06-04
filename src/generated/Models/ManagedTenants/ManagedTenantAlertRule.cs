@@ -21,10 +21,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The alerts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantAlert>? Alerts { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>? Alerts { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantAlert> Alerts { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantAlert> Alerts { get; set; }
 #endif
         /// <summary>The alertTTL property</summary>
         public int? AlertTTL { get; set; }
@@ -67,42 +67,42 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The lastRunDateTime property</summary>
         public DateTimeOffset? LastRunDateTime { get; set; }
         /// <summary>The notificationFinalDestinations property</summary>
-        public NotificationDestination? NotificationFinalDestinations { get; set; }
+        public ApiSdk.Models.ManagedTenants.NotificationDestination? NotificationFinalDestinations { get; set; }
         /// <summary>The ruleDefinition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedTenantAlertRuleDefinition? RuleDefinition { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition? RuleDefinition { get; set; }
 #nullable restore
 #else
-        public ManagedTenantAlertRuleDefinition RuleDefinition { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition RuleDefinition { get; set; }
 #endif
         /// <summary>The severity property</summary>
-        public AlertSeverity? Severity { get; set; }
+        public ApiSdk.Models.ManagedTenants.AlertSeverity? Severity { get; set; }
         /// <summary>The targets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NotificationTarget>? Targets { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.NotificationTarget>? Targets { get; set; }
 #nullable restore
 #else
-        public List<NotificationTarget> Targets { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.NotificationTarget> Targets { get; set; }
 #endif
         /// <summary>The tenantIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TenantInfo>? TenantIds { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantInfo>? TenantIds { get; set; }
 #nullable restore
 #else
-        public List<TenantInfo> TenantIds { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TenantInfo> TenantIds { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedTenantAlertRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedTenantAlertRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedTenantAlertRule();
+            return new ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -114,7 +114,7 @@ namespace ApiSdk.Models.ManagedTenants
             {
                 { "alertDisplayName", n => { AlertDisplayName = n.GetStringValue(); } },
                 { "alertTTL", n => { AlertTTL = n.GetIntValue(); } },
-                { "alerts", n => { Alerts = n.GetCollectionOfObjectValues<ManagedTenantAlert>(ManagedTenantAlert.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alerts", n => { Alerts = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>(ApiSdk.Models.ManagedTenants.ManagedTenantAlert.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -122,11 +122,11 @@ namespace ApiSdk.Models.ManagedTenants
                 { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastRunDateTime", n => { LastRunDateTime = n.GetDateTimeOffsetValue(); } },
-                { "notificationFinalDestinations", n => { NotificationFinalDestinations = n.GetEnumValue<NotificationDestination>(); } },
-                { "ruleDefinition", n => { RuleDefinition = n.GetObjectValue<ManagedTenantAlertRuleDefinition>(ManagedTenantAlertRuleDefinition.CreateFromDiscriminatorValue); } },
-                { "severity", n => { Severity = n.GetEnumValue<AlertSeverity>(); } },
-                { "targets", n => { Targets = n.GetCollectionOfObjectValues<NotificationTarget>(NotificationTarget.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tenantIds", n => { TenantIds = n.GetCollectionOfObjectValues<TenantInfo>(TenantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "notificationFinalDestinations", n => { NotificationFinalDestinations = n.GetEnumValue<ApiSdk.Models.ManagedTenants.NotificationDestination>(); } },
+                { "ruleDefinition", n => { RuleDefinition = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition>(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition.CreateFromDiscriminatorValue); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.ManagedTenants.AlertSeverity>(); } },
+                { "targets", n => { Targets = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.NotificationTarget>(ApiSdk.Models.ManagedTenants.NotificationTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tenantIds", n => { TenantIds = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantInfo>(ApiSdk.Models.ManagedTenants.TenantInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -138,7 +138,7 @@ namespace ApiSdk.Models.ManagedTenants
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("alertDisplayName", AlertDisplayName);
-            writer.WriteCollectionOfObjectValues<ManagedTenantAlert>("alerts", Alerts);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>("alerts", Alerts);
             writer.WriteIntValue("alertTTL", AlertTTL);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
@@ -147,11 +147,11 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteStringValue("lastActionByUserId", LastActionByUserId);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
             writer.WriteDateTimeOffsetValue("lastRunDateTime", LastRunDateTime);
-            writer.WriteEnumValue<NotificationDestination>("notificationFinalDestinations", NotificationFinalDestinations);
-            writer.WriteObjectValue<ManagedTenantAlertRuleDefinition>("ruleDefinition", RuleDefinition);
-            writer.WriteEnumValue<AlertSeverity>("severity", Severity);
-            writer.WriteCollectionOfObjectValues<NotificationTarget>("targets", Targets);
-            writer.WriteCollectionOfObjectValues<TenantInfo>("tenantIds", TenantIds);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.NotificationDestination>("notificationFinalDestinations", NotificationFinalDestinations);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRuleDefinition>("ruleDefinition", RuleDefinition);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.AlertSeverity>("severity", Severity);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.NotificationTarget>("targets", Targets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TenantInfo>("tenantIds", TenantIds);
         }
     }
 }

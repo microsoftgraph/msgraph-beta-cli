@@ -23,12 +23,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NetworkAdapter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.NetworkAdapter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new NetworkAdapter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.NetworkAdapter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NetworkAdapter();
+            return new ApiSdk.Models.Security.NetworkAdapter();
         }
         /// <summary>
         /// The deserialization information for the current model

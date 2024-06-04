@@ -30,7 +30,7 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.Attendance
         {
             var command = new Command("attendance-records");
             command.Description = "Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.";
-            var builder = new AttendanceRecordsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.AttendanceReports.Item.AttendanceRecords.AttendanceRecordsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -224,14 +224,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.Attendance
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MeetingAttendanceReportItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.AttendanceReports.Item.MeetingAttendanceReportItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MeetingAttendanceReportItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/sessions/{virtualEventSession%2Did}/attendanceReports/{meetingAttendanceReport%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MeetingAttendanceReportItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.AttendanceReports.Item.MeetingAttendanceReportItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MeetingAttendanceReportItemRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents/townhalls/{virtualEventTownhall%2Did}/sessions/{virtualEventSession%2Did}/attendanceReports/{meetingAttendanceReport%2Did}{?%24expand,%24select}", rawUrl)
@@ -263,11 +263,11 @@ namespace ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.Attendance
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MeetingAttendanceReportItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.AttendanceReports.Item.MeetingAttendanceReportItemRequestBuilder.MeetingAttendanceReportItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MeetingAttendanceReportItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Solutions.VirtualEvents.Townhalls.Item.Sessions.Item.AttendanceReports.Item.MeetingAttendanceReportItemRequestBuilder.MeetingAttendanceReportItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

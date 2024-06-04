@@ -29,22 +29,22 @@ namespace ApiSdk.Models.Ediscovery
         public string DisplayName { get; set; }
 #endif
         /// <summary>The holdStatus property</summary>
-        public DataSourceHoldStatus? HoldStatus { get; set; }
+        public ApiSdk.Models.Ediscovery.DataSourceHoldStatus? HoldStatus { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DataSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.DataSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DataSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.DataSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.ediscovery.siteSource" => new SiteSource(),
-                "#microsoft.graph.ediscovery.unifiedGroupSource" => new UnifiedGroupSource(),
-                "#microsoft.graph.ediscovery.userSource" => new UserSource(),
-                _ => new DataSource(),
+                "#microsoft.graph.ediscovery.siteSource" => new ApiSdk.Models.Ediscovery.SiteSource(),
+                "#microsoft.graph.ediscovery.unifiedGroupSource" => new ApiSdk.Models.Ediscovery.UnifiedGroupSource(),
+                "#microsoft.graph.ediscovery.userSource" => new ApiSdk.Models.Ediscovery.UserSource(),
+                _ => new ApiSdk.Models.Ediscovery.DataSource(),
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace ApiSdk.Models.Ediscovery
                 { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "holdStatus", n => { HoldStatus = n.GetEnumValue<DataSourceHoldStatus>(); } },
+                { "holdStatus", n => { HoldStatus = n.GetEnumValue<ApiSdk.Models.Ediscovery.DataSourceHoldStatus>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace ApiSdk.Models.Ediscovery
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<DataSourceHoldStatus>("holdStatus", HoldStatus);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.DataSourceHoldStatus>("holdStatus", HoldStatus);
         }
     }
 }

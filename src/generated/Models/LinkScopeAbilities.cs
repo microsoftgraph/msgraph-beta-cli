@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>The blockDownload link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? BlockDownloadLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? BlockDownloadLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities BlockDownloadLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities BlockDownloadLinkAbilities { get; set; }
 #endif
         /// <summary>The editLinkAbilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? EditLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? EditLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities EditLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities EditLinkAbilities { get; set; }
 #endif
         /// <summary>The manageList link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? ManageListLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? ManageListLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities ManageListLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities ManageListLinkAbilities { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,29 +47,29 @@ namespace ApiSdk.Models
         /// <summary>The readLinkAbilities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? ReadLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? ReadLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities ReadLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities ReadLinkAbilities { get; set; }
 #endif
         /// <summary>The review link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? ReviewLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? ReviewLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities ReviewLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities ReviewLinkAbilities { get; set; }
 #endif
         /// <summary>The submitOnly link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkRoleAbilities? SubmitOnlyLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities? SubmitOnlyLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkRoleAbilities SubmitOnlyLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkRoleAbilities SubmitOnlyLinkAbilities { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LinkScopeAbilities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LinkScopeAbilities"/> and sets the default values.
         /// </summary>
         public LinkScopeAbilities()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LinkScopeAbilities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LinkScopeAbilities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LinkScopeAbilities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.LinkScopeAbilities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LinkScopeAbilities();
+            return new ApiSdk.Models.LinkScopeAbilities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,13 +93,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "blockDownloadLinkAbilities", n => { BlockDownloadLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
-                { "editLinkAbilities", n => { EditLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
-                { "manageListLinkAbilities", n => { ManageListLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "blockDownloadLinkAbilities", n => { BlockDownloadLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "editLinkAbilities", n => { EditLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "manageListLinkAbilities", n => { ManageListLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "readLinkAbilities", n => { ReadLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
-                { "reviewLinkAbilities", n => { ReviewLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
-                { "submitOnlyLinkAbilities", n => { SubmitOnlyLinkAbilities = n.GetObjectValue<LinkRoleAbilities>(LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "readLinkAbilities", n => { ReadLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "reviewLinkAbilities", n => { ReviewLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
+                { "submitOnlyLinkAbilities", n => { SubmitOnlyLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkRoleAbilities>(ApiSdk.Models.LinkRoleAbilities.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -109,13 +109,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<LinkRoleAbilities>("blockDownloadLinkAbilities", BlockDownloadLinkAbilities);
-            writer.WriteObjectValue<LinkRoleAbilities>("editLinkAbilities", EditLinkAbilities);
-            writer.WriteObjectValue<LinkRoleAbilities>("manageListLinkAbilities", ManageListLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("blockDownloadLinkAbilities", BlockDownloadLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("editLinkAbilities", EditLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("manageListLinkAbilities", ManageListLinkAbilities);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<LinkRoleAbilities>("readLinkAbilities", ReadLinkAbilities);
-            writer.WriteObjectValue<LinkRoleAbilities>("reviewLinkAbilities", ReviewLinkAbilities);
-            writer.WriteObjectValue<LinkRoleAbilities>("submitOnlyLinkAbilities", SubmitOnlyLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("readLinkAbilities", ReadLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("reviewLinkAbilities", ReviewLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkRoleAbilities>("submitOnlyLinkAbilities", SubmitOnlyLinkAbilities);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

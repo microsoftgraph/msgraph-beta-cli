@@ -13,20 +13,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AggregatedPolicyCompliance>? Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>? Value { get; set; }
 #nullable restore
 #else
-        public List<AggregatedPolicyCompliance> Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AggregatedPolicyComplianceCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.AggregatedPolicyComplianceCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AggregatedPolicyComplianceCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.AggregatedPolicyComplianceCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AggregatedPolicyComplianceCollectionResponse();
+            return new ApiSdk.Models.ManagedTenants.AggregatedPolicyComplianceCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<AggregatedPolicyCompliance>(AggregatedPolicyCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>(ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AggregatedPolicyCompliance>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.AggregatedPolicyCompliance>("value", Value);
         }
     }
 }

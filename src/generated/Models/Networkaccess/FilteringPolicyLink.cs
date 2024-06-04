@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class FilteringPolicyLink : PolicyLink, IParsable
+    public class FilteringPolicyLink : ApiSdk.Models.Networkaccess.PolicyLink, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the filtering Policy link was created.</summary>
@@ -15,11 +15,11 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The date and time when the policy was most recently modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The loggingState property</summary>
-        public Status? LoggingState { get; set; }
+        public ApiSdk.Models.Networkaccess.Status? LoggingState { get; set; }
         /// <summary>Provides an integer priority level for each instance of a URL filtering policy linked to a profile. Required.</summary>
         public long? Priority { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="FilteringPolicyLink"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.FilteringPolicyLink"/> and sets the default values.
         /// </summary>
         public FilteringPolicyLink() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FilteringPolicyLink"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.FilteringPolicyLink"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FilteringPolicyLink CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.FilteringPolicyLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FilteringPolicyLink();
+            return new ApiSdk.Models.Networkaccess.FilteringPolicyLink();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.Networkaccess
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "loggingState", n => { LoggingState = n.GetEnumValue<Status>(); } },
+                { "loggingState", n => { LoggingState = n.GetEnumValue<ApiSdk.Models.Networkaccess.Status>(); } },
                 { "priority", n => { Priority = n.GetLongValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace ApiSdk.Models.Networkaccess
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<Status>("loggingState", LoggingState);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Status>("loggingState", LoggingState);
             writer.WriteLongValue("priority", Priority);
         }
     }

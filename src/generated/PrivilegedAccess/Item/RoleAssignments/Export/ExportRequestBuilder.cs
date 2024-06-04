@@ -102,14 +102,14 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExportRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleAssignments/export(){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExportRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}/roleAssignments/export(){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -122,11 +122,11 @@ namespace ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExportRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportRequestBuilder.ExportRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExportRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.RoleAssignments.Export.ExportRequestBuilder.ExportRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

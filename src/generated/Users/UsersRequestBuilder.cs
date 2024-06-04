@@ -37,7 +37,7 @@ namespace ApiSdk.Users
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new UserItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.UserItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildActivitiesNavCommand());
             commands.Add(builder.BuildAgreementAcceptancesNavCommand());
             commands.Add(builder.BuildAnalyticsNavCommand());
@@ -165,7 +165,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -228,7 +228,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("delta");
             command.Description = "Provides operations to call the delta method.";
-            var builder = new DeltaRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Delta.DeltaRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -245,7 +245,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("get-by-ids");
             command.Description = "Provides operations to call the getByIds method.";
-            var builder = new GetByIdsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.GetByIds.GetByIdsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -262,7 +262,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("get-managed-app-blocked-users");
             command.Description = "Provides operations to call the getManagedAppBlockedUsers method.";
-            var builder = new GetManagedAppBlockedUsersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.GetManagedAppBlockedUsers.GetManagedAppBlockedUsersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -279,7 +279,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("get-user-owned-objects");
             command.Description = "Provides operations to call the getUserOwnedObjects method.";
-            var builder = new GetUserOwnedObjectsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.GetUserOwnedObjects.GetUserOwnedObjectsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -394,7 +394,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("validate-password");
             command.Description = "Provides operations to call the validatePassword method.";
-            var builder = new ValidatePasswordRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.ValidatePassword.ValidatePasswordRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -411,7 +411,7 @@ namespace ApiSdk.Users
         {
             var command = new Command("validate-properties");
             command.Description = "Provides operations to call the validateProperties method.";
-            var builder = new ValidatePropertiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.ValidateProperties.ValidatePropertiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -421,14 +421,14 @@ namespace ApiSdk.Users
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UsersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.UsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UsersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UsersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.UsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UsersRequestBuilder(string rawUrl) : base("{+baseurl}/users{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24top}", rawUrl)
@@ -441,11 +441,11 @@ namespace ApiSdk.Users
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UsersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.UsersRequestBuilder.UsersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

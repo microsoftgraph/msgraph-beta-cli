@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for PolicySet.
     /// </summary>
-    public class PolicySet : Entity, IParsable
+    public class PolicySet : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Assignments of the PolicySet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySetAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.PolicySetAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<PolicySetAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.PolicySetAssignment> Assignments { get; set; }
 #endif
         /// <summary>Creation time of the PolicySet.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -50,10 +50,10 @@ namespace ApiSdk.Models
         /// <summary>Items of the PolicySet with maximum count 100.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySetItem>? Items { get; set; }
+        public List<ApiSdk.Models.PolicySetItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<PolicySetItem> Items { get; set; }
+        public List<ApiSdk.Models.PolicySetItem> Items { get; set; }
 #endif
         /// <summary>Last modified time of the PolicySet.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -66,16 +66,16 @@ namespace ApiSdk.Models
         public List<string> RoleScopeTags { get; set; }
 #endif
         /// <summary>The enum to specify the status of PolicySet.</summary>
-        public PolicySetStatus? Status { get; set; }
+        public ApiSdk.Models.PolicySetStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicySet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PolicySet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicySet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PolicySet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PolicySet();
+            return new ApiSdk.Models.PolicySet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,16 +85,16 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<PolicySetAssignment>(PolicySetAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySetAssignment>(ApiSdk.Models.PolicySetAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<ErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ApiSdk.Models.ErrorCode>(); } },
                 { "guidedDeploymentTags", n => { GuidedDeploymentTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<PolicySetItem>(PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>(ApiSdk.Models.PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleScopeTags", n => { RoleScopeTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<PolicySetStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.PolicySetStatus>(); } },
             };
         }
         /// <summary>
@@ -105,16 +105,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PolicySetAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySetAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<ErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<ApiSdk.Models.ErrorCode>("errorCode", ErrorCode);
             writer.WriteCollectionOfPrimitiveValues<string>("guidedDeploymentTags", GuidedDeploymentTags);
-            writer.WriteCollectionOfObjectValues<PolicySetItem>("items", Items);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>("items", Items);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTags", RoleScopeTags);
-            writer.WriteEnumValue<PolicySetStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.PolicySetStatus>("status", Status);
         }
     }
 }

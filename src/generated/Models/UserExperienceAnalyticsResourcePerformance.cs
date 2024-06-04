@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics resource performance entity.
     /// </summary>
-    public class UserExperienceAnalyticsResourcePerformance : Entity, IParsable
+    public class UserExperienceAnalyticsResourcePerformance : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>AverageSpikeTimeScore of a device or a model type. Valid values 0 to 100</summary>
         public int? AverageSpikeTimeScore { get; set; }
@@ -52,9 +52,9 @@ namespace ApiSdk.Models
         /// <summary>The diskType property</summary>
         public ApiSdk.Models.DiskType? DiskType { get; set; }
         /// <summary>The healthStatus property</summary>
-        public UserExperienceAnalyticsHealthState? HealthStatus { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsHealthState? HealthStatus { get; set; }
         /// <summary>Indicates if machine is physical or virtual. Possible values are: physical or virtual</summary>
-        public UserExperienceAnalyticsMachineType? MachineType { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsMachineType? MachineType { get; set; }
         /// <summary>The user experience analytics device manufacturer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,12 +84,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsResourcePerformance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsResourcePerformance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsResourcePerformance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsResourcePerformance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsResourcePerformance();
+            return new ApiSdk.Models.UserExperienceAnalyticsResourcePerformance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,9 +109,9 @@ namespace ApiSdk.Models
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "deviceResourcePerformanceScore", n => { DeviceResourcePerformanceScore = n.GetIntValue(); } },
-                { "diskType", n => { DiskType = n.GetEnumValue<DiskType>(); } },
-                { "healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
-                { "machineType", n => { MachineType = n.GetEnumValue<UserExperienceAnalyticsMachineType>(); } },
+                { "diskType", n => { DiskType = n.GetEnumValue<ApiSdk.Models.DiskType>(); } },
+                { "healthStatus", n => { HealthStatus = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>(); } },
+                { "machineType", n => { MachineType = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsMachineType>(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
                 { "ramSpikeTimePercentage", n => { RamSpikeTimePercentage = n.GetDoubleValue(); } },
@@ -139,9 +139,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteIntValue("deviceResourcePerformanceScore", DeviceResourcePerformanceScore);
-            writer.WriteEnumValue<DiskType>("diskType", DiskType);
-            writer.WriteEnumValue<UserExperienceAnalyticsHealthState>("healthStatus", HealthStatus);
-            writer.WriteEnumValue<UserExperienceAnalyticsMachineType>("machineType", MachineType);
+            writer.WriteEnumValue<ApiSdk.Models.DiskType>("diskType", DiskType);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>("healthStatus", HealthStatus);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsMachineType>("machineType", MachineType);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("model", Model);
             writer.WriteDoubleValue("ramSpikeTimePercentage", RamSpikeTimePercentage);

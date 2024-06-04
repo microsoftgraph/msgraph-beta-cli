@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ContainsTransformation : CustomClaimTransformation, IParsable
+    public class ContainsTransformation : ApiSdk.Models.CustomClaimTransformation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The output property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TransformationAttribute? Output { get; set; }
+        public ApiSdk.Models.TransformationAttribute? Output { get; set; }
 #nullable restore
 #else
-        public TransformationAttribute Output { get; set; }
+        public ApiSdk.Models.TransformationAttribute Output { get; set; }
 #endif
         /// <summary>The value to be used as part of the transformation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContainsTransformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ContainsTransformation"/> and sets the default values.
         /// </summary>
         public ContainsTransformation() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContainsTransformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ContainsTransformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ContainsTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ContainsTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContainsTransformation();
+            return new ApiSdk.Models.ContainsTransformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "output", n => { Output = n.GetObjectValue<TransformationAttribute>(TransformationAttribute.CreateFromDiscriminatorValue); } },
+                { "output", n => { Output = n.GetObjectValue<ApiSdk.Models.TransformationAttribute>(ApiSdk.Models.TransformationAttribute.CreateFromDiscriminatorValue); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<TransformationAttribute>("output", Output);
+            writer.WriteObjectValue<ApiSdk.Models.TransformationAttribute>("output", Output);
             writer.WriteStringValue("value", Value);
         }
     }

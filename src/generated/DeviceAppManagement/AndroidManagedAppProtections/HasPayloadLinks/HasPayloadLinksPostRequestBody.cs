@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
         public List<string> PayloadIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HasPayloadLinksPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody"/> and sets the default values.
         /// </summary>
         public HasPayloadLinksPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HasPayloadLinksPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static HasPayloadLinksPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HasPayloadLinksPostRequestBody();
+            return new ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Represents type of the assignment filter.</summary>
-        public DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
         /// <summary>The Azure AD security group ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,9 +40,9 @@ namespace ApiSdk.Models
         public string PayloadId { get; set; }
 #endif
         /// <summary>This enum represents associated assignment payload type</summary>
-        public AssociatedAssignmentPayloadType? PayloadType { get; set; }
+        public ApiSdk.Models.AssociatedAssignmentPayloadType? PayloadType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PayloadByFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PayloadByFilter"/> and sets the default values.
         /// </summary>
         public PayloadByFilter()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PayloadByFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PayloadByFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PayloadByFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PayloadByFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PayloadByFilter();
+            return new ApiSdk.Models.PayloadByFilter();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,11 +66,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<DeviceAndAppManagementAssignmentFilterType>(); } },
+                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>(); } },
                 { "groupId", n => { GroupId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "payloadId", n => { PayloadId = n.GetStringValue(); } },
-                { "payloadType", n => { PayloadType = n.GetEnumValue<AssociatedAssignmentPayloadType>(); } },
+                { "payloadType", n => { PayloadType = n.GetEnumValue<ApiSdk.Models.AssociatedAssignmentPayloadType>(); } },
             };
         }
         /// <summary>
@@ -80,11 +80,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
             writer.WriteStringValue("groupId", GroupId);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("payloadId", PayloadId);
-            writer.WriteEnumValue<AssociatedAssignmentPayloadType>("payloadType", PayloadType);
+            writer.WriteEnumValue<ApiSdk.Models.AssociatedAssignmentPayloadType>("payloadType", PayloadType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

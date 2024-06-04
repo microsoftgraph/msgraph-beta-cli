@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Enrollment Configuration that restricts the types of devices a user can enroll for a single platform
     /// </summary>
-    public class DeviceEnrollmentPlatformRestrictionConfiguration : DeviceEnrollmentConfiguration, IParsable
+    public class DeviceEnrollmentPlatformRestrictionConfiguration : ApiSdk.Models.DeviceEnrollmentConfiguration, IParsable
     {
         /// <summary>Restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? PlatformRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? PlatformRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction PlatformRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction PlatformRestriction { get; set; }
 #endif
         /// <summary>This enum indicates the platform type for which the enrollment restriction applies.</summary>
-        public EnrollmentRestrictionPlatformType? PlatformType { get; set; }
+        public ApiSdk.Models.EnrollmentRestrictionPlatformType? PlatformType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceEnrollmentPlatformRestrictionConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceEnrollmentPlatformRestrictionConfiguration"/> and sets the default values.
         /// </summary>
         public DeviceEnrollmentPlatformRestrictionConfiguration() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceEnrollmentPlatformRestrictionConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceEnrollmentPlatformRestrictionConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceEnrollmentPlatformRestrictionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceEnrollmentPlatformRestrictionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceEnrollmentPlatformRestrictionConfiguration();
+            return new ApiSdk.Models.DeviceEnrollmentPlatformRestrictionConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +46,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "platformRestriction", n => { PlatformRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "platformType", n => { PlatformType = n.GetEnumValue<EnrollmentRestrictionPlatformType>(); } },
+                { "platformRestriction", n => { PlatformRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.EnrollmentRestrictionPlatformType>(); } },
             };
         }
         /// <summary>
@@ -58,8 +58,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("platformRestriction", PlatformRestriction);
-            writer.WriteEnumValue<EnrollmentRestrictionPlatformType>("platformType", PlatformType);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("platformRestriction", PlatformRestriction);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentRestrictionPlatformType>("platformType", PlatformType);
         }
     }
 }

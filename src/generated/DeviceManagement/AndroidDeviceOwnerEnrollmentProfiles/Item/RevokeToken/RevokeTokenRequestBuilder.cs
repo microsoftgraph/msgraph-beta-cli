@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.Revo
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.RevokeToken.RevokeTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RevokeTokenRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidDeviceOwnerEnrollmentProfiles/{androidDeviceOwnerEnrollmentProfile%2Did}/revokeToken", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.RevokeToken.RevokeTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RevokeTokenRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidDeviceOwnerEnrollmentProfiles/{androidDeviceOwnerEnrollmentProfile%2Did}/revokeToken", rawUrl)

@@ -35,7 +35,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("agent-groups");
             command.Description = "Provides operations to manage the agentGroups property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new AgentGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.AgentGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -62,7 +62,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("agents");
             command.Description = "Provides operations to manage the agents property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new AgentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.Agents.AgentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -89,7 +89,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("application-segments");
             command.Description = "Provides operations to manage the applicationSegments property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new ApplicationSegmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.ApplicationSegments.ApplicationSegmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -115,7 +115,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("connector-groups");
             command.Description = "Provides operations to manage the connectorGroups property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new ConnectorGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.ConnectorGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -142,7 +142,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("connectors");
             command.Description = "Provides operations to manage the connectors property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new ConnectorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.Connectors.ConnectorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -279,7 +279,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<OnPremisesPublishingProfile>(OnPremisesPublishingProfile.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.OnPremisesPublishingProfile>(ApiSdk.Models.OnPremisesPublishingProfile.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -307,7 +307,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         {
             var command = new Command("published-resources");
             command.Description = "Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesPublishingProfile entity.";
-            var builder = new PublishedResourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.PublishedResourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -327,14 +327,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesPublishingProfileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.OnPremisesPublishingProfileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OnPremisesPublishingProfileItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesPublishingProfileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.OnPremisesPublishingProfileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OnPremisesPublishingProfileItemRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}{?%24expand,%24select}", rawUrl)
@@ -366,11 +366,11 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnPremisesPublishingProfileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.OnPremisesPublishingProfileItemRequestBuilder.OnPremisesPublishingProfileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnPremisesPublishingProfileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.OnPremisesPublishingProfileItemRequestBuilder.OnPremisesPublishingProfileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -386,11 +386,11 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(OnPremisesPublishingProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnPremisesPublishingProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(OnPremisesPublishingProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnPremisesPublishingProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -55,14 +55,14 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncide
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemediateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item.Remediate.RemediateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemediateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/roleManagementAlerts/alerts/{unifiedRoleManagementAlert%2Did}/alertIncidents/{unifiedRoleManagementAlertIncident%2Did}/remediate", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemediateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Item.AlertIncidents.Item.Remediate.RemediateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemediateRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/roleManagementAlerts/alerts/{unifiedRoleManagementAlert%2Did}/alertIncidents/{unifiedRoleManagementAlertIncident%2Did}/remediate", rawUrl)

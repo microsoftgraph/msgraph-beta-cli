@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// Simple setting instance
     /// </summary>
-    public class DeviceManagementConfigurationSimpleSettingInstance : DeviceManagementConfigurationSettingInstance, IParsable
+    public class DeviceManagementConfigurationSimpleSettingInstance : ApiSdk.Models.DeviceManagementConfigurationSettingInstance, IParsable
     {
         /// <summary>The simpleSettingValue property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSimpleSettingValue? SimpleSettingValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue? SimpleSettingValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSimpleSettingValue SimpleSettingValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue SimpleSettingValue { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSimpleSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSimpleSettingInstance() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSimpleSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSimpleSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationSimpleSettingInstance();
+            return new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "simpleSettingValue", n => { SimpleSettingValue = n.GetObjectValue<DeviceManagementConfigurationSimpleSettingValue>(DeviceManagementConfigurationSimpleSettingValue.CreateFromDiscriminatorValue); } },
+                { "simpleSettingValue", n => { SimpleSettingValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue>(ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementConfigurationSimpleSettingValue>("simpleSettingValue", SimpleSettingValue);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValue>("simpleSettingValue", SimpleSettingValue);
         }
     }
 }

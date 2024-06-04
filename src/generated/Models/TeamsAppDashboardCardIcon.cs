@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OfficeUIFabricIconName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamsAppDashboardCardIcon"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamsAppDashboardCardIcon"/> and sets the default values.
         /// </summary>
         public TeamsAppDashboardCardIcon()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamsAppDashboardCardIcon"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamsAppDashboardCardIcon"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamsAppDashboardCardIcon CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamsAppDashboardCardIcon CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamsAppDashboardCardIcon();
+            return new ApiSdk.Models.TeamsAppDashboardCardIcon();
         }
         /// <summary>
         /// The deserialization information for the current model

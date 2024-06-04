@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Office365GroupsActivityCounts : Entity, IParsable
+    public class Office365GroupsActivityCounts : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of emails received by Group mailboxes.</summary>
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Office365GroupsActivityCounts"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Office365GroupsActivityCounts"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Office365GroupsActivityCounts CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Office365GroupsActivityCounts CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Office365GroupsActivityCounts();
+            return new ApiSdk.Models.Office365GroupsActivityCounts();
         }
         /// <summary>
         /// The deserialization information for the current model

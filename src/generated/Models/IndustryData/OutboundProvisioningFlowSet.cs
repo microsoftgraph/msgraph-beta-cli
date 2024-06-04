@@ -33,20 +33,20 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>A flow that provisions relevant records of a given entity type in the Microsoft 365 tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProvisioningFlow>? ProvisioningFlows { get; set; }
+        public List<ApiSdk.Models.IndustryData.ProvisioningFlow>? ProvisioningFlows { get; set; }
 #nullable restore
 #else
-        public List<ProvisioningFlow> ProvisioningFlows { get; set; }
+        public List<ApiSdk.Models.IndustryData.ProvisioningFlow> ProvisioningFlows { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OutboundProvisioningFlowSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OutboundProvisioningFlowSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OutboundProvisioningFlowSet();
+            return new ApiSdk.Models.IndustryData.OutboundProvisioningFlowSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models.IndustryData
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "filter", n => { Filter = n.GetObjectValue<ApiSdk.Models.IndustryData.Filter>(ApiSdk.Models.IndustryData.Filter.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "provisioningFlows", n => { ProvisioningFlows = n.GetCollectionOfObjectValues<ProvisioningFlow>(ProvisioningFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "provisioningFlows", n => { ProvisioningFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.ProvisioningFlow>(ApiSdk.Models.IndustryData.ProvisioningFlow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.IndustryData
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.IndustryData.Filter>("filter", Filter);
-            writer.WriteCollectionOfObjectValues<ProvisioningFlow>("provisioningFlows", ProvisioningFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.ProvisioningFlow>("provisioningFlows", ProvisioningFlows);
         }
     }
 }

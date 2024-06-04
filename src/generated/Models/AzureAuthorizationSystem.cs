@@ -7,51 +7,51 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AzureAuthorizationSystem : AuthorizationSystem, IParsable
+    public class AzureAuthorizationSystem : ApiSdk.Models.AuthorizationSystem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for service in authorization system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureAuthorizationSystemTypeAction>? Actions { get; set; }
+        public List<ApiSdk.Models.AzureAuthorizationSystemTypeAction>? Actions { get; set; }
 #nullable restore
 #else
-        public List<AzureAuthorizationSystemTypeAction> Actions { get; set; }
+        public List<ApiSdk.Models.AzureAuthorizationSystemTypeAction> Actions { get; set; }
 #endif
         /// <summary>Identities in the authorization system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AzureAssociatedIdentities? AssociatedIdentities { get; set; }
+        public ApiSdk.Models.AzureAssociatedIdentities? AssociatedIdentities { get; set; }
 #nullable restore
 #else
-        public AzureAssociatedIdentities AssociatedIdentities { get; set; }
+        public ApiSdk.Models.AzureAssociatedIdentities AssociatedIdentities { get; set; }
 #endif
         /// <summary>Resources associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureAuthorizationSystemResource>? Resources { get; set; }
+        public List<ApiSdk.Models.AzureAuthorizationSystemResource>? Resources { get; set; }
 #nullable restore
 #else
-        public List<AzureAuthorizationSystemResource> Resources { get; set; }
+        public List<ApiSdk.Models.AzureAuthorizationSystemResource> Resources { get; set; }
 #endif
         /// <summary>Roles associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureRoleDefinition>? RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.AzureRoleDefinition>? RoleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<AzureRoleDefinition> RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.AzureRoleDefinition> RoleDefinitions { get; set; }
 #endif
         /// <summary>Services associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthorizationSystemTypeService>? Services { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeService>? Services { get; set; }
 #nullable restore
 #else
-        public List<AuthorizationSystemTypeService> Services { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeService> Services { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AzureAuthorizationSystem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AzureAuthorizationSystem"/> and sets the default values.
         /// </summary>
         public AzureAuthorizationSystem() : base()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureAuthorizationSystem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureAuthorizationSystem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureAuthorizationSystem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureAuthorizationSystem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureAuthorizationSystem();
+            return new ApiSdk.Models.AzureAuthorizationSystem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,11 +75,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AzureAuthorizationSystemTypeAction>(AzureAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<AzureAssociatedIdentities>(AzureAssociatedIdentities.CreateFromDiscriminatorValue); } },
-                { "resources", n => { Resources = n.GetCollectionOfObjectValues<AzureAuthorizationSystemResource>(AzureAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<AzureRoleDefinition>(AzureRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureAuthorizationSystemTypeAction>(ApiSdk.Models.AzureAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<ApiSdk.Models.AzureAssociatedIdentities>(ApiSdk.Models.AzureAssociatedIdentities.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureAuthorizationSystemResource>(ApiSdk.Models.AzureAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureRoleDefinition>(ApiSdk.Models.AzureRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeService>(ApiSdk.Models.AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -90,11 +90,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AzureAuthorizationSystemTypeAction>("actions", Actions);
-            writer.WriteObjectValue<AzureAssociatedIdentities>("associatedIdentities", AssociatedIdentities);
-            writer.WriteCollectionOfObjectValues<AzureAuthorizationSystemResource>("resources", Resources);
-            writer.WriteCollectionOfObjectValues<AzureRoleDefinition>("roleDefinitions", RoleDefinitions);
-            writer.WriteCollectionOfObjectValues<AuthorizationSystemTypeService>("services", Services);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureAuthorizationSystemTypeAction>("actions", Actions);
+            writer.WriteObjectValue<ApiSdk.Models.AzureAssociatedIdentities>("associatedIdentities", AssociatedIdentities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureAuthorizationSystemResource>("resources", Resources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureRoleDefinition>("roleDefinitions", RoleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeService>("services", Services);
         }
     }
 }

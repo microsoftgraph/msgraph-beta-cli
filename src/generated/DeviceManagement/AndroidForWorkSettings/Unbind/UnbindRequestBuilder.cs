@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings.Unbind
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnbindRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.Unbind.UnbindRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UnbindRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidForWorkSettings/unbind", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnbindRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.Unbind.UnbindRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UnbindRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidForWorkSettings/unbind", rawUrl)

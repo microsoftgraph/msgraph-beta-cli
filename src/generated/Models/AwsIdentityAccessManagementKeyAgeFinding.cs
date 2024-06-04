@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsIdentityAccessManagementKeyAgeFinding : Finding, IParsable
+    public class AwsIdentityAccessManagementKeyAgeFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessKey property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsAccessKey? AccessKey { get; set; }
+        public ApiSdk.Models.AwsAccessKey? AccessKey { get; set; }
 #nullable restore
 #else
-        public AwsAccessKey AccessKey { get; set; }
+        public ApiSdk.Models.AwsAccessKey AccessKey { get; set; }
 #endif
         /// <summary>The actionSummary property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,16 +43,16 @@ namespace ApiSdk.Models
         public ApiSdk.Models.PermissionsCreepIndex PermissionsCreepIndex { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public IamStatus? Status { get; set; }
+        public ApiSdk.Models.IamStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsIdentityAccessManagementKeyAgeFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsIdentityAccessManagementKeyAgeFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsIdentityAccessManagementKeyAgeFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsIdentityAccessManagementKeyAgeFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsIdentityAccessManagementKeyAgeFinding();
+            return new ApiSdk.Models.AwsIdentityAccessManagementKeyAgeFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,11 +62,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessKey", n => { AccessKey = n.GetObjectValue<AwsAccessKey>(AwsAccessKey.CreateFromDiscriminatorValue); } },
+                { "accessKey", n => { AccessKey = n.GetObjectValue<ApiSdk.Models.AwsAccessKey>(ApiSdk.Models.AwsAccessKey.CreateFromDiscriminatorValue); } },
                 { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
                 { "awsAccessKeyDetails", n => { AwsAccessKeyDetails = n.GetObjectValue<ApiSdk.Models.AwsAccessKeyDetails>(ApiSdk.Models.AwsAccessKeyDetails.CreateFromDiscriminatorValue); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<IamStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.IamStatus>(); } },
             };
         }
         /// <summary>
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AwsAccessKey>("accessKey", AccessKey);
+            writer.WriteObjectValue<ApiSdk.Models.AwsAccessKey>("accessKey", AccessKey);
             writer.WriteObjectValue<ApiSdk.Models.ActionSummary>("actionSummary", ActionSummary);
             writer.WriteObjectValue<ApiSdk.Models.AwsAccessKeyDetails>("awsAccessKeyDetails", AwsAccessKeyDetails);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
-            writer.WriteEnumValue<IamStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.IamStatus>("status", Status);
         }
     }
 }

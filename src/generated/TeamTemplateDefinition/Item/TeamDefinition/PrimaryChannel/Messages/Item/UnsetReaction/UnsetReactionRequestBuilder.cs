@@ -48,7 +48,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UnsetReactionPostRequestBody>(UnsetReactionPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionPostRequestBody>(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnsetReactionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UnsetReactionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/messages/{chatMessage%2Did}/unsetReaction", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnsetReactionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UnsetReactionRequestBuilder(string rawUrl) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/primaryChannel/messages/{chatMessage%2Did}/unsetReaction", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messa
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UnsetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UnsetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.Messages.Item.UnsetReaction.UnsetReactionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

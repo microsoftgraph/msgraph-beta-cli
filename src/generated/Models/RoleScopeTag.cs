@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Role Scope Tag
     /// </summary>
-    public class RoleScopeTag : Entity, IParsable
+    public class RoleScopeTag : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of assignments for this Role Scope Tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleScopeTagAutoAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.RoleScopeTagAutoAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<RoleScopeTagAutoAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.RoleScopeTagAutoAssignment> Assignments { get; set; }
 #endif
         /// <summary>Description of the Role Scope Tag.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RoleScopeTag"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RoleScopeTag"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RoleScopeTag CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RoleScopeTag CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RoleScopeTag();
+            return new ApiSdk.Models.RoleScopeTag();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<RoleScopeTagAutoAssignment>(RoleScopeTagAutoAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.RoleScopeTagAutoAssignment>(ApiSdk.Models.RoleScopeTagAutoAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isBuiltIn", n => { IsBuiltIn = n.GetBoolValue(); } },
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RoleScopeTagAutoAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.RoleScopeTagAutoAssignment>("assignments", Assignments);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
         }

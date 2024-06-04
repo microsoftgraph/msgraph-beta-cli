@@ -16,18 +16,18 @@ namespace ApiSdk.Models
         /// <summary>Device properties used for filter evaluation during device check-in time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? DeviceProperties { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? DeviceProperties { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> DeviceProperties { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> DeviceProperties { get; set; }
 #endif
         /// <summary>Evaluation result summaries for each filter associated to device and payload</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AssignmentFilterEvaluationSummary>? EvalutionSummaries { get; set; }
+        public List<ApiSdk.Models.AssignmentFilterEvaluationSummary>? EvalutionSummaries { get; set; }
 #nullable restore
 #else
-        public List<AssignmentFilterEvaluationSummary> EvalutionSummaries { get; set; }
+        public List<ApiSdk.Models.AssignmentFilterEvaluationSummary> EvalutionSummaries { get; set; }
 #endif
         /// <summary>Unique identifier for the device object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignmentFilterStatusDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AssignmentFilterStatusDetails"/> and sets the default values.
         /// </summary>
         public AssignmentFilterStatusDetails()
         {
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignmentFilterStatusDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AssignmentFilterStatusDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignmentFilterStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AssignmentFilterStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignmentFilterStatusDetails();
+            return new ApiSdk.Models.AssignmentFilterStatusDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,8 +86,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceProperties", n => { DeviceProperties = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "evalutionSummaries", n => { EvalutionSummaries = n.GetCollectionOfObjectValues<AssignmentFilterEvaluationSummary>(AssignmentFilterEvaluationSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceProperties", n => { DeviceProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "evalutionSummaries", n => { EvalutionSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterEvaluationSummary>(ApiSdk.Models.AssignmentFilterEvaluationSummary.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "payloadId", n => { PayloadId = n.GetStringValue(); } },
@@ -101,8 +101,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("deviceProperties", DeviceProperties);
-            writer.WriteCollectionOfObjectValues<AssignmentFilterEvaluationSummary>("evalutionSummaries", EvalutionSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("deviceProperties", DeviceProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterEvaluationSummary>("evalutionSummaries", EvalutionSummaries);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("payloadId", PayloadId);

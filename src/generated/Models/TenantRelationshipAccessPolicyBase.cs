@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TenantRelationshipAccessPolicyBase : PolicyBase, IParsable
+    public class TenantRelationshipAccessPolicyBase : ApiSdk.Models.PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The raw JSON definition of the cross-tenant access policy. Deprecated. Do not use.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public List<string> Definition { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TenantRelationshipAccessPolicyBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TenantRelationshipAccessPolicyBase"/> and sets the default values.
         /// </summary>
         public TenantRelationshipAccessPolicyBase() : base()
         {
@@ -28,16 +28,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TenantRelationshipAccessPolicyBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TenantRelationshipAccessPolicyBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TenantRelationshipAccessPolicyBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TenantRelationshipAccessPolicyBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.crossTenantAccessPolicy" => new CrossTenantAccessPolicy(),
-                _ => new TenantRelationshipAccessPolicyBase(),
+                "#microsoft.graph.crossTenantAccessPolicy" => new ApiSdk.Models.CrossTenantAccessPolicy(),
+                _ => new ApiSdk.Models.TenantRelationshipAccessPolicyBase(),
             };
         }
         /// <summary>

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsExternalSystemAccessRoleFinding : Finding, IParsable
+    public class AwsExternalSystemAccessRoleFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The IDs of the accounts that this role is able to access.</summary>
@@ -29,20 +29,20 @@ namespace ApiSdk.Models
         /// <summary>The role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsRole? Role { get; set; }
+        public ApiSdk.Models.AwsRole? Role { get; set; }
 #nullable restore
 #else
-        public AwsRole Role { get; set; }
+        public ApiSdk.Models.AwsRole Role { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsExternalSystemAccessRoleFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsExternalSystemAccessRoleFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsExternalSystemAccessRoleFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsExternalSystemAccessRoleFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsExternalSystemAccessRoleFinding();
+            return new ApiSdk.Models.AwsExternalSystemAccessRoleFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
             {
                 { "accessibleSystemIds", n => { AccessibleSystemIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetObjectValue<AwsRole>(AwsRole.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<ApiSdk.Models.AwsRole>(ApiSdk.Models.AwsRole.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("accessibleSystemIds", AccessibleSystemIds);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
-            writer.WriteObjectValue<AwsRole>("role", Role);
+            writer.WriteObjectValue<ApiSdk.Models.AwsRole>("role", Role);
         }
     }
 }

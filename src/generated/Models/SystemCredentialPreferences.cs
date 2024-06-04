@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>Users and groups excluded from the preferred authentication method experience of the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExcludeTarget>? ExcludeTargets { get; set; }
+        public List<ApiSdk.Models.ExcludeTarget>? ExcludeTargets { get; set; }
 #nullable restore
 #else
-        public List<ExcludeTarget> ExcludeTargets { get; set; }
+        public List<ApiSdk.Models.ExcludeTarget> ExcludeTargets { get; set; }
 #endif
         /// <summary>Users and groups included in the preferred authentication method experience of the system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IncludeTarget>? IncludeTargets { get; set; }
+        public List<ApiSdk.Models.IncludeTarget>? IncludeTargets { get; set; }
 #nullable restore
 #else
-        public List<IncludeTarget> IncludeTargets { get; set; }
+        public List<ApiSdk.Models.IncludeTarget> IncludeTargets { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,9 +37,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public AdvancedConfigState? State { get; set; }
+        public ApiSdk.Models.AdvancedConfigState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SystemCredentialPreferences"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SystemCredentialPreferences"/> and sets the default values.
         /// </summary>
         public SystemCredentialPreferences()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SystemCredentialPreferences"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SystemCredentialPreferences"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SystemCredentialPreferences CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SystemCredentialPreferences CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SystemCredentialPreferences();
+            return new ApiSdk.Models.SystemCredentialPreferences();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ExcludeTarget>(ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<IncludeTarget>(IncludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "excludeTargets", n => { ExcludeTargets = n.GetCollectionOfObjectValues<ApiSdk.Models.ExcludeTarget>(ApiSdk.Models.ExcludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includeTargets", n => { IncludeTargets = n.GetCollectionOfObjectValues<ApiSdk.Models.IncludeTarget>(ApiSdk.Models.IncludeTarget.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<AdvancedConfigState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.AdvancedConfigState>(); } },
             };
         }
         /// <summary>
@@ -76,10 +76,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ExcludeTarget>("excludeTargets", ExcludeTargets);
-            writer.WriteCollectionOfObjectValues<IncludeTarget>("includeTargets", IncludeTargets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExcludeTarget>("excludeTargets", ExcludeTargets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IncludeTarget>("includeTargets", IncludeTargets);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AdvancedConfigState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.AdvancedConfigState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

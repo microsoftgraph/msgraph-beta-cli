@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the type of restart action.</summary>
-        public Win32LobAppRestartBehavior? DeviceRestartBehavior { get; set; }
+        public ApiSdk.Models.Win32LobAppRestartBehavior? DeviceRestartBehavior { get; set; }
         /// <summary>The number of minutes the system will wait for install program to finish. Default value is 60 minutes.</summary>
         public int? MaxRunTimeInMinutes { get; set; }
         /// <summary>The OdataType property</summary>
@@ -26,9 +26,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the type of execution context the app runs in.</summary>
-        public RunAsAccountType? RunAsAccount { get; set; }
+        public ApiSdk.Models.RunAsAccountType? RunAsAccount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Win32LobAppInstallExperience"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Win32LobAppInstallExperience"/> and sets the default values.
         /// </summary>
         public Win32LobAppInstallExperience()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Win32LobAppInstallExperience"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Win32LobAppInstallExperience"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Win32LobAppInstallExperience CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Win32LobAppInstallExperience CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Win32LobAppInstallExperience();
+            return new ApiSdk.Models.Win32LobAppInstallExperience();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,10 +52,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceRestartBehavior", n => { DeviceRestartBehavior = n.GetEnumValue<Win32LobAppRestartBehavior>(); } },
+                { "deviceRestartBehavior", n => { DeviceRestartBehavior = n.GetEnumValue<ApiSdk.Models.Win32LobAppRestartBehavior>(); } },
                 { "maxRunTimeInMinutes", n => { MaxRunTimeInMinutes = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
+                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<ApiSdk.Models.RunAsAccountType>(); } },
             };
         }
         /// <summary>
@@ -65,10 +65,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<Win32LobAppRestartBehavior>("deviceRestartBehavior", DeviceRestartBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.Win32LobAppRestartBehavior>("deviceRestartBehavior", DeviceRestartBehavior);
             writer.WriteIntValue("maxRunTimeInMinutes", MaxRunTimeInMinutes);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RunAsAccountType>("runAsAccount", RunAsAccount);
+            writer.WriteEnumValue<ApiSdk.Models.RunAsAccountType>("runAsAccount", RunAsAccount);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

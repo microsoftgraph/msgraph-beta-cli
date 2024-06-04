@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for a single installer file that is associated with a given mobileAppContent version.
     /// </summary>
-    public class MobileAppContentFile : Entity, IParsable
+    public class MobileAppContentFile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the Azure Storage URI that the file is uploaded to. Created by the service upon receiving a valid mobileAppContentFile. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,16 +54,16 @@ namespace ApiSdk.Models
         /// <summary>Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18</summary>
         public long? SizeInBytes { get; set; }
         /// <summary>Contains properties for upload request states.</summary>
-        public MobileAppContentFileUploadState? UploadState { get; set; }
+        public ApiSdk.Models.MobileAppContentFileUploadState? UploadState { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppContentFile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppContentFile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppContentFile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppContentFile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppContentFile();
+            return new ApiSdk.Models.MobileAppContentFile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
                 { "sizeEncrypted", n => { SizeEncrypted = n.GetLongValue(); } },
                 { "sizeEncryptedInBytes", n => { SizeEncryptedInBytes = n.GetLongValue(); } },
                 { "sizeInBytes", n => { SizeInBytes = n.GetLongValue(); } },
-                { "uploadState", n => { UploadState = n.GetEnumValue<MobileAppContentFileUploadState>(); } },
+                { "uploadState", n => { UploadState = n.GetEnumValue<ApiSdk.Models.MobileAppContentFileUploadState>(); } },
             };
         }
         /// <summary>
@@ -104,7 +104,7 @@ namespace ApiSdk.Models
             writer.WriteLongValue("sizeEncrypted", SizeEncrypted);
             writer.WriteLongValue("sizeEncryptedInBytes", SizeEncryptedInBytes);
             writer.WriteLongValue("sizeInBytes", SizeInBytes);
-            writer.WriteEnumValue<MobileAppContentFileUploadState>("uploadState", UploadState);
+            writer.WriteEnumValue<ApiSdk.Models.MobileAppContentFileUploadState>("uploadState", UploadState);
         }
     }
 }

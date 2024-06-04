@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         /// <summary>The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased, oAuthToken.</summary>
         public ApiSdk.Models.SingleSignOnMode? SingleSignOnMode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesPublishingSingleSignOn"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OnPremisesPublishingSingleSignOn"/> and sets the default values.
         /// </summary>
         public OnPremisesPublishingSingleSignOn()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesPublishingSingleSignOn"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesPublishingSingleSignOn"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OnPremisesPublishingSingleSignOn CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OnPremisesPublishingSingleSignOn CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesPublishingSingleSignOn();
+            return new ApiSdk.Models.OnPremisesPublishingSingleSignOn();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "kerberosSignOnSettings", n => { KerberosSignOnSettings = n.GetObjectValue<ApiSdk.Models.KerberosSignOnSettings>(ApiSdk.Models.KerberosSignOnSettings.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "singleSignOnMode", n => { SingleSignOnMode = n.GetEnumValue<SingleSignOnMode>(); } },
+                { "singleSignOnMode", n => { SingleSignOnMode = n.GetEnumValue<ApiSdk.Models.SingleSignOnMode>(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.KerberosSignOnSettings>("kerberosSignOnSettings", KerberosSignOnSettings);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<SingleSignOnMode>("singleSignOnMode", SingleSignOnMode);
+            writer.WriteEnumValue<ApiSdk.Models.SingleSignOnMode>("singleSignOnMode", SingleSignOnMode);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Data sharing consent information.
     /// </summary>
-    public class DataSharingConsent : Entity, IParsable
+    public class DataSharingConsent : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The time consent was granted for this account</summary>
         public DateTimeOffset? GrantDateTime { get; set; }
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DataSharingConsent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DataSharingConsent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DataSharingConsent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DataSharingConsent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DataSharingConsent();
+            return new ApiSdk.Models.DataSharingConsent();
         }
         /// <summary>
         /// The deserialization information for the current model

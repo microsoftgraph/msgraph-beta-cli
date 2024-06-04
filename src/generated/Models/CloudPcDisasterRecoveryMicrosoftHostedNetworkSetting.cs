@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting : CloudPcDisasterRecoveryNetworkSetting, IParsable
+    public class CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting : ApiSdk.Models.CloudPcDisasterRecoveryNetworkSetting, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The regionGroup property</summary>
-        public CloudPcRegionGroup? RegionGroup { get; set; }
+        public ApiSdk.Models.CloudPcRegionGroup? RegionGroup { get; set; }
         /// <summary>The regionName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string RegionName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting"/> and sets the default values.
         /// </summary>
         public CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting();
+            return new ApiSdk.Models.CloudPcDisasterRecoveryMicrosoftHostedNetworkSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "regionGroup", n => { RegionGroup = n.GetEnumValue<CloudPcRegionGroup>(); } },
+                { "regionGroup", n => { RegionGroup = n.GetEnumValue<ApiSdk.Models.CloudPcRegionGroup>(); } },
                 { "regionName", n => { RegionName = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CloudPcRegionGroup>("regionGroup", RegionGroup);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcRegionGroup>("regionGroup", RegionGroup);
             writer.WriteStringValue("regionName", RegionName);
         }
     }

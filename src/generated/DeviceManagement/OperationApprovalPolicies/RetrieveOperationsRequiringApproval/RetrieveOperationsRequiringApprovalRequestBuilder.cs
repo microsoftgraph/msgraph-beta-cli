@@ -96,14 +96,14 @@ namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRe
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveOperationsRequiringApprovalRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveOperationsRequiringApprovalRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/operationApprovalPolicies/retrieveOperationsRequiringApproval(){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveOperationsRequiringApprovalRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveOperationsRequiringApprovalRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/operationApprovalPolicies/retrieveOperationsRequiringApproval(){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -116,11 +116,11 @@ namespace ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRe
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalRequestBuilder.RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalPolicies.RetrieveOperationsRequiringApproval.RetrieveOperationsRequiringApprovalRequestBuilder.RetrieveOperationsRequiringApprovalRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

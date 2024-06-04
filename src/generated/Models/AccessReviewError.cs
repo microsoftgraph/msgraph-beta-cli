@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessReviewError : GenericError, IParsable
+    public class AccessReviewError : ApiSdk.Models.GenericError, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewError"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessReviewError"/> and sets the default values.
         /// </summary>
         public AccessReviewError() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewError"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewError"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReviewError CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessReviewError CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReviewError();
+            return new ApiSdk.Models.AccessReviewError();
         }
         /// <summary>
         /// The deserialization information for the current model

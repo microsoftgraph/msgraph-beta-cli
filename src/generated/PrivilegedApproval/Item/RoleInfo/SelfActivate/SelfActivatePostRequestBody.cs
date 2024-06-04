@@ -45,7 +45,7 @@ namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate
         public string TicketSystem { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SelfActivatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate.SelfActivatePostRequestBody"/> and sets the default values.
         /// </summary>
         public SelfActivatePostRequestBody()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SelfActivatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate.SelfActivatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SelfActivatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate.SelfActivatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SelfActivatePostRequestBody();
+            return new ApiSdk.PrivilegedApproval.Item.RoleInfo.SelfActivate.SelfActivatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

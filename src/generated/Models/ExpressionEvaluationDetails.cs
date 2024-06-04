@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>Represents the details of the evaluation of the expression.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExpressionEvaluationDetails>? ExpressionEvaluationDetailsProp { get; set; }
+        public List<ApiSdk.Models.ExpressionEvaluationDetails>? ExpressionEvaluationDetailsProp { get; set; }
 #nullable restore
 #else
-        public List<ExpressionEvaluationDetails> ExpressionEvaluationDetailsProp { get; set; }
+        public List<ApiSdk.Models.ExpressionEvaluationDetails> ExpressionEvaluationDetailsProp { get; set; }
 #endif
         /// <summary>Represents the value of the result of the current expression.</summary>
         public bool? ExpressionResult { get; set; }
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.PropertyToEvaluate PropertyToEvaluate { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExpressionEvaluationDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExpressionEvaluationDetails"/> and sets the default values.
         /// </summary>
         public ExpressionEvaluationDetails()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExpressionEvaluationDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExpressionEvaluationDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExpressionEvaluationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ExpressionEvaluationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExpressionEvaluationDetails();
+            return new ApiSdk.Models.ExpressionEvaluationDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expression", n => { Expression = n.GetStringValue(); } },
-                { "expressionEvaluationDetails", n => { ExpressionEvaluationDetailsProp = n.GetCollectionOfObjectValues<ExpressionEvaluationDetails>(ExpressionEvaluationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "expressionEvaluationDetails", n => { ExpressionEvaluationDetailsProp = n.GetCollectionOfObjectValues<ApiSdk.Models.ExpressionEvaluationDetails>(ApiSdk.Models.ExpressionEvaluationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "expressionResult", n => { ExpressionResult = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "propertyToEvaluate", n => { PropertyToEvaluate = n.GetObjectValue<ApiSdk.Models.PropertyToEvaluate>(ApiSdk.Models.PropertyToEvaluate.CreateFromDiscriminatorValue); } },
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("expression", Expression);
-            writer.WriteCollectionOfObjectValues<ExpressionEvaluationDetails>("expressionEvaluationDetails", ExpressionEvaluationDetailsProp);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExpressionEvaluationDetails>("expressionEvaluationDetails", ExpressionEvaluationDetailsProp);
             writer.WriteBoolValue("expressionResult", ExpressionResult);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ApiSdk.Models.PropertyToEvaluate>("propertyToEvaluate", PropertyToEvaluate);

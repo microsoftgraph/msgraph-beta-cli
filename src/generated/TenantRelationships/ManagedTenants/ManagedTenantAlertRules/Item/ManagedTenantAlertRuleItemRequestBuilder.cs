@@ -31,7 +31,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
         {
             var command = new Command("alerts");
             command.Description = "Provides operations to manage the alerts property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.";
-            var builder = new AlertsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.Alerts.AlertsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -167,7 +167,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ManagedTenantAlertRule>(ManagedTenantAlertRule.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule>(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -195,7 +195,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
         {
             var command = new Command("rule-definition");
             command.Description = "Provides operations to manage the ruleDefinition property of the microsoft.graph.managedTenants.managedTenantAlertRule entity.";
-            var builder = new RuleDefinitionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.RuleDefinition.RuleDefinitionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -205,14 +205,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedTenantAlertRuleItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.ManagedTenantAlertRuleItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ManagedTenantAlertRuleItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRules/{managedTenantAlertRule%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ManagedTenantAlertRuleItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.ManagedTenantAlertRuleItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ManagedTenantAlertRuleItemRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/managedTenants/managedTenantAlertRules/{managedTenantAlertRule%2Did}{?%24expand,%24select}", rawUrl)
@@ -244,11 +244,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagedTenantAlertRuleItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.ManagedTenantAlertRuleItemRequestBuilder.ManagedTenantAlertRuleItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ManagedTenantAlertRuleItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item.ManagedTenantAlertRuleItemRequestBuilder.ManagedTenantAlertRuleItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -264,11 +264,11 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantAlertRules.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ManagedTenantAlertRule body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ManagedTenantAlertRule body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ManagedTenants.ManagedTenantAlertRule body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

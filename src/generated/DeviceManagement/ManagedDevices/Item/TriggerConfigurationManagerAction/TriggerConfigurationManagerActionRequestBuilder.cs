@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManage
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TriggerConfigurationManagerActionPostRequestBody>(TriggerConfigurationManagerActionPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionPostRequestBody>(ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManage
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TriggerConfigurationManagerActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TriggerConfigurationManagerActionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/triggerConfigurationManagerAction", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TriggerConfigurationManagerActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TriggerConfigurationManagerActionRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/triggerConfigurationManagerAction", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManage
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(TriggerConfigurationManagerActionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(TriggerConfigurationManagerActionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ManagedDevices.Item.TriggerConfigurationManagerAction.TriggerConfigurationManagerActionPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

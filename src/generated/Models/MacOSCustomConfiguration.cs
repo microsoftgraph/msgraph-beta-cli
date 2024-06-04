@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
     /// </summary>
-    public class MacOSCustomConfiguration : DeviceConfiguration, IParsable
+    public class MacOSCustomConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Indicates the channel used to deploy the configuration profile. Available choices are DeviceChannel, UserChannel</summary>
-        public AppleDeploymentChannel? DeploymentChannel { get; set; }
+        public ApiSdk.Models.AppleDeploymentChannel? DeploymentChannel { get; set; }
         /// <summary>Payload. (UTF8 encoded byte array)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string PayloadName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSCustomConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSCustomConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSCustomConfiguration() : base()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSCustomConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSCustomConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSCustomConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSCustomConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSCustomConfiguration();
+            return new ApiSdk.Models.MacOSCustomConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deploymentChannel", n => { DeploymentChannel = n.GetEnumValue<AppleDeploymentChannel>(); } },
+                { "deploymentChannel", n => { DeploymentChannel = n.GetEnumValue<ApiSdk.Models.AppleDeploymentChannel>(); } },
                 { "payload", n => { Payload = n.GetByteArrayValue(); } },
                 { "payloadFileName", n => { PayloadFileName = n.GetStringValue(); } },
                 { "payloadName", n => { PayloadName = n.GetStringValue(); } },
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AppleDeploymentChannel>("deploymentChannel", DeploymentChannel);
+            writer.WriteEnumValue<ApiSdk.Models.AppleDeploymentChannel>("deploymentChannel", DeploymentChannel);
             writer.WriteByteArrayValue("payload", Payload);
             writer.WriteStringValue("payloadFileName", PayloadFileName);
             writer.WriteStringValue("payloadName", PayloadName);

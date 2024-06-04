@@ -60,14 +60,14 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item.RoleInfo.SelfDeactivate
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SelfDeactivateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.RoleInfo.SelfDeactivate.SelfDeactivateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SelfDeactivateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/roleInfo/selfDeactivate", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SelfDeactivateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.RoleInfo.SelfDeactivate.SelfDeactivateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SelfDeactivateRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/roleInfo/selfDeactivate", rawUrl)

@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
     /// </summary>
-    public class DeviceManagementScript : Entity, IParsable
+    public class DeviceManagementScript : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of group assignments for the device management script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptAssignment> Assignments { get; set; }
 #endif
         /// <summary>The date and time the device management script was created. This property is read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
@@ -32,10 +32,10 @@ namespace ApiSdk.Models
         /// <summary>List of run states for this script across all devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptDeviceState>? DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptDeviceState>? DeviceRunStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptDeviceState> DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptDeviceState> DeviceRunStates { get; set; }
 #endif
         /// <summary>Name of the device management script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,10 +58,10 @@ namespace ApiSdk.Models
         /// <summary>The list of group assignments for the device management script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptGroupAssignment>? GroupAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment>? GroupAssignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptGroupAssignment> GroupAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptGroupAssignment> GroupAssignments { get; set; }
 #endif
         /// <summary>The date and time the device management script was last modified. This property is read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
@@ -76,14 +76,14 @@ namespace ApiSdk.Models
         /// <summary>A value indicating whether the PowerShell script should run as 32-bit</summary>
         public bool? RunAs32Bit { get; set; }
         /// <summary>Indicates the type of execution context the app runs in.</summary>
-        public RunAsAccountType? RunAsAccount { get; set; }
+        public ApiSdk.Models.RunAsAccountType? RunAsAccount { get; set; }
         /// <summary>Run summary for device management script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementScriptRunSummary? RunSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementScriptRunSummary? RunSummary { get; set; }
 #nullable restore
 #else
-        public DeviceManagementScriptRunSummary RunSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementScriptRunSummary RunSummary { get; set; }
 #endif
         /// <summary>The script content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,20 +96,20 @@ namespace ApiSdk.Models
         /// <summary>List of run states for this script across all users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementScriptUserState>? UserRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptUserState>? UserRunStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementScriptUserState> UserRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementScriptUserState> UserRunStates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementScript"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementScript"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementScript CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementScript CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementScript();
+            return new ApiSdk.Models.DeviceManagementScript();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -119,21 +119,21 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementScriptAssignment>(DeviceManagementScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptAssignment>(ApiSdk.Models.DeviceManagementScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<DeviceManagementScriptDeviceState>(DeviceManagementScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptDeviceState>(ApiSdk.Models.DeviceManagementScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
                 { "fileName", n => { FileName = n.GetStringValue(); } },
-                { "groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>(DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>(ApiSdk.Models.DeviceManagementScriptGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
-                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
-                { "runSummary", n => { RunSummary = n.GetObjectValue<DeviceManagementScriptRunSummary>(DeviceManagementScriptRunSummary.CreateFromDiscriminatorValue); } },
+                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<ApiSdk.Models.RunAsAccountType>(); } },
+                { "runSummary", n => { RunSummary = n.GetObjectValue<ApiSdk.Models.DeviceManagementScriptRunSummary>(ApiSdk.Models.DeviceManagementScriptRunSummary.CreateFromDiscriminatorValue); } },
                 { "scriptContent", n => { ScriptContent = n.GetByteArrayValue(); } },
-                { "userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<DeviceManagementScriptUserState>(DeviceManagementScriptUserState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userRunStates", n => { UserRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptUserState>(ApiSdk.Models.DeviceManagementScriptUserState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -144,19 +144,19 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptAssignment>("assignments", Assignments);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptDeviceState>("deviceRunStates", DeviceRunStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptDeviceState>("deviceRunStates", DeviceRunStates);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enforceSignatureCheck", EnforceSignatureCheck);
             writer.WriteStringValue("fileName", FileName);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptGroupAssignment>("groupAssignments", GroupAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptGroupAssignment>("groupAssignments", GroupAssignments);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteBoolValue("runAs32Bit", RunAs32Bit);
-            writer.WriteEnumValue<RunAsAccountType>("runAsAccount", RunAsAccount);
-            writer.WriteObjectValue<DeviceManagementScriptRunSummary>("runSummary", RunSummary);
+            writer.WriteEnumValue<ApiSdk.Models.RunAsAccountType>("runAsAccount", RunAsAccount);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementScriptRunSummary>("runSummary", RunSummary);
             writer.WriteByteArrayValue("scriptContent", ScriptContent);
-            writer.WriteCollectionOfObjectValues<DeviceManagementScriptUserState>("userRunStates", UserRunStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementScriptUserState>("userRunStates", UserRunStates);
         }
     }
 }

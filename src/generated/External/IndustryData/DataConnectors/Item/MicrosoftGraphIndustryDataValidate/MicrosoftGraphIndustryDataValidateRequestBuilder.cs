@@ -50,14 +50,14 @@ namespace ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustr
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataValidateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustryDataValidate.MicrosoftGraphIndustryDataValidateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphIndustryDataValidateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}/microsoft.graph.industryData.validate", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataValidateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.DataConnectors.Item.MicrosoftGraphIndustryDataValidate.MicrosoftGraphIndustryDataValidateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphIndustryDataValidateRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData/dataConnectors/{industryDataConnector%2Did}/microsoft.graph.industryData.validate", rawUrl)

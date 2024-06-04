@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         /// <summary>The number of users who are already assigned the same training.</summary>
         public int? PreviouslyAssignedUsersCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UserTrainingCompletionSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserTrainingCompletionSummary"/> and sets the default values.
         /// </summary>
         public UserTrainingCompletionSummary()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserTrainingCompletionSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserTrainingCompletionSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserTrainingCompletionSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserTrainingCompletionSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserTrainingCompletionSummary();
+            return new ApiSdk.Models.UserTrainingCompletionSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

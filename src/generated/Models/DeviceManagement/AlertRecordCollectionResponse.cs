@@ -13,20 +13,20 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AlertRecord>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRecord>? Value { get; set; }
 #nullable restore
 #else
-        public List<AlertRecord> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.AlertRecord> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AlertRecordCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.AlertRecordCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AlertRecordCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagement.AlertRecordCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AlertRecordCollectionResponse();
+            return new ApiSdk.Models.DeviceManagement.AlertRecordCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<AlertRecord>(AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRecord>(ApiSdk.Models.DeviceManagement.AlertRecord.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.DeviceManagement
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AlertRecord>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.AlertRecord>("value", Value);
         }
     }
 }

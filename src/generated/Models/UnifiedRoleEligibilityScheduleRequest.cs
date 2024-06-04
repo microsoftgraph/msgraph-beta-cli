@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleEligibilityScheduleRequest : Request, IParsable
+    public class UnifiedRoleEligibilityScheduleRequest : ApiSdk.Models.Request, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the type of operation on the role eligibility request. The possible values are: AdminAssign: For administrators to assign eligible roles to principals.AdminRemove: For administrators to remove eligible roles from principals. AdminUpdate: For administrators to change existing role eligibilities.AdminExtend: For administrators to extend expiring role eligibilities.AdminRenew: For administrators to renew expired eligibilities.UserAdd: For users to activate their eligible assignments.UserRemove: For users to deactivate their active eligible assignments.UserExtend: For users to request to extend their expiring eligible assignments.UserRenew: For users to request to renew their expired eligible assignments.</summary>
@@ -37,10 +37,10 @@ namespace ApiSdk.Models
         /// <summary>The directory object that is the scope of the role eligibility. Read-only. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DirectoryObject? DirectoryScope { get; set; }
+        public ApiSdk.Models.DirectoryObject? DirectoryScope { get; set; }
 #nullable restore
 #else
-        public DirectoryObject DirectoryScope { get; set; }
+        public ApiSdk.Models.DirectoryObject DirectoryScope { get; set; }
 #endif
         /// <summary>Identifier of the directory object representing the scope of the role eligibility. The scope of a role eligibility determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. Supports $filter (eq, ne, and on null values).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         /// <summary>The principal that&apos;s getting a role eligibility through the request. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DirectoryObject? Principal { get; set; }
+        public ApiSdk.Models.DirectoryObject? Principal { get; set; }
 #nullable restore
 #else
-        public DirectoryObject Principal { get; set; }
+        public ApiSdk.Models.DirectoryObject Principal { get; set; }
 #endif
         /// <summary>Identifier of the principal that has been granted the role eligibility. Can be a user or a role-assignable group. You can grant only active assignments service principals. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,10 +79,10 @@ namespace ApiSdk.Models
         /// <summary>Detailed information for the unifiedRoleDefinition object that is referenced through the roleDefinitionId property. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleDefinition? RoleDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleDefinition? RoleDefinition { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleDefinition RoleDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleDefinition RoleDefinition { get; set; }
 #endif
         /// <summary>Identifier of the unifiedRoleDefinition object that is being assigned to the principal. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,18 +95,18 @@ namespace ApiSdk.Models
         /// <summary>The period of the role eligibility. Recurring schedules are currently unsupported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestSchedule? ScheduleInfo { get; set; }
+        public ApiSdk.Models.RequestSchedule? ScheduleInfo { get; set; }
 #nullable restore
 #else
-        public RequestSchedule ScheduleInfo { get; set; }
+        public ApiSdk.Models.RequestSchedule ScheduleInfo { get; set; }
 #endif
         /// <summary>The schedule for a role eligibility that is referenced through the targetScheduleId property. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleEligibilitySchedule? TargetSchedule { get; set; }
+        public ApiSdk.Models.UnifiedRoleEligibilitySchedule? TargetSchedule { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleEligibilitySchedule TargetSchedule { get; set; }
+        public ApiSdk.Models.UnifiedRoleEligibilitySchedule TargetSchedule { get; set; }
 #endif
         /// <summary>Identifier of the schedule object that&apos;s linked to the eligibility request. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -125,7 +125,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.TicketInfo TicketInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedRoleEligibilityScheduleRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnifiedRoleEligibilityScheduleRequest"/> and sets the default values.
         /// </summary>
         public UnifiedRoleEligibilityScheduleRequest() : base()
         {
@@ -134,12 +134,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleEligibilityScheduleRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleEligibilityScheduleRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleEligibilityScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleEligibilityScheduleRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleEligibilityScheduleRequest();
+            return new ApiSdk.Models.UnifiedRoleEligibilityScheduleRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -152,16 +152,16 @@ namespace ApiSdk.Models
                 { "action", n => { Action = n.GetStringValue(); } },
                 { "appScope", n => { AppScope = n.GetObjectValue<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue); } },
                 { "appScopeId", n => { AppScopeId = n.GetStringValue(); } },
-                { "directoryScope", n => { DirectoryScope = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "directoryScope", n => { DirectoryScope = n.GetObjectValue<ApiSdk.Models.DirectoryObject>(ApiSdk.Models.DirectoryObject.CreateFromDiscriminatorValue); } },
                 { "directoryScopeId", n => { DirectoryScopeId = n.GetStringValue(); } },
                 { "isValidationOnly", n => { IsValidationOnly = n.GetBoolValue(); } },
                 { "justification", n => { Justification = n.GetStringValue(); } },
-                { "principal", n => { Principal = n.GetObjectValue<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue); } },
+                { "principal", n => { Principal = n.GetObjectValue<ApiSdk.Models.DirectoryObject>(ApiSdk.Models.DirectoryObject.CreateFromDiscriminatorValue); } },
                 { "principalId", n => { PrincipalId = n.GetStringValue(); } },
-                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<ApiSdk.Models.UnifiedRoleDefinition>(ApiSdk.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
                 { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
-                { "scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
-                { "targetSchedule", n => { TargetSchedule = n.GetObjectValue<UnifiedRoleEligibilitySchedule>(UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
+                { "scheduleInfo", n => { ScheduleInfo = n.GetObjectValue<ApiSdk.Models.RequestSchedule>(ApiSdk.Models.RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "targetSchedule", n => { TargetSchedule = n.GetObjectValue<ApiSdk.Models.UnifiedRoleEligibilitySchedule>(ApiSdk.Models.UnifiedRoleEligibilitySchedule.CreateFromDiscriminatorValue); } },
                 { "targetScheduleId", n => { TargetScheduleId = n.GetStringValue(); } },
                 { "ticketInfo", n => { TicketInfo = n.GetObjectValue<ApiSdk.Models.TicketInfo>(ApiSdk.Models.TicketInfo.CreateFromDiscriminatorValue); } },
             };
@@ -177,16 +177,16 @@ namespace ApiSdk.Models
             writer.WriteStringValue("action", Action);
             writer.WriteObjectValue<ApiSdk.Models.AppScope>("appScope", AppScope);
             writer.WriteStringValue("appScopeId", AppScopeId);
-            writer.WriteObjectValue<DirectoryObject>("directoryScope", DirectoryScope);
+            writer.WriteObjectValue<ApiSdk.Models.DirectoryObject>("directoryScope", DirectoryScope);
             writer.WriteStringValue("directoryScopeId", DirectoryScopeId);
             writer.WriteBoolValue("isValidationOnly", IsValidationOnly);
             writer.WriteStringValue("justification", Justification);
-            writer.WriteObjectValue<DirectoryObject>("principal", Principal);
+            writer.WriteObjectValue<ApiSdk.Models.DirectoryObject>("principal", Principal);
             writer.WriteStringValue("principalId", PrincipalId);
-            writer.WriteObjectValue<UnifiedRoleDefinition>("roleDefinition", RoleDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleDefinition>("roleDefinition", RoleDefinition);
             writer.WriteStringValue("roleDefinitionId", RoleDefinitionId);
-            writer.WriteObjectValue<RequestSchedule>("scheduleInfo", ScheduleInfo);
-            writer.WriteObjectValue<UnifiedRoleEligibilitySchedule>("targetSchedule", TargetSchedule);
+            writer.WriteObjectValue<ApiSdk.Models.RequestSchedule>("scheduleInfo", ScheduleInfo);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleEligibilitySchedule>("targetSchedule", TargetSchedule);
             writer.WriteStringValue("targetScheduleId", TargetScheduleId);
             writer.WriteObjectValue<ApiSdk.Models.TicketInfo>("ticketInfo", TicketInfo);
         }

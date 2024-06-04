@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PublishedResource : Entity, IParsable
+    public class PublishedResource : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgentGroup>? AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup>? AgentGroups { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgentGroup> AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup> AgentGroups { get; set; }
 #endif
         /// <summary>Display Name of the publishedResource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>The publishingType property</summary>
-        public OnPremisesPublishingType? PublishingType { get; set; }
+        public ApiSdk.Models.OnPremisesPublishingType? PublishingType { get; set; }
         /// <summary>Name of the publishedResource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PublishedResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PublishedResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PublishedResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PublishedResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PublishedResource();
+            return new ApiSdk.Models.PublishedResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,9 +54,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>(ApiSdk.Models.OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
+                { "publishingType", n => { PublishingType = n.GetEnumValue<ApiSdk.Models.OnPremisesPublishingType>(); } },
                 { "resourceName", n => { ResourceName = n.GetStringValue(); } },
             };
         }
@@ -68,9 +68,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgentGroup>("agentGroups", AgentGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>("agentGroups", AgentGroups);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<OnPremisesPublishingType>("publishingType", PublishingType);
+            writer.WriteEnumValue<ApiSdk.Models.OnPremisesPublishingType>("publishingType", PublishingType);
             writer.WriteStringValue("resourceName", ResourceName);
         }
     }

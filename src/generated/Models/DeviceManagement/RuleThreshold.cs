@@ -13,7 +13,7 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.</summary>
-        public AggregationType? Aggregation { get; set; }
+        public ApiSdk.Models.DeviceManagement.AggregationType? Aggregation { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,11 +23,11 @@ namespace ApiSdk.Models.DeviceManagement
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.</summary>
-        public OperatorType? Operator { get; set; }
+        public ApiSdk.Models.DeviceManagement.OperatorType? Operator { get; set; }
         /// <summary>The target threshold value.</summary>
         public int? Target { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RuleThreshold"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagement.RuleThreshold"/> and sets the default values.
         /// </summary>
         public RuleThreshold()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RuleThreshold"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.RuleThreshold"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RuleThreshold CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagement.RuleThreshold CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RuleThreshold();
+            return new ApiSdk.Models.DeviceManagement.RuleThreshold();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,9 +51,9 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregation", n => { Aggregation = n.GetEnumValue<AggregationType>(); } },
+                { "aggregation", n => { Aggregation = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<OperatorType>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<ApiSdk.Models.DeviceManagement.OperatorType>(); } },
                 { "target", n => { Target = n.GetIntValue(); } },
             };
         }
@@ -64,9 +64,9 @@ namespace ApiSdk.Models.DeviceManagement
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AggregationType>("aggregation", Aggregation);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>("aggregation", Aggregation);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<OperatorType>("operator", Operator);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.OperatorType>("operator", Operator);
             writer.WriteIntValue("target", Target);
             writer.WriteAdditionalData(AdditionalData);
         }

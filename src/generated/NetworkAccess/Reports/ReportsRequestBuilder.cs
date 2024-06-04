@@ -116,7 +116,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-cross-tenant-access-report-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the crossTenantAccessReport method.";
-            var builder = new MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessCrossTenantAccessReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -133,7 +133,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-destination-report-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the destinationReport method.";
-            var builder = new MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessDestinationReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -150,7 +150,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-device-report-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the deviceReport method.";
-            var builder = new MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessDeviceReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -167,7 +167,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-entities-summaries-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the entitiesSummaries method.";
-            var builder = new MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessEntitiesSummariesWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -184,7 +184,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-get-cross-tenant-summary-with-start-date-time-with-end-date-time-with-discovery-pivot-date-time");
             command.Description = "Provides operations to call the getCrossTenantSummary method.";
-            var builder = new MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTime.MicrosoftGraphNetworkaccessGetCrossTenantSummaryWithStartDateTimeWithEndDateTimeWithDiscoveryPivotDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -201,7 +201,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-get-destination-summaries-with-start-date-time-with-end-date-time-with-aggregated-by");
             command.Description = "Provides operations to call the getDestinationSummaries method.";
-            var builder = new MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedBy.MicrosoftGraphNetworkaccessGetDestinationSummariesWithStartDateTimeWithEndDateTimeWithAggregatedByRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -218,7 +218,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-get-device-usage-summary-with-start-date-time-with-end-date-time-with-activity-pivot-date-time");
             command.Description = "Provides operations to call the getDeviceUsageSummary method.";
-            var builder = new MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTime.MicrosoftGraphNetworkaccessGetDeviceUsageSummaryWithStartDateTimeWithEndDateTimeWithActivityPivotDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -235,7 +235,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-get-discovered-application-segment-report-with-start-date-time-with-end-date-timeuser-id-user-id");
             command.Description = "Provides operations to call the getDiscoveredApplicationSegmentReport method.";
-            var builder = new MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserId.MicrosoftGraphNetworkaccessGetDiscoveredApplicationSegmentReportWithStartDateTimeWithEndDateTimeuserIdUserIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -252,7 +252,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-transaction-summaries-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the transactionSummaries method.";
-            var builder = new MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessTransactionSummariesWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -269,7 +269,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-usage-profiling-with-start-date-time-with-end-date-time-with-aggregated-bydiscovered-application-segment-id-discovered-application-segment-id");
             command.Description = "Provides operations to call the usageProfiling method.";
-            var builder = new MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentId.MicrosoftGraphNetworkaccessUsageProfilingWithStartDateTimeWithEndDateTimeWithAggregatedBydiscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -286,7 +286,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-user-report-with-start-date-time-with-end-date-timediscovered-application-segment-id-discovered-application-segment-id");
             command.Description = "Provides operations to call the userReport method.";
-            var builder = new MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentId.MicrosoftGraphNetworkaccessUserReportWithStartDateTimeWithEndDateTimediscoveredApplicationSegmentIdDiscoveredApplicationSegmentIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -303,7 +303,7 @@ namespace ApiSdk.NetworkAccess.Reports
         {
             var command = new Command("microsoft-graph-networkaccess-web-category-report-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the webCategoryReport method.";
-            var builder = new MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -358,14 +358,14 @@ namespace ApiSdk.NetworkAccess.Reports
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReportsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/reports{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReportsRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/reports{?%24expand,%24select}", rawUrl)
@@ -397,11 +397,11 @@ namespace ApiSdk.NetworkAccess.Reports
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

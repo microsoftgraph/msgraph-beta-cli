@@ -26,7 +26,7 @@ namespace ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item
         {
             var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of mobilityManagementPolicy entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             foreach (var cmd in execCommands)
@@ -43,7 +43,7 @@ namespace ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item
         {
             var command = new Command("service-provisioning-errors");
             command.Description = "The serviceProvisioningErrors property";
-            var builder = new ServiceProvisioningErrorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.ServiceProvisioningErrors.ServiceProvisioningErrorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -59,14 +59,14 @@ namespace ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.GroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/mobilityManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/{group%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.MobilityManagementPolicies.Item.IncludedGroups.Item.GroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/mobilityManagementPolicies/{mobilityManagementPolicy%2Did}/includedGroups/{group%2Did}", rawUrl)

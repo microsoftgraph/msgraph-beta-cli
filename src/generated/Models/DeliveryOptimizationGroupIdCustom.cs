@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Custom group id type
     /// </summary>
-    public class DeliveryOptimizationGroupIdCustom : DeliveryOptimizationGroupIdSource, IParsable
+    public class DeliveryOptimizationGroupIdCustom : ApiSdk.Models.DeliveryOptimizationGroupIdSource, IParsable
     {
         /// <summary>Specifies an arbitrary group ID that the device belongs to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string GroupIdCustom { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeliveryOptimizationGroupIdCustom"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeliveryOptimizationGroupIdCustom"/> and sets the default values.
         /// </summary>
         public DeliveryOptimizationGroupIdCustom() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeliveryOptimizationGroupIdCustom"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeliveryOptimizationGroupIdCustom"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeliveryOptimizationGroupIdCustom CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeliveryOptimizationGroupIdCustom CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeliveryOptimizationGroupIdCustom();
+            return new ApiSdk.Models.DeliveryOptimizationGroupIdCustom();
         }
         /// <summary>
         /// The deserialization information for the current model

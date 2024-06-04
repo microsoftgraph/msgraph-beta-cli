@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetainedMessages
 {
     #pragma warning disable CS1591
-    public class GetAllRetainedMessagesGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetAllRetainedMessagesGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ChatMessage>? Value { get; set; }
+        public List<ApiSdk.Models.ChatMessage>? Value { get; set; }
 #nullable restore
 #else
-        public List<ChatMessage> Value { get; set; }
+        public List<ApiSdk.Models.ChatMessage> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetAllRetainedMessagesGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetainedMessages.GetAllRetainedMessagesGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetAllRetainedMessagesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetainedMessages.GetAllRetainedMessagesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetAllRetainedMessagesGetResponse();
+            return new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetainedMessages.GetAllRetainedMessagesGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetai
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<ChatMessage>(ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ChatMessage>(ApiSdk.Models.ChatMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.GetAllRetai
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ChatMessage>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ChatMessage>("value", Value);
         }
     }
 }

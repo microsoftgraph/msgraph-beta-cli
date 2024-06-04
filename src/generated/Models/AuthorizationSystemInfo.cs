@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationSystemInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthorizationSystemInfo"/> and sets the default values.
         /// </summary>
         public AuthorizationSystemInfo()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthorizationSystemInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthorizationSystemInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuthorizationSystemInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuthorizationSystemInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthorizationSystemInfo();
+            return new ApiSdk.Models.AuthorizationSystemInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "authorizationSystemType", n => { AuthorizationSystemType = n.GetEnumValue<AuthorizationSystemType>(); } },
+                { "authorizationSystemType", n => { AuthorizationSystemType = n.GetEnumValue<ApiSdk.Models.AuthorizationSystemType>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AuthorizationSystemType>("authorizationSystemType", AuthorizationSystemType);
+            writer.WriteEnumValue<ApiSdk.Models.AuthorizationSystemType>("authorizationSystemType", AuthorizationSystemType);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);

@@ -35,7 +35,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The validFromDateTime property</summary>
         public DateTimeOffset? ValidFromDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ThirdPartyTokenDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails"/> and sets the default values.
         /// </summary>
         public ThirdPartyTokenDetails()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ThirdPartyTokenDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ThirdPartyTokenDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ThirdPartyTokenDetails();
+            return new ApiSdk.Models.Networkaccess.ThirdPartyTokenDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

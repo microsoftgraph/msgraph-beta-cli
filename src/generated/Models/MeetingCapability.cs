@@ -17,7 +17,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether anonymous users are allowed to start a meeting.</summary>
         public bool? AllowAnonymousUsersToStartMeeting { get; set; }
         /// <summary>The autoAdmittedUsers property</summary>
-        public AutoAdmittedUsersType? AutoAdmittedUsers { get; set; }
+        public ApiSdk.Models.AutoAdmittedUsersType? AutoAdmittedUsers { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MeetingCapability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MeetingCapability"/> and sets the default values.
         /// </summary>
         public MeetingCapability()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingCapability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingCapability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MeetingCapability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MeetingCapability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MeetingCapability();
+            return new ApiSdk.Models.MeetingCapability();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             {
                 { "allowAnonymousUsersToDialOut", n => { AllowAnonymousUsersToDialOut = n.GetBoolValue(); } },
                 { "allowAnonymousUsersToStartMeeting", n => { AllowAnonymousUsersToStartMeeting = n.GetBoolValue(); } },
-                { "autoAdmittedUsers", n => { AutoAdmittedUsers = n.GetEnumValue<AutoAdmittedUsersType>(); } },
+                { "autoAdmittedUsers", n => { AutoAdmittedUsers = n.GetEnumValue<ApiSdk.Models.AutoAdmittedUsersType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("allowAnonymousUsersToDialOut", AllowAnonymousUsersToDialOut);
             writer.WriteBoolValue("allowAnonymousUsersToStartMeeting", AllowAnonymousUsersToStartMeeting);
-            writer.WriteEnumValue<AutoAdmittedUsersType>("autoAdmittedUsers", AutoAdmittedUsers);
+            writer.WriteEnumValue<ApiSdk.Models.AutoAdmittedUsersType>("autoAdmittedUsers", AutoAdmittedUsers);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

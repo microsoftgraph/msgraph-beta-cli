@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.DisableLostMode
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisableLostModeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.DisableLostMode.DisableLostModeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DisableLostModeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/disableLostMode", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisableLostModeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.DisableLostMode.DisableLostModeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DisableLostModeRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/disableLostMode", rawUrl)

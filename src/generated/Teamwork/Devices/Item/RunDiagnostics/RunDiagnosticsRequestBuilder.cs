@@ -50,14 +50,14 @@ namespace ApiSdk.Teamwork.Devices.Item.RunDiagnostics
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RunDiagnosticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.RunDiagnostics.RunDiagnosticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RunDiagnosticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/runDiagnostics", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RunDiagnosticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.RunDiagnostics.RunDiagnosticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RunDiagnosticsRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/runDiagnostics", rawUrl)

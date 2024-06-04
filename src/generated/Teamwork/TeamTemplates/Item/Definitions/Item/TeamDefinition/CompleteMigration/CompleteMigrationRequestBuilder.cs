@@ -56,14 +56,14 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.Com
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteMigrationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.CompleteMigration.CompleteMigrationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CompleteMigrationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/completeMigration", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteMigrationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.CompleteMigration.CompleteMigrationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CompleteMigrationRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}/teamDefinition/completeMigration", rawUrl)

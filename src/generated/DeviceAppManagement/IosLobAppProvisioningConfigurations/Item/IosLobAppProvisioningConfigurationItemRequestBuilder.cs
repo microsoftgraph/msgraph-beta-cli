@@ -34,7 +34,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -61,7 +61,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -113,7 +113,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         {
             var command = new Command("device-statuses");
             command.Description = "Provides operations to manage the deviceStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.";
-            var builder = new DeviceStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.DeviceStatuses.DeviceStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -192,7 +192,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         {
             var command = new Command("group-assignments");
             command.Description = "Provides operations to manage the groupAssignments property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.";
-            var builder = new GroupAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.GroupAssignments.GroupAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -242,7 +242,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<IosLobAppProvisioningConfiguration>(IosLobAppProvisioningConfiguration.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.IosLobAppProvisioningConfiguration>(ApiSdk.Models.IosLobAppProvisioningConfiguration.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -270,7 +270,7 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         {
             var command = new Command("user-statuses");
             command.Description = "Provides operations to manage the userStatuses property of the microsoft.graph.iosLobAppProvisioningConfiguration entity.";
-            var builder = new UserStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.UserStatuses.UserStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -290,14 +290,14 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosLobAppProvisioningConfigurationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.IosLobAppProvisioningConfigurationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public IosLobAppProvisioningConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/iosLobAppProvisioningConfigurations/{iosLobAppProvisioningConfiguration%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="IosLobAppProvisioningConfigurationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.IosLobAppProvisioningConfigurationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public IosLobAppProvisioningConfigurationItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/iosLobAppProvisioningConfigurations/{iosLobAppProvisioningConfiguration%2Did}{?%24expand,%24select}", rawUrl)
@@ -329,11 +329,11 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IosLobAppProvisioningConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.IosLobAppProvisioningConfigurationItemRequestBuilder.IosLobAppProvisioningConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IosLobAppProvisioningConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.IosLobAppProvisioningConfigurationItemRequestBuilder.IosLobAppProvisioningConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -349,11 +349,11 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(IosLobAppProvisioningConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IosLobAppProvisioningConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(IosLobAppProvisioningConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IosLobAppProvisioningConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

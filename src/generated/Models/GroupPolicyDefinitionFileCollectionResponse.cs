@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GroupPolicyDefinitionFileCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GroupPolicyDefinitionFileCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyDefinitionFile>? Value { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionFile>? Value { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyDefinitionFile> Value { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionFile> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyDefinitionFileCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyDefinitionFileCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyDefinitionFileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyDefinitionFileCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyDefinitionFileCollectionResponse();
+            return new ApiSdk.Models.GroupPolicyDefinitionFileCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<GroupPolicyDefinitionFile>(GroupPolicyDefinitionFile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionFile>(ApiSdk.Models.GroupPolicyDefinitionFile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GroupPolicyDefinitionFile>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionFile>("value", Value);
         }
     }
 }

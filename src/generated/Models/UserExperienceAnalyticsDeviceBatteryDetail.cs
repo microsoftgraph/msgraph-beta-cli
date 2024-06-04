@@ -34,7 +34,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserExperienceAnalyticsDeviceBatteryDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail"/> and sets the default values.
         /// </summary>
         public UserExperienceAnalyticsDeviceBatteryDetail()
         {
@@ -43,12 +43,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsDeviceBatteryDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserExperienceAnalyticsDeviceBatteryDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsDeviceBatteryDetail();
+            return new ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -23,29 +23,29 @@ namespace ApiSdk.Models
         /// <summary>Aggregate data of training completion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TrainingEventsContent? TrainingModuleCompletion { get; set; }
+        public ApiSdk.Models.TrainingEventsContent? TrainingModuleCompletion { get; set; }
 #nullable restore
 #else
-        public TrainingEventsContent TrainingModuleCompletion { get; set; }
+        public ApiSdk.Models.TrainingEventsContent TrainingModuleCompletion { get; set; }
 #endif
         /// <summary>Aggregate data of training mail delivery over the course of the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TrainingNotificationDelivery? TrainingNotificationDeliveryStatus { get; set; }
+        public ApiSdk.Models.TrainingNotificationDelivery? TrainingNotificationDeliveryStatus { get; set; }
 #nullable restore
 #else
-        public TrainingNotificationDelivery TrainingNotificationDeliveryStatus { get; set; }
+        public ApiSdk.Models.TrainingNotificationDelivery TrainingNotificationDeliveryStatus { get; set; }
 #endif
         /// <summary>Aggregate data of users training progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserTrainingCompletionSummary? UserCompletionStatus { get; set; }
+        public ApiSdk.Models.UserTrainingCompletionSummary? UserCompletionStatus { get; set; }
 #nullable restore
 #else
-        public UserTrainingCompletionSummary UserCompletionStatus { get; set; }
+        public ApiSdk.Models.UserTrainingCompletionSummary UserCompletionStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TrainingCampaignReportOverview"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrainingCampaignReportOverview"/> and sets the default values.
         /// </summary>
         public TrainingCampaignReportOverview()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrainingCampaignReportOverview"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrainingCampaignReportOverview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TrainingCampaignReportOverview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TrainingCampaignReportOverview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrainingCampaignReportOverview();
+            return new ApiSdk.Models.TrainingCampaignReportOverview();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,9 +70,9 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "trainingModuleCompletion", n => { TrainingModuleCompletion = n.GetObjectValue<TrainingEventsContent>(TrainingEventsContent.CreateFromDiscriminatorValue); } },
-                { "trainingNotificationDeliveryStatus", n => { TrainingNotificationDeliveryStatus = n.GetObjectValue<TrainingNotificationDelivery>(TrainingNotificationDelivery.CreateFromDiscriminatorValue); } },
-                { "userCompletionStatus", n => { UserCompletionStatus = n.GetObjectValue<UserTrainingCompletionSummary>(UserTrainingCompletionSummary.CreateFromDiscriminatorValue); } },
+                { "trainingModuleCompletion", n => { TrainingModuleCompletion = n.GetObjectValue<ApiSdk.Models.TrainingEventsContent>(ApiSdk.Models.TrainingEventsContent.CreateFromDiscriminatorValue); } },
+                { "trainingNotificationDeliveryStatus", n => { TrainingNotificationDeliveryStatus = n.GetObjectValue<ApiSdk.Models.TrainingNotificationDelivery>(ApiSdk.Models.TrainingNotificationDelivery.CreateFromDiscriminatorValue); } },
+                { "userCompletionStatus", n => { UserCompletionStatus = n.GetObjectValue<ApiSdk.Models.UserTrainingCompletionSummary>(ApiSdk.Models.UserTrainingCompletionSummary.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -83,9 +83,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TrainingEventsContent>("trainingModuleCompletion", TrainingModuleCompletion);
-            writer.WriteObjectValue<TrainingNotificationDelivery>("trainingNotificationDeliveryStatus", TrainingNotificationDeliveryStatus);
-            writer.WriteObjectValue<UserTrainingCompletionSummary>("userCompletionStatus", UserCompletionStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TrainingEventsContent>("trainingModuleCompletion", TrainingModuleCompletion);
+            writer.WriteObjectValue<ApiSdk.Models.TrainingNotificationDelivery>("trainingNotificationDeliveryStatus", TrainingNotificationDeliveryStatus);
+            writer.WriteObjectValue<ApiSdk.Models.UserTrainingCompletionSummary>("userCompletionStatus", UserCompletionStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

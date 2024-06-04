@@ -54,14 +54,14 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.GetRemediationSummary
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRemediationSummaryRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.GetRemediationSummary.GetRemediationSummaryRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetRemediationSummaryRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceHealthScripts/getRemediationSummary()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRemediationSummaryRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.GetRemediationSummary.GetRemediationSummaryRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetRemediationSummaryRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceHealthScripts/getRemediationSummary()", rawUrl)

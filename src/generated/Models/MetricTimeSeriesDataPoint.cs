@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>Value of the metric time series data point</summary>
         public long? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MetricTimeSeriesDataPoint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MetricTimeSeriesDataPoint"/> and sets the default values.
         /// </summary>
         public MetricTimeSeriesDataPoint()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MetricTimeSeriesDataPoint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MetricTimeSeriesDataPoint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MetricTimeSeriesDataPoint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MetricTimeSeriesDataPoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MetricTimeSeriesDataPoint();
+            return new ApiSdk.Models.MetricTimeSeriesDataPoint();
         }
         /// <summary>
         /// The deserialization information for the current model

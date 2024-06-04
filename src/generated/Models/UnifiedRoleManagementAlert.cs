@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementAlert : Entity, IParsable
+    public class UnifiedRoleManagementAlert : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration of the alert in PIM for Microsoft Entra roles. Alert configurations are pre-defined and cannot be created or deleted, but some configurations can be modified. Supports $filter for the isEnabled property and $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleManagementAlertConfiguration? AlertConfiguration { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertConfiguration? AlertConfiguration { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleManagementAlertConfiguration AlertConfiguration { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertConfiguration AlertConfiguration { get; set; }
 #endif
         /// <summary>Contains the description, impact, and measures to mitigate or prevent the security alert from being triggered in your tenant. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleManagementAlertDefinition? AlertDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertDefinition? AlertDefinition { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleManagementAlertDefinition AlertDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertDefinition AlertDefinition { get; set; }
 #endif
         /// <summary>The identifier of an alert definition. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,10 +37,10 @@ namespace ApiSdk.Models
         /// <summary>Represents the incidents of this type of alert that have been triggered in Privileged Identity Management (PIM) for Microsoft Entra roles in the tenant. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleManagementAlertIncident>? AlertIncidents { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementAlertIncident>? AlertIncidents { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleManagementAlertIncident> AlertIncidents { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementAlertIncident> AlertIncidents { get; set; }
 #endif
         /// <summary>The number of incidents triggered in the tenant and relating to the alert. Can only be a positive integer.</summary>
         public int? IncidentCount { get; set; }
@@ -69,12 +69,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleManagementAlert"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleManagementAlert"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleManagementAlert CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleManagementAlert CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleManagementAlert();
+            return new ApiSdk.Models.UnifiedRoleManagementAlert();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,10 +84,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alertConfiguration", n => { AlertConfiguration = n.GetObjectValue<UnifiedRoleManagementAlertConfiguration>(UnifiedRoleManagementAlertConfiguration.CreateFromDiscriminatorValue); } },
-                { "alertDefinition", n => { AlertDefinition = n.GetObjectValue<UnifiedRoleManagementAlertDefinition>(UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
+                { "alertConfiguration", n => { AlertConfiguration = n.GetObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertConfiguration>(ApiSdk.Models.UnifiedRoleManagementAlertConfiguration.CreateFromDiscriminatorValue); } },
+                { "alertDefinition", n => { AlertDefinition = n.GetObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertDefinition>(ApiSdk.Models.UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
                 { "alertDefinitionId", n => { AlertDefinitionId = n.GetStringValue(); } },
-                { "alertIncidents", n => { AlertIncidents = n.GetCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>(UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertIncidents", n => { AlertIncidents = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementAlertIncident>(ApiSdk.Models.UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "incidentCount", n => { IncidentCount = n.GetIntValue(); } },
                 { "isActive", n => { IsActive = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -104,10 +104,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<UnifiedRoleManagementAlertConfiguration>("alertConfiguration", AlertConfiguration);
-            writer.WriteObjectValue<UnifiedRoleManagementAlertDefinition>("alertDefinition", AlertDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertConfiguration>("alertConfiguration", AlertConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertDefinition>("alertDefinition", AlertDefinition);
             writer.WriteStringValue("alertDefinitionId", AlertDefinitionId);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>("alertIncidents", AlertIncidents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementAlertIncident>("alertIncidents", AlertIncidents);
             writer.WriteIntValue("incidentCount", IncidentCount);
             writer.WriteBoolValue("isActive", IsActive);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);

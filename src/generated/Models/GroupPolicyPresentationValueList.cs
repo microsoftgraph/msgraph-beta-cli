@@ -9,25 +9,25 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity represents a collection of name/value pairs of a list box presentation on a policy definition.
     /// </summary>
-    public class GroupPolicyPresentationValueList : GroupPolicyPresentationValue, IParsable
+    public class GroupPolicyPresentationValueList : ApiSdk.Models.GroupPolicyPresentationValue, IParsable
     {
         /// <summary>A list of pairs for the associated presentation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? Values { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? Values { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> Values { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> Values { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationValueList"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationValueList"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationValueList CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationValueList CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationValueList();
+            return new ApiSdk.Models.GroupPolicyPresentationValueList();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "values", n => { Values = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "values", n => { Values = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("values", Values);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("values", Values);
         }
     }
 }

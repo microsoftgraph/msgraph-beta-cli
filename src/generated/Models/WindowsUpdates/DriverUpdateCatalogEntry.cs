@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class DriverUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable
+    public class DriverUpdateCatalogEntry : ApiSdk.Models.WindowsUpdates.SoftwareUpdateCatalogEntry, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the content.</summary>
@@ -61,7 +61,7 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The date and time when a new version of content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? VersionDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DriverUpdateCatalogEntry"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.DriverUpdateCatalogEntry"/> and sets the default values.
         /// </summary>
         public DriverUpdateCatalogEntry() : base()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DriverUpdateCatalogEntry"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.DriverUpdateCatalogEntry"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DriverUpdateCatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.DriverUpdateCatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DriverUpdateCatalogEntry();
+            return new ApiSdk.Models.WindowsUpdates.DriverUpdateCatalogEntry();
         }
         /// <summary>
         /// The deserialization information for the current model

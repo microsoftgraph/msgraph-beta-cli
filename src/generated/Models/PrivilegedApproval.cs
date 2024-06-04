@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedApproval : Entity, IParsable
+    public class PrivilegedApproval : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The approvalDuration property</summary>
@@ -35,10 +35,10 @@ namespace ApiSdk.Models
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PrivilegedRoleAssignmentRequest? Request { get; set; }
+        public ApiSdk.Models.PrivilegedRoleAssignmentRequest? Request { get; set; }
 #nullable restore
 #else
-        public PrivilegedRoleAssignmentRequest Request { get; set; }
+        public ApiSdk.Models.PrivilegedRoleAssignmentRequest Request { get; set; }
 #endif
         /// <summary>The requestorReason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,10 +59,10 @@ namespace ApiSdk.Models
         /// <summary>The roleInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PrivilegedRole? RoleInfo { get; set; }
+        public ApiSdk.Models.PrivilegedRole? RoleInfo { get; set; }
 #nullable restore
 #else
-        public PrivilegedRole RoleInfo { get; set; }
+        public ApiSdk.Models.PrivilegedRole RoleInfo { get; set; }
 #endif
         /// <summary>The startDateTime property</summary>
         public DateTimeOffset? StartDateTime { get; set; }
@@ -77,12 +77,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedApproval"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedApproval"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedApproval CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedApproval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedApproval();
+            return new ApiSdk.Models.PrivilegedApproval();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,14 +93,14 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "approvalDuration", n => { ApprovalDuration = n.GetTimeSpanValue(); } },
-                { "approvalState", n => { ApprovalState = n.GetEnumValue<ApprovalState>(); } },
+                { "approvalState", n => { ApprovalState = n.GetEnumValue<ApiSdk.Models.ApprovalState>(); } },
                 { "approvalType", n => { ApprovalType = n.GetStringValue(); } },
                 { "approverReason", n => { ApproverReason = n.GetStringValue(); } },
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                { "request", n => { Request = n.GetObjectValue<PrivilegedRoleAssignmentRequest>(PrivilegedRoleAssignmentRequest.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<ApiSdk.Models.PrivilegedRoleAssignmentRequest>(ApiSdk.Models.PrivilegedRoleAssignmentRequest.CreateFromDiscriminatorValue); } },
                 { "requestorReason", n => { RequestorReason = n.GetStringValue(); } },
                 { "roleId", n => { RoleId = n.GetStringValue(); } },
-                { "roleInfo", n => { RoleInfo = n.GetObjectValue<PrivilegedRole>(PrivilegedRole.CreateFromDiscriminatorValue); } },
+                { "roleInfo", n => { RoleInfo = n.GetObjectValue<ApiSdk.Models.PrivilegedRole>(ApiSdk.Models.PrivilegedRole.CreateFromDiscriminatorValue); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
             };
@@ -114,14 +114,14 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteTimeSpanValue("approvalDuration", ApprovalDuration);
-            writer.WriteEnumValue<ApprovalState>("approvalState", ApprovalState);
+            writer.WriteEnumValue<ApiSdk.Models.ApprovalState>("approvalState", ApprovalState);
             writer.WriteStringValue("approvalType", ApprovalType);
             writer.WriteStringValue("approverReason", ApproverReason);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteObjectValue<PrivilegedRoleAssignmentRequest>("request", Request);
+            writer.WriteObjectValue<ApiSdk.Models.PrivilegedRoleAssignmentRequest>("request", Request);
             writer.WriteStringValue("requestorReason", RequestorReason);
             writer.WriteStringValue("roleId", RoleId);
-            writer.WriteObjectValue<PrivilegedRole>("roleInfo", RoleInfo);
+            writer.WriteObjectValue<ApiSdk.Models.PrivilegedRole>("roleInfo", RoleInfo);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("userId", UserId);
         }

@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         /// <summary>Value for this key long value pair</summary>
         public long? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="KeyLongValuePair"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.KeyLongValuePair"/> and sets the default values.
         /// </summary>
         public KeyLongValuePair()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KeyLongValuePair"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.KeyLongValuePair"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static KeyLongValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.KeyLongValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KeyLongValuePair();
+            return new ApiSdk.Models.KeyLongValuePair();
         }
         /// <summary>
         /// The deserialization information for the current model

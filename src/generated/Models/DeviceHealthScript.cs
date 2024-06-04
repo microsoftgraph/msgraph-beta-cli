@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Intune will provide customer the ability to run their Powershell Health scripts (remediation + detection) on the enrolled windows 10 Azure Active Directory joined devices.
     /// </summary>
-    public class DeviceHealthScript : Entity, IParsable
+    public class DeviceHealthScript : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of group assignments for the device health script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthScriptAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthScriptAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptAssignment> Assignments { get; set; }
 #endif
         /// <summary>The timestamp of when the device health script was created. This property is read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
@@ -40,20 +40,20 @@ namespace ApiSdk.Models
         /// <summary>List of ComplexType DetectionScriptParameters objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthScriptParameter>? DetectionScriptParameters { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptParameter>? DetectionScriptParameters { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthScriptParameter> DetectionScriptParameters { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptParameter> DetectionScriptParameters { get; set; }
 #endif
         /// <summary>Indicates the type of device script.</summary>
         public ApiSdk.Models.DeviceHealthScriptType? DeviceHealthScriptType { get; set; }
         /// <summary>List of run states for the device health script across all devices</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthScriptDeviceState>? DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptDeviceState>? DeviceRunStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthScriptDeviceState> DeviceRunStates { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptDeviceState> DeviceRunStates { get; set; }
 #endif
         /// <summary>Name of the device health script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -96,10 +96,10 @@ namespace ApiSdk.Models
         /// <summary>List of ComplexType RemediationScriptParameters objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthScriptParameter>? RemediationScriptParameters { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptParameter>? RemediationScriptParameters { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthScriptParameter> RemediationScriptParameters { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptParameter> RemediationScriptParameters { get; set; }
 #endif
         /// <summary>List of Scope Tag IDs for the device health script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,14 +112,14 @@ namespace ApiSdk.Models
         /// <summary>Indicate whether PowerShell script(s) should run as 32-bit</summary>
         public bool? RunAs32Bit { get; set; }
         /// <summary>Indicates the type of execution context the app runs in.</summary>
-        public RunAsAccountType? RunAsAccount { get; set; }
+        public ApiSdk.Models.RunAsAccountType? RunAsAccount { get; set; }
         /// <summary>High level run summary for device health script.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceHealthScriptRunSummary? RunSummary { get; set; }
+        public ApiSdk.Models.DeviceHealthScriptRunSummary? RunSummary { get; set; }
 #nullable restore
 #else
-        public DeviceHealthScriptRunSummary RunSummary { get; set; }
+        public ApiSdk.Models.DeviceHealthScriptRunSummary RunSummary { get; set; }
 #endif
         /// <summary>Version of the device health script</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,12 +132,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScript"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScript"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceHealthScript CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceHealthScript CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScript();
+            return new ApiSdk.Models.DeviceHealthScript();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -147,13 +147,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceHealthScriptAssignment>(DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptAssignment>(ApiSdk.Models.DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "detectionScriptContent", n => { DetectionScriptContent = n.GetByteArrayValue(); } },
-                { "detectionScriptParameters", n => { DetectionScriptParameters = n.GetCollectionOfObjectValues<DeviceHealthScriptParameter>(DeviceHealthScriptParameter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceHealthScriptType", n => { DeviceHealthScriptType = n.GetEnumValue<DeviceHealthScriptType>(); } },
-                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<DeviceHealthScriptDeviceState>(DeviceHealthScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "detectionScriptParameters", n => { DetectionScriptParameters = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptParameter>(ApiSdk.Models.DeviceHealthScriptParameter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceHealthScriptType", n => { DeviceHealthScriptType = n.GetEnumValue<ApiSdk.Models.DeviceHealthScriptType>(); } },
+                { "deviceRunStates", n => { DeviceRunStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptDeviceState>(ApiSdk.Models.DeviceHealthScriptDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enforceSignatureCheck", n => { EnforceSignatureCheck = n.GetBoolValue(); } },
                 { "highestAvailableVersion", n => { HighestAvailableVersion = n.GetStringValue(); } },
@@ -161,11 +161,11 @@ namespace ApiSdk.Models
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
                 { "remediationScriptContent", n => { RemediationScriptContent = n.GetByteArrayValue(); } },
-                { "remediationScriptParameters", n => { RemediationScriptParameters = n.GetCollectionOfObjectValues<DeviceHealthScriptParameter>(DeviceHealthScriptParameter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remediationScriptParameters", n => { RemediationScriptParameters = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptParameter>(ApiSdk.Models.DeviceHealthScriptParameter.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "runAs32Bit", n => { RunAs32Bit = n.GetBoolValue(); } },
-                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<RunAsAccountType>(); } },
-                { "runSummary", n => { RunSummary = n.GetObjectValue<DeviceHealthScriptRunSummary>(DeviceHealthScriptRunSummary.CreateFromDiscriminatorValue); } },
+                { "runAsAccount", n => { RunAsAccount = n.GetEnumValue<ApiSdk.Models.RunAsAccountType>(); } },
+                { "runSummary", n => { RunSummary = n.GetObjectValue<ApiSdk.Models.DeviceHealthScriptRunSummary>(ApiSdk.Models.DeviceHealthScriptRunSummary.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -177,23 +177,23 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceHealthScriptAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptAssignment>("assignments", Assignments);
             writer.WriteStringValue("description", Description);
             writer.WriteByteArrayValue("detectionScriptContent", DetectionScriptContent);
-            writer.WriteCollectionOfObjectValues<DeviceHealthScriptParameter>("detectionScriptParameters", DetectionScriptParameters);
-            writer.WriteEnumValue<DeviceHealthScriptType>("deviceHealthScriptType", DeviceHealthScriptType);
-            writer.WriteCollectionOfObjectValues<DeviceHealthScriptDeviceState>("deviceRunStates", DeviceRunStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptParameter>("detectionScriptParameters", DetectionScriptParameters);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceHealthScriptType>("deviceHealthScriptType", DeviceHealthScriptType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptDeviceState>("deviceRunStates", DeviceRunStates);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enforceSignatureCheck", EnforceSignatureCheck);
             writer.WriteStringValue("highestAvailableVersion", HighestAvailableVersion);
             writer.WriteBoolValue("isGlobalScript", IsGlobalScript);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteByteArrayValue("remediationScriptContent", RemediationScriptContent);
-            writer.WriteCollectionOfObjectValues<DeviceHealthScriptParameter>("remediationScriptParameters", RemediationScriptParameters);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptParameter>("remediationScriptParameters", RemediationScriptParameters);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteBoolValue("runAs32Bit", RunAs32Bit);
-            writer.WriteEnumValue<RunAsAccountType>("runAsAccount", RunAsAccount);
-            writer.WriteObjectValue<DeviceHealthScriptRunSummary>("runSummary", RunSummary);
+            writer.WriteEnumValue<ApiSdk.Models.RunAsAccountType>("runAsAccount", RunAsAccount);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceHealthScriptRunSummary>("runSummary", RunSummary);
             writer.WriteStringValue("version", Version);
         }
     }

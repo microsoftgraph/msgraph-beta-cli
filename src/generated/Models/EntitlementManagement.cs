@@ -7,138 +7,138 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EntitlementManagement : Entity, IParsable
+    public class EntitlementManagement : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessPackageAssignmentApprovals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Approval>? AccessPackageAssignmentApprovals { get; set; }
+        public List<ApiSdk.Models.Approval>? AccessPackageAssignmentApprovals { get; set; }
 #nullable restore
 #else
-        public List<Approval> AccessPackageAssignmentApprovals { get; set; }
+        public List<ApiSdk.Models.Approval> AccessPackageAssignmentApprovals { get; set; }
 #endif
         /// <summary>Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignmentPolicy>? AccessPackageAssignmentPolicies { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentPolicy>? AccessPackageAssignmentPolicies { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignmentPolicy> AccessPackageAssignmentPolicies { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentPolicy> AccessPackageAssignmentPolicies { get; set; }
 #endif
         /// <summary>Represents access package assignment requests created by or on behalf of a user. DO NOT USE. TO BE RETIRED SOON. Use the assignmentRequests relationship instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignmentRequest>? AccessPackageAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentRequest>? AccessPackageAssignmentRequests { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignmentRequest> AccessPackageAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentRequest> AccessPackageAssignmentRequests { get; set; }
 #endif
         /// <summary>Represents the resource-specific role which a subject has been assigned through an access package assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignmentResourceRole>? AccessPackageAssignmentResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentResourceRole>? AccessPackageAssignmentResourceRoles { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignmentResourceRole> AccessPackageAssignmentResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentResourceRole> AccessPackageAssignmentResourceRoles { get; set; }
 #endif
         /// <summary>The assignment of an access package to a subject for a period of time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignment>? AccessPackageAssignments { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignment>? AccessPackageAssignments { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignment> AccessPackageAssignments { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignment> AccessPackageAssignments { get; set; }
 #endif
         /// <summary>A container of access packages.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageCatalog>? AccessPackageCatalogs { get; set; }
+        public List<ApiSdk.Models.AccessPackageCatalog>? AccessPackageCatalogs { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageCatalog> AccessPackageCatalogs { get; set; }
+        public List<ApiSdk.Models.AccessPackageCatalog> AccessPackageCatalogs { get; set; }
 #endif
         /// <summary>A reference to the geolocation environment in which a resource is located.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceEnvironment>? AccessPackageResourceEnvironments { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceEnvironment>? AccessPackageResourceEnvironments { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceEnvironment> AccessPackageResourceEnvironments { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceEnvironment> AccessPackageResourceEnvironments { get; set; }
 #endif
         /// <summary>Represents a request to add or remove a resource to or from a catalog respectively.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceRequest>? AccessPackageResourceRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRequest>? AccessPackageResourceRequests { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceRequest> AccessPackageResourceRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRequest> AccessPackageResourceRequests { get; set; }
 #endif
         /// <summary>A reference to both a scope within a resource, and a role in that resource for that scope.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceRoleScope>? AccessPackageResourceRoleScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRoleScope>? AccessPackageResourceRoleScopes { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceRoleScope> AccessPackageResourceRoleScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRoleScope> AccessPackageResourceRoleScopes { get; set; }
 #endif
         /// <summary>A reference to a resource associated with an access package catalog.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResource>? AccessPackageResources { get; set; }
+        public List<ApiSdk.Models.AccessPackageResource>? AccessPackageResources { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResource> AccessPackageResources { get; set; }
+        public List<ApiSdk.Models.AccessPackageResource> AccessPackageResources { get; set; }
 #endif
         /// <summary>Represents access package objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackage>? AccessPackages { get; set; }
+        public List<ApiSdk.Models.AccessPackage>? AccessPackages { get; set; }
 #nullable restore
 #else
-        public List<AccessPackage> AccessPackages { get; set; }
+        public List<ApiSdk.Models.AccessPackage> AccessPackages { get; set; }
 #endif
         /// <summary>Represents access package assignment requests created by or on behalf of a user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAssignmentRequest>? AssignmentRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentRequest>? AssignmentRequests { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAssignmentRequest> AssignmentRequests { get; set; }
+        public List<ApiSdk.Models.AccessPackageAssignmentRequest> AssignmentRequests { get; set; }
 #endif
         /// <summary>Represents references to a directory or domain of another organization whose users can request access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectedOrganization>? ConnectedOrganizations { get; set; }
+        public List<ApiSdk.Models.ConnectedOrganization>? ConnectedOrganizations { get; set; }
 #nullable restore
 #else
-        public List<ConnectedOrganization> ConnectedOrganizations { get; set; }
+        public List<ApiSdk.Models.ConnectedOrganization> ConnectedOrganizations { get; set; }
 #endif
         /// <summary>Represents the settings that control the behavior of Microsoft Entra entitlement management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EntitlementManagementSettings? Settings { get; set; }
+        public ApiSdk.Models.EntitlementManagementSettings? Settings { get; set; }
 #nullable restore
 #else
-        public EntitlementManagementSettings Settings { get; set; }
+        public ApiSdk.Models.EntitlementManagementSettings Settings { get; set; }
 #endif
         /// <summary>Represents the subjects within entitlement management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageSubject>? Subjects { get; set; }
+        public List<ApiSdk.Models.AccessPackageSubject>? Subjects { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageSubject> Subjects { get; set; }
+        public List<ApiSdk.Models.AccessPackageSubject> Subjects { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EntitlementManagement"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EntitlementManagement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EntitlementManagement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EntitlementManagement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EntitlementManagement();
+            return new ApiSdk.Models.EntitlementManagement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -148,21 +148,21 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessPackageAssignmentApprovals", n => { AccessPackageAssignmentApprovals = n.GetCollectionOfObjectValues<Approval>(Approval.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageAssignmentPolicies", n => { AccessPackageAssignmentPolicies = n.GetCollectionOfObjectValues<AccessPackageAssignmentPolicy>(AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageAssignmentRequests", n => { AccessPackageAssignmentRequests = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageAssignmentResourceRoles", n => { AccessPackageAssignmentResourceRoles = n.GetCollectionOfObjectValues<AccessPackageAssignmentResourceRole>(AccessPackageAssignmentResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageCatalogs", n => { AccessPackageCatalogs = n.GetCollectionOfObjectValues<AccessPackageCatalog>(AccessPackageCatalog.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceEnvironments", n => { AccessPackageResourceEnvironments = n.GetCollectionOfObjectValues<AccessPackageResourceEnvironment>(AccessPackageResourceEnvironment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceRequests", n => { AccessPackageResourceRequests = n.GetCollectionOfObjectValues<AccessPackageResourceRequest>(AccessPackageResourceRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceRoleScopes", n => { AccessPackageResourceRoleScopes = n.GetCollectionOfObjectValues<AccessPackageResourceRoleScope>(AccessPackageResourceRoleScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResources", n => { AccessPackageResources = n.GetCollectionOfObjectValues<AccessPackageResource>(AccessPackageResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackages", n => { AccessPackages = n.GetCollectionOfObjectValues<AccessPackage>(AccessPackage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "assignmentRequests", n => { AssignmentRequests = n.GetCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "connectedOrganizations", n => { ConnectedOrganizations = n.GetCollectionOfObjectValues<ConnectedOrganization>(ConnectedOrganization.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "settings", n => { Settings = n.GetObjectValue<EntitlementManagementSettings>(EntitlementManagementSettings.CreateFromDiscriminatorValue); } },
-                { "subjects", n => { Subjects = n.GetCollectionOfObjectValues<AccessPackageSubject>(AccessPackageSubject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignmentApprovals", n => { AccessPackageAssignmentApprovals = n.GetCollectionOfObjectValues<ApiSdk.Models.Approval>(ApiSdk.Models.Approval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignmentPolicies", n => { AccessPackageAssignmentPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentPolicy>(ApiSdk.Models.AccessPackageAssignmentPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignmentRequests", n => { AccessPackageAssignmentRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentRequest>(ApiSdk.Models.AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignmentResourceRoles", n => { AccessPackageAssignmentResourceRoles = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentResourceRole>(ApiSdk.Models.AccessPackageAssignmentResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageAssignments", n => { AccessPackageAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignment>(ApiSdk.Models.AccessPackageAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageCatalogs", n => { AccessPackageCatalogs = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageCatalog>(ApiSdk.Models.AccessPackageCatalog.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceEnvironments", n => { AccessPackageResourceEnvironments = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceEnvironment>(ApiSdk.Models.AccessPackageResourceEnvironment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceRequests", n => { AccessPackageResourceRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRequest>(ApiSdk.Models.AccessPackageResourceRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceRoleScopes", n => { AccessPackageResourceRoleScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRoleScope>(ApiSdk.Models.AccessPackageResourceRoleScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResources", n => { AccessPackageResources = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResource>(ApiSdk.Models.AccessPackageResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackages", n => { AccessPackages = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignmentRequests", n => { AssignmentRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentRequest>(ApiSdk.Models.AccessPackageAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectedOrganizations", n => { ConnectedOrganizations = n.GetCollectionOfObjectValues<ApiSdk.Models.ConnectedOrganization>(ApiSdk.Models.ConnectedOrganization.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.EntitlementManagementSettings>(ApiSdk.Models.EntitlementManagementSettings.CreateFromDiscriminatorValue); } },
+                { "subjects", n => { Subjects = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageSubject>(ApiSdk.Models.AccessPackageSubject.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -173,21 +173,21 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Approval>("accessPackageAssignmentApprovals", AccessPackageAssignmentApprovals);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignmentPolicy>("accessPackageAssignmentPolicies", AccessPackageAssignmentPolicies);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignmentRequest>("accessPackageAssignmentRequests", AccessPackageAssignmentRequests);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignmentResourceRole>("accessPackageAssignmentResourceRoles", AccessPackageAssignmentResourceRoles);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignment>("accessPackageAssignments", AccessPackageAssignments);
-            writer.WriteCollectionOfObjectValues<AccessPackageCatalog>("accessPackageCatalogs", AccessPackageCatalogs);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceEnvironment>("accessPackageResourceEnvironments", AccessPackageResourceEnvironments);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceRequest>("accessPackageResourceRequests", AccessPackageResourceRequests);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceRoleScope>("accessPackageResourceRoleScopes", AccessPackageResourceRoleScopes);
-            writer.WriteCollectionOfObjectValues<AccessPackageResource>("accessPackageResources", AccessPackageResources);
-            writer.WriteCollectionOfObjectValues<AccessPackage>("accessPackages", AccessPackages);
-            writer.WriteCollectionOfObjectValues<AccessPackageAssignmentRequest>("assignmentRequests", AssignmentRequests);
-            writer.WriteCollectionOfObjectValues<ConnectedOrganization>("connectedOrganizations", ConnectedOrganizations);
-            writer.WriteObjectValue<EntitlementManagementSettings>("settings", Settings);
-            writer.WriteCollectionOfObjectValues<AccessPackageSubject>("subjects", Subjects);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Approval>("accessPackageAssignmentApprovals", AccessPackageAssignmentApprovals);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentPolicy>("accessPackageAssignmentPolicies", AccessPackageAssignmentPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentRequest>("accessPackageAssignmentRequests", AccessPackageAssignmentRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentResourceRole>("accessPackageAssignmentResourceRoles", AccessPackageAssignmentResourceRoles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignment>("accessPackageAssignments", AccessPackageAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageCatalog>("accessPackageCatalogs", AccessPackageCatalogs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceEnvironment>("accessPackageResourceEnvironments", AccessPackageResourceEnvironments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRequest>("accessPackageResourceRequests", AccessPackageResourceRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRoleScope>("accessPackageResourceRoleScopes", AccessPackageResourceRoleScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResource>("accessPackageResources", AccessPackageResources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackage>("accessPackages", AccessPackages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAssignmentRequest>("assignmentRequests", AssignmentRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConnectedOrganization>("connectedOrganizations", ConnectedOrganizations);
+            writer.WriteObjectValue<ApiSdk.Models.EntitlementManagementSettings>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageSubject>("subjects", Subjects);
         }
     }
 }

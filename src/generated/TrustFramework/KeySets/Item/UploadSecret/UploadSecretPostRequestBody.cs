@@ -33,7 +33,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadSecret
         public string Use { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UploadSecretPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.UploadSecret.UploadSecretPostRequestBody"/> and sets the default values.
         /// </summary>
         public UploadSecretPostRequestBody()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadSecret
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UploadSecretPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TrustFramework.KeySets.Item.UploadSecret.UploadSecretPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UploadSecretPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TrustFramework.KeySets.Item.UploadSecret.UploadSecretPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UploadSecretPostRequestBody();
+            return new ApiSdk.TrustFramework.KeySets.Item.UploadSecret.UploadSecretPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

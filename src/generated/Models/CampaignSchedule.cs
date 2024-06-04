@@ -25,9 +25,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The current state of the campaign. The possible values are: unknown, draft, inProgress, scheduled, completed, failed, cancelled, excluded, deleted, unknownFutureValue.</summary>
-        public CampaignStatus? Status { get; set; }
+        public ApiSdk.Models.CampaignStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CampaignSchedule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CampaignSchedule"/> and sets the default values.
         /// </summary>
         public CampaignSchedule()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CampaignSchedule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CampaignSchedule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CampaignSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CampaignSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CampaignSchedule();
+            return new ApiSdk.Models.CampaignSchedule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
                 { "completionDateTime", n => { CompletionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "launchDateTime", n => { LaunchDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<CampaignStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CampaignStatus>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("completionDateTime", CompletionDateTime);
             writer.WriteDateTimeOffsetValue("launchDateTime", LaunchDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CampaignStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.CampaignStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an app in the list of managed Apple applications
     /// </summary>
-    public class AppleAppListItem : AppListItem, IParsable
+    public class AppleAppListItem : ApiSdk.Models.AppListItem, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="AppleAppListItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AppleAppListItem"/> and sets the default values.
         /// </summary>
         public AppleAppListItem() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppleAppListItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppleAppListItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppleAppListItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppleAppListItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppleAppListItem();
+            return new ApiSdk.Models.AppleAppListItem();
         }
         /// <summary>
         /// The deserialization information for the current model

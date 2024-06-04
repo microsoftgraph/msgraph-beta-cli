@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PermissionsDefinitionAzureRole : Entity, IParsable
+    public class PermissionsDefinitionAzureRole : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsDefinitionAzureRole"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsDefinitionAzureRole"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PermissionsDefinitionAzureRole CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PermissionsDefinitionAzureRole CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PermissionsDefinitionAzureRole();
+            return new ApiSdk.Models.PermissionsDefinitionAzureRole();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserVirtualEventsRoot : Entity, IParsable
+    public class UserVirtualEventsRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The webinars property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventWebinar>? Webinars { get; set; }
+        public List<ApiSdk.Models.VirtualEventWebinar>? Webinars { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventWebinar> Webinars { get; set; }
+        public List<ApiSdk.Models.VirtualEventWebinar> Webinars { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserVirtualEventsRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserVirtualEventsRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserVirtualEventsRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserVirtualEventsRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserVirtualEventsRoot();
+            return new ApiSdk.Models.UserVirtualEventsRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "webinars", n => { Webinars = n.GetCollectionOfObjectValues<VirtualEventWebinar>(VirtualEventWebinar.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "webinars", n => { Webinars = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventWebinar>(ApiSdk.Models.VirtualEventWebinar.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<VirtualEventWebinar>("webinars", Webinars);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventWebinar>("webinars", Webinars);
         }
     }
 }

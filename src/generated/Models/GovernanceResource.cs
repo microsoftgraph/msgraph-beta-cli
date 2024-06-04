@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GovernanceResource : Entity, IParsable
+    public class GovernanceResource : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the resource.</summary>
@@ -29,10 +29,10 @@ namespace ApiSdk.Models
         /// <summary>Read-only. The parent resource. for pimforazurerbac scenario, it can represent the subscription the resource belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernanceResource? Parent { get; set; }
+        public ApiSdk.Models.GovernanceResource? Parent { get; set; }
 #nullable restore
 #else
-        public GovernanceResource Parent { get; set; }
+        public ApiSdk.Models.GovernanceResource Parent { get; set; }
 #endif
         /// <summary>Represents the date time when the resource is registered in PIM.</summary>
         public DateTimeOffset? RegisteredDateTime { get; set; }
@@ -47,34 +47,34 @@ namespace ApiSdk.Models
         /// <summary>The collection of role assignment requests for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleAssignmentRequest>? RoleAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignmentRequest>? RoleAssignmentRequests { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleAssignmentRequest> RoleAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignmentRequest> RoleAssignmentRequests { get; set; }
 #endif
         /// <summary>The collection of role assignments for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleAssignment>? RoleAssignments { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignment>? RoleAssignments { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleAssignment> RoleAssignments { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignment> RoleAssignments { get; set; }
 #endif
         /// <summary>The collection of role definitions for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleDefinition>? RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleDefinition>? RoleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleDefinition> RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleDefinition> RoleDefinitions { get; set; }
 #endif
         /// <summary>The collection of role settings for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleSetting>? RoleSettings { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting>? RoleSettings { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleSetting> RoleSettings { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting> RoleSettings { get; set; }
 #endif
         /// <summary>The status of a given resource. For example, it could represent whether the resource is locked or not (values: Active/Locked). Note: This property may be extended in the future to support more scenarios.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,12 +95,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernanceResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernanceResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GovernanceResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GovernanceResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernanceResource();
+            return new ApiSdk.Models.GovernanceResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -112,13 +112,13 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.GovernanceResource>(ApiSdk.Models.GovernanceResource.CreateFromDiscriminatorValue); } },
                 { "registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
                 { "registeredRoot", n => { RegisteredRoot = n.GetStringValue(); } },
-                { "roleAssignmentRequests", n => { RoleAssignmentRequests = n.GetCollectionOfObjectValues<GovernanceRoleAssignmentRequest>(GovernanceRoleAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<GovernanceRoleAssignment>(GovernanceRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleSettings", n => { RoleSettings = n.GetCollectionOfObjectValues<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignmentRequests", n => { RoleAssignmentRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignmentRequest>(ApiSdk.Models.GovernanceRoleAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignment>(ApiSdk.Models.GovernanceRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleDefinition>(ApiSdk.Models.GovernanceRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleSettings", n => { RoleSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>(ApiSdk.Models.GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -133,13 +133,13 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
-            writer.WriteObjectValue<GovernanceResource>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.GovernanceResource>("parent", Parent);
             writer.WriteDateTimeOffsetValue("registeredDateTime", RegisteredDateTime);
             writer.WriteStringValue("registeredRoot", RegisteredRoot);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleAssignmentRequest>("roleAssignmentRequests", RoleAssignmentRequests);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleAssignment>("roleAssignments", RoleAssignments);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleDefinition>("roleDefinitions", RoleDefinitions);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleSetting>("roleSettings", RoleSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignmentRequest>("roleAssignmentRequests", RoleAssignmentRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignment>("roleAssignments", RoleAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleDefinition>("roleDefinitions", RoleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>("roleSettings", RoleSettings);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("type", Type);
         }

@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the device&apos;s feature type. Possible values are: manufacturer, model, osVersion, application or driver.</summary>
-        public UserExperienceAnalyticsAnomalyDeviceFeatureType? DeviceFeatureType { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsAnomalyDeviceFeatureType? DeviceFeatureType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public List<string> Values { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserExperienceAnalyticsAnomalyCorrelationGroupFeature"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature"/> and sets the default values.
         /// </summary>
         public UserExperienceAnalyticsAnomalyCorrelationGroupFeature()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsAnomalyCorrelationGroupFeature"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserExperienceAnalyticsAnomalyCorrelationGroupFeature CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsAnomalyCorrelationGroupFeature();
+            return new ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceFeatureType", n => { DeviceFeatureType = n.GetEnumValue<UserExperienceAnalyticsAnomalyDeviceFeatureType>(); } },
+                { "deviceFeatureType", n => { DeviceFeatureType = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyDeviceFeatureType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "values", n => { Values = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<UserExperienceAnalyticsAnomalyDeviceFeatureType>("deviceFeatureType", DeviceFeatureType);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyDeviceFeatureType>("deviceFeatureType", DeviceFeatureType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("values", Values);
             writer.WriteAdditionalData(AdditionalData);

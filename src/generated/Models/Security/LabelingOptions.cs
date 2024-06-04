@@ -25,10 +25,10 @@ namespace ApiSdk.Models.Security
         /// <summary>Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? ExtendedProperties { get; set; }
+        public List<ApiSdk.Models.Security.KeyValuePair>? ExtendedProperties { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> ExtendedProperties { get; set; }
+        public List<ApiSdk.Models.Security.KeyValuePair> ExtendedProperties { get; set; }
 #endif
         /// <summary>The GUID of the label that should be applied to the information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LabelingOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.LabelingOptions"/> and sets the default values.
         /// </summary>
         public LabelingOptions()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LabelingOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.LabelingOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LabelingOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.LabelingOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LabelingOptions();
+            return new ApiSdk.Models.Security.LabelingOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,9 +71,9 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignmentMethod", n => { AssignmentMethod = n.GetEnumValue<AssignmentMethod>(); } },
+                { "assignmentMethod", n => { AssignmentMethod = n.GetEnumValue<ApiSdk.Models.Security.AssignmentMethod>(); } },
                 { "downgradeJustification", n => { DowngradeJustification = n.GetObjectValue<ApiSdk.Models.Security.DowngradeJustification>(ApiSdk.Models.Security.DowngradeJustification.CreateFromDiscriminatorValue); } },
-                { "extendedProperties", n => { ExtendedProperties = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extendedProperties", n => { ExtendedProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.KeyValuePair>(ApiSdk.Models.Security.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "labelId", n => { LabelId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -85,9 +85,9 @@ namespace ApiSdk.Models.Security
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AssignmentMethod>("assignmentMethod", AssignmentMethod);
+            writer.WriteEnumValue<ApiSdk.Models.Security.AssignmentMethod>("assignmentMethod", AssignmentMethod);
             writer.WriteObjectValue<ApiSdk.Models.Security.DowngradeJustification>("downgradeJustification", DowngradeJustification);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("extendedProperties", ExtendedProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.KeyValuePair>("extendedProperties", ExtendedProperties);
             writer.WriteStringValue("labelId", LabelId);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

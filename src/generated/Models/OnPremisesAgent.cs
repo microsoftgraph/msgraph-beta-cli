@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OnPremisesAgent : Entity, IParsable
+    public class OnPremisesAgent : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgentGroups that an onPremisesAgent is assigned to. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgentGroup>? AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup>? AgentGroups { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgentGroup> AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup> AgentGroups { get; set; }
 #endif
         /// <summary>The external IP address as detected by the service for the agent machine. Read-only</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,24 +35,24 @@ namespace ApiSdk.Models
         public string MachineName { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public AgentStatus? Status { get; set; }
+        public ApiSdk.Models.AgentStatus? Status { get; set; }
         /// <summary>Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesPublishingType?>? SupportedPublishingTypes { get; set; }
+        public List<ApiSdk.Models.OnPremisesPublishingType?>? SupportedPublishingTypes { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesPublishingType?> SupportedPublishingTypes { get; set; }
+        public List<ApiSdk.Models.OnPremisesPublishingType?> SupportedPublishingTypes { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesAgent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesAgent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnPremisesAgent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OnPremisesAgent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesAgent();
+            return new ApiSdk.Models.OnPremisesAgent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,11 +62,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>(ApiSdk.Models.OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "externalIp", n => { ExternalIp = n.GetStringValue(); } },
                 { "machineName", n => { MachineName = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<AgentStatus>(); } },
-                { "supportedPublishingTypes", n => { SupportedPublishingTypes = n.GetCollectionOfEnumValues<OnPremisesPublishingType>()?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.AgentStatus>(); } },
+                { "supportedPublishingTypes", n => { SupportedPublishingTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.OnPremisesPublishingType>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgentGroup>("agentGroups", AgentGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>("agentGroups", AgentGroups);
             writer.WriteStringValue("externalIp", ExternalIp);
             writer.WriteStringValue("machineName", MachineName);
-            writer.WriteEnumValue<AgentStatus>("status", Status);
-            writer.WriteCollectionOfEnumValues<OnPremisesPublishingType>("supportedPublishingTypes", SupportedPublishingTypes);
+            writer.WriteEnumValue<ApiSdk.Models.AgentStatus>("status", Status);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.OnPremisesPublishingType>("supportedPublishingTypes", SupportedPublishingTypes);
         }
     }
 }

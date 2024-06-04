@@ -36,7 +36,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("activity");
             command.Description = "Provides operations to manage the activity property of the microsoft.graph.teamworkDevice entity.";
-            var builder = new ActivityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.Activity.ActivityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -55,7 +55,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("configuration");
             command.Description = "Provides operations to manage the configuration property of the microsoft.graph.teamworkDevice entity.";
-            var builder = new ConfigurationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.Configuration.ConfigurationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -162,7 +162,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("health");
             command.Description = "Provides operations to manage the health property of the microsoft.graph.teamworkDevice entity.";
-            var builder = new HealthRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.Health.HealthRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -181,7 +181,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.teamworkDevice entity.";
-            var builder = new OperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.Operations.OperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -231,7 +231,7 @@ namespace ApiSdk.Teamwork.Devices.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TeamworkDevice>(TeamworkDevice.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.TeamworkDevice>(ApiSdk.Models.TeamworkDevice.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -259,7 +259,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("restart");
             command.Description = "Provides operations to call the restart method.";
-            var builder = new RestartRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.Restart.RestartRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -276,7 +276,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("run-diagnostics");
             command.Description = "Provides operations to call the runDiagnostics method.";
-            var builder = new RunDiagnosticsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.RunDiagnostics.RunDiagnosticsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -293,7 +293,7 @@ namespace ApiSdk.Teamwork.Devices.Item
         {
             var command = new Command("update-software");
             command.Description = "Provides operations to call the updateSoftware method.";
-            var builder = new UpdateSoftwareRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.Devices.Item.UpdateSoftware.UpdateSoftwareRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -303,14 +303,14 @@ namespace ApiSdk.Teamwork.Devices.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkDeviceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.TeamworkDeviceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TeamworkDeviceItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkDeviceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.TeamworkDeviceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TeamworkDeviceItemRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}{?%24expand,%24select}", rawUrl)
@@ -342,11 +342,11 @@ namespace ApiSdk.Teamwork.Devices.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamworkDeviceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.Devices.Item.TeamworkDeviceItemRequestBuilder.TeamworkDeviceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamworkDeviceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.Devices.Item.TeamworkDeviceItemRequestBuilder.TeamworkDeviceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -362,11 +362,11 @@ namespace ApiSdk.Teamwork.Devices.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(TeamworkDevice body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamworkDevice body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(TeamworkDevice body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamworkDevice body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

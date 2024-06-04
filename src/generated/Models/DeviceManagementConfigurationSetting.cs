@@ -9,33 +9,33 @@ namespace ApiSdk.Models
     /// <summary>
     /// Setting instance within policy
     /// </summary>
-    public class DeviceManagementConfigurationSetting : Entity, IParsable
+    public class DeviceManagementConfigurationSetting : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>List of related Setting Definitions. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSettingDefinition>? SettingDefinitions { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDefinition>? SettingDefinitions { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSettingDefinition> SettingDefinitions { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDefinition> SettingDefinitions { get; set; }
 #endif
         /// <summary>Setting instance within policy</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingInstance? SettingInstance { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstance? SettingInstance { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingInstance SettingInstance { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstance SettingInstance { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationSetting();
+            return new ApiSdk.Models.DeviceManagementConfigurationSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,8 +45,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "settingDefinitions", n => { SettingDefinitions = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDefinition>(DeviceManagementConfigurationSettingDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "settingInstance", n => { SettingInstance = n.GetObjectValue<DeviceManagementConfigurationSettingInstance>(DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue); } },
+                { "settingDefinitions", n => { SettingDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDefinition>(ApiSdk.Models.DeviceManagementConfigurationSettingDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settingInstance", n => { SettingInstance = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstance>(ApiSdk.Models.DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSettingDefinition>("settingDefinitions", SettingDefinitions);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingInstance>("settingInstance", SettingInstance);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDefinition>("settingDefinitions", SettingDefinitions);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstance>("settingInstance", SettingInstance);
         }
     }
 }

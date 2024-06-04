@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Windows Phone 8.1 to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class WindowsPhone81VpnConfiguration : Windows81VpnConfiguration, IParsable
+    public class WindowsPhone81VpnConfiguration : ApiSdk.Models.Windows81VpnConfiguration, IParsable
     {
         /// <summary>VPN Authentication Method.</summary>
-        public VpnAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.VpnAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Bypass VPN on company Wi-Fi.</summary>
         public bool? BypassVpnOnCompanyWifi { get; set; }
         /// <summary>Bypass VPN on home Wi-Fi.</summary>
@@ -28,15 +28,15 @@ namespace ApiSdk.Models
         /// <summary>Identity certificate for client authentication when authentication method is certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsPhone81CertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.WindowsPhone81CertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public WindowsPhone81CertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.WindowsPhone81CertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>Remember user credentials.</summary>
         public bool? RememberUserCredentials { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81VpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPhone81VpnConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsPhone81VpnConfiguration() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPhone81VpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPhone81VpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsPhone81VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsPhone81VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsPhone81VpnConfiguration();
+            return new ApiSdk.Models.WindowsPhone81VpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,11 +60,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.VpnAuthenticationMethod>(); } },
                 { "bypassVpnOnCompanyWifi", n => { BypassVpnOnCompanyWifi = n.GetBoolValue(); } },
                 { "bypassVpnOnHomeWifi", n => { BypassVpnOnHomeWifi = n.GetBoolValue(); } },
                 { "dnsSuffixSearchList", n => { DnsSuffixSearchList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<WindowsPhone81CertificateProfileBase>(WindowsPhone81CertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.WindowsPhone81CertificateProfileBase>(ApiSdk.Models.WindowsPhone81CertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "rememberUserCredentials", n => { RememberUserCredentials = n.GetBoolValue(); } },
             };
         }
@@ -76,11 +76,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
             writer.WriteBoolValue("bypassVpnOnCompanyWifi", BypassVpnOnCompanyWifi);
             writer.WriteBoolValue("bypassVpnOnHomeWifi", BypassVpnOnHomeWifi);
             writer.WriteCollectionOfPrimitiveValues<string>("dnsSuffixSearchList", DnsSuffixSearchList);
-            writer.WriteObjectValue<WindowsPhone81CertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsPhone81CertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteBoolValue("rememberUserCredentials", RememberUserCredentials);
         }
     }

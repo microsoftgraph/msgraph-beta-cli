@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices.
     /// </summary>
-    public class HardwarePasswordInfo : Entity, IParsable
+    public class HardwarePasswordInfo : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Current device password</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HardwarePasswordInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HardwarePasswordInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HardwarePasswordInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.HardwarePasswordInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HardwarePasswordInfo();
+            return new ApiSdk.Models.HardwarePasswordInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

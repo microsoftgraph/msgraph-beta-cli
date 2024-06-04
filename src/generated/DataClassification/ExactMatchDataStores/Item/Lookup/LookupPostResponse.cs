@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
 {
     #pragma warning disable CS1591
-    public class LookupPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class LookupPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LookupPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new LookupPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LookupPostResponse();
+            return new ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

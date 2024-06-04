@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ConnectorGroup : Entity, IParsable
+    public class ConnectorGroup : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Application>? Applications { get; set; }
+        public List<ApiSdk.Models.Application>? Applications { get; set; }
 #nullable restore
 #else
-        public List<Application> Applications { get; set; }
+        public List<ApiSdk.Models.Application> Applications { get; set; }
 #endif
         /// <summary>The connectorGroupType property</summary>
         public ApiSdk.Models.ConnectorGroupType? ConnectorGroupType { get; set; }
@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The members property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Connector>? Members { get; set; }
+        public List<ApiSdk.Models.Connector>? Members { get; set; }
 #nullable restore
 #else
-        public List<Connector> Members { get; set; }
+        public List<ApiSdk.Models.Connector> Members { get; set; }
 #endif
         /// <summary>The name associated with the connectorGroup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,16 +39,16 @@ namespace ApiSdk.Models
         public string Name { get; set; }
 #endif
         /// <summary>The region the connectorGroup is assigned to and will optimize traffic for. This region can only be set if no connectors or applications are assigned to the connectorGroup. The possible values are: nam (for North America), eur (for Europe), aus (for Australia), asia (for Asia), ind (for India), and unknownFutureValue.</summary>
-        public ConnectorGroupRegion? Region { get; set; }
+        public ApiSdk.Models.ConnectorGroupRegion? Region { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConnectorGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConnectorGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConnectorGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ConnectorGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConnectorGroup();
+            return new ApiSdk.Models.ConnectorGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applications", n => { Applications = n.GetCollectionOfObjectValues<Application>(Application.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "connectorGroupType", n => { ConnectorGroupType = n.GetEnumValue<ConnectorGroupType>(); } },
+                { "applications", n => { Applications = n.GetCollectionOfObjectValues<ApiSdk.Models.Application>(ApiSdk.Models.Application.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectorGroupType", n => { ConnectorGroupType = n.GetEnumValue<ApiSdk.Models.ConnectorGroupType>(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                { "members", n => { Members = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<ApiSdk.Models.Connector>(ApiSdk.Models.Connector.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<ConnectorGroupRegion>(); } },
+                { "region", n => { Region = n.GetEnumValue<ApiSdk.Models.ConnectorGroupRegion>(); } },
             };
         }
         /// <summary>
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Application>("applications", Applications);
-            writer.WriteEnumValue<ConnectorGroupType>("connectorGroupType", ConnectorGroupType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Application>("applications", Applications);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectorGroupType>("connectorGroupType", ConnectorGroupType);
             writer.WriteBoolValue("isDefault", IsDefault);
-            writer.WriteCollectionOfObjectValues<Connector>("members", Members);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Connector>("members", Members);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<ConnectorGroupRegion>("region", Region);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectorGroupRegion>("region", Region);
         }
     }
 }

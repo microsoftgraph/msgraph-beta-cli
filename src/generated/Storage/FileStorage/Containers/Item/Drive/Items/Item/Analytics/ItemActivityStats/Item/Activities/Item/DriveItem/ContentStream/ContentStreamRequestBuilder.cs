@@ -200,14 +200,14 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Analytics.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Analytics.ItemActivityStats.Item.Activities.Item.DriveItem.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ContentStreamRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/storage/fileStorage/containers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities/{itemActivity%2Did}/driveItem/contentStream", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ContentStreamRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Analytics.ItemActivityStats.Item.Activities.Item.DriveItem.ContentStream.ContentStreamRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ContentStreamRequestBuilder(string rawUrl) : base("{+baseurl}/storage/fileStorage/containers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}/analytics/itemActivityStats/{itemActivityStat%2Did}/activities/{itemActivity%2Did}/driveItem/contentStream", rawUrl)

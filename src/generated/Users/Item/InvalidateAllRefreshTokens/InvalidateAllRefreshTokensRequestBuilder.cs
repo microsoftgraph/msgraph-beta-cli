@@ -60,14 +60,14 @@ namespace ApiSdk.Users.Item.InvalidateAllRefreshTokens
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="InvalidateAllRefreshTokensRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.InvalidateAllRefreshTokens.InvalidateAllRefreshTokensRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public InvalidateAllRefreshTokensRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/invalidateAllRefreshTokens", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="InvalidateAllRefreshTokensRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.InvalidateAllRefreshTokens.InvalidateAllRefreshTokensRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public InvalidateAllRefreshTokensRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/invalidateAllRefreshTokens", rawUrl)

@@ -9,26 +9,26 @@ using System;
 namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications
 {
     #pragma warning disable CS1591
-    public class GetPortalNotificationsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetPortalNotificationsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PortalNotification>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.PortalNotification>? Value { get; set; }
 #nullable restore
 #else
-        public List<PortalNotification> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.PortalNotification> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetPortalNotificationsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.GetPortalNotificationsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetPortalNotificationsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.GetPortalNotificationsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetPortalNotificationsGetResponse();
+            return new ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementGetPortalNotifications.GetPortalNotificationsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceMa
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PortalNotification>(PortalNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.PortalNotification>(ApiSdk.Models.DeviceManagement.PortalNotification.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.DeviceManagement.Monitoring.AlertRecords.MicrosoftGraphDeviceMa
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PortalNotification>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.PortalNotification>("value", Value);
         }
     }
 }

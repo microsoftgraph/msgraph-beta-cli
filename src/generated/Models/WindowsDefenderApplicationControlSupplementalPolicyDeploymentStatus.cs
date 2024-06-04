@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for the deployment state of a WindowsDefenderApplicationControl supplemental policy for a device.
     /// </summary>
-    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus : Entity, IParsable
+    public class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Enum values for the various WindowsDefenderApplicationControl supplemental policy deployment statuses.</summary>
-        public WindowsDefenderApplicationControlSupplementalPolicyStatuses? DeploymentStatus { get; set; }
+        public ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyStatuses? DeploymentStatus { get; set; }
         /// <summary>Device ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,10 +50,10 @@ namespace ApiSdk.Models
         /// <summary>The navigation link to the WindowsDefenderApplicationControl supplemental policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsDefenderApplicationControlSupplementalPolicy? Policy { get; set; }
+        public ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy? Policy { get; set; }
 #nullable restore
 #else
-        public WindowsDefenderApplicationControlSupplementalPolicy Policy { get; set; }
+        public ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy Policy { get; set; }
 #endif
         /// <summary>Human readable version of the WindowsDefenderApplicationControl supplemental policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,12 +82,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus();
+            return new ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,13 +97,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deploymentStatus", n => { DeploymentStatus = n.GetEnumValue<WindowsDefenderApplicationControlSupplementalPolicyStatuses>(); } },
+                { "deploymentStatus", n => { DeploymentStatus = n.GetEnumValue<ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyStatuses>(); } },
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "osDescription", n => { OsDescription = n.GetStringValue(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
-                { "policy", n => { Policy = n.GetObjectValue<WindowsDefenderApplicationControlSupplementalPolicy>(WindowsDefenderApplicationControlSupplementalPolicy.CreateFromDiscriminatorValue); } },
+                { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy>(ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy.CreateFromDiscriminatorValue); } },
                 { "policyVersion", n => { PolicyVersion = n.GetStringValue(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -117,13 +117,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<WindowsDefenderApplicationControlSupplementalPolicyStatuses>("deploymentStatus", DeploymentStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicyStatuses>("deploymentStatus", DeploymentStatus);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteStringValue("osDescription", OsDescription);
             writer.WriteStringValue("osVersion", OsVersion);
-            writer.WriteObjectValue<WindowsDefenderApplicationControlSupplementalPolicy>("policy", Policy);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy>("policy", Policy);
             writer.WriteStringValue("policyVersion", PolicyVersion);
             writer.WriteStringValue("userName", UserName);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS software update state summary for a device and user
     /// </summary>
-    public class MacOSSoftwareUpdateStateSummary : Entity, IParsable
+    public class MacOSSoftwareUpdateStateSummary : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Human readable name of the software update</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string ProductKey { get; set; }
 #endif
         /// <summary>MacOS Software Update State</summary>
-        public MacOSSoftwareUpdateState? State { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateState? State { get; set; }
         /// <summary>MacOS Software Update Category</summary>
-        public MacOSSoftwareUpdateCategory? UpdateCategory { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateCategory? UpdateCategory { get; set; }
         /// <summary>Version of the software update</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSSoftwareUpdateStateSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSSoftwareUpdateStateSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSSoftwareUpdateStateSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSSoftwareUpdateStateSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSSoftwareUpdateStateSummary();
+            return new ApiSdk.Models.MacOSSoftwareUpdateStateSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,8 +62,8 @@ namespace ApiSdk.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "productKey", n => { ProductKey = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<MacOSSoftwareUpdateState>(); } },
-                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<MacOSSoftwareUpdateCategory>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateState>(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateCategory>(); } },
                 { "updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
             };
         }
@@ -78,8 +78,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteStringValue("productKey", ProductKey);
-            writer.WriteEnumValue<MacOSSoftwareUpdateState>("state", State);
-            writer.WriteEnumValue<MacOSSoftwareUpdateCategory>("updateCategory", UpdateCategory);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateCategory>("updateCategory", UpdateCategory);
             writer.WriteStringValue("updateVersion", UpdateVersion);
         }
     }

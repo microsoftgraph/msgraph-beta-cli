@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.RetrieveJustInTimeC
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ConfigurationPolicies.Item.RetrieveJustInTimeConfiguration.RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveJustInTimeConfigurationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/configurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveJustInTimeConfiguration", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ConfigurationPolicies.Item.RetrieveJustInTimeConfiguration.RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveJustInTimeConfigurationRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/configurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveJustInTimeConfiguration", rawUrl)

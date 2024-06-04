@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WhatIfApplicationContext : ConditionalAccessContext, IParsable
+    public class WhatIfApplicationContext : ApiSdk.Models.ConditionalAccessContext, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The includeApplications property</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public List<string> IncludeApplications { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WhatIfApplicationContext"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WhatIfApplicationContext"/> and sets the default values.
         /// </summary>
         public WhatIfApplicationContext() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WhatIfApplicationContext"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WhatIfApplicationContext"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WhatIfApplicationContext CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WhatIfApplicationContext CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WhatIfApplicationContext();
+            return new ApiSdk.Models.WhatIfApplicationContext();
         }
         /// <summary>
         /// The deserialization information for the current model

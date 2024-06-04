@@ -164,14 +164,14 @@ namespace ApiSdk.Financials.Companies.Item.CompanyInformation.Item.Picture
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PictureRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CompanyInformation.Item.Picture.PictureRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PictureRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/companyInformation/{companyInformation%2Did}/picture", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PictureRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CompanyInformation.Item.Picture.PictureRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PictureRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/companyInformation/{companyInformation%2Did}/picture", rawUrl)

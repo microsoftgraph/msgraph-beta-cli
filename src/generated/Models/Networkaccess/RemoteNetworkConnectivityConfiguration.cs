@@ -15,10 +15,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>List of connectivity configurations for deviceLink objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectivityConfigurationLink>? Links { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>? Links { get; set; }
 #nullable restore
 #else
-        public List<ConnectivityConfigurationLink> Links { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink> Links { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.Networkaccess
         public string RemoteNetworkName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RemoteNetworkConnectivityConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RemoteNetworkConnectivityConfiguration"/> and sets the default values.
         /// </summary>
         public RemoteNetworkConnectivityConfiguration()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RemoteNetworkConnectivityConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RemoteNetworkConnectivityConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RemoteNetworkConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.RemoteNetworkConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RemoteNetworkConnectivityConfiguration();
+            return new ApiSdk.Models.Networkaccess.RemoteNetworkConnectivityConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "links", n => { Links = n.GetCollectionOfObjectValues<ConnectivityConfigurationLink>(ConnectivityConfigurationLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "links", n => { Links = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>(ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "remoteNetworkId", n => { RemoteNetworkId = n.GetStringValue(); } },
                 { "remoteNetworkName", n => { RemoteNetworkName = n.GetStringValue(); } },
@@ -82,7 +82,7 @@ namespace ApiSdk.Models.Networkaccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ConnectivityConfigurationLink>("links", Links);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>("links", Links);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("remoteNetworkId", RemoteNetworkId);
             writer.WriteStringValue("remoteNetworkName", RemoteNetworkName);

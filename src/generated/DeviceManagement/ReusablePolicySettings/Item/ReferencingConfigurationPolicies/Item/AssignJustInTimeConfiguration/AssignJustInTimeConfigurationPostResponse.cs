@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AssignJustInTimeConfigurationPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostResponse"/> and sets the default values.
         /// </summary>
         public AssignJustInTimeConfigurationPostResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignJustInTimeConfigurationPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignJustInTimeConfigurationPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignJustInTimeConfigurationPostResponse();
+            return new ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

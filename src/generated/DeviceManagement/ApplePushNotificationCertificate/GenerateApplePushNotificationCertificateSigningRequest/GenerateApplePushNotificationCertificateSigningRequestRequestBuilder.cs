@@ -53,14 +53,14 @@ namespace ApiSdk.DeviceManagement.ApplePushNotificationCertificate.GenerateApple
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateApplePushNotificationCertificateSigningRequestRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ApplePushNotificationCertificate.GenerateApplePushNotificationCertificateSigningRequest.GenerateApplePushNotificationCertificateSigningRequestRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GenerateApplePushNotificationCertificateSigningRequestRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/applePushNotificationCertificate/generateApplePushNotificationCertificateSigningRequest", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateApplePushNotificationCertificateSigningRequestRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ApplePushNotificationCertificate.GenerateApplePushNotificationCertificateSigningRequest.GenerateApplePushNotificationCertificateSigningRequestRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GenerateApplePushNotificationCertificateSigningRequestRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/applePushNotificationCertificate/generateApplePushNotificationCertificateSigningRequest", rawUrl)

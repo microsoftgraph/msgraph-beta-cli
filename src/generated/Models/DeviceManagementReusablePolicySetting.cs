@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Graph model for a reusable setting
     /// </summary>
-    public class DeviceManagementReusablePolicySetting : Entity, IParsable
+    public class DeviceManagementReusablePolicySetting : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>reusable setting creation date and time. This property is read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
@@ -34,10 +34,10 @@ namespace ApiSdk.Models
         /// <summary>configuration policies referencing the current reusable setting. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationPolicy>? ReferencingConfigurationPolicies { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicy>? ReferencingConfigurationPolicies { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationPolicy> ReferencingConfigurationPolicies { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicy> ReferencingConfigurationPolicies { get; set; }
 #endif
         /// <summary>count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.</summary>
         public int? ReferencingConfigurationPolicyCount { get; private set; }
@@ -52,22 +52,22 @@ namespace ApiSdk.Models
         /// <summary>reusable setting configuration instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingInstance? SettingInstance { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstance? SettingInstance { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingInstance SettingInstance { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstance SettingInstance { get; set; }
 #endif
         /// <summary>version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.</summary>
         public int? Version { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementReusablePolicySetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementReusablePolicySetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementReusablePolicySetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementReusablePolicySetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementReusablePolicySetting();
+            return new ApiSdk.Models.DeviceManagementReusablePolicySetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,10 +81,10 @@ namespace ApiSdk.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "referencingConfigurationPolicies", n => { ReferencingConfigurationPolicies = n.GetCollectionOfObjectValues<DeviceManagementConfigurationPolicy>(DeviceManagementConfigurationPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "referencingConfigurationPolicies", n => { ReferencingConfigurationPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicy>(ApiSdk.Models.DeviceManagementConfigurationPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "referencingConfigurationPolicyCount", n => { ReferencingConfigurationPolicyCount = n.GetIntValue(); } },
                 { "settingDefinitionId", n => { SettingDefinitionId = n.GetStringValue(); } },
-                { "settingInstance", n => { SettingInstance = n.GetObjectValue<DeviceManagementConfigurationSettingInstance>(DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue); } },
+                { "settingInstance", n => { SettingInstance = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstance>(ApiSdk.Models.DeviceManagementConfigurationSettingInstance.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
         }
@@ -98,9 +98,9 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationPolicy>("referencingConfigurationPolicies", ReferencingConfigurationPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicy>("referencingConfigurationPolicies", ReferencingConfigurationPolicies);
             writer.WriteStringValue("settingDefinitionId", SettingDefinitionId);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingInstance>("settingInstance", SettingInstance);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstance>("settingInstance", SettingInstance);
         }
     }
 }

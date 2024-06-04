@@ -16,15 +16,15 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Microsof
         /// <summary>The assets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? Assets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? Assets { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> Assets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> Assets { get; set; }
 #endif
         /// <summary>The updateCategory property</summary>
         public ApiSdk.Models.WindowsUpdates.UpdateCategory? UpdateCategory { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UnenrollAssetsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody"/> and sets the default values.
         /// </summary>
         public UnenrollAssetsPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Microsof
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnenrollAssetsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UnenrollAssetsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnenrollAssetsPostRequestBody();
+            return new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,8 +48,8 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Microsof
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assets", n => { Assets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
+                { "assets", n => { Assets = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<ApiSdk.Models.WindowsUpdates.UpdateCategory>(); } },
             };
         }
         /// <summary>
@@ -59,8 +59,8 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.Microsof
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("assets", Assets);
-            writer.WriteEnumValue<UpdateCategory>("updateCategory", UpdateCategory);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("assets", Assets);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdates.UpdateCategory>("updateCategory", UpdateCategory);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Translation override behavior for languages, if any.Returned by default.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TranslationLanguageOverride>? LanguageOverrides { get; set; }
+        public List<ApiSdk.Models.TranslationLanguageOverride>? LanguageOverrides { get; set; }
 #nullable restore
 #else
-        public List<TranslationLanguageOverride> LanguageOverrides { get; set; }
+        public List<ApiSdk.Models.TranslationLanguageOverride> LanguageOverrides { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public List<string> UntranslatedLanguages { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TranslationPreferences"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TranslationPreferences"/> and sets the default values.
         /// </summary>
         public TranslationPreferences()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TranslationPreferences"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TranslationPreferences"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TranslationPreferences CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TranslationPreferences CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TranslationPreferences();
+            return new ApiSdk.Models.TranslationPreferences();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,9 +63,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "languageOverrides", n => { LanguageOverrides = n.GetCollectionOfObjectValues<TranslationLanguageOverride>(TranslationLanguageOverride.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "languageOverrides", n => { LanguageOverrides = n.GetCollectionOfObjectValues<ApiSdk.Models.TranslationLanguageOverride>(ApiSdk.Models.TranslationLanguageOverride.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "translationBehavior", n => { TranslationBehavior = n.GetEnumValue<TranslationBehavior>(); } },
+                { "translationBehavior", n => { TranslationBehavior = n.GetEnumValue<ApiSdk.Models.TranslationBehavior>(); } },
                 { "untranslatedLanguages", n => { UntranslatedLanguages = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -76,9 +76,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TranslationLanguageOverride>("languageOverrides", LanguageOverrides);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TranslationLanguageOverride>("languageOverrides", LanguageOverrides);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<TranslationBehavior>("translationBehavior", TranslationBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.TranslationBehavior>("translationBehavior", TranslationBehavior);
             writer.WriteCollectionOfPrimitiveValues<string>("untranslatedLanguages", UntranslatedLanguages);
             writer.WriteAdditionalData(AdditionalData);
         }

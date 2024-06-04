@@ -130,7 +130,7 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item
         {
             var command = new Command("item-category");
             command.Description = "Provides operations to manage the itemCategory property of the microsoft.graph.item entity.";
-            var builder = new ItemCategoryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.ItemCategory.ItemCategoryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -206,7 +206,7 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item
         {
             var command = new Command("picture");
             command.Description = "Provides operations to manage the picture property of the microsoft.graph.item entity.";
-            var builder = new PictureRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.Picture.PictureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -226,14 +226,14 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/purchaseInvoiceLines/{purchaseInvoiceLine%2Did}/item{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/purchaseInvoiceLines/{purchaseInvoiceLine%2Did}/item{?%24expand,%24select}", rawUrl)
@@ -265,11 +265,11 @@ namespace ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.Item.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

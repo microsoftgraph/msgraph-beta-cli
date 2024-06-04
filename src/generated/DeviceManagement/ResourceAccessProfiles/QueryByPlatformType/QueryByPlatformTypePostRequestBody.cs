@@ -14,9 +14,9 @@ namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Supported platform types for policies.</summary>
-        public PolicyPlatformType? PlatformType { get; set; }
+        public ApiSdk.Models.PolicyPlatformType? PlatformType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="QueryByPlatformTypePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType.QueryByPlatformTypePostRequestBody"/> and sets the default values.
         /// </summary>
         public QueryByPlatformTypePostRequestBody()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="QueryByPlatformTypePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType.QueryByPlatformTypePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static QueryByPlatformTypePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType.QueryByPlatformTypePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new QueryByPlatformTypePostRequestBody();
+            return new ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType.QueryByPlatformTypePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,7 +40,7 @@ namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.PolicyPlatformType>(); } },
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceManagement.ResourceAccessProfiles.QueryByPlatformType
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<PolicyPlatformType>("platformType", PlatformType);
+            writer.WriteEnumValue<ApiSdk.Models.PolicyPlatformType>("platformType", PlatformType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

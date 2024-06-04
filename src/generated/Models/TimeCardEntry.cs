@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>The list of breaks associated with the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TimeCardBreak>? Breaks { get; set; }
+        public List<ApiSdk.Models.TimeCardBreak>? Breaks { get; set; }
 #nullable restore
 #else
-        public List<TimeCardBreak> Breaks { get; set; }
+        public List<ApiSdk.Models.TimeCardBreak> Breaks { get; set; }
 #endif
         /// <summary>The clock-in event of the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? ClockInEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent? ClockInEvent { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent ClockInEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent ClockInEvent { get; set; }
 #endif
         /// <summary>The clock-out event of the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? ClockOutEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent? ClockOutEvent { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent ClockOutEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent ClockOutEvent { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TimeCardEntry"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TimeCardEntry"/> and sets the default values.
         /// </summary>
         public TimeCardEntry()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TimeCardEntry"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TimeCardEntry"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TimeCardEntry CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TimeCardEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TimeCardEntry();
+            return new ApiSdk.Models.TimeCardEntry();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,9 +69,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "breaks", n => { Breaks = n.GetCollectionOfObjectValues<TimeCardBreak>(TimeCardBreak.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "clockInEvent", n => { ClockInEvent = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
-                { "clockOutEvent", n => { ClockOutEvent = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "breaks", n => { Breaks = n.GetCollectionOfObjectValues<ApiSdk.Models.TimeCardBreak>(ApiSdk.Models.TimeCardBreak.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "clockInEvent", n => { ClockInEvent = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "clockOutEvent", n => { ClockOutEvent = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TimeCardBreak>("breaks", Breaks);
-            writer.WriteObjectValue<TimeCardEvent>("clockInEvent", ClockInEvent);
-            writer.WriteObjectValue<TimeCardEvent>("clockOutEvent", ClockOutEvent);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TimeCardBreak>("breaks", Breaks);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("clockInEvent", ClockInEvent);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("clockOutEvent", ClockOutEvent);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

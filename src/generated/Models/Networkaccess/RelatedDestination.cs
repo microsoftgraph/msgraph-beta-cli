@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class RelatedDestination : RelatedResource, IParsable
+    public class RelatedDestination : ApiSdk.Models.Networkaccess.RelatedResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fqdn property</summary>
@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The port property</summary>
         public int? Port { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RelatedDestination"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RelatedDestination"/> and sets the default values.
         /// </summary>
         public RelatedDestination() : base()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RelatedDestination"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RelatedDestination"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RelatedDestination CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.RelatedDestination CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RelatedDestination();
+            return new ApiSdk.Models.Networkaccess.RelatedDestination();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.Networkaccess
             {
                 { "fqdn", n => { Fqdn = n.GetStringValue(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
-                { "networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "networkingProtocol", n => { NetworkingProtocol = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>(); } },
                 { "port", n => { Port = n.GetIntValue(); } },
             };
         }
@@ -71,7 +71,7 @@ namespace ApiSdk.Models.Networkaccess
             base.Serialize(writer);
             writer.WriteStringValue("fqdn", Fqdn);
             writer.WriteStringValue("ip", Ip);
-            writer.WriteEnumValue<NetworkingProtocol>("networkingProtocol", NetworkingProtocol);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>("networkingProtocol", NetworkingProtocol);
             writer.WriteIntValue("port", Port);
         }
     }

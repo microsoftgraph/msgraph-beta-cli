@@ -35,7 +35,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new UpdatableAssetItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.UpdatableAssetItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildMicrosoftGraphWindowsUpdatesAddMembersByIdNavCommand());
@@ -53,7 +53,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -93,7 +93,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -223,7 +223,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var command = new Command("microsoft-graph-windows-updates-enroll-assets-by-id");
             command.Description = "Provides operations to call the enrollAssetsById method.";
-            var builder = new MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssetsById.MicrosoftGraphWindowsUpdatesEnrollAssetsByIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -240,7 +240,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var command = new Command("microsoft-graph-windows-updates-enroll-assets");
             command.Description = "Provides operations to call the enrollAssets method.";
-            var builder = new MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssets.MicrosoftGraphWindowsUpdatesEnrollAssetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -257,7 +257,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var command = new Command("microsoft-graph-windows-updates-unenroll-assets-by-id");
             command.Description = "Provides operations to call the unenrollAssetsById method.";
-            var builder = new MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssetsById.MicrosoftGraphWindowsUpdatesUnenrollAssetsByIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -274,7 +274,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         {
             var command = new Command("microsoft-graph-windows-updates-unenroll-assets");
             command.Description = "Provides operations to call the unenrollAssets method.";
-            var builder = new MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -284,14 +284,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExclusionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.ExclusionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExclusionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/exclusions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExclusionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.ExclusionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExclusionsRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/exclusions{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -304,11 +304,11 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExclusionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.ExclusionsRequestBuilder.ExclusionsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExclusionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.ExclusionsRequestBuilder.ExclusionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -324,11 +324,11 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.WindowsUpdates.UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.WindowsUpdates.UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

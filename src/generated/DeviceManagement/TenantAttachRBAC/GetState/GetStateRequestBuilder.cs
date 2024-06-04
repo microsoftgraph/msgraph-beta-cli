@@ -54,14 +54,14 @@ namespace ApiSdk.DeviceManagement.TenantAttachRBAC.GetState
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetStateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.TenantAttachRBAC.GetState.GetStateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetStateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/tenantAttachRBAC/getState()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetStateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.TenantAttachRBAC.GetState.GetStateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetStateRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/tenantAttachRBAC/getState()", rawUrl)

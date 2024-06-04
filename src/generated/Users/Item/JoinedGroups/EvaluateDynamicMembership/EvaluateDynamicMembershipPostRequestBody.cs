@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership
         public string MembershipRule { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluateDynamicMembershipPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership.EvaluateDynamicMembershipPostRequestBody"/> and sets the default values.
         /// </summary>
         public EvaluateDynamicMembershipPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateDynamicMembershipPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership.EvaluateDynamicMembershipPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluateDynamicMembershipPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership.EvaluateDynamicMembershipPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateDynamicMembershipPostRequestBody();
+            return new ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership.EvaluateDynamicMembershipPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

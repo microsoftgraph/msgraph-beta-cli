@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VideoNewsLinkPage : BaseSitePage, IParsable
+    public class VideoNewsLinkPage : ApiSdk.Models.BaseSitePage, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The bannerImageWebUrl property</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The newsSharepointIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SharepointIds? NewsSharepointIds { get; set; }
+        public ApiSdk.Models.SharepointIds? NewsSharepointIds { get; set; }
 #nullable restore
 #else
-        public SharepointIds NewsSharepointIds { get; set; }
+        public ApiSdk.Models.SharepointIds NewsSharepointIds { get; set; }
 #endif
         /// <summary>The newsWebUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VideoNewsLinkPage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VideoNewsLinkPage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VideoNewsLinkPage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VideoNewsLinkPage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VideoNewsLinkPage();
+            return new ApiSdk.Models.VideoNewsLinkPage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "bannerImageWebUrl", n => { BannerImageWebUrl = n.GetStringValue(); } },
-                { "newsSharepointIds", n => { NewsSharepointIds = n.GetObjectValue<SharepointIds>(SharepointIds.CreateFromDiscriminatorValue); } },
+                { "newsSharepointIds", n => { NewsSharepointIds = n.GetObjectValue<ApiSdk.Models.SharepointIds>(ApiSdk.Models.SharepointIds.CreateFromDiscriminatorValue); } },
                 { "newsWebUrl", n => { NewsWebUrl = n.GetStringValue(); } },
                 { "videoDuration", n => { VideoDuration = n.GetTimeSpanValue(); } },
             };
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("bannerImageWebUrl", BannerImageWebUrl);
-            writer.WriteObjectValue<SharepointIds>("newsSharepointIds", NewsSharepointIds);
+            writer.WriteObjectValue<ApiSdk.Models.SharepointIds>("newsSharepointIds", NewsSharepointIds);
             writer.WriteStringValue("newsWebUrl", NewsWebUrl);
             writer.WriteTimeSpanValue("videoDuration", VideoDuration);
         }

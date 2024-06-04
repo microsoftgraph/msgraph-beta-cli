@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AdminForms : Entity, IParsable
+    public class AdminForms : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public FormsSettings? Settings { get; set; }
+        public ApiSdk.Models.FormsSettings? Settings { get; set; }
 #nullable restore
 #else
-        public FormsSettings Settings { get; set; }
+        public ApiSdk.Models.FormsSettings Settings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdminForms"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AdminForms"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AdminForms CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AdminForms CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdminForms();
+            return new ApiSdk.Models.AdminForms();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "settings", n => { Settings = n.GetObjectValue<FormsSettings>(FormsSettings.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.FormsSettings>(ApiSdk.Models.FormsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<FormsSettings>("settings", Settings);
+            writer.WriteObjectValue<ApiSdk.Models.FormsSettings>("settings", Settings);
         }
     }
 }

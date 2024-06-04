@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MfaFailure : Entity, IParsable
+    public class MfaFailure : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The count property</summary>
@@ -21,16 +21,16 @@ namespace ApiSdk.Models
         public string Reason { get; set; }
 #endif
         /// <summary>The reasonCode property</summary>
-        public MfaFailureReasonCode? ReasonCode { get; set; }
+        public ApiSdk.Models.MfaFailureReasonCode? ReasonCode { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MfaFailure"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MfaFailure"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MfaFailure CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MfaFailure CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MfaFailure();
+            return new ApiSdk.Models.MfaFailure();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
             {
                 { "count", n => { Count = n.GetLongValue(); } },
                 { "reason", n => { Reason = n.GetStringValue(); } },
-                { "reasonCode", n => { ReasonCode = n.GetEnumValue<MfaFailureReasonCode>(); } },
+                { "reasonCode", n => { ReasonCode = n.GetEnumValue<ApiSdk.Models.MfaFailureReasonCode>(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteLongValue("count", Count);
             writer.WriteStringValue("reason", Reason);
-            writer.WriteEnumValue<MfaFailureReasonCode>("reasonCode", ReasonCode);
+            writer.WriteEnumValue<ApiSdk.Models.MfaFailureReasonCode>("reasonCode", ReasonCode);
         }
     }
 }

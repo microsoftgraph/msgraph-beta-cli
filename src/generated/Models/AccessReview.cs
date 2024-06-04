@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessReview : Entity, IParsable
+    public class AccessReview : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The business flow template identifier. Required on create. This value is case sensitive.</summary>
@@ -21,18 +21,18 @@ namespace ApiSdk.Models
         /// <summary>The user who created this review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserIdentity? CreatedBy { get; set; }
+        public ApiSdk.Models.UserIdentity? CreatedBy { get; set; }
 #nullable restore
 #else
-        public UserIdentity CreatedBy { get; set; }
+        public ApiSdk.Models.UserIdentity CreatedBy { get; set; }
 #endif
         /// <summary>The collection of decisions for this access review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewDecision>? Decisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewDecision>? Decisions { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewDecision> Decisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewDecision> Decisions { get; set; }
 #endif
         /// <summary>The description provided by the access review creator, to show to the reviewers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,34 +55,34 @@ namespace ApiSdk.Models
         /// <summary>The collection of access reviews instances past, present, and future, if this object is a recurring access review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReview>? Instances { get; set; }
+        public List<ApiSdk.Models.AccessReview>? Instances { get; set; }
 #nullable restore
 #else
-        public List<AccessReview> Instances { get; set; }
+        public List<ApiSdk.Models.AccessReview> Instances { get; set; }
 #endif
         /// <summary>The collection of decisions for the caller, if the caller is a reviewer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewDecision>? MyDecisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewDecision>? MyDecisions { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewDecision> MyDecisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewDecision> MyDecisions { get; set; }
 #endif
         /// <summary>The object for which the access review is reviewing the access rights assignments. This identity can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Identity? ReviewedEntity { get; set; }
+        public ApiSdk.Models.Identity? ReviewedEntity { get; set; }
 #nullable restore
 #else
-        public Identity ReviewedEntity { get; set; }
+        public ApiSdk.Models.Identity ReviewedEntity { get; set; }
 #endif
         /// <summary>The collection of reviewers for an access review, if access review reviewerType is of type delegated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewReviewer>? Reviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewer>? Reviewers { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewReviewer> Reviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewer> Reviewers { get; set; }
 #endif
         /// <summary>The relationship type of reviewer to the target object, one of: self, delegated, entityOwners. Required on create.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,10 +95,10 @@ namespace ApiSdk.Models
         /// <summary>The settings of an accessReview, see type definition below.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccessReviewSettings? Settings { get; set; }
+        public ApiSdk.Models.AccessReviewSettings? Settings { get; set; }
 #nullable restore
 #else
-        public AccessReviewSettings Settings { get; set; }
+        public ApiSdk.Models.AccessReviewSettings Settings { get; set; }
 #endif
         /// <summary>The date and time when the review is scheduled to be start. This date can be in the future.  Required on create.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
@@ -113,12 +113,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReview"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessReview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReview();
+            return new ApiSdk.Models.AccessReview();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -129,17 +129,17 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "businessFlowTemplateId", n => { BusinessFlowTemplateId = n.GetStringValue(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
-                { "decisions", n => { Decisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.UserIdentity>(ApiSdk.Models.UserIdentity.CreateFromDiscriminatorValue); } },
+                { "decisions", n => { Decisions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewDecision>(ApiSdk.Models.AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                { "instances", n => { Instances = n.GetCollectionOfObjectValues<AccessReview>(AccessReview.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "myDecisions", n => { MyDecisions = n.GetCollectionOfObjectValues<AccessReviewDecision>(AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "reviewedEntity", n => { ReviewedEntity = n.GetObjectValue<Identity>(Identity.CreateFromDiscriminatorValue); } },
+                { "instances", n => { Instances = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReview>(ApiSdk.Models.AccessReview.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "myDecisions", n => { MyDecisions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewDecision>(ApiSdk.Models.AccessReviewDecision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "reviewedEntity", n => { ReviewedEntity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
                 { "reviewerType", n => { ReviewerType = n.GetStringValue(); } },
-                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewer>(AccessReviewReviewer.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "settings", n => { Settings = n.GetObjectValue<AccessReviewSettings>(AccessReviewSettings.CreateFromDiscriminatorValue); } },
+                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewer>(ApiSdk.Models.AccessReviewReviewer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.AccessReviewSettings>(ApiSdk.Models.AccessReviewSettings.CreateFromDiscriminatorValue); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
@@ -153,17 +153,17 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("businessFlowTemplateId", BusinessFlowTemplateId);
-            writer.WriteObjectValue<UserIdentity>("createdBy", CreatedBy);
-            writer.WriteCollectionOfObjectValues<AccessReviewDecision>("decisions", Decisions);
+            writer.WriteObjectValue<ApiSdk.Models.UserIdentity>("createdBy", CreatedBy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewDecision>("decisions", Decisions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteCollectionOfObjectValues<AccessReview>("instances", Instances);
-            writer.WriteCollectionOfObjectValues<AccessReviewDecision>("myDecisions", MyDecisions);
-            writer.WriteObjectValue<Identity>("reviewedEntity", ReviewedEntity);
-            writer.WriteCollectionOfObjectValues<AccessReviewReviewer>("reviewers", Reviewers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReview>("instances", Instances);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewDecision>("myDecisions", MyDecisions);
+            writer.WriteObjectValue<ApiSdk.Models.Identity>("reviewedEntity", ReviewedEntity);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewer>("reviewers", Reviewers);
             writer.WriteStringValue("reviewerType", ReviewerType);
-            writer.WriteObjectValue<AccessReviewSettings>("settings", Settings);
+            writer.WriteObjectValue<ApiSdk.Models.AccessReviewSettings>("settings", Settings);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("status", Status);
         }

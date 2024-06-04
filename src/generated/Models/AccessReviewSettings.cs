@@ -43,15 +43,15 @@ namespace ApiSdk.Models
         /// <summary>Detailed settings for recurrence.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccessReviewRecurrenceSettings? RecurrenceSettings { get; set; }
+        public ApiSdk.Models.AccessReviewRecurrenceSettings? RecurrenceSettings { get; set; }
 #nullable restore
 #else
-        public AccessReviewRecurrenceSettings RecurrenceSettings { get; set; }
+        public ApiSdk.Models.AccessReviewRecurrenceSettings RecurrenceSettings { get; set; }
 #endif
         /// <summary>Indicates whether sending reminder emails to reviewers is enabled.</summary>
         public bool? RemindersEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessReviewSettings"/> and sets the default values.
         /// </summary>
         public AccessReviewSettings()
         {
@@ -60,16 +60,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccessReviewSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AccessReviewSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.businessFlowSettings" => new BusinessFlowSettings(),
-                _ => new AccessReviewSettings(),
+                "#microsoft.graph.businessFlowSettings" => new ApiSdk.Models.BusinessFlowSettings(),
+                _ => new ApiSdk.Models.AccessReviewSettings(),
             };
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
                 { "justificationRequiredOnApproval", n => { JustificationRequiredOnApproval = n.GetBoolValue(); } },
                 { "mailNotificationsEnabled", n => { MailNotificationsEnabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "recurrenceSettings", n => { RecurrenceSettings = n.GetObjectValue<AccessReviewRecurrenceSettings>(AccessReviewRecurrenceSettings.CreateFromDiscriminatorValue); } },
+                { "recurrenceSettings", n => { RecurrenceSettings = n.GetObjectValue<ApiSdk.Models.AccessReviewRecurrenceSettings>(ApiSdk.Models.AccessReviewRecurrenceSettings.CreateFromDiscriminatorValue); } },
                 { "remindersEnabled", n => { RemindersEnabled = n.GetBoolValue(); } },
             };
         }
@@ -107,7 +107,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("justificationRequiredOnApproval", JustificationRequiredOnApproval);
             writer.WriteBoolValue("mailNotificationsEnabled", MailNotificationsEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<AccessReviewRecurrenceSettings>("recurrenceSettings", RecurrenceSettings);
+            writer.WriteObjectValue<ApiSdk.Models.AccessReviewRecurrenceSettings>("recurrenceSettings", RecurrenceSettings);
             writer.WriteBoolValue("remindersEnabled", RemindersEnabled);
             writer.WriteAdditionalData(AdditionalData);
         }

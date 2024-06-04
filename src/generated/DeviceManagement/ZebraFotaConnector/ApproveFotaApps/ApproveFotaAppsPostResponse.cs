@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ApproveFotaAppsPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsPostResponse"/> and sets the default values.
         /// </summary>
         public ApproveFotaAppsPostResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApproveFotaAppsPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApproveFotaAppsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApproveFotaAppsPostResponse();
+            return new ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

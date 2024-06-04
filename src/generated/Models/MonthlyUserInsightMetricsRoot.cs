@@ -7,82 +7,82 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MonthlyUserInsightMetricsRoot : Entity, IParsable
+    public class MonthlyUserInsightMetricsRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Insights for active users on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ActiveUsersMetric>? ActiveUsers { get; set; }
+        public List<ApiSdk.Models.ActiveUsersMetric>? ActiveUsers { get; set; }
 #nullable restore
 #else
-        public List<ActiveUsersMetric> ActiveUsers { get; set; }
+        public List<ApiSdk.Models.ActiveUsersMetric> ActiveUsers { get; set; }
 #endif
         /// <summary>Insights for authentications on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationsMetric>? Authentications { get; set; }
+        public List<ApiSdk.Models.AuthenticationsMetric>? Authentications { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationsMetric> Authentications { get; set; }
+        public List<ApiSdk.Models.AuthenticationsMetric> Authentications { get; set; }
 #endif
         /// <summary>The inactiveUsers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MonthlyInactiveUsersMetric>? InactiveUsers { get; set; }
+        public List<ApiSdk.Models.MonthlyInactiveUsersMetric>? InactiveUsers { get; set; }
 #nullable restore
 #else
-        public List<MonthlyInactiveUsersMetric> InactiveUsers { get; set; }
+        public List<ApiSdk.Models.MonthlyInactiveUsersMetric> InactiveUsers { get; set; }
 #endif
         /// <summary>The inactiveUsersByApplication property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MonthlyInactiveUsersByApplicationMetric>? InactiveUsersByApplication { get; set; }
+        public List<ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric>? InactiveUsersByApplication { get; set; }
 #nullable restore
 #else
-        public List<MonthlyInactiveUsersByApplicationMetric> InactiveUsersByApplication { get; set; }
+        public List<ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric> InactiveUsersByApplication { get; set; }
 #endif
         /// <summary>Insights for MFA usage on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MfaCompletionMetric>? MfaCompletions { get; set; }
+        public List<ApiSdk.Models.MfaCompletionMetric>? MfaCompletions { get; set; }
 #nullable restore
 #else
-        public List<MfaCompletionMetric> MfaCompletions { get; set; }
+        public List<ApiSdk.Models.MfaCompletionMetric> MfaCompletions { get; set; }
 #endif
         /// <summary>Insights for all user requests on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserRequestsMetric>? Requests { get; set; }
+        public List<ApiSdk.Models.UserRequestsMetric>? Requests { get; set; }
 #nullable restore
 #else
-        public List<UserRequestsMetric> Requests { get; set; }
+        public List<ApiSdk.Models.UserRequestsMetric> Requests { get; set; }
 #endif
         /// <summary>Total sign-ups on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserSignUpMetric>? SignUps { get; set; }
+        public List<ApiSdk.Models.UserSignUpMetric>? SignUps { get; set; }
 #nullable restore
 #else
-        public List<UserSignUpMetric> SignUps { get; set; }
+        public List<ApiSdk.Models.UserSignUpMetric> SignUps { get; set; }
 #endif
         /// <summary>Summary of all usage insights on apps registered in the tenant for a specified period.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<InsightSummary>? Summary { get; set; }
+        public List<ApiSdk.Models.InsightSummary>? Summary { get; set; }
 #nullable restore
 #else
-        public List<InsightSummary> Summary { get; set; }
+        public List<ApiSdk.Models.InsightSummary> Summary { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MonthlyUserInsightMetricsRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MonthlyUserInsightMetricsRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MonthlyUserInsightMetricsRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MonthlyUserInsightMetricsRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MonthlyUserInsightMetricsRoot();
+            return new ApiSdk.Models.MonthlyUserInsightMetricsRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,14 +92,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "activeUsers", n => { ActiveUsers = n.GetCollectionOfObjectValues<ActiveUsersMetric>(ActiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authentications", n => { Authentications = n.GetCollectionOfObjectValues<AuthenticationsMetric>(AuthenticationsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "inactiveUsers", n => { InactiveUsers = n.GetCollectionOfObjectValues<MonthlyInactiveUsersMetric>(MonthlyInactiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "inactiveUsersByApplication", n => { InactiveUsersByApplication = n.GetCollectionOfObjectValues<MonthlyInactiveUsersByApplicationMetric>(MonthlyInactiveUsersByApplicationMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "mfaCompletions", n => { MfaCompletions = n.GetCollectionOfObjectValues<MfaCompletionMetric>(MfaCompletionMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "requests", n => { Requests = n.GetCollectionOfObjectValues<UserRequestsMetric>(UserRequestsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "signUps", n => { SignUps = n.GetCollectionOfObjectValues<UserSignUpMetric>(UserSignUpMetric.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "summary", n => { Summary = n.GetCollectionOfObjectValues<InsightSummary>(InsightSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activeUsers", n => { ActiveUsers = n.GetCollectionOfObjectValues<ApiSdk.Models.ActiveUsersMetric>(ApiSdk.Models.ActiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authentications", n => { Authentications = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationsMetric>(ApiSdk.Models.AuthenticationsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inactiveUsers", n => { InactiveUsers = n.GetCollectionOfObjectValues<ApiSdk.Models.MonthlyInactiveUsersMetric>(ApiSdk.Models.MonthlyInactiveUsersMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inactiveUsersByApplication", n => { InactiveUsersByApplication = n.GetCollectionOfObjectValues<ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric>(ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mfaCompletions", n => { MfaCompletions = n.GetCollectionOfObjectValues<ApiSdk.Models.MfaCompletionMetric>(ApiSdk.Models.MfaCompletionMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "requests", n => { Requests = n.GetCollectionOfObjectValues<ApiSdk.Models.UserRequestsMetric>(ApiSdk.Models.UserRequestsMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "signUps", n => { SignUps = n.GetCollectionOfObjectValues<ApiSdk.Models.UserSignUpMetric>(ApiSdk.Models.UserSignUpMetric.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "summary", n => { Summary = n.GetCollectionOfObjectValues<ApiSdk.Models.InsightSummary>(ApiSdk.Models.InsightSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -110,14 +110,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ActiveUsersMetric>("activeUsers", ActiveUsers);
-            writer.WriteCollectionOfObjectValues<AuthenticationsMetric>("authentications", Authentications);
-            writer.WriteCollectionOfObjectValues<MonthlyInactiveUsersMetric>("inactiveUsers", InactiveUsers);
-            writer.WriteCollectionOfObjectValues<MonthlyInactiveUsersByApplicationMetric>("inactiveUsersByApplication", InactiveUsersByApplication);
-            writer.WriteCollectionOfObjectValues<MfaCompletionMetric>("mfaCompletions", MfaCompletions);
-            writer.WriteCollectionOfObjectValues<UserRequestsMetric>("requests", Requests);
-            writer.WriteCollectionOfObjectValues<UserSignUpMetric>("signUps", SignUps);
-            writer.WriteCollectionOfObjectValues<InsightSummary>("summary", Summary);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ActiveUsersMetric>("activeUsers", ActiveUsers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationsMetric>("authentications", Authentications);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MonthlyInactiveUsersMetric>("inactiveUsers", InactiveUsers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MonthlyInactiveUsersByApplicationMetric>("inactiveUsersByApplication", InactiveUsersByApplication);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MfaCompletionMetric>("mfaCompletions", MfaCompletions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserRequestsMetric>("requests", Requests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserSignUpMetric>("signUps", SignUps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.InsightSummary>("summary", Summary);
         }
     }
 }

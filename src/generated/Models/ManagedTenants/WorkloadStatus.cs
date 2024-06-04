@@ -33,9 +33,9 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The date and time the workload was onboarded. Optional. Read-only.</summary>
         public DateTimeOffset? OnboardedDateTime { get; set; }
         /// <summary>The onboardingStatus property</summary>
-        public WorkloadOnboardingStatus? OnboardingStatus { get; set; }
+        public ApiSdk.Models.ManagedTenants.WorkloadOnboardingStatus? OnboardingStatus { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WorkloadStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.WorkloadStatus"/> and sets the default values.
         /// </summary>
         public WorkloadStatus()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkloadStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.WorkloadStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WorkloadStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.WorkloadStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkloadStatus();
+            return new ApiSdk.Models.ManagedTenants.WorkloadStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models.ManagedTenants
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "offboardedDateTime", n => { OffboardedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "onboardedDateTime", n => { OnboardedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<WorkloadOnboardingStatus>(); } },
+                { "onboardingStatus", n => { OnboardingStatus = n.GetEnumValue<ApiSdk.Models.ManagedTenants.WorkloadOnboardingStatus>(); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDateTimeOffsetValue("offboardedDateTime", OffboardedDateTime);
             writer.WriteDateTimeOffsetValue("onboardedDateTime", OnboardedDateTime);
-            writer.WriteEnumValue<WorkloadOnboardingStatus>("onboardingStatus", OnboardingStatus);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.WorkloadOnboardingStatus>("onboardingStatus", OnboardingStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

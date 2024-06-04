@@ -7,42 +7,42 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerRoster : Entity, IParsable
+    public class PlannerRoster : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The assignedSensitivityLabel property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SensitivityLabelAssignment? AssignedSensitivityLabel { get; set; }
+        public ApiSdk.Models.SensitivityLabelAssignment? AssignedSensitivityLabel { get; set; }
 #nullable restore
 #else
-        public SensitivityLabelAssignment AssignedSensitivityLabel { get; set; }
+        public ApiSdk.Models.SensitivityLabelAssignment AssignedSensitivityLabel { get; set; }
 #endif
         /// <summary>Retrieves the members of the plannerRoster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PlannerRosterMember>? Members { get; set; }
+        public List<ApiSdk.Models.PlannerRosterMember>? Members { get; set; }
 #nullable restore
 #else
-        public List<PlannerRosterMember> Members { get; set; }
+        public List<ApiSdk.Models.PlannerRosterMember> Members { get; set; }
 #endif
         /// <summary>Retrieves the plans contained by the plannerRoster.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PlannerPlan>? Plans { get; set; }
+        public List<ApiSdk.Models.PlannerPlan>? Plans { get; set; }
 #nullable restore
 #else
-        public List<PlannerPlan> Plans { get; set; }
+        public List<ApiSdk.Models.PlannerPlan> Plans { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerRoster"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerRoster"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerRoster CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerRoster CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerRoster();
+            return new ApiSdk.Models.PlannerRoster();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignedSensitivityLabel", n => { AssignedSensitivityLabel = n.GetObjectValue<SensitivityLabelAssignment>(SensitivityLabelAssignment.CreateFromDiscriminatorValue); } },
-                { "members", n => { Members = n.GetCollectionOfObjectValues<PlannerRosterMember>(PlannerRosterMember.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "plans", n => { Plans = n.GetCollectionOfObjectValues<PlannerPlan>(PlannerPlan.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedSensitivityLabel", n => { AssignedSensitivityLabel = n.GetObjectValue<ApiSdk.Models.SensitivityLabelAssignment>(ApiSdk.Models.SensitivityLabelAssignment.CreateFromDiscriminatorValue); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<ApiSdk.Models.PlannerRosterMember>(ApiSdk.Models.PlannerRosterMember.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "plans", n => { Plans = n.GetCollectionOfObjectValues<ApiSdk.Models.PlannerPlan>(ApiSdk.Models.PlannerPlan.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<SensitivityLabelAssignment>("assignedSensitivityLabel", AssignedSensitivityLabel);
-            writer.WriteCollectionOfObjectValues<PlannerRosterMember>("members", Members);
-            writer.WriteCollectionOfObjectValues<PlannerPlan>("plans", Plans);
+            writer.WriteObjectValue<ApiSdk.Models.SensitivityLabelAssignment>("assignedSensitivityLabel", AssignedSensitivityLabel);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PlannerRosterMember>("members", Members);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PlannerPlan>("plans", Plans);
         }
     }
 }

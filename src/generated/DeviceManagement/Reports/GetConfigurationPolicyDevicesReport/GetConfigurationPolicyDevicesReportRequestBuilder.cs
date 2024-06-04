@@ -41,7 +41,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GetConfigurationPolicyDevicesReportPostRequestBody>(GetConfigurationPolicyDevicesReportPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportPostRequestBody>(ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetConfigurationPolicyDevicesReportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetConfigurationPolicyDevicesReportRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reports/getConfigurationPolicyDevicesReport", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetConfigurationPolicyDevicesReportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetConfigurationPolicyDevicesReportRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reports/getConfigurationPolicyDevicesReport", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetConfigurationPolicyDevicesReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetConfigurationPolicyDevicesReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.Reports.GetConfigurationPolicyDevicesReport.GetConfigurationPolicyDevicesReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

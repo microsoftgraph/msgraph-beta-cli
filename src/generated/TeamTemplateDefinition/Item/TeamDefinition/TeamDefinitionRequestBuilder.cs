@@ -49,7 +49,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("all-channels");
             command.Description = "Provides operations to manage the allChannels property of the microsoft.graph.team entity.";
-            var builder = new AllChannelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.AllChannels.AllChannelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -75,7 +75,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("archive");
             command.Description = "Provides operations to call the archive method.";
-            var builder = new ArchiveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Archive.ArchiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -92,7 +92,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("channels");
             command.Description = "Provides operations to manage the channels property of the microsoft.graph.team entity.";
-            var builder = new ChannelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.ChannelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAllMessagesNavCommand());
@@ -122,7 +122,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("clone");
             command.Description = "Provides operations to call the clone method.";
-            var builder = new CloneRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Clone.CloneRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -139,7 +139,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("complete-migration");
             command.Description = "Provides operations to call the completeMigration method.";
-            var builder = new CompleteMigrationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.CompleteMigration.CompleteMigrationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -243,7 +243,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("group");
             command.Description = "Provides operations to manage the group property of the microsoft.graph.team entity.";
-            var builder = new GroupRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Group.GroupRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
@@ -266,7 +266,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("incoming-channels");
             command.Description = "Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.";
-            var builder = new IncomingChannelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.IncomingChannels.IncomingChannelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -292,7 +292,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("installed-apps");
             command.Description = "Provides operations to manage the installedApps property of the microsoft.graph.team entity.";
-            var builder = new InstalledAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.InstalledApps.InstalledAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -319,7 +319,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("members");
             command.Description = "Provides operations to manage the members property of the microsoft.graph.team entity.";
-            var builder = new MembersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Members.MembersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAddNavCommand());
@@ -347,7 +347,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.team entity.";
-            var builder = new OperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Operations.OperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -374,7 +374,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("owners");
             command.Description = "Provides operations to manage the owners property of the microsoft.graph.team entity.";
-            var builder = new OwnersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Owners.OwnersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -451,7 +451,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("permission-grants");
             command.Description = "Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.";
-            var builder = new PermissionGrantsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PermissionGrants.PermissionGrantsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -478,7 +478,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("photo");
             command.Description = "Provides operations to manage the photo property of the microsoft.graph.team entity.";
-            var builder = new PhotoRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Photo.PhotoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildContentNavCommand());
@@ -502,7 +502,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("primary-channel");
             command.Description = "Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.";
-            var builder = new PrimaryChannelRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.PrimaryChannel.PrimaryChannelRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildArchiveNavCommand());
@@ -537,7 +537,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("schedule");
             command.Description = "Provides operations to manage the schedule property of the microsoft.graph.team entity.";
-            var builder = new ScheduleRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Schedule.ScheduleRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildDayNotesNavCommand());
@@ -574,7 +574,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("send-activity-notification");
             command.Description = "Provides operations to call the sendActivityNotification method.";
-            var builder = new SendActivityNotificationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.SendActivityNotification.SendActivityNotificationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -591,7 +591,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("tags");
             command.Description = "Provides operations to manage the tags property of the microsoft.graph.team entity.";
-            var builder = new TagsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Tags.TagsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -618,7 +618,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("template-definition");
             command.Description = "Provides operations to manage the templateDefinition property of the microsoft.graph.team entity.";
-            var builder = new TemplateDefinitionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.TemplateDefinition.TemplateDefinitionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -635,7 +635,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("template");
             command.Description = "Provides operations to manage the template property of the microsoft.graph.team entity.";
-            var builder = new TemplateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Template.TemplateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -652,7 +652,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         {
             var command = new Command("unarchive");
             command.Description = "Provides operations to call the unarchive method.";
-            var builder = new UnarchiveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Unarchive.UnarchiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -662,14 +662,14 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamDefinitionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.TeamDefinitionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TeamDefinitionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamDefinitionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.TeamDefinitionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TeamDefinitionRequestBuilder(string rawUrl) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition{?%24expand,%24select}", rawUrl)
@@ -701,11 +701,11 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamDefinitionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.TeamDefinitionRequestBuilder.TeamDefinitionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamDefinitionRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.TeamDefinitionRequestBuilder.TeamDefinitionRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -15,10 +15,10 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The body property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Body { get; set; }
+        public ApiSdk.Models.WindowsUpdates.ItemBody? Body { get; set; }
 #nullable restore
 #else
-        public ItemBody Body { get; set; }
+        public ApiSdk.Models.WindowsUpdates.ItemBody Body { get; set; }
 #endif
         /// <summary>The date and time when the post was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -31,7 +31,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="KnownIssueHistoryItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem"/> and sets the default values.
         /// </summary>
         public KnownIssueHistoryItem()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KnownIssueHistoryItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static KnownIssueHistoryItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KnownIssueHistoryItem();
+            return new ApiSdk.Models.WindowsUpdates.KnownIssueHistoryItem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "body", n => { Body = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.ItemBody>(ApiSdk.Models.WindowsUpdates.ItemBody.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<ItemBody>("body", Body);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.ItemBody>("body", Body);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

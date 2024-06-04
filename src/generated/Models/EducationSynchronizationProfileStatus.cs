@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationSynchronizationProfileStatus : Entity, IParsable
+    public class EducationSynchronizationProfileStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Number of errors during synchronization.</summary>
@@ -17,7 +17,7 @@ namespace ApiSdk.Models
         /// <summary>Date and time of the most recent successful synchronization.</summary>
         public DateTimeOffset? LastSynchronizationDateTime { get; set; }
         /// <summary>The status of a sync. The possible values are: paused, inProgress, success, error, validationError, quarantined, unknownFutureValue, extracting, validating. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: extracting, validating.</summary>
-        public EducationSynchronizationStatus? Status { get; set; }
+        public ApiSdk.Models.EducationSynchronizationStatus? Status { get; set; }
         /// <summary>Status message for the synchronization stage of the current profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationProfileStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationProfileStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationSynchronizationProfileStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationSynchronizationProfileStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationSynchronizationProfileStatus();
+            return new ApiSdk.Models.EducationSynchronizationProfileStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
                 { "errorCount", n => { ErrorCount = n.GetLongValue(); } },
                 { "lastActivityDateTime", n => { LastActivityDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSynchronizationDateTime", n => { LastSynchronizationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<EducationSynchronizationStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.EducationSynchronizationStatus>(); } },
                 { "statusMessage", n => { StatusMessage = n.GetStringValue(); } },
             };
         }
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
             writer.WriteLongValue("errorCount", ErrorCount);
             writer.WriteDateTimeOffsetValue("lastActivityDateTime", LastActivityDateTime);
             writer.WriteDateTimeOffsetValue("lastSynchronizationDateTime", LastSynchronizationDateTime);
-            writer.WriteEnumValue<EducationSynchronizationStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.EducationSynchronizationStatus>("status", Status);
             writer.WriteStringValue("statusMessage", StatusMessage);
         }
     }

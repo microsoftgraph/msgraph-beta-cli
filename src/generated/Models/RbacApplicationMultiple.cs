@@ -7,42 +7,42 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class RbacApplicationMultiple : Entity, IParsable
+    public class RbacApplicationMultiple : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The resourceNamespaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRbacResourceNamespace>? ResourceNamespaces { get; set; }
+        public List<ApiSdk.Models.UnifiedRbacResourceNamespace>? ResourceNamespaces { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRbacResourceNamespace> ResourceNamespaces { get; set; }
+        public List<ApiSdk.Models.UnifiedRbacResourceNamespace> ResourceNamespaces { get; set; }
 #endif
         /// <summary>The roleAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleAssignmentMultiple>? RoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignmentMultiple>? RoleAssignments { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleAssignmentMultiple> RoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignmentMultiple> RoleAssignments { get; set; }
 #endif
         /// <summary>The roleDefinitions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleDefinition>? RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition>? RoleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleDefinition> RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition> RoleDefinitions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RbacApplicationMultiple"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RbacApplicationMultiple"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RbacApplicationMultiple CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RbacApplicationMultiple CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RbacApplicationMultiple();
+            return new ApiSdk.Models.RbacApplicationMultiple();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "resourceNamespaces", n => { ResourceNamespaces = n.GetCollectionOfObjectValues<UnifiedRbacResourceNamespace>(UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<UnifiedRoleAssignmentMultiple>(UnifiedRoleAssignmentMultiple.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resourceNamespaces", n => { ResourceNamespaces = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRbacResourceNamespace>(ApiSdk.Models.UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignmentMultiple>(ApiSdk.Models.UnifiedRoleAssignmentMultiple.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>(ApiSdk.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", ResourceNamespaces);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleAssignmentMultiple>("roleAssignments", RoleAssignments);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", RoleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRbacResourceNamespace>("resourceNamespaces", ResourceNamespaces);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignmentMultiple>("roleAssignments", RoleAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>("roleDefinitions", RoleDefinitions);
         }
     }
 }

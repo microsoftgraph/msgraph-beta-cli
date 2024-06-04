@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ProgramControl : Entity, IParsable
+    public class ProgramControl : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The controlId of the control, in particular the identifier of an access review. Required on create.</summary>
@@ -39,10 +39,10 @@ namespace ApiSdk.Models
         /// <summary>The user who created the program control.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserIdentity? Owner { get; set; }
+        public ApiSdk.Models.UserIdentity? Owner { get; set; }
 #nullable restore
 #else
-        public UserIdentity Owner { get; set; }
+        public ApiSdk.Models.UserIdentity Owner { get; set; }
 #endif
         /// <summary>The program this control is part of.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         /// <summary>The resource, a group or an app, targeted by this program control&apos;s access review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ProgramResource? Resource { get; set; }
+        public ApiSdk.Models.ProgramResource? Resource { get; set; }
 #nullable restore
 #else
-        public ProgramResource Resource { get; set; }
+        public ApiSdk.Models.ProgramResource Resource { get; set; }
 #endif
         /// <summary>The life cycle status of the control.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -79,12 +79,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ProgramControl"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ProgramControl"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProgramControl CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ProgramControl CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ProgramControl();
+            return new ApiSdk.Models.ProgramControl();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,10 +98,10 @@ namespace ApiSdk.Models
                 { "controlTypeId", n => { ControlTypeId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "owner", n => { Owner = n.GetObjectValue<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<ApiSdk.Models.UserIdentity>(ApiSdk.Models.UserIdentity.CreateFromDiscriminatorValue); } },
                 { "program", n => { Program = n.GetObjectValue<ApiSdk.Models.Program>(ApiSdk.Models.Program.CreateFromDiscriminatorValue); } },
                 { "programId", n => { ProgramId = n.GetStringValue(); } },
-                { "resource", n => { Resource = n.GetObjectValue<ProgramResource>(ProgramResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<ApiSdk.Models.ProgramResource>(ApiSdk.Models.ProgramResource.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
             };
         }
@@ -117,10 +117,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("controlTypeId", ControlTypeId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<UserIdentity>("owner", Owner);
+            writer.WriteObjectValue<ApiSdk.Models.UserIdentity>("owner", Owner);
             writer.WriteObjectValue<ApiSdk.Models.Program>("program", Program);
             writer.WriteStringValue("programId", ProgramId);
-            writer.WriteObjectValue<ProgramResource>("resource", Resource);
+            writer.WriteObjectValue<ApiSdk.Models.ProgramResource>("resource", Resource);
             writer.WriteStringValue("status", Status);
         }
     }

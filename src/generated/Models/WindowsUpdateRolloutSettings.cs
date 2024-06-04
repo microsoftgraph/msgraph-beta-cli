@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         /// <summary>The feature update&apos;s starting date and time to be set, update, and displayed for a feature Update profile for example: 2020-06-09T10:00:00Z.</summary>
         public DateTimeOffset? OfferStartDateTimeInUTC { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUpdateRolloutSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdateRolloutSettings"/> and sets the default values.
         /// </summary>
         public WindowsUpdateRolloutSettings()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsUpdateRolloutSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdateRolloutSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsUpdateRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdateRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsUpdateRolloutSettings();
+            return new ApiSdk.Models.WindowsUpdateRolloutSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

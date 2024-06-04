@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a Redirect-type Single Sign-On extension profile for iOS devices.
     /// </summary>
-    public class IosRedirectSingleSignOnExtension : IosSingleSignOnExtension, IParsable
+    public class IosRedirectSingleSignOnExtension : ApiSdk.Models.IosSingleSignOnExtension, IParsable
     {
         /// <summary>Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyTypedValuePair>? Configurations { get; set; }
+        public List<ApiSdk.Models.KeyTypedValuePair>? Configurations { get; set; }
 #nullable restore
 #else
-        public List<KeyTypedValuePair> Configurations { get; set; }
+        public List<ApiSdk.Models.KeyTypedValuePair> Configurations { get; set; }
 #endif
         /// <summary>Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         public List<string> UrlPrefixes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosRedirectSingleSignOnExtension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosRedirectSingleSignOnExtension"/> and sets the default values.
         /// </summary>
         public IosRedirectSingleSignOnExtension() : base()
         {
@@ -53,12 +53,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosRedirectSingleSignOnExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosRedirectSingleSignOnExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosRedirectSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosRedirectSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosRedirectSingleSignOnExtension();
+            return new ApiSdk.Models.IosRedirectSingleSignOnExtension();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<KeyTypedValuePair>(KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyTypedValuePair>(ApiSdk.Models.KeyTypedValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "extensionIdentifier", n => { ExtensionIdentifier = n.GetStringValue(); } },
                 { "teamIdentifier", n => { TeamIdentifier = n.GetStringValue(); } },
                 { "urlPrefixes", n => { UrlPrefixes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<KeyTypedValuePair>("configurations", Configurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyTypedValuePair>("configurations", Configurations);
             writer.WriteStringValue("extensionIdentifier", ExtensionIdentifier);
             writer.WriteStringValue("teamIdentifier", TeamIdentifier);
             writer.WriteCollectionOfPrimitiveValues<string>("urlPrefixes", UrlPrefixes);

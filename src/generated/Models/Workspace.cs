@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Workspace : Place, IParsable
+    public class Workspace : ApiSdk.Models.Place, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the building name or building number that the workspace is in.</summary>
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
         public List<string> Tags { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Workspace"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Workspace"/> and sets the default values.
         /// </summary>
         public Workspace() : base()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Workspace"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Workspace"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Workspace CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Workspace CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Workspace();
+            return new ApiSdk.Models.Workspace();
         }
         /// <summary>
         /// The deserialization information for the current model

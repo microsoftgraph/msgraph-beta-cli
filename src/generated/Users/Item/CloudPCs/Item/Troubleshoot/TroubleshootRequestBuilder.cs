@@ -56,14 +56,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.Troubleshoot
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TroubleshootRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.Troubleshoot.TroubleshootRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TroubleshootRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/troubleshoot", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TroubleshootRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.Troubleshoot.TroubleshootRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TroubleshootRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/troubleshoot", rawUrl)

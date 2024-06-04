@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="InformationProtectionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.InformationProtectionAction"/> and sets the default values.
         /// </summary>
         public InformationProtectionAction()
         {
@@ -30,30 +30,30 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InformationProtectionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.InformationProtectionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static InformationProtectionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.InformationProtectionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.addContentFooterAction" => new AddContentFooterAction(),
-                "#microsoft.graph.security.addContentHeaderAction" => new AddContentHeaderAction(),
-                "#microsoft.graph.security.addWatermarkAction" => new AddWatermarkAction(),
-                "#microsoft.graph.security.applyLabelAction" => new ApplyLabelAction(),
-                "#microsoft.graph.security.customAction" => new CustomAction(),
-                "#microsoft.graph.security.justifyAction" => new JustifyAction(),
-                "#microsoft.graph.security.metadataAction" => new MetadataAction(),
-                "#microsoft.graph.security.protectAdhocAction" => new ProtectAdhocAction(),
-                "#microsoft.graph.security.protectByTemplateAction" => new ProtectByTemplateAction(),
-                "#microsoft.graph.security.protectDoNotForwardAction" => new ProtectDoNotForwardAction(),
-                "#microsoft.graph.security.recommendLabelAction" => new RecommendLabelAction(),
-                "#microsoft.graph.security.removeContentFooterAction" => new RemoveContentFooterAction(),
-                "#microsoft.graph.security.removeContentHeaderAction" => new RemoveContentHeaderAction(),
-                "#microsoft.graph.security.removeProtectionAction" => new RemoveProtectionAction(),
-                "#microsoft.graph.security.removeWatermarkAction" => new RemoveWatermarkAction(),
-                _ => new InformationProtectionAction(),
+                "#microsoft.graph.security.addContentFooterAction" => new ApiSdk.Models.Security.AddContentFooterAction(),
+                "#microsoft.graph.security.addContentHeaderAction" => new ApiSdk.Models.Security.AddContentHeaderAction(),
+                "#microsoft.graph.security.addWatermarkAction" => new ApiSdk.Models.Security.AddWatermarkAction(),
+                "#microsoft.graph.security.applyLabelAction" => new ApiSdk.Models.Security.ApplyLabelAction(),
+                "#microsoft.graph.security.customAction" => new ApiSdk.Models.Security.CustomAction(),
+                "#microsoft.graph.security.justifyAction" => new ApiSdk.Models.Security.JustifyAction(),
+                "#microsoft.graph.security.metadataAction" => new ApiSdk.Models.Security.MetadataAction(),
+                "#microsoft.graph.security.protectAdhocAction" => new ApiSdk.Models.Security.ProtectAdhocAction(),
+                "#microsoft.graph.security.protectByTemplateAction" => new ApiSdk.Models.Security.ProtectByTemplateAction(),
+                "#microsoft.graph.security.protectDoNotForwardAction" => new ApiSdk.Models.Security.ProtectDoNotForwardAction(),
+                "#microsoft.graph.security.recommendLabelAction" => new ApiSdk.Models.Security.RecommendLabelAction(),
+                "#microsoft.graph.security.removeContentFooterAction" => new ApiSdk.Models.Security.RemoveContentFooterAction(),
+                "#microsoft.graph.security.removeContentHeaderAction" => new ApiSdk.Models.Security.RemoveContentHeaderAction(),
+                "#microsoft.graph.security.removeProtectionAction" => new ApiSdk.Models.Security.RemoveProtectionAction(),
+                "#microsoft.graph.security.removeWatermarkAction" => new ApiSdk.Models.Security.RemoveWatermarkAction(),
+                _ => new ApiSdk.Models.Security.InformationProtectionAction(),
             };
         }
         /// <summary>

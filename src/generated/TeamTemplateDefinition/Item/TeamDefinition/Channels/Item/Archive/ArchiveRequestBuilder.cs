@@ -49,7 +49,7 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archiv
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ArchivePostRequestBody>(ArchivePostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchivePostRequestBody>(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchivePostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -69,14 +69,14 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archiv
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ArchiveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchiveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ArchiveRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/archive", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ArchiveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchiveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ArchiveRequestBuilder(string rawUrl) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/archive", rawUrl)
@@ -90,11 +90,11 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archiv
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ArchivePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchivePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ArchivePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Archive.ArchivePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

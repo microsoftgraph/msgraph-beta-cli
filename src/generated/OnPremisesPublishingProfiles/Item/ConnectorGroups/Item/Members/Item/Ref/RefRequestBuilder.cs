@@ -68,14 +68,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item.Ref.RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RefRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/members/{connector%2Did}/$ref", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Members.Item.Ref.RefRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RefRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/members/{connector%2Did}/$ref", rawUrl)

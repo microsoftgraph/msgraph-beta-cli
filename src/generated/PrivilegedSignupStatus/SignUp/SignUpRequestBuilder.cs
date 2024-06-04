@@ -54,14 +54,14 @@ namespace ApiSdk.PrivilegedSignupStatus.SignUp
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SignUpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.SignUp.SignUpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SignUpRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedSignupStatus/signUp", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SignUpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.SignUp.SignUpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SignUpRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedSignupStatus/signUp", rawUrl)

@@ -109,7 +109,7 @@ namespace ApiSdk.Reports.ServiceActivity
         {
             var command = new Command("get-metrics-for-conditional-access-compliant-devices-sign-in-success-with-inclusive-interval-start-date-time-with-exclusive-interval-end-date-time-with-aggregation-interval-in-minutes");
             command.Description = "Provides operations to call the getMetricsForConditionalAccessCompliantDevicesSignInSuccess method.";
-            var builder = new GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes.GetMetricsForConditionalAccessCompliantDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -126,7 +126,7 @@ namespace ApiSdk.Reports.ServiceActivity
         {
             var command = new Command("get-metrics-for-conditional-access-managed-devices-sign-in-success-with-inclusive-interval-start-date-time-with-exclusive-interval-end-date-time-with-aggregation-interval-in-minutes");
             command.Description = "Provides operations to call the getMetricsForConditionalAccessManagedDevicesSignInSuccess method.";
-            var builder = new GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes.GetMetricsForConditionalAccessManagedDevicesSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -143,7 +143,7 @@ namespace ApiSdk.Reports.ServiceActivity
         {
             var command = new Command("get-metrics-for-mfa-sign-in-failure-with-inclusive-interval-start-date-time-with-exclusive-interval-end-date-time-with-aggregation-interval-in-minutes");
             command.Description = "Provides operations to call the getMetricsForMfaSignInFailure method.";
-            var builder = new GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes.GetMetricsForMfaSignInFailureWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -160,7 +160,7 @@ namespace ApiSdk.Reports.ServiceActivity
         {
             var command = new Command("get-metrics-for-mfa-sign-in-success-with-inclusive-interval-start-date-time-with-exclusive-interval-end-date-time-with-aggregation-interval-in-minutes");
             command.Description = "Provides operations to call the getMetricsForMfaSignInSuccess method.";
-            var builder = new GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes.GetMetricsForMfaSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -177,7 +177,7 @@ namespace ApiSdk.Reports.ServiceActivity
         {
             var command = new Command("get-metrics-for-saml-sign-in-success-with-inclusive-interval-start-date-time-with-exclusive-interval-end-date-time-with-aggregation-interval-in-minutes");
             command.Description = "Provides operations to call the getMetricsForSamlSignInSuccess method.";
-            var builder = new GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutes.GetMetricsForSamlSignInSuccessWithInclusiveIntervalStartDateTimeWithExclusiveIntervalEndDateTimeWithAggregationIntervalInMinutesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -232,14 +232,14 @@ namespace ApiSdk.Reports.ServiceActivity
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceActivityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.ServiceActivity.ServiceActivityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ServiceActivityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/serviceActivity{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceActivityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.ServiceActivity.ServiceActivityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ServiceActivityRequestBuilder(string rawUrl) : base("{+baseurl}/reports/serviceActivity{?%24expand,%24select}", rawUrl)
@@ -271,11 +271,11 @@ namespace ApiSdk.Reports.ServiceActivity
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceActivityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.ServiceActivity.ServiceActivityRequestBuilder.ServiceActivityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceActivityRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.ServiceActivity.ServiceActivityRequestBuilder.ServiceActivityRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

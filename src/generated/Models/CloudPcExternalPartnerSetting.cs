@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcExternalPartnerSetting : Entity, IParsable
+    public class CloudPcExternalPartnerSetting : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Enable or disable the connection to an external partner. If true, an external partner API will accept incoming calls from external partners. Required. Supports $filter (eq).</summary>
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string PartnerId { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public CloudPcExternalPartnerStatus? Status { get; set; }
+        public ApiSdk.Models.CloudPcExternalPartnerStatus? Status { get; set; }
         /// <summary>Status details message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcExternalPartnerSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcExternalPartnerSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcExternalPartnerSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcExternalPartnerSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcExternalPartnerSetting();
+            return new ApiSdk.Models.CloudPcExternalPartnerSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
                 { "enableConnection", n => { EnableConnection = n.GetBoolValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "partnerId", n => { PartnerId = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<CloudPcExternalPartnerStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CloudPcExternalPartnerStatus>(); } },
                 { "statusDetails", n => { StatusDetails = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("enableConnection", EnableConnection);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteStringValue("partnerId", PartnerId);
-            writer.WriteEnumValue<CloudPcExternalPartnerStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcExternalPartnerStatus>("status", Status);
             writer.WriteStringValue("statusDetails", StatusDetails);
         }
     }

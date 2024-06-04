@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DlpEvaluatePoliciesJobResponse : JobResponseBase, IParsable
+    public class DlpEvaluatePoliciesJobResponse : ApiSdk.Models.JobResponseBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The result property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DlpPoliciesJobResult? Result { get; set; }
+        public ApiSdk.Models.DlpPoliciesJobResult? Result { get; set; }
 #nullable restore
 #else
-        public DlpPoliciesJobResult Result { get; set; }
+        public ApiSdk.Models.DlpPoliciesJobResult Result { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DlpEvaluatePoliciesJobResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DlpEvaluatePoliciesJobResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DlpEvaluatePoliciesJobResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DlpEvaluatePoliciesJobResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DlpEvaluatePoliciesJobResponse();
+            return new ApiSdk.Models.DlpEvaluatePoliciesJobResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "result", n => { Result = n.GetObjectValue<DlpPoliciesJobResult>(DlpPoliciesJobResult.CreateFromDiscriminatorValue); } },
+                { "result", n => { Result = n.GetObjectValue<ApiSdk.Models.DlpPoliciesJobResult>(ApiSdk.Models.DlpPoliciesJobResult.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DlpPoliciesJobResult>("result", Result);
+            writer.WriteObjectValue<ApiSdk.Models.DlpPoliciesJobResult>("result", Result);
         }
     }
 }

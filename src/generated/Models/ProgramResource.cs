@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ProgramResource : Identity, IParsable
+    public class ProgramResource : ApiSdk.Models.Identity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Type of the resource, indicating whether it is a group or an app.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ProgramResource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ProgramResource"/> and sets the default values.
         /// </summary>
         public ProgramResource() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ProgramResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ProgramResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProgramResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ProgramResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ProgramResource();
+            return new ApiSdk.Models.ProgramResource();
         }
         /// <summary>
         /// The deserialization information for the current model

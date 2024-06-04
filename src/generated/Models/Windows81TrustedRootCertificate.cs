@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows 8.1 Trusted Certificate configuration profile
     /// </summary>
-    public class Windows81TrustedRootCertificate : DeviceConfiguration, IParsable
+    public class Windows81TrustedRootCertificate : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>File name to display in UI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string CertFileName { get; set; }
 #endif
         /// <summary>Possible values for the Certificate Destination Store.</summary>
-        public CertificateDestinationStore? DestinationStore { get; set; }
+        public ApiSdk.Models.CertificateDestinationStore? DestinationStore { get; set; }
         /// <summary>Trusted Root Certificate</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public byte[] TrustedRootCertificate { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows81TrustedRootCertificate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows81TrustedRootCertificate"/> and sets the default values.
         /// </summary>
         public Windows81TrustedRootCertificate() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows81TrustedRootCertificate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows81TrustedRootCertificate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows81TrustedRootCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows81TrustedRootCertificate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows81TrustedRootCertificate();
+            return new ApiSdk.Models.Windows81TrustedRootCertificate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "certFileName", n => { CertFileName = n.GetStringValue(); } },
-                { "destinationStore", n => { DestinationStore = n.GetEnumValue<CertificateDestinationStore>(); } },
+                { "destinationStore", n => { DestinationStore = n.GetEnumValue<ApiSdk.Models.CertificateDestinationStore>(); } },
                 { "trustedRootCertificate", n => { TrustedRootCertificate = n.GetByteArrayValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("certFileName", CertFileName);
-            writer.WriteEnumValue<CertificateDestinationStore>("destinationStore", DestinationStore);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateDestinationStore>("destinationStore", DestinationStore);
             writer.WriteByteArrayValue("trustedRootCertificate", TrustedRootCertificate);
         }
     }

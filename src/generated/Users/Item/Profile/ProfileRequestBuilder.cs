@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("account");
             command.Description = "Provides operations to manage the account property of the microsoft.graph.profile entity.";
-            var builder = new AccountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Account.AccountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -75,7 +75,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("addresses");
             command.Description = "Provides operations to manage the addresses property of the microsoft.graph.profile entity.";
-            var builder = new AddressesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Addresses.AddressesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -102,7 +102,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("anniversaries");
             command.Description = "Provides operations to manage the anniversaries property of the microsoft.graph.profile entity.";
-            var builder = new AnniversariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Anniversaries.AnniversariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -129,7 +129,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("awards");
             command.Description = "Provides operations to manage the awards property of the microsoft.graph.profile entity.";
-            var builder = new AwardsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Awards.AwardsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -156,7 +156,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("certifications");
             command.Description = "Provides operations to manage the certifications property of the microsoft.graph.profile entity.";
-            var builder = new CertificationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Certifications.CertificationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -218,7 +218,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("educational-activities");
             command.Description = "Provides operations to manage the educationalActivities property of the microsoft.graph.profile entity.";
-            var builder = new EducationalActivitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.EducationalActivities.EducationalActivitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -245,7 +245,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("emails");
             command.Description = "Provides operations to manage the emails property of the microsoft.graph.profile entity.";
-            var builder = new EmailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Emails.EmailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -324,7 +324,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("interests");
             command.Description = "Provides operations to manage the interests property of the microsoft.graph.profile entity.";
-            var builder = new InterestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Interests.InterestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -351,7 +351,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("languages");
             command.Description = "Provides operations to manage the languages property of the microsoft.graph.profile entity.";
-            var builder = new LanguagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Languages.LanguagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -378,7 +378,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("names");
             command.Description = "Provides operations to manage the names property of the microsoft.graph.profile entity.";
-            var builder = new NamesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Names.NamesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -405,7 +405,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("notes");
             command.Description = "Provides operations to manage the notes property of the microsoft.graph.profile entity.";
-            var builder = new NotesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Notes.NotesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -483,7 +483,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("patents");
             command.Description = "Provides operations to manage the patents property of the microsoft.graph.profile entity.";
-            var builder = new PatentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Patents.PatentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -510,7 +510,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("phones");
             command.Description = "Provides operations to manage the phones property of the microsoft.graph.profile entity.";
-            var builder = new PhonesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Phones.PhonesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -537,7 +537,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("positions");
             command.Description = "Provides operations to manage the positions property of the microsoft.graph.profile entity.";
-            var builder = new PositionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Positions.PositionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -564,7 +564,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("projects");
             command.Description = "Provides operations to manage the projects property of the microsoft.graph.profile entity.";
-            var builder = new ProjectsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Projects.ProjectsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -591,7 +591,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("publications");
             command.Description = "Provides operations to manage the publications property of the microsoft.graph.profile entity.";
-            var builder = new PublicationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Publications.PublicationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -618,7 +618,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("skills");
             command.Description = "Provides operations to manage the skills property of the microsoft.graph.profile entity.";
-            var builder = new SkillsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Skills.SkillsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -645,7 +645,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("web-accounts");
             command.Description = "Provides operations to manage the webAccounts property of the microsoft.graph.profile entity.";
-            var builder = new WebAccountsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.WebAccounts.WebAccountsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -672,7 +672,7 @@ namespace ApiSdk.Users.Item.Profile
         {
             var command = new Command("websites");
             command.Description = "Provides operations to manage the websites property of the microsoft.graph.profile entity.";
-            var builder = new WebsitesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Profile.Websites.WebsitesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -692,14 +692,14 @@ namespace ApiSdk.Users.Item.Profile
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProfileRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Profile.ProfileRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProfileRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/profile{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProfileRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Profile.ProfileRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProfileRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/profile{?%24expand,%24select}", rawUrl)
@@ -731,11 +731,11 @@ namespace ApiSdk.Users.Item.Profile
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProfileRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Profile.ProfileRequestBuilder.ProfileRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProfileRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Profile.ProfileRequestBuilder.ProfileRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

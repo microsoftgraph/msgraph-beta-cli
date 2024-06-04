@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class HostSecurityProfile : Entity, IParsable
+    public class HostSecurityProfile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The azureSubscriptionId property</summary>
@@ -47,10 +47,10 @@ namespace ApiSdk.Models
         /// <summary>The logonUsers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LogonUser>? LogonUsers { get; set; }
+        public List<ApiSdk.Models.LogonUser>? LogonUsers { get; set; }
 #nullable restore
 #else
-        public List<LogonUser> LogonUsers { get; set; }
+        public List<ApiSdk.Models.LogonUser> LogonUsers { get; set; }
 #endif
         /// <summary>The netBiosName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         /// <summary>The networkInterfaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NetworkInterface>? NetworkInterfaces { get; set; }
+        public List<ApiSdk.Models.NetworkInterface>? NetworkInterfaces { get; set; }
 #nullable restore
 #else
-        public List<NetworkInterface> NetworkInterfaces { get; set; }
+        public List<ApiSdk.Models.NetworkInterface> NetworkInterfaces { get; set; }
 #endif
         /// <summary>The os property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,20 +119,20 @@ namespace ApiSdk.Models
         /// <summary>The vendorInformation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityVendorInformation? VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation? VendorInformation { get; set; }
 #nullable restore
 #else
-        public SecurityVendorInformation VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation VendorInformation { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HostSecurityProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HostSecurityProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HostSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.HostSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HostSecurityProfile();
+            return new ApiSdk.Models.HostSecurityProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,16 +150,16 @@ namespace ApiSdk.Models
                 { "isAzureAdRegistered", n => { IsAzureAdRegistered = n.GetBoolValue(); } },
                 { "isHybridAzureDomainJoined", n => { IsHybridAzureDomainJoined = n.GetBoolValue(); } },
                 { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                { "logonUsers", n => { LogonUsers = n.GetCollectionOfObjectValues<LogonUser>(LogonUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "logonUsers", n => { LogonUsers = n.GetCollectionOfObjectValues<ApiSdk.Models.LogonUser>(ApiSdk.Models.LogonUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "netBiosName", n => { NetBiosName = n.GetStringValue(); } },
-                { "networkInterfaces", n => { NetworkInterfaces = n.GetCollectionOfObjectValues<NetworkInterface>(NetworkInterface.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "networkInterfaces", n => { NetworkInterfaces = n.GetCollectionOfObjectValues<ApiSdk.Models.NetworkInterface>(ApiSdk.Models.NetworkInterface.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "os", n => { Os = n.GetStringValue(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
                 { "parentHost", n => { ParentHost = n.GetStringValue(); } },
                 { "relatedHostIds", n => { RelatedHostIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "riskScore", n => { RiskScore = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<ApiSdk.Models.SecurityVendorInformation>(ApiSdk.Models.SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -178,16 +178,16 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("isAzureAdRegistered", IsAzureAdRegistered);
             writer.WriteBoolValue("isHybridAzureDomainJoined", IsHybridAzureDomainJoined);
             writer.WriteDateTimeOffsetValue("lastSeenDateTime", LastSeenDateTime);
-            writer.WriteCollectionOfObjectValues<LogonUser>("logonUsers", LogonUsers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LogonUser>("logonUsers", LogonUsers);
             writer.WriteStringValue("netBiosName", NetBiosName);
-            writer.WriteCollectionOfObjectValues<NetworkInterface>("networkInterfaces", NetworkInterfaces);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.NetworkInterface>("networkInterfaces", NetworkInterfaces);
             writer.WriteStringValue("os", Os);
             writer.WriteStringValue("osVersion", OsVersion);
             writer.WriteStringValue("parentHost", ParentHost);
             writer.WriteCollectionOfPrimitiveValues<string>("relatedHostIds", RelatedHostIds);
             writer.WriteStringValue("riskScore", RiskScore);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteObjectValue<SecurityVendorInformation>("vendorInformation", VendorInformation);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityVendorInformation>("vendorInformation", VendorInformation);
         }
     }
 }

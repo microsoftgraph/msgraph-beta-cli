@@ -59,7 +59,7 @@ namespace ApiSdk.Admin.Windows.Updates.Catalog
         {
             var command = new Command("entries");
             command.Description = "Provides operations to manage the entries property of the microsoft.graph.windowsUpdates.catalog entity.";
-            var builder = new EntriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Catalog.Entries.EntriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -170,14 +170,14 @@ namespace ApiSdk.Admin.Windows.Updates.Catalog
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CatalogRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Catalog.CatalogRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CatalogRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/catalog{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CatalogRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Catalog.CatalogRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CatalogRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/catalog{?%24expand,%24select}", rawUrl)
@@ -209,11 +209,11 @@ namespace ApiSdk.Admin.Windows.Updates.Catalog
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CatalogRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CatalogRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Catalog.CatalogRequestBuilder.CatalogRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

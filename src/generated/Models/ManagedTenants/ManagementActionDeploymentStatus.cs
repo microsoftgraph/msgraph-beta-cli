@@ -39,17 +39,17 @@ namespace ApiSdk.Models.ManagedTenants
         public string OdataType { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public ManagementActionStatus? Status { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementActionStatus? Status { get; set; }
         /// <summary>The collection of workload action deployment statues for the given management action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkloadActionDeploymentStatus>? WorkloadActionDeploymentStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadActionDeploymentStatus>? WorkloadActionDeploymentStatuses { get; set; }
 #nullable restore
 #else
-        public List<WorkloadActionDeploymentStatus> WorkloadActionDeploymentStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadActionDeploymentStatus> WorkloadActionDeploymentStatuses { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ManagementActionDeploymentStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus"/> and sets the default values.
         /// </summary>
         public ManagementActionDeploymentStatus()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementActionDeploymentStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ManagementActionDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementActionDeploymentStatus();
+            return new ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,8 +77,8 @@ namespace ApiSdk.Models.ManagedTenants
                 { "managementTemplateId", n => { ManagementTemplateId = n.GetStringValue(); } },
                 { "managementTemplateVersion", n => { ManagementTemplateVersion = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ManagementActionStatus>(); } },
-                { "workloadActionDeploymentStatuses", n => { WorkloadActionDeploymentStatuses = n.GetCollectionOfObjectValues<WorkloadActionDeploymentStatus>(WorkloadActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementActionStatus>(); } },
+                { "workloadActionDeploymentStatuses", n => { WorkloadActionDeploymentStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadActionDeploymentStatus>(ApiSdk.Models.ManagedTenants.WorkloadActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -92,8 +92,8 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteStringValue("managementTemplateId", ManagementTemplateId);
             writer.WriteIntValue("managementTemplateVersion", ManagementTemplateVersion);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ManagementActionStatus>("status", Status);
-            writer.WriteCollectionOfObjectValues<WorkloadActionDeploymentStatus>("workloadActionDeploymentStatuses", WorkloadActionDeploymentStatuses);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementActionStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadActionDeploymentStatus>("workloadActionDeploymentStatuses", WorkloadActionDeploymentStatuses);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

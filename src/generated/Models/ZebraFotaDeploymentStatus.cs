@@ -18,7 +18,7 @@ namespace ApiSdk.Models
         /// <summary>The date and time when this deployment was completed or canceled. The actual date time is determined by the value of state. If the state is canceled, this property holds the cancellation date/time. If the the state is completed, this property holds the completion date/time. If the deployment is not completed before the deployment end date, then completed date/time and end date/time are the same. This is always in the deployment timezone. Note: An installation that is in progress can continue past the deployment end date.</summary>
         public DateTimeOffset? CompleteOrCanceledDateTime { get; set; }
         /// <summary>An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum.</summary>
-        public ZebraFotaErrorCode? ErrorCode { get; set; }
+        public ApiSdk.Models.ZebraFotaErrorCode? ErrorCode { get; set; }
         /// <summary>Date and time when the deployment status was updated from Zebra</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Represents the state of Zebra FOTA deployment.</summary>
-        public ZebraFotaDeploymentState? State { get; set; }
+        public ApiSdk.Models.ZebraFotaDeploymentState? State { get; set; }
         /// <summary>An integer that indicates the total number of devices where installation was successful.</summary>
         public int? TotalAwaitingInstall { get; set; }
         /// <summary>An integer that indicates the total number of devices where installation was canceled.</summary>
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         /// <summary>An integer that indicates the total number of devices where no deployment status or end state has not received, even after the scheduled end date was reached.</summary>
         public int? TotalUnknown { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ZebraFotaDeploymentStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ZebraFotaDeploymentStatus"/> and sets the default values.
         /// </summary>
         public ZebraFotaDeploymentStatus()
         {
@@ -61,12 +61,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ZebraFotaDeploymentStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ZebraFotaDeploymentStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ZebraFotaDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ZebraFotaDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ZebraFotaDeploymentStatus();
+            return new ApiSdk.Models.ZebraFotaDeploymentStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,10 +78,10 @@ namespace ApiSdk.Models
             {
                 { "cancelRequested", n => { CancelRequested = n.GetBoolValue(); } },
                 { "completeOrCanceledDateTime", n => { CompleteOrCanceledDateTime = n.GetDateTimeOffsetValue(); } },
-                { "errorCode", n => { ErrorCode = n.GetEnumValue<ZebraFotaErrorCode>(); } },
+                { "errorCode", n => { ErrorCode = n.GetEnumValue<ApiSdk.Models.ZebraFotaErrorCode>(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<ZebraFotaDeploymentState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ZebraFotaDeploymentState>(); } },
                 { "totalAwaitingInstall", n => { TotalAwaitingInstall = n.GetIntValue(); } },
                 { "totalCanceled", n => { TotalCanceled = n.GetIntValue(); } },
                 { "totalCreated", n => { TotalCreated = n.GetIntValue(); } },
@@ -103,10 +103,10 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("cancelRequested", CancelRequested);
             writer.WriteDateTimeOffsetValue("completeOrCanceledDateTime", CompleteOrCanceledDateTime);
-            writer.WriteEnumValue<ZebraFotaErrorCode>("errorCode", ErrorCode);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaErrorCode>("errorCode", ErrorCode);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ZebraFotaDeploymentState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaDeploymentState>("state", State);
             writer.WriteIntValue("totalAwaitingInstall", TotalAwaitingInstall);
             writer.WriteIntValue("totalCanceled", TotalCanceled);
             writer.WriteIntValue("totalCreated", TotalCreated);

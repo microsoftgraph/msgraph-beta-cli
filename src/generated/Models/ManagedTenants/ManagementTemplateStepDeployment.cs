@@ -23,10 +23,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GraphAPIErrorDetails? Error { get; set; }
+        public ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails? Error { get; set; }
 #nullable restore
 #else
-        public GraphAPIErrorDetails Error { get; set; }
+        public ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails Error { get; set; }
 #endif
         /// <summary>The lastActionByUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,14 +39,14 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The lastActionDateTime property</summary>
         public DateTimeOffset? LastActionDateTime { get; set; }
         /// <summary>The status property</summary>
-        public ManagementTemplateDeploymentStatus? Status { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateDeploymentStatus? Status { get; set; }
         /// <summary>The templateStepVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagementTemplateStepVersion? TemplateStepVersion { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion? TemplateStepVersion { get; set; }
 #nullable restore
 #else
-        public ManagementTemplateStepVersion TemplateStepVersion { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion TemplateStepVersion { get; set; }
 #endif
         /// <summary>The tenantId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,12 +59,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementTemplateStepDeployment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementTemplateStepDeployment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementTemplateStepDeployment();
+            return new ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,11 +76,11 @@ namespace ApiSdk.Models.ManagedTenants
             {
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "error", n => { Error = n.GetObjectValue<GraphAPIErrorDetails>(GraphAPIErrorDetails.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails>(ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails.CreateFromDiscriminatorValue); } },
                 { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ManagementTemplateDeploymentStatus>(); } },
-                { "templateStepVersion", n => { TemplateStepVersion = n.GetObjectValue<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementTemplateDeploymentStatus>(); } },
+                { "templateStepVersion", n => { TemplateStepVersion = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
         }
@@ -94,11 +94,11 @@ namespace ApiSdk.Models.ManagedTenants
             base.Serialize(writer);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GraphAPIErrorDetails>("error", Error);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.GraphAPIErrorDetails>("error", Error);
             writer.WriteStringValue("lastActionByUserId", LastActionByUserId);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
-            writer.WriteEnumValue<ManagementTemplateDeploymentStatus>("status", Status);
-            writer.WriteObjectValue<ManagementTemplateStepVersion>("templateStepVersion", TemplateStepVersion);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementTemplateDeploymentStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>("templateStepVersion", TemplateStepVersion);
             writer.WriteStringValue("tenantId", TenantId);
         }
     }

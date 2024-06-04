@@ -54,14 +54,14 @@ namespace ApiSdk.Security.Identities.Sensors.MicrosoftGraphSecurityRegenerateDep
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.Identities.Sensors.MicrosoftGraphSecurityRegenerateDeploymentAccessKey.MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/identities/sensors/microsoft.graph.security.regenerateDeploymentAccessKey", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.Identities.Sensors.MicrosoftGraphSecurityRegenerateDeploymentAccessKey.MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphSecurityRegenerateDeploymentAccessKeyRequestBuilder(string rawUrl) : base("{+baseurl}/security/identities/sensors/microsoft.graph.security.regenerateDeploymentAccessKey", rawUrl)

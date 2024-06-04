@@ -24,7 +24,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         public ApiSdk.Models.Ediscovery.SourceCollection SourceCollection { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AddToReviewSetPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet.AddToReviewSetPostRequestBody"/> and sets the default values.
         /// </summary>
         public AddToReviewSetPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddToReviewSetPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet.AddToReviewSetPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AddToReviewSetPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet.AddToReviewSetPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddToReviewSetPostRequestBody();
+            return new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet.AddToReviewSetPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additionalDataOptions", n => { AdditionalDataOptions = n.GetEnumValue<AdditionalDataOptions>(); } },
+                { "additionalDataOptions", n => { AdditionalDataOptions = n.GetEnumValue<ApiSdk.Models.Ediscovery.AdditionalDataOptions>(); } },
                 { "sourceCollection", n => { SourceCollection = n.GetObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue); } },
             };
         }
@@ -59,7 +59,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraph
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AdditionalDataOptions>("additionalDataOptions", AdditionalDataOptions);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.AdditionalDataOptions>("additionalDataOptions", AdditionalDataOptions);
             writer.WriteObjectValue<ApiSdk.Models.Ediscovery.SourceCollection>("sourceCollection", SourceCollection);
             writer.WriteAdditionalData(AdditionalData);
         }

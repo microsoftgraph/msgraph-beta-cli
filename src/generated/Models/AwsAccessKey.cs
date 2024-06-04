@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsAccessKey : AwsIdentity, IParsable
+    public class AwsAccessKey : ApiSdk.Models.AwsIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the owner of the access key.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsUser? Owner { get; set; }
+        public ApiSdk.Models.AwsUser? Owner { get; set; }
 #nullable restore
 #else
-        public AwsUser Owner { get; set; }
+        public ApiSdk.Models.AwsUser Owner { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsAccessKey"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsAccessKey"/> and sets the default values.
         /// </summary>
         public AwsAccessKey() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsAccessKey"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsAccessKey"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsAccessKey CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsAccessKey CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsAccessKey();
+            return new ApiSdk.Models.AwsAccessKey();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "owner", n => { Owner = n.GetObjectValue<AwsUser>(AwsUser.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<ApiSdk.Models.AwsUser>(ApiSdk.Models.AwsUser.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AwsUser>("owner", Owner);
+            writer.WriteObjectValue<ApiSdk.Models.AwsUser>("owner", Owner);
         }
     }
 }

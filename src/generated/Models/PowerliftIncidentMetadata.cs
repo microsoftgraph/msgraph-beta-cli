@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         /// <summary>The unique identifier of the app diagnostic. Example: 8520467a-49a9-44a4-8447-8dfb8bec6726</summary>
         public Guid? PowerliftId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PowerliftIncidentMetadata"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PowerliftIncidentMetadata"/> and sets the default values.
         /// </summary>
         public PowerliftIncidentMetadata()
         {
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PowerliftIncidentMetadata"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PowerliftIncidentMetadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PowerliftIncidentMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PowerliftIncidentMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PowerliftIncidentMetadata();
+            return new ApiSdk.Models.PowerliftIncidentMetadata();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn
 {
     #pragma warning disable CS1591
-    public class AppDiagnosticsWithUpnGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class AppDiagnosticsWithUpnGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PowerliftIncidentMetadata>? Value { get; set; }
+        public List<ApiSdk.Models.PowerliftIncidentMetadata>? Value { get; set; }
 #nullable restore
 #else
-        public List<PowerliftIncidentMetadata> Value { get; set; }
+        public List<ApiSdk.Models.PowerliftIncidentMetadata> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppDiagnosticsWithUpnGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn.AppDiagnosticsWithUpnGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppDiagnosticsWithUpnGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn.AppDiagnosticsWithUpnGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppDiagnosticsWithUpnGetResponse();
+            return new ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn.AppDiagnosticsWithUpnGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PowerliftIncidentMetadata>(PowerliftIncidentMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PowerliftIncidentMetadata>(ApiSdk.Models.PowerliftIncidentMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.AppDiagnosticsWithUpn
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PowerliftIncidentMetadata>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PowerliftIncidentMetadata>("value", Value);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessReviewInstanceDecisionItemUserTarget : AccessReviewInstanceDecisionItemTarget, IParsable
+    public class AccessReviewInstanceDecisionItemUserTarget : ApiSdk.Models.AccessReviewInstanceDecisionItemTarget, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of user.</summary>
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewInstanceDecisionItemUserTarget"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessReviewInstanceDecisionItemUserTarget"/> and sets the default values.
         /// </summary>
         public AccessReviewInstanceDecisionItemUserTarget() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewInstanceDecisionItemUserTarget"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewInstanceDecisionItemUserTarget"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReviewInstanceDecisionItemUserTarget CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessReviewInstanceDecisionItemUserTarget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReviewInstanceDecisionItemUserTarget();
+            return new ApiSdk.Models.AccessReviewInstanceDecisionItemUserTarget();
         }
         /// <summary>
         /// The deserialization information for the current model

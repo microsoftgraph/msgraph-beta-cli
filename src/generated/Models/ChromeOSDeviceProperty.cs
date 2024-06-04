@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         public string ValueType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ChromeOSDeviceProperty"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ChromeOSDeviceProperty"/> and sets the default values.
         /// </summary>
         public ChromeOSDeviceProperty()
         {
@@ -57,12 +57,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ChromeOSDeviceProperty"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ChromeOSDeviceProperty"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ChromeOSDeviceProperty CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ChromeOSDeviceProperty CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ChromeOSDeviceProperty();
+            return new ApiSdk.Models.ChromeOSDeviceProperty();
         }
         /// <summary>
         /// The deserialization information for the current model

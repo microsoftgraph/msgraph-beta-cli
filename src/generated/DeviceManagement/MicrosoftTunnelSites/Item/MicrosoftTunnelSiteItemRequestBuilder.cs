@@ -119,7 +119,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
         {
             var command = new Command("microsoft-tunnel-configuration");
             command.Description = "Provides operations to manage the microsoftTunnelConfiguration property of the microsoft.graph.microsoftTunnelSite entity.";
-            var builder = new MicrosoftTunnelConfigurationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelConfiguration.MicrosoftTunnelConfigurationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -138,7 +138,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
         {
             var command = new Command("microsoft-tunnel-servers");
             command.Description = "Provides operations to manage the microsoftTunnelServers property of the microsoft.graph.microsoftTunnelSite entity.";
-            var builder = new MicrosoftTunnelServersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.MicrosoftTunnelServersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -188,7 +188,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<MicrosoftTunnelSite>(MicrosoftTunnelSite.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.MicrosoftTunnelSite>(ApiSdk.Models.MicrosoftTunnelSite.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -216,7 +216,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
         {
             var command = new Command("request-upgrade");
             command.Description = "Provides operations to call the requestUpgrade method.";
-            var builder = new RequestUpgradeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade.RequestUpgradeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -226,14 +226,14 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftTunnelSiteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelSiteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftTunnelSiteItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/microsoftTunnelSites/{microsoftTunnelSite%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftTunnelSiteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelSiteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftTunnelSiteItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/microsoftTunnelSites/{microsoftTunnelSite%2Did}{?%24expand,%24select}", rawUrl)
@@ -265,11 +265,11 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelSiteItemRequestBuilder.MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelSiteItemRequestBuilder.MicrosoftTunnelSiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -285,11 +285,11 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(MicrosoftTunnelSite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MicrosoftTunnelSite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(MicrosoftTunnelSite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MicrosoftTunnelSite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

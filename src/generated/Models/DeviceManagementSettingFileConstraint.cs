@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint enforcing the file extension is acceptable for a given setting
     /// </summary>
-    public class DeviceManagementSettingFileConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingFileConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>Acceptable file extensions to upload for this setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public List<string> SupportedExtensions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingFileConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingFileConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingFileConstraint() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingFileConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingFileConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingFileConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingFileConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingFileConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingFileConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

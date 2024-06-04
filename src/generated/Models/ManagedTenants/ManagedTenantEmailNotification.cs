@@ -13,10 +13,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The alert property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedTenantAlert? Alert { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenantAlert? Alert { get; set; }
 #nullable restore
 #else
-        public ManagedTenantAlert Alert { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagedTenantAlert Alert { get; set; }
 #endif
         /// <summary>The createdByUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,10 +31,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The emailAddresses property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Email>? EmailAddresses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Email>? EmailAddresses { get; set; }
 #nullable restore
 #else
-        public List<Email> EmailAddresses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.Email> EmailAddresses { get; set; }
 #endif
         /// <summary>The emailBody property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,12 +65,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedTenantEmailNotification"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedTenantEmailNotification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedTenantEmailNotification();
+            return new ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,10 +80,10 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alert", n => { Alert = n.GetObjectValue<ManagedTenantAlert>(ManagedTenantAlert.CreateFromDiscriminatorValue); } },
+                { "alert", n => { Alert = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>(ApiSdk.Models.ManagedTenants.ManagedTenantAlert.CreateFromDiscriminatorValue); } },
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "emailAddresses", n => { EmailAddresses = n.GetCollectionOfObjectValues<Email>(Email.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emailAddresses", n => { EmailAddresses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Email>(ApiSdk.Models.ManagedTenants.Email.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "emailBody", n => { EmailBody = n.GetStringValue(); } },
                 { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
@@ -98,10 +98,10 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ManagedTenantAlert>("alert", Alert);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagedTenantAlert>("alert", Alert);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<Email>("emailAddresses", EmailAddresses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.Email>("emailAddresses", EmailAddresses);
             writer.WriteStringValue("emailBody", EmailBody);
             writer.WriteStringValue("lastActionByUserId", LastActionByUserId);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);

@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedApprovalCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class PrivilegedApprovalCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrivilegedApproval>? Value { get; set; }
+        public List<ApiSdk.Models.PrivilegedApproval>? Value { get; set; }
 #nullable restore
 #else
-        public List<PrivilegedApproval> Value { get; set; }
+        public List<ApiSdk.Models.PrivilegedApproval> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedApprovalCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedApprovalCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedApprovalCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedApprovalCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedApprovalCollectionResponse();
+            return new ApiSdk.Models.PrivilegedApprovalCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PrivilegedApproval>(PrivilegedApproval.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PrivilegedApproval>(ApiSdk.Models.PrivilegedApproval.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PrivilegedApproval>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrivilegedApproval>("value", Value);
         }
     }
 }

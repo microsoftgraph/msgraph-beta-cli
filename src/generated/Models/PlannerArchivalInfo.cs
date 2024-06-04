@@ -31,15 +31,15 @@ namespace ApiSdk.Models
         /// <summary>The statusChangedBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? StatusChangedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? StatusChangedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet StatusChangedBy { get; set; }
+        public ApiSdk.Models.IdentitySet StatusChangedBy { get; set; }
 #endif
         /// <summary>The statusChangedDateTime property</summary>
         public DateTimeOffset? StatusChangedDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerArchivalInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerArchivalInfo"/> and sets the default values.
         /// </summary>
         public PlannerArchivalInfo()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerArchivalInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerArchivalInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerArchivalInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerArchivalInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerArchivalInfo();
+            return new ApiSdk.Models.PlannerArchivalInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
             {
                 { "justification", n => { Justification = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "statusChangedBy", n => { StatusChangedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "statusChangedBy", n => { StatusChangedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "statusChangedDateTime", n => { StatusChangedDateTime = n.GetDateTimeOffsetValue(); } },
             };
         }
@@ -78,7 +78,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("justification", Justification);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<IdentitySet>("statusChangedBy", StatusChangedBy);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("statusChangedBy", StatusChangedBy);
             writer.WriteDateTimeOffsetValue("statusChangedDateTime", StatusChangedDateTime);
             writer.WriteAdditionalData(AdditionalData);
         }

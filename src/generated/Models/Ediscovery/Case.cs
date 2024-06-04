@@ -25,10 +25,10 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Returns a list of case custodian objects for this case.  Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Custodian>? Custodians { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Custodian>? Custodians { get; set; }
 #nullable restore
 #else
-        public List<Custodian> Custodians { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Custodian> Custodians { get; set; }
 #endif
         /// <summary>The case description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,70 +67,70 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Returns a list of case legalHold objects for this case.  Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LegalHold>? LegalHolds { get; set; }
+        public List<ApiSdk.Models.Ediscovery.LegalHold>? LegalHolds { get; set; }
 #nullable restore
 #else
-        public List<LegalHold> LegalHolds { get; set; }
+        public List<ApiSdk.Models.Ediscovery.LegalHold> LegalHolds { get; set; }
 #endif
         /// <summary>Returns a list of case noncustodialDataSource objects for this case.  Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NoncustodialDataSource>? NoncustodialDataSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.NoncustodialDataSource>? NoncustodialDataSources { get; set; }
 #nullable restore
 #else
-        public List<NoncustodialDataSource> NoncustodialDataSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.NoncustodialDataSource> NoncustodialDataSources { get; set; }
 #endif
         /// <summary>Returns a list of case operation objects for this case. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CaseOperation>? Operations { get; set; }
+        public List<ApiSdk.Models.Ediscovery.CaseOperation>? Operations { get; set; }
 #nullable restore
 #else
-        public List<CaseOperation> Operations { get; set; }
+        public List<ApiSdk.Models.Ediscovery.CaseOperation> Operations { get; set; }
 #endif
         /// <summary>Returns a list of reviewSet objects in the case. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ReviewSet>? ReviewSets { get; set; }
+        public List<ApiSdk.Models.Ediscovery.ReviewSet>? ReviewSets { get; set; }
 #nullable restore
 #else
-        public List<ReviewSet> ReviewSets { get; set; }
+        public List<ApiSdk.Models.Ediscovery.ReviewSet> ReviewSets { get; set; }
 #endif
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CaseSettings? Settings { get; set; }
+        public ApiSdk.Models.Ediscovery.CaseSettings? Settings { get; set; }
 #nullable restore
 #else
-        public CaseSettings Settings { get; set; }
+        public ApiSdk.Models.Ediscovery.CaseSettings Settings { get; set; }
 #endif
         /// <summary>Returns a list of sourceCollection objects associated with this case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SourceCollection>? SourceCollections { get; set; }
+        public List<ApiSdk.Models.Ediscovery.SourceCollection>? SourceCollections { get; set; }
 #nullable restore
 #else
-        public List<SourceCollection> SourceCollections { get; set; }
+        public List<ApiSdk.Models.Ediscovery.SourceCollection> SourceCollections { get; set; }
 #endif
         /// <summary>The case status. Possible values are unknown, active, pendingDelete, closing, closed, and closedWithError. For details, see the following table.</summary>
-        public CaseStatus? Status { get; set; }
+        public ApiSdk.Models.Ediscovery.CaseStatus? Status { get; set; }
         /// <summary>Returns a list of tag objects associated to this case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Tag>? Tags { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag>? Tags { get; set; }
 #nullable restore
 #else
-        public List<Tag> Tags { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag> Tags { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Case"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.Case"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Case CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.Case CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Case();
+            return new ApiSdk.Models.Ediscovery.Case();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -143,20 +143,20 @@ namespace ApiSdk.Models.Ediscovery
                 { "closedBy", n => { ClosedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "closedDateTime", n => { ClosedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "custodians", n => { Custodians = n.GetCollectionOfObjectValues<Custodian>(Custodian.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "custodians", n => { Custodians = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Custodian>(ApiSdk.Models.Ediscovery.Custodian.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "legalHolds", n => { LegalHolds = n.GetCollectionOfObjectValues<LegalHold>(LegalHold.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "noncustodialDataSources", n => { NoncustodialDataSources = n.GetCollectionOfObjectValues<NoncustodialDataSource>(NoncustodialDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "operations", n => { Operations = n.GetCollectionOfObjectValues<CaseOperation>(CaseOperation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "reviewSets", n => { ReviewSets = n.GetCollectionOfObjectValues<ReviewSet>(ReviewSet.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "settings", n => { Settings = n.GetObjectValue<CaseSettings>(CaseSettings.CreateFromDiscriminatorValue); } },
-                { "sourceCollections", n => { SourceCollections = n.GetCollectionOfObjectValues<SourceCollection>(SourceCollection.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<CaseStatus>(); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "legalHolds", n => { LegalHolds = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.LegalHold>(ApiSdk.Models.Ediscovery.LegalHold.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "noncustodialDataSources", n => { NoncustodialDataSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.NoncustodialDataSource>(ApiSdk.Models.Ediscovery.NoncustodialDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "operations", n => { Operations = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.CaseOperation>(ApiSdk.Models.Ediscovery.CaseOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "reviewSets", n => { ReviewSets = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Ediscovery.CaseSettings>(ApiSdk.Models.Ediscovery.CaseSettings.CreateFromDiscriminatorValue); } },
+                { "sourceCollections", n => { SourceCollections = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.SourceCollection>(ApiSdk.Models.Ediscovery.SourceCollection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Ediscovery.CaseStatus>(); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>(ApiSdk.Models.Ediscovery.Tag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -170,20 +170,20 @@ namespace ApiSdk.Models.Ediscovery
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("closedBy", ClosedBy);
             writer.WriteDateTimeOffsetValue("closedDateTime", ClosedDateTime);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<Custodian>("custodians", Custodians);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Custodian>("custodians", Custodians);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<LegalHold>("legalHolds", LegalHolds);
-            writer.WriteCollectionOfObjectValues<NoncustodialDataSource>("noncustodialDataSources", NoncustodialDataSources);
-            writer.WriteCollectionOfObjectValues<CaseOperation>("operations", Operations);
-            writer.WriteCollectionOfObjectValues<ReviewSet>("reviewSets", ReviewSets);
-            writer.WriteObjectValue<CaseSettings>("settings", Settings);
-            writer.WriteCollectionOfObjectValues<SourceCollection>("sourceCollections", SourceCollections);
-            writer.WriteEnumValue<CaseStatus>("status", Status);
-            writer.WriteCollectionOfObjectValues<Tag>("tags", Tags);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.LegalHold>("legalHolds", LegalHolds);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.NoncustodialDataSource>("noncustodialDataSources", NoncustodialDataSources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.CaseOperation>("operations", Operations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.ReviewSet>("reviewSets", ReviewSets);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.CaseSettings>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.SourceCollection>("sourceCollections", SourceCollections);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.CaseStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>("tags", Tags);
         }
     }
 }

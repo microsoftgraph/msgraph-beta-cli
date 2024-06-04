@@ -32,7 +32,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
         {
             var command = new Command("aws");
             command.Description = "Provides operations to manage the aws property of the microsoft.graph.permissionsAnalyticsAggregation entity.";
-            var builder = new AwsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Aws.AwsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -58,7 +58,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
         {
             var command = new Command("azure");
             command.Description = "Provides operations to manage the azure property of the microsoft.graph.permissionsAnalyticsAggregation entity.";
-            var builder = new AzureRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Azure.AzureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -113,7 +113,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
         {
             var command = new Command("gcp");
             command.Description = "Provides operations to manage the gcp property of the microsoft.graph.permissionsAnalyticsAggregation entity.";
-            var builder = new GcpRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.GcpRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -203,7 +203,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PermissionsAnalyticsAggregation>(PermissionsAnalyticsAggregation.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PermissionsAnalyticsAggregation>(ApiSdk.Models.PermissionsAnalyticsAggregation.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -223,14 +223,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsAnalyticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.PermissionsAnalyticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PermissionsAnalyticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/permissionsAnalytics{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsAnalyticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.PermissionsAnalyticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PermissionsAnalyticsRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/permissionsAnalytics{?%24expand,%24select}", rawUrl)
@@ -262,11 +262,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsAnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.PermissionsAnalyticsRequestBuilder.PermissionsAnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsAnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.PermissionsAnalyticsRequestBuilder.PermissionsAnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -282,11 +282,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PermissionsAnalyticsAggregation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PermissionsAnalyticsAggregation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PermissionsAnalyticsAggregation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PermissionsAnalyticsAggregation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

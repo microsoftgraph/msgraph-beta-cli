@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ChatMessageHostedContent : TeamworkHostedContent, IParsable
+    public class ChatMessageHostedContent : ApiSdk.Models.TeamworkHostedContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="ChatMessageHostedContent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ChatMessageHostedContent"/> and sets the default values.
         /// </summary>
         public ChatMessageHostedContent() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ChatMessageHostedContent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ChatMessageHostedContent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ChatMessageHostedContent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ChatMessageHostedContent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ChatMessageHostedContent();
+            return new ApiSdk.Models.ChatMessageHostedContent();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a Kerberos-type Single Sign-On extension profile.
     /// </summary>
-    public class KerberosSingleSignOnExtension : SingleSignOnExtension, IParsable
+    public class KerberosSingleSignOnExtension : ApiSdk.Models.SingleSignOnExtension, IParsable
     {
         /// <summary>Gets or sets the Active Directory site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -108,7 +108,7 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="KerberosSingleSignOnExtension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.KerberosSingleSignOnExtension"/> and sets the default values.
         /// </summary>
         public KerberosSingleSignOnExtension() : base()
         {
@@ -117,12 +117,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KerberosSingleSignOnExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.KerberosSingleSignOnExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new KerberosSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.KerberosSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KerberosSingleSignOnExtension();
+            return new ApiSdk.Models.KerberosSingleSignOnExtension();
         }
         /// <summary>
         /// The deserialization information for the current model

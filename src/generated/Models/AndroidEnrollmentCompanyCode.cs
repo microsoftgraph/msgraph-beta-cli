@@ -40,13 +40,13 @@ namespace ApiSdk.Models
         /// <summary>Generated QR code for the token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? QrCodeImage { get; set; }
+        public ApiSdk.Models.MimeContent? QrCodeImage { get; set; }
 #nullable restore
 #else
-        public MimeContent QrCodeImage { get; set; }
+        public ApiSdk.Models.MimeContent QrCodeImage { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidEnrollmentCompanyCode"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidEnrollmentCompanyCode"/> and sets the default values.
         /// </summary>
         public AndroidEnrollmentCompanyCode()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidEnrollmentCompanyCode"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidEnrollmentCompanyCode"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidEnrollmentCompanyCode CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidEnrollmentCompanyCode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidEnrollmentCompanyCode();
+            return new ApiSdk.Models.AndroidEnrollmentCompanyCode();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "enrollmentToken", n => { EnrollmentToken = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
-                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("enrollmentToken", EnrollmentToken);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("qrCodeContent", QrCodeContent);
-            writer.WriteObjectValue<MimeContent>("qrCodeImage", QrCodeImage);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("qrCodeImage", QrCodeImage);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

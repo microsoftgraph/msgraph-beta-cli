@@ -122,7 +122,7 @@ namespace ApiSdk.Workplace
         {
             var command = new Command("sensor-devices");
             command.Description = "Provides operations to manage the sensorDevices property of the microsoft.graph.workplace entity.";
-            var builder = new SensorDevicesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Workplace.SensorDevices.SensorDevicesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -150,7 +150,7 @@ namespace ApiSdk.Workplace
         {
             var command = new Command("sensor-devices-with-device-id");
             command.Description = "Provides operations to manage the sensorDevices property of the microsoft.graph.workplace entity.";
-            var builder = new SensorDevicesWithDeviceIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Workplace.SensorDevicesWithDeviceId.SensorDevicesWithDeviceIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -162,14 +162,14 @@ namespace ApiSdk.Workplace
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="WorkplaceRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Workplace.WorkplaceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public WorkplaceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/workplace{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="WorkplaceRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Workplace.WorkplaceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public WorkplaceRequestBuilder(string rawUrl) : base("{+baseurl}/workplace{?%24expand,%24select}", rawUrl)
@@ -182,11 +182,11 @@ namespace ApiSdk.Workplace
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WorkplaceRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Workplace.WorkplaceRequestBuilder.WorkplaceRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WorkplaceRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Workplace.WorkplaceRequestBuilder.WorkplaceRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

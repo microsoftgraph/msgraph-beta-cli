@@ -7,48 +7,48 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OnPremisesPublishingProfile : Entity, IParsable
+    public class OnPremisesPublishingProfile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of existing onPremisesAgentGroup objects. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgentGroup>? AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup>? AgentGroups { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgentGroup> AgentGroups { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgentGroup> AgentGroups { get; set; }
 #endif
         /// <summary>List of existing onPremisesAgent objects. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgent>? Agents { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgent>? Agents { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgent> Agents { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgent> Agents { get; set; }
 #endif
         /// <summary>The applicationSegments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IpApplicationSegment>? ApplicationSegments { get; set; }
+        public List<ApiSdk.Models.IpApplicationSegment>? ApplicationSegments { get; set; }
 #nullable restore
 #else
-        public List<IpApplicationSegment> ApplicationSegments { get; set; }
+        public List<ApiSdk.Models.IpApplicationSegment> ApplicationSegments { get; set; }
 #endif
         /// <summary>List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectorGroup>? ConnectorGroups { get; set; }
+        public List<ApiSdk.Models.ConnectorGroup>? ConnectorGroups { get; set; }
 #nullable restore
 #else
-        public List<ConnectorGroup> ConnectorGroups { get; set; }
+        public List<ApiSdk.Models.ConnectorGroup> ConnectorGroups { get; set; }
 #endif
         /// <summary>List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Connector>? Connectors { get; set; }
+        public List<ApiSdk.Models.Connector>? Connectors { get; set; }
 #nullable restore
 #else
-        public List<Connector> Connectors { get; set; }
+        public List<ApiSdk.Models.Connector> Connectors { get; set; }
 #endif
         /// <summary>Represents a hybridAgentUpdaterConfiguration object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,20 +65,20 @@ namespace ApiSdk.Models
         /// <summary>List of existing publishedResource objects. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PublishedResource>? PublishedResources { get; set; }
+        public List<ApiSdk.Models.PublishedResource>? PublishedResources { get; set; }
 #nullable restore
 #else
-        public List<PublishedResource> PublishedResources { get; set; }
+        public List<ApiSdk.Models.PublishedResource> PublishedResources { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesPublishingProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesPublishingProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnPremisesPublishingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OnPremisesPublishingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesPublishingProfile();
+            return new ApiSdk.Models.OnPremisesPublishingProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,15 +88,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<IpApplicationSegment>(IpApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "connectorGroups", n => { ConnectorGroups = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "connectors", n => { Connectors = n.GetCollectionOfObjectValues<Connector>(Connector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agentGroups", n => { AgentGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>(ApiSdk.Models.OnPremisesAgentGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agents", n => { Agents = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgent>(ApiSdk.Models.OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<ApiSdk.Models.IpApplicationSegment>(ApiSdk.Models.IpApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectorGroups", n => { ConnectorGroups = n.GetCollectionOfObjectValues<ApiSdk.Models.ConnectorGroup>(ApiSdk.Models.ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectors", n => { Connectors = n.GetCollectionOfObjectValues<ApiSdk.Models.Connector>(ApiSdk.Models.Connector.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "hybridAgentUpdaterConfiguration", n => { HybridAgentUpdaterConfiguration = n.GetObjectValue<ApiSdk.Models.HybridAgentUpdaterConfiguration>(ApiSdk.Models.HybridAgentUpdaterConfiguration.CreateFromDiscriminatorValue); } },
                 { "isDefaultAccessEnabled", n => { IsDefaultAccessEnabled = n.GetBoolValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<ApiSdk.Models.PublishedResource>(ApiSdk.Models.PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -107,15 +107,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgentGroup>("agentGroups", AgentGroups);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgent>("agents", Agents);
-            writer.WriteCollectionOfObjectValues<IpApplicationSegment>("applicationSegments", ApplicationSegments);
-            writer.WriteCollectionOfObjectValues<ConnectorGroup>("connectorGroups", ConnectorGroups);
-            writer.WriteCollectionOfObjectValues<Connector>("connectors", Connectors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgentGroup>("agentGroups", AgentGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgent>("agents", Agents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IpApplicationSegment>("applicationSegments", ApplicationSegments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConnectorGroup>("connectorGroups", ConnectorGroups);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Connector>("connectors", Connectors);
             writer.WriteObjectValue<ApiSdk.Models.HybridAgentUpdaterConfiguration>("hybridAgentUpdaterConfiguration", HybridAgentUpdaterConfiguration);
             writer.WriteBoolValue("isDefaultAccessEnabled", IsDefaultAccessEnabled);
             writer.WriteBoolValue("isEnabled", IsEnabled);
-            writer.WriteCollectionOfObjectValues<PublishedResource>("publishedResources", PublishedResources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PublishedResource>("publishedResources", PublishedResources);
         }
     }
 }

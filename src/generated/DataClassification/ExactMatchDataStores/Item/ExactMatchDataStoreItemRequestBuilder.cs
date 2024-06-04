@@ -118,7 +118,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
         {
             var command = new Command("lookup");
             command.Description = "Provides operations to call the lookup method.";
-            var builder = new LookupRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -158,7 +158,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ExactMatchDataStore>(ExactMatchDataStore.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ExactMatchDataStore>(ApiSdk.Models.ExactMatchDataStore.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -186,7 +186,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
         {
             var command = new Command("sessions");
             command.Description = "Provides operations to manage the sessions property of the microsoft.graph.exactMatchDataStore entity.";
-            var builder = new SessionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.Item.Sessions.SessionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -206,14 +206,14 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchDataStoreItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.ExactMatchDataStoreItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExactMatchDataStoreItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExactMatchDataStoreItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.ExactMatchDataStoreItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExactMatchDataStoreItemRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification/exactMatchDataStores/{exactMatchDataStore%2Did}{?%24expand,%24select}", rawUrl)
@@ -245,11 +245,11 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExactMatchDataStoreItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.ExactMatchDataStores.Item.ExactMatchDataStoreItemRequestBuilder.ExactMatchDataStoreItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExactMatchDataStoreItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.ExactMatchDataStores.Item.ExactMatchDataStoreItemRequestBuilder.ExactMatchDataStoreItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -265,11 +265,11 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ExactMatchDataStore body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ExactMatchDataStore body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ExactMatchDataStore body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ExactMatchDataStore body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

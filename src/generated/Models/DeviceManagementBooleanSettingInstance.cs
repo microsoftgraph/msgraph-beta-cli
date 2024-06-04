@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// A setting instance representing a boolean value
     /// </summary>
-    public class DeviceManagementBooleanSettingInstance : DeviceManagementSettingInstance, IParsable
+    public class DeviceManagementBooleanSettingInstance : ApiSdk.Models.DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The boolean value</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementBooleanSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementBooleanSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementBooleanSettingInstance() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementBooleanSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementBooleanSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementBooleanSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementBooleanSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementBooleanSettingInstance();
+            return new ApiSdk.Models.DeviceManagementBooleanSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model

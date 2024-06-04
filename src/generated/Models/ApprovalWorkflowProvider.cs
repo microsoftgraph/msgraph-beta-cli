@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ApprovalWorkflowProvider : Entity, IParsable
+    public class ApprovalWorkflowProvider : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The businessFlows property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BusinessFlow>? BusinessFlows { get; set; }
+        public List<ApiSdk.Models.BusinessFlow>? BusinessFlows { get; set; }
 #nullable restore
 #else
-        public List<BusinessFlow> BusinessFlows { get; set; }
+        public List<ApiSdk.Models.BusinessFlow> BusinessFlows { get; set; }
 #endif
         /// <summary>The businessFlowsWithRequestsAwaitingMyDecision property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BusinessFlow>? BusinessFlowsWithRequestsAwaitingMyDecision { get; set; }
+        public List<ApiSdk.Models.BusinessFlow>? BusinessFlowsWithRequestsAwaitingMyDecision { get; set; }
 #nullable restore
 #else
-        public List<BusinessFlow> BusinessFlowsWithRequestsAwaitingMyDecision { get; set; }
+        public List<ApiSdk.Models.BusinessFlow> BusinessFlowsWithRequestsAwaitingMyDecision { get; set; }
 #endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,20 +37,20 @@ namespace ApiSdk.Models
         /// <summary>The policyTemplates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernancePolicyTemplate>? PolicyTemplates { get; set; }
+        public List<ApiSdk.Models.GovernancePolicyTemplate>? PolicyTemplates { get; set; }
 #nullable restore
 #else
-        public List<GovernancePolicyTemplate> PolicyTemplates { get; set; }
+        public List<ApiSdk.Models.GovernancePolicyTemplate> PolicyTemplates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApprovalWorkflowProvider"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ApprovalWorkflowProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ApprovalWorkflowProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ApprovalWorkflowProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApprovalWorkflowProvider();
+            return new ApiSdk.Models.ApprovalWorkflowProvider();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,10 +60,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "businessFlows", n => { BusinessFlows = n.GetCollectionOfObjectValues<BusinessFlow>(BusinessFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "businessFlowsWithRequestsAwaitingMyDecision", n => { BusinessFlowsWithRequestsAwaitingMyDecision = n.GetCollectionOfObjectValues<BusinessFlow>(BusinessFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "businessFlows", n => { BusinessFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.BusinessFlow>(ApiSdk.Models.BusinessFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "businessFlowsWithRequestsAwaitingMyDecision", n => { BusinessFlowsWithRequestsAwaitingMyDecision = n.GetCollectionOfObjectValues<ApiSdk.Models.BusinessFlow>(ApiSdk.Models.BusinessFlow.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "policyTemplates", n => { PolicyTemplates = n.GetCollectionOfObjectValues<GovernancePolicyTemplate>(GovernancePolicyTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policyTemplates", n => { PolicyTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernancePolicyTemplate>(ApiSdk.Models.GovernancePolicyTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -74,10 +74,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<BusinessFlow>("businessFlows", BusinessFlows);
-            writer.WriteCollectionOfObjectValues<BusinessFlow>("businessFlowsWithRequestsAwaitingMyDecision", BusinessFlowsWithRequestsAwaitingMyDecision);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BusinessFlow>("businessFlows", BusinessFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BusinessFlow>("businessFlowsWithRequestsAwaitingMyDecision", BusinessFlowsWithRequestsAwaitingMyDecision);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<GovernancePolicyTemplate>("policyTemplates", PolicyTemplates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernancePolicyTemplate>("policyTemplates", PolicyTemplates);
         }
     }
 }

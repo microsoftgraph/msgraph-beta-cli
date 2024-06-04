@@ -52,7 +52,7 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<MakePermanentPostRequestBody>(MakePermanentPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentPostRequestBody>(ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -73,14 +73,14 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MakePermanentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MakePermanentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/makePermanent", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MakePermanentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MakePermanentRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}/makePermanent", rawUrl)
@@ -94,11 +94,11 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MakePermanentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MakePermanentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

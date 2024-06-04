@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest
         public string Id { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CancelMyRequestPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest.CancelMyRequestPostRequestBody"/> and sets the default values.
         /// </summary>
         public CancelMyRequestPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CancelMyRequestPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest.CancelMyRequestPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CancelMyRequestPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest.CancelMyRequestPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CancelMyRequestPostRequestBody();
+            return new ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest.CancelMyRequestPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

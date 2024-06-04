@@ -13,20 +13,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedTenantEmailNotification>? Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>? Value { get; set; }
 #nullable restore
 #else
-        public List<ManagedTenantEmailNotification> Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedTenantEmailNotificationCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotificationCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedTenantEmailNotificationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotificationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedTenantEmailNotificationCollectionResponse();
+            return new ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotificationCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<ManagedTenantEmailNotification>(ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>(ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ManagedTenantEmailNotification>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagedTenantEmailNotification>("value", Value);
         }
     }
 }

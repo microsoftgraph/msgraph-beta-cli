@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceAndAppManagementAssignmentTarget? AssignmentTarget { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget? AssignmentTarget { get; set; }
 #nullable restore
 #else
-        public DeviceAndAppManagementAssignmentTarget AssignmentTarget { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentTarget AssignmentTarget { get; set; }
 #endif
         /// <summary>The display name of the Azure AD security group used for the assignment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,13 +48,13 @@ namespace ApiSdk.Models
         /// <summary>The AAD Group we are deploying firmware updates to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidFotaDeploymentAssignmentTarget? Target { get; set; }
+        public ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget? Target { get; set; }
 #nullable restore
 #else
-        public AndroidFotaDeploymentAssignmentTarget Target { get; set; }
+        public ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget Target { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidFotaDeploymentAssignment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidFotaDeploymentAssignment"/> and sets the default values.
         /// </summary>
         public AndroidFotaDeploymentAssignment()
         {
@@ -63,12 +63,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidFotaDeploymentAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidFotaDeploymentAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidFotaDeploymentAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidFotaDeploymentAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidFotaDeploymentAssignment();
+            return new ApiSdk.Models.AndroidFotaDeploymentAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,11 +78,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignmentTarget", n => { AssignmentTarget = n.GetObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "assignmentTarget", n => { AssignmentTarget = n.GetObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>(ApiSdk.Models.DeviceAndAppManagementAssignmentTarget.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "target", n => { Target = n.GetObjectValue<AndroidFotaDeploymentAssignmentTarget>(AndroidFotaDeploymentAssignmentTarget.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget>(ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,11 +92,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<DeviceAndAppManagementAssignmentTarget>("assignmentTarget", AssignmentTarget);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceAndAppManagementAssignmentTarget>("assignmentTarget", AssignmentTarget);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<AndroidFotaDeploymentAssignmentTarget>("target", Target);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidFotaDeploymentAssignmentTarget>("target", Target);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

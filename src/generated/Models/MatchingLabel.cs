@@ -43,10 +43,10 @@ namespace ApiSdk.Models
         /// <summary>The labelActions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LabelActionBase>? LabelActions { get; set; }
+        public List<ApiSdk.Models.LabelActionBase>? LabelActions { get; set; }
 #nullable restore
 #else
-        public List<LabelActionBase> LabelActions { get; set; }
+        public List<ApiSdk.Models.LabelActionBase> LabelActions { get; set; }
 #endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
         public string ToolTip { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MatchingLabel"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MatchingLabel"/> and sets the default values.
         /// </summary>
         public MatchingLabel()
         {
@@ -92,12 +92,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MatchingLabel"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MatchingLabel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MatchingLabel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MatchingLabel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MatchingLabel();
+            return new ApiSdk.Models.MatchingLabel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -107,12 +107,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApplicationMode>(); } },
+                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApiSdk.Models.ApplicationMode>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "isEndpointProtectionEnabled", n => { IsEndpointProtectionEnabled = n.GetBoolValue(); } },
-                { "labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<LabelActionBase>(LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labelActions", n => { LabelActions = n.GetCollectionOfObjectValues<ApiSdk.Models.LabelActionBase>(ApiSdk.Models.LabelActionBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "policyTip", n => { PolicyTip = n.GetStringValue(); } },
@@ -127,12 +127,12 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ApplicationMode>("applicationMode", ApplicationMode);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationMode>("applicationMode", ApplicationMode);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("isEndpointProtectionEnabled", IsEndpointProtectionEnabled);
-            writer.WriteCollectionOfObjectValues<LabelActionBase>("labelActions", LabelActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.LabelActionBase>("labelActions", LabelActions);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("policyTip", PolicyTip);

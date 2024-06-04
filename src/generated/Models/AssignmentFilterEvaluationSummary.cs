@@ -32,21 +32,21 @@ namespace ApiSdk.Models
         /// <summary>The time the assignment filter was last modified.</summary>
         public DateTimeOffset? AssignmentFilterLastModifiedDateTime { get; set; }
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? AssignmentFilterPlatform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? AssignmentFilterPlatform { get; set; }
         /// <summary>Represents type of the assignment filter.</summary>
-        public DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
         /// <summary>A collection of filter types and their corresponding evaluation results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AssignmentFilterTypeAndEvaluationResult>? AssignmentFilterTypeAndEvaluationResults { get; set; }
+        public List<ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult>? AssignmentFilterTypeAndEvaluationResults { get; set; }
 #nullable restore
 #else
-        public List<AssignmentFilterTypeAndEvaluationResult> AssignmentFilterTypeAndEvaluationResults { get; set; }
+        public List<ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult> AssignmentFilterTypeAndEvaluationResults { get; set; }
 #endif
         /// <summary>The time assignment filter was evaluated.</summary>
         public DateTimeOffset? EvaluationDateTime { get; set; }
         /// <summary>Supported evaluation results for filter.</summary>
-        public AssignmentFilterEvaluationResult? EvaluationResult { get; set; }
+        public ApiSdk.Models.AssignmentFilterEvaluationResult? EvaluationResult { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignmentFilterEvaluationSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AssignmentFilterEvaluationSummary"/> and sets the default values.
         /// </summary>
         public AssignmentFilterEvaluationSummary()
         {
@@ -65,12 +65,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignmentFilterEvaluationSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AssignmentFilterEvaluationSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignmentFilterEvaluationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AssignmentFilterEvaluationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignmentFilterEvaluationSummary();
+            return new ApiSdk.Models.AssignmentFilterEvaluationSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,11 +83,11 @@ namespace ApiSdk.Models
                 { "assignmentFilterDisplayName", n => { AssignmentFilterDisplayName = n.GetStringValue(); } },
                 { "assignmentFilterId", n => { AssignmentFilterId = n.GetStringValue(); } },
                 { "assignmentFilterLastModifiedDateTime", n => { AssignmentFilterLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "assignmentFilterPlatform", n => { AssignmentFilterPlatform = n.GetEnumValue<DevicePlatformType>(); } },
-                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<DeviceAndAppManagementAssignmentFilterType>(); } },
-                { "assignmentFilterTypeAndEvaluationResults", n => { AssignmentFilterTypeAndEvaluationResults = n.GetCollectionOfObjectValues<AssignmentFilterTypeAndEvaluationResult>(AssignmentFilterTypeAndEvaluationResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignmentFilterPlatform", n => { AssignmentFilterPlatform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
+                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>(); } },
+                { "assignmentFilterTypeAndEvaluationResults", n => { AssignmentFilterTypeAndEvaluationResults = n.GetCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult>(ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "evaluationDateTime", n => { EvaluationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "evaluationResult", n => { EvaluationResult = n.GetEnumValue<AssignmentFilterEvaluationResult>(); } },
+                { "evaluationResult", n => { EvaluationResult = n.GetEnumValue<ApiSdk.Models.AssignmentFilterEvaluationResult>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -101,11 +101,11 @@ namespace ApiSdk.Models
             writer.WriteStringValue("assignmentFilterDisplayName", AssignmentFilterDisplayName);
             writer.WriteStringValue("assignmentFilterId", AssignmentFilterId);
             writer.WriteDateTimeOffsetValue("assignmentFilterLastModifiedDateTime", AssignmentFilterLastModifiedDateTime);
-            writer.WriteEnumValue<DevicePlatformType>("assignmentFilterPlatform", AssignmentFilterPlatform);
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
-            writer.WriteCollectionOfObjectValues<AssignmentFilterTypeAndEvaluationResult>("assignmentFilterTypeAndEvaluationResults", AssignmentFilterTypeAndEvaluationResults);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("assignmentFilterPlatform", AssignmentFilterPlatform);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult>("assignmentFilterTypeAndEvaluationResults", AssignmentFilterTypeAndEvaluationResults);
             writer.WriteDateTimeOffsetValue("evaluationDateTime", EvaluationDateTime);
-            writer.WriteEnumValue<AssignmentFilterEvaluationResult>("evaluationResult", EvaluationResult);
+            writer.WriteEnumValue<ApiSdk.Models.AssignmentFilterEvaluationResult>("evaluationResult", EvaluationResult);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

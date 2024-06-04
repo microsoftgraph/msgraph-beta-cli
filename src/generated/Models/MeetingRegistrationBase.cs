@@ -7,33 +7,33 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MeetingRegistrationBase : Entity, IParsable
+    public class MeetingRegistrationBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies who can register for the meeting.</summary>
-        public MeetingAudience? AllowedRegistrant { get; set; }
+        public ApiSdk.Models.MeetingAudience? AllowedRegistrant { get; set; }
         /// <summary>Registrants of the online meeting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MeetingRegistrantBase>? Registrants { get; set; }
+        public List<ApiSdk.Models.MeetingRegistrantBase>? Registrants { get; set; }
 #nullable restore
 #else
-        public List<MeetingRegistrantBase> Registrants { get; set; }
+        public List<ApiSdk.Models.MeetingRegistrantBase> Registrants { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingRegistrationBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingRegistrationBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MeetingRegistrationBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MeetingRegistrationBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.externalMeetingRegistration" => new ExternalMeetingRegistration(),
-                "#microsoft.graph.meetingRegistration" => new MeetingRegistration(),
-                _ => new MeetingRegistrationBase(),
+                "#microsoft.graph.externalMeetingRegistration" => new ApiSdk.Models.ExternalMeetingRegistration(),
+                "#microsoft.graph.meetingRegistration" => new ApiSdk.Models.MeetingRegistration(),
+                _ => new ApiSdk.Models.MeetingRegistrationBase(),
             };
         }
         /// <summary>
@@ -44,8 +44,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "allowedRegistrant", n => { AllowedRegistrant = n.GetEnumValue<MeetingAudience>(); } },
-                { "registrants", n => { Registrants = n.GetCollectionOfObjectValues<MeetingRegistrantBase>(MeetingRegistrantBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowedRegistrant", n => { AllowedRegistrant = n.GetEnumValue<ApiSdk.Models.MeetingAudience>(); } },
+                { "registrants", n => { Registrants = n.GetCollectionOfObjectValues<ApiSdk.Models.MeetingRegistrantBase>(ApiSdk.Models.MeetingRegistrantBase.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MeetingAudience>("allowedRegistrant", AllowedRegistrant);
-            writer.WriteCollectionOfObjectValues<MeetingRegistrantBase>("registrants", Registrants);
+            writer.WriteEnumValue<ApiSdk.Models.MeetingAudience>("allowedRegistrant", AllowedRegistrant);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MeetingRegistrantBase>("registrants", Registrants);
         }
     }
 }

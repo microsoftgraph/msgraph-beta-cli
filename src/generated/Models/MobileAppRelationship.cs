@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Describes a relationship between two mobile apps.
     /// </summary>
-    public class MobileAppRelationship : Entity, IParsable
+    public class MobileAppRelationship : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The target mobile app&apos;s display name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,21 +44,21 @@ namespace ApiSdk.Models
         public string TargetPublisher { get; private set; }
 #endif
         /// <summary>Indicates whether the target of a relationship is the parent or the child in the relationship.</summary>
-        public MobileAppRelationshipType? TargetType { get; set; }
+        public ApiSdk.Models.MobileAppRelationshipType? TargetType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppRelationship"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppRelationship"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppRelationship CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppRelationship CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.mobileAppDependency" => new MobileAppDependency(),
-                "#microsoft.graph.mobileAppSupersedence" => new MobileAppSupersedence(),
-                _ => new MobileAppRelationship(),
+                "#microsoft.graph.mobileAppDependency" => new ApiSdk.Models.MobileAppDependency(),
+                "#microsoft.graph.mobileAppSupersedence" => new ApiSdk.Models.MobileAppSupersedence(),
+                _ => new ApiSdk.Models.MobileAppRelationship(),
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "targetDisplayVersion", n => { TargetDisplayVersion = n.GetStringValue(); } },
                 { "targetId", n => { TargetId = n.GetStringValue(); } },
                 { "targetPublisher", n => { TargetPublisher = n.GetStringValue(); } },
-                { "targetType", n => { TargetType = n.GetEnumValue<MobileAppRelationshipType>(); } },
+                { "targetType", n => { TargetType = n.GetEnumValue<ApiSdk.Models.MobileAppRelationshipType>(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("targetId", TargetId);
-            writer.WriteEnumValue<MobileAppRelationshipType>("targetType", TargetType);
+            writer.WriteEnumValue<ApiSdk.Models.MobileAppRelationshipType>("targetType", TargetType);
         }
     }
 }

@@ -53,14 +53,14 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasActiveDeploymentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments.HasActiveDeploymentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public HasActiveDeploymentsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/zebraFotaConnector/hasActiveDeployments", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasActiveDeploymentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments.HasActiveDeploymentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public HasActiveDeploymentsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/zebraFotaConnector/hasActiveDeployments", rawUrl)

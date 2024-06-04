@@ -163,14 +163,14 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CredentialUserRegistrationDetailsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.CredentialUserRegistrationDetails.Item.CredentialUserRegistrationDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CredentialUserRegistrationDetailsItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CredentialUserRegistrationDetailsItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.CredentialUserRegistrationDetails.Item.CredentialUserRegistrationDetailsItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CredentialUserRegistrationDetailsItemRequestBuilder(string rawUrl) : base("{+baseurl}/reports/credentialUserRegistrationDetails/{credentialUserRegistrationDetails%2Did}{?%24expand,%24select}", rawUrl)
@@ -204,11 +204,11 @@ namespace ApiSdk.Reports.CredentialUserRegistrationDetails.Item
         [Obsolete("The Reporting credentialUserRegistrationDetails API is deprecated and will stop returning data on June 30, 2024. Please use the new userRegistrationDetails API. as of 2023-06/credentialUserRegistrationDetails")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CredentialUserRegistrationDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.CredentialUserRegistrationDetails.Item.CredentialUserRegistrationDetailsItemRequestBuilder.CredentialUserRegistrationDetailsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CredentialUserRegistrationDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.CredentialUserRegistrationDetails.Item.CredentialUserRegistrationDetailsItemRequestBuilder.CredentialUserRegistrationDetailsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

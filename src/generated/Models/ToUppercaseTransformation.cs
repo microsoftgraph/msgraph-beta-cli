@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ToUppercaseTransformation : CustomClaimTransformation, IParsable
+    public class ToUppercaseTransformation : ApiSdk.Models.CustomClaimTransformation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="ToUppercaseTransformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ToUppercaseTransformation"/> and sets the default values.
         /// </summary>
         public ToUppercaseTransformation() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ToUppercaseTransformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ToUppercaseTransformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ToUppercaseTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ToUppercaseTransformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ToUppercaseTransformation();
+            return new ApiSdk.Models.ToUppercaseTransformation();
         }
         /// <summary>
         /// The deserialization information for the current model

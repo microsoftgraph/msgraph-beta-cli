@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CurrentLabel"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CurrentLabel"/> and sets the default values.
         /// </summary>
         public CurrentLabel()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CurrentLabel"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CurrentLabel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CurrentLabel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CurrentLabel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CurrentLabel();
+            return new ApiSdk.Models.CurrentLabel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApplicationMode>(); } },
+                { "applicationMode", n => { ApplicationMode = n.GetEnumValue<ApiSdk.Models.ApplicationMode>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ApplicationMode>("applicationMode", ApplicationMode);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationMode>("applicationMode", ApplicationMode);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class FocusActivityStatistics : ActivityStatistics, IParsable
+    public class FocusActivityStatistics : ApiSdk.Models.ActivityStatistics, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="FocusActivityStatistics"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.FocusActivityStatistics"/> and sets the default values.
         /// </summary>
         public FocusActivityStatistics() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FocusActivityStatistics"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.FocusActivityStatistics"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FocusActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.FocusActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FocusActivityStatistics();
+            return new ApiSdk.Models.FocusActivityStatistics();
         }
         /// <summary>
         /// The deserialization information for the current model

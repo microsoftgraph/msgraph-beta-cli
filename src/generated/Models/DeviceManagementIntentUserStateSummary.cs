@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents user state summary for an intent
     /// </summary>
-    public class DeviceManagementIntentUserStateSummary : Entity, IParsable
+    public class DeviceManagementIntentUserStateSummary : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Number of users in conflict</summary>
         public int? ConflictCount { get; set; }
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementIntentUserStateSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementIntentUserStateSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementIntentUserStateSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementIntentUserStateSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementIntentUserStateSummary();
+            return new ApiSdk.Models.DeviceManagementIntentUserStateSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

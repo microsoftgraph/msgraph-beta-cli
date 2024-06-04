@@ -139,7 +139,7 @@ namespace ApiSdk.Storage.Settings.Quota.Services.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ServiceStorageQuotaBreakdown>(ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ServiceStorageQuotaBreakdown>(ApiSdk.Models.ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -160,14 +160,14 @@ namespace ApiSdk.Storage.Settings.Quota.Services.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceStorageQuotaBreakdownItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.Settings.Quota.Services.Item.ServiceStorageQuotaBreakdownItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ServiceStorageQuotaBreakdownItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/storage/settings/quota/services/{serviceStorageQuotaBreakdown%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceStorageQuotaBreakdownItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.Settings.Quota.Services.Item.ServiceStorageQuotaBreakdownItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ServiceStorageQuotaBreakdownItemRequestBuilder(string rawUrl) : base("{+baseurl}/storage/settings/quota/services/{serviceStorageQuotaBreakdown%2Did}{?%24expand,%24select}", rawUrl)
@@ -199,11 +199,11 @@ namespace ApiSdk.Storage.Settings.Quota.Services.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.Settings.Quota.Services.Item.ServiceStorageQuotaBreakdownItemRequestBuilder.ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.Settings.Quota.Services.Item.ServiceStorageQuotaBreakdownItemRequestBuilder.ServiceStorageQuotaBreakdownItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -219,11 +219,11 @@ namespace ApiSdk.Storage.Settings.Quota.Services.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ServiceStorageQuotaBreakdown body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ServiceStorageQuotaBreakdown body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ServiceStorageQuotaBreakdown body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ServiceStorageQuotaBreakdown body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

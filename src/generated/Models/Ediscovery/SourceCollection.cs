@@ -13,10 +13,10 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Adds an additional source to the sourceCollection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DataSource>? AdditionalSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.DataSource>? AdditionalSources { get; set; }
 #nullable restore
 #else
-        public List<DataSource> AdditionalSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.DataSource> AdditionalSources { get; set; }
 #endif
         /// <summary>Adds the results of the sourceCollection to the specified reviewSet.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Custodian sources that are included in the sourceCollection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DataSource>? CustodianSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.DataSource>? CustodianSources { get; set; }
 #nullable restore
 #else
-        public List<DataSource> CustodianSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.DataSource> CustodianSources { get; set; }
 #endif
         /// <summary>When specified, the collection spans across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.</summary>
         public ApiSdk.Models.Ediscovery.DataSourceScopes? DataSourceScopes { get; set; }
@@ -73,10 +73,10 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The last estimate operation associated with the sourceCollection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EstimateStatisticsOperation? LastEstimateStatisticsOperation { get; set; }
+        public ApiSdk.Models.Ediscovery.EstimateStatisticsOperation? LastEstimateStatisticsOperation { get; set; }
 #nullable restore
 #else
-        public EstimateStatisticsOperation LastEstimateStatisticsOperation { get; set; }
+        public ApiSdk.Models.Ediscovery.EstimateStatisticsOperation LastEstimateStatisticsOperation { get; set; }
 #endif
         /// <summary>The last user who modified the sourceCollection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,20 +91,20 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>noncustodialDataSource sources that are included in the sourceCollection</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NoncustodialDataSource>? NoncustodialSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.NoncustodialDataSource>? NoncustodialSources { get; set; }
 #nullable restore
 #else
-        public List<NoncustodialDataSource> NoncustodialSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.NoncustodialDataSource> NoncustodialSources { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SourceCollection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.SourceCollection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SourceCollection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.SourceCollection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SourceCollection();
+            return new ApiSdk.Models.Ediscovery.SourceCollection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -115,18 +115,18 @@ namespace ApiSdk.Models.Ediscovery
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "addToReviewSetOperation", n => { AddToReviewSetOperation = n.GetObjectValue<ApiSdk.Models.Ediscovery.AddToReviewSetOperation>(ApiSdk.Models.Ediscovery.AddToReviewSetOperation.CreateFromDiscriminatorValue); } },
-                { "additionalSources", n => { AdditionalSources = n.GetCollectionOfObjectValues<DataSource>(DataSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalSources", n => { AdditionalSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.DataSource>(ApiSdk.Models.Ediscovery.DataSource.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contentQuery", n => { ContentQuery = n.GetStringValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "custodianSources", n => { CustodianSources = n.GetCollectionOfObjectValues<DataSource>(DataSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dataSourceScopes", n => { DataSourceScopes = n.GetEnumValue<DataSourceScopes>(); } },
+                { "custodianSources", n => { CustodianSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.DataSource>(ApiSdk.Models.Ediscovery.DataSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dataSourceScopes", n => { DataSourceScopes = n.GetEnumValue<ApiSdk.Models.Ediscovery.DataSourceScopes>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "lastEstimateStatisticsOperation", n => { LastEstimateStatisticsOperation = n.GetObjectValue<EstimateStatisticsOperation>(EstimateStatisticsOperation.CreateFromDiscriminatorValue); } },
+                { "lastEstimateStatisticsOperation", n => { LastEstimateStatisticsOperation = n.GetObjectValue<ApiSdk.Models.Ediscovery.EstimateStatisticsOperation>(ApiSdk.Models.Ediscovery.EstimateStatisticsOperation.CreateFromDiscriminatorValue); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "noncustodialSources", n => { NoncustodialSources = n.GetCollectionOfObjectValues<NoncustodialDataSource>(NoncustodialDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "noncustodialSources", n => { NoncustodialSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.NoncustodialDataSource>(ApiSdk.Models.Ediscovery.NoncustodialDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -137,19 +137,19 @@ namespace ApiSdk.Models.Ediscovery
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DataSource>("additionalSources", AdditionalSources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.DataSource>("additionalSources", AdditionalSources);
             writer.WriteObjectValue<ApiSdk.Models.Ediscovery.AddToReviewSetOperation>("addToReviewSetOperation", AddToReviewSetOperation);
             writer.WriteStringValue("contentQuery", ContentQuery);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<DataSource>("custodianSources", CustodianSources);
-            writer.WriteEnumValue<DataSourceScopes>("dataSourceScopes", DataSourceScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.DataSource>("custodianSources", CustodianSources);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.DataSourceScopes>("dataSourceScopes", DataSourceScopes);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<EstimateStatisticsOperation>("lastEstimateStatisticsOperation", LastEstimateStatisticsOperation);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.EstimateStatisticsOperation>("lastEstimateStatisticsOperation", LastEstimateStatisticsOperation);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<NoncustodialDataSource>("noncustodialSources", NoncustodialSources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.NoncustodialDataSource>("noncustodialSources", NoncustodialSources);
         }
     }
 }

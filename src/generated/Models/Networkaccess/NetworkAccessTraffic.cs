@@ -11,7 +11,7 @@ namespace ApiSdk.Models.Networkaccess
     #pragma warning restore CS1591
     {
         /// <summary>Indicates what action to take based on filtering policies. The possible values are: block, allow.</summary>
-        public FilteringPolicyAction? Action { get; set; }
+        public ApiSdk.Models.Networkaccess.FilteringPolicyAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Represents the version of the Global Secure Access client agent software. Supports $filter (eq) and $orderby.</summary>
@@ -77,10 +77,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The destinationWebCategory property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WebCategory? DestinationWebCategory { get; set; }
+        public ApiSdk.Models.Networkaccess.WebCategory? DestinationWebCategory { get; set; }
 #nullable restore
 #else
-        public WebCategory DestinationWebCategory { get; set; }
+        public ApiSdk.Models.Networkaccess.WebCategory DestinationWebCategory { get; set; }
 #endif
         /// <summary>Represents the category classification of a device within a network infrastructure. The possible values are: client, branch, unknownFutureValue. Supports $filter (eq) and $orderby.</summary>
         public ApiSdk.Models.Networkaccess.DeviceCategory? DeviceCategory { get; set; }
@@ -141,7 +141,7 @@ namespace ApiSdk.Models.Networkaccess
         public string InitiatingProcessName { get; set; }
 #endif
         /// <summary>Represents the networking protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.</summary>
-        public NetworkingProtocol? NetworkProtocol { get; set; }
+        public ApiSdk.Models.Networkaccess.NetworkingProtocol? NetworkProtocol { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -247,7 +247,7 @@ namespace ApiSdk.Models.Networkaccess
         public string TransactionId { get; set; }
 #endif
         /// <summary>Represents the transport protocol used for communication.The possible values are: ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII, unknownFutureValue. Supports $filter (eq) and $orderby.</summary>
-        public NetworkingProtocol? TransportProtocol { get; set; }
+        public ApiSdk.Models.Networkaccess.NetworkingProtocol? TransportProtocol { get; set; }
         /// <summary>Represents a unique identifier assigned to a user. Supports $filter (eq) and $orderby.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -273,7 +273,7 @@ namespace ApiSdk.Models.Networkaccess
         public List<string> VendorNames { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="NetworkAccessTraffic"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.NetworkAccessTraffic"/> and sets the default values.
         /// </summary>
         public NetworkAccessTraffic()
         {
@@ -282,12 +282,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NetworkAccessTraffic"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.NetworkAccessTraffic"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static NetworkAccessTraffic CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.NetworkAccessTraffic CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NetworkAccessTraffic();
+            return new ApiSdk.Models.Networkaccess.NetworkAccessTraffic();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -297,7 +297,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Networkaccess.FilteringPolicyAction>(); } },
                 { "agentVersion", n => { AgentVersion = n.GetStringValue(); } },
                 { "applicationSnapshot", n => { ApplicationSnapshot = n.GetObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>(ApiSdk.Models.Networkaccess.ApplicationSnapshot.CreateFromDiscriminatorValue); } },
                 { "connectionId", n => { ConnectionId = n.GetStringValue(); } },
@@ -307,8 +307,8 @@ namespace ApiSdk.Models.Networkaccess
                 { "destinationIp", n => { DestinationIp = n.GetStringValue(); } },
                 { "destinationPort", n => { DestinationPort = n.GetIntValue(); } },
                 { "destinationUrl", n => { DestinationUrl = n.GetStringValue(); } },
-                { "destinationWebCategory", n => { DestinationWebCategory = n.GetObjectValue<WebCategory>(WebCategory.CreateFromDiscriminatorValue); } },
-                { "deviceCategory", n => { DeviceCategory = n.GetEnumValue<DeviceCategory>(); } },
+                { "destinationWebCategory", n => { DestinationWebCategory = n.GetObjectValue<ApiSdk.Models.Networkaccess.WebCategory>(ApiSdk.Models.Networkaccess.WebCategory.CreateFromDiscriminatorValue); } },
+                { "deviceCategory", n => { DeviceCategory = n.GetEnumValue<ApiSdk.Models.Networkaccess.DeviceCategory>(); } },
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceOperatingSystem", n => { DeviceOperatingSystem = n.GetStringValue(); } },
                 { "deviceOperatingSystemVersion", n => { DeviceOperatingSystemVersion = n.GetStringValue(); } },
@@ -316,7 +316,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "filteringProfileName", n => { FilteringProfileName = n.GetStringValue(); } },
                 { "headers", n => { Headers = n.GetObjectValue<ApiSdk.Models.Networkaccess.Headers>(ApiSdk.Models.Networkaccess.Headers.CreateFromDiscriminatorValue); } },
                 { "initiatingProcessName", n => { InitiatingProcessName = n.GetStringValue(); } },
-                { "networkProtocol", n => { NetworkProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "networkProtocol", n => { NetworkProtocol = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "policyId", n => { PolicyId = n.GetStringValue(); } },
                 { "policyName", n => { PolicyName = n.GetStringValue(); } },
@@ -331,9 +331,9 @@ namespace ApiSdk.Models.Networkaccess
                 { "sourcePort", n => { SourcePort = n.GetIntValue(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
                 { "threatType", n => { ThreatType = n.GetStringValue(); } },
-                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficType>(); } },
                 { "transactionId", n => { TransactionId = n.GetStringValue(); } },
-                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
                 { "vendorNames", n => { VendorNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -346,7 +346,7 @@ namespace ApiSdk.Models.Networkaccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<FilteringPolicyAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.FilteringPolicyAction>("action", Action);
             writer.WriteStringValue("agentVersion", AgentVersion);
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.ApplicationSnapshot>("applicationSnapshot", ApplicationSnapshot);
             writer.WriteStringValue("connectionId", ConnectionId);
@@ -356,8 +356,8 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteStringValue("destinationIp", DestinationIp);
             writer.WriteIntValue("destinationPort", DestinationPort);
             writer.WriteStringValue("destinationUrl", DestinationUrl);
-            writer.WriteObjectValue<WebCategory>("destinationWebCategory", DestinationWebCategory);
-            writer.WriteEnumValue<DeviceCategory>("deviceCategory", DeviceCategory);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.WebCategory>("destinationWebCategory", DestinationWebCategory);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.DeviceCategory>("deviceCategory", DeviceCategory);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceOperatingSystem", DeviceOperatingSystem);
             writer.WriteStringValue("deviceOperatingSystemVersion", DeviceOperatingSystemVersion);
@@ -365,7 +365,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteStringValue("filteringProfileName", FilteringProfileName);
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.Headers>("headers", Headers);
             writer.WriteStringValue("initiatingProcessName", InitiatingProcessName);
-            writer.WriteEnumValue<NetworkingProtocol>("networkProtocol", NetworkProtocol);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>("networkProtocol", NetworkProtocol);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("policyId", PolicyId);
             writer.WriteStringValue("policyName", PolicyName);
@@ -380,9 +380,9 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteIntValue("sourcePort", SourcePort);
             writer.WriteStringValue("tenantId", TenantId);
             writer.WriteStringValue("threatType", ThreatType);
-            writer.WriteEnumValue<TrafficType>("trafficType", TrafficType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficType>("trafficType", TrafficType);
             writer.WriteStringValue("transactionId", TransactionId);
-            writer.WriteEnumValue<NetworkingProtocol>("transportProtocol", TransportProtocol);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>("transportProtocol", TransportProtocol);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
             writer.WriteCollectionOfPrimitiveValues<string>("vendorNames", VendorNames);

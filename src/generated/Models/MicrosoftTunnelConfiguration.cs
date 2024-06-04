@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents a collection of Microsoft Tunnel settings
     /// </summary>
-    public class MicrosoftTunnelConfiguration : Entity, IParsable
+    public class MicrosoftTunnelConfiguration : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Additional settings that may be applied to the server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? AdvancedSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? AdvancedSettings { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> AdvancedSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> AdvancedSettings { get; set; }
 #endif
         /// <summary>The Default Domain appendix that will be used by the clients</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -116,12 +116,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftTunnelConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftTunnelConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftTunnelConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MicrosoftTunnelConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftTunnelConfiguration();
+            return new ApiSdk.Models.MicrosoftTunnelConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -131,7 +131,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "advancedSettings", n => { AdvancedSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "advancedSettings", n => { AdvancedSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "defaultDomainSuffix", n => { DefaultDomainSuffix = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "disableUdpConnections", n => { DisableUdpConnections = n.GetBoolValue(); } },
@@ -156,7 +156,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("advancedSettings", AdvancedSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("advancedSettings", AdvancedSettings);
             writer.WriteStringValue("defaultDomainSuffix", DefaultDomainSuffix);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("disableUdpConnections", DisableUdpConnections);

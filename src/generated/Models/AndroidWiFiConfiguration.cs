@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Android device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user. This profile provides limited and simpler security types than Enterprise Wi-Fi profile.
     /// </summary>
-    public class AndroidWiFiConfiguration : DeviceConfiguration, IParsable
+    public class AndroidWiFiConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -32,9 +32,9 @@ namespace ApiSdk.Models
         public string Ssid { get; set; }
 #endif
         /// <summary>Wi-Fi Security Types for Android.</summary>
-        public AndroidWiFiSecurityType? WiFiSecurityType { get; set; }
+        public ApiSdk.Models.AndroidWiFiSecurityType? WiFiSecurityType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidWiFiConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidWiFiConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidWiFiConfiguration() : base()
         {
@@ -43,16 +43,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidWiFiConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidWiFiConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.androidEnterpriseWiFiConfiguration" => new AndroidEnterpriseWiFiConfiguration(),
-                _ => new AndroidWiFiConfiguration(),
+                "#microsoft.graph.androidEnterpriseWiFiConfiguration" => new ApiSdk.Models.AndroidEnterpriseWiFiConfiguration(),
+                _ => new ApiSdk.Models.AndroidWiFiConfiguration(),
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
                 { "connectWhenNetworkNameIsHidden", n => { ConnectWhenNetworkNameIsHidden = n.GetBoolValue(); } },
                 { "networkName", n => { NetworkName = n.GetStringValue(); } },
                 { "ssid", n => { Ssid = n.GetStringValue(); } },
-                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<AndroidWiFiSecurityType>(); } },
+                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<ApiSdk.Models.AndroidWiFiSecurityType>(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("connectWhenNetworkNameIsHidden", ConnectWhenNetworkNameIsHidden);
             writer.WriteStringValue("networkName", NetworkName);
             writer.WriteStringValue("ssid", Ssid);
-            writer.WriteEnumValue<AndroidWiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidWiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
         }
     }
 }

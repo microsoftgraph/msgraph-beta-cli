@@ -21,7 +21,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdatableAssetError"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.UpdatableAssetError"/> and sets the default values.
         /// </summary>
         public UpdatableAssetError()
         {
@@ -30,16 +30,16 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatableAssetError"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.UpdatableAssetError"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdatableAssetError CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.UpdatableAssetError CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.azureADDeviceRegistrationError" => new AzureADDeviceRegistrationError(),
-                _ => new UpdatableAssetError(),
+                "#microsoft.graph.windowsUpdates.azureADDeviceRegistrationError" => new ApiSdk.Models.WindowsUpdates.AzureADDeviceRegistrationError(),
+                _ => new ApiSdk.Models.WindowsUpdates.UpdatableAssetError(),
             };
         }
         /// <summary>

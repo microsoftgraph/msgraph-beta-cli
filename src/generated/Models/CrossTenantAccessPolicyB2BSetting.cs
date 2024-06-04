@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The list of applications targeted with your cross-tenant access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CrossTenantAccessPolicyTargetConfiguration? Applications { get; set; }
+        public ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration? Applications { get; set; }
 #nullable restore
 #else
-        public CrossTenantAccessPolicyTargetConfiguration Applications { get; set; }
+        public ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration Applications { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The list of users and groups targeted with your cross-tenant access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CrossTenantAccessPolicyTargetConfiguration? UsersAndGroups { get; set; }
+        public ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration? UsersAndGroups { get; set; }
 #nullable restore
 #else
-        public CrossTenantAccessPolicyTargetConfiguration UsersAndGroups { get; set; }
+        public ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration UsersAndGroups { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CrossTenantAccessPolicyB2BSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CrossTenantAccessPolicyB2BSetting"/> and sets the default values.
         /// </summary>
         public CrossTenantAccessPolicyB2BSetting()
         {
@@ -46,16 +46,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CrossTenantAccessPolicyB2BSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CrossTenantAccessPolicyB2BSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CrossTenantAccessPolicyB2BSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CrossTenantAccessPolicyB2BSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.crossTenantAccessPolicyTenantRestrictions" => new CrossTenantAccessPolicyTenantRestrictions(),
-                _ => new CrossTenantAccessPolicyB2BSetting(),
+                "#microsoft.graph.crossTenantAccessPolicyTenantRestrictions" => new ApiSdk.Models.CrossTenantAccessPolicyTenantRestrictions(),
+                _ => new ApiSdk.Models.CrossTenantAccessPolicyB2BSetting(),
             };
         }
         /// <summary>
@@ -66,9 +66,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "applications", n => { Applications = n.GetObjectValue<CrossTenantAccessPolicyTargetConfiguration>(CrossTenantAccessPolicyTargetConfiguration.CreateFromDiscriminatorValue); } },
+                { "applications", n => { Applications = n.GetObjectValue<ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration>(ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "usersAndGroups", n => { UsersAndGroups = n.GetObjectValue<CrossTenantAccessPolicyTargetConfiguration>(CrossTenantAccessPolicyTargetConfiguration.CreateFromDiscriminatorValue); } },
+                { "usersAndGroups", n => { UsersAndGroups = n.GetObjectValue<ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration>(ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,9 +78,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<CrossTenantAccessPolicyTargetConfiguration>("applications", Applications);
+            writer.WriteObjectValue<ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration>("applications", Applications);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<CrossTenantAccessPolicyTargetConfiguration>("usersAndGroups", UsersAndGroups);
+            writer.WriteObjectValue<ApiSdk.Models.CrossTenantAccessPolicyTargetConfiguration>("usersAndGroups", UsersAndGroups);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -29,7 +29,7 @@ namespace ApiSdk.DataClassification.ClassifyFile
         public List<string> SensitiveTypeIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClassifyFilePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ClassifyFile.ClassifyFilePostRequestBody"/> and sets the default values.
         /// </summary>
         public ClassifyFilePostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.DataClassification.ClassifyFile
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClassifyFilePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DataClassification.ClassifyFile.ClassifyFilePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ClassifyFilePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DataClassification.ClassifyFile.ClassifyFilePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClassifyFilePostRequestBody();
+            return new ApiSdk.DataClassification.ClassifyFile.ClassifyFilePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GcpPermissionsDefinitionAction : PermissionsDefinitionAction, IParsable
+    public class GcpPermissionsDefinitionAction : ApiSdk.Models.PermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="GcpPermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GcpPermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public GcpPermissionsDefinitionAction() : base()
         {
@@ -20,17 +20,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpPermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpPermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GcpPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GcpPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.gcpActionPermissionsDefinitionAction" => new GcpActionPermissionsDefinitionAction(),
-                "#microsoft.graph.gcpRolePermissionsDefinitionAction" => new GcpRolePermissionsDefinitionAction(),
-                _ => new GcpPermissionsDefinitionAction(),
+                "#microsoft.graph.gcpActionPermissionsDefinitionAction" => new ApiSdk.Models.GcpActionPermissionsDefinitionAction(),
+                "#microsoft.graph.gcpRolePermissionsDefinitionAction" => new ApiSdk.Models.GcpRolePermissionsDefinitionAction(),
+                _ => new ApiSdk.Models.GcpPermissionsDefinitionAction(),
             };
         }
         /// <summary>

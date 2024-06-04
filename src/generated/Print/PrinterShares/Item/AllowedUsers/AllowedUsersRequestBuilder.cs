@@ -31,7 +31,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var commands = new List<Command>();
-            var builder = new UserItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.AllowedUsers.Item.UserItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildMailboxSettingsNavCommand());
             commands.Add(builder.BuildRefByIdNavCommand());
             commands.Add(builder.BuildServiceProvisioningErrorsNavCommand());
@@ -45,7 +45,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.AllowedUsers.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -165,7 +165,7 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers
         {
             var command = new Command("ref");
             command.Description = "Provides operations to manage the collection of print entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.AllowedUsers.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -177,14 +177,14 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowedUsersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.AllowedUsers.AllowedUsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AllowedUsersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowedUsersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.AllowedUsers.AllowedUsersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AllowedUsersRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares/{printerShare%2Did}/allowedUsers{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -198,11 +198,11 @@ namespace ApiSdk.Print.PrinterShares.Item.AllowedUsers
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AllowedUsersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.AllowedUsers.AllowedUsersRequestBuilder.AllowedUsersRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AllowedUsersRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.AllowedUsers.AllowedUsersRequestBuilder.AllowedUsersRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

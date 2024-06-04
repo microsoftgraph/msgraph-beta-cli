@@ -33,7 +33,7 @@ namespace ApiSdk.Models.Security
         public string SensitiveTypeId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClassificationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.ClassificationResult"/> and sets the default values.
         /// </summary>
         public ClassificationResult()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClassificationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.ClassificationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ClassificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.ClassificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClassificationResult();
+            return new ApiSdk.Models.Security.ClassificationResult();
         }
         /// <summary>
         /// The deserialization information for the current model

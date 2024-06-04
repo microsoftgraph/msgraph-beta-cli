@@ -41,10 +41,10 @@ namespace ApiSdk.Models
         /// <summary>The locale information for the user, including the preferred language and country/region.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LocaleInfo? Language { get; set; }
+        public ApiSdk.Models.LocaleInfo? Language { get; set; }
 #nullable restore
 #else
-        public LocaleInfo Language { get; set; }
+        public ApiSdk.Models.LocaleInfo Language { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         /// <summary>The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.</summary>
         public ApiSdk.Models.UserPurpose? UserPurpose { get; set; }
         /// <summary>The userPurposeV2 property</summary>
-        public MailboxRecipientType? UserPurposeV2 { get; set; }
+        public ApiSdk.Models.MailboxRecipientType? UserPurposeV2 { get; set; }
         /// <summary>The days of the week and hours in a specific time zone that the user works.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.WorkingHours WorkingHours { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MailboxSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MailboxSettings"/> and sets the default values.
         /// </summary>
         public MailboxSettings()
         {
@@ -92,12 +92,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MailboxSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MailboxSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MailboxSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MailboxSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MailboxSettings();
+            return new ApiSdk.Models.MailboxSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -110,13 +110,13 @@ namespace ApiSdk.Models
                 { "archiveFolder", n => { ArchiveFolder = n.GetStringValue(); } },
                 { "automaticRepliesSetting", n => { AutomaticRepliesSetting = n.GetObjectValue<ApiSdk.Models.AutomaticRepliesSetting>(ApiSdk.Models.AutomaticRepliesSetting.CreateFromDiscriminatorValue); } },
                 { "dateFormat", n => { DateFormat = n.GetStringValue(); } },
-                { "delegateMeetingMessageDeliveryOptions", n => { DelegateMeetingMessageDeliveryOptions = n.GetEnumValue<DelegateMeetingMessageDeliveryOptions>(); } },
-                { "language", n => { Language = n.GetObjectValue<LocaleInfo>(LocaleInfo.CreateFromDiscriminatorValue); } },
+                { "delegateMeetingMessageDeliveryOptions", n => { DelegateMeetingMessageDeliveryOptions = n.GetEnumValue<ApiSdk.Models.DelegateMeetingMessageDeliveryOptions>(); } },
+                { "language", n => { Language = n.GetObjectValue<ApiSdk.Models.LocaleInfo>(ApiSdk.Models.LocaleInfo.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "timeFormat", n => { TimeFormat = n.GetStringValue(); } },
                 { "timeZone", n => { TimeZone = n.GetStringValue(); } },
-                { "userPurpose", n => { UserPurpose = n.GetEnumValue<UserPurpose>(); } },
-                { "userPurposeV2", n => { UserPurposeV2 = n.GetEnumValue<MailboxRecipientType>(); } },
+                { "userPurpose", n => { UserPurpose = n.GetEnumValue<ApiSdk.Models.UserPurpose>(); } },
+                { "userPurposeV2", n => { UserPurposeV2 = n.GetEnumValue<ApiSdk.Models.MailboxRecipientType>(); } },
                 { "workingHours", n => { WorkingHours = n.GetObjectValue<ApiSdk.Models.WorkingHours>(ApiSdk.Models.WorkingHours.CreateFromDiscriminatorValue); } },
             };
         }
@@ -130,13 +130,13 @@ namespace ApiSdk.Models
             writer.WriteStringValue("archiveFolder", ArchiveFolder);
             writer.WriteObjectValue<ApiSdk.Models.AutomaticRepliesSetting>("automaticRepliesSetting", AutomaticRepliesSetting);
             writer.WriteStringValue("dateFormat", DateFormat);
-            writer.WriteEnumValue<DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", DelegateMeetingMessageDeliveryOptions);
-            writer.WriteObjectValue<LocaleInfo>("language", Language);
+            writer.WriteEnumValue<ApiSdk.Models.DelegateMeetingMessageDeliveryOptions>("delegateMeetingMessageDeliveryOptions", DelegateMeetingMessageDeliveryOptions);
+            writer.WriteObjectValue<ApiSdk.Models.LocaleInfo>("language", Language);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("timeFormat", TimeFormat);
             writer.WriteStringValue("timeZone", TimeZone);
-            writer.WriteEnumValue<UserPurpose>("userPurpose", UserPurpose);
-            writer.WriteEnumValue<MailboxRecipientType>("userPurposeV2", UserPurposeV2);
+            writer.WriteEnumValue<ApiSdk.Models.UserPurpose>("userPurpose", UserPurpose);
+            writer.WriteEnumValue<ApiSdk.Models.MailboxRecipientType>("userPurposeV2", UserPurposeV2);
             writer.WriteObjectValue<ApiSdk.Models.WorkingHours>("workingHours", WorkingHours);
             writer.WriteAdditionalData(AdditionalData);
         }

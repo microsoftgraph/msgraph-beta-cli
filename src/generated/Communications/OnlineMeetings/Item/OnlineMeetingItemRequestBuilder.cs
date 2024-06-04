@@ -41,7 +41,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("alternative-recording");
             command.Description = "Provides operations to manage the media for the cloudCommunications entity.";
-            var builder = new AlternativeRecordingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.AlternativeRecording.AlternativeRecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -60,7 +60,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("attendance-reports");
             command.Description = "Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeetingBase entity.";
-            var builder = new AttendanceReportsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.AttendanceReports.AttendanceReportsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -87,7 +87,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("attendee-report");
             command.Description = "Provides operations to manage the media for the cloudCommunications entity.";
-            var builder = new AttendeeReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.AttendeeReport.AttendeeReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -106,7 +106,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("broadcast-recording");
             command.Description = "Provides operations to manage the media for the cloudCommunications entity.";
-            var builder = new BroadcastRecordingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.BroadcastRecording.BroadcastRecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -212,7 +212,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("get-virtual-appointment-join-web-url");
             command.Description = "Provides operations to call the getVirtualAppointmentJoinWebUrl method.";
-            var builder = new GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.GetVirtualAppointmentJoinWebUrl.GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -229,7 +229,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("meeting-attendance-report");
             command.Description = "Provides operations to manage the meetingAttendanceReport property of the microsoft.graph.onlineMeeting entity.";
-            var builder = new MeetingAttendanceReportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.MeetingAttendanceReport.MeetingAttendanceReportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAttendanceRecordsNavCommand());
@@ -277,7 +277,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<OnlineMeeting>(OnlineMeeting.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.OnlineMeeting>(ApiSdk.Models.OnlineMeeting.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -305,7 +305,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("recording");
             command.Description = "Provides operations to manage the media for the cloudCommunications entity.";
-            var builder = new RecordingRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.Recording.RecordingRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -324,7 +324,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("recordings");
             command.Description = "Provides operations to manage the recordings property of the microsoft.graph.onlineMeeting entity.";
-            var builder = new RecordingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.Recordings.RecordingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -352,7 +352,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("registration");
             command.Description = "Provides operations to manage the registration property of the microsoft.graph.onlineMeeting entity.";
-            var builder = new RegistrationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.Registration.RegistrationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCustomQuestionsNavCommand());
@@ -378,7 +378,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("send-virtual-appointment-reminder-sms");
             command.Description = "Provides operations to call the sendVirtualAppointmentReminderSms method.";
-            var builder = new SendVirtualAppointmentReminderSmsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.SendVirtualAppointmentReminderSms.SendVirtualAppointmentReminderSmsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -395,7 +395,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("send-virtual-appointment-sms");
             command.Description = "Provides operations to call the sendVirtualAppointmentSms method.";
-            var builder = new SendVirtualAppointmentSmsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.SendVirtualAppointmentSms.SendVirtualAppointmentSmsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -412,7 +412,7 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         {
             var command = new Command("transcripts");
             command.Description = "Provides operations to manage the transcripts property of the microsoft.graph.onlineMeeting entity.";
-            var builder = new TranscriptsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Communications.OnlineMeetings.Item.Transcripts.TranscriptsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -433,14 +433,14 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnlineMeetingItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Communications.OnlineMeetings.Item.OnlineMeetingItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OnlineMeetingItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnlineMeetingItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Communications.OnlineMeetings.Item.OnlineMeetingItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OnlineMeetingItemRequestBuilder(string rawUrl) : base("{+baseurl}/communications/onlineMeetings/{onlineMeeting%2Did}{?%24expand,%24select}", rawUrl)
@@ -472,11 +472,11 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnlineMeetingItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Communications.OnlineMeetings.Item.OnlineMeetingItemRequestBuilder.OnlineMeetingItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnlineMeetingItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Communications.OnlineMeetings.Item.OnlineMeetingItemRequestBuilder.OnlineMeetingItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -492,11 +492,11 @@ namespace ApiSdk.Communications.OnlineMeetings.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

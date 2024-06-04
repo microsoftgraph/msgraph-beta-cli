@@ -16,15 +16,15 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityL
         /// <summary>The importedDeviceIdentities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ImportedDeviceIdentity>? ImportedDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedDeviceIdentity>? ImportedDeviceIdentities { get; set; }
 #nullable restore
 #else
-        public List<ImportedDeviceIdentity> ImportedDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedDeviceIdentity> ImportedDeviceIdentities { get; set; }
 #endif
         /// <summary>The overwriteImportedDeviceIdentities property</summary>
         public bool? OverwriteImportedDeviceIdentities { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ImportDeviceIdentityListPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList.ImportDeviceIdentityListPostRequestBody"/> and sets the default values.
         /// </summary>
         public ImportDeviceIdentityListPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityL
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImportDeviceIdentityListPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList.ImportDeviceIdentityListPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ImportDeviceIdentityListPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList.ImportDeviceIdentityListPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ImportDeviceIdentityListPostRequestBody();
+            return new ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityList.ImportDeviceIdentityListPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityL
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "importedDeviceIdentities", n => { ImportedDeviceIdentities = n.GetCollectionOfObjectValues<ImportedDeviceIdentity>(ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "importedDeviceIdentities", n => { ImportedDeviceIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.ImportedDeviceIdentity>(ApiSdk.Models.ImportedDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "overwriteImportedDeviceIdentities", n => { OverwriteImportedDeviceIdentities = n.GetBoolValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace ApiSdk.DeviceManagement.ImportedDeviceIdentities.ImportDeviceIdentityL
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ImportedDeviceIdentity>("importedDeviceIdentities", ImportedDeviceIdentities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ImportedDeviceIdentity>("importedDeviceIdentities", ImportedDeviceIdentities);
             writer.WriteBoolValue("overwriteImportedDeviceIdentities", OverwriteImportedDeviceIdentities);
             writer.WriteAdditionalData(AdditionalData);
         }

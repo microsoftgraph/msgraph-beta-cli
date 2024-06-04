@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AdminWindowsUpdates : Entity, IParsable
+    public class AdminWindowsUpdates : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Catalog of content that can be approved for deployment by the deployment service. Read-only.</summary>
@@ -22,18 +22,18 @@ namespace ApiSdk.Models
         /// <summary>The set of updatableAsset resources to which a deployment can apply.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeploymentAudience>? DeploymentAudiences { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.DeploymentAudience>? DeploymentAudiences { get; set; }
 #nullable restore
 #else
-        public List<DeploymentAudience> DeploymentAudiences { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.DeploymentAudience> DeploymentAudiences { get; set; }
 #endif
         /// <summary>Deployments created using the deployment service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Deployment>? Deployments { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Deployment>? Deployments { get; set; }
 #nullable restore
 #else
-        public List<Deployment> Deployments { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Deployment> Deployments { get; set; }
 #endif
         /// <summary>A collection of Windows products.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,18 +46,18 @@ namespace ApiSdk.Models
         /// <summary>Service connections to external resources such as analytics workspaces.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ResourceConnection>? ResourceConnections { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ResourceConnection>? ResourceConnections { get; set; }
 #nullable restore
 #else
-        public List<ResourceConnection> ResourceConnections { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ResourceConnection> ResourceConnections { get; set; }
 #endif
         /// <summary>Assets registered with the deployment service that can receive updates.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? UpdatableAssets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? UpdatableAssets { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> UpdatableAssets { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> UpdatableAssets { get; set; }
 #endif
         /// <summary>A collection of policies for approving the deployment of different content to an audience over time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdminWindowsUpdates"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AdminWindowsUpdates"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AdminWindowsUpdates CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AdminWindowsUpdates CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdminWindowsUpdates();
+            return new ApiSdk.Models.AdminWindowsUpdates();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,11 +86,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "catalog", n => { Catalog = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>(ApiSdk.Models.WindowsUpdates.Catalog.CreateFromDiscriminatorValue); } },
-                { "deploymentAudiences", n => { DeploymentAudiences = n.GetCollectionOfObjectValues<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deploymentAudiences", n => { DeploymentAudiences = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.DeploymentAudience>(ApiSdk.Models.WindowsUpdates.DeploymentAudience.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Deployment>(ApiSdk.Models.WindowsUpdates.Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "products", n => { Products = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>(ApiSdk.Models.WindowsUpdates.Product.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "resourceConnections", n => { ResourceConnections = n.GetCollectionOfObjectValues<ResourceConnection>(ResourceConnection.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "updatableAssets", n => { UpdatableAssets = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resourceConnections", n => { ResourceConnections = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ResourceConnection>(ApiSdk.Models.WindowsUpdates.ResourceConnection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updatableAssets", n => { UpdatableAssets = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "updatePolicies", n => { UpdatePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
@@ -103,11 +103,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.Catalog>("catalog", Catalog);
-            writer.WriteCollectionOfObjectValues<DeploymentAudience>("deploymentAudiences", DeploymentAudiences);
-            writer.WriteCollectionOfObjectValues<Deployment>("deployments", Deployments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.DeploymentAudience>("deploymentAudiences", DeploymentAudiences);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Deployment>("deployments", Deployments);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Product>("products", Products);
-            writer.WriteCollectionOfObjectValues<ResourceConnection>("resourceConnections", ResourceConnections);
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("updatableAssets", UpdatableAssets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ResourceConnection>("resourceConnections", ResourceConnections);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("updatableAssets", UpdatableAssets);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>("updatePolicies", UpdatePolicies);
         }
     }

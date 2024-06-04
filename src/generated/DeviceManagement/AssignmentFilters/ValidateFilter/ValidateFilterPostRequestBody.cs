@@ -22,7 +22,7 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
         public ApiSdk.Models.DeviceAndAppManagementAssignmentFilter DeviceAndAppManagementAssignmentFilter { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ValidateFilterPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody"/> and sets the default values.
         /// </summary>
         public ValidateFilterPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidateFilterPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ValidateFilterPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ValidateFilterPostRequestBody();
+            return new ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

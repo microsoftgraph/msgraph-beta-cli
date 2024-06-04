@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleAssignmentMultiple : Entity, IParsable
+    public class UnifiedRoleAssignmentMultiple : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>Read-only collection with details of the app specific scopes when the assignment scopes are app specific. Containment entity. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppScope>? AppScopes { get; set; }
+        public List<ApiSdk.Models.AppScope>? AppScopes { get; set; }
 #nullable restore
 #else
-        public List<AppScope> AppScopes { get; set; }
+        public List<ApiSdk.Models.AppScope> AppScopes { get; set; }
 #endif
         /// <summary>The condition property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,10 +53,10 @@ namespace ApiSdk.Models
         /// <summary>Read-only collection that references the directory objects that are scope of the assignment. Provided so that callers can get the directory objects using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DirectoryObject>? DirectoryScopes { get; set; }
+        public List<ApiSdk.Models.DirectoryObject>? DirectoryScopes { get; set; }
 #nullable restore
 #else
-        public List<DirectoryObject> DirectoryScopes { get; set; }
+        public List<ApiSdk.Models.DirectoryObject> DirectoryScopes { get; set; }
 #endif
         /// <summary>Name of the role assignment. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,18 +77,18 @@ namespace ApiSdk.Models
         /// <summary>Read-only collection that references the assigned principals. Provided so that callers can get the principals using $expand at the same time as getting the role assignment. Read-only.  Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DirectoryObject>? Principals { get; set; }
+        public List<ApiSdk.Models.DirectoryObject>? Principals { get; set; }
 #nullable restore
 #else
-        public List<DirectoryObject> Principals { get; set; }
+        public List<ApiSdk.Models.DirectoryObject> Principals { get; set; }
 #endif
         /// <summary>Specifies the roleDefinition that the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment.  Supports $filter (eq operator on id, isBuiltIn, and displayName, and startsWith operator on displayName)  and $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleDefinition? RoleDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleDefinition? RoleDefinition { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleDefinition RoleDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleDefinition RoleDefinition { get; set; }
 #endif
         /// <summary>Identifier of the unifiedRoleDefinition the assignment is for.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -101,12 +101,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleAssignmentMultiple"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleAssignmentMultiple"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleAssignmentMultiple CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleAssignmentMultiple CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleAssignmentMultiple();
+            return new ApiSdk.Models.UnifiedRoleAssignmentMultiple();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,15 +117,15 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "appScopeIds", n => { AppScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "appScopes", n => { AppScopes = n.GetCollectionOfObjectValues<AppScope>(AppScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appScopes", n => { AppScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.AppScope>(ApiSdk.Models.AppScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "condition", n => { Condition = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "directoryScopeIds", n => { DirectoryScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "directoryScopes", n => { DirectoryScopes = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "directoryScopes", n => { DirectoryScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>(ApiSdk.Models.DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "principalIds", n => { PrincipalIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "principals", n => { Principals = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
+                { "principals", n => { Principals = n.GetCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>(ApiSdk.Models.DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinition", n => { RoleDefinition = n.GetObjectValue<ApiSdk.Models.UnifiedRoleDefinition>(ApiSdk.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue); } },
                 { "roleDefinitionId", n => { RoleDefinitionId = n.GetStringValue(); } },
             };
         }
@@ -138,15 +138,15 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("appScopeIds", AppScopeIds);
-            writer.WriteCollectionOfObjectValues<AppScope>("appScopes", AppScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppScope>("appScopes", AppScopes);
             writer.WriteStringValue("condition", Condition);
             writer.WriteStringValue("description", Description);
             writer.WriteCollectionOfPrimitiveValues<string>("directoryScopeIds", DirectoryScopeIds);
-            writer.WriteCollectionOfObjectValues<DirectoryObject>("directoryScopes", DirectoryScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>("directoryScopes", DirectoryScopes);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("principalIds", PrincipalIds);
-            writer.WriteCollectionOfObjectValues<DirectoryObject>("principals", Principals);
-            writer.WriteObjectValue<UnifiedRoleDefinition>("roleDefinition", RoleDefinition);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>("principals", Principals);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleDefinition>("roleDefinition", RoleDefinition);
             writer.WriteStringValue("roleDefinitionId", RoleDefinitionId);
         }
     }

@@ -14,9 +14,9 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The userAccountType property</summary>
-        public CloudPcUserAccountType? UserAccountType { get; set; }
+        public ApiSdk.Models.CloudPcUserAccountType? UserAccountType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ChangeUserAccountTypePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType.ChangeUserAccountTypePostRequestBody"/> and sets the default values.
         /// </summary>
         public ChangeUserAccountTypePostRequestBody()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ChangeUserAccountTypePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType.ChangeUserAccountTypePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ChangeUserAccountTypePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType.ChangeUserAccountTypePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ChangeUserAccountTypePostRequestBody();
+            return new ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType.ChangeUserAccountTypePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,7 +40,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "userAccountType", n => { UserAccountType = n.GetEnumValue<CloudPcUserAccountType>(); } },
+                { "userAccountType", n => { UserAccountType = n.GetEnumValue<ApiSdk.Models.CloudPcUserAccountType>(); } },
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<CloudPcUserAccountType>("userAccountType", UserAccountType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcUserAccountType>("userAccountType", UserAccountType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,45 +9,45 @@ namespace ApiSdk.Models
     /// <summary>
     /// iOS SCEP certificate profile.
     /// </summary>
-    public class IosScepCertificateProfile : IosCertificateProfileBase, IParsable
+    public class IosScepCertificateProfile : ApiSdk.Models.IosCertificateProfileBase, IParsable
     {
         /// <summary>Target store certificate. Possible values are: user, machine.</summary>
         public ApiSdk.Models.CertificateStore? CertificateStore { get; set; }
         /// <summary>Custom Subject Alternative Name Settings. The OnPremisesUserPrincipalName variable is support as well as others documented here: https://go.microsoft.com/fwlink/?LinkId=2027630. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
 #nullable restore
 #else
-        public List<CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
 #endif
         /// <summary>Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
 #nullable restore
 #else
-        public List<ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
 #endif
         /// <summary>Key Size Options.</summary>
         public ApiSdk.Models.KeySize? KeySize { get; set; }
         /// <summary>Key Usage Options.</summary>
-        public KeyUsages? KeyUsage { get; set; }
+        public ApiSdk.Models.KeyUsages? KeyUsage { get; set; }
         /// <summary>Certificate state for devices. This collection can contain a maximum of 2147483647 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
 #endif
         /// <summary>Trusted Root Certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosTrustedRootCertificate? RootCertificate { get; set; }
+        public ApiSdk.Models.IosTrustedRootCertificate? RootCertificate { get; set; }
 #nullable restore
 #else
-        public IosTrustedRootCertificate RootCertificate { get; set; }
+        public ApiSdk.Models.IosTrustedRootCertificate RootCertificate { get; set; }
 #endif
         /// <summary>SCEP Server Url(s).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         public string SubjectNameFormatString { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosScepCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosScepCertificateProfile"/> and sets the default values.
         /// </summary>
         public IosScepCertificateProfile() : base()
         {
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosScepCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosScepCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosScepCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosScepCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosScepCertificateProfile();
+            return new ApiSdk.Models.IosScepCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,13 +98,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
-                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
-                { "keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
-                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<IosTrustedRootCertificate>(IosTrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<ApiSdk.Models.CertificateStore>(); } },
+                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>(ApiSdk.Models.CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keySize", n => { KeySize = n.GetEnumValue<ApiSdk.Models.KeySize>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApiSdk.Models.KeyUsages>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>(ApiSdk.Models.ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rootCertificate", n => { RootCertificate = n.GetObjectValue<ApiSdk.Models.IosTrustedRootCertificate>(ApiSdk.Models.IosTrustedRootCertificate.CreateFromDiscriminatorValue); } },
                 { "scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
                 { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
@@ -118,13 +118,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CertificateStore>("certificateStore", CertificateStore);
-            writer.WriteCollectionOfObjectValues<CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
-            writer.WriteCollectionOfObjectValues<ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
-            writer.WriteEnumValue<KeySize>("keySize", KeySize);
-            writer.WriteEnumValue<KeyUsages>("keyUsage", KeyUsage);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
-            writer.WriteObjectValue<IosTrustedRootCertificate>("rootCertificate", RootCertificate);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateStore>("certificateStore", CertificateStore);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
+            writer.WriteEnumValue<ApiSdk.Models.KeySize>("keySize", KeySize);
+            writer.WriteEnumValue<ApiSdk.Models.KeyUsages>("keyUsage", KeyUsage);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
+            writer.WriteObjectValue<ApiSdk.Models.IosTrustedRootCertificate>("rootCertificate", RootCertificate);
             writer.WriteCollectionOfPrimitiveValues<string>("scepServerUrls", ScepServerUrls);
             writer.WriteStringValue("subjectAlternativeNameFormatString", SubjectAlternativeNameFormatString);
             writer.WriteStringValue("subjectNameFormatString", SubjectNameFormatString);

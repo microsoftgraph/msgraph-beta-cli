@@ -35,7 +35,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         {
             var command = new Command("can-sign-up");
             command.Description = "Provides operations to call the canSignUp method.";
-            var builder = new CanSignUpRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -51,7 +51,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new PrivilegedSignupStatusItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.Item.PrivilegedSignupStatusItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
@@ -65,7 +65,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         {
             var command = new Command("complete-setup");
             command.Description = "Provides operations to call the completeSetup method.";
-            var builder = new CompleteSetupRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -82,7 +82,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -144,7 +144,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         {
             var command = new Command("is-signed-up");
             command.Description = "Provides operations to call the isSignedUp method.";
-            var builder = new IsSignedUpRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.IsSignedUp.IsSignedUpRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -257,7 +257,7 @@ namespace ApiSdk.PrivilegedSignupStatus
         {
             var command = new Command("sign-up");
             command.Description = "Provides operations to call the signUp method.";
-            var builder = new SignUpRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedSignupStatus.SignUp.SignUpRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -267,14 +267,14 @@ namespace ApiSdk.PrivilegedSignupStatus
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedSignupStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.PrivilegedSignupStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrivilegedSignupStatusRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedSignupStatus{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedSignupStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.PrivilegedSignupStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrivilegedSignupStatusRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedSignupStatus{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -287,11 +287,11 @@ namespace ApiSdk.PrivilegedSignupStatus
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedSignupStatusRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedSignupStatus.PrivilegedSignupStatusRequestBuilder.PrivilegedSignupStatusRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedSignupStatusRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedSignupStatus.PrivilegedSignupStatusRequestBuilder.PrivilegedSignupStatusRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -33,7 +33,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new ProductItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.ProductItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             commands.Add(builder.BuildEditionsNavCommand());
             executables.Add(builder.BuildGetCommand());
@@ -51,7 +51,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -209,7 +209,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products
         {
             var command = new Command("microsoft-graph-windows-updates-find-by-catalog-id-with-catalog-i-d");
             command.Description = "Provides operations to call the findByCatalogId method.";
-            var builder = new MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogID.MicrosoftGraphWindowsUpdatesFindByCatalogIdWithCatalogIDRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -226,7 +226,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products
         {
             var command = new Command("microsoft-graph-windows-updates-find-by-kb-number-with-kb-number");
             command.Description = "Provides operations to call the findByKbNumber method.";
-            var builder = new MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumber.MicrosoftGraphWindowsUpdatesFindByKbNumberWithKbNumberRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -236,14 +236,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.ProductsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProductsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.ProductsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProductsRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -256,11 +256,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.ProductsRequestBuilder.ProductsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.ProductsRequestBuilder.ProductsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

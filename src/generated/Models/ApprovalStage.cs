@@ -17,10 +17,10 @@ namespace ApiSdk.Models
         /// <summary>If escalation is enabled and the primary approvers don&apos;t respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers aren&apos;t required for the stage, the value of this property should be an empty collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserSet>? EscalationApprovers { get; set; }
+        public List<ApiSdk.Models.UserSet>? EscalationApprovers { get; set; }
 #nullable restore
 #else
-        public List<UserSet> EscalationApprovers { get; set; }
+        public List<ApiSdk.Models.UserSet> EscalationApprovers { get; set; }
 #endif
         /// <summary>If escalation is required, the time a request can be pending a response from a primary approver.</summary>
         public int? EscalationTimeInMinutes { get; set; }
@@ -39,13 +39,13 @@ namespace ApiSdk.Models
         /// <summary>The users who are asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors, externalSponsors and targetUserSponsors. When creating or updating a policy, include at least one userSet in this collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserSet>? PrimaryApprovers { get; set; }
+        public List<ApiSdk.Models.UserSet>? PrimaryApprovers { get; set; }
 #nullable restore
 #else
-        public List<UserSet> PrimaryApprovers { get; set; }
+        public List<ApiSdk.Models.UserSet> PrimaryApprovers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ApprovalStage"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ApprovalStage"/> and sets the default values.
         /// </summary>
         public ApprovalStage()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApprovalStage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ApprovalStage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApprovalStage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ApprovalStage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApprovalStage();
+            return new ApiSdk.Models.ApprovalStage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "approvalStageTimeOutInDays", n => { ApprovalStageTimeOutInDays = n.GetIntValue(); } },
-                { "escalationApprovers", n => { EscalationApprovers = n.GetCollectionOfObjectValues<UserSet>(UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "escalationApprovers", n => { EscalationApprovers = n.GetCollectionOfObjectValues<ApiSdk.Models.UserSet>(ApiSdk.Models.UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "escalationTimeInMinutes", n => { EscalationTimeInMinutes = n.GetIntValue(); } },
                 { "isApproverJustificationRequired", n => { IsApproverJustificationRequired = n.GetBoolValue(); } },
                 { "isEscalationEnabled", n => { IsEscalationEnabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "primaryApprovers", n => { PrimaryApprovers = n.GetCollectionOfObjectValues<UserSet>(UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "primaryApprovers", n => { PrimaryApprovers = n.GetCollectionOfObjectValues<ApiSdk.Models.UserSet>(ApiSdk.Models.UserSet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -86,12 +86,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("approvalStageTimeOutInDays", ApprovalStageTimeOutInDays);
-            writer.WriteCollectionOfObjectValues<UserSet>("escalationApprovers", EscalationApprovers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserSet>("escalationApprovers", EscalationApprovers);
             writer.WriteIntValue("escalationTimeInMinutes", EscalationTimeInMinutes);
             writer.WriteBoolValue("isApproverJustificationRequired", IsApproverJustificationRequired);
             writer.WriteBoolValue("isEscalationEnabled", IsEscalationEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<UserSet>("primaryApprovers", PrimaryApprovers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserSet>("primaryApprovers", PrimaryApprovers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementAlertIncidentCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class UnifiedRoleManagementAlertIncidentCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleManagementAlertIncident>? Value { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementAlertIncident>? Value { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleManagementAlertIncident> Value { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementAlertIncident> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleManagementAlertIncidentCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleManagementAlertIncidentCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleManagementAlertIncidentCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleManagementAlertIncidentCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleManagementAlertIncidentCollectionResponse();
+            return new ApiSdk.Models.UnifiedRoleManagementAlertIncidentCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>(UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementAlertIncident>(ApiSdk.Models.UnifiedRoleManagementAlertIncident.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleManagementAlertIncident>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementAlertIncident>("value", Value);
         }
     }
 }

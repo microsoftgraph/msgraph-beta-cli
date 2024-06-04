@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.</summary>
-        public OperationStatus? Status { get; set; }
+        public ApiSdk.Models.OperationStatus? Status { get; set; }
         /// <summary>Timestamp when the actionState was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? UpdatedDateTime { get; set; }
         /// <summary>The user principal name of the signed-in user that submitted an update (PATCH) to the action. The user should be extracted from the auth token and not entered manually by the calling application.</summary>
@@ -41,7 +41,7 @@ namespace ApiSdk.Models
         public string User { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityActionState"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SecurityActionState"/> and sets the default values.
         /// </summary>
         public SecurityActionState()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityActionState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityActionState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SecurityActionState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SecurityActionState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityActionState();
+            return new ApiSdk.Models.SecurityActionState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             {
                 { "appId", n => { AppId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<OperationStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.OperationStatus>(); } },
                 { "updatedDateTime", n => { UpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "user", n => { User = n.GetStringValue(); } },
             };
@@ -81,7 +81,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("appId", AppId);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<OperationStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.OperationStatus>("status", Status);
             writer.WriteDateTimeOffsetValue("updatedDateTime", UpdatedDateTime);
             writer.WriteStringValue("user", User);
             writer.WriteAdditionalData(AdditionalData);

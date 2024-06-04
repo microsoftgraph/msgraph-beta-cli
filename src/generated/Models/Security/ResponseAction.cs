@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ResponseAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.ResponseAction"/> and sets the default values.
         /// </summary>
         public ResponseAction()
         {
@@ -30,31 +30,31 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ResponseAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.ResponseAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.ResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.allowFileResponseAction" => new AllowFileResponseAction(),
-                "#microsoft.graph.security.blockFileResponseAction" => new BlockFileResponseAction(),
-                "#microsoft.graph.security.collectInvestigationPackageResponseAction" => new CollectInvestigationPackageResponseAction(),
-                "#microsoft.graph.security.disableUserResponseAction" => new DisableUserResponseAction(),
-                "#microsoft.graph.security.forceUserPasswordResetResponseAction" => new ForceUserPasswordResetResponseAction(),
-                "#microsoft.graph.security.hardDeleteResponseAction" => new HardDeleteResponseAction(),
-                "#microsoft.graph.security.initiateInvestigationResponseAction" => new InitiateInvestigationResponseAction(),
-                "#microsoft.graph.security.isolateDeviceResponseAction" => new IsolateDeviceResponseAction(),
-                "#microsoft.graph.security.markUserAsCompromisedResponseAction" => new MarkUserAsCompromisedResponseAction(),
-                "#microsoft.graph.security.moveToDeletedItemsResponseAction" => new MoveToDeletedItemsResponseAction(),
-                "#microsoft.graph.security.moveToInboxResponseAction" => new MoveToInboxResponseAction(),
-                "#microsoft.graph.security.moveToJunkResponseAction" => new MoveToJunkResponseAction(),
-                "#microsoft.graph.security.restrictAppExecutionResponseAction" => new RestrictAppExecutionResponseAction(),
-                "#microsoft.graph.security.runAntivirusScanResponseAction" => new RunAntivirusScanResponseAction(),
-                "#microsoft.graph.security.softDeleteResponseAction" => new SoftDeleteResponseAction(),
-                "#microsoft.graph.security.stopAndQuarantineFileResponseAction" => new StopAndQuarantineFileResponseAction(),
-                _ => new ResponseAction(),
+                "#microsoft.graph.security.allowFileResponseAction" => new ApiSdk.Models.Security.AllowFileResponseAction(),
+                "#microsoft.graph.security.blockFileResponseAction" => new ApiSdk.Models.Security.BlockFileResponseAction(),
+                "#microsoft.graph.security.collectInvestigationPackageResponseAction" => new ApiSdk.Models.Security.CollectInvestigationPackageResponseAction(),
+                "#microsoft.graph.security.disableUserResponseAction" => new ApiSdk.Models.Security.DisableUserResponseAction(),
+                "#microsoft.graph.security.forceUserPasswordResetResponseAction" => new ApiSdk.Models.Security.ForceUserPasswordResetResponseAction(),
+                "#microsoft.graph.security.hardDeleteResponseAction" => new ApiSdk.Models.Security.HardDeleteResponseAction(),
+                "#microsoft.graph.security.initiateInvestigationResponseAction" => new ApiSdk.Models.Security.InitiateInvestigationResponseAction(),
+                "#microsoft.graph.security.isolateDeviceResponseAction" => new ApiSdk.Models.Security.IsolateDeviceResponseAction(),
+                "#microsoft.graph.security.markUserAsCompromisedResponseAction" => new ApiSdk.Models.Security.MarkUserAsCompromisedResponseAction(),
+                "#microsoft.graph.security.moveToDeletedItemsResponseAction" => new ApiSdk.Models.Security.MoveToDeletedItemsResponseAction(),
+                "#microsoft.graph.security.moveToInboxResponseAction" => new ApiSdk.Models.Security.MoveToInboxResponseAction(),
+                "#microsoft.graph.security.moveToJunkResponseAction" => new ApiSdk.Models.Security.MoveToJunkResponseAction(),
+                "#microsoft.graph.security.restrictAppExecutionResponseAction" => new ApiSdk.Models.Security.RestrictAppExecutionResponseAction(),
+                "#microsoft.graph.security.runAntivirusScanResponseAction" => new ApiSdk.Models.Security.RunAntivirusScanResponseAction(),
+                "#microsoft.graph.security.softDeleteResponseAction" => new ApiSdk.Models.Security.SoftDeleteResponseAction(),
+                "#microsoft.graph.security.stopAndQuarantineFileResponseAction" => new ApiSdk.Models.Security.StopAndQuarantineFileResponseAction(),
+                _ => new ApiSdk.Models.Security.ResponseAction(),
             };
         }
         /// <summary>

@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.
         public List<string> DeviceIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateDeviceProfileAssignmentPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment.UpdateDeviceProfileAssignmentPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateDeviceProfileAssignmentPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateDeviceProfileAssignmentPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment.UpdateDeviceProfileAssignmentPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateDeviceProfileAssignmentPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment.UpdateDeviceProfileAssignmentPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateDeviceProfileAssignmentPostRequestBody();
+            return new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.Item.UpdateDeviceProfileAssignment.UpdateDeviceProfileAssignmentPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

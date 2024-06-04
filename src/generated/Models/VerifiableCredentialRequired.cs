@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VerifiableCredentialRequired : VerifiableCredentialRequirementStatus, IParsable
+    public class VerifiableCredentialRequired : ApiSdk.Models.VerifiableCredentialRequirementStatus, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>When the presentation request will expire and a new one will need to be generated.</summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VerifiableCredentialRequired"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerifiableCredentialRequired"/> and sets the default values.
         /// </summary>
         public VerifiableCredentialRequired() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerifiableCredentialRequired"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerifiableCredentialRequired"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VerifiableCredentialRequired CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VerifiableCredentialRequired CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VerifiableCredentialRequired();
+            return new ApiSdk.Models.VerifiableCredentialRequired();
         }
         /// <summary>
         /// The deserialization information for the current model

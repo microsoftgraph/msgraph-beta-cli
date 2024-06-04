@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVersions
 {
     #pragma warning disable CS1591
-    public class GetIosAvailableUpdateVersionsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetIosAvailableUpdateVersionsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosAvailableUpdateVersion>? Value { get; set; }
+        public List<ApiSdk.Models.IosAvailableUpdateVersion>? Value { get; set; }
 #nullable restore
 #else
-        public List<IosAvailableUpdateVersion> Value { get; set; }
+        public List<ApiSdk.Models.IosAvailableUpdateVersion> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetIosAvailableUpdateVersionsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVersions.GetIosAvailableUpdateVersionsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetIosAvailableUpdateVersionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVersions.GetIosAvailableUpdateVersionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetIosAvailableUpdateVersionsGetResponse();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVersions.GetIosAvailableUpdateVersionsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVers
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<IosAvailableUpdateVersion>(IosAvailableUpdateVersion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.IosAvailableUpdateVersion>(ApiSdk.Models.IosAvailableUpdateVersion.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetIosAvailableUpdateVers
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<IosAvailableUpdateVersion>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosAvailableUpdateVersion>("value", Value);
         }
     }
 }

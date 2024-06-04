@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsDefinitionIdentitySource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PermissionsDefinitionIdentitySource"/> and sets the default values.
         /// </summary>
         public PermissionsDefinitionIdentitySource()
         {
@@ -30,19 +30,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsDefinitionIdentitySource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsDefinitionIdentitySource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PermissionsDefinitionIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PermissionsDefinitionIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.awsIdentitySource" => new AwsIdentitySource(),
-                "#microsoft.graph.edIdentitySource" => new EdIdentitySource(),
-                "#microsoft.graph.localIdentitySource" => new LocalIdentitySource(),
-                "#microsoft.graph.samlIdentitySource" => new SamlIdentitySource(),
-                _ => new PermissionsDefinitionIdentitySource(),
+                "#microsoft.graph.awsIdentitySource" => new ApiSdk.Models.AwsIdentitySource(),
+                "#microsoft.graph.edIdentitySource" => new ApiSdk.Models.EdIdentitySource(),
+                "#microsoft.graph.localIdentitySource" => new ApiSdk.Models.LocalIdentitySource(),
+                "#microsoft.graph.samlIdentitySource" => new ApiSdk.Models.SamlIdentitySource(),
+                _ => new ApiSdk.Models.PermissionsDefinitionIdentitySource(),
             };
         }
         /// <summary>

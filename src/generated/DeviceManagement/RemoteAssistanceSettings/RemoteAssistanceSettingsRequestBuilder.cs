@@ -142,14 +142,14 @@ namespace ApiSdk.DeviceManagement.RemoteAssistanceSettings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoteAssistanceSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RemoteAssistanceSettings.RemoteAssistanceSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RemoteAssistanceSettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/remoteAssistanceSettings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RemoteAssistanceSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RemoteAssistanceSettings.RemoteAssistanceSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RemoteAssistanceSettingsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/remoteAssistanceSettings{?%24expand,%24select}", rawUrl)
@@ -181,11 +181,11 @@ namespace ApiSdk.DeviceManagement.RemoteAssistanceSettings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RemoteAssistanceSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.RemoteAssistanceSettings.RemoteAssistanceSettingsRequestBuilder.RemoteAssistanceSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RemoteAssistanceSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.RemoteAssistanceSettings.RemoteAssistanceSettingsRequestBuilder.RemoteAssistanceSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

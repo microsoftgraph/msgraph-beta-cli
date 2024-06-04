@@ -45,7 +45,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DetonationObservables"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.DetonationObservables"/> and sets the default values.
         /// </summary>
         public DetonationObservables()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetonationObservables"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.DetonationObservables"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DetonationObservables CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.DetonationObservables CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DetonationObservables();
+            return new ApiSdk.Models.Security.DetonationObservables();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The date and time configurations for a device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkDateTimeConfiguration? DateTimeConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDateTimeConfiguration? DateTimeConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkDateTimeConfiguration DateTimeConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDateTimeConfiguration DateTimeConfiguration { get; set; }
 #endif
         /// <summary>The default password for the device. Write-Only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,10 +67,10 @@ namespace ApiSdk.Models
         /// <summary>The network configuration for the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkNetworkConfiguration? NetworkConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkNetworkConfiguration? NetworkConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkNetworkConfiguration NetworkConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkNetworkConfiguration NetworkConfiguration { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkSystemConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkSystemConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkSystemConfiguration()
         {
@@ -90,12 +90,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkSystemConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkSystemConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkSystemConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkSystemConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkSystemConfiguration();
+            return new ApiSdk.Models.TeamworkSystemConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,7 +105,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dateTimeConfiguration", n => { DateTimeConfiguration = n.GetObjectValue<TeamworkDateTimeConfiguration>(TeamworkDateTimeConfiguration.CreateFromDiscriminatorValue); } },
+                { "dateTimeConfiguration", n => { DateTimeConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkDateTimeConfiguration>(ApiSdk.Models.TeamworkDateTimeConfiguration.CreateFromDiscriminatorValue); } },
                 { "defaultPassword", n => { DefaultPassword = n.GetStringValue(); } },
                 { "deviceLockTimeout", n => { DeviceLockTimeout = n.GetTimeSpanValue(); } },
                 { "isDeviceLockEnabled", n => { IsDeviceLockEnabled = n.GetBoolValue(); } },
@@ -116,7 +116,7 @@ namespace ApiSdk.Models
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "lockPin", n => { LockPin = n.GetStringValue(); } },
                 { "loggingLevel", n => { LoggingLevel = n.GetStringValue(); } },
-                { "networkConfiguration", n => { NetworkConfiguration = n.GetObjectValue<TeamworkNetworkConfiguration>(TeamworkNetworkConfiguration.CreateFromDiscriminatorValue); } },
+                { "networkConfiguration", n => { NetworkConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkNetworkConfiguration>(ApiSdk.Models.TeamworkNetworkConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -127,7 +127,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkDateTimeConfiguration>("dateTimeConfiguration", DateTimeConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkDateTimeConfiguration>("dateTimeConfiguration", DateTimeConfiguration);
             writer.WriteStringValue("defaultPassword", DefaultPassword);
             writer.WriteTimeSpanValue("deviceLockTimeout", DeviceLockTimeout);
             writer.WriteBoolValue("isDeviceLockEnabled", IsDeviceLockEnabled);
@@ -138,7 +138,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("lockPin", LockPin);
             writer.WriteStringValue("loggingLevel", LoggingLevel);
-            writer.WriteObjectValue<TeamworkNetworkConfiguration>("networkConfiguration", NetworkConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkNetworkConfiguration>("networkConfiguration", NetworkConfiguration);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

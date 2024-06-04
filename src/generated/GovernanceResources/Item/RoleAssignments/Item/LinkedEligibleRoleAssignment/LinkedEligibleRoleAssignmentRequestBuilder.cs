@@ -80,14 +80,14 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRol
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="LinkedEligibleRoleAssignmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment.LinkedEligibleRoleAssignmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public LinkedEligibleRoleAssignmentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}/linkedEligibleRoleAssignment{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="LinkedEligibleRoleAssignmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment.LinkedEligibleRoleAssignmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public LinkedEligibleRoleAssignmentRequestBuilder(string rawUrl) : base("{+baseurl}/governanceResources/{governanceResource%2Did}/roleAssignments/{governanceRoleAssignment%2Did}/linkedEligibleRoleAssignment{?%24expand,%24select}", rawUrl)
@@ -100,11 +100,11 @@ namespace ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRol
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment.LinkedEligibleRoleAssignmentRequestBuilder.LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceResources.Item.RoleAssignments.Item.LinkedEligibleRoleAssignment.LinkedEligibleRoleAssignmentRequestBuilder.LinkedEligibleRoleAssignmentRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

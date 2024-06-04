@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CancelPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel.CancelPostResponse"/> and sets the default values.
         /// </summary>
         public CancelPostResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CancelPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel.CancelPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CancelPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel.CancelPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CancelPostResponse();
+            return new ApiSdk.DeviceManagement.ZebraFotaDeployments.Item.Cancel.CancelPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

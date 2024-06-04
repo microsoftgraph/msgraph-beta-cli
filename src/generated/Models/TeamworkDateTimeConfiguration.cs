@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         public string TimeZone { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkDateTimeConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkDateTimeConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkDateTimeConfiguration()
         {
@@ -59,12 +59,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkDateTimeConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkDateTimeConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkDateTimeConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkDateTimeConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkDateTimeConfiguration();
+            return new ApiSdk.Models.TeamworkDateTimeConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

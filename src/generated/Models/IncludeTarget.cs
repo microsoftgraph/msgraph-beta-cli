@@ -29,9 +29,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The targetType property</summary>
-        public AuthenticationMethodTargetType? TargetType { get; set; }
+        public ApiSdk.Models.AuthenticationMethodTargetType? TargetType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IncludeTarget"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IncludeTarget"/> and sets the default values.
         /// </summary>
         public IncludeTarget()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IncludeTarget"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IncludeTarget"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IncludeTarget CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IncludeTarget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IncludeTarget();
+            return new ApiSdk.Models.IncludeTarget();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "targetType", n => { TargetType = n.GetEnumValue<AuthenticationMethodTargetType>(); } },
+                { "targetType", n => { TargetType = n.GetEnumValue<ApiSdk.Models.AuthenticationMethodTargetType>(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AuthenticationMethodTargetType>("targetType", TargetType);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationMethodTargetType>("targetType", TargetType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

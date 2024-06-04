@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics battery health os performance entity contains battery related information for all operating system versions in their organization.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthOsPerformance : Entity, IParsable
+    public class UserExperienceAnalyticsBatteryHealthOsPerformance : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Number of active devices for that os version. Valid values 0 to 2147483647</summary>
         public int? ActiveDevices { get; set; }
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string OsBuildNumber { get; set; }
 #endif
         /// <summary>The osHealthStatus property</summary>
-        public UserExperienceAnalyticsHealthState? OsHealthStatus { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsHealthState? OsHealthStatus { get; set; }
         /// <summary>Version of the operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsBatteryHealthOsPerformance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsBatteryHealthOsPerformance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsBatteryHealthOsPerformance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthOsPerformance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsBatteryHealthOsPerformance();
+            return new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthOsPerformance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
                 { "medianMaxCapacityPercentage", n => { MedianMaxCapacityPercentage = n.GetIntValue(); } },
                 { "osBatteryHealthScore", n => { OsBatteryHealthScore = n.GetIntValue(); } },
                 { "osBuildNumber", n => { OsBuildNumber = n.GetStringValue(); } },
-                { "osHealthStatus", n => { OsHealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
+                { "osHealthStatus", n => { OsHealthStatus = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
             };
         }
@@ -97,7 +97,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("medianMaxCapacityPercentage", MedianMaxCapacityPercentage);
             writer.WriteIntValue("osBatteryHealthScore", OsBatteryHealthScore);
             writer.WriteStringValue("osBuildNumber", OsBuildNumber);
-            writer.WriteEnumValue<UserExperienceAnalyticsHealthState>("osHealthStatus", OsHealthStatus);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>("osHealthStatus", OsHealthStatus);
             writer.WriteStringValue("osVersion", OsVersion);
         }
     }

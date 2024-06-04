@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ManagedDeviceCertificateState : Entity, IParsable
+    public class ManagedDeviceCertificateState : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Extended key usage</summary>
@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>Issuance date</summary>
         public DateTimeOffset? CertificateIssuanceDateTime { get; set; }
         /// <summary>Certificate Issuance State Options.</summary>
-        public CertificateIssuanceStates? CertificateIssuanceState { get; set; }
+        public ApiSdk.Models.CertificateIssuanceStates? CertificateIssuanceState { get; set; }
         /// <summary>Issuer</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,9 +37,9 @@ namespace ApiSdk.Models
         /// <summary>Key length</summary>
         public int? CertificateKeyLength { get; set; }
         /// <summary>Key Storage Provider (KSP) Import Options.</summary>
-        public KeyStorageProviderOption? CertificateKeyStorageProvider { get; set; }
+        public ApiSdk.Models.KeyStorageProviderOption? CertificateKeyStorageProvider { get; set; }
         /// <summary>Key Usage Options.</summary>
-        public KeyUsages? CertificateKeyUsage { get; set; }
+        public ApiSdk.Models.KeyUsages? CertificateKeyUsage { get; set; }
         /// <summary>Last certificate issuance state change</summary>
         public DateTimeOffset? CertificateLastIssuanceStateChangedDateTime { get; set; }
         /// <summary>Certificate profile display name</summary>
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         public string CertificateProfileDisplayName { get; set; }
 #endif
         /// <summary>Certificate Revocation Status.</summary>
-        public CertificateRevocationStatus? CertificateRevokeStatus { get; set; }
+        public ApiSdk.Models.CertificateRevocationStatus? CertificateRevokeStatus { get; set; }
         /// <summary>Serial number</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string CertificateSerialNumber { get; set; }
 #endif
         /// <summary>Subject Alternative Name Options.</summary>
-        public SubjectAlternativeNameType? CertificateSubjectAlternativeNameFormat { get; set; }
+        public ApiSdk.Models.SubjectAlternativeNameType? CertificateSubjectAlternativeNameFormat { get; set; }
         /// <summary>Subject alternative name format string for custom formats</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +71,7 @@ namespace ApiSdk.Models
         public string CertificateSubjectAlternativeNameFormatString { get; set; }
 #endif
         /// <summary>Subject Name Format Options.</summary>
-        public SubjectNameFormat? CertificateSubjectNameFormat { get; set; }
+        public ApiSdk.Models.SubjectNameFormat? CertificateSubjectNameFormat { get; set; }
         /// <summary>Subject name format string for custom subject name formats</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
         /// <summary>Validity period</summary>
         public int? CertificateValidityPeriod { get; set; }
         /// <summary>Certificate Validity Period Options.</summary>
-        public CertificateValidityPeriodScale? CertificateValidityPeriodUnits { get; set; }
+        public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodUnits { get; set; }
         /// <summary>Device display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,7 +101,7 @@ namespace ApiSdk.Models
         public string DeviceDisplayName { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? DevicePlatform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? DevicePlatform { get; set; }
         /// <summary>Last certificate issuance state change</summary>
         public DateTimeOffset? LastCertificateStateChangeDateTime { get; set; }
         /// <summary>User display name</summary>
@@ -115,12 +115,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedDeviceCertificateState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedDeviceCertificateState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedDeviceCertificateState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedDeviceCertificateState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedDeviceCertificateState();
+            return new ApiSdk.Models.ManagedDeviceCertificateState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -134,24 +134,24 @@ namespace ApiSdk.Models
                 { "certificateErrorCode", n => { CertificateErrorCode = n.GetIntValue(); } },
                 { "certificateExpirationDateTime", n => { CertificateExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
-                { "certificateIssuanceState", n => { CertificateIssuanceState = n.GetEnumValue<CertificateIssuanceStates>(); } },
+                { "certificateIssuanceState", n => { CertificateIssuanceState = n.GetEnumValue<ApiSdk.Models.CertificateIssuanceStates>(); } },
                 { "certificateIssuer", n => { CertificateIssuer = n.GetStringValue(); } },
                 { "certificateKeyLength", n => { CertificateKeyLength = n.GetIntValue(); } },
-                { "certificateKeyStorageProvider", n => { CertificateKeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
-                { "certificateKeyUsage", n => { CertificateKeyUsage = n.GetEnumValue<KeyUsages>(); } },
+                { "certificateKeyStorageProvider", n => { CertificateKeyStorageProvider = n.GetEnumValue<ApiSdk.Models.KeyStorageProviderOption>(); } },
+                { "certificateKeyUsage", n => { CertificateKeyUsage = n.GetEnumValue<ApiSdk.Models.KeyUsages>(); } },
                 { "certificateLastIssuanceStateChangedDateTime", n => { CertificateLastIssuanceStateChangedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "certificateProfileDisplayName", n => { CertificateProfileDisplayName = n.GetStringValue(); } },
-                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
+                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<ApiSdk.Models.CertificateRevocationStatus>(); } },
                 { "certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
-                { "certificateSubjectAlternativeNameFormat", n => { CertificateSubjectAlternativeNameFormat = n.GetEnumValue<SubjectAlternativeNameType>(); } },
+                { "certificateSubjectAlternativeNameFormat", n => { CertificateSubjectAlternativeNameFormat = n.GetEnumValue<ApiSdk.Models.SubjectAlternativeNameType>(); } },
                 { "certificateSubjectAlternativeNameFormatString", n => { CertificateSubjectAlternativeNameFormatString = n.GetStringValue(); } },
-                { "certificateSubjectNameFormat", n => { CertificateSubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "certificateSubjectNameFormat", n => { CertificateSubjectNameFormat = n.GetEnumValue<ApiSdk.Models.SubjectNameFormat>(); } },
                 { "certificateSubjectNameFormatString", n => { CertificateSubjectNameFormatString = n.GetStringValue(); } },
                 { "certificateThumbprint", n => { CertificateThumbprint = n.GetStringValue(); } },
                 { "certificateValidityPeriod", n => { CertificateValidityPeriod = n.GetIntValue(); } },
-                { "certificateValidityPeriodUnits", n => { CertificateValidityPeriodUnits = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodUnits", n => { CertificateValidityPeriodUnits = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
-                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
                 { "lastCertificateStateChangeDateTime", n => { LastCertificateStateChangeDateTime = n.GetDateTimeOffsetValue(); } },
                 { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
             };
@@ -168,24 +168,24 @@ namespace ApiSdk.Models
             writer.WriteIntValue("certificateErrorCode", CertificateErrorCode);
             writer.WriteDateTimeOffsetValue("certificateExpirationDateTime", CertificateExpirationDateTime);
             writer.WriteDateTimeOffsetValue("certificateIssuanceDateTime", CertificateIssuanceDateTime);
-            writer.WriteEnumValue<CertificateIssuanceStates>("certificateIssuanceState", CertificateIssuanceState);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateIssuanceStates>("certificateIssuanceState", CertificateIssuanceState);
             writer.WriteStringValue("certificateIssuer", CertificateIssuer);
             writer.WriteIntValue("certificateKeyLength", CertificateKeyLength);
-            writer.WriteEnumValue<KeyStorageProviderOption>("certificateKeyStorageProvider", CertificateKeyStorageProvider);
-            writer.WriteEnumValue<KeyUsages>("certificateKeyUsage", CertificateKeyUsage);
+            writer.WriteEnumValue<ApiSdk.Models.KeyStorageProviderOption>("certificateKeyStorageProvider", CertificateKeyStorageProvider);
+            writer.WriteEnumValue<ApiSdk.Models.KeyUsages>("certificateKeyUsage", CertificateKeyUsage);
             writer.WriteDateTimeOffsetValue("certificateLastIssuanceStateChangedDateTime", CertificateLastIssuanceStateChangedDateTime);
             writer.WriteStringValue("certificateProfileDisplayName", CertificateProfileDisplayName);
-            writer.WriteEnumValue<CertificateRevocationStatus>("certificateRevokeStatus", CertificateRevokeStatus);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateRevocationStatus>("certificateRevokeStatus", CertificateRevokeStatus);
             writer.WriteStringValue("certificateSerialNumber", CertificateSerialNumber);
-            writer.WriteEnumValue<SubjectAlternativeNameType>("certificateSubjectAlternativeNameFormat", CertificateSubjectAlternativeNameFormat);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectAlternativeNameType>("certificateSubjectAlternativeNameFormat", CertificateSubjectAlternativeNameFormat);
             writer.WriteStringValue("certificateSubjectAlternativeNameFormatString", CertificateSubjectAlternativeNameFormatString);
-            writer.WriteEnumValue<SubjectNameFormat>("certificateSubjectNameFormat", CertificateSubjectNameFormat);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectNameFormat>("certificateSubjectNameFormat", CertificateSubjectNameFormat);
             writer.WriteStringValue("certificateSubjectNameFormatString", CertificateSubjectNameFormatString);
             writer.WriteStringValue("certificateThumbprint", CertificateThumbprint);
             writer.WriteIntValue("certificateValidityPeriod", CertificateValidityPeriod);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodUnits", CertificateValidityPeriodUnits);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodUnits", CertificateValidityPeriodUnits);
             writer.WriteStringValue("deviceDisplayName", DeviceDisplayName);
-            writer.WriteEnumValue<DevicePlatformType>("devicePlatform", DevicePlatform);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("devicePlatform", DevicePlatform);
             writer.WriteDateTimeOffsetValue("lastCertificateStateChangeDateTime", LastCertificateStateChangeDateTime);
             writer.WriteStringValue("userDisplayName", UserDisplayName);
         }

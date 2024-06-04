@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint indicating that this value is a secret and will be encrypted.
     /// </summary>
-    public class DeviceManagementIntentSettingSecretConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementIntentSettingSecretConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementIntentSettingSecretConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementIntentSettingSecretConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementIntentSettingSecretConstraint() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementIntentSettingSecretConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementIntentSettingSecretConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementIntentSettingSecretConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementIntentSettingSecretConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementIntentSettingSecretConstraint();
+            return new ApiSdk.Models.DeviceManagementIntentSettingSecretConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
         public List<string> RoleScopeTagIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GetRoleScopeTagsByIdPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetRoleScopeTagsByIdPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetRoleScopeTagsByIdPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetRoleScopeTagsByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetRoleScopeTagsByIdPostRequestBody();
+            return new ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

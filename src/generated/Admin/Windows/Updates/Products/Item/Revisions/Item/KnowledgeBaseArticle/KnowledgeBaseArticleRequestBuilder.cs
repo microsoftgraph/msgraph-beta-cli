@@ -178,14 +178,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBas
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="KnowledgeBaseArticleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle.KnowledgeBaseArticleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public KnowledgeBaseArticleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/revisions/{productRevision%2Did}/knowledgeBaseArticle{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="KnowledgeBaseArticleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle.KnowledgeBaseArticleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public KnowledgeBaseArticleRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/revisions/{productRevision%2Did}/knowledgeBaseArticle{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBas
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<KnowledgeBaseArticleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle.KnowledgeBaseArticleRequestBuilder.KnowledgeBaseArticleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<KnowledgeBaseArticleRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle.KnowledgeBaseArticleRequestBuilder.KnowledgeBaseArticleRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

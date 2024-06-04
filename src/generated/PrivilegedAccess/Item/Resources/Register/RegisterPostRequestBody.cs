@@ -21,7 +21,7 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources.Register
         public string ExternalId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RegisterPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Register.RegisterPostRequestBody"/> and sets the default values.
         /// </summary>
         public RegisterPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.PrivilegedAccess.Item.Resources.Register
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RegisterPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedAccess.Item.Resources.Register.RegisterPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RegisterPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.PrivilegedAccess.Item.Resources.Register.RegisterPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RegisterPostRequestBody();
+            return new ApiSdk.PrivilegedAccess.Item.Resources.Register.RegisterPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

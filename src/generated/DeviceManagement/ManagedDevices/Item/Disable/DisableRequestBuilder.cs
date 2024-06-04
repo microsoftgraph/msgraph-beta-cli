@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Disable
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.Disable.DisableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DisableRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/disable", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.Disable.DisableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DisableRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/disable", rawUrl)

@@ -52,7 +52,7 @@ namespace ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AssignSensitivityLabelPostRequestBody>(AssignSensitivityLabelPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelPostRequestBody>(ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -73,14 +73,14 @@ namespace ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AssignSensitivityLabelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AssignSensitivityLabelRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/planner/rosters/{plannerRoster%2Did}/assignSensitivityLabel", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AssignSensitivityLabelRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AssignSensitivityLabelRequestBuilder(string rawUrl) : base("{+baseurl}/planner/rosters/{plannerRoster%2Did}/assignSensitivityLabel", rawUrl)
@@ -94,11 +94,11 @@ namespace ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(AssignSensitivityLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(AssignSensitivityLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Planner.Rosters.Item.AssignSensitivityLabel.AssignSensitivityLabelPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

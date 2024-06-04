@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRbacResourceAction : Entity, IParsable
+    public class UnifiedRbacResourceAction : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The authenticationContext property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationContextClassReference? AuthenticationContext { get; set; }
+        public ApiSdk.Models.AuthenticationContextClassReference? AuthenticationContext { get; set; }
 #nullable restore
 #else
-        public AuthenticationContextClassReference AuthenticationContext { get; set; }
+        public ApiSdk.Models.AuthenticationContextClassReference AuthenticationContext { get; set; }
 #endif
         /// <summary>The authenticationContextId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,10 +57,10 @@ namespace ApiSdk.Models
         /// <summary>The resourceScope property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRbacResourceScope? ResourceScope { get; set; }
+        public ApiSdk.Models.UnifiedRbacResourceScope? ResourceScope { get; set; }
 #nullable restore
 #else
-        public UnifiedRbacResourceScope ResourceScope { get; set; }
+        public ApiSdk.Models.UnifiedRbacResourceScope ResourceScope { get; set; }
 #endif
         /// <summary>Not implemented.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -73,12 +73,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRbacResourceAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRbacResourceAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRbacResourceAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRbacResourceAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRbacResourceAction();
+            return new ApiSdk.Models.UnifiedRbacResourceAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,13 +89,13 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "actionVerb", n => { ActionVerb = n.GetStringValue(); } },
-                { "authenticationContext", n => { AuthenticationContext = n.GetObjectValue<AuthenticationContextClassReference>(AuthenticationContextClassReference.CreateFromDiscriminatorValue); } },
+                { "authenticationContext", n => { AuthenticationContext = n.GetObjectValue<ApiSdk.Models.AuthenticationContextClassReference>(ApiSdk.Models.AuthenticationContextClassReference.CreateFromDiscriminatorValue); } },
                 { "authenticationContextId", n => { AuthenticationContextId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isAuthenticationContextSettable", n => { IsAuthenticationContextSettable = n.GetBoolValue(); } },
                 { "isPrivileged", n => { IsPrivileged = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "resourceScope", n => { ResourceScope = n.GetObjectValue<UnifiedRbacResourceScope>(UnifiedRbacResourceScope.CreateFromDiscriminatorValue); } },
+                { "resourceScope", n => { ResourceScope = n.GetObjectValue<ApiSdk.Models.UnifiedRbacResourceScope>(ApiSdk.Models.UnifiedRbacResourceScope.CreateFromDiscriminatorValue); } },
                 { "resourceScopeId", n => { ResourceScopeId = n.GetStringValue(); } },
             };
         }
@@ -108,13 +108,13 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("actionVerb", ActionVerb);
-            writer.WriteObjectValue<AuthenticationContextClassReference>("authenticationContext", AuthenticationContext);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationContextClassReference>("authenticationContext", AuthenticationContext);
             writer.WriteStringValue("authenticationContextId", AuthenticationContextId);
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("isAuthenticationContextSettable", IsAuthenticationContextSettable);
             writer.WriteBoolValue("isPrivileged", IsPrivileged);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<UnifiedRbacResourceScope>("resourceScope", ResourceScope);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRbacResourceScope>("resourceScope", ResourceScope);
             writer.WriteStringValue("resourceScopeId", ResourceScopeId);
         }
     }

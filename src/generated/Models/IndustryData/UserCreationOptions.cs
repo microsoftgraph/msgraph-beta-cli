@@ -15,10 +15,10 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The different management choices for the users to be provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserConfiguration>? Configurations { get; set; }
+        public List<ApiSdk.Models.IndustryData.UserConfiguration>? Configurations { get; set; }
 #nullable restore
 #else
-        public List<UserConfiguration> Configurations { get; set; }
+        public List<ApiSdk.Models.IndustryData.UserConfiguration> Configurations { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserCreationOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.UserCreationOptions"/> and sets the default values.
         /// </summary>
         public UserCreationOptions()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserCreationOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.UserCreationOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.UserCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserCreationOptions();
+            return new ApiSdk.Models.IndustryData.UserCreationOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<UserConfiguration>(UserConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.UserConfiguration>(ApiSdk.Models.IndustryData.UserConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models.IndustryData
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<UserConfiguration>("configurations", Configurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.UserConfiguration>("configurations", Configurations);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class WindowsUpdateFilter : SoftwareUpdateFilter, IParsable
+    public class WindowsUpdateFilter : ApiSdk.Models.WindowsUpdates.SoftwareUpdateFilter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="WindowsUpdateFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter"/> and sets the default values.
         /// </summary>
         public WindowsUpdateFilter() : base()
         {
@@ -20,17 +20,17 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsUpdateFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsUpdateFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.driverUpdateFilter" => new DriverUpdateFilter(),
-                "#microsoft.graph.windowsUpdates.qualityUpdateFilter" => new QualityUpdateFilter(),
-                _ => new WindowsUpdateFilter(),
+                "#microsoft.graph.windowsUpdates.driverUpdateFilter" => new ApiSdk.Models.WindowsUpdates.DriverUpdateFilter(),
+                "#microsoft.graph.windowsUpdates.qualityUpdateFilter" => new ApiSdk.Models.WindowsUpdates.QualityUpdateFilter(),
+                _ => new ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter(),
             };
         }
         /// <summary>

@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
         /// <summary>The priority property</summary>
         public int? Priority { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ReorderPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.Reorder.ReorderPostRequestBody"/> and sets the default values.
         /// </summary>
         public ReorderPostRequestBody()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReorderPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.Reorder.ReorderPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ReorderPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.Reorder.ReorderPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReorderPostRequestBody();
+            return new ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.Reorder.ReorderPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

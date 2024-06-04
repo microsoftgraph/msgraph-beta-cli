@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class DurationDrivenRolloutSettings : GradualRolloutSettings, IParsable
+    public class DurationDrivenRolloutSettings : ApiSdk.Models.WindowsUpdates.GradualRolloutSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The target duration of the rollout. Given durationBetweenOffers and durationUntilDeploymentEnd, the system will automatically calculate how many devices are in each offering.</summary>
         public TimeSpan? DurationUntilDeploymentEnd { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DurationDrivenRolloutSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.DurationDrivenRolloutSettings"/> and sets the default values.
         /// </summary>
         public DurationDrivenRolloutSettings() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DurationDrivenRolloutSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.DurationDrivenRolloutSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DurationDrivenRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.DurationDrivenRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DurationDrivenRolloutSettings();
+            return new ApiSdk.Models.WindowsUpdates.DurationDrivenRolloutSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

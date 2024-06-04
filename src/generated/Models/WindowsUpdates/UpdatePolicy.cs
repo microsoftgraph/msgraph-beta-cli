@@ -13,26 +13,26 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Specifies the audience to target.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeploymentAudience? Audience { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentAudience? Audience { get; set; }
 #nullable restore
 #else
-        public DeploymentAudience Audience { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeploymentAudience Audience { get; set; }
 #endif
         /// <summary>Rules for governing the automatic creation of compliance changes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ComplianceChangeRule>? ComplianceChangeRules { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ComplianceChangeRule>? ComplianceChangeRules { get; set; }
 #nullable restore
 #else
-        public List<ComplianceChangeRule> ComplianceChangeRules { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ComplianceChangeRule> ComplianceChangeRules { get; set; }
 #endif
         /// <summary>Compliance changes like content approvals which result in the automatic creation of deployments using the audience and deploymentSettings of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ComplianceChange>? ComplianceChanges { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ComplianceChange>? ComplianceChanges { get; set; }
 #nullable restore
 #else
-        public List<ComplianceChange> ComplianceChanges { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ComplianceChange> ComplianceChanges { get; set; }
 #endif
         /// <summary>The date and time when the update policy was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -47,12 +47,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.UpdatePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UpdatePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.UpdatePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdatePolicy();
+            return new ApiSdk.Models.WindowsUpdates.UpdatePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,9 +62,9 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "audience", n => { Audience = n.GetObjectValue<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue); } },
-                { "complianceChangeRules", n => { ComplianceChangeRules = n.GetCollectionOfObjectValues<ComplianceChangeRule>(ComplianceChangeRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "complianceChanges", n => { ComplianceChanges = n.GetCollectionOfObjectValues<ComplianceChange>(ComplianceChange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "audience", n => { Audience = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentAudience>(ApiSdk.Models.WindowsUpdates.DeploymentAudience.CreateFromDiscriminatorValue); } },
+                { "complianceChangeRules", n => { ComplianceChangeRules = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ComplianceChangeRule>(ApiSdk.Models.WindowsUpdates.ComplianceChangeRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "complianceChanges", n => { ComplianceChanges = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ComplianceChange>(ApiSdk.Models.WindowsUpdates.ComplianceChange.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
             };
@@ -77,9 +77,9 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeploymentAudience>("audience", Audience);
-            writer.WriteCollectionOfObjectValues<ComplianceChangeRule>("complianceChangeRules", ComplianceChangeRules);
-            writer.WriteCollectionOfObjectValues<ComplianceChange>("complianceChanges", ComplianceChanges);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentAudience>("audience", Audience);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ComplianceChangeRule>("complianceChangeRules", ComplianceChangeRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ComplianceChange>("complianceChanges", ComplianceChanges);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>("deploymentSettings", DeploymentSettings);
         }

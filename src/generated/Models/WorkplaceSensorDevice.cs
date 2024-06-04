@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WorkplaceSensorDevice : Entity, IParsable
+    public class WorkplaceSensorDevice : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the device.</summary>
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         /// <summary>A list of sensors associated with the device that collect and report data about physical or environmental conditions, such as occupancy, people count, inferred occupancy, temperature, and more.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkplaceSensor>? Sensors { get; set; }
+        public List<ApiSdk.Models.WorkplaceSensor>? Sensors { get; set; }
 #nullable restore
 #else
-        public List<WorkplaceSensor> Sensors { get; set; }
+        public List<ApiSdk.Models.WorkplaceSensor> Sensors { get; set; }
 #endif
         /// <summary>A list of custom tags associated with the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,12 +93,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkplaceSensorDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkplaceSensorDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkplaceSensorDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WorkplaceSensorDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkplaceSensorDevice();
+            return new ApiSdk.Models.WorkplaceSensorDevice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,7 +116,7 @@ namespace ApiSdk.Models
                 { "macAddress", n => { MacAddress = n.GetStringValue(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 { "placeId", n => { PlaceId = n.GetStringValue(); } },
-                { "sensors", n => { Sensors = n.GetCollectionOfObjectValues<WorkplaceSensor>(WorkplaceSensor.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sensors", n => { Sensors = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkplaceSensor>(ApiSdk.Models.WorkplaceSensor.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -136,7 +136,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("macAddress", MacAddress);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteStringValue("placeId", PlaceId);
-            writer.WriteCollectionOfObjectValues<WorkplaceSensor>("sensors", Sensors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkplaceSensor>("sensors", Sensors);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
         }
     }

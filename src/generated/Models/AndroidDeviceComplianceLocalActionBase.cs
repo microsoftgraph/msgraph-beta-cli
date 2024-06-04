@@ -9,24 +9,24 @@ namespace ApiSdk.Models
     /// <summary>
     /// Local Action Configuration
     /// </summary>
-    public class AndroidDeviceComplianceLocalActionBase : Entity, IParsable
+    public class AndroidDeviceComplianceLocalActionBase : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647</summary>
         public int? GracePeriodInMinutes { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceComplianceLocalActionBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceComplianceLocalActionBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceComplianceLocalActionBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceComplianceLocalActionBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.androidDeviceComplianceLocalActionLockDevice" => new AndroidDeviceComplianceLocalActionLockDevice(),
-                "#microsoft.graph.androidDeviceComplianceLocalActionLockDeviceWithPasscode" => new AndroidDeviceComplianceLocalActionLockDeviceWithPasscode(),
-                _ => new AndroidDeviceComplianceLocalActionBase(),
+                "#microsoft.graph.androidDeviceComplianceLocalActionLockDevice" => new ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDevice(),
+                "#microsoft.graph.androidDeviceComplianceLocalActionLockDeviceWithPasscode" => new ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDeviceWithPasscode(),
+                _ => new ApiSdk.Models.AndroidDeviceComplianceLocalActionBase(),
             };
         }
         /// <summary>

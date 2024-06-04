@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         public List<string> SuccessfulDriverIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BulkDriverActionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BulkDriverActionResult"/> and sets the default values.
         /// </summary>
         public BulkDriverActionResult()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BulkDriverActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BulkDriverActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BulkDriverActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.BulkDriverActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BulkDriverActionResult();
+            return new ApiSdk.Models.BulkDriverActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model

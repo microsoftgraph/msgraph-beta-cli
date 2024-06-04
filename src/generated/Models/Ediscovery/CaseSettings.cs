@@ -13,36 +13,36 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The OCR (Optical Character Recognition) settings for the case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OcrSettings? Ocr { get; set; }
+        public ApiSdk.Models.Ediscovery.OcrSettings? Ocr { get; set; }
 #nullable restore
 #else
-        public OcrSettings Ocr { get; set; }
+        public ApiSdk.Models.Ediscovery.OcrSettings Ocr { get; set; }
 #endif
         /// <summary>The redundancy (near duplicate and email threading) detection settings for the case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RedundancyDetectionSettings? RedundancyDetection { get; set; }
+        public ApiSdk.Models.Ediscovery.RedundancyDetectionSettings? RedundancyDetection { get; set; }
 #nullable restore
 #else
-        public RedundancyDetectionSettings RedundancyDetection { get; set; }
+        public ApiSdk.Models.Ediscovery.RedundancyDetectionSettings RedundancyDetection { get; set; }
 #endif
         /// <summary>The article Modeling (Themes) settings for the case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TopicModelingSettings? TopicModeling { get; set; }
+        public ApiSdk.Models.Ediscovery.TopicModelingSettings? TopicModeling { get; set; }
 #nullable restore
 #else
-        public TopicModelingSettings TopicModeling { get; set; }
+        public ApiSdk.Models.Ediscovery.TopicModelingSettings TopicModeling { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CaseSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.CaseSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CaseSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.CaseSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CaseSettings();
+            return new ApiSdk.Models.Ediscovery.CaseSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models.Ediscovery
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "ocr", n => { Ocr = n.GetObjectValue<OcrSettings>(OcrSettings.CreateFromDiscriminatorValue); } },
-                { "redundancyDetection", n => { RedundancyDetection = n.GetObjectValue<RedundancyDetectionSettings>(RedundancyDetectionSettings.CreateFromDiscriminatorValue); } },
-                { "topicModeling", n => { TopicModeling = n.GetObjectValue<TopicModelingSettings>(TopicModelingSettings.CreateFromDiscriminatorValue); } },
+                { "ocr", n => { Ocr = n.GetObjectValue<ApiSdk.Models.Ediscovery.OcrSettings>(ApiSdk.Models.Ediscovery.OcrSettings.CreateFromDiscriminatorValue); } },
+                { "redundancyDetection", n => { RedundancyDetection = n.GetObjectValue<ApiSdk.Models.Ediscovery.RedundancyDetectionSettings>(ApiSdk.Models.Ediscovery.RedundancyDetectionSettings.CreateFromDiscriminatorValue); } },
+                { "topicModeling", n => { TopicModeling = n.GetObjectValue<ApiSdk.Models.Ediscovery.TopicModelingSettings>(ApiSdk.Models.Ediscovery.TopicModelingSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models.Ediscovery
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<OcrSettings>("ocr", Ocr);
-            writer.WriteObjectValue<RedundancyDetectionSettings>("redundancyDetection", RedundancyDetection);
-            writer.WriteObjectValue<TopicModelingSettings>("topicModeling", TopicModeling);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.OcrSettings>("ocr", Ocr);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.RedundancyDetectionSettings>("redundancyDetection", RedundancyDetection);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.TopicModelingSettings>("topicModeling", TopicModeling);
         }
     }
 }

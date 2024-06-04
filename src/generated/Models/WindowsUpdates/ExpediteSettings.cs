@@ -25,7 +25,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExpediteSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.ExpediteSettings"/> and sets the default values.
         /// </summary>
         public ExpediteSettings()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExpediteSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ExpediteSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExpediteSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.ExpediteSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExpediteSettings();
+            return new ApiSdk.Models.WindowsUpdates.ExpediteSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

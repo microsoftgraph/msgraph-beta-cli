@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class FileThreatSubmission : ThreatSubmission, IParsable
+    public class FileThreatSubmission : ApiSdk.Models.Security.ThreatSubmission, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>It specifies the file name to be submitted.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models.Security
         public string FileName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="FileThreatSubmission"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.FileThreatSubmission"/> and sets the default values.
         /// </summary>
         public FileThreatSubmission() : base()
         {
@@ -28,17 +28,17 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FileThreatSubmission"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.FileThreatSubmission"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FileThreatSubmission CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.FileThreatSubmission CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.fileContentThreatSubmission" => new FileContentThreatSubmission(),
-                "#microsoft.graph.security.fileUrlThreatSubmission" => new FileUrlThreatSubmission(),
-                _ => new FileThreatSubmission(),
+                "#microsoft.graph.security.fileContentThreatSubmission" => new ApiSdk.Models.Security.FileContentThreatSubmission(),
+                "#microsoft.graph.security.fileUrlThreatSubmission" => new ApiSdk.Models.Security.FileUrlThreatSubmission(),
+                _ => new ApiSdk.Models.Security.FileThreatSubmission(),
             };
         }
         /// <summary>

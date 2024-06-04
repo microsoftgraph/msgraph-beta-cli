@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetAllCertificatesReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport.GetAllCertificatesReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetAllCertificatesReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetAllCertificatesReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport.GetAllCertificatesReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetAllCertificatesReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport.GetAllCertificatesReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetAllCertificatesReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetAllCertificatesReport.GetAllCertificatesReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class M365ForwardingRule : ForwardingRule, IParsable
+    public class M365ForwardingRule : ApiSdk.Models.Networkaccess.ForwardingRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The category property</summary>
-        public ForwardingCategory? Category { get; set; }
+        public ApiSdk.Models.Networkaccess.ForwardingCategory? Category { get; set; }
         /// <summary>The port(s) used by a forwarding rule for Microsoft 365 traffic are specified to determine the specific network port(s) through which the Microsoft 365 traffic is directed and forwarded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,9 +21,9 @@ namespace ApiSdk.Models.Networkaccess
         public List<string> Ports { get; set; }
 #endif
         /// <summary>The protocol property</summary>
-        public NetworkingProtocol? Protocol { get; set; }
+        public ApiSdk.Models.Networkaccess.NetworkingProtocol? Protocol { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="M365ForwardingRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.M365ForwardingRule"/> and sets the default values.
         /// </summary>
         public M365ForwardingRule() : base()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="M365ForwardingRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.M365ForwardingRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new M365ForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.M365ForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new M365ForwardingRule();
+            return new ApiSdk.Models.Networkaccess.M365ForwardingRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,9 +47,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "category", n => { Category = n.GetEnumValue<ForwardingCategory>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.Networkaccess.ForwardingCategory>(); } },
                 { "ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "protocol", n => { Protocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "protocol", n => { Protocol = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>(); } },
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ForwardingCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ForwardingCategory>("category", Category);
             writer.WriteCollectionOfPrimitiveValues<string>("ports", Ports);
-            writer.WriteEnumValue<NetworkingProtocol>("protocol", Protocol);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>("protocol", Protocol);
         }
     }
 }

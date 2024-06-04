@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Contains properties for detection operator.</summary>
-        public Win32LobAppDetectionOperator? Operator { get; set; }
+        public ApiSdk.Models.Win32LobAppDetectionOperator? Operator { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Win32LobAppRequirement"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Win32LobAppRequirement"/> and sets the default values.
         /// </summary>
         public Win32LobAppRequirement()
         {
@@ -41,18 +41,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Win32LobAppRequirement"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Win32LobAppRequirement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Win32LobAppRequirement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Win32LobAppRequirement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.win32LobAppFileSystemRequirement" => new Win32LobAppFileSystemRequirement(),
-                "#microsoft.graph.win32LobAppPowerShellScriptRequirement" => new Win32LobAppPowerShellScriptRequirement(),
-                "#microsoft.graph.win32LobAppRegistryRequirement" => new Win32LobAppRegistryRequirement(),
-                _ => new Win32LobAppRequirement(),
+                "#microsoft.graph.win32LobAppFileSystemRequirement" => new ApiSdk.Models.Win32LobAppFileSystemRequirement(),
+                "#microsoft.graph.win32LobAppPowerShellScriptRequirement" => new ApiSdk.Models.Win32LobAppPowerShellScriptRequirement(),
+                "#microsoft.graph.win32LobAppRegistryRequirement" => new ApiSdk.Models.Win32LobAppRegistryRequirement(),
+                _ => new ApiSdk.Models.Win32LobAppRequirement(),
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
             {
                 { "detectionValue", n => { DetectionValue = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "operator", n => { Operator = n.GetEnumValue<Win32LobAppDetectionOperator>(); } },
+                { "operator", n => { Operator = n.GetEnumValue<ApiSdk.Models.Win32LobAppDetectionOperator>(); } },
             };
         }
         /// <summary>
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("detectionValue", DetectionValue);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<Win32LobAppDetectionOperator>("operator", Operator);
+            writer.WriteEnumValue<ApiSdk.Models.Win32LobAppDetectionOperator>("operator", Operator);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

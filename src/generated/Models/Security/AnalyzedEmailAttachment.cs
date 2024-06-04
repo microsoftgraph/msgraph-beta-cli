@@ -63,7 +63,7 @@ namespace ApiSdk.Models.Security
         /// <summary>The threat type associated with the attachment. The possible values are: unknown, spam, malware, phishing, none, unknownFutureValue.</summary>
         public ApiSdk.Models.Security.ThreatType? ThreatType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AnalyzedEmailAttachment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.AnalyzedEmailAttachment"/> and sets the default values.
         /// </summary>
         public AnalyzedEmailAttachment()
         {
@@ -72,12 +72,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AnalyzedEmailAttachment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AnalyzedEmailAttachment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AnalyzedEmailAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.AnalyzedEmailAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AnalyzedEmailAttachment();
+            return new ApiSdk.Models.Security.AnalyzedEmailAttachment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,7 +93,7 @@ namespace ApiSdk.Models.Security
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "sha256", n => { Sha256 = n.GetStringValue(); } },
                 { "threatName", n => { ThreatName = n.GetStringValue(); } },
-                { "threatType", n => { ThreatType = n.GetEnumValue<ThreatType>(); } },
+                { "threatType", n => { ThreatType = n.GetEnumValue<ApiSdk.Models.Security.ThreatType>(); } },
             };
         }
         /// <summary>
@@ -109,7 +109,7 @@ namespace ApiSdk.Models.Security
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("sha256", Sha256);
             writer.WriteStringValue("threatName", ThreatName);
-            writer.WriteEnumValue<ThreatType>("threatType", ThreatType);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ThreatType>("threatType", ThreatType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

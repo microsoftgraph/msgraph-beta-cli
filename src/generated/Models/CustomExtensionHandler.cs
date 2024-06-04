@@ -7,28 +7,28 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomExtensionHandler : Entity, IParsable
+    public class CustomExtensionHandler : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates which custom workflow extension is executed at this stage. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CustomAccessPackageWorkflowExtension? CustomExtension { get; set; }
+        public ApiSdk.Models.CustomAccessPackageWorkflowExtension? CustomExtension { get; set; }
 #nullable restore
 #else
-        public CustomAccessPackageWorkflowExtension CustomExtension { get; set; }
+        public ApiSdk.Models.CustomAccessPackageWorkflowExtension CustomExtension { get; set; }
 #endif
         /// <summary>Indicates the stage of the access package assignment request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.</summary>
-        public AccessPackageCustomExtensionStage? Stage { get; set; }
+        public ApiSdk.Models.AccessPackageCustomExtensionStage? Stage { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomExtensionHandler"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomExtensionHandler"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomExtensionHandler CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomExtensionHandler CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomExtensionHandler();
+            return new ApiSdk.Models.CustomExtensionHandler();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,8 +38,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customExtension", n => { CustomExtension = n.GetObjectValue<CustomAccessPackageWorkflowExtension>(CustomAccessPackageWorkflowExtension.CreateFromDiscriminatorValue); } },
-                { "stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
+                { "customExtension", n => { CustomExtension = n.GetObjectValue<ApiSdk.Models.CustomAccessPackageWorkflowExtension>(ApiSdk.Models.CustomAccessPackageWorkflowExtension.CreateFromDiscriminatorValue); } },
+                { "stage", n => { Stage = n.GetEnumValue<ApiSdk.Models.AccessPackageCustomExtensionStage>(); } },
             };
         }
         /// <summary>
@@ -50,8 +50,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<CustomAccessPackageWorkflowExtension>("customExtension", CustomExtension);
-            writer.WriteEnumValue<AccessPackageCustomExtensionStage>("stage", Stage);
+            writer.WriteObjectValue<ApiSdk.Models.CustomAccessPackageWorkflowExtension>("customExtension", CustomExtension);
+            writer.WriteEnumValue<ApiSdk.Models.AccessPackageCustomExtensionStage>("stage", Stage);
         }
     }
 }

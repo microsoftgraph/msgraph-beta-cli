@@ -24,7 +24,7 @@ namespace ApiSdk.Models
         /// <summary>Priority of the policy. Valid values 1 to 500</summary>
         public int? Priority { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementPriorityMetaData"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementPriorityMetaData"/> and sets the default values.
         /// </summary>
         public DeviceManagementPriorityMetaData()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementPriorityMetaData"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementPriorityMetaData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementPriorityMetaData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementPriorityMetaData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementPriorityMetaData();
+            return new ApiSdk.Models.DeviceManagementPriorityMetaData();
         }
         /// <summary>
         /// The deserialization information for the current model

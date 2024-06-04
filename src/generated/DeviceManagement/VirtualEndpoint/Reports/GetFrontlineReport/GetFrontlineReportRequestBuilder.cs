@@ -42,7 +42,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GetFrontlineReportPostRequestBody>(GetFrontlineReportPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportPostRequestBody>(ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -69,14 +69,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetFrontlineReportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetFrontlineReportRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint/reports/getFrontlineReport", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetFrontlineReportRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetFrontlineReportRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint/reports/getFrontlineReport", rawUrl)
@@ -90,11 +90,11 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetFrontlineReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetFrontlineReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetFrontlineReport.GetFrontlineReportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

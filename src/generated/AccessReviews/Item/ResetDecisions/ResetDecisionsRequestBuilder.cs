@@ -50,14 +50,14 @@ namespace ApiSdk.AccessReviews.Item.ResetDecisions
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.ResetDecisions.ResetDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResetDecisionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/accessReviews/{accessReview%2Did}/resetDecisions", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.ResetDecisions.ResetDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResetDecisionsRequestBuilder(string rawUrl) : base("{+baseurl}/accessReviews/{accessReview%2Did}/resetDecisions", rawUrl)

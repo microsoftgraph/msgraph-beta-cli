@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerTask : PlannerDelta, IParsable
+    public class PlannerTask : ApiSdk.Models.PlannerDelta, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of checklist items with value set to false, representing incomplete items.</summary>
@@ -16,26 +16,26 @@ namespace ApiSdk.Models
         /// <summary>The categories to which the task is applied. See plannerAppliedCategories resource type for possible values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerAppliedCategories? AppliedCategories { get; set; }
+        public ApiSdk.Models.PlannerAppliedCategories? AppliedCategories { get; set; }
 #nullable restore
 #else
-        public PlannerAppliedCategories AppliedCategories { get; set; }
+        public ApiSdk.Models.PlannerAppliedCategories AppliedCategories { get; set; }
 #endif
         /// <summary>The archivalInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerArchivalInfo? ArchivalInfo { get; set; }
+        public ApiSdk.Models.PlannerArchivalInfo? ArchivalInfo { get; set; }
 #nullable restore
 #else
-        public PlannerArchivalInfo ArchivalInfo { get; set; }
+        public ApiSdk.Models.PlannerArchivalInfo ArchivalInfo { get; set; }
 #endif
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerAssignedToTaskBoardTaskFormat? AssignedToTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat? AssignedToTaskBoardFormat { get; set; }
 #nullable restore
 #else
-        public PlannerAssignedToTaskBoardTaskFormat AssignedToTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat AssignedToTaskBoardFormat { get; set; }
 #endif
         /// <summary>A hint that is used to order items of this type in a list view. For more information, see Using order hints in Planner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,10 +48,10 @@ namespace ApiSdk.Models
         /// <summary>The set of assignees the task is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerAssignments? Assignments { get; set; }
+        public ApiSdk.Models.PlannerAssignments? Assignments { get; set; }
 #nullable restore
 #else
-        public PlannerAssignments Assignments { get; set; }
+        public ApiSdk.Models.PlannerAssignments Assignments { get; set; }
 #endif
         /// <summary>Bucket ID to which the task belongs. The bucket needs to be in the same plan as the task. The value of the bucketId property is 28 characters long and case-sensitive. Format validation is done on the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,20 +64,20 @@ namespace ApiSdk.Models
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerBucketTaskBoardTaskFormat? BucketTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerBucketTaskBoardTaskFormat? BucketTaskBoardFormat { get; set; }
 #nullable restore
 #else
-        public PlannerBucketTaskBoardTaskFormat BucketTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerBucketTaskBoardTaskFormat BucketTaskBoardFormat { get; set; }
 #endif
         /// <summary>The number of checklist items that are present on the task.</summary>
         public int? ChecklistItemCount { get; set; }
         /// <summary>The identity of the user that completed the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? CompletedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? CompletedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet CompletedBy { get; set; }
+        public ApiSdk.Models.IdentitySet CompletedBy { get; set; }
 #endif
         /// <summary>Read-only. The date and time at which the &apos;percentComplete&apos; of the task is set to &apos;100&apos;. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
@@ -92,28 +92,28 @@ namespace ApiSdk.Models
         /// <summary>The identity of the user who created the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? CreatedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet CreatedBy { get; set; }
 #endif
         /// <summary>Read-only. The date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Information about the origin of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskCreation? CreationSource { get; set; }
+        public ApiSdk.Models.PlannerTaskCreation? CreationSource { get; set; }
 #nullable restore
 #else
-        public PlannerTaskCreation CreationSource { get; set; }
+        public ApiSdk.Models.PlannerTaskCreation CreationSource { get; set; }
 #endif
         /// <summary>Read-only. Nullable. More details about the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskDetails? Details { get; set; }
+        public ApiSdk.Models.PlannerTaskDetails? Details { get; set; }
 #nullable restore
 #else
-        public PlannerTaskDetails Details { get; set; }
+        public ApiSdk.Models.PlannerTaskDetails Details { get; set; }
 #endif
         /// <summary>The date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? DueDateTime { get; set; }
@@ -144,29 +144,29 @@ namespace ApiSdk.Models
         public string PlanId { get; set; }
 #endif
         /// <summary>The type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.</summary>
-        public PlannerPreviewType? PreviewType { get; set; }
+        public ApiSdk.Models.PlannerPreviewType? PreviewType { get; set; }
         /// <summary>The priority of the task. Valid values are between 0 and 10, inclusive. Larger values indicate lower priority. For example, 0 has the highest priority and 10 has the lowest priority. Currently, Planner interprets values 0 and 1 as &apos;urgent&apos;, 2 and 3 and 4 as &apos;important&apos;, 5, 6, and 7 as &apos;medium&apos;, and 8, 9, and 10 as &apos;low&apos;. Currently, Planner sets the value 1 for &apos;urgent&apos;, 3 for &apos;important&apos;, 5 for &apos;medium&apos;, and 9 for &apos;low&apos;.</summary>
         public int? Priority { get; set; }
         /// <summary>Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerProgressTaskBoardTaskFormat? ProgressTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerProgressTaskBoardTaskFormat? ProgressTaskBoardFormat { get; set; }
 #nullable restore
 #else
-        public PlannerProgressTaskBoardTaskFormat ProgressTaskBoardFormat { get; set; }
+        public ApiSdk.Models.PlannerProgressTaskBoardTaskFormat ProgressTaskBoardFormat { get; set; }
 #endif
         /// <summary>Defines active or inactive recurrence for the task. null when the recurrence has never been defined for the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskRecurrence? Recurrence { get; set; }
+        public ApiSdk.Models.PlannerTaskRecurrence? Recurrence { get; set; }
 #nullable restore
 #else
-        public PlannerTaskRecurrence Recurrence { get; set; }
+        public ApiSdk.Models.PlannerTaskRecurrence Recurrence { get; set; }
 #endif
         /// <summary>Number of external references that exist on the task.</summary>
         public int? ReferenceCount { get; set; }
         /// <summary>Indicates all the requirements specified on the plannerTask. Possible values are: none, checklistCompletion, unknownFutureValue, formCompletion, approvalCompletion. Read-only. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: formCompletion, approvalCompletion. The plannerTaskCompletionRequirementDetails in plannerTaskDetails has details of the requirements specified, if any.</summary>
-        public PlannerTaskCompletionRequirements? SpecifiedCompletionRequirements { get; set; }
+        public ApiSdk.Models.PlannerTaskCompletionRequirements? SpecifiedCompletionRequirements { get; set; }
         /// <summary>Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>Title of the task.</summary>
@@ -180,16 +180,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.businessScenarioTask" => new BusinessScenarioTask(),
-                _ => new PlannerTask(),
+                "#microsoft.graph.businessScenarioTask" => new ApiSdk.Models.BusinessScenarioTask(),
+                _ => new ApiSdk.Models.PlannerTask(),
             };
         }
         /// <summary>
@@ -201,21 +201,21 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "activeChecklistItemCount", n => { ActiveChecklistItemCount = n.GetIntValue(); } },
-                { "appliedCategories", n => { AppliedCategories = n.GetObjectValue<PlannerAppliedCategories>(PlannerAppliedCategories.CreateFromDiscriminatorValue); } },
-                { "archivalInfo", n => { ArchivalInfo = n.GetObjectValue<PlannerArchivalInfo>(PlannerArchivalInfo.CreateFromDiscriminatorValue); } },
-                { "assignedToTaskBoardFormat", n => { AssignedToTaskBoardFormat = n.GetObjectValue<PlannerAssignedToTaskBoardTaskFormat>(PlannerAssignedToTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
+                { "appliedCategories", n => { AppliedCategories = n.GetObjectValue<ApiSdk.Models.PlannerAppliedCategories>(ApiSdk.Models.PlannerAppliedCategories.CreateFromDiscriminatorValue); } },
+                { "archivalInfo", n => { ArchivalInfo = n.GetObjectValue<ApiSdk.Models.PlannerArchivalInfo>(ApiSdk.Models.PlannerArchivalInfo.CreateFromDiscriminatorValue); } },
+                { "assignedToTaskBoardFormat", n => { AssignedToTaskBoardFormat = n.GetObjectValue<ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat>(ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
                 { "assigneePriority", n => { AssigneePriority = n.GetStringValue(); } },
-                { "assignments", n => { Assignments = n.GetObjectValue<PlannerAssignments>(PlannerAssignments.CreateFromDiscriminatorValue); } },
+                { "assignments", n => { Assignments = n.GetObjectValue<ApiSdk.Models.PlannerAssignments>(ApiSdk.Models.PlannerAssignments.CreateFromDiscriminatorValue); } },
                 { "bucketId", n => { BucketId = n.GetStringValue(); } },
-                { "bucketTaskBoardFormat", n => { BucketTaskBoardFormat = n.GetObjectValue<PlannerBucketTaskBoardTaskFormat>(PlannerBucketTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
+                { "bucketTaskBoardFormat", n => { BucketTaskBoardFormat = n.GetObjectValue<ApiSdk.Models.PlannerBucketTaskBoardTaskFormat>(ApiSdk.Models.PlannerBucketTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
                 { "checklistItemCount", n => { ChecklistItemCount = n.GetIntValue(); } },
-                { "completedBy", n => { CompletedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "completedBy", n => { CompletedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "completedDateTime", n => { CompletedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "conversationThreadId", n => { ConversationThreadId = n.GetStringValue(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "creationSource", n => { CreationSource = n.GetObjectValue<PlannerTaskCreation>(PlannerTaskCreation.CreateFromDiscriminatorValue); } },
-                { "details", n => { Details = n.GetObjectValue<PlannerTaskDetails>(PlannerTaskDetails.CreateFromDiscriminatorValue); } },
+                { "creationSource", n => { CreationSource = n.GetObjectValue<ApiSdk.Models.PlannerTaskCreation>(ApiSdk.Models.PlannerTaskCreation.CreateFromDiscriminatorValue); } },
+                { "details", n => { Details = n.GetObjectValue<ApiSdk.Models.PlannerTaskDetails>(ApiSdk.Models.PlannerTaskDetails.CreateFromDiscriminatorValue); } },
                 { "dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
                 { "hasDescription", n => { HasDescription = n.GetBoolValue(); } },
                 { "isArchived", n => { IsArchived = n.GetBoolValue(); } },
@@ -224,12 +224,12 @@ namespace ApiSdk.Models
                 { "orderHint", n => { OrderHint = n.GetStringValue(); } },
                 { "percentComplete", n => { PercentComplete = n.GetIntValue(); } },
                 { "planId", n => { PlanId = n.GetStringValue(); } },
-                { "previewType", n => { PreviewType = n.GetEnumValue<PlannerPreviewType>(); } },
+                { "previewType", n => { PreviewType = n.GetEnumValue<ApiSdk.Models.PlannerPreviewType>(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
-                { "progressTaskBoardFormat", n => { ProgressTaskBoardFormat = n.GetObjectValue<PlannerProgressTaskBoardTaskFormat>(PlannerProgressTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
-                { "recurrence", n => { Recurrence = n.GetObjectValue<PlannerTaskRecurrence>(PlannerTaskRecurrence.CreateFromDiscriminatorValue); } },
+                { "progressTaskBoardFormat", n => { ProgressTaskBoardFormat = n.GetObjectValue<ApiSdk.Models.PlannerProgressTaskBoardTaskFormat>(ApiSdk.Models.PlannerProgressTaskBoardTaskFormat.CreateFromDiscriminatorValue); } },
+                { "recurrence", n => { Recurrence = n.GetObjectValue<ApiSdk.Models.PlannerTaskRecurrence>(ApiSdk.Models.PlannerTaskRecurrence.CreateFromDiscriminatorValue); } },
                 { "referenceCount", n => { ReferenceCount = n.GetIntValue(); } },
-                { "specifiedCompletionRequirements", n => { SpecifiedCompletionRequirements = n.GetEnumValue<PlannerTaskCompletionRequirements>(); } },
+                { "specifiedCompletionRequirements", n => { SpecifiedCompletionRequirements = n.GetEnumValue<ApiSdk.Models.PlannerTaskCompletionRequirements>(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -243,21 +243,21 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("activeChecklistItemCount", ActiveChecklistItemCount);
-            writer.WriteObjectValue<PlannerAppliedCategories>("appliedCategories", AppliedCategories);
-            writer.WriteObjectValue<PlannerArchivalInfo>("archivalInfo", ArchivalInfo);
-            writer.WriteObjectValue<PlannerAssignedToTaskBoardTaskFormat>("assignedToTaskBoardFormat", AssignedToTaskBoardFormat);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerAppliedCategories>("appliedCategories", AppliedCategories);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerArchivalInfo>("archivalInfo", ArchivalInfo);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat>("assignedToTaskBoardFormat", AssignedToTaskBoardFormat);
             writer.WriteStringValue("assigneePriority", AssigneePriority);
-            writer.WriteObjectValue<PlannerAssignments>("assignments", Assignments);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerAssignments>("assignments", Assignments);
             writer.WriteStringValue("bucketId", BucketId);
-            writer.WriteObjectValue<PlannerBucketTaskBoardTaskFormat>("bucketTaskBoardFormat", BucketTaskBoardFormat);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerBucketTaskBoardTaskFormat>("bucketTaskBoardFormat", BucketTaskBoardFormat);
             writer.WriteIntValue("checklistItemCount", ChecklistItemCount);
-            writer.WriteObjectValue<IdentitySet>("completedBy", CompletedBy);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("completedBy", CompletedBy);
             writer.WriteDateTimeOffsetValue("completedDateTime", CompletedDateTime);
             writer.WriteStringValue("conversationThreadId", ConversationThreadId);
-            writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<PlannerTaskCreation>("creationSource", CreationSource);
-            writer.WriteObjectValue<PlannerTaskDetails>("details", Details);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskCreation>("creationSource", CreationSource);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskDetails>("details", Details);
             writer.WriteDateTimeOffsetValue("dueDateTime", DueDateTime);
             writer.WriteBoolValue("hasDescription", HasDescription);
             writer.WriteBoolValue("isArchived", IsArchived);
@@ -266,12 +266,12 @@ namespace ApiSdk.Models
             writer.WriteStringValue("orderHint", OrderHint);
             writer.WriteIntValue("percentComplete", PercentComplete);
             writer.WriteStringValue("planId", PlanId);
-            writer.WriteEnumValue<PlannerPreviewType>("previewType", PreviewType);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerPreviewType>("previewType", PreviewType);
             writer.WriteIntValue("priority", Priority);
-            writer.WriteObjectValue<PlannerProgressTaskBoardTaskFormat>("progressTaskBoardFormat", ProgressTaskBoardFormat);
-            writer.WriteObjectValue<PlannerTaskRecurrence>("recurrence", Recurrence);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerProgressTaskBoardTaskFormat>("progressTaskBoardFormat", ProgressTaskBoardFormat);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskRecurrence>("recurrence", Recurrence);
             writer.WriteIntValue("referenceCount", ReferenceCount);
-            writer.WriteEnumValue<PlannerTaskCompletionRequirements>("specifiedCompletionRequirements", SpecifiedCompletionRequirements);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerTaskCompletionRequirements>("specifiedCompletionRequirements", SpecifiedCompletionRequirements);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("title", Title);
         }

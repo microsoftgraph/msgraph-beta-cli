@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Windows 10 device (desktop or mobile) to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class Windows10VpnConfiguration : WindowsVpnConfiguration, IParsable
+    public class Windows10VpnConfiguration : ApiSdk.Models.WindowsVpnConfiguration, IParsable
     {
         /// <summary>Associated Apps. This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Windows10AssociatedApps>? AssociatedApps { get; set; }
+        public List<ApiSdk.Models.Windows10AssociatedApps>? AssociatedApps { get; set; }
 #nullable restore
 #else
-        public List<Windows10AssociatedApps> AssociatedApps { get; set; }
+        public List<ApiSdk.Models.Windows10AssociatedApps> AssociatedApps { get; set; }
 #endif
         /// <summary>Windows 10 VPN connection types.</summary>
-        public Windows10VpnAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.Windows10VpnAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>VPN connection types.</summary>
-        public Windows10VpnConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.Windows10VpnConnectionType? ConnectionType { get; set; }
         /// <summary>Cryptography Suite security settings for IKEv2 VPN in Windows10 and above</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,10 +34,10 @@ namespace ApiSdk.Models
         /// <summary>DNS rules. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnDnsRule>? DnsRules { get; set; }
+        public List<ApiSdk.Models.VpnDnsRule>? DnsRules { get; set; }
 #nullable restore
 #else
-        public List<VpnDnsRule> DnsRules { get; set; }
+        public List<ApiSdk.Models.VpnDnsRule> DnsRules { get; set; }
 #endif
         /// <summary>Specify DNS suffixes to add to the DNS search list to properly route short names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,10 +70,10 @@ namespace ApiSdk.Models
         /// <summary>Identity certificate for client authentication when authentication method is certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsCertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.WindowsCertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public WindowsCertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.WindowsCertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>ID of the Microsoft Tunnel site associated with the VPN profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -86,32 +86,32 @@ namespace ApiSdk.Models
         /// <summary>Only associated Apps can use connection (per-app VPN).</summary>
         public bool? OnlyAssociatedAppsCanUseConnection { get; set; }
         /// <summary>Profile target type. Possible values are: user, device, autoPilotDevice.</summary>
-        public Windows10VpnProfileTarget? ProfileTarget { get; set; }
+        public ApiSdk.Models.Windows10VpnProfileTarget? ProfileTarget { get; set; }
         /// <summary>Proxy Server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Windows10VpnProxyServer? ProxyServer { get; set; }
+        public ApiSdk.Models.Windows10VpnProxyServer? ProxyServer { get; set; }
 #nullable restore
 #else
-        public Windows10VpnProxyServer ProxyServer { get; set; }
+        public ApiSdk.Models.Windows10VpnProxyServer ProxyServer { get; set; }
 #endif
         /// <summary>Remember user credentials.</summary>
         public bool? RememberUserCredentials { get; set; }
         /// <summary>Routes (optional for third-party providers). This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnRoute>? Routes { get; set; }
+        public List<ApiSdk.Models.VpnRoute>? Routes { get; set; }
 #nullable restore
 #else
-        public List<VpnRoute> Routes { get; set; }
+        public List<ApiSdk.Models.VpnRoute> Routes { get; set; }
 #endif
         /// <summary>Single sign-on Extended Key Usage (EKU).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ExtendedKeyUsage? SingleSignOnEku { get; set; }
+        public ApiSdk.Models.ExtendedKeyUsage? SingleSignOnEku { get; set; }
 #nullable restore
 #else
-        public ExtendedKeyUsage SingleSignOnEku { get; set; }
+        public ApiSdk.Models.ExtendedKeyUsage SingleSignOnEku { get; set; }
 #endif
         /// <summary>Single sign-on issuer hash.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -124,10 +124,10 @@ namespace ApiSdk.Models
         /// <summary>Traffic rules. This collection can contain a maximum of 1000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnTrafficRule>? TrafficRules { get; set; }
+        public List<ApiSdk.Models.VpnTrafficRule>? TrafficRules { get; set; }
 #nullable restore
 #else
-        public List<VpnTrafficRule> TrafficRules { get; set; }
+        public List<ApiSdk.Models.VpnTrafficRule> TrafficRules { get; set; }
 #endif
         /// <summary>Trusted Network Domains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -146,7 +146,7 @@ namespace ApiSdk.Models
         public string WindowsInformationProtectionDomain { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10VpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10VpnConfiguration"/> and sets the default values.
         /// </summary>
         public Windows10VpnConfiguration() : base()
         {
@@ -155,12 +155,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10VpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10VpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10VpnConfiguration();
+            return new ApiSdk.Models.Windows10VpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -170,11 +170,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "associatedApps", n => { AssociatedApps = n.GetCollectionOfObjectValues<Windows10AssociatedApps>(Windows10AssociatedApps.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<Windows10VpnAuthenticationMethod>(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<Windows10VpnConnectionType>(); } },
+                { "associatedApps", n => { AssociatedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.Windows10AssociatedApps>(ApiSdk.Models.Windows10AssociatedApps.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.Windows10VpnAuthenticationMethod>(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.Windows10VpnConnectionType>(); } },
                 { "cryptographySuite", n => { CryptographySuite = n.GetObjectValue<ApiSdk.Models.CryptographySuite>(ApiSdk.Models.CryptographySuite.CreateFromDiscriminatorValue); } },
-                { "dnsRules", n => { DnsRules = n.GetCollectionOfObjectValues<VpnDnsRule>(VpnDnsRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dnsRules", n => { DnsRules = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnDnsRule>(ApiSdk.Models.VpnDnsRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "dnsSuffixes", n => { DnsSuffixes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "eapXml", n => { EapXml = n.GetByteArrayValue(); } },
                 { "enableAlwaysOn", n => { EnableAlwaysOn = n.GetBoolValue(); } },
@@ -183,16 +183,16 @@ namespace ApiSdk.Models
                 { "enableDnsRegistration", n => { EnableDnsRegistration = n.GetBoolValue(); } },
                 { "enableSingleSignOnWithAlternateCertificate", n => { EnableSingleSignOnWithAlternateCertificate = n.GetBoolValue(); } },
                 { "enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<WindowsCertificateProfileBase>(WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.WindowsCertificateProfileBase>(ApiSdk.Models.WindowsCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
                 { "onlyAssociatedAppsCanUseConnection", n => { OnlyAssociatedAppsCanUseConnection = n.GetBoolValue(); } },
-                { "profileTarget", n => { ProfileTarget = n.GetEnumValue<Windows10VpnProfileTarget>(); } },
-                { "proxyServer", n => { ProxyServer = n.GetObjectValue<Windows10VpnProxyServer>(Windows10VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "profileTarget", n => { ProfileTarget = n.GetEnumValue<ApiSdk.Models.Windows10VpnProfileTarget>(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<ApiSdk.Models.Windows10VpnProxyServer>(ApiSdk.Models.Windows10VpnProxyServer.CreateFromDiscriminatorValue); } },
                 { "rememberUserCredentials", n => { RememberUserCredentials = n.GetBoolValue(); } },
-                { "routes", n => { Routes = n.GetCollectionOfObjectValues<VpnRoute>(VpnRoute.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "singleSignOnEku", n => { SingleSignOnEku = n.GetObjectValue<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue); } },
+                { "routes", n => { Routes = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnRoute>(ApiSdk.Models.VpnRoute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "singleSignOnEku", n => { SingleSignOnEku = n.GetObjectValue<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue); } },
                 { "singleSignOnIssuerHash", n => { SingleSignOnIssuerHash = n.GetStringValue(); } },
-                { "trafficRules", n => { TrafficRules = n.GetCollectionOfObjectValues<VpnTrafficRule>(VpnTrafficRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trafficRules", n => { TrafficRules = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnTrafficRule>(ApiSdk.Models.VpnTrafficRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "trustedNetworkDomains", n => { TrustedNetworkDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "windowsInformationProtectionDomain", n => { WindowsInformationProtectionDomain = n.GetStringValue(); } },
             };
@@ -205,11 +205,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Windows10AssociatedApps>("associatedApps", AssociatedApps);
-            writer.WriteEnumValue<Windows10VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
-            writer.WriteEnumValue<Windows10VpnConnectionType>("connectionType", ConnectionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Windows10AssociatedApps>("associatedApps", AssociatedApps);
+            writer.WriteEnumValue<ApiSdk.Models.Windows10VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.Windows10VpnConnectionType>("connectionType", ConnectionType);
             writer.WriteObjectValue<ApiSdk.Models.CryptographySuite>("cryptographySuite", CryptographySuite);
-            writer.WriteCollectionOfObjectValues<VpnDnsRule>("dnsRules", DnsRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnDnsRule>("dnsRules", DnsRules);
             writer.WriteCollectionOfPrimitiveValues<string>("dnsSuffixes", DnsSuffixes);
             writer.WriteByteArrayValue("eapXml", EapXml);
             writer.WriteBoolValue("enableAlwaysOn", EnableAlwaysOn);
@@ -218,16 +218,16 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("enableDnsRegistration", EnableDnsRegistration);
             writer.WriteBoolValue("enableSingleSignOnWithAlternateCertificate", EnableSingleSignOnWithAlternateCertificate);
             writer.WriteBoolValue("enableSplitTunneling", EnableSplitTunneling);
-            writer.WriteObjectValue<WindowsCertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsCertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteStringValue("microsoftTunnelSiteId", MicrosoftTunnelSiteId);
             writer.WriteBoolValue("onlyAssociatedAppsCanUseConnection", OnlyAssociatedAppsCanUseConnection);
-            writer.WriteEnumValue<Windows10VpnProfileTarget>("profileTarget", ProfileTarget);
-            writer.WriteObjectValue<Windows10VpnProxyServer>("proxyServer", ProxyServer);
+            writer.WriteEnumValue<ApiSdk.Models.Windows10VpnProfileTarget>("profileTarget", ProfileTarget);
+            writer.WriteObjectValue<ApiSdk.Models.Windows10VpnProxyServer>("proxyServer", ProxyServer);
             writer.WriteBoolValue("rememberUserCredentials", RememberUserCredentials);
-            writer.WriteCollectionOfObjectValues<VpnRoute>("routes", Routes);
-            writer.WriteObjectValue<ExtendedKeyUsage>("singleSignOnEku", SingleSignOnEku);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnRoute>("routes", Routes);
+            writer.WriteObjectValue<ApiSdk.Models.ExtendedKeyUsage>("singleSignOnEku", SingleSignOnEku);
             writer.WriteStringValue("singleSignOnIssuerHash", SingleSignOnIssuerHash);
-            writer.WriteCollectionOfObjectValues<VpnTrafficRule>("trafficRules", TrafficRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnTrafficRule>("trafficRules", TrafficRules);
             writer.WriteCollectionOfPrimitiveValues<string>("trustedNetworkDomains", TrustedNetworkDomains);
             writer.WriteStringValue("windowsInformationProtectionDomain", WindowsInformationProtectionDomain);
         }

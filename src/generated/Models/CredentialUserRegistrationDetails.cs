@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CredentialUserRegistrationDetails : Entity, IParsable
+    public class CredentialUserRegistrationDetails : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the authentication method that the user has registered. Possible values are: email, mobilePhone, officePhone,  securityQuestion (only used for self-service password reset), appNotification,  appCode, alternateMobilePhone (supported only in registration),  fido,  appPassword,  unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RegistrationAuthMethod?>? AuthMethods { get; set; }
+        public List<ApiSdk.Models.RegistrationAuthMethod?>? AuthMethods { get; set; }
 #nullable restore
 #else
-        public List<RegistrationAuthMethod?> AuthMethods { get; set; }
+        public List<ApiSdk.Models.RegistrationAuthMethod?> AuthMethods { get; set; }
 #endif
         /// <summary>Indicates whether the user is ready to perform self-service password reset or MFA.</summary>
         public bool? IsCapable { get; set; }
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CredentialUserRegistrationDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CredentialUserRegistrationDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CredentialUserRegistrationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CredentialUserRegistrationDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CredentialUserRegistrationDetails();
+            return new ApiSdk.Models.CredentialUserRegistrationDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authMethods", n => { AuthMethods = n.GetCollectionOfEnumValues<RegistrationAuthMethod>()?.ToList(); } },
+                { "authMethods", n => { AuthMethods = n.GetCollectionOfEnumValues<ApiSdk.Models.RegistrationAuthMethod>()?.ToList(); } },
                 { "isCapable", n => { IsCapable = n.GetBoolValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "isMfaRegistered", n => { IsMfaRegistered = n.GetBoolValue(); } },
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfEnumValues<RegistrationAuthMethod>("authMethods", AuthMethods);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.RegistrationAuthMethod>("authMethods", AuthMethods);
             writer.WriteBoolValue("isCapable", IsCapable);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteBoolValue("isMfaRegistered", IsMfaRegistered);

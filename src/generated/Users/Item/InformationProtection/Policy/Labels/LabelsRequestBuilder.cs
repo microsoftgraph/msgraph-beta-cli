@@ -34,7 +34,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new InformationProtectionLabelItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.Item.InformationProtectionLabelItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -89,7 +89,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<InformationProtectionLabel>(InformationProtectionLabel.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.InformationProtectionLabel>(ApiSdk.Models.InformationProtectionLabel.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -117,7 +117,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         {
             var command = new Command("evaluate-application");
             command.Description = "Provides operations to call the evaluateApplication method.";
-            var builder = new EvaluateApplicationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateApplication.EvaluateApplicationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -134,7 +134,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         {
             var command = new Command("evaluate-classification-results");
             command.Description = "Provides operations to call the evaluateClassificationResults method.";
-            var builder = new EvaluateClassificationResultsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateClassificationResults.EvaluateClassificationResultsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -151,7 +151,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         {
             var command = new Command("evaluate-removal");
             command.Description = "Provides operations to call the evaluateRemoval method.";
-            var builder = new EvaluateRemovalRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.EvaluateRemoval.EvaluateRemovalRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -168,7 +168,7 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         {
             var command = new Command("extract-label");
             command.Description = "Provides operations to call the extractLabel method.";
-            var builder = new ExtractLabelRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.InformationProtection.Policy.Labels.ExtractLabel.ExtractLabelRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -281,14 +281,14 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="LabelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.InformationProtection.Policy.Labels.LabelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public LabelsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/informationProtection/policy/labels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="LabelsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.InformationProtection.Policy.Labels.LabelsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public LabelsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/informationProtection/policy/labels{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -302,11 +302,11 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LabelsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.InformationProtection.Policy.Labels.LabelsRequestBuilder.LabelsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<LabelsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.InformationProtection.Policy.Labels.LabelsRequestBuilder.LabelsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -323,11 +323,11 @@ namespace ApiSdk.Users.Item.InformationProtection.Policy.Labels
         [Obsolete("This API will no longer be accessible, please see microsoft.graph.security.informationProtection APIs. as of 2021-02/Beta_SensitivityLabels")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(InformationProtectionLabel body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.InformationProtectionLabel body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(InformationProtectionLabel body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.InformationProtectionLabel body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

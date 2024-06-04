@@ -54,14 +54,14 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.AreGlobalScriptsAvailable
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AreGlobalScriptsAvailableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.AreGlobalScriptsAvailable.AreGlobalScriptsAvailableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AreGlobalScriptsAvailableRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceHealthScripts/areGlobalScriptsAvailable()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AreGlobalScriptsAvailableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.AreGlobalScriptsAvailable.AreGlobalScriptsAvailableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AreGlobalScriptsAvailableRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceHealthScripts/areGlobalScriptsAvailable()", rawUrl)

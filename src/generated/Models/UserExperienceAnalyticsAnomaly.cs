@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics anomaly entity contains anomaly details.
     /// </summary>
-    public class UserExperienceAnalyticsAnomaly : Entity, IParsable
+    public class UserExperienceAnalyticsAnomaly : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the first occurrence date and time for the anomaly.</summary>
         public DateTimeOffset? AnomalyFirstOccurrenceDateTime { get; set; }
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string AnomalyName { get; set; }
 #endif
         /// <summary>Indicates the category of the anomaly. Eg: anomaly type can be device, application, stop error, driver or other.</summary>
-        public UserExperienceAnalyticsAnomalyType? AnomalyType { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsAnomalyType? AnomalyType { get; set; }
         /// <summary>The name of the application or module that caused the anomaly.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,18 +76,18 @@ namespace ApiSdk.Models
         public string IssueId { get; set; }
 #endif
         /// <summary>Indicates the severity of the anomaly. Eg: anomaly severity can be high, medium, low, informational or other.</summary>
-        public UserExperienceAnalyticsAnomalySeverity? Severity { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsAnomalySeverity? Severity { get; set; }
         /// <summary>Indicates the state of the anomaly. Eg: anomaly severity can be new, active, disabled, removed or other.</summary>
-        public UserExperienceAnalyticsAnomalyState? State { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsAnomalyState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsAnomaly"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsAnomaly"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsAnomaly CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsAnomaly CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsAnomaly();
+            return new ApiSdk.Models.UserExperienceAnalyticsAnomaly();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,15 +101,15 @@ namespace ApiSdk.Models
                 { "anomalyId", n => { AnomalyId = n.GetStringValue(); } },
                 { "anomalyLatestOccurrenceDateTime", n => { AnomalyLatestOccurrenceDateTime = n.GetDateTimeOffsetValue(); } },
                 { "anomalyName", n => { AnomalyName = n.GetStringValue(); } },
-                { "anomalyType", n => { AnomalyType = n.GetEnumValue<UserExperienceAnalyticsAnomalyType>(); } },
+                { "anomalyType", n => { AnomalyType = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyType>(); } },
                 { "assetName", n => { AssetName = n.GetStringValue(); } },
                 { "assetPublisher", n => { AssetPublisher = n.GetStringValue(); } },
                 { "assetVersion", n => { AssetVersion = n.GetStringValue(); } },
                 { "detectionModelId", n => { DetectionModelId = n.GetStringValue(); } },
                 { "deviceImpactedCount", n => { DeviceImpactedCount = n.GetIntValue(); } },
                 { "issueId", n => { IssueId = n.GetStringValue(); } },
-                { "severity", n => { Severity = n.GetEnumValue<UserExperienceAnalyticsAnomalySeverity>(); } },
-                { "state", n => { State = n.GetEnumValue<UserExperienceAnalyticsAnomalyState>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalySeverity>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyState>(); } },
             };
         }
         /// <summary>
@@ -124,15 +124,15 @@ namespace ApiSdk.Models
             writer.WriteStringValue("anomalyId", AnomalyId);
             writer.WriteDateTimeOffsetValue("anomalyLatestOccurrenceDateTime", AnomalyLatestOccurrenceDateTime);
             writer.WriteStringValue("anomalyName", AnomalyName);
-            writer.WriteEnumValue<UserExperienceAnalyticsAnomalyType>("anomalyType", AnomalyType);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyType>("anomalyType", AnomalyType);
             writer.WriteStringValue("assetName", AssetName);
             writer.WriteStringValue("assetPublisher", AssetPublisher);
             writer.WriteStringValue("assetVersion", AssetVersion);
             writer.WriteStringValue("detectionModelId", DetectionModelId);
             writer.WriteIntValue("deviceImpactedCount", DeviceImpactedCount);
             writer.WriteStringValue("issueId", IssueId);
-            writer.WriteEnumValue<UserExperienceAnalyticsAnomalySeverity>("severity", Severity);
-            writer.WriteEnumValue<UserExperienceAnalyticsAnomalyState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalySeverity>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyState>("state", State);
         }
     }
 }

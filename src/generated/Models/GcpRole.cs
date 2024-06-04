@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GcpRole : Entity, IParsable
+    public class GcpRole : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the GCP role. Supports $filter and (eq,contains).</summary>
@@ -31,20 +31,20 @@ namespace ApiSdk.Models
         /// <summary>Resources that an identity assigned this GCP role can perform actions on. Supports $filter and (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpScope>? Scopes { get; set; }
+        public List<ApiSdk.Models.GcpScope>? Scopes { get; set; }
 #nullable restore
 #else
-        public List<GcpScope> Scopes { get; set; }
+        public List<ApiSdk.Models.GcpScope> Scopes { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpRole"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpRole"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GcpRole CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GcpRole CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GcpRole();
+            return new ApiSdk.Models.GcpRole();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
-                { "gcpRoleType", n => { GcpRoleType = n.GetEnumValue<GcpRoleType>(); } },
-                { "scopes", n => { Scopes = n.GetCollectionOfObjectValues<GcpScope>(GcpScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "gcpRoleType", n => { GcpRoleType = n.GetEnumValue<ApiSdk.Models.GcpRoleType>(); } },
+                { "scopes", n => { Scopes = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpScope>(ApiSdk.Models.GcpScope.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -70,8 +70,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
-            writer.WriteEnumValue<GcpRoleType>("gcpRoleType", GcpRoleType);
-            writer.WriteCollectionOfObjectValues<GcpScope>("scopes", Scopes);
+            writer.WriteEnumValue<ApiSdk.Models.GcpRoleType>("gcpRoleType", GcpRoleType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpScope>("scopes", Scopes);
         }
     }
 }

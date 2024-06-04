@@ -13,9 +13,9 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The admin configuration of the policy on the user&apos;s authentication app. For a policy that does not impact the success/failure of the authentication, the evaluation defaults to notApplicable. The possible values are: notApplicable, enabled, disabled, unknownFutureValue.</summary>
-        public AuthenticationAppAdminConfiguration? AdminConfiguration { get; set; }
+        public ApiSdk.Models.AuthenticationAppAdminConfiguration? AdminConfiguration { get; set; }
         /// <summary>Evaluates the success/failure of the authentication based on the admin configuration of the policy on the user&apos;s client authentication app. The possible values are: success, failure, unknownFutureValue.</summary>
-        public AuthenticationAppEvaluation? AuthenticationEvaluation { get; set; }
+        public ApiSdk.Models.AuthenticationAppEvaluation? AuthenticationEvaluation { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,9 +33,9 @@ namespace ApiSdk.Models
         public string PolicyName { get; set; }
 #endif
         /// <summary>Refers to whether the policy executed as expected on the user&apos;s client authentication app. The possible values are: unknown, appLockOutOfDate, appLockEnabled, appLockDisabled, appContextOutOfDate, appContextShown, appContextNotShown, locationContextOutOfDate, locationContextShown, locationContextNotShown, numberMatchOutOfDate, numberMatchCorrectNumberEntered, numberMatchIncorrectNumberEntered, numberMatchDeny, tamperResistantHardwareOutOfDate, tamperResistantHardwareUsed, tamperResistantHardwareNotUsed, unknownFutureValue.</summary>
-        public AuthenticationAppPolicyStatus? Status { get; set; }
+        public ApiSdk.Models.AuthenticationAppPolicyStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationAppPolicyDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthenticationAppPolicyDetails"/> and sets the default values.
         /// </summary>
         public AuthenticationAppPolicyDetails()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthenticationAppPolicyDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthenticationAppPolicyDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuthenticationAppPolicyDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuthenticationAppPolicyDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthenticationAppPolicyDetails();
+            return new ApiSdk.Models.AuthenticationAppPolicyDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,11 +59,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "adminConfiguration", n => { AdminConfiguration = n.GetEnumValue<AuthenticationAppAdminConfiguration>(); } },
-                { "authenticationEvaluation", n => { AuthenticationEvaluation = n.GetEnumValue<AuthenticationAppEvaluation>(); } },
+                { "adminConfiguration", n => { AdminConfiguration = n.GetEnumValue<ApiSdk.Models.AuthenticationAppAdminConfiguration>(); } },
+                { "authenticationEvaluation", n => { AuthenticationEvaluation = n.GetEnumValue<ApiSdk.Models.AuthenticationAppEvaluation>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "policyName", n => { PolicyName = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<AuthenticationAppPolicyStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.AuthenticationAppPolicyStatus>(); } },
             };
         }
         /// <summary>
@@ -73,11 +73,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AuthenticationAppAdminConfiguration>("adminConfiguration", AdminConfiguration);
-            writer.WriteEnumValue<AuthenticationAppEvaluation>("authenticationEvaluation", AuthenticationEvaluation);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationAppAdminConfiguration>("adminConfiguration", AdminConfiguration);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationAppEvaluation>("authenticationEvaluation", AuthenticationEvaluation);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("policyName", PolicyName);
-            writer.WriteEnumValue<AuthenticationAppPolicyStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationAppPolicyStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

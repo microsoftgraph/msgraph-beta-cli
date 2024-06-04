@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ManagedAllDeviceCertificateState : Entity, IParsable
+    public class ManagedAllDeviceCertificateState : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Certificate expiry date</summary>
@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         /// <summary>Key Usage</summary>
         public int? CertificateKeyUsages { get; set; }
         /// <summary>Certificate Revocation Status.</summary>
-        public CertificateRevocationStatus? CertificateRevokeStatus { get; set; }
+        public ApiSdk.Models.CertificateRevocationStatus? CertificateRevokeStatus { get; set; }
         /// <summary>The time the revoke status was last changed</summary>
         public DateTimeOffset? CertificateRevokeStatusLastChangeDateTime { get; set; }
         /// <summary>Serial number</summary>
@@ -79,12 +79,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedAllDeviceCertificateState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedAllDeviceCertificateState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedAllDeviceCertificateState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedAllDeviceCertificateState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedAllDeviceCertificateState();
+            return new ApiSdk.Models.ManagedAllDeviceCertificateState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +99,7 @@ namespace ApiSdk.Models
                 { "certificateIssuanceDateTime", n => { CertificateIssuanceDateTime = n.GetDateTimeOffsetValue(); } },
                 { "certificateIssuerName", n => { CertificateIssuerName = n.GetStringValue(); } },
                 { "certificateKeyUsages", n => { CertificateKeyUsages = n.GetIntValue(); } },
-                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<CertificateRevocationStatus>(); } },
+                { "certificateRevokeStatus", n => { CertificateRevokeStatus = n.GetEnumValue<ApiSdk.Models.CertificateRevocationStatus>(); } },
                 { "certificateRevokeStatusLastChangeDateTime", n => { CertificateRevokeStatusLastChangeDateTime = n.GetDateTimeOffsetValue(); } },
                 { "certificateSerialNumber", n => { CertificateSerialNumber = n.GetStringValue(); } },
                 { "certificateSubjectName", n => { CertificateSubjectName = n.GetStringValue(); } },
@@ -121,7 +121,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("certificateIssuanceDateTime", CertificateIssuanceDateTime);
             writer.WriteStringValue("certificateIssuerName", CertificateIssuerName);
             writer.WriteIntValue("certificateKeyUsages", CertificateKeyUsages);
-            writer.WriteEnumValue<CertificateRevocationStatus>("certificateRevokeStatus", CertificateRevokeStatus);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateRevocationStatus>("certificateRevokeStatus", CertificateRevokeStatus);
             writer.WriteDateTimeOffsetValue("certificateRevokeStatusLastChangeDateTime", CertificateRevokeStatusLastChangeDateTime);
             writer.WriteStringValue("certificateSerialNumber", CertificateSerialNumber);
             writer.WriteStringValue("certificateSubjectName", CertificateSubjectName);

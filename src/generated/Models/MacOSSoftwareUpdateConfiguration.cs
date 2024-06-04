@@ -9,34 +9,34 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS Software Update Configuration
     /// </summary>
-    public class MacOSSoftwareUpdateConfiguration : DeviceConfiguration, IParsable
+    public class MacOSSoftwareUpdateConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Update behavior options for macOS software updates.</summary>
-        public MacOSSoftwareUpdateBehavior? AllOtherUpdateBehavior { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateBehavior? AllOtherUpdateBehavior { get; set; }
         /// <summary>Update behavior options for macOS software updates.</summary>
-        public MacOSSoftwareUpdateBehavior? ConfigDataUpdateBehavior { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateBehavior? ConfigDataUpdateBehavior { get; set; }
         /// <summary>Update behavior options for macOS software updates.</summary>
-        public MacOSSoftwareUpdateBehavior? CriticalUpdateBehavior { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateBehavior? CriticalUpdateBehavior { get; set; }
         /// <summary>Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomUpdateTimeWindow>? CustomUpdateTimeWindows { get; set; }
+        public List<ApiSdk.Models.CustomUpdateTimeWindow>? CustomUpdateTimeWindows { get; set; }
 #nullable restore
 #else
-        public List<CustomUpdateTimeWindow> CustomUpdateTimeWindows { get; set; }
+        public List<ApiSdk.Models.CustomUpdateTimeWindow> CustomUpdateTimeWindows { get; set; }
 #endif
         /// <summary>Update behavior options for macOS software updates.</summary>
-        public MacOSSoftwareUpdateBehavior? FirmwareUpdateBehavior { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateBehavior? FirmwareUpdateBehavior { get; set; }
         /// <summary>The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365</summary>
         public int? MaxUserDeferralsCount { get; set; }
         /// <summary>The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.</summary>
-        public MacOSPriority? Priority { get; set; }
+        public ApiSdk.Models.MacOSPriority? Priority { get; set; }
         /// <summary>Update schedule type for macOS software updates.</summary>
-        public MacOSSoftwareUpdateScheduleType? UpdateScheduleType { get; set; }
+        public ApiSdk.Models.MacOSSoftwareUpdateScheduleType? UpdateScheduleType { get; set; }
         /// <summary>Minutes indicating UTC offset for each update time window</summary>
         public int? UpdateTimeWindowUtcOffsetInMinutes { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSSoftwareUpdateConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSSoftwareUpdateConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSSoftwareUpdateConfiguration() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSSoftwareUpdateConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSSoftwareUpdateConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSSoftwareUpdateConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSSoftwareUpdateConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSSoftwareUpdateConfiguration();
+            return new ApiSdk.Models.MacOSSoftwareUpdateConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,14 +60,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "allOtherUpdateBehavior", n => { AllOtherUpdateBehavior = n.GetEnumValue<MacOSSoftwareUpdateBehavior>(); } },
-                { "configDataUpdateBehavior", n => { ConfigDataUpdateBehavior = n.GetEnumValue<MacOSSoftwareUpdateBehavior>(); } },
-                { "criticalUpdateBehavior", n => { CriticalUpdateBehavior = n.GetEnumValue<MacOSSoftwareUpdateBehavior>(); } },
-                { "customUpdateTimeWindows", n => { CustomUpdateTimeWindows = n.GetCollectionOfObjectValues<CustomUpdateTimeWindow>(CustomUpdateTimeWindow.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "firmwareUpdateBehavior", n => { FirmwareUpdateBehavior = n.GetEnumValue<MacOSSoftwareUpdateBehavior>(); } },
+                { "allOtherUpdateBehavior", n => { AllOtherUpdateBehavior = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>(); } },
+                { "configDataUpdateBehavior", n => { ConfigDataUpdateBehavior = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>(); } },
+                { "criticalUpdateBehavior", n => { CriticalUpdateBehavior = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>(); } },
+                { "customUpdateTimeWindows", n => { CustomUpdateTimeWindows = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomUpdateTimeWindow>(ApiSdk.Models.CustomUpdateTimeWindow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "firmwareUpdateBehavior", n => { FirmwareUpdateBehavior = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>(); } },
                 { "maxUserDeferralsCount", n => { MaxUserDeferralsCount = n.GetIntValue(); } },
-                { "priority", n => { Priority = n.GetEnumValue<MacOSPriority>(); } },
-                { "updateScheduleType", n => { UpdateScheduleType = n.GetEnumValue<MacOSSoftwareUpdateScheduleType>(); } },
+                { "priority", n => { Priority = n.GetEnumValue<ApiSdk.Models.MacOSPriority>(); } },
+                { "updateScheduleType", n => { UpdateScheduleType = n.GetEnumValue<ApiSdk.Models.MacOSSoftwareUpdateScheduleType>(); } },
                 { "updateTimeWindowUtcOffsetInMinutes", n => { UpdateTimeWindowUtcOffsetInMinutes = n.GetIntValue(); } },
             };
         }
@@ -79,14 +79,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MacOSSoftwareUpdateBehavior>("allOtherUpdateBehavior", AllOtherUpdateBehavior);
-            writer.WriteEnumValue<MacOSSoftwareUpdateBehavior>("configDataUpdateBehavior", ConfigDataUpdateBehavior);
-            writer.WriteEnumValue<MacOSSoftwareUpdateBehavior>("criticalUpdateBehavior", CriticalUpdateBehavior);
-            writer.WriteCollectionOfObjectValues<CustomUpdateTimeWindow>("customUpdateTimeWindows", CustomUpdateTimeWindows);
-            writer.WriteEnumValue<MacOSSoftwareUpdateBehavior>("firmwareUpdateBehavior", FirmwareUpdateBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>("allOtherUpdateBehavior", AllOtherUpdateBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>("configDataUpdateBehavior", ConfigDataUpdateBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>("criticalUpdateBehavior", CriticalUpdateBehavior);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomUpdateTimeWindow>("customUpdateTimeWindows", CustomUpdateTimeWindows);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateBehavior>("firmwareUpdateBehavior", FirmwareUpdateBehavior);
             writer.WriteIntValue("maxUserDeferralsCount", MaxUserDeferralsCount);
-            writer.WriteEnumValue<MacOSPriority>("priority", Priority);
-            writer.WriteEnumValue<MacOSSoftwareUpdateScheduleType>("updateScheduleType", UpdateScheduleType);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSPriority>("priority", Priority);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSSoftwareUpdateScheduleType>("updateScheduleType", UpdateScheduleType);
             writer.WriteIntValue("updateTimeWindowUtcOffsetInMinutes", UpdateTimeWindowUtcOffsetInMinutes);
         }
     }

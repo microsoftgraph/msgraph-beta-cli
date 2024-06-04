@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The roleKind property</summary>
-        public PlannerUserRoleKind? RoleKind { get; set; }
+        public ApiSdk.Models.PlannerUserRoleKind? RoleKind { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerTaskConfigurationRoleBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerTaskConfigurationRoleBase"/> and sets the default values.
         /// </summary>
         public PlannerTaskConfigurationRoleBase()
         {
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTaskConfigurationRoleBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTaskConfigurationRoleBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerTaskConfigurationRoleBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerTaskConfigurationRoleBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.plannerRelationshipBasedUserType" => new PlannerRelationshipBasedUserType(),
-                _ => new PlannerTaskConfigurationRoleBase(),
+                "#microsoft.graph.plannerRelationshipBasedUserType" => new ApiSdk.Models.PlannerRelationshipBasedUserType(),
+                _ => new ApiSdk.Models.PlannerTaskConfigurationRoleBase(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "roleKind", n => { RoleKind = n.GetEnumValue<PlannerUserRoleKind>(); } },
+                { "roleKind", n => { RoleKind = n.GetEnumValue<ApiSdk.Models.PlannerUserRoleKind>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PlannerUserRoleKind>("roleKind", RoleKind);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerUserRoleKind>("roleKind", RoleKind);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

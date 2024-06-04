@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomAppScope : AppScope, IParsable
+    public class CustomAppScope : ApiSdk.Models.AppScope, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The customAttributes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CustomAppScopeAttributesDictionary? CustomAttributes { get; set; }
+        public ApiSdk.Models.CustomAppScopeAttributesDictionary? CustomAttributes { get; set; }
 #nullable restore
 #else
-        public CustomAppScopeAttributesDictionary CustomAttributes { get; set; }
+        public ApiSdk.Models.CustomAppScopeAttributesDictionary CustomAttributes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomAppScope"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomAppScope"/> and sets the default values.
         /// </summary>
         public CustomAppScope() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomAppScope"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomAppScope"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomAppScope CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomAppScope CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomAppScope();
+            return new ApiSdk.Models.CustomAppScope();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customAttributes", n => { CustomAttributes = n.GetObjectValue<CustomAppScopeAttributesDictionary>(CustomAppScopeAttributesDictionary.CreateFromDiscriminatorValue); } },
+                { "customAttributes", n => { CustomAttributes = n.GetObjectValue<ApiSdk.Models.CustomAppScopeAttributesDictionary>(ApiSdk.Models.CustomAppScopeAttributesDictionary.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<CustomAppScopeAttributesDictionary>("customAttributes", CustomAttributes);
+            writer.WriteObjectValue<ApiSdk.Models.CustomAppScopeAttributesDictionary>("customAttributes", CustomAttributes);
         }
     }
 }

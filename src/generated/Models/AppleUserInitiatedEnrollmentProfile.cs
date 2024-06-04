@@ -9,28 +9,28 @@ namespace ApiSdk.Models
     /// <summary>
     /// The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile&apos;s configurations at enrollment of the corresponding device.
     /// </summary>
-    public class AppleUserInitiatedEnrollmentProfile : Entity, IParsable
+    public class AppleUserInitiatedEnrollmentProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of assignments for this profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppleEnrollmentProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.AppleEnrollmentProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<AppleEnrollmentProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.AppleEnrollmentProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>List of available enrollment type options</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppleOwnerTypeEnrollmentType>? AvailableEnrollmentTypeOptions { get; set; }
+        public List<ApiSdk.Models.AppleOwnerTypeEnrollmentType>? AvailableEnrollmentTypeOptions { get; set; }
 #nullable restore
 #else
-        public List<AppleOwnerTypeEnrollmentType> AvailableEnrollmentTypeOptions { get; set; }
+        public List<ApiSdk.Models.AppleOwnerTypeEnrollmentType> AvailableEnrollmentTypeOptions { get; set; }
 #endif
         /// <summary>Profile creation time</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The defaultEnrollmentType property</summary>
-        public AppleUserInitiatedEnrollmentType? DefaultEnrollmentType { get; set; }
+        public ApiSdk.Models.AppleUserInitiatedEnrollmentType? DefaultEnrollmentType { get; set; }
         /// <summary>Description of the profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,18 +50,18 @@ namespace ApiSdk.Models
         /// <summary>Profile last modified time</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? Platform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? Platform { get; set; }
         /// <summary>Priority, 0 is highest</summary>
         public int? Priority { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppleUserInitiatedEnrollmentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppleUserInitiatedEnrollmentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppleUserInitiatedEnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppleUserInitiatedEnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppleUserInitiatedEnrollmentProfile();
+            return new ApiSdk.Models.AppleUserInitiatedEnrollmentProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,14 +71,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<AppleEnrollmentProfileAssignment>(AppleEnrollmentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "availableEnrollmentTypeOptions", n => { AvailableEnrollmentTypeOptions = n.GetCollectionOfObjectValues<AppleOwnerTypeEnrollmentType>(AppleOwnerTypeEnrollmentType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.AppleEnrollmentProfileAssignment>(ApiSdk.Models.AppleEnrollmentProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "availableEnrollmentTypeOptions", n => { AvailableEnrollmentTypeOptions = n.GetCollectionOfObjectValues<ApiSdk.Models.AppleOwnerTypeEnrollmentType>(ApiSdk.Models.AppleOwnerTypeEnrollmentType.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "defaultEnrollmentType", n => { DefaultEnrollmentType = n.GetEnumValue<AppleUserInitiatedEnrollmentType>(); } },
+                { "defaultEnrollmentType", n => { DefaultEnrollmentType = n.GetEnumValue<ApiSdk.Models.AppleUserInitiatedEnrollmentType>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
             };
         }
@@ -90,14 +90,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AppleEnrollmentProfileAssignment>("assignments", Assignments);
-            writer.WriteCollectionOfObjectValues<AppleOwnerTypeEnrollmentType>("availableEnrollmentTypeOptions", AvailableEnrollmentTypeOptions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppleEnrollmentProfileAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppleOwnerTypeEnrollmentType>("availableEnrollmentTypeOptions", AvailableEnrollmentTypeOptions);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteEnumValue<AppleUserInitiatedEnrollmentType>("defaultEnrollmentType", DefaultEnrollmentType);
+            writer.WriteEnumValue<ApiSdk.Models.AppleUserInitiatedEnrollmentType>("defaultEnrollmentType", DefaultEnrollmentType);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<DevicePlatformType>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("platform", Platform);
             writer.WriteIntValue("priority", Priority);
         }
     }

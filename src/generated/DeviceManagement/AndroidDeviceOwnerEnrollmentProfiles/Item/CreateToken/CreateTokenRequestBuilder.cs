@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.Crea
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<CreateTokenPostRequestBody>(CreateTokenPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenPostRequestBody>(ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.Crea
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CreateTokenRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidDeviceOwnerEnrollmentProfiles/{androidDeviceOwnerEnrollmentProfile%2Did}/createToken", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateTokenRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CreateTokenRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidDeviceOwnerEnrollmentProfiles/{androidDeviceOwnerEnrollmentProfile%2Did}/createToken", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.Crea
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(CreateTokenPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(CreateTokenPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.AndroidDeviceOwnerEnrollmentProfiles.Item.CreateToken.CreateTokenPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

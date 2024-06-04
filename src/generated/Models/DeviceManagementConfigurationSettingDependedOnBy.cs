@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         /// <summary>Value that determines if the child setting is required based on the parent setting&apos;s selection</summary>
         public bool? Required { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingDependedOnBy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingDependedOnBy()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingDependedOnBy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationSettingDependedOnBy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationSettingDependedOnBy();
+            return new ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy();
         }
         /// <summary>
         /// The deserialization information for the current model

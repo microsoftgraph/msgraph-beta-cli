@@ -31,7 +31,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new AccessPackageResourceScopeItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.Item.AccessPackageResourceScopeItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAccessPackageResourceNavCommand());
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
@@ -46,7 +46,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -221,14 +221,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageResourceScopesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.AccessPackageResourceScopesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AccessPackageResourceScopesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/entitlementManagement/accessPackageResources/{accessPackageResource%2Did}/accessPackageResourceRoles/{accessPackageResourceRole%2Did}/accessPackageResource/accessPackageResourceScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageResourceScopesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.AccessPackageResourceScopesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AccessPackageResourceScopesRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/entitlementManagement/accessPackageResources/{accessPackageResource%2Did}/accessPackageResourceRoles/{accessPackageResourceRole%2Did}/accessPackageResource/accessPackageResourceScopes{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -241,11 +241,11 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessPackageResourceScopesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.AccessPackageResourceScopesRequestBuilder.AccessPackageResourceScopesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AccessPackageResourceScopesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.Item.AccessPackageResourceRoles.Item.AccessPackageResource.AccessPackageResourceScopes.AccessPackageResourceScopesRequestBuilder.AccessPackageResourceScopesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

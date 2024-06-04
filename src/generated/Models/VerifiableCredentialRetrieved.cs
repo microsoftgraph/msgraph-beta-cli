@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VerifiableCredentialRetrieved : VerifiableCredentialRequirementStatus, IParsable
+    public class VerifiableCredentialRetrieved : ApiSdk.Models.VerifiableCredentialRequirementStatus, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The specific date and time that the presentation request will expire and a new one will need to be generated.</summary>
         public DateTimeOffset? ExpiryDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="VerifiableCredentialRetrieved"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerifiableCredentialRetrieved"/> and sets the default values.
         /// </summary>
         public VerifiableCredentialRetrieved() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerifiableCredentialRetrieved"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerifiableCredentialRetrieved"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VerifiableCredentialRetrieved CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VerifiableCredentialRetrieved CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VerifiableCredentialRetrieved();
+            return new ApiSdk.Models.VerifiableCredentialRetrieved();
         }
         /// <summary>
         /// The deserialization information for the current model

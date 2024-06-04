@@ -33,10 +33,10 @@ namespace ApiSdk.Models
         /// <summary>If provided, the fallback reviewers are asked to complete a review if the primary reviewers don&apos;t exist. For example, if managers are selected as reviewers and a principal under review doesn&apos;t have a manager in Microsoft Entra ID, the fallback reviewers are asked to review that principal. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewReviewerScope>? FallbackReviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewerScope>? FallbackReviewers { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewReviewerScope> FallbackReviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewerScope> FallbackReviewers { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,10 +49,10 @@ namespace ApiSdk.Models
         /// <summary>The recommendationInsightSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewRecommendationInsightSetting>? RecommendationInsightSettings { get; set; }
+        public List<ApiSdk.Models.AccessReviewRecommendationInsightSetting>? RecommendationInsightSettings { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewRecommendationInsightSetting> RecommendationInsightSettings { get; set; }
+        public List<ApiSdk.Models.AccessReviewRecommendationInsightSetting> RecommendationInsightSettings { get; set; }
 #endif
         /// <summary>Optional field. Indicates the time period of inactivity (with respect to the start date of the review instance) from which that recommendations will be configured. The recommendation is to deny if the user is inactive during the look back duration. For reviews of groups and Microsoft Entra roles, any duration is accepted. For reviews of applications, 30 days is the maximum duration. If not specified, the duration is 30 days. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition object.</summary>
         public TimeSpan? RecommendationLookBackDuration { get; set; }
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         /// <summary>Defines who the reviewers are. If none is specified, the review is a self-review (users review their own access).  For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API. NOTE: The value of this property overrides the corresponding setting on the accessReviewScheduleDefinition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewReviewerScope>? Reviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewerScope>? Reviewers { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewReviewerScope> Reviewers { get; set; }
+        public List<ApiSdk.Models.AccessReviewReviewerScope> Reviewers { get; set; }
 #endif
         /// <summary>Unique identifier of the accessReviewStageSettings. The stageId is used in dependsOn property to indicate the stage relationship. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
         public string StageId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessReviewStageSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessReviewStageSettings"/> and sets the default values.
         /// </summary>
         public AccessReviewStageSettings()
         {
@@ -84,12 +84,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewStageSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewStageSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccessReviewStageSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AccessReviewStageSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReviewStageSettings();
+            return new ApiSdk.Models.AccessReviewStageSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,12 +102,12 @@ namespace ApiSdk.Models
                 { "decisionsThatWillMoveToNextStage", n => { DecisionsThatWillMoveToNextStage = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "dependsOn", n => { DependsOn = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "durationInDays", n => { DurationInDays = n.GetIntValue(); } },
-                { "fallbackReviewers", n => { FallbackReviewers = n.GetCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "fallbackReviewers", n => { FallbackReviewers = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewerScope>(ApiSdk.Models.AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>(AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "recommendationInsightSettings", n => { RecommendationInsightSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewRecommendationInsightSetting>(ApiSdk.Models.AccessReviewRecommendationInsightSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "recommendationLookBackDuration", n => { RecommendationLookBackDuration = n.GetTimeSpanValue(); } },
                 { "recommendationsEnabled", n => { RecommendationsEnabled = n.GetBoolValue(); } },
-                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "reviewers", n => { Reviewers = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewerScope>(ApiSdk.Models.AccessReviewReviewerScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "stageId", n => { StageId = n.GetStringValue(); } },
             };
         }
@@ -121,12 +121,12 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("decisionsThatWillMoveToNextStage", DecisionsThatWillMoveToNextStage);
             writer.WriteCollectionOfPrimitiveValues<string>("dependsOn", DependsOn);
             writer.WriteIntValue("durationInDays", DurationInDays);
-            writer.WriteCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", FallbackReviewers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewerScope>("fallbackReviewers", FallbackReviewers);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", RecommendationInsightSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewRecommendationInsightSetting>("recommendationInsightSettings", RecommendationInsightSettings);
             writer.WriteTimeSpanValue("recommendationLookBackDuration", RecommendationLookBackDuration);
             writer.WriteBoolValue("recommendationsEnabled", RecommendationsEnabled);
-            writer.WriteCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", Reviewers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewReviewerScope>("reviewers", Reviewers);
             writer.WriteStringValue("stageId", StageId);
             writer.WriteAdditionalData(AdditionalData);
         }

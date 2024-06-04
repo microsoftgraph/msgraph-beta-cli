@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>The all property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureIdentity>? All { get; set; }
+        public List<ApiSdk.Models.AzureIdentity>? All { get; set; }
 #nullable restore
 #else
-        public List<AzureIdentity> All { get; set; }
+        public List<ApiSdk.Models.AzureIdentity> All { get; set; }
 #endif
         /// <summary>The managedIdentities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureManagedIdentity>? ManagedIdentities { get; set; }
+        public List<ApiSdk.Models.AzureManagedIdentity>? ManagedIdentities { get; set; }
 #nullable restore
 #else
-        public List<AzureManagedIdentity> ManagedIdentities { get; set; }
+        public List<ApiSdk.Models.AzureManagedIdentity> ManagedIdentities { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,21 +39,21 @@ namespace ApiSdk.Models
         /// <summary>The servicePrincipals property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureServicePrincipal>? ServicePrincipals { get; set; }
+        public List<ApiSdk.Models.AzureServicePrincipal>? ServicePrincipals { get; set; }
 #nullable restore
 #else
-        public List<AzureServicePrincipal> ServicePrincipals { get; set; }
+        public List<ApiSdk.Models.AzureServicePrincipal> ServicePrincipals { get; set; }
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AzureUser>? Users { get; set; }
+        public List<ApiSdk.Models.AzureUser>? Users { get; set; }
 #nullable restore
 #else
-        public List<AzureUser> Users { get; set; }
+        public List<ApiSdk.Models.AzureUser> Users { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AzureAssociatedIdentities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AzureAssociatedIdentities"/> and sets the default values.
         /// </summary>
         public AzureAssociatedIdentities()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureAssociatedIdentities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureAssociatedIdentities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AzureAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AzureAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureAssociatedIdentities();
+            return new ApiSdk.Models.AzureAssociatedIdentities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "all", n => { All = n.GetCollectionOfObjectValues<AzureIdentity>(AzureIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedIdentities", n => { ManagedIdentities = n.GetCollectionOfObjectValues<AzureManagedIdentity>(AzureManagedIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "all", n => { All = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureIdentity>(ApiSdk.Models.AzureIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedIdentities", n => { ManagedIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureManagedIdentity>(ApiSdk.Models.AzureManagedIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "servicePrincipals", n => { ServicePrincipals = n.GetCollectionOfObjectValues<AzureServicePrincipal>(AzureServicePrincipal.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "users", n => { Users = n.GetCollectionOfObjectValues<AzureUser>(AzureUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servicePrincipals", n => { ServicePrincipals = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureServicePrincipal>(ApiSdk.Models.AzureServicePrincipal.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "users", n => { Users = n.GetCollectionOfObjectValues<ApiSdk.Models.AzureUser>(ApiSdk.Models.AzureUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -91,11 +91,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<AzureIdentity>("all", All);
-            writer.WriteCollectionOfObjectValues<AzureManagedIdentity>("managedIdentities", ManagedIdentities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureIdentity>("all", All);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureManagedIdentity>("managedIdentities", ManagedIdentities);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<AzureServicePrincipal>("servicePrincipals", ServicePrincipals);
-            writer.WriteCollectionOfObjectValues<AzureUser>("users", Users);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureServicePrincipal>("servicePrincipals", ServicePrincipals);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AzureUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

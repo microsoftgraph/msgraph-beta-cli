@@ -11,11 +11,11 @@ namespace ApiSdk.Models.Security
     #pragma warning restore CS1591
     {
         /// <summary>The delivery action of the email. The possible values are: unknown, deliveredToJunk, delivered, blocked, replaced, unknownFutureValue.</summary>
-        public DeliveryAction? Action { get; set; }
+        public ApiSdk.Models.Security.DeliveryAction? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The delivery location of the email. The possible values are: unknown, inboxfolder, junkFolder, deletedFolder, quarantine, onpremexternal, failed, dropped, others, unknownFutureValue.</summary>
-        public DeliveryLocation? Location { get; set; }
+        public ApiSdk.Models.Security.DeliveryLocation? Location { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,7 +25,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AnalyzedEmailDeliveryDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.AnalyzedEmailDeliveryDetail"/> and sets the default values.
         /// </summary>
         public AnalyzedEmailDeliveryDetail()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AnalyzedEmailDeliveryDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AnalyzedEmailDeliveryDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AnalyzedEmailDeliveryDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.AnalyzedEmailDeliveryDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AnalyzedEmailDeliveryDetail();
+            return new ApiSdk.Models.Security.AnalyzedEmailDeliveryDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +49,8 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<DeliveryAction>(); } },
-                { "location", n => { Location = n.GetEnumValue<DeliveryLocation>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Security.DeliveryAction>(); } },
+                { "location", n => { Location = n.GetEnumValue<ApiSdk.Models.Security.DeliveryLocation>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -61,8 +61,8 @@ namespace ApiSdk.Models.Security
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DeliveryAction>("action", Action);
-            writer.WriteEnumValue<DeliveryLocation>("location", Location);
+            writer.WriteEnumValue<ApiSdk.Models.Security.DeliveryAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.Security.DeliveryLocation>("location", Location);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

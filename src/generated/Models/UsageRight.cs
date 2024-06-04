@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UsageRight : Entity, IParsable
+    public class UsageRight : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Product id corresponding to the usage right.</summary>
@@ -27,16 +27,16 @@ namespace ApiSdk.Models
         public string ServiceIdentifier { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public UsageRightState? State { get; set; }
+        public ApiSdk.Models.UsageRightState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UsageRight"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UsageRight"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UsageRight CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UsageRight CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UsageRight();
+            return new ApiSdk.Models.UsageRight();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
             {
                 { "catalogId", n => { CatalogId = n.GetStringValue(); } },
                 { "serviceIdentifier", n => { ServiceIdentifier = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<UsageRightState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.UsageRightState>(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("catalogId", CatalogId);
             writer.WriteStringValue("serviceIdentifier", ServiceIdentifier);
-            writer.WriteEnumValue<UsageRightState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.UsageRightState>("state", State);
         }
     }
 }

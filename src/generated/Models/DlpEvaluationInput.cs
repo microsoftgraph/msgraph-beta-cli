@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The discoveredSensitiveTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DiscoveredSensitiveType>? DiscoveredSensitiveTypes { get; set; }
+        public List<ApiSdk.Models.DiscoveredSensitiveType>? DiscoveredSensitiveTypes { get; set; }
 #nullable restore
 #else
-        public List<DiscoveredSensitiveType> DiscoveredSensitiveTypes { get; set; }
+        public List<ApiSdk.Models.DiscoveredSensitiveType> DiscoveredSensitiveTypes { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DlpEvaluationInput"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DlpEvaluationInput"/> and sets the default values.
         /// </summary>
         public DlpEvaluationInput()
         {
@@ -46,16 +46,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DlpEvaluationInput"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DlpEvaluationInput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DlpEvaluationInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DlpEvaluationInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.dlpEvaluationWindowsDevicesInput" => new DlpEvaluationWindowsDevicesInput(),
-                _ => new DlpEvaluationInput(),
+                "#microsoft.graph.dlpEvaluationWindowsDevicesInput" => new ApiSdk.Models.DlpEvaluationWindowsDevicesInput(),
+                _ => new ApiSdk.Models.DlpEvaluationInput(),
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currentLabel", n => { CurrentLabel = n.GetObjectValue<ApiSdk.Models.CurrentLabel>(ApiSdk.Models.CurrentLabel.CreateFromDiscriminatorValue); } },
-                { "discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<DiscoveredSensitiveType>(DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.DiscoveredSensitiveType>(ApiSdk.Models.DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.CurrentLabel>("currentLabel", CurrentLabel);
-            writer.WriteCollectionOfObjectValues<DiscoveredSensitiveType>("discoveredSensitiveTypes", DiscoveredSensitiveTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DiscoveredSensitiveType>("discoveredSensitiveTypes", DiscoveredSensitiveTypes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

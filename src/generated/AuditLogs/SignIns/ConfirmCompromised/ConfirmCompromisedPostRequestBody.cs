@@ -21,7 +21,7 @@ namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised
         public List<string> RequestIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConfirmCompromisedPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AuditLogs.SignIns.ConfirmCompromised.ConfirmCompromisedPostRequestBody"/> and sets the default values.
         /// </summary>
         public ConfirmCompromisedPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.AuditLogs.SignIns.ConfirmCompromised
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConfirmCompromisedPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.AuditLogs.SignIns.ConfirmCompromised.ConfirmCompromisedPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConfirmCompromisedPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.AuditLogs.SignIns.ConfirmCompromised.ConfirmCompromisedPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConfirmCompromisedPostRequestBody();
+            return new ApiSdk.AuditLogs.SignIns.ConfirmCompromised.ConfirmCompromisedPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

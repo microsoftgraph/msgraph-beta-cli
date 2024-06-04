@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.AuthenticationFlow AuthenticationFlow { get; set; }
 #endif
         /// <summary>The clientAppType property</summary>
-        public ConditionalAccessClientApp? ClientAppType { get; set; }
+        public ApiSdk.Models.ConditionalAccessClientApp? ClientAppType { get; set; }
         /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.DeviceInfo DeviceInfo { get; set; }
 #endif
         /// <summary>The devicePlatform property</summary>
-        public ConditionalAccessDevicePlatform? DevicePlatform { get; set; }
+        public ApiSdk.Models.ConditionalAccessDevicePlatform? DevicePlatform { get; set; }
         /// <summary>The insiderRiskLevel property</summary>
         public ApiSdk.Models.InsiderRiskLevel? InsiderRiskLevel { get; set; }
         /// <summary>The ipAddress property</summary>
@@ -59,13 +59,13 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The servicePrincipalRiskLevel property</summary>
-        public RiskLevel? ServicePrincipalRiskLevel { get; set; }
+        public ApiSdk.Models.RiskLevel? ServicePrincipalRiskLevel { get; set; }
         /// <summary>The signInRiskLevel property</summary>
-        public RiskLevel? SignInRiskLevel { get; set; }
+        public ApiSdk.Models.RiskLevel? SignInRiskLevel { get; set; }
         /// <summary>The userRiskLevel property</summary>
-        public RiskLevel? UserRiskLevel { get; set; }
+        public ApiSdk.Models.RiskLevel? UserRiskLevel { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessWhatIfConditions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessWhatIfConditions"/> and sets the default values.
         /// </summary>
         public ConditionalAccessWhatIfConditions()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessWhatIfConditions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessWhatIfConditions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessWhatIfConditions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessWhatIfConditions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessWhatIfConditions();
+            return new ApiSdk.Models.ConditionalAccessWhatIfConditions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,16 +90,16 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "authenticationFlow", n => { AuthenticationFlow = n.GetObjectValue<ApiSdk.Models.AuthenticationFlow>(ApiSdk.Models.AuthenticationFlow.CreateFromDiscriminatorValue); } },
-                { "clientAppType", n => { ClientAppType = n.GetEnumValue<ConditionalAccessClientApp>(); } },
+                { "clientAppType", n => { ClientAppType = n.GetEnumValue<ApiSdk.Models.ConditionalAccessClientApp>(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "deviceInfo", n => { DeviceInfo = n.GetObjectValue<ApiSdk.Models.DeviceInfo>(ApiSdk.Models.DeviceInfo.CreateFromDiscriminatorValue); } },
-                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<ConditionalAccessDevicePlatform>(); } },
-                { "insiderRiskLevel", n => { InsiderRiskLevel = n.GetEnumValue<InsiderRiskLevel>(); } },
+                { "devicePlatform", n => { DevicePlatform = n.GetEnumValue<ApiSdk.Models.ConditionalAccessDevicePlatform>(); } },
+                { "insiderRiskLevel", n => { InsiderRiskLevel = n.GetEnumValue<ApiSdk.Models.InsiderRiskLevel>(); } },
                 { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "servicePrincipalRiskLevel", n => { ServicePrincipalRiskLevel = n.GetEnumValue<RiskLevel>(); } },
-                { "signInRiskLevel", n => { SignInRiskLevel = n.GetEnumValue<RiskLevel>(); } },
-                { "userRiskLevel", n => { UserRiskLevel = n.GetEnumValue<RiskLevel>(); } },
+                { "servicePrincipalRiskLevel", n => { ServicePrincipalRiskLevel = n.GetEnumValue<ApiSdk.Models.RiskLevel>(); } },
+                { "signInRiskLevel", n => { SignInRiskLevel = n.GetEnumValue<ApiSdk.Models.RiskLevel>(); } },
+                { "userRiskLevel", n => { UserRiskLevel = n.GetEnumValue<ApiSdk.Models.RiskLevel>(); } },
             };
         }
         /// <summary>
@@ -110,16 +110,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.AuthenticationFlow>("authenticationFlow", AuthenticationFlow);
-            writer.WriteEnumValue<ConditionalAccessClientApp>("clientAppType", ClientAppType);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessClientApp>("clientAppType", ClientAppType);
             writer.WriteStringValue("country", Country);
             writer.WriteObjectValue<ApiSdk.Models.DeviceInfo>("deviceInfo", DeviceInfo);
-            writer.WriteEnumValue<ConditionalAccessDevicePlatform>("devicePlatform", DevicePlatform);
-            writer.WriteEnumValue<InsiderRiskLevel>("insiderRiskLevel", InsiderRiskLevel);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessDevicePlatform>("devicePlatform", DevicePlatform);
+            writer.WriteEnumValue<ApiSdk.Models.InsiderRiskLevel>("insiderRiskLevel", InsiderRiskLevel);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RiskLevel>("servicePrincipalRiskLevel", ServicePrincipalRiskLevel);
-            writer.WriteEnumValue<RiskLevel>("signInRiskLevel", SignInRiskLevel);
-            writer.WriteEnumValue<RiskLevel>("userRiskLevel", UserRiskLevel);
+            writer.WriteEnumValue<ApiSdk.Models.RiskLevel>("servicePrincipalRiskLevel", ServicePrincipalRiskLevel);
+            writer.WriteEnumValue<ApiSdk.Models.RiskLevel>("signInRiskLevel", SignInRiskLevel);
+            writer.WriteEnumValue<ApiSdk.Models.RiskLevel>("userRiskLevel", UserRiskLevel);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

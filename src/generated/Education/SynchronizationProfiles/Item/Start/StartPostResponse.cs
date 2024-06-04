@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Education.SynchronizationProfiles.Item.Start
 {
     #pragma warning disable CS1591
-    public class StartPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class StartPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EducationFileSynchronizationVerificationMessage>? Value { get; set; }
+        public List<ApiSdk.Models.EducationFileSynchronizationVerificationMessage>? Value { get; set; }
 #nullable restore
 #else
-        public List<EducationFileSynchronizationVerificationMessage> Value { get; set; }
+        public List<ApiSdk.Models.EducationFileSynchronizationVerificationMessage> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="StartPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Education.SynchronizationProfiles.Item.Start.StartPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new StartPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Education.SynchronizationProfiles.Item.Start.StartPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new StartPostResponse();
+            return new ApiSdk.Education.SynchronizationProfiles.Item.Start.StartPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Start
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<EducationFileSynchronizationVerificationMessage>(EducationFileSynchronizationVerificationMessage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.EducationFileSynchronizationVerificationMessage>(ApiSdk.Models.EducationFileSynchronizationVerificationMessage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Start
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<EducationFileSynchronizationVerificationMessage>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EducationFileSynchronizationVerificationMessage>("value", Value);
         }
     }
 }

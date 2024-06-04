@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessFilter? DeviceFilter { get; set; }
+        public ApiSdk.Models.ConditionalAccessFilter? DeviceFilter { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessFilter DeviceFilter { get; set; }
+        public ApiSdk.Models.ConditionalAccessFilter DeviceFilter { get; set; }
 #endif
         /// <summary>States excluded from the scope of the policy. Possible values: Compliant, DomainJoined. Cannot be set if deviceFIlter is set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessDevices"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessDevices"/> and sets the default values.
         /// </summary>
         public ConditionalAccessDevices()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessDevices"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessDevices"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessDevices CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessDevices CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessDevices();
+            return new ApiSdk.Models.ConditionalAccessDevices();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceFilter", n => { DeviceFilter = n.GetObjectValue<ConditionalAccessFilter>(ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
+                { "deviceFilter", n => { DeviceFilter = n.GetObjectValue<ApiSdk.Models.ConditionalAccessFilter>(ApiSdk.Models.ConditionalAccessFilter.CreateFromDiscriminatorValue); } },
                 { "excludeDeviceStates", n => { ExcludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "excludeDevices", n => { ExcludeDevices = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "includeDeviceStates", n => { IncludeDeviceStates = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -100,7 +100,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<ConditionalAccessFilter>("deviceFilter", DeviceFilter);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessFilter>("deviceFilter", DeviceFilter);
             writer.WriteCollectionOfPrimitiveValues<string>("excludeDevices", ExcludeDevices);
             writer.WriteCollectionOfPrimitiveValues<string>("excludeDeviceStates", ExcludeDeviceStates);
             writer.WriteCollectionOfPrimitiveValues<string>("includeDevices", IncludeDevices);

@@ -14,10 +14,10 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         /// <summary>The added property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyDefinitionValue>? Added { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionValue>? Added { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyDefinitionValue> Added { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionValue> Added { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
@@ -32,13 +32,13 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         /// <summary>The updated property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyDefinitionValue>? Updated { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionValue>? Updated { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyDefinitionValue> Updated { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinitionValue> Updated { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateDefinitionValuesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues.UpdateDefinitionValuesPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateDefinitionValuesPostRequestBody()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateDefinitionValuesPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues.UpdateDefinitionValuesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateDefinitionValuesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues.UpdateDefinitionValuesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateDefinitionValuesPostRequestBody();
+            return new ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitionValues.UpdateDefinitionValuesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,9 +62,9 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "added", n => { Added = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "added", n => { Added = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionValue>(ApiSdk.Models.GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deletedIds", n => { DeletedIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "updated", n => { Updated = n.GetCollectionOfObjectValues<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updated", n => { Updated = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionValue>(ApiSdk.Models.GroupPolicyDefinitionValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace ApiSdk.DeviceManagement.GroupPolicyConfigurations.Item.UpdateDefinitio
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<GroupPolicyDefinitionValue>("added", Added);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionValue>("added", Added);
             writer.WriteCollectionOfPrimitiveValues<string>("deletedIds", DeletedIds);
-            writer.WriteCollectionOfObjectValues<GroupPolicyDefinitionValue>("updated", Updated);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinitionValue>("updated", Updated);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

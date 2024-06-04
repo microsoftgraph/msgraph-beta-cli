@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>CORS Rule definition for a particular application segment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CorsConfiguration>? CorsConfigurations { get; set; }
+        public List<ApiSdk.Models.CorsConfiguration>? CorsConfigurations { get; set; }
 #nullable restore
 #else
-        public List<CorsConfiguration> CorsConfigurations { get; set; }
+        public List<ApiSdk.Models.CorsConfiguration> CorsConfigurations { get; set; }
 #endif
         /// <summary>The published external URL for the application segment; for example, https://intranet.contoso.com./</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesApplicationSegment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OnPremisesApplicationSegment"/> and sets the default values.
         /// </summary>
         public OnPremisesApplicationSegment()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesApplicationSegment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesApplicationSegment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OnPremisesApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OnPremisesApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesApplicationSegment();
+            return new ApiSdk.Models.OnPremisesApplicationSegment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
-                { "corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<CorsConfiguration>(CorsConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "corsConfigurations", n => { CorsConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.CorsConfiguration>(ApiSdk.Models.CorsConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
                 { "internalUrl", n => { InternalUrl = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -92,7 +92,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alternateUrl", AlternateUrl);
-            writer.WriteCollectionOfObjectValues<CorsConfiguration>("corsConfigurations", CorsConfigurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CorsConfiguration>("corsConfigurations", CorsConfigurations);
             writer.WriteStringValue("externalUrl", ExternalUrl);
             writer.WriteStringValue("internalUrl", InternalUrl);
             writer.WriteStringValue("@odata.type", OdataType);

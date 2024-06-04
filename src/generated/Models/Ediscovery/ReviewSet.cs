@@ -31,20 +31,20 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The queries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ReviewSetQuery>? Queries { get; set; }
+        public List<ApiSdk.Models.Ediscovery.ReviewSetQuery>? Queries { get; set; }
 #nullable restore
 #else
-        public List<ReviewSetQuery> Queries { get; set; }
+        public List<ApiSdk.Models.Ediscovery.ReviewSetQuery> Queries { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReviewSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.ReviewSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ReviewSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.ReviewSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReviewSet();
+            return new ApiSdk.Models.Ediscovery.ReviewSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.Ediscovery
                 { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "queries", n => { Queries = n.GetCollectionOfObjectValues<ReviewSetQuery>(ReviewSetQuery.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "queries", n => { Queries = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.ReviewSetQuery>(ApiSdk.Models.Ediscovery.ReviewSetQuery.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace ApiSdk.Models.Ediscovery
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<ReviewSetQuery>("queries", Queries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.ReviewSetQuery>("queries", Queries);
         }
     }
 }

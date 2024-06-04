@@ -7,59 +7,59 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationSynchronizationCustomizations : EducationSynchronizationCustomizationsBase, IParsable
+    public class EducationSynchronizationCustomizations : ApiSdk.Models.EducationSynchronizationCustomizationsBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Customizations for School entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? School { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? School { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization School { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization School { get; set; }
 #endif
         /// <summary>Customizations for Section entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? Section { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? Section { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization Section { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization Section { get; set; }
 #endif
         /// <summary>Customizations for Student entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? Student { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? Student { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization Student { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization Student { get; set; }
 #endif
         /// <summary>Customizations for Student Enrollments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? StudentEnrollment { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? StudentEnrollment { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization StudentEnrollment { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization StudentEnrollment { get; set; }
 #endif
         /// <summary>Customizations for Teacher entities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? Teacher { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? Teacher { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization Teacher { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization Teacher { get; set; }
 #endif
         /// <summary>Customizations for Teacher Rosters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomization? TeacherRoster { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization? TeacherRoster { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomization TeacherRoster { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomization TeacherRoster { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationCustomizations"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationCustomizations"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationCustomizations() : base()
         {
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationCustomizations"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationCustomizations"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationSynchronizationCustomizations CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationSynchronizationCustomizations CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationSynchronizationCustomizations();
+            return new ApiSdk.Models.EducationSynchronizationCustomizations();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "school", n => { School = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                { "section", n => { Section = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                { "student", n => { Student = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                { "studentEnrollment", n => { StudentEnrollment = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                { "teacher", n => { Teacher = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
-                { "teacherRoster", n => { TeacherRoster = n.GetObjectValue<EducationSynchronizationCustomization>(EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "school", n => { School = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "section", n => { Section = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "student", n => { Student = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "studentEnrollment", n => { StudentEnrollment = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "teacher", n => { Teacher = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
+                { "teacherRoster", n => { TeacherRoster = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>(ApiSdk.Models.EducationSynchronizationCustomization.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -99,12 +99,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("school", School);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("section", Section);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("student", Student);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("studentEnrollment", StudentEnrollment);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("teacher", Teacher);
-            writer.WriteObjectValue<EducationSynchronizationCustomization>("teacherRoster", TeacherRoster);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("school", School);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("section", Section);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("student", Student);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("studentEnrollment", StudentEnrollment);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("teacher", Teacher);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomization>("teacherRoster", TeacherRoster);
         }
     }
 }

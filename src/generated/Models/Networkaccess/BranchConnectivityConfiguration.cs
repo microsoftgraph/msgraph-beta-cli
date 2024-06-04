@@ -31,10 +31,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>List of connectivity configurations for deviceLink objects.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectivityConfigurationLink>? Links { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>? Links { get; set; }
 #nullable restore
 #else
-        public List<ConnectivityConfigurationLink> Links { get; set; }
+        public List<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink> Links { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BranchConnectivityConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration"/> and sets the default values.
         /// </summary>
         public BranchConnectivityConfiguration()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BranchConnectivityConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BranchConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BranchConnectivityConfiguration();
+            return new ApiSdk.Models.Networkaccess.BranchConnectivityConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,7 +71,7 @@ namespace ApiSdk.Models.Networkaccess
             {
                 { "branchId", n => { BranchId = n.GetStringValue(); } },
                 { "branchName", n => { BranchName = n.GetStringValue(); } },
-                { "links", n => { Links = n.GetCollectionOfObjectValues<ConnectivityConfigurationLink>(ConnectivityConfigurationLink.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "links", n => { Links = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>(ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -84,7 +84,7 @@ namespace ApiSdk.Models.Networkaccess
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("branchId", BranchId);
             writer.WriteStringValue("branchName", BranchName);
-            writer.WriteCollectionOfObjectValues<ConnectivityConfigurationLink>("links", Links);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink>("links", Links);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

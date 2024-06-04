@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties and inherited properties for Android for Work (AFW) Apps.
     /// </summary>
-    public class AndroidForWorkApp : MobileApp, IParsable
+    public class AndroidForWorkApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The Identity Name. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace ApiSdk.Models
         /// <summary>The number of VPP licenses in use.</summary>
         public int? UsedLicenseCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidForWorkApp"/> and sets the default values.
         /// </summary>
         public AndroidForWorkApp() : base()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidForWorkApp();
+            return new ApiSdk.Models.AndroidForWorkApp();
         }
         /// <summary>
         /// The deserialization information for the current model

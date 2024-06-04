@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Networkaccess
         public string ZoneLocalIpAddress { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RedundancyConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RedundancyConfiguration"/> and sets the default values.
         /// </summary>
         public RedundancyConfiguration()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RedundancyConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RedundancyConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RedundancyConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.RedundancyConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RedundancyConfiguration();
+            return new ApiSdk.Models.Networkaccess.RedundancyConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models.Networkaccess
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "redundancyTier", n => { RedundancyTier = n.GetEnumValue<RedundancyTier>(); } },
+                { "redundancyTier", n => { RedundancyTier = n.GetEnumValue<ApiSdk.Models.Networkaccess.RedundancyTier>(); } },
                 { "zoneLocalIpAddress", n => { ZoneLocalIpAddress = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RedundancyTier>("redundancyTier", RedundancyTier);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.RedundancyTier>("redundancyTier", RedundancyTier);
             writer.WriteStringValue("zoneLocalIpAddress", ZoneLocalIpAddress);
             writer.WriteAdditionalData(AdditionalData);
         }

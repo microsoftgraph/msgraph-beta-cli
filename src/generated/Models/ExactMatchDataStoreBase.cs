@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExactMatchDataStoreBase : Entity, IParsable
+    public class ExactMatchDataStoreBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The columns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExactDataMatchStoreColumn>? Columns { get; set; }
+        public List<ApiSdk.Models.ExactDataMatchStoreColumn>? Columns { get; set; }
 #nullable restore
 #else
-        public List<ExactDataMatchStoreColumn> Columns { get; set; }
+        public List<ApiSdk.Models.ExactDataMatchStoreColumn> Columns { get; set; }
 #endif
         /// <summary>The dataLastUpdatedDateTime property</summary>
         public DateTimeOffset? DataLastUpdatedDateTime { get; set; }
@@ -39,16 +39,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExactMatchDataStoreBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExactMatchDataStoreBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExactMatchDataStoreBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExactMatchDataStoreBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.exactMatchDataStore" => new ExactMatchDataStore(),
-                _ => new ExactMatchDataStoreBase(),
+                "#microsoft.graph.exactMatchDataStore" => new ApiSdk.Models.ExactMatchDataStore(),
+                _ => new ApiSdk.Models.ExactMatchDataStoreBase(),
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "columns", n => { Columns = n.GetCollectionOfObjectValues<ExactDataMatchStoreColumn>(ExactDataMatchStoreColumn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "columns", n => { Columns = n.GetCollectionOfObjectValues<ApiSdk.Models.ExactDataMatchStoreColumn>(ApiSdk.Models.ExactDataMatchStoreColumn.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "dataLastUpdatedDateTime", n => { DataLastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ExactDataMatchStoreColumn>("columns", Columns);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExactDataMatchStoreColumn>("columns", Columns);
             writer.WriteDateTimeOffsetValue("dataLastUpdatedDateTime", DataLastUpdatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);

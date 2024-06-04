@@ -53,14 +53,14 @@ namespace ApiSdk.PrivilegedSignupStatus.CanSignUp
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CanSignUpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CanSignUpRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedSignupStatus/canSignUp()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CanSignUpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CanSignUpRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedSignupStatus/canSignUp()", rawUrl)

@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>The offset property</summary>
         public int? Offset { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MatchLocation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MatchLocation"/> and sets the default values.
         /// </summary>
         public MatchLocation()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MatchLocation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MatchLocation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MatchLocation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MatchLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MatchLocation();
+            return new ApiSdk.Models.MatchLocation();
         }
         /// <summary>
         /// The deserialization information for the current model

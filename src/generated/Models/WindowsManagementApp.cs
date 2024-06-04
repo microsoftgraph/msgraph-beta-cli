@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows management app entity.
     /// </summary>
-    public class WindowsManagementApp : Entity, IParsable
+    public class WindowsManagementApp : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Windows management app available version.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,13 +22,13 @@ namespace ApiSdk.Models
         /// <summary>The list of health states for installed Windows management app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsManagementAppHealthState>? HealthStates { get; set; }
+        public List<ApiSdk.Models.WindowsManagementAppHealthState>? HealthStates { get; set; }
 #nullable restore
 #else
-        public List<WindowsManagementAppHealthState> HealthStates { get; set; }
+        public List<ApiSdk.Models.WindowsManagementAppHealthState> HealthStates { get; set; }
 #endif
         /// <summary>ManagedInstallerStatus</summary>
-        public ManagedInstallerStatus? ManagedInstaller { get; set; }
+        public ApiSdk.Models.ManagedInstallerStatus? ManagedInstaller { get; set; }
         /// <summary>Managed Installer Configured Date Time</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsManagementApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsManagementApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsManagementApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsManagementApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsManagementApp();
+            return new ApiSdk.Models.WindowsManagementApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,8 +56,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "availableVersion", n => { AvailableVersion = n.GetStringValue(); } },
-                { "healthStates", n => { HealthStates = n.GetCollectionOfObjectValues<WindowsManagementAppHealthState>(WindowsManagementAppHealthState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedInstaller", n => { ManagedInstaller = n.GetEnumValue<ManagedInstallerStatus>(); } },
+                { "healthStates", n => { HealthStates = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsManagementAppHealthState>(ApiSdk.Models.WindowsManagementAppHealthState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedInstaller", n => { ManagedInstaller = n.GetEnumValue<ApiSdk.Models.ManagedInstallerStatus>(); } },
                 { "managedInstallerConfiguredDateTime", n => { ManagedInstallerConfiguredDateTime = n.GetStringValue(); } },
             };
         }
@@ -70,8 +70,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("availableVersion", AvailableVersion);
-            writer.WriteCollectionOfObjectValues<WindowsManagementAppHealthState>("healthStates", HealthStates);
-            writer.WriteEnumValue<ManagedInstallerStatus>("managedInstaller", ManagedInstaller);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsManagementAppHealthState>("healthStates", HealthStates);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedInstallerStatus>("managedInstaller", ManagedInstaller);
             writer.WriteStringValue("managedInstallerConfiguredDateTime", ManagedInstallerConfiguredDateTime);
         }
     }

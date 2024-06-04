@@ -52,7 +52,7 @@ namespace ApiSdk.Security.TiIndicators.SubmitTiIndicators
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SubmitTiIndicatorsPostRequestBody>(SubmitTiIndicatorsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsPostRequestBody>(ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -81,14 +81,14 @@ namespace ApiSdk.Security.TiIndicators.SubmitTiIndicators
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SubmitTiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SubmitTiIndicatorsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/tiIndicators/submitTiIndicators", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SubmitTiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SubmitTiIndicatorsRequestBuilder(string rawUrl) : base("{+baseurl}/security/tiIndicators/submitTiIndicators", rawUrl)
@@ -103,11 +103,11 @@ namespace ApiSdk.Security.TiIndicators.SubmitTiIndicators
         [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SubmitTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SubmitTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

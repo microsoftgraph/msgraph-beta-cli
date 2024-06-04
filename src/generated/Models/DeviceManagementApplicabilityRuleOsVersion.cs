@@ -45,9 +45,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Supported Applicability rule types for Device Configuration</summary>
-        public DeviceManagementApplicabilityRuleType? RuleType { get; set; }
+        public ApiSdk.Models.DeviceManagementApplicabilityRuleType? RuleType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementApplicabilityRuleOsVersion"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion"/> and sets the default values.
         /// </summary>
         public DeviceManagementApplicabilityRuleOsVersion()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementApplicabilityRuleOsVersion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementApplicabilityRuleOsVersion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementApplicabilityRuleOsVersion();
+            return new ApiSdk.Models.DeviceManagementApplicabilityRuleOsVersion();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
                 { "minOSVersion", n => { MinOSVersion = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "ruleType", n => { RuleType = n.GetEnumValue<DeviceManagementApplicabilityRuleType>(); } },
+                { "ruleType", n => { RuleType = n.GetEnumValue<ApiSdk.Models.DeviceManagementApplicabilityRuleType>(); } },
             };
         }
         /// <summary>
@@ -89,7 +89,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("minOSVersion", MinOSVersion);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceManagementApplicabilityRuleType>("ruleType", RuleType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementApplicabilityRuleType>("ruleType", RuleType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -38,7 +38,7 @@ namespace ApiSdk.GovernanceResources.Register
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RegisterPostRequestBody>(RegisterPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.GovernanceResources.Register.RegisterPostRequestBody>(ApiSdk.GovernanceResources.Register.RegisterPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -56,14 +56,14 @@ namespace ApiSdk.GovernanceResources.Register
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RegisterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Register.RegisterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RegisterRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/governanceResources/register", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RegisterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceResources.Register.RegisterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RegisterRequestBuilder(string rawUrl) : base("{+baseurl}/governanceResources/register", rawUrl)
@@ -77,11 +77,11 @@ namespace ApiSdk.GovernanceResources.Register
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RegisterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.GovernanceResources.Register.RegisterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RegisterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.GovernanceResources.Register.RegisterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

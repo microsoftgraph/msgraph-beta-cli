@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomExtensionCalloutResult : AuthenticationEventHandlerResult, IParsable
+    public class CustomExtensionCalloutResult : ApiSdk.Models.AuthenticationEventHandlerResult, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         /// <summary>The number of API calls to the customer&apos;s API.</summary>
         public int? NumberOfAttempts { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CustomExtensionCalloutResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomExtensionCalloutResult"/> and sets the default values.
         /// </summary>
         public CustomExtensionCalloutResult() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomExtensionCalloutResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomExtensionCalloutResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomExtensionCalloutResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomExtensionCalloutResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomExtensionCalloutResult();
+            return new ApiSdk.Models.CustomExtensionCalloutResult();
         }
         /// <summary>
         /// The deserialization information for the current model

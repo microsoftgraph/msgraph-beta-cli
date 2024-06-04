@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RevokeLicensesPostRequestBody>(RevokeLicensesPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody>(ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeLicensesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RevokeLicensesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}/revokeLicenses", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeLicensesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RevokeLicensesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/vppTokens/{vppToken%2Did}/revokeLicenses", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RevokeLicensesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RevokeLicensesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

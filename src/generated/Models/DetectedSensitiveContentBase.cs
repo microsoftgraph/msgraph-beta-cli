@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         /// <summary>The uniqueCount property</summary>
         public int? UniqueCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DetectedSensitiveContentBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DetectedSensitiveContentBase"/> and sets the default values.
         /// </summary>
         public DetectedSensitiveContentBase()
         {
@@ -46,18 +46,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetectedSensitiveContentBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DetectedSensitiveContentBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DetectedSensitiveContentBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DetectedSensitiveContentBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.detectedSensitiveContent" => new DetectedSensitiveContent(),
-                "#microsoft.graph.exactMatchDetectedSensitiveContent" => new ExactMatchDetectedSensitiveContent(),
-                "#microsoft.graph.machineLearningDetectedSensitiveContent" => new MachineLearningDetectedSensitiveContent(),
-                _ => new DetectedSensitiveContentBase(),
+                "#microsoft.graph.detectedSensitiveContent" => new ApiSdk.Models.DetectedSensitiveContent(),
+                "#microsoft.graph.exactMatchDetectedSensitiveContent" => new ApiSdk.Models.ExactMatchDetectedSensitiveContent(),
+                "#microsoft.graph.machineLearningDetectedSensitiveContent" => new ApiSdk.Models.MachineLearningDetectedSensitiveContent(),
+                _ => new ApiSdk.Models.DetectedSensitiveContentBase(),
             };
         }
         /// <summary>

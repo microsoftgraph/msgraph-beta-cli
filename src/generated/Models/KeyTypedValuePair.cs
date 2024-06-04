@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="KeyTypedValuePair"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.KeyTypedValuePair"/> and sets the default values.
         /// </summary>
         public KeyTypedValuePair()
         {
@@ -39,19 +39,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KeyTypedValuePair"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.KeyTypedValuePair"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static KeyTypedValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.KeyTypedValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.keyBooleanValuePair" => new KeyBooleanValuePair(),
-                "#microsoft.graph.keyIntegerValuePair" => new KeyIntegerValuePair(),
-                "#microsoft.graph.keyRealValuePair" => new KeyRealValuePair(),
-                "#microsoft.graph.keyStringValuePair" => new KeyStringValuePair(),
-                _ => new KeyTypedValuePair(),
+                "#microsoft.graph.keyBooleanValuePair" => new ApiSdk.Models.KeyBooleanValuePair(),
+                "#microsoft.graph.keyIntegerValuePair" => new ApiSdk.Models.KeyIntegerValuePair(),
+                "#microsoft.graph.keyRealValuePair" => new ApiSdk.Models.KeyRealValuePair(),
+                "#microsoft.graph.keyStringValuePair" => new ApiSdk.Models.KeyStringValuePair(),
+                _ => new ApiSdk.Models.KeyTypedValuePair(),
             };
         }
         /// <summary>

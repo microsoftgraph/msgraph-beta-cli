@@ -25,7 +25,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.Item.Agent
         {
             var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of onPremisesPublishingProfile entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.Item.AgentGroups.Item.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             foreach (var cmd in execCommands)
@@ -35,14 +35,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.Item.Agent
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OnPremisesAgentGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/publishedResources/{publishedResource%2Did}/agentGroups/{onPremisesAgentGroup%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.PublishedResources.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OnPremisesAgentGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/publishedResources/{publishedResource%2Did}/agentGroups/{onPremisesAgentGroup%2Did}", rawUrl)

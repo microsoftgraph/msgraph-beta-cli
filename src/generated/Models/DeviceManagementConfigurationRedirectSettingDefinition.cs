@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationRedirectSettingDefinition : DeviceManagementConfigurationSettingDefinition, IParsable
+    public class DeviceManagementConfigurationRedirectSettingDefinition : ApiSdk.Models.DeviceManagementConfigurationSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A deep link that points to the specific location in the Intune console where feature support must be managed from.</summary>
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationRedirectSettingDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationRedirectSettingDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationRedirectSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationRedirectSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationRedirectSettingDefinition();
+            return new ApiSdk.Models.DeviceManagementConfigurationRedirectSettingDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model

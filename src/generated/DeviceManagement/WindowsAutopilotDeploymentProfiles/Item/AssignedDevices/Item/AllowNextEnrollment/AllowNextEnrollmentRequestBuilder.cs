@@ -55,14 +55,14 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.Assign
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowNextEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.AllowNextEnrollment.AllowNextEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AllowNextEnrollmentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/windowsAutopilotDeploymentProfiles/{windowsAutopilotDeploymentProfile%2Did}/assignedDevices/{windowsAutopilotDeviceIdentity%2Did}/allowNextEnrollment", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowNextEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeploymentProfiles.Item.AssignedDevices.Item.AllowNextEnrollment.AllowNextEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AllowNextEnrollmentRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/windowsAutopilotDeploymentProfiles/{windowsAutopilotDeploymentProfile%2Did}/assignedDevices/{windowsAutopilotDeviceIdentity%2Did}/allowNextEnrollment", rawUrl)

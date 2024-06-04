@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsSecurityToolAdministrationFinding : Finding, IParsable
+    public class AwsSecurityToolAdministrationFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemIdentity? Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity? Identity { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemIdentity Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity Identity { get; set; }
 #endif
         /// <summary>The identityDetails property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,23 +35,23 @@ namespace ApiSdk.Models
         public ApiSdk.Models.PermissionsCreepIndex PermissionsCreepIndex { get; set; }
 #endif
         /// <summary>The securityTools property</summary>
-        public AwsSecurityToolWebServices? SecurityTools { get; set; }
+        public ApiSdk.Models.AwsSecurityToolWebServices? SecurityTools { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsSecurityToolAdministrationFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsSecurityToolAdministrationFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsSecurityToolAdministrationFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsSecurityToolAdministrationFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.securityToolAwsResourceAdministratorFinding" => new SecurityToolAwsResourceAdministratorFinding(),
-                "#microsoft.graph.securityToolAwsRoleAdministratorFinding" => new SecurityToolAwsRoleAdministratorFinding(),
-                "#microsoft.graph.securityToolAwsServerlessFunctionAdministratorFinding" => new SecurityToolAwsServerlessFunctionAdministratorFinding(),
-                "#microsoft.graph.securityToolAwsUserAdministratorFinding" => new SecurityToolAwsUserAdministratorFinding(),
-                _ => new AwsSecurityToolAdministrationFinding(),
+                "#microsoft.graph.securityToolAwsResourceAdministratorFinding" => new ApiSdk.Models.SecurityToolAwsResourceAdministratorFinding(),
+                "#microsoft.graph.securityToolAwsRoleAdministratorFinding" => new ApiSdk.Models.SecurityToolAwsRoleAdministratorFinding(),
+                "#microsoft.graph.securityToolAwsServerlessFunctionAdministratorFinding" => new ApiSdk.Models.SecurityToolAwsServerlessFunctionAdministratorFinding(),
+                "#microsoft.graph.securityToolAwsUserAdministratorFinding" => new ApiSdk.Models.SecurityToolAwsUserAdministratorFinding(),
+                _ => new ApiSdk.Models.AwsSecurityToolAdministrationFinding(),
             };
         }
         /// <summary>
@@ -62,10 +62,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>(ApiSdk.Models.AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
                 { "identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
-                { "securityTools", n => { SecurityTools = n.GetEnumValue<AwsSecurityToolWebServices>(); } },
+                { "securityTools", n => { SecurityTools = n.GetEnumValue<ApiSdk.Models.AwsSecurityToolWebServices>(); } },
             };
         }
         /// <summary>
@@ -76,10 +76,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AuthorizationSystemIdentity>("identity", Identity);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>("identity", Identity);
             writer.WriteObjectValue<ApiSdk.Models.IdentityDetails>("identityDetails", IdentityDetails);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
-            writer.WriteEnumValue<AwsSecurityToolWebServices>("securityTools", SecurityTools);
+            writer.WriteEnumValue<ApiSdk.Models.AwsSecurityToolWebServices>("securityTools", SecurityTools);
         }
     }
 }

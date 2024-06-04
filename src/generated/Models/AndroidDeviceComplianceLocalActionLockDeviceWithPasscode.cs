@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Local Action Lock Device with Passcode Configuration
     /// </summary>
-    public class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode : AndroidDeviceComplianceLocalActionBase, IParsable
+    public class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode : ApiSdk.Models.AndroidDeviceComplianceLocalActionBase, IParsable
     {
         /// <summary>Passcode to reset to Android device. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         /// <summary>Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11</summary>
         public int? PasscodeSignInFailureCountBeforeWipe { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceComplianceLocalActionLockDeviceWithPasscode"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDeviceWithPasscode"/> and sets the default values.
         /// </summary>
         public AndroidDeviceComplianceLocalActionLockDeviceWithPasscode() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceComplianceLocalActionLockDeviceWithPasscode"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDeviceWithPasscode"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceComplianceLocalActionLockDeviceWithPasscode CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDeviceWithPasscode CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceComplianceLocalActionLockDeviceWithPasscode();
+            return new ApiSdk.Models.AndroidDeviceComplianceLocalActionLockDeviceWithPasscode();
         }
         /// <summary>
         /// The deserialization information for the current model

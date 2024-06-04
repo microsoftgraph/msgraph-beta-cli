@@ -15,10 +15,10 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RuleCondition>? Conditions { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.RuleCondition>? Conditions { get; set; }
 #nullable restore
 #else
-        public List<RuleCondition> Conditions { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.RuleCondition> Conditions { get; set; }
 #endif
         /// <summary>The rule description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,30 +43,30 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The notification channels of the rule selected by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NotificationChannel>? NotificationChannels { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.NotificationChannel>? NotificationChannels { get; set; }
 #nullable restore
 #else
-        public List<NotificationChannel> NotificationChannels { get; set; }
+        public List<ApiSdk.Models.DeviceManagement.NotificationChannel> NotificationChannels { get; set; }
 #endif
         /// <summary>The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.</summary>
-        public RuleSeverityType? Severity { get; set; }
+        public ApiSdk.Models.DeviceManagement.RuleSeverityType? Severity { get; set; }
         /// <summary>The conditions that determine when to send alerts. For example, you can configure a condition to send an alert when provisioning fails for six or more Cloud PCs. This property is deprecated. Use conditions instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RuleThreshold? Threshold { get; set; }
+        public ApiSdk.Models.DeviceManagement.RuleThreshold? Threshold { get; set; }
 #nullable restore
 #else
-        public RuleThreshold Threshold { get; set; }
+        public ApiSdk.Models.DeviceManagement.RuleThreshold Threshold { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AlertRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.AlertRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AlertRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagement.AlertRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AlertRule();
+            return new ApiSdk.Models.DeviceManagement.AlertRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,15 +76,15 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
-                { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<RuleCondition>(RuleCondition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>(); } },
+                { "conditions", n => { Conditions = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.RuleCondition>(ApiSdk.Models.DeviceManagement.RuleCondition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "isSystemRule", n => { IsSystemRule = n.GetBoolValue(); } },
-                { "notificationChannels", n => { NotificationChannels = n.GetCollectionOfObjectValues<NotificationChannel>(NotificationChannel.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
-                { "threshold", n => { Threshold = n.GetObjectValue<RuleThreshold>(RuleThreshold.CreateFromDiscriminatorValue); } },
+                { "notificationChannels", n => { NotificationChannels = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.NotificationChannel>(ApiSdk.Models.DeviceManagement.NotificationChannel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>(); } },
+                { "threshold", n => { Threshold = n.GetObjectValue<ApiSdk.Models.DeviceManagement.RuleThreshold>(ApiSdk.Models.DeviceManagement.RuleThreshold.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -95,15 +95,15 @@ namespace ApiSdk.Models.DeviceManagement
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
-            writer.WriteCollectionOfObjectValues<RuleCondition>("conditions", Conditions);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.RuleCondition>("conditions", Conditions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteBoolValue("isSystemRule", IsSystemRule);
-            writer.WriteCollectionOfObjectValues<NotificationChannel>("notificationChannels", NotificationChannels);
-            writer.WriteEnumValue<RuleSeverityType>("severity", Severity);
-            writer.WriteObjectValue<RuleThreshold>("threshold", Threshold);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagement.NotificationChannel>("notificationChannels", NotificationChannels);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>("severity", Severity);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagement.RuleThreshold>("threshold", Threshold);
         }
     }
 }

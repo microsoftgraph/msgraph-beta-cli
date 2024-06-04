@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTa
         public List<string> RoleScopeTagIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateScopeTagsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags.UpdateScopeTagsPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateScopeTagsPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTa
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateScopeTagsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags.UpdateScopeTagsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateScopeTagsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags.UpdateScopeTagsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateScopeTagsPostRequestBody();
+            return new ApiSdk.DeviceManagement.GroupPolicyMigrationReports.Item.UpdateScopeTags.UpdateScopeTagsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

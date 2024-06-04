@@ -33,7 +33,7 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The number value of the impact. For the aggregation types of count and affectedCloudPcCount, the value indicates the number of affected instances. For example, 6 affectedCloudPcCount means that six Cloud PCs are affected. For the aggregation types of percentage and affectedCloudPcPercentage, the value indicates the percent of affected instances. For example, 12 affectedCloudPcPercentage means that 12% of Cloud PCs are affected.</summary>
         public int? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AlertImpact"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagement.AlertImpact"/> and sets the default values.
         /// </summary>
         public AlertImpact()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AlertImpact"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.AlertImpact"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AlertImpact CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagement.AlertImpact CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AlertImpact();
+            return new ApiSdk.Models.DeviceManagement.AlertImpact();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.DeviceManagement
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "aggregationType", n => { AggregationType = n.GetEnumValue<AggregationType>(); } },
+                { "aggregationType", n => { AggregationType = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>(); } },
                 { "alertImpactDetails", n => { AlertImpactDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetIntValue(); } },
@@ -70,7 +70,7 @@ namespace ApiSdk.Models.DeviceManagement
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AggregationType>("aggregationType", AggregationType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AggregationType>("aggregationType", AggregationType);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("alertImpactDetails", AlertImpactDetails);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("value", Value);

@@ -35,7 +35,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.deviceShellScript entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -62,7 +62,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -114,7 +114,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("device-run-states");
             command.Description = "Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceShellScript entity.";
-            var builder = new DeviceRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceRunStates.DeviceRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -193,7 +193,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("group-assignments");
             command.Description = "Provides operations to manage the groupAssignments property of the microsoft.graph.deviceShellScript entity.";
-            var builder = new GroupAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.GroupAssignments.GroupAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -243,7 +243,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceShellScript>(DeviceShellScript.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceShellScript>(ApiSdk.Models.DeviceShellScript.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -271,7 +271,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("run-summary");
             command.Description = "Provides operations to manage the runSummary property of the microsoft.graph.deviceShellScript entity.";
-            var builder = new RunSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.RunSummary.RunSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -288,7 +288,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         {
             var command = new Command("user-run-states");
             command.Description = "Provides operations to manage the userRunStates property of the microsoft.graph.deviceShellScript entity.";
-            var builder = new UserRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.UserRunStates.UserRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -308,14 +308,14 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceShellScriptItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceShellScriptItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceShellScriptItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceShellScripts/{deviceShellScript%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceShellScriptItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceShellScriptItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceShellScriptItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceShellScripts/{deviceShellScript%2Did}{?%24expand,%24select}", rawUrl)
@@ -347,11 +347,11 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceShellScriptItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceShellScriptItemRequestBuilder.DeviceShellScriptItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceShellScriptItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceShellScriptItemRequestBuilder.DeviceShellScriptItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -367,11 +367,11 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

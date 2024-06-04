@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IdentityDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityDetails"/> and sets the default values.
         /// </summary>
         public IdentityDetails()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IdentityDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IdentityDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IdentityDetails();
+            return new ApiSdk.Models.IdentityDetails();
         }
         /// <summary>
         /// The deserialization information for the current model

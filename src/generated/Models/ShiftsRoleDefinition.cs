@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ShiftsRoleDefinition : Entity, IParsable
+    public class ShiftsRoleDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The description of the role.</summary>
@@ -29,20 +29,20 @@ namespace ApiSdk.Models
         /// <summary>The collection of role permissions within the role.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ShiftsRolePermission>? ShiftsRolePermissions { get; set; }
+        public List<ApiSdk.Models.ShiftsRolePermission>? ShiftsRolePermissions { get; set; }
 #nullable restore
 #else
-        public List<ShiftsRolePermission> ShiftsRolePermissions { get; set; }
+        public List<ApiSdk.Models.ShiftsRolePermission> ShiftsRolePermissions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ShiftsRoleDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ShiftsRoleDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ShiftsRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ShiftsRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ShiftsRoleDefinition();
+            return new ApiSdk.Models.ShiftsRoleDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
             {
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "shiftsRolePermissions", n => { ShiftsRolePermissions = n.GetCollectionOfObjectValues<ShiftsRolePermission>(ShiftsRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "shiftsRolePermissions", n => { ShiftsRolePermissions = n.GetCollectionOfObjectValues<ApiSdk.Models.ShiftsRolePermission>(ApiSdk.Models.ShiftsRolePermission.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<ShiftsRolePermission>("shiftsRolePermissions", ShiftsRolePermissions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ShiftsRolePermission>("shiftsRolePermissions", ShiftsRolePermissions);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class FeatureUpdateCatalogEntry : SoftwareUpdateCatalogEntry, IParsable
+    public class FeatureUpdateCatalogEntry : ApiSdk.Models.WindowsUpdates.SoftwareUpdateCatalogEntry, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The build number of the feature update. Read-only.</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string Version { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="FeatureUpdateCatalogEntry"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.FeatureUpdateCatalogEntry"/> and sets the default values.
         /// </summary>
         public FeatureUpdateCatalogEntry() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FeatureUpdateCatalogEntry"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.FeatureUpdateCatalogEntry"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FeatureUpdateCatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.FeatureUpdateCatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FeatureUpdateCatalogEntry();
+            return new ApiSdk.Models.WindowsUpdates.FeatureUpdateCatalogEntry();
         }
         /// <summary>
         /// The deserialization information for the current model

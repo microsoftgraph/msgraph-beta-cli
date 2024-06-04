@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class NotifyUserAction : DlpActionInfo, IParsable
+    public class NotifyUserAction : ApiSdk.Models.DlpActionInfo, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionLastModifiedDateTime property</summary>
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NotifyUserAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.NotifyUserAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new NotifyUserAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.NotifyUserAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NotifyUserAction();
+            return new ApiSdk.Models.NotifyUserAction();
         }
         /// <summary>
         /// The deserialization information for the current model

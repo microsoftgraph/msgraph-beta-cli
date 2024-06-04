@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AzureIdentity : AuthorizationSystemIdentity, IParsable
+    public class AzureIdentity : ApiSdk.Models.AuthorizationSystemIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="AzureIdentity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AzureIdentity"/> and sets the default values.
         /// </summary>
         public AzureIdentity() : base()
         {
@@ -20,20 +20,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.azureGroup" => new AzureGroup(),
-                "#microsoft.graph.azureManagedIdentity" => new AzureManagedIdentity(),
-                "#microsoft.graph.azureServerlessFunction" => new AzureServerlessFunction(),
-                "#microsoft.graph.azureServicePrincipal" => new AzureServicePrincipal(),
-                "#microsoft.graph.azureUser" => new AzureUser(),
-                _ => new AzureIdentity(),
+                "#microsoft.graph.azureGroup" => new ApiSdk.Models.AzureGroup(),
+                "#microsoft.graph.azureManagedIdentity" => new ApiSdk.Models.AzureManagedIdentity(),
+                "#microsoft.graph.azureServerlessFunction" => new ApiSdk.Models.AzureServerlessFunction(),
+                "#microsoft.graph.azureServicePrincipal" => new ApiSdk.Models.AzureServicePrincipal(),
+                "#microsoft.graph.azureUser" => new ApiSdk.Models.AzureUser(),
+                _ => new ApiSdk.Models.AzureIdentity(),
             };
         }
         /// <summary>

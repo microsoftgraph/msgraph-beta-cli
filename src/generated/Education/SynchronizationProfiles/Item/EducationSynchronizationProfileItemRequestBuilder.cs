@@ -72,7 +72,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("errors");
             command.Description = "Provides operations to manage the errors property of the microsoft.graph.educationSynchronizationProfile entity.";
-            var builder = new ErrorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.Errors.ErrorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -175,7 +175,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<EducationSynchronizationProfile>(EducationSynchronizationProfile.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.EducationSynchronizationProfile>(ApiSdk.Models.EducationSynchronizationProfile.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -203,7 +203,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("pause");
             command.Description = "Provides operations to call the pause method.";
-            var builder = new PauseRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.Pause.PauseRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -220,7 +220,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("profile-status");
             command.Description = "Provides operations to manage the profileStatus property of the microsoft.graph.educationSynchronizationProfile entity.";
-            var builder = new ProfileStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.ProfileStatus.ProfileStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -239,7 +239,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("reset");
             command.Description = "Provides operations to call the reset method.";
-            var builder = new ResetRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.Reset.ResetRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -256,7 +256,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("resume");
             command.Description = "Provides operations to call the resume method.";
-            var builder = new ResumeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.Resume.ResumeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -273,7 +273,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("start");
             command.Description = "Provides operations to call the start method.";
-            var builder = new StartRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.Start.StartRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -290,7 +290,7 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         {
             var command = new Command("upload-url");
             command.Description = "Provides operations to call the uploadUrl method.";
-            var builder = new UploadUrlRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Education.SynchronizationProfiles.Item.UploadUrl.UploadUrlRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -300,14 +300,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationProfileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.EducationSynchronizationProfileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EducationSynchronizationProfileItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationProfileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.EducationSynchronizationProfileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EducationSynchronizationProfileItemRequestBuilder(string rawUrl) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}{?%24expand,%24select}", rawUrl)
@@ -339,11 +339,11 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSynchronizationProfileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Education.SynchronizationProfiles.Item.EducationSynchronizationProfileItemRequestBuilder.EducationSynchronizationProfileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EducationSynchronizationProfileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Education.SynchronizationProfiles.Item.EducationSynchronizationProfileItemRequestBuilder.EducationSynchronizationProfileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -359,11 +359,11 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(EducationSynchronizationProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.EducationSynchronizationProfile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(EducationSynchronizationProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.EducationSynchronizationProfile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CommandEscaped : Entity, IParsable
+    public class CommandEscaped : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appServiceName property</summary>
@@ -37,10 +37,10 @@ namespace ApiSdk.Models
         /// <summary>The payload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PayloadRequest? Payload { get; set; }
+        public ApiSdk.Models.PayloadRequest? Payload { get; set; }
 #nullable restore
 #else
-        public PayloadRequest Payload { get; set; }
+        public ApiSdk.Models.PayloadRequest Payload { get; set; }
 #endif
         /// <summary>The permissionTicket property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         /// <summary>The responsepayload property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PayloadResponse? Responsepayload { get; set; }
+        public ApiSdk.Models.PayloadResponse? Responsepayload { get; set; }
 #nullable restore
 #else
-        public PayloadResponse Responsepayload { get; set; }
+        public ApiSdk.Models.PayloadResponse Responsepayload { get; set; }
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CommandEscaped"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CommandEscaped"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CommandEscaped CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CommandEscaped CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CommandEscaped();
+            return new ApiSdk.Models.CommandEscaped();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -103,10 +103,10 @@ namespace ApiSdk.Models
                 { "appServiceName", n => { AppServiceName = n.GetStringValue(); } },
                 { "error", n => { Error = n.GetStringValue(); } },
                 { "packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
-                { "payload", n => { Payload = n.GetObjectValue<PayloadRequest>(PayloadRequest.CreateFromDiscriminatorValue); } },
+                { "payload", n => { Payload = n.GetObjectValue<ApiSdk.Models.PayloadRequest>(ApiSdk.Models.PayloadRequest.CreateFromDiscriminatorValue); } },
                 { "permissionTicket", n => { PermissionTicket = n.GetStringValue(); } },
                 { "postBackUri", n => { PostBackUri = n.GetStringValue(); } },
-                { "responsepayload", n => { Responsepayload = n.GetObjectValue<PayloadResponse>(PayloadResponse.CreateFromDiscriminatorValue); } },
+                { "responsepayload", n => { Responsepayload = n.GetObjectValue<ApiSdk.Models.PayloadResponse>(ApiSdk.Models.PayloadResponse.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -122,10 +122,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("appServiceName", AppServiceName);
             writer.WriteStringValue("error", Error);
             writer.WriteStringValue("packageFamilyName", PackageFamilyName);
-            writer.WriteObjectValue<PayloadRequest>("payload", Payload);
+            writer.WriteObjectValue<ApiSdk.Models.PayloadRequest>("payload", Payload);
             writer.WriteStringValue("permissionTicket", PermissionTicket);
             writer.WriteStringValue("postBackUri", PostBackUri);
-            writer.WriteObjectValue<PayloadResponse>("responsepayload", Responsepayload);
+            writer.WriteObjectValue<ApiSdk.Models.PayloadResponse>("responsepayload", Responsepayload);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("type", Type);
         }

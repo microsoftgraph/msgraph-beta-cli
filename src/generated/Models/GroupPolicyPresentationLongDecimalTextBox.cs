@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an ADMX longDecimalTextBox element and an ADMX longDecimal element.
     /// </summary>
-    public class GroupPolicyPresentationLongDecimalTextBox : GroupPolicyUploadedPresentation, IParsable
+    public class GroupPolicyPresentationLongDecimalTextBox : ApiSdk.Models.GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.</summary>
         public long? DefaultValue { get; set; }
@@ -24,7 +24,7 @@ namespace ApiSdk.Models
         /// <summary>An unsigned integer that specifies the increment of change for the spin control. The default value is 1.</summary>
         public long? SpinStep { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyPresentationLongDecimalTextBox"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox"/> and sets the default values.
         /// </summary>
         public GroupPolicyPresentationLongDecimalTextBox() : base()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationLongDecimalTextBox"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationLongDecimalTextBox CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationLongDecimalTextBox();
+            return new ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox();
         }
         /// <summary>
         /// The deserialization information for the current model

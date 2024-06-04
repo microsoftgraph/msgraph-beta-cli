@@ -29,7 +29,7 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh
         public string ScopeType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RefreshPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh.RefreshPostRequestBody"/> and sets the default values.
         /// </summary>
         public RefreshPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RefreshPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh.RefreshPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RefreshPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh.RefreshPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RefreshPostRequestBody();
+            return new ApiSdk.IdentityGovernance.RoleManagementAlerts.Alerts.Refresh.RefreshPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

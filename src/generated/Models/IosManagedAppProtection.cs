@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device
     /// </summary>
-    public class IosManagedAppProtection : TargetedManagedAppProtection, IParsable
+    public class IosManagedAppProtection : ApiSdk.Models.TargetedManagedAppProtection, IParsable
     {
         /// <summary>Semicolon seperated list of device models allowed, as a string, for the managed app to work.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,18 +22,18 @@ namespace ApiSdk.Models
         /// <summary>Indicates  if content sync for widgets is allowed for iOS on App Protection Policies</summary>
         public bool? AllowWidgetContentSync { get; set; }
         /// <summary>Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.</summary>
-        public ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfAccountIsClockedOut { get; set; }
         /// <summary>An admin initiated action to be applied on a managed app.</summary>
-        public ManagedAppRemediationAction? AppActionIfIosDeviceModelNotAllowed { get; set; }
+        public ApiSdk.Models.ManagedAppRemediationAction? AppActionIfIosDeviceModelNotAllowed { get; set; }
         /// <summary>Represents the level to which app data is encrypted for managed apps</summary>
-        public ManagedAppDataEncryptionType? AppDataEncryptionType { get; set; }
+        public ApiSdk.Models.ManagedAppDataEncryptionType? AppDataEncryptionType { get; set; }
         /// <summary>List of apps to which the policy is deployed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedMobileApp>? Apps { get; set; }
+        public List<ApiSdk.Models.ManagedMobileApp>? Apps { get; set; }
 #nullable restore
 #else
-        public List<ManagedMobileApp> Apps { get; set; }
+        public List<ApiSdk.Models.ManagedMobileApp> Apps { get; set; }
 #endif
         /// <summary>A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,20 +56,20 @@ namespace ApiSdk.Models
         /// <summary>Navigation property to deployment summary of the configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
+        public ApiSdk.Models.ManagedAppPolicyDeploymentSummary? DeploymentSummary { get; set; }
 #nullable restore
 #else
-        public ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
+        public ApiSdk.Models.ManagedAppPolicyDeploymentSummary DeploymentSummary { get; set; }
 #endif
         /// <summary>Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.</summary>
         public bool? DisableProtectionOfManagedOutboundOpenInData { get; set; }
         /// <summary>Apps in this list will be exempt from the policy and will be able to receive data from managed apps.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? ExemptedAppProtocols { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? ExemptedAppProtocols { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> ExemptedAppProtocols { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> ExemptedAppProtocols { get; set; }
 #endif
         /// <summary>A list of custom urls that are allowed to invocate an unmanaged app</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,7 +128,7 @@ namespace ApiSdk.Models
         /// <summary>Defines if third party keyboards are allowed while accessing a managed app</summary>
         public bool? ThirdPartyKeyboardsBlocked { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosManagedAppProtection"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosManagedAppProtection"/> and sets the default values.
         /// </summary>
         public IosManagedAppProtection() : base()
         {
@@ -137,12 +137,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosManagedAppProtection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosManagedAppProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosManagedAppProtection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosManagedAppProtection();
+            return new ApiSdk.Models.IosManagedAppProtection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -154,16 +154,16 @@ namespace ApiSdk.Models
             {
                 { "allowWidgetContentSync", n => { AllowWidgetContentSync = n.GetBoolValue(); } },
                 { "allowedIosDeviceModels", n => { AllowedIosDeviceModels = n.GetStringValue(); } },
-                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ManagedAppRemediationAction>(); } },
-                { "appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ManagedAppDataEncryptionType>(); } },
-                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appActionIfAccountIsClockedOut", n => { AppActionIfAccountIsClockedOut = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appActionIfIosDeviceModelNotAllowed", n => { AppActionIfIosDeviceModelNotAllowed = n.GetEnumValue<ApiSdk.Models.ManagedAppRemediationAction>(); } },
+                { "appDataEncryptionType", n => { AppDataEncryptionType = n.GetEnumValue<ApiSdk.Models.ManagedAppDataEncryptionType>(); } },
+                { "apps", n => { Apps = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedMobileApp>(ApiSdk.Models.ManagedMobileApp.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "customBrowserProtocol", n => { CustomBrowserProtocol = n.GetStringValue(); } },
                 { "customDialerAppProtocol", n => { CustomDialerAppProtocol = n.GetStringValue(); } },
                 { "deployedAppCount", n => { DeployedAppCount = n.GetIntValue(); } },
-                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
+                { "deploymentSummary", n => { DeploymentSummary = n.GetObjectValue<ApiSdk.Models.ManagedAppPolicyDeploymentSummary>(ApiSdk.Models.ManagedAppPolicyDeploymentSummary.CreateFromDiscriminatorValue); } },
                 { "disableProtectionOfManagedOutboundOpenInData", n => { DisableProtectionOfManagedOutboundOpenInData = n.GetBoolValue(); } },
-                { "exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exemptedAppProtocols", n => { ExemptedAppProtocols = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "exemptedUniversalLinks", n => { ExemptedUniversalLinks = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "faceIdBlocked", n => { FaceIdBlocked = n.GetBoolValue(); } },
                 { "filterOpenInToOnlyManagedApps", n => { FilterOpenInToOnlyManagedApps = n.GetBoolValue(); } },
@@ -186,16 +186,16 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("allowedIosDeviceModels", AllowedIosDeviceModels);
             writer.WriteBoolValue("allowWidgetContentSync", AllowWidgetContentSync);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
-            writer.WriteEnumValue<ManagedAppRemediationAction>("appActionIfIosDeviceModelNotAllowed", AppActionIfIosDeviceModelNotAllowed);
-            writer.WriteEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", AppDataEncryptionType);
-            writer.WriteCollectionOfObjectValues<ManagedMobileApp>("apps", Apps);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfAccountIsClockedOut", AppActionIfAccountIsClockedOut);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppRemediationAction>("appActionIfIosDeviceModelNotAllowed", AppActionIfIosDeviceModelNotAllowed);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppDataEncryptionType>("appDataEncryptionType", AppDataEncryptionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedMobileApp>("apps", Apps);
             writer.WriteStringValue("customBrowserProtocol", CustomBrowserProtocol);
             writer.WriteStringValue("customDialerAppProtocol", CustomDialerAppProtocol);
             writer.WriteIntValue("deployedAppCount", DeployedAppCount);
-            writer.WriteObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", DeploymentSummary);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedAppPolicyDeploymentSummary>("deploymentSummary", DeploymentSummary);
             writer.WriteBoolValue("disableProtectionOfManagedOutboundOpenInData", DisableProtectionOfManagedOutboundOpenInData);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("exemptedAppProtocols", ExemptedAppProtocols);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("exemptedAppProtocols", ExemptedAppProtocols);
             writer.WriteCollectionOfPrimitiveValues<string>("exemptedUniversalLinks", ExemptedUniversalLinks);
             writer.WriteBoolValue("faceIdBlocked", FaceIdBlocked);
             writer.WriteBoolValue("filterOpenInToOnlyManagedApps", FilterOpenInToOnlyManagedApps);

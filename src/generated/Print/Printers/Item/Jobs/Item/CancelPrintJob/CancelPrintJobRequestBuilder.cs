@@ -56,14 +56,14 @@ namespace ApiSdk.Print.Printers.Item.Jobs.Item.CancelPrintJob
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelPrintJobRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.Jobs.Item.CancelPrintJob.CancelPrintJobRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CancelPrintJobRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/cancelPrintJob", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelPrintJobRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.Jobs.Item.CancelPrintJob.CancelPrintJobRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CancelPrintJobRequestBuilder(string rawUrl) : base("{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/cancelPrintJob", rawUrl)

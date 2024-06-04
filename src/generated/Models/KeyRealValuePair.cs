@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// A key-value pair with a string key and a real (floating-point) value.
     /// </summary>
-    public class KeyRealValuePair : KeyTypedValuePair, IParsable
+    public class KeyRealValuePair : ApiSdk.Models.KeyTypedValuePair, IParsable
     {
         /// <summary>The real (floating-point) value of the key-value pair.</summary>
         public double? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="KeyRealValuePair"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.KeyRealValuePair"/> and sets the default values.
         /// </summary>
         public KeyRealValuePair() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KeyRealValuePair"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.KeyRealValuePair"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new KeyRealValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.KeyRealValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KeyRealValuePair();
+            return new ApiSdk.Models.KeyRealValuePair();
         }
         /// <summary>
         /// The deserialization information for the current model

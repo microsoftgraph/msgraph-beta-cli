@@ -133,7 +133,7 @@ namespace ApiSdk.Models
         public string EarlyLaunchAntiMalwareDriverProtection { get; set; }
 #endif
         /// <summary>A list of possible Firmware protection type for a device. Firmware protection is a set of features that helps to ensure attackers can&apos;t get your device to start with untrusted or malicious firmware. Firmware protection type is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values &quot;systemGuardSecureLaunch&quot; or &quot;firmwareAttackSurfaceReduction&quot; or &quot;disabled&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public FirmwareProtectionType? FirmwareProtection { get; set; }
+        public ApiSdk.Models.FirmwareProtectionType? FirmwareProtection { get; set; }
         /// <summary>This attribute indicates if DHA is supported for the device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -161,9 +161,9 @@ namespace ApiSdk.Models
         public string LastUpdateDateTime { get; set; }
 #endif
         /// <summary>A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values &quot;enabled&quot; or &quot;disabled&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public AzureAttestationSettingStatus? MemoryAccessProtection { get; set; }
+        public ApiSdk.Models.AzureAttestationSettingStatus? MemoryAccessProtection { get; set; }
         /// <summary>A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values &quot;enabled&quot; or &quot;disabled&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public AzureAttestationSettingStatus? MemoryIntegrityProtection { get; set; }
+        public ApiSdk.Models.AzureAttestationSettingStatus? MemoryIntegrityProtection { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -233,9 +233,9 @@ namespace ApiSdk.Models
         public string SecureBootConfigurationPolicyFingerPrint { get; set; }
 #endif
         /// <summary>A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values &quot;enabled&quot; or &quot;disabled&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public AzureAttestationSettingStatus? SecuredCorePC { get; set; }
+        public ApiSdk.Models.AzureAttestationSettingStatus? SecuredCorePC { get; set; }
         /// <summary>A list of possible System Management Mode levels for a device. System Management Mode levels is determined by report sent from Microsoft Azure Attestation service. Only specific hardwares support System Management Mode. Windows 11 devices will have values &quot;notApplicable&quot;, &quot;level1&quot;, &quot;level2&quot; or &quot;level3&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public SystemManagementModeLevel? SystemManagementMode { get; set; }
+        public ApiSdk.Models.SystemManagementModeLevel? SystemManagementMode { get; set; }
         /// <summary>When test signing is allowed, the device does not enforce signature validation during boot</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -253,7 +253,7 @@ namespace ApiSdk.Models
         public string TpmVersion { get; set; }
 #endif
         /// <summary>A list of possible Azure Attestation states for a device. Azure Attestation setting status is determined by report sent from Microsoft Azure Attestation service. Only Windows 11 devices will have values &quot;enabled&quot; or &quot;disabled&quot;. Windows 10 devices will have value &quot;notApplicable&quot;.</summary>
-        public AzureAttestationSettingStatus? VirtualizationBasedSecurity { get; set; }
+        public ApiSdk.Models.AzureAttestationSettingStatus? VirtualizationBasedSecurity { get; set; }
         /// <summary>Indicates whether the device has Virtual Secure Mode (VSM) enabled. Virtual Secure Mode (VSM) is a container that protects high value assets from a compromised kernel. This property will be deprecated in beta from August 2023. Support for this property will end in August 2025 for v1.0 API. A new property virtualizationBasedSecurity is added and used instead. The value used for virtualSecureMode will be passed by virtualizationBasedSecurity during the deprecation process. Possible values are &apos;enabled&apos;, &apos;disabled&apos; and &apos;notApplicable&apos;. &apos;enabled&apos; indicates Virtual Secure Mode (VSM) is enabled. &apos;disabled&apos; indicates Virtual Secure Mode (VSM) is disabled. &apos;notApplicable&apos; indicates the device is not a Windows 11 device. Default value is &apos;notApplicable&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -271,7 +271,7 @@ namespace ApiSdk.Models
         public string WindowsPE { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthAttestationState"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthAttestationState"/> and sets the default values.
         /// </summary>
         public DeviceHealthAttestationState()
         {
@@ -280,12 +280,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthAttestationState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthAttestationState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceHealthAttestationState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceHealthAttestationState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthAttestationState();
+            return new ApiSdk.Models.DeviceHealthAttestationState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -310,13 +310,13 @@ namespace ApiSdk.Models
                 { "dataExcutionPolicy", n => { DataExcutionPolicy = n.GetStringValue(); } },
                 { "deviceHealthAttestationStatus", n => { DeviceHealthAttestationStatus = n.GetStringValue(); } },
                 { "earlyLaunchAntiMalwareDriverProtection", n => { EarlyLaunchAntiMalwareDriverProtection = n.GetStringValue(); } },
-                { "firmwareProtection", n => { FirmwareProtection = n.GetEnumValue<FirmwareProtectionType>(); } },
+                { "firmwareProtection", n => { FirmwareProtection = n.GetEnumValue<ApiSdk.Models.FirmwareProtectionType>(); } },
                 { "healthAttestationSupportedStatus", n => { HealthAttestationSupportedStatus = n.GetStringValue(); } },
                 { "healthStatusMismatchInfo", n => { HealthStatusMismatchInfo = n.GetStringValue(); } },
                 { "issuedDateTime", n => { IssuedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastUpdateDateTime", n => { LastUpdateDateTime = n.GetStringValue(); } },
-                { "memoryAccessProtection", n => { MemoryAccessProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                { "memoryIntegrityProtection", n => { MemoryIntegrityProtection = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "memoryAccessProtection", n => { MemoryAccessProtection = n.GetEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>(); } },
+                { "memoryIntegrityProtection", n => { MemoryIntegrityProtection = n.GetEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "operatingSystemKernelDebugging", n => { OperatingSystemKernelDebugging = n.GetStringValue(); } },
                 { "operatingSystemRevListInfo", n => { OperatingSystemRevListInfo = n.GetStringValue(); } },
@@ -327,12 +327,12 @@ namespace ApiSdk.Models
                 { "safeMode", n => { SafeMode = n.GetStringValue(); } },
                 { "secureBoot", n => { SecureBoot = n.GetStringValue(); } },
                 { "secureBootConfigurationPolicyFingerPrint", n => { SecureBootConfigurationPolicyFingerPrint = n.GetStringValue(); } },
-                { "securedCorePC", n => { SecuredCorePC = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
-                { "systemManagementMode", n => { SystemManagementMode = n.GetEnumValue<SystemManagementModeLevel>(); } },
+                { "securedCorePC", n => { SecuredCorePC = n.GetEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>(); } },
+                { "systemManagementMode", n => { SystemManagementMode = n.GetEnumValue<ApiSdk.Models.SystemManagementModeLevel>(); } },
                 { "testSigning", n => { TestSigning = n.GetStringValue(); } },
                 { "tpmVersion", n => { TpmVersion = n.GetStringValue(); } },
                 { "virtualSecureMode", n => { VirtualSecureMode = n.GetStringValue(); } },
-                { "virtualizationBasedSecurity", n => { VirtualizationBasedSecurity = n.GetEnumValue<AzureAttestationSettingStatus>(); } },
+                { "virtualizationBasedSecurity", n => { VirtualizationBasedSecurity = n.GetEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>(); } },
                 { "windowsPE", n => { WindowsPE = n.GetStringValue(); } },
             };
         }
@@ -358,13 +358,13 @@ namespace ApiSdk.Models
             writer.WriteStringValue("dataExcutionPolicy", DataExcutionPolicy);
             writer.WriteStringValue("deviceHealthAttestationStatus", DeviceHealthAttestationStatus);
             writer.WriteStringValue("earlyLaunchAntiMalwareDriverProtection", EarlyLaunchAntiMalwareDriverProtection);
-            writer.WriteEnumValue<FirmwareProtectionType>("firmwareProtection", FirmwareProtection);
+            writer.WriteEnumValue<ApiSdk.Models.FirmwareProtectionType>("firmwareProtection", FirmwareProtection);
             writer.WriteStringValue("healthAttestationSupportedStatus", HealthAttestationSupportedStatus);
             writer.WriteStringValue("healthStatusMismatchInfo", HealthStatusMismatchInfo);
             writer.WriteDateTimeOffsetValue("issuedDateTime", IssuedDateTime);
             writer.WriteStringValue("lastUpdateDateTime", LastUpdateDateTime);
-            writer.WriteEnumValue<AzureAttestationSettingStatus>("memoryAccessProtection", MemoryAccessProtection);
-            writer.WriteEnumValue<AzureAttestationSettingStatus>("memoryIntegrityProtection", MemoryIntegrityProtection);
+            writer.WriteEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>("memoryAccessProtection", MemoryAccessProtection);
+            writer.WriteEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>("memoryIntegrityProtection", MemoryIntegrityProtection);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("operatingSystemKernelDebugging", OperatingSystemKernelDebugging);
             writer.WriteStringValue("operatingSystemRevListInfo", OperatingSystemRevListInfo);
@@ -375,11 +375,11 @@ namespace ApiSdk.Models
             writer.WriteStringValue("safeMode", SafeMode);
             writer.WriteStringValue("secureBoot", SecureBoot);
             writer.WriteStringValue("secureBootConfigurationPolicyFingerPrint", SecureBootConfigurationPolicyFingerPrint);
-            writer.WriteEnumValue<AzureAttestationSettingStatus>("securedCorePC", SecuredCorePC);
-            writer.WriteEnumValue<SystemManagementModeLevel>("systemManagementMode", SystemManagementMode);
+            writer.WriteEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>("securedCorePC", SecuredCorePC);
+            writer.WriteEnumValue<ApiSdk.Models.SystemManagementModeLevel>("systemManagementMode", SystemManagementMode);
             writer.WriteStringValue("testSigning", TestSigning);
             writer.WriteStringValue("tpmVersion", TpmVersion);
-            writer.WriteEnumValue<AzureAttestationSettingStatus>("virtualizationBasedSecurity", VirtualizationBasedSecurity);
+            writer.WriteEnumValue<ApiSdk.Models.AzureAttestationSettingStatus>("virtualizationBasedSecurity", VirtualizationBasedSecurity);
             writer.WriteStringValue("virtualSecureMode", VirtualSecureMode);
             writer.WriteStringValue("windowsPE", WindowsPE);
             writer.WriteAdditionalData(AdditionalData);

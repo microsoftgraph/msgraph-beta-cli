@@ -14,20 +14,20 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
         /// <summary>The addedPolicySetItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySetItem>? AddedPolicySetItems { get; set; }
+        public List<ApiSdk.Models.PolicySetItem>? AddedPolicySetItems { get; set; }
 #nullable restore
 #else
-        public List<PolicySetItem> AddedPolicySetItems { get; set; }
+        public List<ApiSdk.Models.PolicySetItem> AddedPolicySetItems { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The assignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySetAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.PolicySetAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<PolicySetAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.PolicySetAssignment> Assignments { get; set; }
 #endif
         /// <summary>The deletedPolicySetItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,13 +40,13 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
         /// <summary>The updatedPolicySetItems property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySetItem>? UpdatedPolicySetItems { get; set; }
+        public List<ApiSdk.Models.PolicySetItem>? UpdatedPolicySetItems { get; set; }
 #nullable restore
 #else
-        public List<PolicySetItem> UpdatedPolicySetItems { get; set; }
+        public List<ApiSdk.Models.PolicySetItem> UpdatedPolicySetItems { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.PolicySets.Item.Update.UpdatePostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdatePostRequestBody()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.PolicySets.Item.Update.UpdatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.PolicySets.Item.Update.UpdatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdatePostRequestBody();
+            return new ApiSdk.DeviceAppManagement.PolicySets.Item.Update.UpdatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,10 +70,10 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "addedPolicySetItems", n => { AddedPolicySetItems = n.GetCollectionOfObjectValues<PolicySetItem>(PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<PolicySetAssignment>(PolicySetAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addedPolicySetItems", n => { AddedPolicySetItems = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>(ApiSdk.Models.PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySetAssignment>(ApiSdk.Models.PolicySetAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deletedPolicySetItems", n => { DeletedPolicySetItems = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "updatedPolicySetItems", n => { UpdatedPolicySetItems = n.GetCollectionOfObjectValues<PolicySetItem>(PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "updatedPolicySetItems", n => { UpdatedPolicySetItems = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>(ApiSdk.Models.PolicySetItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -83,10 +83,10 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.Item.Update
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<PolicySetItem>("addedPolicySetItems", AddedPolicySetItems);
-            writer.WriteCollectionOfObjectValues<PolicySetAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>("addedPolicySetItems", AddedPolicySetItems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySetAssignment>("assignments", Assignments);
             writer.WriteCollectionOfPrimitiveValues<string>("deletedPolicySetItems", DeletedPolicySetItems);
-            writer.WriteCollectionOfObjectValues<PolicySetItem>("updatedPolicySetItems", UpdatedPolicySetItems);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySetItem>("updatedPolicySetItems", UpdatedPolicySetItems);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -33,7 +33,7 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -112,7 +112,7 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         {
             var command = new Command("deploy-summary");
             command.Description = "Provides operations to manage the deploySummary property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.";
-            var builder = new DeploySummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeploySummary.DeploySummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -131,7 +131,7 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         {
             var command = new Command("device-statuses");
             command.Description = "Provides operations to manage the deviceStatuses property of the microsoft.graph.windowsDefenderApplicationControlSupplementalPolicy entity.";
-            var builder = new DeviceStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.DeviceStatuses.DeviceStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -233,7 +233,7 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<WindowsDefenderApplicationControlSupplementalPolicy>(WindowsDefenderApplicationControlSupplementalPolicy.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy>(ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -254,14 +254,14 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/wdacSupplementalPolicies/{windowsDefenderApplicationControlSupplementalPolicy%2Did}{?%24expand,%24select}", rawUrl)
@@ -293,11 +293,11 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilder.WindowsDefenderApplicationControlSupplementalPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -313,11 +313,11 @@ namespace ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(WindowsDefenderApplicationControlSupplementalPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(WindowsDefenderApplicationControlSupplementalPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsDefenderApplicationControlSupplementalPolicy body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

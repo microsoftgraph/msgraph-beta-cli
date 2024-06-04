@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcOnPremisesConnection : Entity, IParsable
+    public class CloudPcOnPremisesConnection : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The fully qualified domain name (FQDN) of the Active Directory domain you want to join. Optional.</summary>
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         public string AlternateResourceUrl { get; set; }
 #endif
         /// <summary>Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue.</summary>
-        public CloudPcOnPremisesConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionType? ConnectionType { get; set; }
         /// <summary>The display name for the Azure network connection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,27 +53,27 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>The healthCheckStatus property</summary>
-        public CloudPcOnPremisesConnectionStatus? HealthCheckStatus { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatus? HealthCheckStatus { get; set; }
         /// <summary>Indicates the results of health checks performed on the on-premises connection. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcOnPremisesConnectionStatusDetail? HealthCheckStatusDetail { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetail? HealthCheckStatusDetail { get; set; }
 #nullable restore
 #else
-        public CloudPcOnPremisesConnectionStatusDetail HealthCheckStatusDetail { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetail HealthCheckStatusDetail { get; set; }
 #endif
         /// <summary>The details of the connection&apos;s health checks and the corresponding results. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcOnPremisesConnectionStatusDetails? HealthCheckStatusDetails { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails? HealthCheckStatusDetails { get; set; }
 #nullable restore
 #else
-        public CloudPcOnPremisesConnectionStatusDetails HealthCheckStatusDetails { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails HealthCheckStatusDetails { get; set; }
 #endif
         /// <summary>When true, the Azure network connection is in use. When false, the connection isn&apos;t in use. You can&apos;t delete a connection that’s in use. Returned only on $select. For an example that shows how to get the inUse property, see Example 2: Get the selected properties of an Azure network connection, including healthCheckStatusDetails. Read-only.</summary>
         public bool? InUse { get; set; }
         /// <summary>The managedBy property</summary>
-        public CloudPcManagementService? ManagedBy { get; set; }
+        public ApiSdk.Models.CloudPcManagementService? ManagedBy { get; set; }
         /// <summary>The organizational unit (OU) in which the computer account is created. If left null, the OU that’s configured as the default (a well-known computer object container) in your Active Directory domain (OU) is used. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -123,7 +123,7 @@ namespace ApiSdk.Models
         public string SubscriptionName { get; set; }
 #endif
         /// <summary>Specifies the method by which a provisioned Cloud PC is joined to Microsoft Entra. The azureADJoin option indicates the absence of an on-premises Active Directory (AD) in the current tenant that results in the Cloud PC device only joining to Microsoft Entra. The hybridAzureADJoin option indicates the presence of an on-premises AD in the current tenant and that the Cloud PC joins both the on-premises AD and Microsoft Entra. The selected option also determines the types of users who can be assigned and can sign into a Cloud PC. The azureADJoin option allows both cloud-only and hybrid users to be assigned and sign in, whereas hybridAzureADJoin is restricted to hybrid users only. The default value is hybridAzureADJoin. The possible values are: hybridAzureADJoin, azureADJoin, unknownFutureValue. The type property is deprecated and stopped returning data on January 31, 2024. Goind forward, use the connectionType property.</summary>
-        public CloudPcOnPremisesConnectionType? Type { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionType? Type { get; set; }
         /// <summary>The ID of the target virtual network. Required format: /subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -143,12 +143,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcOnPremisesConnection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcOnPremisesConnection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcOnPremisesConnection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcOnPremisesConnection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcOnPremisesConnection();
+            return new ApiSdk.Models.CloudPcOnPremisesConnection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -162,20 +162,20 @@ namespace ApiSdk.Models
                 { "adDomainPassword", n => { AdDomainPassword = n.GetStringValue(); } },
                 { "adDomainUsername", n => { AdDomainUsername = n.GetStringValue(); } },
                 { "alternateResourceUrl", n => { AlternateResourceUrl = n.GetStringValue(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionType>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "healthCheckStatus", n => { HealthCheckStatus = n.GetEnumValue<CloudPcOnPremisesConnectionStatus>(); } },
-                { "healthCheckStatusDetail", n => { HealthCheckStatusDetail = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetail>(CloudPcOnPremisesConnectionStatusDetail.CreateFromDiscriminatorValue); } },
-                { "healthCheckStatusDetails", n => { HealthCheckStatusDetails = n.GetObjectValue<CloudPcOnPremisesConnectionStatusDetails>(CloudPcOnPremisesConnectionStatusDetails.CreateFromDiscriminatorValue); } },
+                { "healthCheckStatus", n => { HealthCheckStatus = n.GetEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatus>(); } },
+                { "healthCheckStatusDetail", n => { HealthCheckStatusDetail = n.GetObjectValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetail>(ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetail.CreateFromDiscriminatorValue); } },
+                { "healthCheckStatusDetails", n => { HealthCheckStatusDetails = n.GetObjectValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails>(ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails.CreateFromDiscriminatorValue); } },
                 { "inUse", n => { InUse = n.GetBoolValue(); } },
-                { "managedBy", n => { ManagedBy = n.GetEnumValue<CloudPcManagementService>(); } },
+                { "managedBy", n => { ManagedBy = n.GetEnumValue<ApiSdk.Models.CloudPcManagementService>(); } },
                 { "organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
                 { "resourceGroupId", n => { ResourceGroupId = n.GetStringValue(); } },
                 { "scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "subnetId", n => { SubnetId = n.GetStringValue(); } },
                 { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
                 { "subscriptionName", n => { SubscriptionName = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<CloudPcOnPremisesConnectionType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionType>(); } },
                 { "virtualNetworkId", n => { VirtualNetworkId = n.GetStringValue(); } },
                 { "virtualNetworkLocation", n => { VirtualNetworkLocation = n.GetStringValue(); } },
             };
@@ -192,20 +192,20 @@ namespace ApiSdk.Models
             writer.WriteStringValue("adDomainPassword", AdDomainPassword);
             writer.WriteStringValue("adDomainUsername", AdDomainUsername);
             writer.WriteStringValue("alternateResourceUrl", AlternateResourceUrl);
-            writer.WriteEnumValue<CloudPcOnPremisesConnectionType>("connectionType", ConnectionType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionType>("connectionType", ConnectionType);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<CloudPcOnPremisesConnectionStatus>("healthCheckStatus", HealthCheckStatus);
-            writer.WriteObjectValue<CloudPcOnPremisesConnectionStatusDetail>("healthCheckStatusDetail", HealthCheckStatusDetail);
-            writer.WriteObjectValue<CloudPcOnPremisesConnectionStatusDetails>("healthCheckStatusDetails", HealthCheckStatusDetails);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatus>("healthCheckStatus", HealthCheckStatus);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetail>("healthCheckStatusDetail", HealthCheckStatusDetail);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatusDetails>("healthCheckStatusDetails", HealthCheckStatusDetails);
             writer.WriteBoolValue("inUse", InUse);
-            writer.WriteEnumValue<CloudPcManagementService>("managedBy", ManagedBy);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcManagementService>("managedBy", ManagedBy);
             writer.WriteStringValue("organizationalUnit", OrganizationalUnit);
             writer.WriteStringValue("resourceGroupId", ResourceGroupId);
             writer.WriteCollectionOfPrimitiveValues<string>("scopeIds", ScopeIds);
             writer.WriteStringValue("subnetId", SubnetId);
             writer.WriteStringValue("subscriptionId", SubscriptionId);
             writer.WriteStringValue("subscriptionName", SubscriptionName);
-            writer.WriteEnumValue<CloudPcOnPremisesConnectionType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionType>("type", Type);
             writer.WriteStringValue("virtualNetworkId", VirtualNetworkId);
             writer.WriteStringValue("virtualNetworkLocation", VirtualNetworkLocation);
         }

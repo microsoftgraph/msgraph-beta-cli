@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExactMatchSession : ExactMatchSessionBase, IParsable
+    public class ExactMatchSession : ApiSdk.Models.ExactMatchSessionBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The checksum property</summary>
@@ -55,10 +55,10 @@ namespace ApiSdk.Models
         /// <summary>The uploadAgent property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ExactMatchUploadAgent? UploadAgent { get; set; }
+        public ApiSdk.Models.ExactMatchUploadAgent? UploadAgent { get; set; }
 #nullable restore
 #else
-        public ExactMatchUploadAgent UploadAgent { get; set; }
+        public ApiSdk.Models.ExactMatchUploadAgent UploadAgent { get; set; }
 #endif
         /// <summary>The uploadAgentId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExactMatchSession"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExactMatchSession"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExactMatchSession CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExactMatchSession CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExactMatchSession();
+            return new ApiSdk.Models.ExactMatchSession();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,7 +92,7 @@ namespace ApiSdk.Models
                 { "fileName", n => { FileName = n.GetStringValue(); } },
                 { "rowsPerBlock", n => { RowsPerBlock = n.GetIntValue(); } },
                 { "salt", n => { Salt = n.GetStringValue(); } },
-                { "uploadAgent", n => { UploadAgent = n.GetObjectValue<ExactMatchUploadAgent>(ExactMatchUploadAgent.CreateFromDiscriminatorValue); } },
+                { "uploadAgent", n => { UploadAgent = n.GetObjectValue<ApiSdk.Models.ExactMatchUploadAgent>(ApiSdk.Models.ExactMatchUploadAgent.CreateFromDiscriminatorValue); } },
                 { "uploadAgentId", n => { UploadAgentId = n.GetStringValue(); } },
             };
         }
@@ -110,7 +110,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("fileName", FileName);
             writer.WriteIntValue("rowsPerBlock", RowsPerBlock);
             writer.WriteStringValue("salt", Salt);
-            writer.WriteObjectValue<ExactMatchUploadAgent>("uploadAgent", UploadAgent);
+            writer.WriteObjectValue<ApiSdk.Models.ExactMatchUploadAgent>("uploadAgent", UploadAgent);
             writer.WriteStringValue("uploadAgentId", UploadAgentId);
         }
     }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Domain Join device configuration.
     /// </summary>
-    public class WindowsDomainJoinConfiguration : DeviceConfiguration, IParsable
+    public class WindowsDomainJoinConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Active Directory domain name to join.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,10 +32,10 @@ namespace ApiSdk.Models
         /// <summary>Reference to device configurations required for network connectivity</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceConfiguration>? NetworkAccessConfigurations { get; set; }
+        public List<ApiSdk.Models.DeviceConfiguration>? NetworkAccessConfigurations { get; set; }
 #nullable restore
 #else
-        public List<DeviceConfiguration> NetworkAccessConfigurations { get; set; }
+        public List<ApiSdk.Models.DeviceConfiguration> NetworkAccessConfigurations { get; set; }
 #endif
         /// <summary>Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         public string OrganizationalUnit { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDomainJoinConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsDomainJoinConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsDomainJoinConfiguration() : base()
         {
@@ -55,12 +55,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDomainJoinConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDomainJoinConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsDomainJoinConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsDomainJoinConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDomainJoinConfiguration();
+            return new ApiSdk.Models.WindowsDomainJoinConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "activeDirectoryDomainName", n => { ActiveDirectoryDomainName = n.GetStringValue(); } },
                 { "computerNameStaticPrefix", n => { ComputerNameStaticPrefix = n.GetStringValue(); } },
                 { "computerNameSuffixRandomCharCount", n => { ComputerNameSuffixRandomCharCount = n.GetIntValue(); } },
-                { "networkAccessConfigurations", n => { NetworkAccessConfigurations = n.GetCollectionOfObjectValues<DeviceConfiguration>(DeviceConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "networkAccessConfigurations", n => { NetworkAccessConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceConfiguration>(ApiSdk.Models.DeviceConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "organizationalUnit", n => { OrganizationalUnit = n.GetStringValue(); } },
             };
         }
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("activeDirectoryDomainName", ActiveDirectoryDomainName);
             writer.WriteStringValue("computerNameStaticPrefix", ComputerNameStaticPrefix);
             writer.WriteIntValue("computerNameSuffixRandomCharCount", ComputerNameSuffixRandomCharCount);
-            writer.WriteCollectionOfObjectValues<DeviceConfiguration>("networkAccessConfigurations", NetworkAccessConfigurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceConfiguration>("networkAccessConfigurations", NetworkAccessConfigurations);
             writer.WriteStringValue("organizationalUnit", OrganizationalUnit);
         }
     }

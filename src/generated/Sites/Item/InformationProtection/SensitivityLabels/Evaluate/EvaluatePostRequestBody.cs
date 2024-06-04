@@ -24,13 +24,13 @@ namespace ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate
         /// <summary>The discoveredSensitiveTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DiscoveredSensitiveType>? DiscoveredSensitiveTypes { get; set; }
+        public List<ApiSdk.Models.DiscoveredSensitiveType>? DiscoveredSensitiveTypes { get; set; }
 #nullable restore
 #else
-        public List<DiscoveredSensitiveType> DiscoveredSensitiveTypes { get; set; }
+        public List<ApiSdk.Models.DiscoveredSensitiveType> DiscoveredSensitiveTypes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate.EvaluatePostRequestBody"/> and sets the default values.
         /// </summary>
         public EvaluatePostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate.EvaluatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate.EvaluatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluatePostRequestBody();
+            return new ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate.EvaluatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "currentLabel", n => { CurrentLabel = n.GetObjectValue<ApiSdk.Models.CurrentLabel>(ApiSdk.Models.CurrentLabel.CreateFromDiscriminatorValue); } },
-                { "discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<DiscoveredSensitiveType>(DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "discoveredSensitiveTypes", n => { DiscoveredSensitiveTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.DiscoveredSensitiveType>(ApiSdk.Models.DiscoveredSensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.SensitivityLabels.Evaluate
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.CurrentLabel>("currentLabel", CurrentLabel);
-            writer.WriteCollectionOfObjectValues<DiscoveredSensitiveType>("discoveredSensitiveTypes", DiscoveredSensitiveTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DiscoveredSensitiveType>("discoveredSensitiveTypes", DiscoveredSensitiveTypes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

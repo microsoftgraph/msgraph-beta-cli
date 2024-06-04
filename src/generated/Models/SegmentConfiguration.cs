@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SegmentConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SegmentConfiguration"/> and sets the default values.
         /// </summary>
         public SegmentConfiguration()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SegmentConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SegmentConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SegmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SegmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.ipSegmentConfiguration" => new IpSegmentConfiguration(),
-                "#microsoft.graph.webSegmentConfiguration" => new WebSegmentConfiguration(),
-                _ => new SegmentConfiguration(),
+                "#microsoft.graph.ipSegmentConfiguration" => new ApiSdk.Models.IpSegmentConfiguration(),
+                "#microsoft.graph.webSegmentConfiguration" => new ApiSdk.Models.WebSegmentConfiguration(),
+                _ => new ApiSdk.Models.SegmentConfiguration(),
             };
         }
         /// <summary>

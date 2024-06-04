@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserSignUpMetric : Entity, IParsable
+    public class UserSignUpMetric : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The appId property</summary>
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserSignUpMetric"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserSignUpMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserSignUpMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserSignUpMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserSignUpMetric();
+            return new ApiSdk.Models.UserSignUpMetric();
         }
         /// <summary>
         /// The deserialization information for the current model

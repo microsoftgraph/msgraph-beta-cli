@@ -35,7 +35,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("cloud-p-c");
             command.Description = "Provides operations to manage the cloudPC property of the microsoft.graph.roleManagement entity.";
-            var builder = new CloudPCRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.CloudPC.CloudPCRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -62,7 +62,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("device-management");
             command.Description = "Provides operations to manage the deviceManagement property of the microsoft.graph.roleManagement entity.";
-            var builder = new DeviceManagementRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.DeviceManagement.DeviceManagementRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -89,7 +89,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("directory");
             command.Description = "Provides operations to manage the directory property of the microsoft.graph.roleManagement entity.";
-            var builder = new DirectoryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.DirectoryNamespace.DirectoryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -126,7 +126,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("enterprise-apps");
             command.Description = "Provides operations to manage the enterpriseApps property of the microsoft.graph.roleManagement entity.";
-            var builder = new EnterpriseAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.EnterpriseApps.EnterpriseAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -153,7 +153,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("entitlement-management");
             command.Description = "Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.";
-            var builder = new EntitlementManagementRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.EntitlementManagement.EntitlementManagementRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -190,7 +190,7 @@ namespace ApiSdk.RoleManagement
         {
             var command = new Command("exchange");
             command.Description = "Provides operations to manage the exchange property of the microsoft.graph.roleManagement entity.";
-            var builder = new ExchangeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.Exchange.ExchangeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCustomAppScopesNavCommand());
@@ -303,14 +303,14 @@ namespace ApiSdk.RoleManagement
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RoleManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.RoleManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RoleManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RoleManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.RoleManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RoleManagementRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement{?%24expand,%24select}", rawUrl)
@@ -323,11 +323,11 @@ namespace ApiSdk.RoleManagement
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RoleManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.RoleManagementRequestBuilder.RoleManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RoleManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.RoleManagementRequestBuilder.RoleManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeliveryOptimizationMaxCacheSize"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeliveryOptimizationMaxCacheSize"/> and sets the default values.
         /// </summary>
         public DeliveryOptimizationMaxCacheSize()
         {
@@ -31,17 +31,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeliveryOptimizationMaxCacheSize"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeliveryOptimizationMaxCacheSize"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeliveryOptimizationMaxCacheSize CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeliveryOptimizationMaxCacheSize CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deliveryOptimizationMaxCacheSizeAbsolute" => new DeliveryOptimizationMaxCacheSizeAbsolute(),
-                "#microsoft.graph.deliveryOptimizationMaxCacheSizePercentage" => new DeliveryOptimizationMaxCacheSizePercentage(),
-                _ => new DeliveryOptimizationMaxCacheSize(),
+                "#microsoft.graph.deliveryOptimizationMaxCacheSizeAbsolute" => new ApiSdk.Models.DeliveryOptimizationMaxCacheSizeAbsolute(),
+                "#microsoft.graph.deliveryOptimizationMaxCacheSizePercentage" => new ApiSdk.Models.DeliveryOptimizationMaxCacheSizePercentage(),
+                _ => new ApiSdk.Models.DeliveryOptimizationMaxCacheSize(),
             };
         }
         /// <summary>

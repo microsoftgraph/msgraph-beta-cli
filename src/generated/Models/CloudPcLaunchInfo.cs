@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public string Windows365SwitchNotCompatibleReason { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcLaunchInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcLaunchInfo"/> and sets the default values.
         /// </summary>
         public CloudPcLaunchInfo()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcLaunchInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcLaunchInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcLaunchInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcLaunchInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcLaunchInfo();
+            return new ApiSdk.Models.CloudPcLaunchInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

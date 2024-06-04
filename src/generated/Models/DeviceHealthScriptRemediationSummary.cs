@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>The number of device health scripts deployed.</summary>
         public int? ScriptCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptRemediationSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptRemediationSummary"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptRemediationSummary()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptRemediationSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptRemediationSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceHealthScriptRemediationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceHealthScriptRemediationSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptRemediationSummary();
+            return new ApiSdk.Models.DeviceHealthScriptRemediationSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

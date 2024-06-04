@@ -31,15 +31,15 @@ namespace ApiSdk.Models
         /// <summary>Applicability rule OS edition type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Windows10EditionType?>? OsEditionTypes { get; set; }
+        public List<ApiSdk.Models.Windows10EditionType?>? OsEditionTypes { get; set; }
 #nullable restore
 #else
-        public List<Windows10EditionType?> OsEditionTypes { get; set; }
+        public List<ApiSdk.Models.Windows10EditionType?> OsEditionTypes { get; set; }
 #endif
         /// <summary>Supported Applicability rule types for Device Configuration</summary>
-        public DeviceManagementApplicabilityRuleType? RuleType { get; set; }
+        public ApiSdk.Models.DeviceManagementApplicabilityRuleType? RuleType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementApplicabilityRuleOsEdition"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition"/> and sets the default values.
         /// </summary>
         public DeviceManagementApplicabilityRuleOsEdition()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementApplicabilityRuleOsEdition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementApplicabilityRuleOsEdition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementApplicabilityRuleOsEdition();
+            return new ApiSdk.Models.DeviceManagementApplicabilityRuleOsEdition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,8 +65,8 @@ namespace ApiSdk.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "osEditionTypes", n => { OsEditionTypes = n.GetCollectionOfEnumValues<Windows10EditionType>()?.ToList(); } },
-                { "ruleType", n => { RuleType = n.GetEnumValue<DeviceManagementApplicabilityRuleType>(); } },
+                { "osEditionTypes", n => { OsEditionTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.Windows10EditionType>()?.ToList(); } },
+                { "ruleType", n => { RuleType = n.GetEnumValue<ApiSdk.Models.DeviceManagementApplicabilityRuleType>(); } },
             };
         }
         /// <summary>
@@ -78,8 +78,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfEnumValues<Windows10EditionType>("osEditionTypes", OsEditionTypes);
-            writer.WriteEnumValue<DeviceManagementApplicabilityRuleType>("ruleType", RuleType);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.Windows10EditionType>("osEditionTypes", OsEditionTypes);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementApplicabilityRuleType>("ruleType", RuleType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Networkaccess
         public string ZoneRedundancyPreSharedKey { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TunnelConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.TunnelConfiguration"/> and sets the default values.
         /// </summary>
         public TunnelConfiguration()
         {
@@ -46,17 +46,17 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TunnelConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.TunnelConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TunnelConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.TunnelConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom" => new TunnelConfigurationIKEv2Custom(),
-                "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default" => new TunnelConfigurationIKEv2Default(),
-                _ => new TunnelConfiguration(),
+                "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Custom" => new ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Custom(),
+                "#microsoft.graph.networkaccess.tunnelConfigurationIKEv2Default" => new ApiSdk.Models.Networkaccess.TunnelConfigurationIKEv2Default(),
+                _ => new ApiSdk.Models.Networkaccess.TunnelConfiguration(),
             };
         }
         /// <summary>

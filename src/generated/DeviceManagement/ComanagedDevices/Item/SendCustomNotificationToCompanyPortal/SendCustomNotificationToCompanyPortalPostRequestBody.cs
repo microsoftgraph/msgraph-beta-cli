@@ -29,7 +29,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationTo
         public string NotificationTitle { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SendCustomNotificationToCompanyPortalPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal.SendCustomNotificationToCompanyPortalPostRequestBody"/> and sets the default values.
         /// </summary>
         public SendCustomNotificationToCompanyPortalPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationTo
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SendCustomNotificationToCompanyPortalPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal.SendCustomNotificationToCompanyPortalPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SendCustomNotificationToCompanyPortalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal.SendCustomNotificationToCompanyPortalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SendCustomNotificationToCompanyPortalPostRequestBody();
+            return new ApiSdk.DeviceManagement.ComanagedDevices.Item.SendCustomNotificationToCompanyPortal.SendCustomNotificationToCompanyPortalPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

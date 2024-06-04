@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public List<string> Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PersonDataSources"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonDataSources"/> and sets the default values.
         /// </summary>
         public PersonDataSources()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonDataSources"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonDataSources"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PersonDataSources CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PersonDataSources CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonDataSources();
+            return new ApiSdk.Models.PersonDataSources();
         }
         /// <summary>
         /// The deserialization information for the current model

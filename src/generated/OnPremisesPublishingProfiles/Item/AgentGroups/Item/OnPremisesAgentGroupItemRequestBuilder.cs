@@ -31,7 +31,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
         {
             var command = new Command("agents");
             command.Description = "Provides operations to manage the agents property of the microsoft.graph.onPremisesAgentGroup entity.";
-            var builder = new AgentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.Agents.AgentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -185,7 +185,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<OnPremisesAgentGroup>(OnPremisesAgentGroup.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.OnPremisesAgentGroup>(ApiSdk.Models.OnPremisesAgentGroup.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -214,7 +214,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
         {
             var command = new Command("published-resources");
             command.Description = "Provides operations to manage the publishedResources property of the microsoft.graph.onPremisesAgentGroup entity.";
-            var builder = new PublishedResourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.PublishedResources.PublishedResourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -234,14 +234,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OnPremisesAgentGroupItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OnPremisesAgentGroupItemRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/agentGroups/{onPremisesAgentGroup%2Did}{?%24expand,%24select}", rawUrl)
@@ -273,11 +273,11 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnPremisesAgentGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder.OnPremisesAgentGroupItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnPremisesAgentGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item.OnPremisesAgentGroupItemRequestBuilder.OnPremisesAgentGroupItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -293,11 +293,11 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.AgentGroups.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(OnPremisesAgentGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnPremisesAgentGroup body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(OnPremisesAgentGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnPremisesAgentGroup body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -27,7 +27,7 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>Total count of the entity.</summary>
         public int? Total { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRunEntityCountMetric"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric"/> and sets the default values.
         /// </summary>
         public IndustryDataRunEntityCountMetric()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataRunEntityCountMetric"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IndustryDataRunEntityCountMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IndustryDataRunEntityCountMetric();
+            return new ApiSdk.Models.IndustryData.IndustryDataRunEntityCountMetric();
         }
         /// <summary>
         /// The deserialization information for the current model

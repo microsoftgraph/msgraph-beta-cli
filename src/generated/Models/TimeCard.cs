@@ -7,53 +7,53 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TimeCard : ChangeTrackedEntity, IParsable
+    public class TimeCard : ApiSdk.Models.ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of breaks associated with the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TimeCardBreak>? Breaks { get; set; }
+        public List<ApiSdk.Models.TimeCardBreak>? Breaks { get; set; }
 #nullable restore
 #else
-        public List<TimeCardBreak> Breaks { get; set; }
+        public List<ApiSdk.Models.TimeCardBreak> Breaks { get; set; }
 #endif
         /// <summary>The clock-in event of the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? ClockInEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent? ClockInEvent { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent ClockInEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent ClockInEvent { get; set; }
 #endif
         /// <summary>The clock-out event of the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? ClockOutEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent? ClockOutEvent { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent ClockOutEvent { get; set; }
+        public ApiSdk.Models.TimeCardEvent ClockOutEvent { get; set; }
 #endif
         /// <summary>Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.</summary>
         public ApiSdk.Models.ConfirmedBy? ConfirmedBy { get; set; }
         /// <summary>Notes about the timeCard.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Notes { get; set; }
+        public ApiSdk.Models.ItemBody? Notes { get; set; }
 #nullable restore
 #else
-        public ItemBody Notes { get; set; }
+        public ApiSdk.Models.ItemBody Notes { get; set; }
 #endif
         /// <summary>The original timeCardEntry of the timeCard, before user edits.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEntry? OriginalEntry { get; set; }
+        public ApiSdk.Models.TimeCardEntry? OriginalEntry { get; set; }
 #nullable restore
 #else
-        public TimeCardEntry OriginalEntry { get; set; }
+        public ApiSdk.Models.TimeCardEntry OriginalEntry { get; set; }
 #endif
         /// <summary>The current state of the timeCard during its life cycle.Possible values are: clockedIn, onBreak, clockedOut, unknownFutureValue.</summary>
-        public TimeCardState? State { get; set; }
+        public ApiSdk.Models.TimeCardState? State { get; set; }
         /// <summary>User ID to which  the timeCard belongs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TimeCard"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TimeCard"/> and sets the default values.
         /// </summary>
         public TimeCard() : base()
         {
@@ -72,12 +72,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TimeCard"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TimeCard"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TimeCard CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TimeCard CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TimeCard();
+            return new ApiSdk.Models.TimeCard();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,13 +87,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "breaks", n => { Breaks = n.GetCollectionOfObjectValues<TimeCardBreak>(TimeCardBreak.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "clockInEvent", n => { ClockInEvent = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
-                { "clockOutEvent", n => { ClockOutEvent = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
-                { "confirmedBy", n => { ConfirmedBy = n.GetEnumValue<ConfirmedBy>(); } },
-                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                { "originalEntry", n => { OriginalEntry = n.GetObjectValue<TimeCardEntry>(TimeCardEntry.CreateFromDiscriminatorValue); } },
-                { "state", n => { State = n.GetEnumValue<TimeCardState>(); } },
+                { "breaks", n => { Breaks = n.GetCollectionOfObjectValues<ApiSdk.Models.TimeCardBreak>(ApiSdk.Models.TimeCardBreak.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "clockInEvent", n => { ClockInEvent = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "clockOutEvent", n => { ClockOutEvent = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "confirmedBy", n => { ConfirmedBy = n.GetEnumValue<ApiSdk.Models.ConfirmedBy>(); } },
+                { "notes", n => { Notes = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
+                { "originalEntry", n => { OriginalEntry = n.GetObjectValue<ApiSdk.Models.TimeCardEntry>(ApiSdk.Models.TimeCardEntry.CreateFromDiscriminatorValue); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.TimeCardState>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -105,13 +105,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<TimeCardBreak>("breaks", Breaks);
-            writer.WriteObjectValue<TimeCardEvent>("clockInEvent", ClockInEvent);
-            writer.WriteObjectValue<TimeCardEvent>("clockOutEvent", ClockOutEvent);
-            writer.WriteEnumValue<ConfirmedBy>("confirmedBy", ConfirmedBy);
-            writer.WriteObjectValue<ItemBody>("notes", Notes);
-            writer.WriteObjectValue<TimeCardEntry>("originalEntry", OriginalEntry);
-            writer.WriteEnumValue<TimeCardState>("state", State);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TimeCardBreak>("breaks", Breaks);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("clockInEvent", ClockInEvent);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("clockOutEvent", ClockOutEvent);
+            writer.WriteEnumValue<ApiSdk.Models.ConfirmedBy>("confirmedBy", ConfirmedBy);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("notes", Notes);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEntry>("originalEntry", OriginalEntry);
+            writer.WriteEnumValue<ApiSdk.Models.TimeCardState>("state", State);
             writer.WriteStringValue("userId", UserId);
         }
     }

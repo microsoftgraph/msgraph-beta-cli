@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedRoleAssignmentRequest : Entity, IParsable
+    public class PrivilegedRoleAssignmentRequest : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The assignmentState property</summary>
@@ -47,18 +47,18 @@ namespace ApiSdk.Models
         /// <summary>The roleInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PrivilegedRole? RoleInfo { get; set; }
+        public ApiSdk.Models.PrivilegedRole? RoleInfo { get; set; }
 #nullable restore
 #else
-        public PrivilegedRole RoleInfo { get; set; }
+        public ApiSdk.Models.PrivilegedRole RoleInfo { get; set; }
 #endif
         /// <summary>The schedule property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernanceSchedule? Schedule { get; set; }
+        public ApiSdk.Models.GovernanceSchedule? Schedule { get; set; }
 #nullable restore
 #else
-        public GovernanceSchedule Schedule { get; set; }
+        public ApiSdk.Models.GovernanceSchedule Schedule { get; set; }
 #endif
         /// <summary>The status property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,12 +103,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedRoleAssignmentRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedRoleAssignmentRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedRoleAssignmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedRoleAssignmentRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedRoleAssignmentRequest();
+            return new ApiSdk.Models.PrivilegedRoleAssignmentRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -123,8 +123,8 @@ namespace ApiSdk.Models
                 { "reason", n => { Reason = n.GetStringValue(); } },
                 { "requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleId", n => { RoleId = n.GetStringValue(); } },
-                { "roleInfo", n => { RoleInfo = n.GetObjectValue<PrivilegedRole>(PrivilegedRole.CreateFromDiscriminatorValue); } },
-                { "schedule", n => { Schedule = n.GetObjectValue<GovernanceSchedule>(GovernanceSchedule.CreateFromDiscriminatorValue); } },
+                { "roleInfo", n => { RoleInfo = n.GetObjectValue<ApiSdk.Models.PrivilegedRole>(ApiSdk.Models.PrivilegedRole.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<ApiSdk.Models.GovernanceSchedule>(ApiSdk.Models.GovernanceSchedule.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "ticketNumber", n => { TicketNumber = n.GetStringValue(); } },
                 { "ticketSystem", n => { TicketSystem = n.GetStringValue(); } },
@@ -145,8 +145,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("reason", Reason);
             writer.WriteDateTimeOffsetValue("requestedDateTime", RequestedDateTime);
             writer.WriteStringValue("roleId", RoleId);
-            writer.WriteObjectValue<PrivilegedRole>("roleInfo", RoleInfo);
-            writer.WriteObjectValue<GovernanceSchedule>("schedule", Schedule);
+            writer.WriteObjectValue<ApiSdk.Models.PrivilegedRole>("roleInfo", RoleInfo);
+            writer.WriteObjectValue<ApiSdk.Models.GovernanceSchedule>("schedule", Schedule);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("ticketNumber", TicketNumber);
             writer.WriteStringValue("ticketSystem", TicketSystem);

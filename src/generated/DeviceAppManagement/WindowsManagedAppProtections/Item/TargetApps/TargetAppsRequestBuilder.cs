@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApp
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TargetAppsPostRequestBody>(TargetAppsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsPostRequestBody>(ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApp
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TargetAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TargetAppsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}/targetApps", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TargetAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TargetAppsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/windowsManagedAppProtections/{windowsManagedAppProtection%2Did}/targetApps", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApp
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(TargetAppsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(TargetAppsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.Item.TargetApps.TargetAppsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

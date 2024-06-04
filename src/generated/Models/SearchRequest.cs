@@ -23,18 +23,18 @@ namespace ApiSdk.Models
         /// <summary>Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AggregationOption>? Aggregations { get; set; }
+        public List<ApiSdk.Models.AggregationOption>? Aggregations { get; set; }
 #nullable restore
 #else
-        public List<AggregationOption> Aggregations { get; set; }
+        public List<ApiSdk.Models.AggregationOption> Aggregations { get; set; }
 #endif
         /// <summary>Contains the ordered collection of fields and limit to collapse results. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CollapseProperty>? CollapseProperties { get; set; }
+        public List<ApiSdk.Models.CollapseProperty>? CollapseProperties { get; set; }
 #nullable restore
 #else
-        public List<CollapseProperty> CollapseProperties { get; set; }
+        public List<ApiSdk.Models.CollapseProperty> CollapseProperties { get; set; }
 #endif
         /// <summary>Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,10 +49,10 @@ namespace ApiSdk.Models
         /// <summary>One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem, acronym, bookmark, chatMessage. For details about combinations of two or more entity types that are supported in the same search request, see known limitations. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EntityType?>? EntityTypes { get; set; }
+        public List<ApiSdk.Models.EntityType?>? EntityTypes { get; set; }
 #nullable restore
 #else
-        public List<EntityType?> EntityTypes { get; set; }
+        public List<ApiSdk.Models.EntityType?> EntityTypes { get; set; }
 #endif
         /// <summary>Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -75,18 +75,18 @@ namespace ApiSdk.Models
         /// <summary>The query property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SearchQuery? Query { get; set; }
+        public ApiSdk.Models.SearchQuery? Query { get; set; }
 #nullable restore
 #else
-        public SearchQuery Query { get; set; }
+        public ApiSdk.Models.SearchQuery Query { get; set; }
 #endif
         /// <summary>Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SearchAlterationOptions? QueryAlterationOptions { get; set; }
+        public ApiSdk.Models.SearchAlterationOptions? QueryAlterationOptions { get; set; }
 #nullable restore
 #else
-        public SearchAlterationOptions QueryAlterationOptions { get; set; }
+        public ApiSdk.Models.SearchAlterationOptions QueryAlterationOptions { get; set; }
 #endif
         /// <summary>Required for searches that use application permissions. Represents the geographic location for the search. For details, see Get the region value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,10 +99,10 @@ namespace ApiSdk.Models
         /// <summary>Provides the search result templates options for rendering connectors search results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ResultTemplateOption? ResultTemplateOptions { get; set; }
+        public ApiSdk.Models.ResultTemplateOption? ResultTemplateOptions { get; set; }
 #nullable restore
 #else
-        public ResultTemplateOption ResultTemplateOptions { get; set; }
+        public ApiSdk.Models.ResultTemplateOption ResultTemplateOptions { get; set; }
 #endif
         /// <summary>Indicates the kind of contents to be searched when a search is performed using application permissions. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -117,10 +117,10 @@ namespace ApiSdk.Models
         /// <summary>Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SortProperty>? SortProperties { get; set; }
+        public List<ApiSdk.Models.SortProperty>? SortProperties { get; set; }
 #nullable restore
 #else
-        public List<SortProperty> SortProperties { get; set; }
+        public List<ApiSdk.Models.SortProperty> SortProperties { get; set; }
 #endif
         /// <summary>This is now replaced by the fields property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,7 +133,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether to trim away the duplicate SharePoint files from search results. Default value is false. Optional.</summary>
         public bool? TrimDuplicates { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SearchRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SearchRequest"/> and sets the default values.
         /// </summary>
         public SearchRequest()
         {
@@ -142,12 +142,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SearchRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SearchRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SearchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SearchRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SearchRequest();
+            return new ApiSdk.Models.SearchRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -158,21 +158,21 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aggregationFilters", n => { AggregationFilters = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<AggregationOption>(AggregationOption.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "collapseProperties", n => { CollapseProperties = n.GetCollectionOfObjectValues<CollapseProperty>(CollapseProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "aggregations", n => { Aggregations = n.GetCollectionOfObjectValues<ApiSdk.Models.AggregationOption>(ApiSdk.Models.AggregationOption.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "collapseProperties", n => { CollapseProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.CollapseProperty>(ApiSdk.Models.CollapseProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contentSources", n => { ContentSources = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "enableTopResults", n => { EnableTopResults = n.GetBoolValue(); } },
-                { "entityTypes", n => { EntityTypes = n.GetCollectionOfEnumValues<EntityType>()?.ToList(); } },
+                { "entityTypes", n => { EntityTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.EntityType>()?.ToList(); } },
                 { "fields", n => { Fields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "from", n => { From = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "query", n => { Query = n.GetObjectValue<SearchQuery>(SearchQuery.CreateFromDiscriminatorValue); } },
-                { "queryAlterationOptions", n => { QueryAlterationOptions = n.GetObjectValue<SearchAlterationOptions>(SearchAlterationOptions.CreateFromDiscriminatorValue); } },
+                { "query", n => { Query = n.GetObjectValue<ApiSdk.Models.SearchQuery>(ApiSdk.Models.SearchQuery.CreateFromDiscriminatorValue); } },
+                { "queryAlterationOptions", n => { QueryAlterationOptions = n.GetObjectValue<ApiSdk.Models.SearchAlterationOptions>(ApiSdk.Models.SearchAlterationOptions.CreateFromDiscriminatorValue); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "resultTemplateOptions", n => { ResultTemplateOptions = n.GetObjectValue<ResultTemplateOption>(ResultTemplateOption.CreateFromDiscriminatorValue); } },
+                { "resultTemplateOptions", n => { ResultTemplateOptions = n.GetObjectValue<ApiSdk.Models.ResultTemplateOption>(ApiSdk.Models.ResultTemplateOption.CreateFromDiscriminatorValue); } },
                 { "sharePointOneDriveOptions", n => { SharePointOneDriveOptions = n.GetObjectValue<ApiSdk.Models.SharePointOneDriveOptions>(ApiSdk.Models.SharePointOneDriveOptions.CreateFromDiscriminatorValue); } },
                 { "size", n => { Size = n.GetIntValue(); } },
-                { "sortProperties", n => { SortProperties = n.GetCollectionOfObjectValues<SortProperty>(SortProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sortProperties", n => { SortProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.SortProperty>(ApiSdk.Models.SortProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "stored_fields", n => { StoredFields = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "trimDuplicates", n => { TrimDuplicates = n.GetBoolValue(); } },
             };
@@ -185,21 +185,21 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("aggregationFilters", AggregationFilters);
-            writer.WriteCollectionOfObjectValues<AggregationOption>("aggregations", Aggregations);
-            writer.WriteCollectionOfObjectValues<CollapseProperty>("collapseProperties", CollapseProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AggregationOption>("aggregations", Aggregations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CollapseProperty>("collapseProperties", CollapseProperties);
             writer.WriteCollectionOfPrimitiveValues<string>("contentSources", ContentSources);
             writer.WriteBoolValue("enableTopResults", EnableTopResults);
-            writer.WriteCollectionOfEnumValues<EntityType>("entityTypes", EntityTypes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.EntityType>("entityTypes", EntityTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("fields", Fields);
             writer.WriteIntValue("from", From);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<SearchQuery>("query", Query);
-            writer.WriteObjectValue<SearchAlterationOptions>("queryAlterationOptions", QueryAlterationOptions);
+            writer.WriteObjectValue<ApiSdk.Models.SearchQuery>("query", Query);
+            writer.WriteObjectValue<ApiSdk.Models.SearchAlterationOptions>("queryAlterationOptions", QueryAlterationOptions);
             writer.WriteStringValue("region", Region);
-            writer.WriteObjectValue<ResultTemplateOption>("resultTemplateOptions", ResultTemplateOptions);
+            writer.WriteObjectValue<ApiSdk.Models.ResultTemplateOption>("resultTemplateOptions", ResultTemplateOptions);
             writer.WriteObjectValue<ApiSdk.Models.SharePointOneDriveOptions>("sharePointOneDriveOptions", SharePointOneDriveOptions);
             writer.WriteIntValue("size", Size);
-            writer.WriteCollectionOfObjectValues<SortProperty>("sortProperties", SortProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SortProperty>("sortProperties", SortProperties);
             writer.WriteCollectionOfPrimitiveValues<string>("stored_fields", StoredFields);
             writer.WriteBoolValue("trimDuplicates", TrimDuplicates);
             writer.WriteAdditionalData(AdditionalData);

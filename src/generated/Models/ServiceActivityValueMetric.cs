@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>The aggregated value over the given aggregation interval starting from the intervalStartDateTime. The value is caculated at the minute level. The value at the starting minute of the intervalStartDateTime is included. The value at the last minute of the given interval is excluded. For example, if intervalStartDateTime is 2023-09-20T18:00:00Z and aggregation interval is 5 minutes, then the value is aggregated from 2023-09-20T18:00:00Z(inclusive) to 2023-09-20T18:05:00Z(exclusive).</summary>
         public long? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceActivityValueMetric"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServiceActivityValueMetric"/> and sets the default values.
         /// </summary>
         public ServiceActivityValueMetric()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceActivityValueMetric"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceActivityValueMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ServiceActivityValueMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ServiceActivityValueMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServiceActivityValueMetric();
+            return new ApiSdk.Models.ServiceActivityValueMetric();
         }
         /// <summary>
         /// The deserialization information for the current model

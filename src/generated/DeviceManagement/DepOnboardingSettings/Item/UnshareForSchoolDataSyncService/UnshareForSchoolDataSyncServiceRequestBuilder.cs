@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDat
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnshareForSchoolDataSyncServiceRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDataSyncService.UnshareForSchoolDataSyncServiceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UnshareForSchoolDataSyncServiceRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/unshareForSchoolDataSyncService", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnshareForSchoolDataSyncServiceRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDataSyncService.UnshareForSchoolDataSyncServiceRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UnshareForSchoolDataSyncServiceRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/unshareForSchoolDataSyncService", rawUrl)

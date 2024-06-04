@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// This class contains compliance settings for IOS.
     /// </summary>
-    public class IosCompliancePolicy : DeviceCompliancePolicy, IParsable
+    public class IosCompliancePolicy : ApiSdk.Models.DeviceCompliancePolicy, IParsable
     {
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
-        public DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+        public ApiSdk.Models.DeviceThreatProtectionLevel? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Require that devices have enabled device threat protection .</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
-        public DeviceThreatProtectionLevel? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+        public ApiSdk.Models.DeviceThreatProtectionLevel? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Indicates whether or not to require a managed email profile.</summary>
         public bool? ManagedEmailProfileRequired { get; set; }
         /// <summary>Maximum IOS build version.</summary>
@@ -68,19 +68,19 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not to require a passcode.</summary>
         public bool? PasscodeRequired { get; set; }
         /// <summary>Possible values of required passwords.</summary>
-        public RequiredPasswordType? PasscodeRequiredType { get; set; }
+        public ApiSdk.Models.RequiredPasswordType? PasscodeRequiredType { get; set; }
         /// <summary>Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? RestrictedApps { get; set; }
+        public List<ApiSdk.Models.AppListItem>? RestrictedApps { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> RestrictedApps { get; set; }
+        public List<ApiSdk.Models.AppListItem> RestrictedApps { get; set; }
 #endif
         /// <summary>Devices must not be jailbroken or rooted.</summary>
         public bool? SecurityBlockJailbrokenDevices { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosCompliancePolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosCompliancePolicy"/> and sets the default values.
         /// </summary>
         public IosCompliancePolicy() : base()
         {
@@ -89,12 +89,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosCompliancePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosCompliancePolicy();
+            return new ApiSdk.Models.IosCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,9 +104,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "advancedThreatProtectionRequiredSecurityLevel", n => { AdvancedThreatProtectionRequiredSecurityLevel = n.GetEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>(); } },
                 { "deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
-                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>(); } },
                 { "managedEmailProfileRequired", n => { ManagedEmailProfileRequired = n.GetBoolValue(); } },
                 { "osMaximumBuildVersion", n => { OsMaximumBuildVersion = n.GetStringValue(); } },
                 { "osMaximumVersion", n => { OsMaximumVersion = n.GetStringValue(); } },
@@ -120,8 +120,8 @@ namespace ApiSdk.Models
                 { "passcodeMinutesOfInactivityBeforeScreenTimeout", n => { PasscodeMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
                 { "passcodePreviousPasscodeBlockCount", n => { PasscodePreviousPasscodeBlockCount = n.GetIntValue(); } },
                 { "passcodeRequired", n => { PasscodeRequired = n.GetBoolValue(); } },
-                { "passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
-                { "restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "passcodeRequiredType", n => { PasscodeRequiredType = n.GetEnumValue<ApiSdk.Models.RequiredPasswordType>(); } },
+                { "restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "securityBlockJailbrokenDevices", n => { SecurityBlockJailbrokenDevices = n.GetBoolValue(); } },
             };
         }
@@ -133,9 +133,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>("advancedThreatProtectionRequiredSecurityLevel", AdvancedThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
-            writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("managedEmailProfileRequired", ManagedEmailProfileRequired);
             writer.WriteStringValue("osMaximumBuildVersion", OsMaximumBuildVersion);
             writer.WriteStringValue("osMaximumVersion", OsMaximumVersion);
@@ -149,8 +149,8 @@ namespace ApiSdk.Models
             writer.WriteIntValue("passcodeMinutesOfInactivityBeforeScreenTimeout", PasscodeMinutesOfInactivityBeforeScreenTimeout);
             writer.WriteIntValue("passcodePreviousPasscodeBlockCount", PasscodePreviousPasscodeBlockCount);
             writer.WriteBoolValue("passcodeRequired", PasscodeRequired);
-            writer.WriteEnumValue<RequiredPasswordType>("passcodeRequiredType", PasscodeRequiredType);
-            writer.WriteCollectionOfObjectValues<AppListItem>("restrictedApps", RestrictedApps);
+            writer.WriteEnumValue<ApiSdk.Models.RequiredPasswordType>("passcodeRequiredType", PasscodeRequiredType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("restrictedApps", RestrictedApps);
             writer.WriteBoolValue("securityBlockJailbrokenDevices", SecurityBlockJailbrokenDevices);
         }
     }

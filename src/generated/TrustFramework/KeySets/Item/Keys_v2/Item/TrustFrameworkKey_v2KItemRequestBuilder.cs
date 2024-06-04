@@ -81,14 +81,14 @@ namespace ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TrustFrameworkKey_v2KItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item.TrustFrameworkKey_v2KItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TrustFrameworkKey_v2KItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/keys_v2/{trustFrameworkKey_v2%2Dkid}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TrustFrameworkKey_v2KItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item.TrustFrameworkKey_v2KItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TrustFrameworkKey_v2KItemRequestBuilder(string rawUrl) : base("{+baseurl}/trustFramework/keySets/{trustFrameworkKeySet%2Did}/keys_v2/{trustFrameworkKey_v2%2Dkid}{?%24expand,%24select}", rawUrl)
@@ -101,11 +101,11 @@ namespace ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TrustFrameworkKey_v2KItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item.TrustFrameworkKey_v2KItemRequestBuilder.TrustFrameworkKey_v2KItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TrustFrameworkKey_v2KItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TrustFramework.KeySets.Item.Keys_v2.Item.TrustFrameworkKey_v2KItemRequestBuilder.TrustFrameworkKey_v2KItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

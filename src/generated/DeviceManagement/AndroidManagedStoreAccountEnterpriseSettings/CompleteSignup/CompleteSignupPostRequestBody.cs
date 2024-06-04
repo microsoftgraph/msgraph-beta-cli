@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.C
         public string EnterpriseToken { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CompleteSignupPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup.CompleteSignupPostRequestBody"/> and sets the default values.
         /// </summary>
         public CompleteSignupPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.C
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompleteSignupPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup.CompleteSignupPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CompleteSignupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup.CompleteSignupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompleteSignupPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup.CompleteSignupPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

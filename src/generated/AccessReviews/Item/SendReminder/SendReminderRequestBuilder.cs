@@ -50,14 +50,14 @@ namespace ApiSdk.AccessReviews.Item.SendReminder
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SendReminderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.SendReminder.SendReminderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SendReminderRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/accessReviews/{accessReview%2Did}/sendReminder", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SendReminderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.SendReminder.SendReminderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SendReminderRequestBuilder(string rawUrl) : base("{+baseurl}/accessReviews/{accessReview%2Did}/sendReminder", rawUrl)

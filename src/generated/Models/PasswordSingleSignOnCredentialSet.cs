@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>A list of credential objects that define the complete sign in flow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Credential>? Credentials { get; set; }
+        public List<ApiSdk.Models.Credential>? Credentials { get; set; }
 #nullable restore
 #else
-        public List<Credential> Credentials { get; set; }
+        public List<ApiSdk.Models.Credential> Credentials { get; set; }
 #endif
         /// <summary>The ID of the user or group this credential set belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PasswordSingleSignOnCredentialSet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PasswordSingleSignOnCredentialSet"/> and sets the default values.
         /// </summary>
         public PasswordSingleSignOnCredentialSet()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PasswordSingleSignOnCredentialSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PasswordSingleSignOnCredentialSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PasswordSingleSignOnCredentialSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PasswordSingleSignOnCredentialSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PasswordSingleSignOnCredentialSet();
+            return new ApiSdk.Models.PasswordSingleSignOnCredentialSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<Credential>(Credential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<ApiSdk.Models.Credential>(ApiSdk.Models.Credential.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<Credential>("credentials", Credentials);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Credential>("credentials", Credentials);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

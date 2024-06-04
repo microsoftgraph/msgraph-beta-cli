@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint enforcing the setting contains only vaild app types.
     /// </summary>
-    public class DeviceManagementSettingAppConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingAppConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>Acceptable app types to allow for this setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public List<string> SupportedTypes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingAppConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingAppConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingAppConstraint() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingAppConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingAppConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingAppConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingAppConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingAppConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingAppConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

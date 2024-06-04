@@ -13,20 +13,20 @@ namespace ApiSdk.Models.Security
         /// <summary>Contains metadata for analyzed emails.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AnalyzedEmail>? AnalyzedEmails { get; set; }
+        public List<ApiSdk.Models.Security.AnalyzedEmail>? AnalyzedEmails { get; set; }
 #nullable restore
 #else
-        public List<AnalyzedEmail> AnalyzedEmails { get; set; }
+        public List<ApiSdk.Models.Security.AnalyzedEmail> AnalyzedEmails { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CollaborationRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.CollaborationRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CollaborationRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.CollaborationRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CollaborationRoot();
+            return new ApiSdk.Models.Security.CollaborationRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<AnalyzedEmail>(AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "analyzedEmails", n => { AnalyzedEmails = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.AnalyzedEmail>(ApiSdk.Models.Security.AnalyzedEmail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AnalyzedEmail>("analyzedEmails", AnalyzedEmails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.AnalyzedEmail>("analyzedEmails", AnalyzedEmails);
         }
     }
 }

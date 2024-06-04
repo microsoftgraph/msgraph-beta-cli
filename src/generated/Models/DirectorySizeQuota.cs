@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>Used amount of the directory quota.</summary>
         public int? Used { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DirectorySizeQuota"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DirectorySizeQuota"/> and sets the default values.
         /// </summary>
         public DirectorySizeQuota()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DirectorySizeQuota"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DirectorySizeQuota"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DirectorySizeQuota CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DirectorySizeQuota CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DirectorySizeQuota();
+            return new ApiSdk.Models.DirectorySizeQuota();
         }
         /// <summary>
         /// The deserialization information for the current model

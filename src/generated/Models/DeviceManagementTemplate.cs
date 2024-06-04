@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents a defined collection of device settings
     /// </summary>
-    public class DeviceManagementTemplate : Entity, IParsable
+    public class DeviceManagementTemplate : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Collection of setting categories within the template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementTemplateSettingCategory>? Categories { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTemplateSettingCategory>? Categories { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementTemplateSettingCategory> Categories { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTemplateSettingCategory> Categories { get; set; }
 #endif
         /// <summary>The template&apos;s description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -42,27 +42,27 @@ namespace ApiSdk.Models
         /// <summary>Collection of templates this template can migrate to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementTemplate>? MigratableTo { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTemplate>? MigratableTo { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementTemplate> MigratableTo { get; set; }
+        public List<ApiSdk.Models.DeviceManagementTemplate> MigratableTo { get; set; }
 #endif
         /// <summary>Supported platform types for policies.</summary>
-        public PolicyPlatformType? PlatformType { get; set; }
+        public ApiSdk.Models.PolicyPlatformType? PlatformType { get; set; }
         /// <summary>When the template was published</summary>
         public DateTimeOffset? PublishedDateTime { get; set; }
         /// <summary>Collection of all settings this template has</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementSettingInstance>? Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance>? Settings { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementSettingInstance> Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance> Settings { get; set; }
 #endif
         /// <summary>Template subtype</summary>
-        public DeviceManagementTemplateSubtype? TemplateSubtype { get; set; }
+        public ApiSdk.Models.DeviceManagementTemplateSubtype? TemplateSubtype { get; set; }
         /// <summary>Template type</summary>
-        public DeviceManagementTemplateType? TemplateType { get; set; }
+        public ApiSdk.Models.DeviceManagementTemplateType? TemplateType { get; set; }
         /// <summary>The template&apos;s version information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,16 +74,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.securityBaselineTemplate" => new SecurityBaselineTemplate(),
-                _ => new DeviceManagementTemplate(),
+                "#microsoft.graph.securityBaselineTemplate" => new ApiSdk.Models.SecurityBaselineTemplate(),
+                _ => new ApiSdk.Models.DeviceManagementTemplate(),
             };
         }
         /// <summary>
@@ -94,17 +94,17 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "categories", n => { Categories = n.GetCollectionOfObjectValues<DeviceManagementTemplateSettingCategory>(DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categories", n => { Categories = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplateSettingCategory>(ApiSdk.Models.DeviceManagementTemplateSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "intentCount", n => { IntentCount = n.GetIntValue(); } },
                 { "isDeprecated", n => { IsDeprecated = n.GetBoolValue(); } },
-                { "migratableTo", n => { MigratableTo = n.GetCollectionOfObjectValues<DeviceManagementTemplate>(DeviceManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
+                { "migratableTo", n => { MigratableTo = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplate>(ApiSdk.Models.DeviceManagementTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.PolicyPlatformType>(); } },
                 { "publishedDateTime", n => { PublishedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "templateSubtype", n => { TemplateSubtype = n.GetEnumValue<DeviceManagementTemplateSubtype>(); } },
-                { "templateType", n => { TemplateType = n.GetEnumValue<DeviceManagementTemplateType>(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>(ApiSdk.Models.DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "templateSubtype", n => { TemplateSubtype = n.GetEnumValue<ApiSdk.Models.DeviceManagementTemplateSubtype>(); } },
+                { "templateType", n => { TemplateType = n.GetEnumValue<ApiSdk.Models.DeviceManagementTemplateType>(); } },
                 { "versionInfo", n => { VersionInfo = n.GetStringValue(); } },
             };
         }
@@ -116,17 +116,17 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementTemplateSettingCategory>("categories", Categories);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplateSettingCategory>("categories", Categories);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteIntValue("intentCount", IntentCount);
             writer.WriteBoolValue("isDeprecated", IsDeprecated);
-            writer.WriteCollectionOfObjectValues<DeviceManagementTemplate>("migratableTo", MigratableTo);
-            writer.WriteEnumValue<PolicyPlatformType>("platformType", PlatformType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplate>("migratableTo", MigratableTo);
+            writer.WriteEnumValue<ApiSdk.Models.PolicyPlatformType>("platformType", PlatformType);
             writer.WriteDateTimeOffsetValue("publishedDateTime", PublishedDateTime);
-            writer.WriteCollectionOfObjectValues<DeviceManagementSettingInstance>("settings", Settings);
-            writer.WriteEnumValue<DeviceManagementTemplateSubtype>("templateSubtype", TemplateSubtype);
-            writer.WriteEnumValue<DeviceManagementTemplateType>("templateType", TemplateType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementTemplateSubtype>("templateSubtype", TemplateSubtype);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementTemplateType>("templateType", TemplateType);
             writer.WriteStringValue("versionInfo", VersionInfo);
         }
     }

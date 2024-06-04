@@ -30,7 +30,7 @@ namespace ApiSdk.External.AuthorizationSystems.Item
         {
             var command = new Command("data-collection-info");
             command.Description = "Provides operations to manage the dataCollectionInfo property of the microsoft.graph.authorizationSystem entity.";
-            var builder = new DataCollectionInfoRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.AuthorizationSystems.Item.DataCollectionInfo.DataCollectionInfoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -180,14 +180,14 @@ namespace ApiSdk.External.AuthorizationSystems.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationSystemItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.AuthorizationSystems.Item.AuthorizationSystemItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AuthorizationSystemItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationSystemItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.AuthorizationSystems.Item.AuthorizationSystemItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AuthorizationSystemItemRequestBuilder(string rawUrl) : base("{+baseurl}/external/authorizationSystems/{authorizationSystem%2Did}{?%24expand,%24select}", rawUrl)
@@ -219,11 +219,11 @@ namespace ApiSdk.External.AuthorizationSystems.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthorizationSystemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.AuthorizationSystems.Item.AuthorizationSystemItemRequestBuilder.AuthorizationSystemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthorizationSystemItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.AuthorizationSystems.Item.AuthorizationSystemItemRequestBuilder.AuthorizationSystemItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

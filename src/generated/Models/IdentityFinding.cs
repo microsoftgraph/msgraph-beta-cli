@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class IdentityFinding : Finding, IParsable
+    public class IdentityFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The actionSummary property</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The identity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemIdentity? Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity? Identity { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemIdentity Identity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemIdentity Identity { get; set; }
 #endif
         /// <summary>An identity&apos;s information details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,34 +45,34 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IdentityFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IdentityFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IdentityFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.inactiveAwsResourceFinding" => new InactiveAwsResourceFinding(),
-                "#microsoft.graph.inactiveAwsRoleFinding" => new InactiveAwsRoleFinding(),
-                "#microsoft.graph.inactiveAzureServicePrincipalFinding" => new InactiveAzureServicePrincipalFinding(),
-                "#microsoft.graph.inactiveGcpServiceAccountFinding" => new InactiveGcpServiceAccountFinding(),
-                "#microsoft.graph.inactiveServerlessFunctionFinding" => new InactiveServerlessFunctionFinding(),
-                "#microsoft.graph.inactiveUserFinding" => new InactiveUserFinding(),
-                "#microsoft.graph.overprovisionedAwsResourceFinding" => new OverprovisionedAwsResourceFinding(),
-                "#microsoft.graph.overprovisionedAwsRoleFinding" => new OverprovisionedAwsRoleFinding(),
-                "#microsoft.graph.overprovisionedAzureServicePrincipalFinding" => new OverprovisionedAzureServicePrincipalFinding(),
-                "#microsoft.graph.overprovisionedGcpServiceAccountFinding" => new OverprovisionedGcpServiceAccountFinding(),
-                "#microsoft.graph.overprovisionedServerlessFunctionFinding" => new OverprovisionedServerlessFunctionFinding(),
-                "#microsoft.graph.overprovisionedUserFinding" => new OverprovisionedUserFinding(),
-                "#microsoft.graph.superAwsResourceFinding" => new SuperAwsResourceFinding(),
-                "#microsoft.graph.superAwsRoleFinding" => new SuperAwsRoleFinding(),
-                "#microsoft.graph.superAzureServicePrincipalFinding" => new SuperAzureServicePrincipalFinding(),
-                "#microsoft.graph.superGcpServiceAccountFinding" => new SuperGcpServiceAccountFinding(),
-                "#microsoft.graph.superServerlessFunctionFinding" => new SuperServerlessFunctionFinding(),
-                "#microsoft.graph.superUserFinding" => new SuperUserFinding(),
-                "#microsoft.graph.unenforcedMfaAwsUserFinding" => new UnenforcedMfaAwsUserFinding(),
-                _ => new IdentityFinding(),
+                "#microsoft.graph.inactiveAwsResourceFinding" => new ApiSdk.Models.InactiveAwsResourceFinding(),
+                "#microsoft.graph.inactiveAwsRoleFinding" => new ApiSdk.Models.InactiveAwsRoleFinding(),
+                "#microsoft.graph.inactiveAzureServicePrincipalFinding" => new ApiSdk.Models.InactiveAzureServicePrincipalFinding(),
+                "#microsoft.graph.inactiveGcpServiceAccountFinding" => new ApiSdk.Models.InactiveGcpServiceAccountFinding(),
+                "#microsoft.graph.inactiveServerlessFunctionFinding" => new ApiSdk.Models.InactiveServerlessFunctionFinding(),
+                "#microsoft.graph.inactiveUserFinding" => new ApiSdk.Models.InactiveUserFinding(),
+                "#microsoft.graph.overprovisionedAwsResourceFinding" => new ApiSdk.Models.OverprovisionedAwsResourceFinding(),
+                "#microsoft.graph.overprovisionedAwsRoleFinding" => new ApiSdk.Models.OverprovisionedAwsRoleFinding(),
+                "#microsoft.graph.overprovisionedAzureServicePrincipalFinding" => new ApiSdk.Models.OverprovisionedAzureServicePrincipalFinding(),
+                "#microsoft.graph.overprovisionedGcpServiceAccountFinding" => new ApiSdk.Models.OverprovisionedGcpServiceAccountFinding(),
+                "#microsoft.graph.overprovisionedServerlessFunctionFinding" => new ApiSdk.Models.OverprovisionedServerlessFunctionFinding(),
+                "#microsoft.graph.overprovisionedUserFinding" => new ApiSdk.Models.OverprovisionedUserFinding(),
+                "#microsoft.graph.superAwsResourceFinding" => new ApiSdk.Models.SuperAwsResourceFinding(),
+                "#microsoft.graph.superAwsRoleFinding" => new ApiSdk.Models.SuperAwsRoleFinding(),
+                "#microsoft.graph.superAzureServicePrincipalFinding" => new ApiSdk.Models.SuperAzureServicePrincipalFinding(),
+                "#microsoft.graph.superGcpServiceAccountFinding" => new ApiSdk.Models.SuperGcpServiceAccountFinding(),
+                "#microsoft.graph.superServerlessFunctionFinding" => new ApiSdk.Models.SuperServerlessFunctionFinding(),
+                "#microsoft.graph.superUserFinding" => new ApiSdk.Models.SuperUserFinding(),
+                "#microsoft.graph.unenforcedMfaAwsUserFinding" => new ApiSdk.Models.UnenforcedMfaAwsUserFinding(),
+                _ => new ApiSdk.Models.IdentityFinding(),
             };
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "actionSummary", n => { ActionSummary = n.GetObjectValue<ApiSdk.Models.ActionSummary>(ApiSdk.Models.ActionSummary.CreateFromDiscriminatorValue); } },
-                { "identity", n => { Identity = n.GetObjectValue<AuthorizationSystemIdentity>(AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>(ApiSdk.Models.AuthorizationSystemIdentity.CreateFromDiscriminatorValue); } },
                 { "identityDetails", n => { IdentityDetails = n.GetObjectValue<ApiSdk.Models.IdentityDetails>(ApiSdk.Models.IdentityDetails.CreateFromDiscriminatorValue); } },
                 { "permissionsCreepIndex", n => { PermissionsCreepIndex = n.GetObjectValue<ApiSdk.Models.PermissionsCreepIndex>(ApiSdk.Models.PermissionsCreepIndex.CreateFromDiscriminatorValue); } },
             };
@@ -98,7 +98,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.ActionSummary>("actionSummary", ActionSummary);
-            writer.WriteObjectValue<AuthorizationSystemIdentity>("identity", Identity);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemIdentity>("identity", Identity);
             writer.WriteObjectValue<ApiSdk.Models.IdentityDetails>("identityDetails", IdentityDetails);
             writer.WriteObjectValue<ApiSdk.Models.PermissionsCreepIndex>("permissionsCreepIndex", PermissionsCreepIndex);
         }

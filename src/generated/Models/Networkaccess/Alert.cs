@@ -13,10 +13,10 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The actions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AlertAction>? Actions { get; set; }
+        public List<ApiSdk.Models.Networkaccess.AlertAction>? Actions { get; set; }
 #nullable restore
 #else
-        public List<AlertAction> Actions { get; set; }
+        public List<ApiSdk.Models.Networkaccess.AlertAction> Actions { get; set; }
 #endif
         /// <summary>The alertType property</summary>
         public ApiSdk.Models.Networkaccess.AlertType? AlertType { get; set; }
@@ -49,21 +49,21 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The policy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public FilteringPolicy? Policy { get; set; }
+        public ApiSdk.Models.Networkaccess.FilteringPolicy? Policy { get; set; }
 #nullable restore
 #else
-        public FilteringPolicy Policy { get; set; }
+        public ApiSdk.Models.Networkaccess.FilteringPolicy Policy { get; set; }
 #endif
         /// <summary>The relatedResources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RelatedResource>? RelatedResources { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RelatedResource>? RelatedResources { get; set; }
 #nullable restore
 #else
-        public List<RelatedResource> RelatedResources { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RelatedResource> RelatedResources { get; set; }
 #endif
         /// <summary>The severity property</summary>
-        public ThreatSeverity? Severity { get; set; }
+        public ApiSdk.Models.Networkaccess.ThreatSeverity? Severity { get; set; }
         /// <summary>The vendorName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -75,12 +75,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Alert"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Alert"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Alert CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Alert CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Alert();
+            return new ApiSdk.Models.Networkaccess.Alert();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -90,15 +90,15 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AlertAction>(AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "alertType", n => { AlertType = n.GetEnumValue<AlertType>(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.AlertAction>(ApiSdk.Models.Networkaccess.AlertAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "alertType", n => { AlertType = n.GetEnumValue<ApiSdk.Models.Networkaccess.AlertType>(); } },
                 { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "detectionTechnology", n => { DetectionTechnology = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "policy", n => { Policy = n.GetObjectValue<FilteringPolicy>(FilteringPolicy.CreateFromDiscriminatorValue); } },
-                { "relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<RelatedResource>(RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "severity", n => { Severity = n.GetEnumValue<ThreatSeverity>(); } },
+                { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.Networkaccess.FilteringPolicy>(ApiSdk.Models.Networkaccess.FilteringPolicy.CreateFromDiscriminatorValue); } },
+                { "relatedResources", n => { RelatedResources = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RelatedResource>(ApiSdk.Models.Networkaccess.RelatedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.Networkaccess.ThreatSeverity>(); } },
                 { "vendorName", n => { VendorName = n.GetStringValue(); } },
             };
         }
@@ -110,15 +110,15 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AlertAction>("actions", Actions);
-            writer.WriteEnumValue<AlertType>("alertType", AlertType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.AlertAction>("actions", Actions);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.AlertType>("alertType", AlertType);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("detectionTechnology", DetectionTechnology);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<FilteringPolicy>("policy", Policy);
-            writer.WriteCollectionOfObjectValues<RelatedResource>("relatedResources", RelatedResources);
-            writer.WriteEnumValue<ThreatSeverity>("severity", Severity);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.FilteringPolicy>("policy", Policy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RelatedResource>("relatedResources", RelatedResources);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ThreatSeverity>("severity", Severity);
             writer.WriteStringValue("vendorName", VendorName);
         }
     }

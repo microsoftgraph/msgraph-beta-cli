@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationCsvDataProvider : EducationSynchronizationDataProvider, IParsable
+    public class EducationCsvDataProvider : ApiSdk.Models.EducationSynchronizationDataProvider, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Optional customizations to be applied to the synchronization profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationSynchronizationCustomizations? Customizations { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomizations? Customizations { get; set; }
 #nullable restore
 #else
-        public EducationSynchronizationCustomizations Customizations { get; set; }
+        public ApiSdk.Models.EducationSynchronizationCustomizations Customizations { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationCsvDataProvider"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationCsvDataProvider"/> and sets the default values.
         /// </summary>
         public EducationCsvDataProvider() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationCsvDataProvider"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationCsvDataProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationCsvDataProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationCsvDataProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationCsvDataProvider();
+            return new ApiSdk.Models.EducationCsvDataProvider();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customizations", n => { Customizations = n.GetObjectValue<EducationSynchronizationCustomizations>(EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
+                { "customizations", n => { Customizations = n.GetObjectValue<ApiSdk.Models.EducationSynchronizationCustomizations>(ApiSdk.Models.EducationSynchronizationCustomizations.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<EducationSynchronizationCustomizations>("customizations", Customizations);
+            writer.WriteObjectValue<ApiSdk.Models.EducationSynchronizationCustomizations>("customizations", Customizations);
         }
     }
 }

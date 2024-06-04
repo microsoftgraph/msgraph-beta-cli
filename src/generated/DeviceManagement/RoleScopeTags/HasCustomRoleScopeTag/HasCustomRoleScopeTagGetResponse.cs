@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="HasCustomRoleScopeTagGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagGetResponse"/> and sets the default values.
         /// </summary>
         public HasCustomRoleScopeTagGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HasCustomRoleScopeTagGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static HasCustomRoleScopeTagGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HasCustomRoleScopeTagGetResponse();
+            return new ApiSdk.DeviceManagement.RoleScopeTags.HasCustomRoleScopeTag.HasCustomRoleScopeTagGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

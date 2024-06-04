@@ -7,22 +7,22 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedSignupStatus : Entity, IParsable
+    public class PrivilegedSignupStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The isRegistered property</summary>
         public bool? IsRegistered { get; set; }
         /// <summary>The status property</summary>
-        public SetupStatus? Status { get; set; }
+        public ApiSdk.Models.SetupStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedSignupStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedSignupStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedSignupStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedSignupStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedSignupStatus();
+            return new ApiSdk.Models.PrivilegedSignupStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -33,7 +33,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "isRegistered", n => { IsRegistered = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<SetupStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.SetupStatus>(); } },
             };
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("isRegistered", IsRegistered);
-            writer.WriteEnumValue<SetupStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.SetupStatus>("status", Status);
         }
     }
 }

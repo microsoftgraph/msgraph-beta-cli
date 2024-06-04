@@ -9,17 +9,17 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Driver Update Profile
     /// </summary>
-    public class WindowsDriverUpdateProfile : Entity, IParsable
+    public class WindowsDriverUpdateProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>An enum type to represent approval type of a driver update profile.</summary>
-        public DriverUpdateProfileApprovalType? ApprovalType { get; set; }
+        public ApiSdk.Models.DriverUpdateProfileApprovalType? ApprovalType { get; set; }
         /// <summary>The list of group assignments of the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsDriverUpdateProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsDriverUpdateProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<WindowsDriverUpdateProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.WindowsDriverUpdateProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>The date time that the profile was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -46,18 +46,18 @@ namespace ApiSdk.Models
         /// <summary>Driver inventories for this profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsDriverUpdateInventory>? DriverInventories { get; set; }
+        public List<ApiSdk.Models.WindowsDriverUpdateInventory>? DriverInventories { get; set; }
 #nullable restore
 #else
-        public List<WindowsDriverUpdateInventory> DriverInventories { get; set; }
+        public List<ApiSdk.Models.WindowsDriverUpdateInventory> DriverInventories { get; set; }
 #endif
         /// <summary>Driver inventory sync status for this profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsDriverUpdateProfileInventorySyncStatus? InventorySyncStatus { get; set; }
+        public ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus? InventorySyncStatus { get; set; }
 #nullable restore
 #else
-        public WindowsDriverUpdateProfileInventorySyncStatus InventorySyncStatus { get; set; }
+        public ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus InventorySyncStatus { get; set; }
 #endif
         /// <summary>The date time that the profile was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDriverUpdateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDriverUpdateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsDriverUpdateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsDriverUpdateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDriverUpdateProfile();
+            return new ApiSdk.Models.WindowsDriverUpdateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,15 +89,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "approvalType", n => { ApprovalType = n.GetEnumValue<DriverUpdateProfileApprovalType>(); } },
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<WindowsDriverUpdateProfileAssignment>(WindowsDriverUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "approvalType", n => { ApprovalType = n.GetEnumValue<ApiSdk.Models.DriverUpdateProfileApprovalType>(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsDriverUpdateProfileAssignment>(ApiSdk.Models.WindowsDriverUpdateProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deploymentDeferralInDays", n => { DeploymentDeferralInDays = n.GetIntValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "deviceReporting", n => { DeviceReporting = n.GetIntValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "driverInventories", n => { DriverInventories = n.GetCollectionOfObjectValues<WindowsDriverUpdateInventory>(WindowsDriverUpdateInventory.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "inventorySyncStatus", n => { InventorySyncStatus = n.GetObjectValue<WindowsDriverUpdateProfileInventorySyncStatus>(WindowsDriverUpdateProfileInventorySyncStatus.CreateFromDiscriminatorValue); } },
+                { "driverInventories", n => { DriverInventories = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsDriverUpdateInventory>(ApiSdk.Models.WindowsDriverUpdateInventory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "inventorySyncStatus", n => { InventorySyncStatus = n.GetObjectValue<ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus>(ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "newUpdates", n => { NewUpdates = n.GetIntValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -111,15 +111,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<DriverUpdateProfileApprovalType>("approvalType", ApprovalType);
-            writer.WriteCollectionOfObjectValues<WindowsDriverUpdateProfileAssignment>("assignments", Assignments);
+            writer.WriteEnumValue<ApiSdk.Models.DriverUpdateProfileApprovalType>("approvalType", ApprovalType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsDriverUpdateProfileAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteIntValue("deploymentDeferralInDays", DeploymentDeferralInDays);
             writer.WriteStringValue("description", Description);
             writer.WriteIntValue("deviceReporting", DeviceReporting);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<WindowsDriverUpdateInventory>("driverInventories", DriverInventories);
-            writer.WriteObjectValue<WindowsDriverUpdateProfileInventorySyncStatus>("inventorySyncStatus", InventorySyncStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsDriverUpdateInventory>("driverInventories", DriverInventories);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsDriverUpdateProfileInventorySyncStatus>("inventorySyncStatus", InventorySyncStatus);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteIntValue("newUpdates", NewUpdates);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);

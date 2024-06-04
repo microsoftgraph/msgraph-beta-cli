@@ -13,20 +13,20 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CaseExportOperation>? Value { get; set; }
+        public List<ApiSdk.Models.Ediscovery.CaseExportOperation>? Value { get; set; }
 #nullable restore
 #else
-        public List<CaseExportOperation> Value { get; set; }
+        public List<ApiSdk.Models.Ediscovery.CaseExportOperation> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CaseExportOperationCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.CaseExportOperationCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CaseExportOperationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.CaseExportOperationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CaseExportOperationCollectionResponse();
+            return new ApiSdk.Models.Ediscovery.CaseExportOperationCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.Ediscovery
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CaseExportOperation>(CaseExportOperation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.CaseExportOperation>(ApiSdk.Models.Ediscovery.CaseExportOperation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.Ediscovery
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CaseExportOperation>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.CaseExportOperation>("value", Value);
         }
     }
 }

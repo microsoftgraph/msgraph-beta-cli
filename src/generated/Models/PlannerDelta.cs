@@ -7,31 +7,31 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerDelta : Entity, IParsable
+    public class PlannerDelta : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerDelta"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerDelta"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerDelta CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerDelta CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.businessScenarioTask" => new BusinessScenarioTask(),
-                "#microsoft.graph.plannerAssignedToTaskBoardTaskFormat" => new PlannerAssignedToTaskBoardTaskFormat(),
-                "#microsoft.graph.plannerBucket" => new PlannerBucket(),
-                "#microsoft.graph.plannerBucketTaskBoardTaskFormat" => new PlannerBucketTaskBoardTaskFormat(),
-                "#microsoft.graph.plannerPlan" => new PlannerPlan(),
-                "#microsoft.graph.plannerPlanDetails" => new PlannerPlanDetails(),
-                "#microsoft.graph.plannerProgressTaskBoardTaskFormat" => new PlannerProgressTaskBoardTaskFormat(),
-                "#microsoft.graph.plannerTask" => new PlannerTask(),
-                "#microsoft.graph.plannerTaskDetails" => new PlannerTaskDetails(),
-                "#microsoft.graph.plannerUser" => new PlannerUser(),
-                _ => new PlannerDelta(),
+                "#microsoft.graph.businessScenarioTask" => new ApiSdk.Models.BusinessScenarioTask(),
+                "#microsoft.graph.plannerAssignedToTaskBoardTaskFormat" => new ApiSdk.Models.PlannerAssignedToTaskBoardTaskFormat(),
+                "#microsoft.graph.plannerBucket" => new ApiSdk.Models.PlannerBucket(),
+                "#microsoft.graph.plannerBucketTaskBoardTaskFormat" => new ApiSdk.Models.PlannerBucketTaskBoardTaskFormat(),
+                "#microsoft.graph.plannerPlan" => new ApiSdk.Models.PlannerPlan(),
+                "#microsoft.graph.plannerPlanDetails" => new ApiSdk.Models.PlannerPlanDetails(),
+                "#microsoft.graph.plannerProgressTaskBoardTaskFormat" => new ApiSdk.Models.PlannerProgressTaskBoardTaskFormat(),
+                "#microsoft.graph.plannerTask" => new ApiSdk.Models.PlannerTask(),
+                "#microsoft.graph.plannerTaskDetails" => new ApiSdk.Models.PlannerTaskDetails(),
+                "#microsoft.graph.plannerUser" => new ApiSdk.Models.PlannerUser(),
+                _ => new ApiSdk.Models.PlannerDelta(),
             };
         }
         /// <summary>

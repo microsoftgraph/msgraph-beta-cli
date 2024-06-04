@@ -45,7 +45,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-assignment-approvals");
             command.Description = "Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageAssignmentApprovalsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentApprovals.AccessPackageAssignmentApprovalsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -73,7 +73,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-assignment-policies");
             command.Description = "Provides operations to manage the accessPackageAssignmentPolicies property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageAssignmentPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentPolicies.AccessPackageAssignmentPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -100,7 +100,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-assignment-requests");
             command.Description = "Provides operations to manage the accessPackageAssignmentRequests property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageAssignmentRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentRequests.AccessPackageAssignmentRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -128,7 +128,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-assignment-resource-roles");
             command.Description = "Provides operations to manage the accessPackageAssignmentResourceRoles property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageAssignmentResourceRolesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignmentResourceRoles.AccessPackageAssignmentResourceRolesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -156,7 +156,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-assignments");
             command.Description = "Provides operations to manage the accessPackageAssignments property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageAssignments.AccessPackageAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAdditionalAccessNavCommand());
@@ -186,7 +186,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-catalogs");
             command.Description = "Provides operations to manage the accessPackageCatalogs property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageCatalogsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageCatalogs.AccessPackageCatalogsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -214,7 +214,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-resource-environments");
             command.Description = "Provides operations to manage the accessPackageResourceEnvironments property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageResourceEnvironmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceEnvironments.AccessPackageResourceEnvironmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -241,7 +241,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-resource-requests");
             command.Description = "Provides operations to manage the accessPackageResourceRequests property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageResourceRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRequests.AccessPackageResourceRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -268,7 +268,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-resource-role-scopes");
             command.Description = "Provides operations to manage the accessPackageResourceRoleScopes property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageResourceRoleScopesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResourceRoleScopes.AccessPackageResourceRoleScopesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -295,7 +295,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-package-resources");
             command.Description = "Provides operations to manage the accessPackageResources property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackageResourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackageResources.AccessPackageResourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -322,7 +322,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("access-packages");
             command.Description = "Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AccessPackagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AccessPackages.AccessPackagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -351,7 +351,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("assignment-requests");
             command.Description = "Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new AssignmentRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.AssignmentRequests.AssignmentRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -379,7 +379,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("connected-organizations");
             command.Description = "Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new ConnectedOrganizationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.ConnectedOrganizations.ConnectedOrganizationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -526,7 +526,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -545,7 +545,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("subjects");
             command.Description = "Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new SubjectsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.Subjects.SubjectsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -572,7 +572,7 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         {
             var command = new Command("subjects-with-object-id");
             command.Description = "Provides operations to manage the subjects property of the microsoft.graph.entitlementManagement entity.";
-            var builder = new SubjectsWithObjectIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.EntitlementManagement.SubjectsWithObjectId.SubjectsWithObjectIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -584,14 +584,14 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EntitlementManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.EntitlementManagement.EntitlementManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EntitlementManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/entitlementManagement{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EntitlementManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.EntitlementManagement.EntitlementManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EntitlementManagementRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/entitlementManagement{?%24expand,%24select}", rawUrl)
@@ -623,11 +623,11 @@ namespace ApiSdk.IdentityGovernance.EntitlementManagement
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EntitlementManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.EntitlementManagement.EntitlementManagementRequestBuilder.EntitlementManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<EntitlementManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.EntitlementManagement.EntitlementManagementRequestBuilder.EntitlementManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

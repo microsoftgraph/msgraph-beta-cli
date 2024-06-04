@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript
         public string Version { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateGlobalScriptPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript.UpdateGlobalScriptPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateGlobalScriptPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateGlobalScriptPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript.UpdateGlobalScriptPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateGlobalScriptPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript.UpdateGlobalScriptPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateGlobalScriptPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript.UpdateGlobalScriptPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

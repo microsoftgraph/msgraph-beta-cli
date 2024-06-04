@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId
 {
     #pragma warning disable CS1591
-    public class GetStorageAccountsWithSubscriptionIdGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetStorageAccountsWithSubscriptionIdGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcForensicStorageAccount>? Value { get; set; }
+        public List<ApiSdk.Models.CloudPcForensicStorageAccount>? Value { get; set; }
 #nullable restore
 #else
-        public List<CloudPcForensicStorageAccount> Value { get; set; }
+        public List<ApiSdk.Models.CloudPcForensicStorageAccount> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetStorageAccountsWithSubscriptionIdGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetStorageAccountsWithSubscriptionIdGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetStorageAccountsWithSubscriptionIdGetResponse();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcForensicStorageAccount>(CloudPcForensicStorageAccount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcForensicStorageAccount>(ApiSdk.Models.CloudPcForensicStorageAccount.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CloudPcForensicStorageAccount>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcForensicStorageAccount>("value", Value);
         }
     }
 }

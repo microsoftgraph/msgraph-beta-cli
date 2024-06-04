@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CallActivityStatistics : ActivityStatistics, IParsable
+    public class CallActivityStatistics : ApiSdk.Models.ActivityStatistics, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Time spent on calls outside of working hours, which is based on the user&apos;s Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.</summary>
         public TimeSpan? AfterHours { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CallActivityStatistics"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CallActivityStatistics"/> and sets the default values.
         /// </summary>
         public CallActivityStatistics() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CallActivityStatistics"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CallActivityStatistics"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CallActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CallActivityStatistics CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CallActivityStatistics();
+            return new ApiSdk.Models.CallActivityStatistics();
         }
         /// <summary>
         /// The deserialization information for the current model

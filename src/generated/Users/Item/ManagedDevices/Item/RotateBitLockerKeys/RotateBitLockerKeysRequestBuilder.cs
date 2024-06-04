@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RotateBitLockerKeys
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RotateBitLockerKeysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RotateBitLockerKeys.RotateBitLockerKeysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RotateBitLockerKeysRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/rotateBitLockerKeys", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RotateBitLockerKeysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RotateBitLockerKeys.RotateBitLockerKeysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RotateBitLockerKeysRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/rotateBitLockerKeys", rawUrl)

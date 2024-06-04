@@ -131,7 +131,7 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
         {
             var command = new Command("get-virtual-appointment-join-web-url");
             command.Description = "Provides operations to call the getVirtualAppointmentJoinWebUrl method.";
-            var builder = new GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.GetVirtualAppointmentJoinWebUrl.GetVirtualAppointmentJoinWebUrlRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -176,7 +176,7 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<OnlineMeeting>(OnlineMeeting.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.OnlineMeeting>(ApiSdk.Models.OnlineMeeting.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -205,7 +205,7 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
         {
             var command = new Command("send-virtual-appointment-reminder-sms");
             command.Description = "Provides operations to call the sendVirtualAppointmentReminderSms method.";
-            var builder = new SendVirtualAppointmentReminderSmsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.SendVirtualAppointmentReminderSms.SendVirtualAppointmentReminderSmsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -222,7 +222,7 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
         {
             var command = new Command("send-virtual-appointment-sms");
             command.Description = "Provides operations to call the sendVirtualAppointmentSms method.";
-            var builder = new SendVirtualAppointmentSmsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.SendVirtualAppointmentSms.SendVirtualAppointmentSmsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -232,14 +232,14 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnlineMeetingsWithJoinWebUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.OnlineMeetingsWithJoinWebUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OnlineMeetingsWithJoinWebUrlRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onlineMeetings(joinWebUrl='{joinWebUrl}'){?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OnlineMeetingsWithJoinWebUrlRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.OnlineMeetingsWithJoinWebUrlRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OnlineMeetingsWithJoinWebUrlRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onlineMeetings(joinWebUrl='{joinWebUrl}'){?%24expand,%24select}", rawUrl)
@@ -271,11 +271,11 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.OnlineMeetingsWithJoinWebUrlRequestBuilder.OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl.OnlineMeetingsWithJoinWebUrlRequestBuilder.OnlineMeetingsWithJoinWebUrlRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -291,11 +291,11 @@ namespace ApiSdk.Users.Item.OnlineMeetingsWithJoinWebUrl
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.OnlineMeeting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

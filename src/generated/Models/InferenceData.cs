@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>Records if the user has confirmed this inference as being True or False.</summary>
         public bool? UserHasVerifiedAccuracy { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="InferenceData"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.InferenceData"/> and sets the default values.
         /// </summary>
         public InferenceData()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InferenceData"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InferenceData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static InferenceData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.InferenceData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InferenceData();
+            return new ApiSdk.Models.InferenceData();
         }
         /// <summary>
         /// The deserialization information for the current model

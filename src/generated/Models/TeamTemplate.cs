@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TeamTemplate : Entity, IParsable
+    public class TeamTemplate : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A generic representation of a team template definition for a team with a specific structure and configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamTemplateDefinition>? Definitions { get; set; }
+        public List<ApiSdk.Models.TeamTemplateDefinition>? Definitions { get; set; }
 #nullable restore
 #else
-        public List<TeamTemplateDefinition> Definitions { get; set; }
+        public List<ApiSdk.Models.TeamTemplateDefinition> Definitions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TeamTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TeamTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamTemplate();
+            return new ApiSdk.Models.TeamTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<TeamTemplateDefinition>(TeamTemplateDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamTemplateDefinition>(ApiSdk.Models.TeamTemplateDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<TeamTemplateDefinition>("definitions", Definitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamTemplateDefinition>("definitions", Definitions);
         }
     }
 }

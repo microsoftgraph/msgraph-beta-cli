@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The OperationApprovalPolicy entity allows an administrator to configure which operations require admin approval and the set of admins who can perform that approval. Creating a policy enables the multiple admin approval service to catch requests which are targeted by the specific policy type defined.
     /// </summary>
-    public class OperationApprovalPolicy : Entity, IParsable
+    public class OperationApprovalPolicy : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The Microsoft Entra ID (Azure AD) security group IDs for the approvers for the policy. This property is required when the policy is created, and is defined by the user to define the possible approvers for the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,26 +38,26 @@ namespace ApiSdk.Models
         /// <summary>Indicates the last DateTime that the policy was modified. The value cannot be modified and is automatically populated whenever values in the request are updated. For example, when the &apos;policyType&apos; property changes from apps to scripts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only. This property is read-only.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; private set; }
         /// <summary>The set of available platforms for the OperationApprovalPolicy. Allows configuration of a policy to specific platform(s) for approval. If no specific platform is required or applicable, the platform is `notApplicable`.</summary>
-        public OperationApprovalPolicyPlatform? PolicyPlatform { get; set; }
+        public ApiSdk.Models.OperationApprovalPolicyPlatform? PolicyPlatform { get; set; }
         /// <summary>Indicates areas of the Intune UX that could support MAA UX for the current logged in user. This property is required, and is defined by the user in order to correctly show the expected experience.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OperationApprovalPolicySet? PolicySet { get; set; }
+        public ApiSdk.Models.OperationApprovalPolicySet? PolicySet { get; set; }
 #nullable restore
 #else
-        public OperationApprovalPolicySet PolicySet { get; set; }
+        public ApiSdk.Models.OperationApprovalPolicySet PolicySet { get; set; }
 #endif
         /// <summary>The set of available policy types that can be configured for approval. The policy type must always be defined in an OperationApprovalRequest.</summary>
-        public OperationApprovalPolicyType? PolicyType { get; set; }
+        public ApiSdk.Models.OperationApprovalPolicyType? PolicyType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OperationApprovalPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OperationApprovalPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OperationApprovalPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OperationApprovalPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OperationApprovalPolicy();
+            return new ApiSdk.Models.OperationApprovalPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,9 +71,9 @@ namespace ApiSdk.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "policyPlatform", n => { PolicyPlatform = n.GetEnumValue<OperationApprovalPolicyPlatform>(); } },
-                { "policySet", n => { PolicySet = n.GetObjectValue<OperationApprovalPolicySet>(OperationApprovalPolicySet.CreateFromDiscriminatorValue); } },
-                { "policyType", n => { PolicyType = n.GetEnumValue<OperationApprovalPolicyType>(); } },
+                { "policyPlatform", n => { PolicyPlatform = n.GetEnumValue<ApiSdk.Models.OperationApprovalPolicyPlatform>(); } },
+                { "policySet", n => { PolicySet = n.GetObjectValue<ApiSdk.Models.OperationApprovalPolicySet>(ApiSdk.Models.OperationApprovalPolicySet.CreateFromDiscriminatorValue); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<ApiSdk.Models.OperationApprovalPolicyType>(); } },
             };
         }
         /// <summary>
@@ -87,9 +87,9 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("approverGroupIds", ApproverGroupIds);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<OperationApprovalPolicyPlatform>("policyPlatform", PolicyPlatform);
-            writer.WriteObjectValue<OperationApprovalPolicySet>("policySet", PolicySet);
-            writer.WriteEnumValue<OperationApprovalPolicyType>("policyType", PolicyType);
+            writer.WriteEnumValue<ApiSdk.Models.OperationApprovalPolicyPlatform>("policyPlatform", PolicyPlatform);
+            writer.WriteObjectValue<ApiSdk.Models.OperationApprovalPolicySet>("policySet", PolicySet);
+            writer.WriteEnumValue<ApiSdk.Models.OperationApprovalPolicyType>("policyType", PolicyType);
         }
     }
 }

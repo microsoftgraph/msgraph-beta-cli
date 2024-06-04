@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>Detail about the company or employer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CompanyDetail? Company { get; set; }
+        public ApiSdk.Models.CompanyDetail? Company { get; set; }
 #nullable restore
 #else
-        public CompanyDetail Company { get; set; }
+        public ApiSdk.Models.CompanyDetail Company { get; set; }
 #endif
         /// <summary>Description of the position in question.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         public string Summary { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PositionDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PositionDetail"/> and sets the default values.
         /// </summary>
         public PositionDetail()
         {
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PositionDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PositionDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PositionDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PositionDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PositionDetail();
+            return new ApiSdk.Models.PositionDetail();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,7 +100,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "company", n => { Company = n.GetObjectValue<CompanyDetail>(CompanyDetail.CreateFromDiscriminatorValue); } },
+                { "company", n => { Company = n.GetObjectValue<ApiSdk.Models.CompanyDetail>(ApiSdk.Models.CompanyDetail.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
                 { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
@@ -119,7 +119,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<CompanyDetail>("company", Company);
+            writer.WriteObjectValue<ApiSdk.Models.CompanyDetail>("company", Company);
             writer.WriteStringValue("description", Description);
             writer.WriteDateValue("endMonthYear", EndMonthYear);
             writer.WriteStringValue("jobTitle", JobTitle);

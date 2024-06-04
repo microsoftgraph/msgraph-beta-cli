@@ -13,10 +13,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The acceptedFor property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagementTemplateStep? AcceptedFor { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStep? AcceptedFor { get; set; }
 #nullable restore
 #else
-        public ManagementTemplateStep AcceptedFor { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStep AcceptedFor { get; set; }
 #endif
         /// <summary>The contentMarkdown property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,10 +39,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The deployments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStepDeployment>? Deployments { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment>? Deployments { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStepDeployment> Deployments { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment> Deployments { get; set; }
 #endif
         /// <summary>The lastActionByUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,10 +65,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The templateStep property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagementTemplateStep? TemplateStep { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStep? TemplateStep { get; set; }
 #nullable restore
 #else
-        public ManagementTemplateStep TemplateStep { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStep TemplateStep { get; set; }
 #endif
         /// <summary>The version property</summary>
         public int? Version { get; set; }
@@ -83,12 +83,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementTemplateStepVersion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementTemplateStepVersion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementTemplateStepVersion();
+            return new ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,15 +98,15 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "acceptedFor", n => { AcceptedFor = n.GetObjectValue<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue); } },
+                { "acceptedFor", n => { AcceptedFor = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>(ApiSdk.Models.ManagedTenants.ManagementTemplateStep.CreateFromDiscriminatorValue); } },
                 { "contentMarkdown", n => { ContentMarkdown = n.GetStringValue(); } },
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<ManagementTemplateStepDeployment>(ManagementTemplateStepDeployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "templateStep", n => { TemplateStep = n.GetObjectValue<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue); } },
+                { "templateStep", n => { TemplateStep = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>(ApiSdk.Models.ManagedTenants.ManagementTemplateStep.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetIntValue(); } },
                 { "versionInformation", n => { VersionInformation = n.GetStringValue(); } },
             };
@@ -119,15 +119,15 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ManagementTemplateStep>("acceptedFor", AcceptedFor);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>("acceptedFor", AcceptedFor);
             writer.WriteStringValue("contentMarkdown", ContentMarkdown);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStepDeployment>("deployments", Deployments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepDeployment>("deployments", Deployments);
             writer.WriteStringValue("lastActionByUserId", LastActionByUserId);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<ManagementTemplateStep>("templateStep", TemplateStep);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>("templateStep", TemplateStep);
             writer.WriteIntValue("version", Version);
             writer.WriteStringValue("versionInformation", VersionInformation);
         }

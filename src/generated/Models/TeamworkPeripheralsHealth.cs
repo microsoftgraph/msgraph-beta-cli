@@ -15,34 +15,34 @@ namespace ApiSdk.Models
         /// <summary>The health details about the communication speaker.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? CommunicationSpeakerHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? CommunicationSpeakerHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth CommunicationSpeakerHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth CommunicationSpeakerHealth { get; set; }
 #endif
         /// <summary>The health details about the content camera.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? ContentCameraHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? ContentCameraHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth ContentCameraHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth ContentCameraHealth { get; set; }
 #endif
         /// <summary>The health details about displays.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamworkPeripheralHealth>? DisplayHealthCollection { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheralHealth>? DisplayHealthCollection { get; set; }
 #nullable restore
 #else
-        public List<TeamworkPeripheralHealth> DisplayHealthCollection { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheralHealth> DisplayHealthCollection { get; set; }
 #endif
         /// <summary>The health details about the microphone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? MicrophoneHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? MicrophoneHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth MicrophoneHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth MicrophoneHealth { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,21 +55,21 @@ namespace ApiSdk.Models
         /// <summary>The health details about the room camera.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? RoomCameraHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? RoomCameraHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth RoomCameraHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth RoomCameraHealth { get; set; }
 #endif
         /// <summary>The health details about the speaker.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheralHealth? SpeakerHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth? SpeakerHealth { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheralHealth SpeakerHealth { get; set; }
+        public ApiSdk.Models.TeamworkPeripheralHealth SpeakerHealth { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkPeripheralsHealth"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkPeripheralsHealth"/> and sets the default values.
         /// </summary>
         public TeamworkPeripheralsHealth()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkPeripheralsHealth"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkPeripheralsHealth"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkPeripheralsHealth CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkPeripheralsHealth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkPeripheralsHealth();
+            return new ApiSdk.Models.TeamworkPeripheralsHealth();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,13 +93,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "communicationSpeakerHealth", n => { CommunicationSpeakerHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
-                { "contentCameraHealth", n => { ContentCameraHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
-                { "displayHealthCollection", n => { DisplayHealthCollection = n.GetCollectionOfObjectValues<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "microphoneHealth", n => { MicrophoneHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "communicationSpeakerHealth", n => { CommunicationSpeakerHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "contentCameraHealth", n => { ContentCameraHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "displayHealthCollection", n => { DisplayHealthCollection = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "microphoneHealth", n => { MicrophoneHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "roomCameraHealth", n => { RoomCameraHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
-                { "speakerHealth", n => { SpeakerHealth = n.GetObjectValue<TeamworkPeripheralHealth>(TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "roomCameraHealth", n => { RoomCameraHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
+                { "speakerHealth", n => { SpeakerHealth = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>(ApiSdk.Models.TeamworkPeripheralHealth.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -109,13 +109,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("communicationSpeakerHealth", CommunicationSpeakerHealth);
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("contentCameraHealth", ContentCameraHealth);
-            writer.WriteCollectionOfObjectValues<TeamworkPeripheralHealth>("displayHealthCollection", DisplayHealthCollection);
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("microphoneHealth", MicrophoneHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("communicationSpeakerHealth", CommunicationSpeakerHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("contentCameraHealth", ContentCameraHealth);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheralHealth>("displayHealthCollection", DisplayHealthCollection);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("microphoneHealth", MicrophoneHealth);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("roomCameraHealth", RoomCameraHealth);
-            writer.WriteObjectValue<TeamworkPeripheralHealth>("speakerHealth", SpeakerHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("roomCameraHealth", RoomCameraHealth);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheralHealth>("speakerHealth", SpeakerHealth);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

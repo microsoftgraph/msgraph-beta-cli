@@ -31,21 +31,21 @@ namespace ApiSdk.Models
         /// <summary>Rules for specific properties and actions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskPropertyRule? PropertyRule { get; set; }
+        public ApiSdk.Models.PlannerTaskPropertyRule? PropertyRule { get; set; }
 #nullable restore
 #else
-        public PlannerTaskPropertyRule PropertyRule { get; set; }
+        public ApiSdk.Models.PlannerTaskPropertyRule PropertyRule { get; set; }
 #endif
         /// <summary>The role these rules apply to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskConfigurationRoleBase? Role { get; set; }
+        public ApiSdk.Models.PlannerTaskConfigurationRoleBase? Role { get; set; }
 #nullable restore
 #else
-        public PlannerTaskConfigurationRoleBase Role { get; set; }
+        public ApiSdk.Models.PlannerTaskConfigurationRoleBase Role { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerTaskRoleBasedRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerTaskRoleBasedRule"/> and sets the default values.
         /// </summary>
         public PlannerTaskRoleBasedRule()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTaskRoleBasedRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTaskRoleBasedRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerTaskRoleBasedRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerTaskRoleBasedRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerTaskRoleBasedRule();
+            return new ApiSdk.Models.PlannerTaskRoleBasedRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,8 +71,8 @@ namespace ApiSdk.Models
             {
                 { "defaultRule", n => { DefaultRule = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "propertyRule", n => { PropertyRule = n.GetObjectValue<PlannerTaskPropertyRule>(PlannerTaskPropertyRule.CreateFromDiscriminatorValue); } },
-                { "role", n => { Role = n.GetObjectValue<PlannerTaskConfigurationRoleBase>(PlannerTaskConfigurationRoleBase.CreateFromDiscriminatorValue); } },
+                { "propertyRule", n => { PropertyRule = n.GetObjectValue<ApiSdk.Models.PlannerTaskPropertyRule>(ApiSdk.Models.PlannerTaskPropertyRule.CreateFromDiscriminatorValue); } },
+                { "role", n => { Role = n.GetObjectValue<ApiSdk.Models.PlannerTaskConfigurationRoleBase>(ApiSdk.Models.PlannerTaskConfigurationRoleBase.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -84,8 +84,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("defaultRule", DefaultRule);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<PlannerTaskPropertyRule>("propertyRule", PropertyRule);
-            writer.WriteObjectValue<PlannerTaskConfigurationRoleBase>("role", Role);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskPropertyRule>("propertyRule", PropertyRule);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskConfigurationRoleBase>("role", Role);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The all property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AwsIdentity>? All { get; set; }
+        public List<ApiSdk.Models.AwsIdentity>? All { get; set; }
 #nullable restore
 #else
-        public List<AwsIdentity> All { get; set; }
+        public List<ApiSdk.Models.AwsIdentity> All { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,21 +31,21 @@ namespace ApiSdk.Models
         /// <summary>The roles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AwsRole>? Roles { get; set; }
+        public List<ApiSdk.Models.AwsRole>? Roles { get; set; }
 #nullable restore
 #else
-        public List<AwsRole> Roles { get; set; }
+        public List<ApiSdk.Models.AwsRole> Roles { get; set; }
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AwsUser>? Users { get; set; }
+        public List<ApiSdk.Models.AwsUser>? Users { get; set; }
 #nullable restore
 #else
-        public List<AwsUser> Users { get; set; }
+        public List<ApiSdk.Models.AwsUser> Users { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsAssociatedIdentities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsAssociatedIdentities"/> and sets the default values.
         /// </summary>
         public AwsAssociatedIdentities()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsAssociatedIdentities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsAssociatedIdentities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AwsAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AwsAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsAssociatedIdentities();
+            return new ApiSdk.Models.AwsAssociatedIdentities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,10 +69,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "all", n => { All = n.GetCollectionOfObjectValues<AwsIdentity>(AwsIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "all", n => { All = n.GetCollectionOfObjectValues<ApiSdk.Models.AwsIdentity>(ApiSdk.Models.AwsIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "roles", n => { Roles = n.GetCollectionOfObjectValues<AwsRole>(AwsRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "users", n => { Users = n.GetCollectionOfObjectValues<AwsUser>(AwsUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<ApiSdk.Models.AwsRole>(ApiSdk.Models.AwsRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "users", n => { Users = n.GetCollectionOfObjectValues<ApiSdk.Models.AwsUser>(ApiSdk.Models.AwsUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<AwsIdentity>("all", All);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AwsIdentity>("all", All);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<AwsRole>("roles", Roles);
-            writer.WriteCollectionOfObjectValues<AwsUser>("users", Users);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AwsRole>("roles", Roles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AwsUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

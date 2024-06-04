@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an Autopilot flow event.
     /// </summary>
-    public class DeviceManagementAutopilotEvent : Entity, IParsable
+    public class DeviceManagementAutopilotEvent : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Time spent in user ESP.</summary>
         public TimeSpan? AccountSetupDuration { get; set; }
         /// <summary>Deployment states for Autopilot devices</summary>
-        public WindowsAutopilotDeploymentState? AccountSetupStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentState? AccountSetupStatus { get; set; }
         /// <summary>Autopilot deployment duration including enrollment.</summary>
         public TimeSpan? DeploymentDuration { get; set; }
         /// <summary>Deployment end time.</summary>
@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         /// <summary>Deployment start time.</summary>
         public DateTimeOffset? DeploymentStartDateTime { get; set; }
         /// <summary>Deployment states for Autopilot devices</summary>
-        public WindowsAutopilotDeploymentState? DeploymentState { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentState? DeploymentState { get; set; }
         /// <summary>Total deployment duration from enrollment to Desktop screen.</summary>
         public TimeSpan? DeploymentTotalDuration { get; set; }
         /// <summary>Device id associated with the object</summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         /// <summary>Time spent in device ESP.</summary>
         public TimeSpan? DeviceSetupDuration { get; set; }
         /// <summary>Deployment states for Autopilot devices</summary>
-        public WindowsAutopilotDeploymentState? DeviceSetupStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotDeploymentState? DeviceSetupStatus { get; set; }
         /// <summary>Enrollment failure details.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         /// <summary>The enrollmentState property</summary>
         public ApiSdk.Models.EnrollmentState? EnrollmentState { get; set; }
         /// <summary>The enrollmentType property</summary>
-        public WindowsAutopilotEnrollmentType? EnrollmentType { get; set; }
+        public ApiSdk.Models.WindowsAutopilotEnrollmentType? EnrollmentType { get; set; }
         /// <summary>Time when the event occurred .</summary>
         public DateTimeOffset? EventDateTime { get; set; }
         /// <summary>Managed device name.</summary>
@@ -84,10 +84,10 @@ namespace ApiSdk.Models
         /// <summary>Policy and application status details for this device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementAutopilotPolicyStatusDetail>? PolicyStatusDetails { get; set; }
+        public List<ApiSdk.Models.DeviceManagementAutopilotPolicyStatusDetail>? PolicyStatusDetails { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementAutopilotPolicyStatusDetail> PolicyStatusDetails { get; set; }
+        public List<ApiSdk.Models.DeviceManagementAutopilotPolicyStatusDetail> PolicyStatusDetails { get; set; }
 #endif
         /// <summary>Count of applications targeted.</summary>
         public int? TargetedAppCount { get; set; }
@@ -128,12 +128,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementAutopilotEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementAutopilotEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementAutopilotEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementAutopilotEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementAutopilotEvent();
+            return new ApiSdk.Models.DeviceManagementAutopilotEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -144,26 +144,26 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "accountSetupDuration", n => { AccountSetupDuration = n.GetTimeSpanValue(); } },
-                { "accountSetupStatus", n => { AccountSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "accountSetupStatus", n => { AccountSetupStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>(); } },
                 { "deploymentDuration", n => { DeploymentDuration = n.GetTimeSpanValue(); } },
                 { "deploymentEndDateTime", n => { DeploymentEndDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deploymentStartDateTime", n => { DeploymentStartDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deploymentState", n => { DeploymentState = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "deploymentState", n => { DeploymentState = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>(); } },
                 { "deploymentTotalDuration", n => { DeploymentTotalDuration = n.GetTimeSpanValue(); } },
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "devicePreparationDuration", n => { DevicePreparationDuration = n.GetTimeSpanValue(); } },
                 { "deviceRegisteredDateTime", n => { DeviceRegisteredDateTime = n.GetDateTimeOffsetValue(); } },
                 { "deviceSerialNumber", n => { DeviceSerialNumber = n.GetStringValue(); } },
                 { "deviceSetupDuration", n => { DeviceSetupDuration = n.GetTimeSpanValue(); } },
-                { "deviceSetupStatus", n => { DeviceSetupStatus = n.GetEnumValue<WindowsAutopilotDeploymentState>(); } },
+                { "deviceSetupStatus", n => { DeviceSetupStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>(); } },
                 { "enrollmentFailureDetails", n => { EnrollmentFailureDetails = n.GetStringValue(); } },
                 { "enrollmentStartDateTime", n => { EnrollmentStartDateTime = n.GetDateTimeOffsetValue(); } },
-                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
-                { "enrollmentType", n => { EnrollmentType = n.GetEnumValue<WindowsAutopilotEnrollmentType>(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<ApiSdk.Models.EnrollmentState>(); } },
+                { "enrollmentType", n => { EnrollmentType = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotEnrollmentType>(); } },
                 { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
                 { "osVersion", n => { OsVersion = n.GetStringValue(); } },
-                { "policyStatusDetails", n => { PolicyStatusDetails = n.GetCollectionOfObjectValues<DeviceManagementAutopilotPolicyStatusDetail>(DeviceManagementAutopilotPolicyStatusDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policyStatusDetails", n => { PolicyStatusDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementAutopilotPolicyStatusDetail>(ApiSdk.Models.DeviceManagementAutopilotPolicyStatusDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "targetedAppCount", n => { TargetedAppCount = n.GetIntValue(); } },
                 { "targetedPolicyCount", n => { TargetedPolicyCount = n.GetIntValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -181,26 +181,26 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteTimeSpanValue("accountSetupDuration", AccountSetupDuration);
-            writer.WriteEnumValue<WindowsAutopilotDeploymentState>("accountSetupStatus", AccountSetupStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>("accountSetupStatus", AccountSetupStatus);
             writer.WriteTimeSpanValue("deploymentDuration", DeploymentDuration);
             writer.WriteDateTimeOffsetValue("deploymentEndDateTime", DeploymentEndDateTime);
             writer.WriteDateTimeOffsetValue("deploymentStartDateTime", DeploymentStartDateTime);
-            writer.WriteEnumValue<WindowsAutopilotDeploymentState>("deploymentState", DeploymentState);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>("deploymentState", DeploymentState);
             writer.WriteTimeSpanValue("deploymentTotalDuration", DeploymentTotalDuration);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteTimeSpanValue("devicePreparationDuration", DevicePreparationDuration);
             writer.WriteDateTimeOffsetValue("deviceRegisteredDateTime", DeviceRegisteredDateTime);
             writer.WriteStringValue("deviceSerialNumber", DeviceSerialNumber);
             writer.WriteTimeSpanValue("deviceSetupDuration", DeviceSetupDuration);
-            writer.WriteEnumValue<WindowsAutopilotDeploymentState>("deviceSetupStatus", DeviceSetupStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotDeploymentState>("deviceSetupStatus", DeviceSetupStatus);
             writer.WriteStringValue("enrollmentFailureDetails", EnrollmentFailureDetails);
             writer.WriteDateTimeOffsetValue("enrollmentStartDateTime", EnrollmentStartDateTime);
-            writer.WriteEnumValue<EnrollmentState>("enrollmentState", EnrollmentState);
-            writer.WriteEnumValue<WindowsAutopilotEnrollmentType>("enrollmentType", EnrollmentType);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentState>("enrollmentState", EnrollmentState);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotEnrollmentType>("enrollmentType", EnrollmentType);
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("managedDeviceName", ManagedDeviceName);
             writer.WriteStringValue("osVersion", OsVersion);
-            writer.WriteCollectionOfObjectValues<DeviceManagementAutopilotPolicyStatusDetail>("policyStatusDetails", PolicyStatusDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementAutopilotPolicyStatusDetail>("policyStatusDetails", PolicyStatusDetails);
             writer.WriteIntValue("targetedAppCount", TargetedAppCount);
             writer.WriteIntValue("targetedPolicyCount", TargetedPolicyCount);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

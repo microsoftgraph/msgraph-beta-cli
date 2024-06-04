@@ -21,7 +21,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContentFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.ContentFilter"/> and sets the default values.
         /// </summary>
         public ContentFilter()
         {
@@ -30,19 +30,19 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContentFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ContentFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ContentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.ContentFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.driverUpdateFilter" => new DriverUpdateFilter(),
-                "#microsoft.graph.windowsUpdates.qualityUpdateFilter" => new QualityUpdateFilter(),
-                "#microsoft.graph.windowsUpdates.softwareUpdateFilter" => new SoftwareUpdateFilter(),
-                "#microsoft.graph.windowsUpdates.windowsUpdateFilter" => new WindowsUpdateFilter(),
-                _ => new ContentFilter(),
+                "#microsoft.graph.windowsUpdates.driverUpdateFilter" => new ApiSdk.Models.WindowsUpdates.DriverUpdateFilter(),
+                "#microsoft.graph.windowsUpdates.qualityUpdateFilter" => new ApiSdk.Models.WindowsUpdates.QualityUpdateFilter(),
+                "#microsoft.graph.windowsUpdates.softwareUpdateFilter" => new ApiSdk.Models.WindowsUpdates.SoftwareUpdateFilter(),
+                "#microsoft.graph.windowsUpdates.windowsUpdateFilter" => new ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter(),
+                _ => new ApiSdk.Models.WindowsUpdates.ContentFilter(),
             };
         }
         /// <summary>

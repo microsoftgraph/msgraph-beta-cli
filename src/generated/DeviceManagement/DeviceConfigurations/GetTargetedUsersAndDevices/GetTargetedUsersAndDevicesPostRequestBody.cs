@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         public List<string> DeviceConfigurationIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GetTargetedUsersAndDevicesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetTargetedUsersAndDevicesPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetTargetedUsersAndDevicesPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetTargetedUsersAndDevicesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetTargetedUsersAndDevicesPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

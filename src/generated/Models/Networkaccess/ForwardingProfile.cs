@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class ForwardingProfile : Profile, IParsable
+    public class ForwardingProfile : ApiSdk.Models.Networkaccess.Profile, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies the users, groups, devices, and remote networks whose traffic is associated with the given traffic forwarding profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Association>? Associations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.Association>? Associations { get; set; }
 #nullable restore
 #else
-        public List<Association> Associations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.Association> Associations { get; set; }
 #endif
         /// <summary>Profile priority.</summary>
         public int? Priority { get; set; }
@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The trafficForwardingType property</summary>
         public ApiSdk.Models.Networkaccess.TrafficForwardingType? TrafficForwardingType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ForwardingProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.ForwardingProfile"/> and sets the default values.
         /// </summary>
         public ForwardingProfile() : base()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ForwardingProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ForwardingProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ForwardingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.ForwardingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ForwardingProfile();
+            return new ApiSdk.Models.Networkaccess.ForwardingProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,10 +55,10 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "associations", n => { Associations = n.GetCollectionOfObjectValues<Association>(Association.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associations", n => { Associations = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.Association>(ApiSdk.Models.Networkaccess.Association.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "servicePrincipal", n => { ServicePrincipal = n.GetObjectValue<ApiSdk.Models.ServicePrincipal>(ApiSdk.Models.ServicePrincipal.CreateFromDiscriminatorValue); } },
-                { "trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<TrafficForwardingType>(); } },
+                { "trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficForwardingType>(); } },
             };
         }
         /// <summary>
@@ -69,10 +69,10 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Association>("associations", Associations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.Association>("associations", Associations);
             writer.WriteIntValue("priority", Priority);
             writer.WriteObjectValue<ApiSdk.Models.ServicePrincipal>("servicePrincipal", ServicePrincipal);
-            writer.WriteEnumValue<TrafficForwardingType>("trafficForwardingType", TrafficForwardingType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficForwardingType>("trafficForwardingType", TrafficForwardingType);
         }
     }
 }

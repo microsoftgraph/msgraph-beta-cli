@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Android Device Owner PKCS certificate profile
     /// </summary>
-    public class AndroidDeviceOwnerPkcsCertificateProfile : AndroidDeviceOwnerCertificateProfileBase, IParsable
+    public class AndroidDeviceOwnerPkcsCertificateProfile : ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase, IParsable
     {
         /// <summary>Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.</summary>
-        public AndroidDeviceOwnerCertificateAccessType? CertificateAccessType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType? CertificateAccessType { get; set; }
         /// <summary>CertificateStore types</summary>
         public ApiSdk.Models.CertificateStore? CertificateStore { get; set; }
         /// <summary>PKCS Certificate Template Name</summary>
@@ -40,30 +40,30 @@ namespace ApiSdk.Models
         public string CertificationAuthorityName { get; set; }
 #endif
         /// <summary>Device Management Certification Authority Types.</summary>
-        public DeviceManagementCertificationAuthority? CertificationAuthorityType { get; set; }
+        public ApiSdk.Models.DeviceManagementCertificationAuthority? CertificationAuthorityType { get; set; }
         /// <summary>Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
 #nullable restore
 #else
-        public List<CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
 #endif
         /// <summary>Certificate state for devices. This collection can contain a maximum of 2147483647 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
 #endif
         /// <summary>Certificate access information. This collection can contain a maximum of 50 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerSilentCertificateAccess>? SilentCertificateAccessDetails { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>? SilentCertificateAccessDetails { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerSilentCertificateAccess> SilentCertificateAccessDetails { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess> SilentCertificateAccessDetails { get; set; }
 #endif
         /// <summary>Custom String that defines the AAD Attribute.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
         public string SubjectNameFormatString { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerPkcsCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerPkcsCertificateProfile"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerPkcsCertificateProfile() : base()
         {
@@ -91,12 +91,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerPkcsCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerPkcsCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerPkcsCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerPkcsCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerPkcsCertificateProfile();
+            return new ApiSdk.Models.AndroidDeviceOwnerPkcsCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,15 +106,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateAccessType", n => { CertificateAccessType = n.GetEnumValue<AndroidDeviceOwnerCertificateAccessType>(); } },
-                { "certificateStore", n => { CertificateStore = n.GetEnumValue<CertificateStore>(); } },
+                { "certificateAccessType", n => { CertificateAccessType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType>(); } },
+                { "certificateStore", n => { CertificateStore = n.GetEnumValue<ApiSdk.Models.CertificateStore>(); } },
                 { "certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
                 { "certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
                 { "certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
-                { "certificationAuthorityType", n => { CertificationAuthorityType = n.GetEnumValue<DeviceManagementCertificationAuthority>(); } },
-                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "silentCertificateAccessDetails", n => { SilentCertificateAccessDetails = n.GetCollectionOfObjectValues<AndroidDeviceOwnerSilentCertificateAccess>(AndroidDeviceOwnerSilentCertificateAccess.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "certificationAuthorityType", n => { CertificationAuthorityType = n.GetEnumValue<ApiSdk.Models.DeviceManagementCertificationAuthority>(); } },
+                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>(ApiSdk.Models.CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>(ApiSdk.Models.ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "silentCertificateAccessDetails", n => { SilentCertificateAccessDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>(ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
                 { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
             };
@@ -127,15 +127,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AndroidDeviceOwnerCertificateAccessType>("certificateAccessType", CertificateAccessType);
-            writer.WriteEnumValue<CertificateStore>("certificateStore", CertificateStore);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerCertificateAccessType>("certificateAccessType", CertificateAccessType);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateStore>("certificateStore", CertificateStore);
             writer.WriteStringValue("certificateTemplateName", CertificateTemplateName);
             writer.WriteStringValue("certificationAuthority", CertificationAuthority);
             writer.WriteStringValue("certificationAuthorityName", CertificationAuthorityName);
-            writer.WriteEnumValue<DeviceManagementCertificationAuthority>("certificationAuthorityType", CertificationAuthorityType);
-            writer.WriteCollectionOfObjectValues<CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerSilentCertificateAccess>("silentCertificateAccessDetails", SilentCertificateAccessDetails);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementCertificationAuthority>("certificationAuthorityType", CertificationAuthorityType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSilentCertificateAccess>("silentCertificateAccessDetails", SilentCertificateAccessDetails);
             writer.WriteStringValue("subjectAlternativeNameFormatString", SubjectAlternativeNameFormatString);
             writer.WriteStringValue("subjectNameFormatString", SubjectNameFormatString);
         }

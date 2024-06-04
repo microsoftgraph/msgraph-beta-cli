@@ -36,7 +36,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("add-language-files");
             command.Description = "Provides operations to call the addLanguageFiles method.";
-            var builder = new AddLanguageFilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.AddLanguageFiles.AddLanguageFilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -53,7 +53,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("definitions");
             command.Description = "Provides operations to manage the definitions property of the microsoft.graph.groupPolicyDefinitionFile entity.";
-            var builder = new DefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Definitions.DefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -166,7 +166,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("group-policy-operations");
             command.Description = "Provides operations to manage the groupPolicyOperations property of the microsoft.graph.groupPolicyUploadedDefinitionFile entity.";
-            var builder = new GroupPolicyOperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyOperations.GroupPolicyOperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -216,7 +216,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GroupPolicyUploadedDefinitionFile>(GroupPolicyUploadedDefinitionFile.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GroupPolicyUploadedDefinitionFile>(ApiSdk.Models.GroupPolicyUploadedDefinitionFile.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -244,7 +244,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("remove-language-files");
             command.Description = "Provides operations to call the removeLanguageFiles method.";
-            var builder = new RemoveLanguageFilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.RemoveLanguageFiles.RemoveLanguageFilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -261,7 +261,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("remove");
             command.Description = "Provides operations to call the remove method.";
-            var builder = new RemoveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Remove.RemoveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -278,7 +278,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("update-language-files");
             command.Description = "Provides operations to call the updateLanguageFiles method.";
-            var builder = new UpdateLanguageFilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles.UpdateLanguageFilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -295,7 +295,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         {
             var command = new Command("upload-new-version");
             command.Description = "Provides operations to call the uploadNewVersion method.";
-            var builder = new UploadNewVersionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UploadNewVersion.UploadNewVersionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -305,14 +305,14 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyUploadedDefinitionFileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyUploadedDefinitionFileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GroupPolicyUploadedDefinitionFileItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles/{groupPolicyUploadedDefinitionFile%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyUploadedDefinitionFileItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyUploadedDefinitionFileItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GroupPolicyUploadedDefinitionFileItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/groupPolicyUploadedDefinitionFiles/{groupPolicyUploadedDefinitionFile%2Did}{?%24expand,%24select}", rawUrl)
@@ -344,11 +344,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyUploadedDefinitionFileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyUploadedDefinitionFileItemRequestBuilder.GroupPolicyUploadedDefinitionFileItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GroupPolicyUploadedDefinitionFileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.GroupPolicyUploadedDefinitionFileItemRequestBuilder.GroupPolicyUploadedDefinitionFileItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -364,11 +364,11 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GroupPolicyUploadedDefinitionFile body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

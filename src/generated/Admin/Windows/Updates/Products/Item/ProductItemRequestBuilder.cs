@@ -68,7 +68,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
         {
             var command = new Command("editions");
             command.Description = "Provides operations to manage the editions property of the microsoft.graph.windowsUpdates.product entity.";
-            var builder = new EditionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.Editions.EditionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -147,7 +147,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
         {
             var command = new Command("known-issues");
             command.Description = "Provides operations to manage the knownIssues property of the microsoft.graph.windowsUpdates.product entity.";
-            var builder = new KnownIssuesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.KnownIssuesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -174,7 +174,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
         {
             var command = new Command("microsoft-graph-windows-updates-get-known-issues-by-time-range-with-days-in-past-with-include-all-active");
             command.Description = "Provides operations to call the getKnownIssuesByTimeRange method.";
-            var builder = new MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActive.MicrosoftGraphWindowsUpdatesGetKnownIssuesByTimeRangeWithDaysInPastWithIncludeAllActiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -242,7 +242,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
         {
             var command = new Command("revisions");
             command.Description = "Provides operations to manage the revisions property of the microsoft.graph.windowsUpdates.product entity.";
-            var builder = new RevisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.RevisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -262,14 +262,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.ProductItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProductItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.ProductItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProductItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}{?%24expand,%24select}", rawUrl)
@@ -301,11 +301,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.ProductItemRequestBuilder.ProductItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.ProductItemRequestBuilder.ProductItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

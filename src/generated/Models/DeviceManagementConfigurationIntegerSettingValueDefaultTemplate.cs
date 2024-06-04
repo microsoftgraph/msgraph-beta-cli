@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationIntegerSettingValueDefaultTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationIntegerSettingValueDefaultTemplate()
         {
@@ -31,16 +31,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationIntegerSettingValueDefaultTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationIntegerSettingValueDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate" => new DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate(),
-                _ => new DeviceManagementConfigurationIntegerSettingValueDefaultTemplate(),
+                "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate" => new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate(),
             };
         }
         /// <summary>

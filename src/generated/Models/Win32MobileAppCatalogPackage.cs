@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// win32MobileAppCatalogPackage extends mobileAppCatalogPackage by providing information necessary for the creation of a win32CatalogApp instance.
     /// </summary>
-    public class Win32MobileAppCatalogPackage : MobileAppCatalogPackage, IParsable
+    public class Win32MobileAppCatalogPackage : ApiSdk.Models.MobileAppCatalogPackage, IParsable
     {
         /// <summary>Contains properties for Windows architecture.</summary>
-        public WindowsArchitecture? ApplicableArchitectures { get; set; }
+        public ApiSdk.Models.WindowsArchitecture? ApplicableArchitectures { get; set; }
         /// <summary>The product branch name, which is a specific subset of product functionality as defined by the publisher (example: &quot;Fabrikam for Business (x64)&quot;). A specific product will have one or more branchDisplayNames. Read-only. Supports $filter, $search, $select. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether the package is capable to auto-update to latest when software/application updates are available. When TRUE, it indicates it is an auto-updating application. When FALSE, it indicates that it is not an auto-updating application. This property is read-only.</summary>
         public bool? PackageAutoUpdateCapable { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="Win32MobileAppCatalogPackage"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Win32MobileAppCatalogPackage"/> and sets the default values.
         /// </summary>
         public Win32MobileAppCatalogPackage() : base()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Win32MobileAppCatalogPackage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Win32MobileAppCatalogPackage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Win32MobileAppCatalogPackage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Win32MobileAppCatalogPackage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Win32MobileAppCatalogPackage();
+            return new ApiSdk.Models.Win32MobileAppCatalogPackage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<WindowsArchitecture>(); } },
+                { "applicableArchitectures", n => { ApplicableArchitectures = n.GetEnumValue<ApiSdk.Models.WindowsArchitecture>(); } },
                 { "branchDisplayName", n => { BranchDisplayName = n.GetStringValue(); } },
                 { "locales", n => { Locales = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "packageAutoUpdateCapable", n => { PackageAutoUpdateCapable = n.GetBoolValue(); } },
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsArchitecture>("applicableArchitectures", ApplicableArchitectures);
         }
     }
 }

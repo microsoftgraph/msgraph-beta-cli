@@ -50,14 +50,14 @@ namespace ApiSdk.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetP
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetPortalNotificationAsSent.MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/monitoring/alertRecords/{alertRecord%2Did}/microsoft.graph.deviceManagement.setPortalNotificationAsSent", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetPortalNotificationAsSent.MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder(string rawUrl) : base("{+baseurl}/monitoring/alertRecords/{alertRecord%2Did}/microsoft.graph.deviceManagement.setPortalNotificationAsSent", rawUrl)

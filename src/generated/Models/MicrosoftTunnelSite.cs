@@ -10,7 +10,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents a Microsoft Tunnel site
     /// </summary>
-    public class MicrosoftTunnelSite : Entity, IParsable
+    public class MicrosoftTunnelSite : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The site&apos;s description (optional)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace ApiSdk.Models
         /// <summary>A list of MicrosoftTunnelServers that are registered to this MicrosoftTunnelSite</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MicrosoftTunnelServer>? MicrosoftTunnelServers { get; set; }
+        public List<ApiSdk.Models.MicrosoftTunnelServer>? MicrosoftTunnelServers { get; set; }
 #nullable restore
 #else
-        public List<MicrosoftTunnelServer> MicrosoftTunnelServers { get; set; }
+        public List<ApiSdk.Models.MicrosoftTunnelServer> MicrosoftTunnelServers { get; set; }
 #endif
         /// <summary>The site&apos;s public domain name or IP address</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,12 +81,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftTunnelSite"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftTunnelSite"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftTunnelSite CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MicrosoftTunnelSite CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftTunnelSite();
+            return new ApiSdk.Models.MicrosoftTunnelSite();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,7 +100,7 @@ namespace ApiSdk.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "internalNetworkProbeUrl", n => { InternalNetworkProbeUrl = n.GetStringValue(); } },
                 { "microsoftTunnelConfiguration", n => { MicrosoftTunnelConfiguration = n.GetObjectValue<ApiSdk.Models.MicrosoftTunnelConfiguration>(ApiSdk.Models.MicrosoftTunnelConfiguration.CreateFromDiscriminatorValue); } },
-                { "microsoftTunnelServers", n => { MicrosoftTunnelServers = n.GetCollectionOfObjectValues<MicrosoftTunnelServer>(MicrosoftTunnelServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "microsoftTunnelServers", n => { MicrosoftTunnelServers = n.GetCollectionOfObjectValues<ApiSdk.Models.MicrosoftTunnelServer>(ApiSdk.Models.MicrosoftTunnelServer.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "publicAddress", n => { PublicAddress = n.GetStringValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "upgradeAutomatically", n => { UpgradeAutomatically = n.GetBoolValue(); } },
@@ -122,7 +122,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("internalNetworkProbeUrl", InternalNetworkProbeUrl);
             writer.WriteObjectValue<ApiSdk.Models.MicrosoftTunnelConfiguration>("microsoftTunnelConfiguration", MicrosoftTunnelConfiguration);
-            writer.WriteCollectionOfObjectValues<MicrosoftTunnelServer>("microsoftTunnelServers", MicrosoftTunnelServers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MicrosoftTunnelServer>("microsoftTunnelServers", MicrosoftTunnelServers);
             writer.WriteStringValue("publicAddress", PublicAddress);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteBoolValue("upgradeAutomatically", UpgradeAutomatically);

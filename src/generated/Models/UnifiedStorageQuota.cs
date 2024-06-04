@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedStorageQuota : Entity, IParsable
+    public class UnifiedStorageQuota : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The deleted property</summary>
@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The breakdown of services contributing to the user&apos;s quota usage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServiceStorageQuotaBreakdown>? Services { get; set; }
+        public List<ApiSdk.Models.ServiceStorageQuotaBreakdown>? Services { get; set; }
 #nullable restore
 #else
-        public List<ServiceStorageQuotaBreakdown> Services { get; set; }
+        public List<ApiSdk.Models.ServiceStorageQuotaBreakdown> Services { get; set; }
 #endif
         /// <summary>Indicates the state of the storage space. The possible values are: normal, nearing, critical, full, and overLimit.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedStorageQuota"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedStorageQuota"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedStorageQuota CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedStorageQuota CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedStorageQuota();
+            return new ApiSdk.Models.UnifiedStorageQuota();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
                 { "deleted", n => { Deleted = n.GetLongValue(); } },
                 { "manageWebUrl", n => { ManageWebUrl = n.GetStringValue(); } },
                 { "remaining", n => { Remaining = n.GetLongValue(); } },
-                { "services", n => { Services = n.GetCollectionOfObjectValues<ServiceStorageQuotaBreakdown>(ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<ApiSdk.Models.ServiceStorageQuotaBreakdown>(ApiSdk.Models.ServiceStorageQuotaBreakdown.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "state", n => { State = n.GetStringValue(); } },
                 { "total", n => { Total = n.GetLongValue(); } },
                 { "used", n => { Used = n.GetLongValue(); } },
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
             writer.WriteLongValue("deleted", Deleted);
             writer.WriteStringValue("manageWebUrl", ManageWebUrl);
             writer.WriteLongValue("remaining", Remaining);
-            writer.WriteCollectionOfObjectValues<ServiceStorageQuotaBreakdown>("services", Services);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServiceStorageQuotaBreakdown>("services", Services);
             writer.WriteStringValue("state", State);
             writer.WriteLongValue("total", Total);
             writer.WriteLongValue("used", Used);

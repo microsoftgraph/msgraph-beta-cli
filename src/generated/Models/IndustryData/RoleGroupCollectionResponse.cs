@@ -13,20 +13,20 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleGroup>? Value { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleGroup>? Value { get; set; }
 #nullable restore
 #else
-        public List<RoleGroup> Value { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleGroup> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RoleGroupCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.RoleGroupCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RoleGroupCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.RoleGroupCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RoleGroupCollectionResponse();
+            return new ApiSdk.Models.IndustryData.RoleGroupCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<RoleGroup>(RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleGroup>(ApiSdk.Models.IndustryData.RoleGroup.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RoleGroup>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleGroup>("value", Value);
         }
     }
 }

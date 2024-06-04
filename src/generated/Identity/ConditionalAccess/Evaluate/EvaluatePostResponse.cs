@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Identity.ConditionalAccess.Evaluate
 {
     #pragma warning disable CS1591
-    public class EvaluatePostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class EvaluatePostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessWhatIfPolicy>? Value { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessWhatIfPolicy>? Value { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessWhatIfPolicy> Value { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessWhatIfPolicy> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluatePostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Identity.ConditionalAccess.Evaluate.EvaluatePostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EvaluatePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Identity.ConditionalAccess.Evaluate.EvaluatePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluatePostResponse();
+            return new ApiSdk.Identity.ConditionalAccess.Evaluate.EvaluatePostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Evaluate
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<ConditionalAccessWhatIfPolicy>(ConditionalAccessWhatIfPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessWhatIfPolicy>(ApiSdk.Models.ConditionalAccessWhatIfPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Identity.ConditionalAccess.Evaluate
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessWhatIfPolicy>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessWhatIfPolicy>("value", Value);
         }
     }
 }

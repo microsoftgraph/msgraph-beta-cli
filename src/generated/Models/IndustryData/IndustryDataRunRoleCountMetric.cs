@@ -31,7 +31,7 @@ namespace ApiSdk.Models.IndustryData
         public string Role { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRunRoleCountMetric"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric"/> and sets the default values.
         /// </summary>
         public IndustryDataRunRoleCountMetric()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataRunRoleCountMetric"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IndustryDataRunRoleCountMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IndustryDataRunRoleCountMetric();
+            return new ApiSdk.Models.IndustryData.IndustryDataRunRoleCountMetric();
         }
         /// <summary>
         /// The deserialization information for the current model

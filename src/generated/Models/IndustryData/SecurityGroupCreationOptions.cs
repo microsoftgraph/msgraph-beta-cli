@@ -25,7 +25,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityGroupCreationOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.SecurityGroupCreationOptions"/> and sets the default values.
         /// </summary>
         public SecurityGroupCreationOptions()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityGroupCreationOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.SecurityGroupCreationOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SecurityGroupCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.SecurityGroupCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityGroupCreationOptions();
+            return new ApiSdk.Models.IndustryData.SecurityGroupCreationOptions();
         }
         /// <summary>
         /// The deserialization information for the current model

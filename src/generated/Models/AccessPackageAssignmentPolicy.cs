@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessPackageAssignmentPolicy : Entity, IParsable
+    public class AccessPackageAssignmentPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The access package with this policy. Read-only. Nullable. Supports $expand.</summary>
@@ -37,10 +37,10 @@ namespace ApiSdk.Models
         /// <summary>Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews aren&apos;t required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AssignmentReviewSettings? AccessReviewSettings { get; set; }
+        public ApiSdk.Models.AssignmentReviewSettings? AccessReviewSettings { get; set; }
 #nullable restore
 #else
-        public AssignmentReviewSettings AccessReviewSettings { get; set; }
+        public ApiSdk.Models.AssignmentReviewSettings AccessReviewSettings { get; set; }
 #endif
         /// <summary>Indicates whether a user can extend the access package assignment duration after approval.</summary>
         public bool? CanExtend { get; set; }
@@ -57,18 +57,18 @@ namespace ApiSdk.Models
         /// <summary>The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomExtensionHandler>? CustomExtensionHandlers { get; set; }
+        public List<ApiSdk.Models.CustomExtensionHandler>? CustomExtensionHandlers { get; set; }
 #nullable restore
 #else
-        public List<CustomExtensionHandler> CustomExtensionHandlers { get; set; }
+        public List<ApiSdk.Models.CustomExtensionHandler> CustomExtensionHandlers { get; set; }
 #endif
         /// <summary>The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomExtensionStageSetting>? CustomExtensionStageSettings { get; set; }
+        public List<ApiSdk.Models.CustomExtensionStageSetting>? CustomExtensionStageSettings { get; set; }
 #nullable restore
 #else
-        public List<CustomExtensionStageSetting> CustomExtensionStageSettings { get; set; }
+        public List<ApiSdk.Models.CustomExtensionStageSetting> CustomExtensionStageSettings { get; set; }
 #endif
         /// <summary>The description of the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -103,18 +103,18 @@ namespace ApiSdk.Models
         /// <summary>Questions that are posed to the  requestor.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageQuestion>? Questions { get; set; }
+        public List<ApiSdk.Models.AccessPackageQuestion>? Questions { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageQuestion> Questions { get; set; }
+        public List<ApiSdk.Models.AccessPackageQuestion> Questions { get; set; }
 #endif
         /// <summary>Who must approve requests for access package in this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ApprovalSettings? RequestApprovalSettings { get; set; }
+        public ApiSdk.Models.ApprovalSettings? RequestApprovalSettings { get; set; }
 #nullable restore
 #else
-        public ApprovalSettings RequestApprovalSettings { get; set; }
+        public ApiSdk.Models.ApprovalSettings RequestApprovalSettings { get; set; }
 #endif
         /// <summary>Who can request this access package from this policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -135,12 +135,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageAssignmentPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageAssignmentPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageAssignmentPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessPackageAssignmentPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageAssignmentPolicy();
+            return new ApiSdk.Models.AccessPackageAssignmentPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -153,20 +153,20 @@ namespace ApiSdk.Models
                 { "accessPackage", n => { AccessPackage = n.GetObjectValue<ApiSdk.Models.AccessPackage>(ApiSdk.Models.AccessPackage.CreateFromDiscriminatorValue); } },
                 { "accessPackageCatalog", n => { AccessPackageCatalog = n.GetObjectValue<ApiSdk.Models.AccessPackageCatalog>(ApiSdk.Models.AccessPackageCatalog.CreateFromDiscriminatorValue); } },
                 { "accessPackageId", n => { AccessPackageId = n.GetStringValue(); } },
-                { "accessReviewSettings", n => { AccessReviewSettings = n.GetObjectValue<AssignmentReviewSettings>(AssignmentReviewSettings.CreateFromDiscriminatorValue); } },
+                { "accessReviewSettings", n => { AccessReviewSettings = n.GetObjectValue<ApiSdk.Models.AssignmentReviewSettings>(ApiSdk.Models.AssignmentReviewSettings.CreateFromDiscriminatorValue); } },
                 { "canExtend", n => { CanExtend = n.GetBoolValue(); } },
                 { "createdBy", n => { CreatedBy = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "customExtensionHandlers", n => { CustomExtensionHandlers = n.GetCollectionOfObjectValues<CustomExtensionHandler>(CustomExtensionHandler.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "customExtensionStageSettings", n => { CustomExtensionStageSettings = n.GetCollectionOfObjectValues<CustomExtensionStageSetting>(CustomExtensionStageSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customExtensionHandlers", n => { CustomExtensionHandlers = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomExtensionHandler>(ApiSdk.Models.CustomExtensionHandler.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customExtensionStageSettings", n => { CustomExtensionStageSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomExtensionStageSetting>(ApiSdk.Models.CustomExtensionStageSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "durationInDays", n => { DurationInDays = n.GetIntValue(); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "modifiedBy", n => { ModifiedBy = n.GetStringValue(); } },
                 { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "requestApprovalSettings", n => { RequestApprovalSettings = n.GetObjectValue<ApprovalSettings>(ApprovalSettings.CreateFromDiscriminatorValue); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageQuestion>(ApiSdk.Models.AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "requestApprovalSettings", n => { RequestApprovalSettings = n.GetObjectValue<ApiSdk.Models.ApprovalSettings>(ApiSdk.Models.ApprovalSettings.CreateFromDiscriminatorValue); } },
                 { "requestorSettings", n => { RequestorSettings = n.GetObjectValue<ApiSdk.Models.RequestorSettings>(ApiSdk.Models.RequestorSettings.CreateFromDiscriminatorValue); } },
                 { "verifiableCredentialSettings", n => { VerifiableCredentialSettings = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialSettings>(ApiSdk.Models.VerifiableCredentialSettings.CreateFromDiscriminatorValue); } },
             };
@@ -182,20 +182,20 @@ namespace ApiSdk.Models
             writer.WriteObjectValue<ApiSdk.Models.AccessPackage>("accessPackage", AccessPackage);
             writer.WriteObjectValue<ApiSdk.Models.AccessPackageCatalog>("accessPackageCatalog", AccessPackageCatalog);
             writer.WriteStringValue("accessPackageId", AccessPackageId);
-            writer.WriteObjectValue<AssignmentReviewSettings>("accessReviewSettings", AccessReviewSettings);
+            writer.WriteObjectValue<ApiSdk.Models.AssignmentReviewSettings>("accessReviewSettings", AccessReviewSettings);
             writer.WriteBoolValue("canExtend", CanExtend);
             writer.WriteStringValue("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<CustomExtensionHandler>("customExtensionHandlers", CustomExtensionHandlers);
-            writer.WriteCollectionOfObjectValues<CustomExtensionStageSetting>("customExtensionStageSettings", CustomExtensionStageSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomExtensionHandler>("customExtensionHandlers", CustomExtensionHandlers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomExtensionStageSetting>("customExtensionStageSettings", CustomExtensionStageSettings);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteIntValue("durationInDays", DurationInDays);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
             writer.WriteStringValue("modifiedBy", ModifiedBy);
             writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<AccessPackageQuestion>("questions", Questions);
-            writer.WriteObjectValue<ApprovalSettings>("requestApprovalSettings", RequestApprovalSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageQuestion>("questions", Questions);
+            writer.WriteObjectValue<ApiSdk.Models.ApprovalSettings>("requestApprovalSettings", RequestApprovalSettings);
             writer.WriteObjectValue<ApiSdk.Models.RequestorSettings>("requestorSettings", RequestorSettings);
             writer.WriteObjectValue<ApiSdk.Models.VerifiableCredentialSettings>("verifiableCredentialSettings", VerifiableCredentialSettings);
         }

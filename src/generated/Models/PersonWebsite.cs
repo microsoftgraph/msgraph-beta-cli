@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PersonWebsite : ItemFacet, IParsable
+    public class PersonWebsite : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains categories a user has associated with the website (for example, personal, recipes).</summary>
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PersonWebsite"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonWebsite"/> and sets the default values.
         /// </summary>
         public PersonWebsite() : base()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonWebsite"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonWebsite"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PersonWebsite CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PersonWebsite CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonWebsite();
+            return new ApiSdk.Models.PersonWebsite();
         }
         /// <summary>
         /// The deserialization information for the current model

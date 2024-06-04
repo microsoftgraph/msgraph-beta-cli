@@ -9,45 +9,45 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Android Fully Managed device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class AndroidDeviceOwnerVpnConfiguration : VpnConfiguration, IParsable
+    public class AndroidDeviceOwnerVpnConfiguration : ApiSdk.Models.VpnConfiguration, IParsable
     {
         /// <summary>Whether or not to enable always-on VPN connection.</summary>
         public bool? AlwaysOn { get; set; }
         /// <summary>If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.</summary>
         public bool? AlwaysOnLockdown { get; set; }
         /// <summary>Android VPN connection type.</summary>
-        public AndroidVpnConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.AndroidVpnConnectionType? ConnectionType { get; set; }
         /// <summary>Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue>? CustomData { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue> CustomData { get; set; }
 #endif
         /// <summary>Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? CustomKeyValueData { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> CustomKeyValueData { get; set; }
 #endif
         /// <summary>Tenant level settings for the Derived Credentials to be used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
 #nullable restore
 #else
-        public DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
 #endif
         /// <summary>Identity certificate for client authentication when authentication method is certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidDeviceOwnerCertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public AndroidDeviceOwnerCertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>Microsoft Tunnel site ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,18 +68,18 @@ namespace ApiSdk.Models
         /// <summary>Proxy server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VpnProxyServer? ProxyServer { get; set; }
+        public ApiSdk.Models.VpnProxyServer? ProxyServer { get; set; }
 #nullable restore
 #else
-        public VpnProxyServer ProxyServer { get; set; }
+        public ApiSdk.Models.VpnProxyServer ProxyServer { get; set; }
 #endif
         /// <summary>Targeted mobile apps. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? TargetedMobileApps { get; set; }
+        public List<ApiSdk.Models.AppListItem>? TargetedMobileApps { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> TargetedMobileApps { get; set; }
+        public List<ApiSdk.Models.AppListItem> TargetedMobileApps { get; set; }
 #endif
         /// <summary>Targeted App package IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,7 +90,7 @@ namespace ApiSdk.Models
         public List<string> TargetedPackageIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerVpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerVpnConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerVpnConfiguration() : base()
         {
@@ -99,12 +99,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerVpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerVpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerVpnConfiguration();
+            return new ApiSdk.Models.AndroidDeviceOwnerVpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,15 +116,15 @@ namespace ApiSdk.Models
             {
                 { "alwaysOn", n => { AlwaysOn = n.GetBoolValue(); } },
                 { "alwaysOnLockdown", n => { AlwaysOnLockdown = n.GetBoolValue(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<AndroidVpnConnectionType>(); } },
-                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidDeviceOwnerCertificateProfileBase>(AndroidDeviceOwnerCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.AndroidVpnConnectionType>(); } },
+                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>(ApiSdk.Models.DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase>(ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "microsoftTunnelSiteId", n => { MicrosoftTunnelSiteId = n.GetStringValue(); } },
                 { "proxyExclusionList", n => { ProxyExclusionList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
-                { "targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<ApiSdk.Models.VpnProxyServer>(ApiSdk.Models.VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "targetedMobileApps", n => { TargetedMobileApps = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "targetedPackageIds", n => { TargetedPackageIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -138,15 +138,15 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteBoolValue("alwaysOn", AlwaysOn);
             writer.WriteBoolValue("alwaysOnLockdown", AlwaysOnLockdown);
-            writer.WriteEnumValue<AndroidVpnConnectionType>("connectionType", ConnectionType);
-            writer.WriteCollectionOfObjectValues<KeyValue>("customData", CustomData);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("customKeyValueData", CustomKeyValueData);
-            writer.WriteObjectValue<DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
-            writer.WriteObjectValue<AndroidDeviceOwnerCertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidVpnConnectionType>("connectionType", ConnectionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("customData", CustomData);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("customKeyValueData", CustomKeyValueData);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidDeviceOwnerCertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteStringValue("microsoftTunnelSiteId", MicrosoftTunnelSiteId);
             writer.WriteCollectionOfPrimitiveValues<string>("proxyExclusionList", ProxyExclusionList);
-            writer.WriteObjectValue<VpnProxyServer>("proxyServer", ProxyServer);
-            writer.WriteCollectionOfObjectValues<AppListItem>("targetedMobileApps", TargetedMobileApps);
+            writer.WriteObjectValue<ApiSdk.Models.VpnProxyServer>("proxyServer", ProxyServer);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("targetedMobileApps", TargetedMobileApps);
             writer.WriteCollectionOfPrimitiveValues<string>("targetedPackageIds", TargetedPackageIds);
         }
     }

@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Autopilot Deployment Profile
     /// </summary>
-    public class AzureADWindowsAutopilotDeploymentProfile : WindowsAutopilotDeploymentProfile, IParsable
+    public class AzureADWindowsAutopilotDeploymentProfile : ApiSdk.Models.WindowsAutopilotDeploymentProfile, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="AzureADWindowsAutopilotDeploymentProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AzureADWindowsAutopilotDeploymentProfile"/> and sets the default values.
         /// </summary>
         public AzureADWindowsAutopilotDeploymentProfile() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureADWindowsAutopilotDeploymentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureADWindowsAutopilotDeploymentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureADWindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureADWindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureADWindowsAutopilotDeploymentProfile();
+            return new ApiSdk.Models.AzureADWindowsAutopilotDeploymentProfile();
         }
         /// <summary>
         /// The deserialization information for the current model

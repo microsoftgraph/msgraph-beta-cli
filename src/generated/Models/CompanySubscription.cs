@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CompanySubscription : Entity, IParsable
+    public class CompanySubscription : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ID of this subscription in the commerce system. Alternate key.</summary>
@@ -59,10 +59,10 @@ namespace ApiSdk.Models
         /// <summary>The provisioning status of each service that&apos;s included in this subscription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicePlanInfo>? ServiceStatus { get; set; }
+        public List<ApiSdk.Models.ServicePlanInfo>? ServiceStatus { get; set; }
 #nullable restore
 #else
-        public List<ServicePlanInfo> ServiceStatus { get; set; }
+        public List<ApiSdk.Models.ServicePlanInfo> ServiceStatus { get; set; }
 #endif
         /// <summary>The object ID of the SKU associated with this subscription.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,12 +93,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompanySubscription"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CompanySubscription"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CompanySubscription CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CompanySubscription CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompanySubscription();
+            return new ApiSdk.Models.CompanySubscription();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,7 +116,7 @@ namespace ApiSdk.Models
                 { "ownerId", n => { OwnerId = n.GetStringValue(); } },
                 { "ownerTenantId", n => { OwnerTenantId = n.GetStringValue(); } },
                 { "ownerType", n => { OwnerType = n.GetStringValue(); } },
-                { "serviceStatus", n => { ServiceStatus = n.GetCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "serviceStatus", n => { ServiceStatus = n.GetCollectionOfObjectValues<ApiSdk.Models.ServicePlanInfo>(ApiSdk.Models.ServicePlanInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "skuId", n => { SkuId = n.GetStringValue(); } },
                 { "skuPartNumber", n => { SkuPartNumber = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -139,7 +139,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("ownerId", OwnerId);
             writer.WriteStringValue("ownerTenantId", OwnerTenantId);
             writer.WriteStringValue("ownerType", OwnerType);
-            writer.WriteCollectionOfObjectValues<ServicePlanInfo>("serviceStatus", ServiceStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServicePlanInfo>("serviceStatus", ServiceStatus);
             writer.WriteStringValue("skuId", SkuId);
             writer.WriteStringValue("skuPartNumber", SkuPartNumber);
             writer.WriteStringValue("status", Status);

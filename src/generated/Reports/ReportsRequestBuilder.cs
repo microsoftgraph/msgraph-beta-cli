@@ -174,7 +174,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("app-credential-sign-in-activities");
             command.Description = "Provides operations to manage the appCredentialSignInActivities property of the microsoft.graph.reportRoot entity.";
-            var builder = new AppCredentialSignInActivitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.AppCredentialSignInActivities.AppCredentialSignInActivitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -201,7 +201,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("application-sign-in-detailed-summary");
             command.Description = "Provides operations to manage the applicationSignInDetailedSummary property of the microsoft.graph.reportRoot entity.";
-            var builder = new ApplicationSignInDetailedSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ApplicationSignInDetailedSummary.ApplicationSignInDetailedSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -228,7 +228,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("authentication-methods");
             command.Description = "Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.";
-            var builder = new AuthenticationMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.AuthenticationMethods.AuthenticationMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -257,7 +257,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("credential-user-registration-details");
             command.Description = "Provides operations to manage the credentialUserRegistrationDetails property of the microsoft.graph.reportRoot entity.";
-            var builder = new CredentialUserRegistrationDetailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.CredentialUserRegistrationDetails.CredentialUserRegistrationDetailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -284,7 +284,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("daily-print-usage-by-printer");
             command.Description = "Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.";
-            var builder = new DailyPrintUsageByPrinterRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DailyPrintUsageByPrinter.DailyPrintUsageByPrinterRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -311,7 +311,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("daily-print-usage-by-user");
             command.Description = "Provides operations to manage the dailyPrintUsageByUser property of the microsoft.graph.reportRoot entity.";
-            var builder = new DailyPrintUsageByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DailyPrintUsageByUser.DailyPrintUsageByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -338,7 +338,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("daily-print-usage");
             command.Description = "Provides operations to manage the dailyPrintUsage property of the microsoft.graph.reportRoot entity.";
-            var builder = new DailyPrintUsageRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DailyPrintUsage.DailyPrintUsageRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -365,7 +365,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("daily-print-usage-summaries-by-printer");
             command.Description = "Provides operations to manage the dailyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.";
-            var builder = new DailyPrintUsageSummariesByPrinterRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DailyPrintUsageSummariesByPrinter.DailyPrintUsageSummariesByPrinterRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -392,7 +392,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("daily-print-usage-summaries-by-user");
             command.Description = "Provides operations to manage the dailyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.";
-            var builder = new DailyPrintUsageSummariesByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DailyPrintUsageSummariesByUser.DailyPrintUsageSummariesByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -419,7 +419,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("device-configuration-device-activity");
             command.Description = "Provides operations to call the deviceConfigurationDeviceActivity method.";
-            var builder = new DeviceConfigurationDeviceActivityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DeviceConfigurationDeviceActivity.DeviceConfigurationDeviceActivityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -436,7 +436,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("device-configuration-user-activity");
             command.Description = "Provides operations to call the deviceConfigurationUserActivity method.";
-            var builder = new DeviceConfigurationUserActivityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.DeviceConfigurationUserActivity.DeviceConfigurationUserActivityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -453,7 +453,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-attack-simulation-repeat-offenders");
             command.Description = "Provides operations to call the getAttackSimulationRepeatOffenders method.";
-            var builder = new GetAttackSimulationRepeatOffendersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetAttackSimulationRepeatOffenders.GetAttackSimulationRepeatOffendersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -470,7 +470,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-attack-simulation-simulation-user-coverage");
             command.Description = "Provides operations to call the getAttackSimulationSimulationUserCoverage method.";
-            var builder = new GetAttackSimulationSimulationUserCoverageRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetAttackSimulationSimulationUserCoverage.GetAttackSimulationSimulationUserCoverageRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -487,7 +487,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-attack-simulation-training-user-coverage");
             command.Description = "Provides operations to call the getAttackSimulationTrainingUserCoverage method.";
-            var builder = new GetAttackSimulationTrainingUserCoverageRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetAttackSimulationTrainingUserCoverage.GetAttackSimulationTrainingUserCoverageRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -504,7 +504,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-azure-a-d-application-sign-in-summary-with-period");
             command.Description = "Provides operations to call the getAzureADApplicationSignInSummary method.";
-            var builder = new GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetAzureADApplicationSignInSummaryWithPeriod.GetAzureADApplicationSignInSummaryWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -521,7 +521,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-browser-distribution-user-counts-with-period");
             command.Description = "Provides operations to call the getBrowserDistributionUserCounts method.";
-            var builder = new GetBrowserDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetBrowserDistributionUserCountsWithPeriod.GetBrowserDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -538,7 +538,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-browser-user-counts-with-period");
             command.Description = "Provides operations to call the getBrowserUserCounts method.";
-            var builder = new GetBrowserUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetBrowserUserCountsWithPeriod.GetBrowserUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -555,7 +555,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-browser-user-detail-with-period");
             command.Description = "Provides operations to call the getBrowserUserDetail method.";
-            var builder = new GetBrowserUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetBrowserUserDetailWithPeriod.GetBrowserUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -618,7 +618,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-credential-usage-summary-with-period");
             command.Description = "Provides operations to call the getCredentialUsageSummary method.";
-            var builder = new GetCredentialUsageSummaryWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetCredentialUsageSummaryWithPeriod.GetCredentialUsageSummaryWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -635,7 +635,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-credential-user-registration-count");
             command.Description = "Provides operations to call the getCredentialUserRegistrationCount method.";
-            var builder = new GetCredentialUserRegistrationCountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetCredentialUserRegistrationCount.GetCredentialUserRegistrationCountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -652,7 +652,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-activity-counts-with-period");
             command.Description = "Provides operations to call the getEmailActivityCounts method.";
-            var builder = new GetEmailActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailActivityCountsWithPeriod.GetEmailActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -669,7 +669,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getEmailActivityUserCounts method.";
-            var builder = new GetEmailActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailActivityUserCountsWithPeriod.GetEmailActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -686,7 +686,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getEmailActivityUserDetail method.";
-            var builder = new GetEmailActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailActivityUserDetailWithDate.GetEmailActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -703,7 +703,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getEmailActivityUserDetail method.";
-            var builder = new GetEmailActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailActivityUserDetailWithPeriod.GetEmailActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -720,7 +720,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-app-usage-apps-user-counts-with-period");
             command.Description = "Provides operations to call the getEmailAppUsageAppsUserCounts method.";
-            var builder = new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailAppUsageAppsUserCountsWithPeriod.GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -737,7 +737,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-app-usage-user-counts-with-period");
             command.Description = "Provides operations to call the getEmailAppUsageUserCounts method.";
-            var builder = new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailAppUsageUserCountsWithPeriod.GetEmailAppUsageUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -754,7 +754,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-app-usage-user-detail-with-date");
             command.Description = "Provides operations to call the getEmailAppUsageUserDetail method.";
-            var builder = new GetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailAppUsageUserDetailWithDate.GetEmailAppUsageUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -771,7 +771,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-app-usage-user-detail-with-period");
             command.Description = "Provides operations to call the getEmailAppUsageUserDetail method.";
-            var builder = new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailAppUsageUserDetailWithPeriod.GetEmailAppUsageUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -788,7 +788,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-email-app-usage-versions-user-counts-with-period");
             command.Description = "Provides operations to call the getEmailAppUsageVersionsUserCounts method.";
-            var builder = new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetEmailAppUsageVersionsUserCountsWithPeriod.GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -805,7 +805,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-forms-user-activity-counts-with-period");
             command.Description = "Provides operations to call the getFormsUserActivityCounts method.";
-            var builder = new GetFormsUserActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetFormsUserActivityCountsWithPeriod.GetFormsUserActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -822,7 +822,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-forms-user-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getFormsUserActivityUserCounts method.";
-            var builder = new GetFormsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetFormsUserActivityUserCountsWithPeriod.GetFormsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -839,7 +839,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-forms-user-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getFormsUserActivityUserDetail method.";
-            var builder = new GetFormsUserActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetFormsUserActivityUserDetailWithDate.GetFormsUserActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -856,7 +856,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-forms-user-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getFormsUserActivityUserDetail method.";
-            var builder = new GetFormsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetFormsUserActivityUserDetailWithPeriod.GetFormsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -873,7 +873,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-group-archived-print-jobs-with-group-id-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the getGroupArchivedPrintJobs method.";
-            var builder = new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime.GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -890,7 +890,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-m365-app-platform-user-counts-with-period");
             command.Description = "Provides operations to call the getM365AppPlatformUserCounts method.";
-            var builder = new GetM365AppPlatformUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetM365AppPlatformUserCountsWithPeriod.GetM365AppPlatformUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -907,7 +907,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-m365-app-user-counts-with-period");
             command.Description = "Provides operations to call the getM365AppUserCounts method.";
-            var builder = new GetM365AppUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetM365AppUserCountsWithPeriod.GetM365AppUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -924,7 +924,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-m365-app-user-detail-with-date");
             command.Description = "Provides operations to call the getM365AppUserDetail method.";
-            var builder = new GetM365AppUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetM365AppUserDetailWithDate.GetM365AppUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -941,7 +941,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-m365-app-user-detail-with-period");
             command.Description = "Provides operations to call the getM365AppUserDetail method.";
-            var builder = new GetM365AppUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetM365AppUserDetailWithPeriod.GetM365AppUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -958,7 +958,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-mailbox-usage-detail-with-period");
             command.Description = "Provides operations to call the getMailboxUsageDetail method.";
-            var builder = new GetMailboxUsageDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetMailboxUsageDetailWithPeriod.GetMailboxUsageDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -975,7 +975,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-mailbox-usage-mailbox-counts-with-period");
             command.Description = "Provides operations to call the getMailboxUsageMailboxCounts method.";
-            var builder = new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetMailboxUsageMailboxCountsWithPeriod.GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -992,7 +992,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-mailbox-usage-quota-status-mailbox-counts-with-period");
             command.Description = "Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.";
-            var builder = new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetMailboxUsageQuotaStatusMailboxCountsWithPeriod.GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1009,7 +1009,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-mailbox-usage-storage-with-period");
             command.Description = "Provides operations to call the getMailboxUsageStorage method.";
-            var builder = new GetMailboxUsageStorageWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetMailboxUsageStorageWithPeriod.GetMailboxUsageStorageWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1026,7 +1026,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-activation-counts");
             command.Description = "Provides operations to call the getOffice365ActivationCounts method.";
-            var builder = new GetOffice365ActivationCountsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActivationCounts.GetOffice365ActivationCountsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1043,7 +1043,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-activations-user-counts");
             command.Description = "Provides operations to call the getOffice365ActivationsUserCounts method.";
-            var builder = new GetOffice365ActivationsUserCountsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActivationsUserCounts.GetOffice365ActivationsUserCountsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1060,7 +1060,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-activations-user-detail");
             command.Description = "Provides operations to call the getOffice365ActivationsUserDetail method.";
-            var builder = new GetOffice365ActivationsUserDetailRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActivationsUserDetail.GetOffice365ActivationsUserDetailRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1077,7 +1077,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-active-user-counts-with-period");
             command.Description = "Provides operations to call the getOffice365ActiveUserCounts method.";
-            var builder = new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActiveUserCountsWithPeriod.GetOffice365ActiveUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1094,7 +1094,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-active-user-detail-with-date");
             command.Description = "Provides operations to call the getOffice365ActiveUserDetail method.";
-            var builder = new GetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActiveUserDetailWithDate.GetOffice365ActiveUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1111,7 +1111,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-active-user-detail-with-period");
             command.Description = "Provides operations to call the getOffice365ActiveUserDetail method.";
-            var builder = new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod.GetOffice365ActiveUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1128,7 +1128,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-counts-with-period");
             command.Description = "Provides operations to call the getOffice365GroupsActivityCounts method.";
-            var builder = new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityCountsWithPeriod.GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1145,7 +1145,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-detail-with-date");
             command.Description = "Provides operations to call the getOffice365GroupsActivityDetail method.";
-            var builder = new GetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityDetailWithDate.GetOffice365GroupsActivityDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1162,7 +1162,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-detail-with-period");
             command.Description = "Provides operations to call the getOffice365GroupsActivityDetail method.";
-            var builder = new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod.GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1179,7 +1179,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-file-counts-with-period");
             command.Description = "Provides operations to call the getOffice365GroupsActivityFileCounts method.";
-            var builder = new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityFileCountsWithPeriod.GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1196,7 +1196,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-group-counts-with-period");
             command.Description = "Provides operations to call the getOffice365GroupsActivityGroupCounts method.";
-            var builder = new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityGroupCountsWithPeriod.GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1213,7 +1213,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-groups-activity-storage-with-period");
             command.Description = "Provides operations to call the getOffice365GroupsActivityStorage method.";
-            var builder = new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365GroupsActivityStorageWithPeriod.GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1230,7 +1230,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-office365-services-user-counts-with-period");
             command.Description = "Provides operations to call the getOffice365ServicesUserCounts method.";
-            var builder = new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOffice365ServicesUserCountsWithPeriod.GetOffice365ServicesUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1247,7 +1247,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-activity-file-counts-with-period");
             command.Description = "Provides operations to call the getOneDriveActivityFileCounts method.";
-            var builder = new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveActivityFileCountsWithPeriod.GetOneDriveActivityFileCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1264,7 +1264,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getOneDriveActivityUserCounts method.";
-            var builder = new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveActivityUserCountsWithPeriod.GetOneDriveActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1281,7 +1281,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getOneDriveActivityUserDetail method.";
-            var builder = new GetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveActivityUserDetailWithDate.GetOneDriveActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1298,7 +1298,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getOneDriveActivityUserDetail method.";
-            var builder = new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveActivityUserDetailWithPeriod.GetOneDriveActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1315,7 +1315,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-usage-account-counts-with-period");
             command.Description = "Provides operations to call the getOneDriveUsageAccountCounts method.";
-            var builder = new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveUsageAccountCountsWithPeriod.GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1332,7 +1332,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-usage-account-detail-with-date");
             command.Description = "Provides operations to call the getOneDriveUsageAccountDetail method.";
-            var builder = new GetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveUsageAccountDetailWithDate.GetOneDriveUsageAccountDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1349,7 +1349,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-usage-account-detail-with-period");
             command.Description = "Provides operations to call the getOneDriveUsageAccountDetail method.";
-            var builder = new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveUsageAccountDetailWithPeriod.GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1366,7 +1366,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-usage-file-counts-with-period");
             command.Description = "Provides operations to call the getOneDriveUsageFileCounts method.";
-            var builder = new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveUsageFileCountsWithPeriod.GetOneDriveUsageFileCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1383,7 +1383,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-one-drive-usage-storage-with-period");
             command.Description = "Provides operations to call the getOneDriveUsageStorage method.";
-            var builder = new GetOneDriveUsageStorageWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetOneDriveUsageStorageWithPeriod.GetOneDriveUsageStorageWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1400,7 +1400,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-printer-archived-print-jobs-with-printer-id-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the getPrinterArchivedPrintJobs method.";
-            var builder = new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime.GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1417,7 +1417,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-relying-party-detailed-summary-with-period");
             command.Description = "Provides operations to call the getRelyingPartyDetailedSummary method.";
-            var builder = new GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetRelyingPartyDetailedSummaryWithPeriod.GetRelyingPartyDetailedSummaryWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1434,7 +1434,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-activity-file-counts-with-period");
             command.Description = "Provides operations to call the getSharePointActivityFileCounts method.";
-            var builder = new GetSharePointActivityFileCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointActivityFileCountsWithPeriod.GetSharePointActivityFileCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1451,7 +1451,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-activity-pages-with-period");
             command.Description = "Provides operations to call the getSharePointActivityPages method.";
-            var builder = new GetSharePointActivityPagesWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointActivityPagesWithPeriod.GetSharePointActivityPagesWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1468,7 +1468,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getSharePointActivityUserCounts method.";
-            var builder = new GetSharePointActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointActivityUserCountsWithPeriod.GetSharePointActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1485,7 +1485,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getSharePointActivityUserDetail method.";
-            var builder = new GetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointActivityUserDetailWithDate.GetSharePointActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1502,7 +1502,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getSharePointActivityUserDetail method.";
-            var builder = new GetSharePointActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointActivityUserDetailWithPeriod.GetSharePointActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1519,7 +1519,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-detail-with-date");
             command.Description = "Provides operations to call the getSharePointSiteUsageDetail method.";
-            var builder = new GetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsageDetailWithDate.GetSharePointSiteUsageDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1536,7 +1536,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-detail-with-period");
             command.Description = "Provides operations to call the getSharePointSiteUsageDetail method.";
-            var builder = new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsageDetailWithPeriod.GetSharePointSiteUsageDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1553,7 +1553,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-file-counts-with-period");
             command.Description = "Provides operations to call the getSharePointSiteUsageFileCounts method.";
-            var builder = new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsageFileCountsWithPeriod.GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1570,7 +1570,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-pages-with-period");
             command.Description = "Provides operations to call the getSharePointSiteUsagePages method.";
-            var builder = new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsagePagesWithPeriod.GetSharePointSiteUsagePagesWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1587,7 +1587,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-site-counts-with-period");
             command.Description = "Provides operations to call the getSharePointSiteUsageSiteCounts method.";
-            var builder = new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsageSiteCountsWithPeriod.GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1604,7 +1604,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-share-point-site-usage-storage-with-period");
             command.Description = "Provides operations to call the getSharePointSiteUsageStorage method.";
-            var builder = new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSharePointSiteUsageStorageWithPeriod.GetSharePointSiteUsageStorageWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1621,7 +1621,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-activity-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessActivityCounts method.";
-            var builder = new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessActivityCountsWithPeriod.GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1638,7 +1638,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessActivityUserCounts method.";
-            var builder = new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessActivityUserCountsWithPeriod.GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1655,7 +1655,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getSkypeForBusinessActivityUserDetail method.";
-            var builder = new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessActivityUserDetailWithDate.GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1672,7 +1672,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessActivityUserDetail method.";
-            var builder = new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessActivityUserDetailWithPeriod.GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1689,7 +1689,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-device-usage-distribution-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessDeviceUsageDistributionUserCounts method.";
-            var builder = new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod.GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1706,7 +1706,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-device-usage-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessDeviceUsageUserCounts method.";
-            var builder = new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserCountsWithPeriod.GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1723,7 +1723,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-device-usage-user-detail-with-date");
             command.Description = "Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.";
-            var builder = new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithDate.GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1740,7 +1740,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-device-usage-user-detail-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessDeviceUsageUserDetail method.";
-            var builder = new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessDeviceUsageUserDetailWithPeriod.GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1757,7 +1757,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-organizer-activity-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessOrganizerActivityCounts method.";
-            var builder = new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityCountsWithPeriod.GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1774,7 +1774,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-organizer-activity-minute-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessOrganizerActivityMinuteCounts method.";
-            var builder = new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod.GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1791,7 +1791,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-organizer-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessOrganizerActivityUserCounts method.";
-            var builder = new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessOrganizerActivityUserCountsWithPeriod.GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1808,7 +1808,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-participant-activity-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessParticipantActivityCounts method.";
-            var builder = new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessParticipantActivityCountsWithPeriod.GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1825,7 +1825,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-participant-activity-minute-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessParticipantActivityMinuteCounts method.";
-            var builder = new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriod.GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1842,7 +1842,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-participant-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessParticipantActivityUserCounts method.";
-            var builder = new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessParticipantActivityUserCountsWithPeriod.GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1859,7 +1859,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-peer-to-peer-activity-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessPeerToPeerActivityCounts method.";
-            var builder = new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityCountsWithPeriod.GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1876,7 +1876,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-peer-to-peer-activity-minute-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessPeerToPeerActivityMinuteCounts method.";
-            var builder = new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod.GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1893,7 +1893,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-skype-for-business-peer-to-peer-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getSkypeForBusinessPeerToPeerActivityUserCounts method.";
-            var builder = new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod.GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1910,7 +1910,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-distribution-total-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsDeviceUsageDistributionTotalUserCounts method.";
-            var builder = new GetTeamsDeviceUsageDistributionTotalUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageDistributionTotalUserCountsWithPeriod.GetTeamsDeviceUsageDistributionTotalUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1927,7 +1927,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-distribution-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsDeviceUsageDistributionUserCounts method.";
-            var builder = new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageDistributionUserCountsWithPeriod.GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1944,7 +1944,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-total-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsDeviceUsageTotalUserCounts method.";
-            var builder = new GetTeamsDeviceUsageTotalUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageTotalUserCountsWithPeriod.GetTeamsDeviceUsageTotalUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1961,7 +1961,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsDeviceUsageUserCounts method.";
-            var builder = new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageUserCountsWithPeriod.GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1978,7 +1978,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-user-detail-with-date");
             command.Description = "Provides operations to call the getTeamsDeviceUsageUserDetail method.";
-            var builder = new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageUserDetailWithDate.GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -1995,7 +1995,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-device-usage-user-detail-with-period");
             command.Description = "Provides operations to call the getTeamsDeviceUsageUserDetail method.";
-            var builder = new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsDeviceUsageUserDetailWithPeriod.GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2012,7 +2012,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-team-activity-counts-with-period");
             command.Description = "Provides operations to call the getTeamsTeamActivityCounts method.";
-            var builder = new GetTeamsTeamActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsTeamActivityCountsWithPeriod.GetTeamsTeamActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2029,7 +2029,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-team-activity-detail-with-date");
             command.Description = "Provides operations to call the getTeamsTeamActivityDetail method.";
-            var builder = new GetTeamsTeamActivityDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsTeamActivityDetailWithDate.GetTeamsTeamActivityDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2046,7 +2046,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-team-activity-detail-with-period");
             command.Description = "Provides operations to call the getTeamsTeamActivityDetail method.";
-            var builder = new GetTeamsTeamActivityDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsTeamActivityDetailWithPeriod.GetTeamsTeamActivityDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2063,7 +2063,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-team-activity-distribution-counts-with-period");
             command.Description = "Provides operations to call the getTeamsTeamActivityDistributionCounts method.";
-            var builder = new GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsTeamActivityDistributionCountsWithPeriod.GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2080,7 +2080,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-team-counts-with-period");
             command.Description = "Provides operations to call the getTeamsTeamCounts method.";
-            var builder = new GetTeamsTeamCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsTeamCountsWithPeriod.GetTeamsTeamCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2097,7 +2097,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityCounts method.";
-            var builder = new GetTeamsUserActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityCountsWithPeriod.GetTeamsUserActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2114,7 +2114,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-distribution-total-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityDistributionTotalUserCounts method.";
-            var builder = new GetTeamsUserActivityDistributionTotalUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityDistributionTotalUserCountsWithPeriod.GetTeamsUserActivityDistributionTotalUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2131,7 +2131,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-distribution-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityDistributionUserCounts method.";
-            var builder = new GetTeamsUserActivityDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityDistributionUserCountsWithPeriod.GetTeamsUserActivityDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2148,7 +2148,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-total-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityTotalCounts method.";
-            var builder = new GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityTotalCountsWithPeriod.GetTeamsUserActivityTotalCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2165,7 +2165,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-total-distribution-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityTotalDistributionCounts method.";
-            var builder = new GetTeamsUserActivityTotalDistributionCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityTotalDistributionCountsWithPeriod.GetTeamsUserActivityTotalDistributionCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2182,7 +2182,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-total-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityTotalUserCounts method.";
-            var builder = new GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityTotalUserCountsWithPeriod.GetTeamsUserActivityTotalUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2199,7 +2199,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityUserCounts method.";
-            var builder = new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityUserCountsWithPeriod.GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2216,7 +2216,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getTeamsUserActivityUserDetail method.";
-            var builder = new GetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityUserDetailWithDate.GetTeamsUserActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2233,7 +2233,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-teams-user-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getTeamsUserActivityUserDetail method.";
-            var builder = new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetTeamsUserActivityUserDetailWithPeriod.GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2250,7 +2250,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-user-archived-print-jobs-with-user-id-with-start-date-time-with-end-date-time");
             command.Description = "Provides operations to call the getUserArchivedPrintJobs method.";
-            var builder = new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime.GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2267,7 +2267,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-activity-counts-with-period");
             command.Description = "Provides operations to call the getYammerActivityCounts method.";
-            var builder = new GetYammerActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerActivityCountsWithPeriod.GetYammerActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2284,7 +2284,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-activity-user-counts-with-period");
             command.Description = "Provides operations to call the getYammerActivityUserCounts method.";
-            var builder = new GetYammerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerActivityUserCountsWithPeriod.GetYammerActivityUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2301,7 +2301,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-activity-user-detail-with-date");
             command.Description = "Provides operations to call the getYammerActivityUserDetail method.";
-            var builder = new GetYammerActivityUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerActivityUserDetailWithDate.GetYammerActivityUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2318,7 +2318,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-activity-user-detail-with-period");
             command.Description = "Provides operations to call the getYammerActivityUserDetail method.";
-            var builder = new GetYammerActivityUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerActivityUserDetailWithPeriod.GetYammerActivityUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2335,7 +2335,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-device-usage-distribution-user-counts-with-period");
             command.Description = "Provides operations to call the getYammerDeviceUsageDistributionUserCounts method.";
-            var builder = new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerDeviceUsageDistributionUserCountsWithPeriod.GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2352,7 +2352,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-device-usage-user-counts-with-period");
             command.Description = "Provides operations to call the getYammerDeviceUsageUserCounts method.";
-            var builder = new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerDeviceUsageUserCountsWithPeriod.GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2369,7 +2369,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-device-usage-user-detail-with-date");
             command.Description = "Provides operations to call the getYammerDeviceUsageUserDetail method.";
-            var builder = new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerDeviceUsageUserDetailWithDate.GetYammerDeviceUsageUserDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2386,7 +2386,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-device-usage-user-detail-with-period");
             command.Description = "Provides operations to call the getYammerDeviceUsageUserDetail method.";
-            var builder = new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerDeviceUsageUserDetailWithPeriod.GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2403,7 +2403,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-groups-activity-counts-with-period");
             command.Description = "Provides operations to call the getYammerGroupsActivityCounts method.";
-            var builder = new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerGroupsActivityCountsWithPeriod.GetYammerGroupsActivityCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2420,7 +2420,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-groups-activity-detail-with-date");
             command.Description = "Provides operations to call the getYammerGroupsActivityDetail method.";
-            var builder = new GetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerGroupsActivityDetailWithDate.GetYammerGroupsActivityDetailWithDateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2437,7 +2437,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-groups-activity-detail-with-period");
             command.Description = "Provides operations to call the getYammerGroupsActivityDetail method.";
-            var builder = new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerGroupsActivityDetailWithPeriod.GetYammerGroupsActivityDetailWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2454,7 +2454,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("get-yammer-groups-activity-group-counts-with-period");
             command.Description = "Provides operations to call the getYammerGroupsActivityGroupCounts method.";
-            var builder = new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.GetYammerGroupsActivityGroupCountsWithPeriod.GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2471,7 +2471,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-abandonment-details-with-skip-with-top-with-filter-with-skip-token");
             command.Description = "Provides operations to call the managedDeviceEnrollmentAbandonmentDetails method.";
-            var builder = new ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipToken.ManagedDeviceEnrollmentAbandonmentDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2488,7 +2488,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-abandonment-summary-with-skip-with-top-with-filter-with-skip-token");
             command.Description = "Provides operations to call the managedDeviceEnrollmentAbandonmentSummary method.";
-            var builder = new ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipToken.ManagedDeviceEnrollmentAbandonmentSummaryWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2505,7 +2505,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-failure-details");
             command.Description = "Provides operations to call the managedDeviceEnrollmentFailureDetails method.";
-            var builder = new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentFailureDetails.ManagedDeviceEnrollmentFailureDetailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2522,7 +2522,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-failure-details-with-skip-with-top-with-filter-with-skip-token");
             command.Description = "Provides operations to call the managedDeviceEnrollmentFailureDetails method.";
-            var builder = new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken.ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2539,7 +2539,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-failure-trends");
             command.Description = "Provides operations to call the managedDeviceEnrollmentFailureTrends method.";
-            var builder = new ManagedDeviceEnrollmentFailureTrendsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentFailureTrends.ManagedDeviceEnrollmentFailureTrendsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2556,7 +2556,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-top-failures");
             command.Description = "Provides operations to call the managedDeviceEnrollmentTopFailures method.";
-            var builder = new ManagedDeviceEnrollmentTopFailuresRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentTopFailures.ManagedDeviceEnrollmentTopFailuresRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2573,7 +2573,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("managed-device-enrollment-top-failures-with-period");
             command.Description = "Provides operations to call the managedDeviceEnrollmentTopFailures method.";
-            var builder = new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ManagedDeviceEnrollmentTopFailuresWithPeriod.ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -2590,7 +2590,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("monthly-print-usage-by-printer");
             command.Description = "Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.";
-            var builder = new MonthlyPrintUsageByPrinterRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.MonthlyPrintUsageByPrinter.MonthlyPrintUsageByPrinterRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2617,7 +2617,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("monthly-print-usage-by-user");
             command.Description = "Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.";
-            var builder = new MonthlyPrintUsageByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.MonthlyPrintUsageByUser.MonthlyPrintUsageByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2644,7 +2644,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("monthly-print-usage-summaries-by-printer");
             command.Description = "Provides operations to manage the monthlyPrintUsageSummariesByPrinter property of the microsoft.graph.reportRoot entity.";
-            var builder = new MonthlyPrintUsageSummariesByPrinterRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.MonthlyPrintUsageSummariesByPrinter.MonthlyPrintUsageSummariesByPrinterRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2671,7 +2671,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("monthly-print-usage-summaries-by-user");
             command.Description = "Provides operations to manage the monthlyPrintUsageSummariesByUser property of the microsoft.graph.reportRoot entity.";
-            var builder = new MonthlyPrintUsageSummariesByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.MonthlyPrintUsageSummariesByUser.MonthlyPrintUsageSummariesByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2698,7 +2698,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("partners");
             command.Description = "Provides operations to manage the partners property of the microsoft.graph.reportRoot entity.";
-            var builder = new PartnersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.Partners.PartnersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildBillingNavCommand());
@@ -2741,7 +2741,7 @@ namespace ApiSdk.Reports
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ReportRoot>(ReportRoot.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ReportRoot>(ApiSdk.Models.ReportRoot.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -2768,7 +2768,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("security");
             command.Description = "Provides operations to manage the security property of the microsoft.graph.reportRoot entity.";
-            var builder = new SecurityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.Security.SecurityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -2795,7 +2795,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("service-activity");
             command.Description = "Provides operations to manage the serviceActivity property of the microsoft.graph.reportRoot entity.";
-            var builder = new ServiceActivityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServiceActivity.ServiceActivityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -2824,7 +2824,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("service-principal-sign-in-activities");
             command.Description = "Provides operations to manage the servicePrincipalSignInActivities property of the microsoft.graph.reportRoot entity.";
-            var builder = new ServicePrincipalSignInActivitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.ServicePrincipalSignInActivities.ServicePrincipalSignInActivitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2851,7 +2851,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("sla");
             command.Description = "Provides operations to manage the sla property of the microsoft.graph.reportRoot entity.";
-            var builder = new SlaRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.Sla.SlaRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAzureADAuthenticationNavCommand());
@@ -2876,7 +2876,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("user-credential-usage-details");
             command.Description = "Provides operations to manage the userCredentialUsageDetails property of the microsoft.graph.reportRoot entity.";
-            var builder = new UserCredentialUsageDetailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserCredentialUsageDetails.UserCredentialUsageDetailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -2903,7 +2903,7 @@ namespace ApiSdk.Reports
         {
             var command = new Command("user-insights");
             command.Description = "Provides operations to manage the userInsights property of the microsoft.graph.reportRoot entity.";
-            var builder = new UserInsightsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Reports.UserInsights.UserInsightsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildDailyNavCommand());
@@ -2922,14 +2922,14 @@ namespace ApiSdk.Reports
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReportsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/reports{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReportsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Reports.ReportsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReportsRequestBuilder(string rawUrl) : base("{+baseurl}/reports{?%24expand,%24select}", rawUrl)
@@ -2942,11 +2942,11 @@ namespace ApiSdk.Reports
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Reports.ReportsRequestBuilder.ReportsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -2962,11 +2962,11 @@ namespace ApiSdk.Reports
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ReportRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ReportRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ReportRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ReportRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

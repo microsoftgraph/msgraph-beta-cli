@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<MigrateToTemplatePostRequestBody>(MigrateToTemplatePostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody>(ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MigrateToTemplateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MigrateToTemplateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/migrateToTemplate", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MigrateToTemplateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MigrateToTemplateRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}/migrateToTemplate", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(MigrateToTemplatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(MigrateToTemplatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

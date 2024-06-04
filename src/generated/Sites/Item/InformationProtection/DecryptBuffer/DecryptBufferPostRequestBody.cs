@@ -29,7 +29,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.DecryptBuffer
         public byte[] PublishingLicense { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DecryptBufferPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.InformationProtection.DecryptBuffer.DecryptBufferPostRequestBody"/> and sets the default values.
         /// </summary>
         public DecryptBufferPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Sites.Item.InformationProtection.DecryptBuffer
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DecryptBufferPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Sites.Item.InformationProtection.DecryptBuffer.DecryptBufferPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DecryptBufferPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Sites.Item.InformationProtection.DecryptBuffer.DecryptBufferPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DecryptBufferPostRequestBody();
+            return new ApiSdk.Sites.Item.InformationProtection.DecryptBuffer.DecryptBufferPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

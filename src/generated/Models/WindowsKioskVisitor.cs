@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// The class used to identify a visitor kiosk account
     /// </summary>
-    public class WindowsKioskVisitor : WindowsKioskUser, IParsable
+    public class WindowsKioskVisitor : ApiSdk.Models.WindowsKioskUser, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskVisitor"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskVisitor"/> and sets the default values.
         /// </summary>
         public WindowsKioskVisitor() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskVisitor"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskVisitor"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsKioskVisitor CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsKioskVisitor CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsKioskVisitor();
+            return new ApiSdk.Models.WindowsKioskVisitor();
         }
         /// <summary>
         /// The deserialization information for the current model

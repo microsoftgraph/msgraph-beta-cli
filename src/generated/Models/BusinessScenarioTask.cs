@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class BusinessScenarioTask : PlannerTask, IParsable
+    public class BusinessScenarioTask : ApiSdk.Models.PlannerTask, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Scenario-specific properties of the task. externalObjectId and externalBucketId properties must be specified when creating a task.</summary>
@@ -21,20 +21,20 @@ namespace ApiSdk.Models
         /// <summary>Target of the task that specifies where the task should be placed. Must be specified when creating a task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public BusinessScenarioTaskTargetBase? Target { get; set; }
+        public ApiSdk.Models.BusinessScenarioTaskTargetBase? Target { get; set; }
 #nullable restore
 #else
-        public BusinessScenarioTaskTargetBase Target { get; set; }
+        public ApiSdk.Models.BusinessScenarioTaskTargetBase Target { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BusinessScenarioTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BusinessScenarioTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BusinessScenarioTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BusinessScenarioTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BusinessScenarioTask();
+            return new ApiSdk.Models.BusinessScenarioTask();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "businessScenarioProperties", n => { BusinessScenarioProperties = n.GetObjectValue<ApiSdk.Models.BusinessScenarioProperties>(ApiSdk.Models.BusinessScenarioProperties.CreateFromDiscriminatorValue); } },
-                { "target", n => { Target = n.GetObjectValue<BusinessScenarioTaskTargetBase>(BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
+                { "target", n => { Target = n.GetObjectValue<ApiSdk.Models.BusinessScenarioTaskTargetBase>(ApiSdk.Models.BusinessScenarioTaskTargetBase.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.BusinessScenarioProperties>("businessScenarioProperties", BusinessScenarioProperties);
-            writer.WriteObjectValue<BusinessScenarioTaskTargetBase>("target", Target);
+            writer.WriteObjectValue<ApiSdk.Models.BusinessScenarioTaskTargetBase>("target", Target);
         }
     }
 }

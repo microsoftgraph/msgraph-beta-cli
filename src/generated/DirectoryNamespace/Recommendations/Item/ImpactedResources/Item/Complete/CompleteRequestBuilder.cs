@@ -67,14 +67,14 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item.
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item.Complete.CompleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CompleteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directory/recommendations/{recommendation%2Did}/impactedResources/{impactedResource%2Did}/complete", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.Item.Complete.CompleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CompleteRequestBuilder(string rawUrl) : base("{+baseurl}/directory/recommendations/{recommendation%2Did}/impactedResources/{impactedResource%2Did}/complete", rawUrl)

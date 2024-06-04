@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.C
         public string ParentUri { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CreateGooglePlayWebTokenPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken.CreateGooglePlayWebTokenPostRequestBody"/> and sets the default values.
         /// </summary>
         public CreateGooglePlayWebTokenPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.C
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CreateGooglePlayWebTokenPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken.CreateGooglePlayWebTokenPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CreateGooglePlayWebTokenPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken.CreateGooglePlayWebTokenPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CreateGooglePlayWebTokenPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken.CreateGooglePlayWebTokenPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The class used to identify an AzureAD group for the kiosk configuration
     /// </summary>
-    public class WindowsKioskAzureADGroup : WindowsKioskUser, IParsable
+    public class WindowsKioskAzureADGroup : ApiSdk.Models.WindowsKioskUser, IParsable
     {
         /// <summary>The display name of the AzureAD group that will be locked to this kiosk configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         public string GroupId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskAzureADGroup"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskAzureADGroup"/> and sets the default values.
         /// </summary>
         public WindowsKioskAzureADGroup() : base()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskAzureADGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskAzureADGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsKioskAzureADGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsKioskAzureADGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsKioskAzureADGroup();
+            return new ApiSdk.Models.WindowsKioskAzureADGroup();
         }
         /// <summary>
         /// The deserialization information for the current model

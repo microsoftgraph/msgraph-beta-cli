@@ -34,7 +34,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         {
             var command = new Command("applicable-content");
             command.Description = "Provides operations to manage the applicableContent property of the microsoft.graph.windowsUpdates.deploymentAudience entity.";
-            var builder = new ApplicableContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.ApplicableContent.ApplicableContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -97,7 +97,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         {
             var command = new Command("exclusions");
             command.Description = "Provides operations to manage the exclusions property of the microsoft.graph.windowsUpdates.deploymentAudience entity.";
-            var builder = new ExclusionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.ExclusionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -181,7 +181,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         {
             var command = new Command("members");
             command.Description = "Provides operations to manage the members property of the microsoft.graph.windowsUpdates.deploymentAudience entity.";
-            var builder = new MembersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Members.MembersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -212,7 +212,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         {
             var command = new Command("microsoft-graph-windows-updates-update-audience-by-id");
             command.Description = "Provides operations to call the updateAudienceById method.";
-            var builder = new MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.MicrosoftGraphWindowsUpdatesUpdateAudienceById.MicrosoftGraphWindowsUpdatesUpdateAudienceByIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -229,7 +229,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         {
             var command = new Command("microsoft-graph-windows-updates-update-audience");
             command.Description = "Provides operations to call the updateAudience method.";
-            var builder = new MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.MicrosoftGraphWindowsUpdatesUpdateAudience.MicrosoftGraphWindowsUpdatesUpdateAudienceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -269,7 +269,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeploymentAudience>(DeploymentAudience.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentAudience>(ApiSdk.Models.WindowsUpdates.DeploymentAudience.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -290,14 +290,14 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeploymentAudienceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.DeploymentAudienceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeploymentAudienceItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeploymentAudienceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.DeploymentAudienceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeploymentAudienceItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}{?%24expand,%24select}", rawUrl)
@@ -329,11 +329,11 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeploymentAudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.DeploymentAudienceItemRequestBuilder.DeploymentAudienceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeploymentAudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.DeploymentAudienceItemRequestBuilder.DeploymentAudienceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -349,11 +349,11 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeploymentAudience body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.DeploymentAudience body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeploymentAudience body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.DeploymentAudience body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

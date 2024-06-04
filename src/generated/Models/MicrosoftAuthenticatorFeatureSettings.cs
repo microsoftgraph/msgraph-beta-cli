@@ -15,34 +15,34 @@ namespace ApiSdk.Models
         /// <summary>Determines whether users are able to approve push notifications on other Microsoft applications such as Outlook Mobile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationMethodFeatureConfiguration? CompanionAppAllowedState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration? CompanionAppAllowedState { get; set; }
 #nullable restore
 #else
-        public AuthenticationMethodFeatureConfiguration CompanionAppAllowedState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration CompanionAppAllowedState { get; set; }
 #endif
         /// <summary>Determines whether the user&apos;s Authenticator app shows them the client app they&apos;re signing into.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationMethodFeatureConfiguration? DisplayAppInformationRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration? DisplayAppInformationRequiredState { get; set; }
 #nullable restore
 #else
-        public AuthenticationMethodFeatureConfiguration DisplayAppInformationRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration DisplayAppInformationRequiredState { get; set; }
 #endif
         /// <summary>Determines whether the user&apos;s Authenticator app shows them the geographic location of where the authentication request originated from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationMethodFeatureConfiguration? DisplayLocationInformationRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration? DisplayLocationInformationRequiredState { get; set; }
 #nullable restore
 #else
-        public AuthenticationMethodFeatureConfiguration DisplayLocationInformationRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration DisplayLocationInformationRequiredState { get; set; }
 #endif
         /// <summary>Specifies whether the user needs to enter a number in the Authenticator app from the login screen to complete their login. Value is ignored for phone sign-in notifications.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationMethodFeatureConfiguration? NumberMatchingRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration? NumberMatchingRequiredState { get; set; }
 #nullable restore
 #else
-        public AuthenticationMethodFeatureConfiguration NumberMatchingRequiredState { get; set; }
+        public ApiSdk.Models.AuthenticationMethodFeatureConfiguration NumberMatchingRequiredState { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftAuthenticatorFeatureSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MicrosoftAuthenticatorFeatureSettings"/> and sets the default values.
         /// </summary>
         public MicrosoftAuthenticatorFeatureSettings()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftAuthenticatorFeatureSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftAuthenticatorFeatureSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MicrosoftAuthenticatorFeatureSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MicrosoftAuthenticatorFeatureSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftAuthenticatorFeatureSettings();
+            return new ApiSdk.Models.MicrosoftAuthenticatorFeatureSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "companionAppAllowedState", n => { CompanionAppAllowedState = n.GetObjectValue<AuthenticationMethodFeatureConfiguration>(AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
-                { "displayAppInformationRequiredState", n => { DisplayAppInformationRequiredState = n.GetObjectValue<AuthenticationMethodFeatureConfiguration>(AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
-                { "displayLocationInformationRequiredState", n => { DisplayLocationInformationRequiredState = n.GetObjectValue<AuthenticationMethodFeatureConfiguration>(AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
-                { "numberMatchingRequiredState", n => { NumberMatchingRequiredState = n.GetObjectValue<AuthenticationMethodFeatureConfiguration>(AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
+                { "companionAppAllowedState", n => { CompanionAppAllowedState = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>(ApiSdk.Models.AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
+                { "displayAppInformationRequiredState", n => { DisplayAppInformationRequiredState = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>(ApiSdk.Models.AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
+                { "displayLocationInformationRequiredState", n => { DisplayLocationInformationRequiredState = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>(ApiSdk.Models.AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
+                { "numberMatchingRequiredState", n => { NumberMatchingRequiredState = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>(ApiSdk.Models.AuthenticationMethodFeatureConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -91,10 +91,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<AuthenticationMethodFeatureConfiguration>("companionAppAllowedState", CompanionAppAllowedState);
-            writer.WriteObjectValue<AuthenticationMethodFeatureConfiguration>("displayAppInformationRequiredState", DisplayAppInformationRequiredState);
-            writer.WriteObjectValue<AuthenticationMethodFeatureConfiguration>("displayLocationInformationRequiredState", DisplayLocationInformationRequiredState);
-            writer.WriteObjectValue<AuthenticationMethodFeatureConfiguration>("numberMatchingRequiredState", NumberMatchingRequiredState);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>("companionAppAllowedState", CompanionAppAllowedState);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>("displayAppInformationRequiredState", DisplayAppInformationRequiredState);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>("displayLocationInformationRequiredState", DisplayLocationInformationRequiredState);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodFeatureConfiguration>("numberMatchingRequiredState", NumberMatchingRequiredState);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// This class contains compliance settings for Windows 10.
     /// </summary>
-    public class Windows10CompliancePolicy : DeviceCompliancePolicy, IParsable
+    public class Windows10CompliancePolicy : ApiSdk.Models.DeviceCompliancePolicy, IParsable
     {
         /// <summary>Require active firewall on Windows devices.</summary>
         public bool? ActiveFirewallRequired { get; set; }
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         /// <summary>Require that devices have enabled device threat protection.</summary>
         public bool? DeviceThreatProtectionEnabled { get; set; }
         /// <summary>Device threat protection levels for the Device Threat Protection API.</summary>
-        public DeviceThreatProtectionLevel? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+        public ApiSdk.Models.DeviceThreatProtectionLevel? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
         /// <summary>Require devices to be reported as healthy by Windows Device Health Attestation - early launch antimalware driver is enabled.</summary>
         public bool? EarlyLaunchAntiMalwareDriverEnabled { get; set; }
         /// <summary>When TRUE, indicates that Firmware protection is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Firmware protection is not required to be reported as healthy. Devices that support either Dynamic Root of Trust for Measurement (DRTM) or Firmware Attack Surface Reduction (FASR) will report compliant for this setting. Default value is FALSE.</summary>
@@ -102,7 +102,7 @@ namespace ApiSdk.Models
         /// <summary>Require a password to unlock an idle device.</summary>
         public bool? PasswordRequiredToUnlockFromIdle { get; set; }
         /// <summary>Possible values of required passwords.</summary>
-        public RequiredPasswordType? PasswordRequiredType { get; set; }
+        public ApiSdk.Models.RequiredPasswordType? PasswordRequiredType { get; set; }
         /// <summary>Require devices to be reported as healthy by Windows Device Health Attestation.</summary>
         public bool? RequireHealthyDeviceReport { get; set; }
         /// <summary>Require Windows Defender Antimalware Real-Time Protection on Windows devices.</summary>
@@ -118,15 +118,15 @@ namespace ApiSdk.Models
         /// <summary>The valid operating system build ranges on Windows devices. This collection can contain a maximum of 10000 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OperatingSystemVersionRange>? ValidOperatingSystemBuildRanges { get; set; }
+        public List<ApiSdk.Models.OperatingSystemVersionRange>? ValidOperatingSystemBuildRanges { get; set; }
 #nullable restore
 #else
-        public List<OperatingSystemVersionRange> ValidOperatingSystemBuildRanges { get; set; }
+        public List<ApiSdk.Models.OperatingSystemVersionRange> ValidOperatingSystemBuildRanges { get; set; }
 #endif
         /// <summary>When TRUE, indicates that Virtualization-based Security is required to be reported as healthy by Microsoft Azure Attestion. When FALSE, indicates that Virtualization-based Security is not required to be reported as healthy. Default value is FALSE.</summary>
         public bool? VirtualizationBasedSecurityEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10CompliancePolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10CompliancePolicy"/> and sets the default values.
         /// </summary>
         public Windows10CompliancePolicy() : base()
         {
@@ -135,12 +135,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10CompliancePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10CompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10CompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10CompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10CompliancePolicy();
+            return new ApiSdk.Models.Windows10CompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -160,7 +160,7 @@ namespace ApiSdk.Models
                 { "defenderVersion", n => { DefenderVersion = n.GetStringValue(); } },
                 { "deviceCompliancePolicyScript", n => { DeviceCompliancePolicyScript = n.GetObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>(ApiSdk.Models.DeviceCompliancePolicyScript.CreateFromDiscriminatorValue); } },
                 { "deviceThreatProtectionEnabled", n => { DeviceThreatProtectionEnabled = n.GetBoolValue(); } },
-                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<DeviceThreatProtectionLevel>(); } },
+                { "deviceThreatProtectionRequiredSecurityLevel", n => { DeviceThreatProtectionRequiredSecurityLevel = n.GetEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>(); } },
                 { "earlyLaunchAntiMalwareDriverEnabled", n => { EarlyLaunchAntiMalwareDriverEnabled = n.GetBoolValue(); } },
                 { "firmwareProtectionEnabled", n => { FirmwareProtectionEnabled = n.GetBoolValue(); } },
                 { "kernelDmaProtectionEnabled", n => { KernelDmaProtectionEnabled = n.GetBoolValue(); } },
@@ -177,14 +177,14 @@ namespace ApiSdk.Models
                 { "passwordPreviousPasswordBlockCount", n => { PasswordPreviousPasswordBlockCount = n.GetIntValue(); } },
                 { "passwordRequired", n => { PasswordRequired = n.GetBoolValue(); } },
                 { "passwordRequiredToUnlockFromIdle", n => { PasswordRequiredToUnlockFromIdle = n.GetBoolValue(); } },
-                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<RequiredPasswordType>(); } },
+                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<ApiSdk.Models.RequiredPasswordType>(); } },
                 { "requireHealthyDeviceReport", n => { RequireHealthyDeviceReport = n.GetBoolValue(); } },
                 { "rtpEnabled", n => { RtpEnabled = n.GetBoolValue(); } },
                 { "secureBootEnabled", n => { SecureBootEnabled = n.GetBoolValue(); } },
                 { "signatureOutOfDate", n => { SignatureOutOfDate = n.GetBoolValue(); } },
                 { "storageRequireEncryption", n => { StorageRequireEncryption = n.GetBoolValue(); } },
                 { "tpmRequired", n => { TpmRequired = n.GetBoolValue(); } },
-                { "validOperatingSystemBuildRanges", n => { ValidOperatingSystemBuildRanges = n.GetCollectionOfObjectValues<OperatingSystemVersionRange>(OperatingSystemVersionRange.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "validOperatingSystemBuildRanges", n => { ValidOperatingSystemBuildRanges = n.GetCollectionOfObjectValues<ApiSdk.Models.OperatingSystemVersionRange>(ApiSdk.Models.OperatingSystemVersionRange.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "virtualizationBasedSecurityEnabled", n => { VirtualizationBasedSecurityEnabled = n.GetBoolValue(); } },
             };
         }
@@ -206,7 +206,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("defenderVersion", DefenderVersion);
             writer.WriteObjectValue<ApiSdk.Models.DeviceCompliancePolicyScript>("deviceCompliancePolicyScript", DeviceCompliancePolicyScript);
             writer.WriteBoolValue("deviceThreatProtectionEnabled", DeviceThreatProtectionEnabled);
-            writer.WriteEnumValue<DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceThreatProtectionLevel>("deviceThreatProtectionRequiredSecurityLevel", DeviceThreatProtectionRequiredSecurityLevel);
             writer.WriteBoolValue("earlyLaunchAntiMalwareDriverEnabled", EarlyLaunchAntiMalwareDriverEnabled);
             writer.WriteBoolValue("firmwareProtectionEnabled", FirmwareProtectionEnabled);
             writer.WriteBoolValue("kernelDmaProtectionEnabled", KernelDmaProtectionEnabled);
@@ -223,14 +223,14 @@ namespace ApiSdk.Models
             writer.WriteIntValue("passwordPreviousPasswordBlockCount", PasswordPreviousPasswordBlockCount);
             writer.WriteBoolValue("passwordRequired", PasswordRequired);
             writer.WriteBoolValue("passwordRequiredToUnlockFromIdle", PasswordRequiredToUnlockFromIdle);
-            writer.WriteEnumValue<RequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
+            writer.WriteEnumValue<ApiSdk.Models.RequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
             writer.WriteBoolValue("requireHealthyDeviceReport", RequireHealthyDeviceReport);
             writer.WriteBoolValue("rtpEnabled", RtpEnabled);
             writer.WriteBoolValue("secureBootEnabled", SecureBootEnabled);
             writer.WriteBoolValue("signatureOutOfDate", SignatureOutOfDate);
             writer.WriteBoolValue("storageRequireEncryption", StorageRequireEncryption);
             writer.WriteBoolValue("tpmRequired", TpmRequired);
-            writer.WriteCollectionOfObjectValues<OperatingSystemVersionRange>("validOperatingSystemBuildRanges", ValidOperatingSystemBuildRanges);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OperatingSystemVersionRange>("validOperatingSystemBuildRanges", ValidOperatingSystemBuildRanges);
             writer.WriteBoolValue("virtualizationBasedSecurityEnabled", VirtualizationBasedSecurityEnabled);
         }
     }

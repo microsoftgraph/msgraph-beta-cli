@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Connector : Entity, IParsable
+    public class Connector : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The external IP address as detected by the connector server. Read-only.</summary>
@@ -29,13 +29,13 @@ namespace ApiSdk.Models
         /// <summary>The connectorGroup that the connector is a member of. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConnectorGroup>? MemberOf { get; set; }
+        public List<ApiSdk.Models.ConnectorGroup>? MemberOf { get; set; }
 #nullable restore
 #else
-        public List<ConnectorGroup> MemberOf { get; set; }
+        public List<ApiSdk.Models.ConnectorGroup> MemberOf { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public ConnectorStatus? Status { get; set; }
+        public ApiSdk.Models.ConnectorStatus? Status { get; set; }
         /// <summary>The version of the connector.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Connector"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Connector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Connector CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Connector CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Connector();
+            return new ApiSdk.Models.Connector();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,8 +64,8 @@ namespace ApiSdk.Models
             {
                 { "externalIp", n => { ExternalIp = n.GetStringValue(); } },
                 { "machineName", n => { MachineName = n.GetStringValue(); } },
-                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<ConnectorGroup>(ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<ConnectorStatus>(); } },
+                { "memberOf", n => { MemberOf = n.GetCollectionOfObjectValues<ApiSdk.Models.ConnectorGroup>(ApiSdk.Models.ConnectorGroup.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ConnectorStatus>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -79,8 +79,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("externalIp", ExternalIp);
             writer.WriteStringValue("machineName", MachineName);
-            writer.WriteCollectionOfObjectValues<ConnectorGroup>("memberOf", MemberOf);
-            writer.WriteEnumValue<ConnectorStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConnectorGroup>("memberOf", MemberOf);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectorStatus>("status", Status);
             writer.WriteStringValue("version", Version);
         }
     }

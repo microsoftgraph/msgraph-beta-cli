@@ -31,7 +31,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item
         {
             var command = new Command("activities");
             command.Description = "Provides operations to manage the activities property of the microsoft.graph.industryData.industryDataRun entity.";
-            var builder = new ActivitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Runs.Item.Activities.ActivitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -110,7 +110,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item
         {
             var command = new Command("microsoft-graph-industry-data-get-statistics-by-id");
             command.Description = "Provides operations to call the getStatistics method.";
-            var builder = new MicrosoftGraphIndustryDataGetStatisticsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetStatistics.MicrosoftGraphIndustryDataGetStatisticsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -120,14 +120,14 @@ namespace ApiSdk.External.IndustryData.Runs.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRunItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.IndustryDataRunItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public IndustryDataRunItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRunItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.IndustryDataRunItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public IndustryDataRunItemRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}{?%24expand,%24select}", rawUrl)
@@ -140,11 +140,11 @@ namespace ApiSdk.External.IndustryData.Runs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IndustryDataRunItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.Runs.Item.IndustryDataRunItemRequestBuilder.IndustryDataRunItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IndustryDataRunItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.Runs.Item.IndustryDataRunItemRequestBuilder.IndustryDataRunItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

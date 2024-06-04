@@ -39,7 +39,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("default-ios-enrollment-profile");
             command.Description = "Provides operations to manage the defaultIosEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.";
-            var builder = new DefaultIosEnrollmentProfileRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultIosEnrollmentProfile.DefaultIosEnrollmentProfileRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("default-mac-os-enrollment-profile");
             command.Description = "Provides operations to manage the defaultMacOsEnrollmentProfile property of the microsoft.graph.depOnboardingSetting entity.";
-            var builder = new DefaultMacOsEnrollmentProfileRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DefaultMacOsEnrollmentProfile.DefaultMacOsEnrollmentProfileRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -108,7 +108,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("enrollment-profiles");
             command.Description = "Provides operations to manage the enrollmentProfiles property of the microsoft.graph.depOnboardingSetting entity.";
-            var builder = new EnrollmentProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.EnrollmentProfiles.EnrollmentProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -135,7 +135,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("generate-encryption-public-key");
             command.Description = "Provides operations to call the generateEncryptionPublicKey method.";
-            var builder = new GenerateEncryptionPublicKeyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GenerateEncryptionPublicKey.GenerateEncryptionPublicKeyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -204,7 +204,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("get-encryption-public-key");
             command.Description = "Provides operations to call the getEncryptionPublicKey method.";
-            var builder = new GetEncryptionPublicKeyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey.GetEncryptionPublicKeyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -221,7 +221,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("imported-apple-device-identities");
             command.Description = "Provides operations to manage the importedAppleDeviceIdentities property of the microsoft.graph.depOnboardingSetting entity.";
-            var builder = new ImportedAppleDeviceIdentitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ImportedAppleDeviceIdentities.ImportedAppleDeviceIdentitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -272,7 +272,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DepOnboardingSetting>(DepOnboardingSetting.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DepOnboardingSetting>(ApiSdk.Models.DepOnboardingSetting.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -300,7 +300,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("share-for-school-data-sync-service");
             command.Description = "Provides operations to call the shareForSchoolDataSyncService method.";
-            var builder = new ShareForSchoolDataSyncServiceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.ShareForSchoolDataSyncService.ShareForSchoolDataSyncServiceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -317,7 +317,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("sync-with-apple-device-enrollment-program");
             command.Description = "Provides operations to call the syncWithAppleDeviceEnrollmentProgram method.";
-            var builder = new SyncWithAppleDeviceEnrollmentProgramRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.SyncWithAppleDeviceEnrollmentProgram.SyncWithAppleDeviceEnrollmentProgramRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -334,7 +334,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("unshare-for-school-data-sync-service");
             command.Description = "Provides operations to call the unshareForSchoolDataSyncService method.";
-            var builder = new UnshareForSchoolDataSyncServiceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UnshareForSchoolDataSyncService.UnshareForSchoolDataSyncServiceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -351,7 +351,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         {
             var command = new Command("upload-dep-token");
             command.Description = "Provides operations to call the uploadDepToken method.";
-            var builder = new UploadDepTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.UploadDepToken.UploadDepTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -361,14 +361,14 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DepOnboardingSettingItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DepOnboardingSettingItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DepOnboardingSettingItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DepOnboardingSettingItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DepOnboardingSettingItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DepOnboardingSettingItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}{?%24expand,%24select}", rawUrl)
@@ -400,11 +400,11 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DepOnboardingSettingItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DepOnboardingSettingItemRequestBuilder.DepOnboardingSettingItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DepOnboardingSettingItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DepOnboardingSettings.Item.DepOnboardingSettingItemRequestBuilder.DepOnboardingSettingItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -420,11 +420,11 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DepOnboardingSetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DepOnboardingSetting body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DepOnboardingSetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DepOnboardingSetting body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

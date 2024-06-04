@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CustomAction : InformationProtectionAction, IParsable
+    public class CustomAction : ApiSdk.Models.InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Name of the custom action.</summary>
@@ -21,13 +21,13 @@ namespace ApiSdk.Models
         /// <summary>Properties, in key value pair format, of the action.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? Properties { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? Properties { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> Properties { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> Properties { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomAction"/> and sets the default values.
         /// </summary>
         public CustomAction() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CustomAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CustomAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomAction();
+            return new ApiSdk.Models.CustomAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "properties", n => { Properties = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "properties", n => { Properties = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("properties", Properties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("properties", Properties);
         }
     }
 }

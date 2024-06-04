@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for the health summary of the Windows management app.
     /// </summary>
-    public class WindowsManagementAppHealthSummary : Entity, IParsable
+    public class WindowsManagementAppHealthSummary : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Healthy device count.</summary>
         public int? HealthyDeviceCount { get; set; }
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsManagementAppHealthSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsManagementAppHealthSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsManagementAppHealthSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsManagementAppHealthSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsManagementAppHealthSummary();
+            return new ApiSdk.Models.WindowsManagementAppHealthSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

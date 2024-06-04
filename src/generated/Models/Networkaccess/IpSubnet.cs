@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class IpSubnet : RuleDestination, IParsable
+    public class IpSubnet : ApiSdk.Models.Networkaccess.RuleDestination, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines the IP address of the subset used in a destination for a rule.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models.Networkaccess
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IpSubnet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.IpSubnet"/> and sets the default values.
         /// </summary>
         public IpSubnet() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IpSubnet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.IpSubnet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IpSubnet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.IpSubnet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IpSubnet();
+            return new ApiSdk.Models.Networkaccess.IpSubnet();
         }
         /// <summary>
         /// The deserialization information for the current model

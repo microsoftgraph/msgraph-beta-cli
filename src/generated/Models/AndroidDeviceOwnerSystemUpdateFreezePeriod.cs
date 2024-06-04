@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         /// <summary>The month of the start date of the freeze period. Valid values 1 to 12</summary>
         public int? StartMonth { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerSystemUpdateFreezePeriod"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerSystemUpdateFreezePeriod()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerSystemUpdateFreezePeriod"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidDeviceOwnerSystemUpdateFreezePeriod CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerSystemUpdateFreezePeriod();
+            return new ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod();
         }
         /// <summary>
         /// The deserialization information for the current model

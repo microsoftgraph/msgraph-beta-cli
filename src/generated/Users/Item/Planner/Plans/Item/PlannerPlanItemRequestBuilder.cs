@@ -35,7 +35,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("archive");
             command.Description = "Provides operations to call the archive method.";
-            var builder = new ArchiveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.Archive.ArchiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -52,7 +52,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("buckets");
             command.Description = "Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.";
-            var builder = new BucketsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.Buckets.BucketsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -121,7 +121,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("details");
             command.Description = "Provides operations to manage the details property of the microsoft.graph.plannerPlan entity.";
-            var builder = new DetailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.Details.DetailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -198,7 +198,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("move-to-container");
             command.Description = "Provides operations to call the moveToContainer method.";
-            var builder = new MoveToContainerRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.MoveToContainer.MoveToContainerRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -243,7 +243,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PlannerPlan>(PlannerPlan.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PlannerPlan>(ApiSdk.Models.PlannerPlan.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -272,7 +272,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("tasks");
             command.Description = "Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.";
-            var builder = new TasksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.Tasks.TasksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -300,7 +300,7 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         {
             var command = new Command("unarchive");
             command.Description = "Provides operations to call the unarchive method.";
-            var builder = new UnarchiveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Planner.Plans.Item.Unarchive.UnarchiveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -310,14 +310,14 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerPlanItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Planner.Plans.Item.PlannerPlanItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PlannerPlanItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerPlanItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Planner.Plans.Item.PlannerPlanItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PlannerPlanItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/planner/plans/{plannerPlan%2Did}{?%24expand,%24select}", rawUrl)
@@ -349,11 +349,11 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Planner.Plans.Item.PlannerPlanItemRequestBuilder.PlannerPlanItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerPlanItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Planner.Plans.Item.PlannerPlanItemRequestBuilder.PlannerPlanItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -369,11 +369,11 @@ namespace ApiSdk.Users.Item.Planner.Plans.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PlannerPlan body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PlannerPlan body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PlannerPlan body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PlannerPlan body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

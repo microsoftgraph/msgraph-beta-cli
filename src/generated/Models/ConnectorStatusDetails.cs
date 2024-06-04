@@ -34,9 +34,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Connector health state for connector status</summary>
-        public ConnectorHealthState? Status { get; set; }
+        public ApiSdk.Models.ConnectorHealthState? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorStatusDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConnectorStatusDetails"/> and sets the default values.
         /// </summary>
         public ConnectorStatusDetails()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConnectorStatusDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConnectorStatusDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConnectorStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConnectorStatusDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConnectorStatusDetails();
+            return new ApiSdk.Models.ConnectorStatusDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "connectorInstanceId", n => { ConnectorInstanceId = n.GetStringValue(); } },
-                { "connectorName", n => { ConnectorName = n.GetEnumValue<ConnectorName>(); } },
+                { "connectorName", n => { ConnectorName = n.GetEnumValue<ApiSdk.Models.ConnectorName>(); } },
                 { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ConnectorHealthState>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ConnectorHealthState>(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("connectorInstanceId", ConnectorInstanceId);
-            writer.WriteEnumValue<ConnectorName>("connectorName", ConnectorName);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectorName>("connectorName", ConnectorName);
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ConnectorHealthState>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectorHealthState>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

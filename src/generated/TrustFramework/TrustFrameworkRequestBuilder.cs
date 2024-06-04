@@ -77,7 +77,7 @@ namespace ApiSdk.TrustFramework
         {
             var command = new Command("key-sets");
             command.Description = "Provides operations to manage the keySets property of the microsoft.graph.trustFramework entity.";
-            var builder = new KeySetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TrustFramework.KeySets.KeySetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -149,7 +149,7 @@ namespace ApiSdk.TrustFramework
         {
             var command = new Command("policies");
             command.Description = "Provides operations to manage the policies property of the microsoft.graph.trustFramework entity.";
-            var builder = new PoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TrustFramework.Policies.PoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -169,14 +169,14 @@ namespace ApiSdk.TrustFramework
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TrustFrameworkRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.TrustFrameworkRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TrustFrameworkRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/trustFramework{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TrustFrameworkRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.TrustFrameworkRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TrustFrameworkRequestBuilder(string rawUrl) : base("{+baseurl}/trustFramework{?%24expand,%24select}", rawUrl)
@@ -189,11 +189,11 @@ namespace ApiSdk.TrustFramework
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TrustFrameworkRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TrustFramework.TrustFrameworkRequestBuilder.TrustFrameworkRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TrustFrameworkRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TrustFramework.TrustFrameworkRequestBuilder.TrustFrameworkRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

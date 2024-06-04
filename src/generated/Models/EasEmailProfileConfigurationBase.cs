@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Apple device features configuration profile.
     /// </summary>
-    public class EasEmailProfileConfigurationBase : DeviceConfiguration, IParsable
+    public class EasEmailProfileConfigurationBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Custom domain name value used while generating an email profile before installing on the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,13 +20,13 @@ namespace ApiSdk.Models
         public string CustomDomainName { get; set; }
 #endif
         /// <summary>UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.</summary>
-        public DomainNameSource? UserDomainNameSource { get; set; }
+        public ApiSdk.Models.DomainNameSource? UserDomainNameSource { get; set; }
         /// <summary>Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.</summary>
         public ApiSdk.Models.UsernameSource? UsernameAADSource { get; set; }
         /// <summary>Possible values for username source or email source.</summary>
-        public UserEmailSource? UsernameSource { get; set; }
+        public ApiSdk.Models.UserEmailSource? UsernameSource { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EasEmailProfileConfigurationBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EasEmailProfileConfigurationBase"/> and sets the default values.
         /// </summary>
         public EasEmailProfileConfigurationBase() : base()
         {
@@ -35,18 +35,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EasEmailProfileConfigurationBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EasEmailProfileConfigurationBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EasEmailProfileConfigurationBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EasEmailProfileConfigurationBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.iosEasEmailProfileConfiguration" => new IosEasEmailProfileConfiguration(),
-                "#microsoft.graph.windows10EasEmailProfileConfiguration" => new Windows10EasEmailProfileConfiguration(),
-                "#microsoft.graph.windowsPhoneEASEmailProfileConfiguration" => new WindowsPhoneEASEmailProfileConfiguration(),
-                _ => new EasEmailProfileConfigurationBase(),
+                "#microsoft.graph.iosEasEmailProfileConfiguration" => new ApiSdk.Models.IosEasEmailProfileConfiguration(),
+                "#microsoft.graph.windows10EasEmailProfileConfiguration" => new ApiSdk.Models.Windows10EasEmailProfileConfiguration(),
+                "#microsoft.graph.windowsPhoneEASEmailProfileConfiguration" => new ApiSdk.Models.WindowsPhoneEASEmailProfileConfiguration(),
+                _ => new ApiSdk.Models.EasEmailProfileConfigurationBase(),
             };
         }
         /// <summary>
@@ -58,9 +58,9 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "customDomainName", n => { CustomDomainName = n.GetStringValue(); } },
-                { "userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<DomainNameSource>(); } },
-                { "usernameAADSource", n => { UsernameAADSource = n.GetEnumValue<UsernameSource>(); } },
-                { "usernameSource", n => { UsernameSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "userDomainNameSource", n => { UserDomainNameSource = n.GetEnumValue<ApiSdk.Models.DomainNameSource>(); } },
+                { "usernameAADSource", n => { UsernameAADSource = n.GetEnumValue<ApiSdk.Models.UsernameSource>(); } },
+                { "usernameSource", n => { UsernameSource = n.GetEnumValue<ApiSdk.Models.UserEmailSource>(); } },
             };
         }
         /// <summary>
@@ -72,9 +72,9 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("customDomainName", CustomDomainName);
-            writer.WriteEnumValue<DomainNameSource>("userDomainNameSource", UserDomainNameSource);
-            writer.WriteEnumValue<UsernameSource>("usernameAADSource", UsernameAADSource);
-            writer.WriteEnumValue<UserEmailSource>("usernameSource", UsernameSource);
+            writer.WriteEnumValue<ApiSdk.Models.DomainNameSource>("userDomainNameSource", UserDomainNameSource);
+            writer.WriteEnumValue<ApiSdk.Models.UsernameSource>("usernameAADSource", UsernameAADSource);
+            writer.WriteEnumValue<ApiSdk.Models.UserEmailSource>("usernameSource", UsernameSource);
         }
     }
 }

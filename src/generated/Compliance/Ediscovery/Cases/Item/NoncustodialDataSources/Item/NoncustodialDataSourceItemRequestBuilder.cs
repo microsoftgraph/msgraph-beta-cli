@@ -35,7 +35,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("data-source");
             command.Description = "Provides operations to manage the dataSource property of the microsoft.graph.ediscovery.noncustodialDataSource entity.";
-            var builder = new DataSourceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.DataSource.DataSourceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -156,7 +156,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("last-index-operation");
             command.Description = "Provides operations to manage the lastIndexOperation property of the microsoft.graph.ediscovery.dataSourceContainer entity.";
-            var builder = new LastIndexOperationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.LastIndexOperation.LastIndexOperationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -173,7 +173,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("microsoft-graph-ediscovery-apply-hold-by-id");
             command.Description = "Provides operations to call the applyHold method.";
-            var builder = new MicrosoftGraphEdiscoveryApplyHoldRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryApplyHold.MicrosoftGraphEdiscoveryApplyHoldRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -190,7 +190,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("microsoft-graph-ediscovery-release");
             command.Description = "Provides operations to call the release method.";
-            var builder = new MicrosoftGraphEdiscoveryReleaseRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryRelease.MicrosoftGraphEdiscoveryReleaseRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -207,7 +207,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("microsoft-graph-ediscovery-remove-hold-by-id");
             command.Description = "Provides operations to call the removeHold method.";
-            var builder = new MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryRemoveHold.MicrosoftGraphEdiscoveryRemoveHoldRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -224,7 +224,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         {
             var command = new Command("microsoft-graph-ediscovery-update-index");
             command.Description = "Provides operations to call the updateIndex method.";
-            var builder = new MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.MicrosoftGraphEdiscoveryUpdateIndex.MicrosoftGraphEdiscoveryUpdateIndexRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -270,7 +270,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<NoncustodialDataSource>(NoncustodialDataSource.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Ediscovery.NoncustodialDataSource>(ApiSdk.Models.Ediscovery.NoncustodialDataSource.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -292,14 +292,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="NoncustodialDataSourceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.NoncustodialDataSourceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public NoncustodialDataSourceItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="NoncustodialDataSourceItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.NoncustodialDataSourceItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public NoncustodialDataSourceItemRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/noncustodialDataSources/{noncustodialDataSource%2Did}{?%24expand,%24select}", rawUrl)
@@ -333,11 +333,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<NoncustodialDataSourceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.NoncustodialDataSourceItemRequestBuilder.NoncustodialDataSourceItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<NoncustodialDataSourceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item.NoncustodialDataSourceItemRequestBuilder.NoncustodialDataSourceItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -354,11 +354,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(NoncustodialDataSource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Ediscovery.NoncustodialDataSource body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(NoncustodialDataSource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Ediscovery.NoncustodialDataSource body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -66,14 +66,14 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveJustInTimeConfiguration.RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveJustInTimeConfigurationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/referencingConfigurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveJustInTimeConfiguration", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveJustInTimeConfiguration.RetrieveJustInTimeConfigurationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveJustInTimeConfigurationRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/referencingConfigurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveJustInTimeConfiguration", rawUrl)

@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod
 {
     #pragma warning disable CS1591
-    public class GetOffice365GroupsActivityDetailWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetOffice365GroupsActivityDetailWithPeriodGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Office365GroupsActivityDetail>? Value { get; set; }
+        public List<ApiSdk.Models.Office365GroupsActivityDetail>? Value { get; set; }
 #nullable restore
 #else
-        public List<Office365GroupsActivityDetail> Value { get; set; }
+        public List<ApiSdk.Models.Office365GroupsActivityDetail> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetOffice365GroupsActivityDetailWithPeriodGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod.GetOffice365GroupsActivityDetailWithPeriodGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetOffice365GroupsActivityDetailWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod.GetOffice365GroupsActivityDetailWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetOffice365GroupsActivityDetailWithPeriodGetResponse();
+            return new ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod.GetOffice365GroupsActivityDetailWithPeriodGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<Office365GroupsActivityDetail>(Office365GroupsActivityDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Office365GroupsActivityDetail>(ApiSdk.Models.Office365GroupsActivityDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Reports.GetOffice365GroupsActivityDetailWithPeriod
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Office365GroupsActivityDetail>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Office365GroupsActivityDetail>("value", Value);
         }
     }
 }

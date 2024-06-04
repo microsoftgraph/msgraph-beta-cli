@@ -51,16 +51,16 @@ namespace ApiSdk.Models.Networkaccess
         public string SourceIp { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public RemoteNetworkStatus? Status { get; set; }
+        public ApiSdk.Models.Networkaccess.RemoteNetworkStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RemoteNetworkHealthEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RemoteNetworkHealthEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RemoteNetworkHealthEvent();
+            return new ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "remoteNetworkId", n => { RemoteNetworkId = n.GetStringValue(); } },
                 { "sentBytes", n => { SentBytes = n.GetLongValue(); } },
                 { "sourceIp", n => { SourceIp = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<RemoteNetworkStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Networkaccess.RemoteNetworkStatus>(); } },
             };
         }
         /// <summary>
@@ -97,7 +97,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteStringValue("remoteNetworkId", RemoteNetworkId);
             writer.WriteLongValue("sentBytes", SentBytes);
             writer.WriteStringValue("sourceIp", SourceIp);
-            writer.WriteEnumValue<RemoteNetworkStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.RemoteNetworkStatus>("status", Status);
         }
     }
 }

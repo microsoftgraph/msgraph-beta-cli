@@ -21,28 +21,28 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Specifies Microsoft&apos;s end of the tunnel configuration for a device link.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LocalConnectivityConfiguration>? LocalConfigurations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration>? LocalConfigurations { get; set; }
 #nullable restore
 #else
-        public List<LocalConnectivityConfiguration> LocalConfigurations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration> LocalConfigurations { get; set; }
 #endif
         /// <summary>The peerConfiguration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PeerConnectivityConfiguration? PeerConfiguration { get; set; }
+        public ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration? PeerConfiguration { get; set; }
 #nullable restore
 #else
-        public PeerConnectivityConfiguration PeerConfiguration { get; set; }
+        public ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration PeerConfiguration { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConnectivityConfigurationLink"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConnectivityConfigurationLink CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConnectivityConfigurationLink();
+            return new ApiSdk.Models.Networkaccess.ConnectivityConfigurationLink();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models.Networkaccess
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "localConfigurations", n => { LocalConfigurations = n.GetCollectionOfObjectValues<LocalConnectivityConfiguration>(LocalConnectivityConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "peerConfiguration", n => { PeerConfiguration = n.GetObjectValue<PeerConnectivityConfiguration>(PeerConnectivityConfiguration.CreateFromDiscriminatorValue); } },
+                { "localConfigurations", n => { LocalConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration>(ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "peerConfiguration", n => { PeerConfiguration = n.GetObjectValue<ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration>(ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,8 +66,8 @@ namespace ApiSdk.Models.Networkaccess
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<LocalConnectivityConfiguration>("localConfigurations", LocalConfigurations);
-            writer.WriteObjectValue<PeerConnectivityConfiguration>("peerConfiguration", PeerConfiguration);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration>("localConfigurations", LocalConfigurations);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.PeerConnectivityConfiguration>("peerConfiguration", PeerConfiguration);
         }
     }
 }

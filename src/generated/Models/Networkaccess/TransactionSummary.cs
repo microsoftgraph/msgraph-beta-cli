@@ -27,7 +27,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The trafficType property</summary>
         public ApiSdk.Models.Networkaccess.TrafficType? TrafficType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TransactionSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.TransactionSummary"/> and sets the default values.
         /// </summary>
         public TransactionSummary()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TransactionSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.TransactionSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TransactionSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.TransactionSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TransactionSummary();
+            return new ApiSdk.Models.Networkaccess.TransactionSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "blockedCount", n => { BlockedCount = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "totalCount", n => { TotalCount = n.GetIntValue(); } },
-                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficType>(); } },
             };
         }
         /// <summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteIntValue("blockedCount", BlockedCount);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("totalCount", TotalCount);
-            writer.WriteEnumValue<TrafficType>("trafficType", TrafficType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficType>("trafficType", TrafficType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

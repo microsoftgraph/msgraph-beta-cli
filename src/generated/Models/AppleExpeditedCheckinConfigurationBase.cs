@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Experimental profile to increase the rate of device check-ins per day of iOS/macOS devices. This profile type is deprecated.
     /// </summary>
-    public class AppleExpeditedCheckinConfigurationBase : DeviceConfiguration, IParsable
+    public class AppleExpeditedCheckinConfigurationBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Gets or sets whether to enable expedited device check-ins.</summary>
         public bool? EnableExpeditedCheckin { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AppleExpeditedCheckinConfigurationBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AppleExpeditedCheckinConfigurationBase"/> and sets the default values.
         /// </summary>
         public AppleExpeditedCheckinConfigurationBase() : base()
         {
@@ -23,16 +23,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppleExpeditedCheckinConfigurationBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppleExpeditedCheckinConfigurationBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppleExpeditedCheckinConfigurationBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppleExpeditedCheckinConfigurationBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.iosExpeditedCheckinConfiguration" => new IosExpeditedCheckinConfiguration(),
-                _ => new AppleExpeditedCheckinConfigurationBase(),
+                "#microsoft.graph.iosExpeditedCheckinConfiguration" => new ApiSdk.Models.IosExpeditedCheckinConfiguration(),
+                _ => new ApiSdk.Models.AppleExpeditedCheckinConfigurationBase(),
             };
         }
         /// <summary>

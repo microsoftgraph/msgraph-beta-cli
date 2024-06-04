@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing configurations in this profile you can instruct the native email client on Windows Phone to communicate with an Exchange server and get email, contacts, calendar, and tasks. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class WindowsPhoneEASEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable
+    public class WindowsPhoneEASEmailProfileConfiguration : ApiSdk.Models.EasEmailProfileConfigurationBase, IParsable
     {
         /// <summary>Account name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,9 +22,9 @@ namespace ApiSdk.Models
         /// <summary>Value indicating whether this policy only applies to Windows 8.1. This property is read-only.</summary>
         public bool? ApplyOnlyToWindowsPhone81 { get; private set; }
         /// <summary>Possible values for email sync duration.</summary>
-        public EmailSyncDuration? DurationOfEmailToSync { get; set; }
+        public ApiSdk.Models.EmailSyncDuration? DurationOfEmailToSync { get; set; }
         /// <summary>Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.</summary>
-        public UserEmailSource? EmailAddressSource { get; set; }
+        public ApiSdk.Models.UserEmailSource? EmailAddressSource { get; set; }
         /// <summary>Possible values for email sync schedule.</summary>
         public ApiSdk.Models.EmailSyncSchedule? EmailSyncSchedule { get; set; }
         /// <summary>Exchange location that (URL) that the native mail app connects to.</summary>
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         /// <summary>Whether or not to sync tasks.</summary>
         public bool? SyncTasks { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhoneEASEmailProfileConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPhoneEASEmailProfileConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsPhoneEASEmailProfileConfiguration() : base()
         {
@@ -53,12 +53,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPhoneEASEmailProfileConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPhoneEASEmailProfileConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsPhoneEASEmailProfileConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsPhoneEASEmailProfileConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsPhoneEASEmailProfileConfiguration();
+            return new ApiSdk.Models.WindowsPhoneEASEmailProfileConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,9 +70,9 @@ namespace ApiSdk.Models
             {
                 { "accountName", n => { AccountName = n.GetStringValue(); } },
                 { "applyOnlyToWindowsPhone81", n => { ApplyOnlyToWindowsPhone81 = n.GetBoolValue(); } },
-                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                { "emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<EmailSyncSchedule>(); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<ApiSdk.Models.EmailSyncDuration>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<ApiSdk.Models.UserEmailSource>(); } },
+                { "emailSyncSchedule", n => { EmailSyncSchedule = n.GetEnumValue<ApiSdk.Models.EmailSyncSchedule>(); } },
                 { "hostName", n => { HostName = n.GetStringValue(); } },
                 { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
                 { "syncCalendar", n => { SyncCalendar = n.GetBoolValue(); } },
@@ -89,9 +89,9 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("accountName", AccountName);
-            writer.WriteEnumValue<EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
-            writer.WriteEnumValue<UserEmailSource>("emailAddressSource", EmailAddressSource);
-            writer.WriteEnumValue<EmailSyncSchedule>("emailSyncSchedule", EmailSyncSchedule);
+            writer.WriteEnumValue<ApiSdk.Models.EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
+            writer.WriteEnumValue<ApiSdk.Models.UserEmailSource>("emailAddressSource", EmailAddressSource);
+            writer.WriteEnumValue<ApiSdk.Models.EmailSyncSchedule>("emailSyncSchedule", EmailSyncSchedule);
             writer.WriteStringValue("hostName", HostName);
             writer.WriteBoolValue("requireSsl", RequireSsl);
             writer.WriteBoolValue("syncCalendar", SyncCalendar);

@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeliveryOptimizationGroupIdSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeliveryOptimizationGroupIdSource"/> and sets the default values.
         /// </summary>
         public DeliveryOptimizationGroupIdSource()
         {
@@ -31,17 +31,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeliveryOptimizationGroupIdSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeliveryOptimizationGroupIdSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeliveryOptimizationGroupIdSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeliveryOptimizationGroupIdSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deliveryOptimizationGroupIdCustom" => new DeliveryOptimizationGroupIdCustom(),
-                "#microsoft.graph.deliveryOptimizationGroupIdSourceOptions" => new DeliveryOptimizationGroupIdSourceOptions(),
-                _ => new DeliveryOptimizationGroupIdSource(),
+                "#microsoft.graph.deliveryOptimizationGroupIdCustom" => new ApiSdk.Models.DeliveryOptimizationGroupIdCustom(),
+                "#microsoft.graph.deliveryOptimizationGroupIdSourceOptions" => new ApiSdk.Models.DeliveryOptimizationGroupIdSourceOptions(),
+                _ => new ApiSdk.Models.DeliveryOptimizationGroupIdSource(),
             };
         }
         /// <summary>

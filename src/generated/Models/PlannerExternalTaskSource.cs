@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerExternalTaskSource : PlannerTaskCreation, IParsable
+    public class PlannerExternalTaskSource : ApiSdk.Models.PlannerTaskCreation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Nullable. An identifier for the scenario associated with this external source. This should be in reverse DNS format. For example, Contoso company owned application for customer support would have a value like &apos;com.constoso.customerSupport&apos;.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string ContextScenarioId { get; set; }
 #endif
         /// <summary>Specifies how an application should display the link to the associated plannerExternalTaskSource. The possible values are: none, default.</summary>
-        public PlannerExternalTaskSourceDisplayType? DisplayLinkType { get; set; }
+        public ApiSdk.Models.PlannerExternalTaskSourceDisplayType? DisplayLinkType { get; set; }
         /// <summary>The segments of the name of the external experience. Segments represent a hierarchical structure that allows other apps to display the relationship.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerExternalTaskSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerExternalTaskSource"/> and sets the default values.
         /// </summary>
         public PlannerExternalTaskSource() : base()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerExternalTaskSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerExternalTaskSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerExternalTaskSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerExternalTaskSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerExternalTaskSource();
+            return new ApiSdk.Models.PlannerExternalTaskSource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "contextScenarioId", n => { ContextScenarioId = n.GetStringValue(); } },
-                { "displayLinkType", n => { DisplayLinkType = n.GetEnumValue<PlannerExternalTaskSourceDisplayType>(); } },
+                { "displayLinkType", n => { DisplayLinkType = n.GetEnumValue<ApiSdk.Models.PlannerExternalTaskSourceDisplayType>(); } },
                 { "displayNameSegments", n => { DisplayNameSegments = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "externalContextId", n => { ExternalContextId = n.GetStringValue(); } },
                 { "externalObjectId", n => { ExternalObjectId = n.GetStringValue(); } },
@@ -103,7 +103,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("contextScenarioId", ContextScenarioId);
-            writer.WriteEnumValue<PlannerExternalTaskSourceDisplayType>("displayLinkType", DisplayLinkType);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerExternalTaskSourceDisplayType>("displayLinkType", DisplayLinkType);
             writer.WriteCollectionOfPrimitiveValues<string>("displayNameSegments", DisplayNameSegments);
             writer.WriteStringValue("externalContextId", ExternalContextId);
             writer.WriteStringValue("externalObjectId", ExternalObjectId);

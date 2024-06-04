@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PersonAnnotation : ItemFacet, IParsable
+    public class PersonAnnotation : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the detail of the note itself.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Detail { get; set; }
+        public ApiSdk.Models.ItemBody? Detail { get; set; }
 #nullable restore
 #else
-        public ItemBody Detail { get; set; }
+        public ApiSdk.Models.ItemBody Detail { get; set; }
 #endif
         /// <summary>Contains a friendly name for the note.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string ThumbnailUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PersonAnnotation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonAnnotation"/> and sets the default values.
         /// </summary>
         public PersonAnnotation() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonAnnotation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonAnnotation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PersonAnnotation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PersonAnnotation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonAnnotation();
+            return new ApiSdk.Models.PersonAnnotation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "detail", n => { Detail = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "detail", n => { Detail = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
             };
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ItemBody>("detail", Detail);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("detail", Detail);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("thumbnailUrl", ThumbnailUrl);
         }

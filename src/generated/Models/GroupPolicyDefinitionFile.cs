@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity represents an ADMX (Administrative Template) XML file. The ADMX file contains a collection of group policy definitions and their locations by category path. The group policy definition file also contains the languages supported as determined by the language dependent ADML (Administrative Template) language files.
     /// </summary>
-    public class GroupPolicyDefinitionFile : Entity, IParsable
+    public class GroupPolicyDefinitionFile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The group policy definitions associated with the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyDefinition>? Definitions { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinition>? Definitions { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyDefinition> Definitions { get; set; }
+        public List<ApiSdk.Models.GroupPolicyDefinition> Definitions { get; set; }
 #endif
         /// <summary>The localized description of the policy settings in the ADMX file. The default value is empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         /// <summary>The date and time the entity was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Type of Group Policy File or Definition.</summary>
-        public GroupPolicyType? PolicyType { get; set; }
+        public ApiSdk.Models.GroupPolicyType? PolicyType { get; set; }
         /// <summary>The revision version associated with the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -82,16 +82,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyDefinitionFile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyDefinitionFile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyDefinitionFile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyDefinitionFile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.groupPolicyUploadedDefinitionFile" => new GroupPolicyUploadedDefinitionFile(),
-                _ => new GroupPolicyDefinitionFile(),
+                "#microsoft.graph.groupPolicyUploadedDefinitionFile" => new ApiSdk.Models.GroupPolicyUploadedDefinitionFile(),
+                _ => new ApiSdk.Models.GroupPolicyDefinitionFile(),
             };
         }
         /// <summary>
@@ -102,13 +102,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinition>(ApiSdk.Models.GroupPolicyDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "fileName", n => { FileName = n.GetStringValue(); } },
                 { "languageCodes", n => { LanguageCodes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<ApiSdk.Models.GroupPolicyType>(); } },
                 { "revision", n => { Revision = n.GetStringValue(); } },
                 { "targetNamespace", n => { TargetNamespace = n.GetStringValue(); } },
                 { "targetPrefix", n => { TargetPrefix = n.GetStringValue(); } },
@@ -122,13 +122,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GroupPolicyDefinition>("definitions", Definitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyDefinition>("definitions", Definitions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("fileName", FileName);
             writer.WriteCollectionOfPrimitiveValues<string>("languageCodes", LanguageCodes);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<GroupPolicyType>("policyType", PolicyType);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyType>("policyType", PolicyType);
             writer.WriteStringValue("revision", Revision);
             writer.WriteStringValue("targetNamespace", TargetNamespace);
             writer.WriteStringValue("targetPrefix", TargetPrefix);

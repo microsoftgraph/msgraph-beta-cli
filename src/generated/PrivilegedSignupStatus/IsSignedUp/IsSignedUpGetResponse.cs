@@ -15,7 +15,7 @@ namespace ApiSdk.PrivilegedSignupStatus.IsSignedUp
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IsSignedUpGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.IsSignedUp.IsSignedUpGetResponse"/> and sets the default values.
         /// </summary>
         public IsSignedUpGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.PrivilegedSignupStatus.IsSignedUp
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IsSignedUpGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedSignupStatus.IsSignedUp.IsSignedUpGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IsSignedUpGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.PrivilegedSignupStatus.IsSignedUp.IsSignedUpGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IsSignedUpGetResponse();
+            return new ApiSdk.PrivilegedSignupStatus.IsSignedUp.IsSignedUpGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

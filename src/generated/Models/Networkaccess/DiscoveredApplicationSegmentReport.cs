@@ -61,11 +61,11 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The transactionCount property</summary>
         public int? TransactionCount { get; set; }
         /// <summary>The transportProtocol property</summary>
-        public NetworkingProtocol? TransportProtocol { get; set; }
+        public ApiSdk.Models.Networkaccess.NetworkingProtocol? TransportProtocol { get; set; }
         /// <summary>The userCount property</summary>
         public int? UserCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DiscoveredApplicationSegmentReport"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.DiscoveredApplicationSegmentReport"/> and sets the default values.
         /// </summary>
         public DiscoveredApplicationSegmentReport()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DiscoveredApplicationSegmentReport"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.DiscoveredApplicationSegmentReport"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DiscoveredApplicationSegmentReport CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.DiscoveredApplicationSegmentReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DiscoveredApplicationSegmentReport();
+            return new ApiSdk.Models.Networkaccess.DiscoveredApplicationSegmentReport();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,7 +89,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<ApiSdk.Models.Networkaccess.AccessType>(); } },
                 { "deviceCount", n => { DeviceCount = n.GetIntValue(); } },
                 { "discoveredApplicationSegmentId", n => { DiscoveredApplicationSegmentId = n.GetStringValue(); } },
                 { "firstAccessDateTime", n => { FirstAccessDateTime = n.GetDateTimeOffsetValue(); } },
@@ -101,7 +101,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "totalBytesReceived", n => { TotalBytesReceived = n.GetLongValue(); } },
                 { "totalBytesSent", n => { TotalBytesSent = n.GetLongValue(); } },
                 { "transactionCount", n => { TransactionCount = n.GetIntValue(); } },
-                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<NetworkingProtocol>(); } },
+                { "transportProtocol", n => { TransportProtocol = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>(); } },
                 { "userCount", n => { UserCount = n.GetIntValue(); } },
             };
         }
@@ -112,7 +112,7 @@ namespace ApiSdk.Models.Networkaccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AccessType>("accessType", AccessType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.AccessType>("accessType", AccessType);
             writer.WriteIntValue("deviceCount", DeviceCount);
             writer.WriteStringValue("discoveredApplicationSegmentId", DiscoveredApplicationSegmentId);
             writer.WriteDateTimeOffsetValue("firstAccessDateTime", FirstAccessDateTime);
@@ -124,7 +124,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteLongValue("totalBytesReceived", TotalBytesReceived);
             writer.WriteLongValue("totalBytesSent", TotalBytesSent);
             writer.WriteIntValue("transactionCount", TransactionCount);
-            writer.WriteEnumValue<NetworkingProtocol>("transportProtocol", TransportProtocol);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkingProtocol>("transportProtocol", TransportProtocol);
             writer.WriteIntValue("userCount", UserCount);
             writer.WriteAdditionalData(AdditionalData);
         }

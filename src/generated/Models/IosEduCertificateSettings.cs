@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public byte[] TrustedRootCertificate { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosEduCertificateSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosEduCertificateSettings"/> and sets the default values.
         /// </summary>
         public IosEduCertificateSettings()
         {
@@ -77,12 +77,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosEduCertificateSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosEduCertificateSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosEduCertificateSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosEduCertificateSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosEduCertificateSettings();
+            return new ApiSdk.Models.IosEduCertificateSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,7 +94,7 @@ namespace ApiSdk.Models
             {
                 { "certFileName", n => { CertFileName = n.GetStringValue(); } },
                 { "certificateTemplateName", n => { CertificateTemplateName = n.GetStringValue(); } },
-                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
                 { "certificationAuthority", n => { CertificationAuthority = n.GetStringValue(); } },
                 { "certificationAuthorityName", n => { CertificationAuthorityName = n.GetStringValue(); } },
@@ -112,7 +112,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("certFileName", CertFileName);
             writer.WriteStringValue("certificateTemplateName", CertificateTemplateName);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
             writer.WriteIntValue("certificateValidityPeriodValue", CertificateValidityPeriodValue);
             writer.WriteStringValue("certificationAuthority", CertificationAuthority);
             writer.WriteStringValue("certificationAuthorityName", CertificationAuthorityName);

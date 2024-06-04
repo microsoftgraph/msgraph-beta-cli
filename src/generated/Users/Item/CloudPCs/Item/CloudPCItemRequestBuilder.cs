@@ -50,7 +50,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("change-user-account-type");
             command.Description = "Provides operations to call the changeUserAccountType method.";
-            var builder = new ChangeUserAccountTypeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.ChangeUserAccountType.ChangeUserAccountTypeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -67,7 +67,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("create-snapshot");
             command.Description = "Provides operations to call the createSnapshot method.";
-            var builder = new CreateSnapshotRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot.CreateSnapshotRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -125,7 +125,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("end-grace-period");
             command.Description = "Provides operations to call the endGracePeriod method.";
-            var builder = new EndGracePeriodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.EndGracePeriod.EndGracePeriodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -142,7 +142,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("get-cloud-pc-connectivity-history");
             command.Description = "Provides operations to call the getCloudPcConnectivityHistory method.";
-            var builder = new GetCloudPcConnectivityHistoryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcConnectivityHistory.GetCloudPcConnectivityHistoryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -159,7 +159,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("get-cloud-pc-launch-info");
             command.Description = "Provides operations to call the getCloudPcLaunchInfo method.";
-            var builder = new GetCloudPcLaunchInfoRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.GetCloudPcLaunchInfo.GetCloudPcLaunchInfoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -234,7 +234,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("get-frontline-cloud-pc-access-state");
             command.Description = "Provides operations to call the getFrontlineCloudPcAccessState method.";
-            var builder = new GetFrontlineCloudPcAccessStateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.GetFrontlineCloudPcAccessState.GetFrontlineCloudPcAccessStateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -251,7 +251,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("get-shift-work-cloud-pc-access-state");
             command.Description = "Provides operations to call the getShiftWorkCloudPcAccessState method.";
-            var builder = new GetShiftWorkCloudPcAccessStateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.GetShiftWorkCloudPcAccessState.GetShiftWorkCloudPcAccessStateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -268,7 +268,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("get-supported-cloud-pc-remote-actions");
             command.Description = "Provides operations to call the getSupportedCloudPcRemoteActions method.";
-            var builder = new GetSupportedCloudPcRemoteActionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions.GetSupportedCloudPcRemoteActionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -342,7 +342,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("power-off");
             command.Description = "Provides operations to call the powerOff method.";
-            var builder = new PowerOffRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.PowerOff.PowerOffRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -359,7 +359,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("power-on");
             command.Description = "Provides operations to call the powerOn method.";
-            var builder = new PowerOnRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.PowerOn.PowerOnRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -376,7 +376,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("reboot");
             command.Description = "Provides operations to call the reboot method.";
-            var builder = new RebootRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Reboot.RebootRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -393,7 +393,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("rename");
             command.Description = "Provides operations to call the rename method.";
-            var builder = new RenameRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Rename.RenameRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -410,7 +410,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("reprovision");
             command.Description = "Provides operations to call the reprovision method.";
-            var builder = new ReprovisionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Reprovision.ReprovisionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -427,7 +427,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("resize");
             command.Description = "Provides operations to call the resize method.";
-            var builder = new ResizeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Resize.ResizeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -444,7 +444,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("restore");
             command.Description = "Provides operations to call the restore method.";
-            var builder = new RestoreRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Restore.RestoreRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -461,7 +461,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("retrieve-review-status");
             command.Description = "Provides operations to call the retrieveReviewStatus method.";
-            var builder = new RetrieveReviewStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.RetrieveReviewStatus.RetrieveReviewStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -478,7 +478,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("retry-partner-agent-installation");
             command.Description = "Provides operations to call the retryPartnerAgentInstallation method.";
-            var builder = new RetryPartnerAgentInstallationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.RetryPartnerAgentInstallation.RetryPartnerAgentInstallationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -495,7 +495,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("set-review-status");
             command.Description = "Provides operations to call the setReviewStatus method.";
-            var builder = new SetReviewStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.SetReviewStatus.SetReviewStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -512,7 +512,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("start");
             command.Description = "Provides operations to call the start method.";
-            var builder = new StartRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Start.StartRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -529,7 +529,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("stop");
             command.Description = "Provides operations to call the stop method.";
-            var builder = new StopRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Stop.StopRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -546,7 +546,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         {
             var command = new Command("troubleshoot");
             command.Description = "Provides operations to call the troubleshoot method.";
-            var builder = new TroubleshootRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.CloudPCs.Item.Troubleshoot.TroubleshootRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -556,14 +556,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPCItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.CloudPCItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CloudPCItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPCItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.CloudPCItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CloudPCItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}{?%24expand,%24select}", rawUrl)
@@ -595,11 +595,11 @@ namespace ApiSdk.Users.Item.CloudPCs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CloudPCItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.CloudPCs.Item.CloudPCItemRequestBuilder.CloudPCItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CloudPCItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.CloudPCs.Item.CloudPCItemRequestBuilder.CloudPCItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

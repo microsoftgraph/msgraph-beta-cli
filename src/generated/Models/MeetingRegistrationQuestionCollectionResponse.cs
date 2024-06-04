@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MeetingRegistrationQuestionCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class MeetingRegistrationQuestionCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MeetingRegistrationQuestion>? Value { get; set; }
+        public List<ApiSdk.Models.MeetingRegistrationQuestion>? Value { get; set; }
 #nullable restore
 #else
-        public List<MeetingRegistrationQuestion> Value { get; set; }
+        public List<ApiSdk.Models.MeetingRegistrationQuestion> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingRegistrationQuestionCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingRegistrationQuestionCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MeetingRegistrationQuestionCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MeetingRegistrationQuestionCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MeetingRegistrationQuestionCollectionResponse();
+            return new ApiSdk.Models.MeetingRegistrationQuestionCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<MeetingRegistrationQuestion>(MeetingRegistrationQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.MeetingRegistrationQuestion>(ApiSdk.Models.MeetingRegistrationQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<MeetingRegistrationQuestion>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MeetingRegistrationQuestion>("value", Value);
         }
     }
 }

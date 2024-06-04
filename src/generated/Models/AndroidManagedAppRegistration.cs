@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents the synchronization details of an android app, with management capabilities, for a specific user.
     /// </summary>
-    public class AndroidManagedAppRegistration : ManagedAppRegistration, IParsable
+    public class AndroidManagedAppRegistration : ApiSdk.Models.ManagedAppRegistration, IParsable
     {
         /// <summary>The patch version for the current android app registration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string PatchVersion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedAppRegistration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidManagedAppRegistration"/> and sets the default values.
         /// </summary>
         public AndroidManagedAppRegistration() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedAppRegistration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedAppRegistration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedAppRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedAppRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedAppRegistration();
+            return new ApiSdk.Models.AndroidManagedAppRegistration();
         }
         /// <summary>
         /// The deserialization information for the current model

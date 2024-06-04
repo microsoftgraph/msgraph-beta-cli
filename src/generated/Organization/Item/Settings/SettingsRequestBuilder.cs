@@ -33,7 +33,7 @@ namespace ApiSdk.Organization.Item.Settings
         {
             var command = new Command("contact-insights");
             command.Description = "Provides operations to manage the contactInsights property of the microsoft.graph.organizationSettings entity.";
-            var builder = new ContactInsightsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Organization.Item.Settings.ContactInsights.ContactInsightsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -139,7 +139,7 @@ namespace ApiSdk.Organization.Item.Settings
         {
             var command = new Command("item-insights");
             command.Description = "Provides operations to manage the itemInsights property of the microsoft.graph.organizationSettings entity.";
-            var builder = new ItemInsightsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Organization.Item.Settings.ItemInsights.ItemInsightsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -158,7 +158,7 @@ namespace ApiSdk.Organization.Item.Settings
         {
             var command = new Command("microsoft-application-data-access");
             command.Description = "Provides operations to manage the microsoftApplicationDataAccess property of the microsoft.graph.organizationSettings entity.";
-            var builder = new MicrosoftApplicationDataAccessRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Organization.Item.Settings.MicrosoftApplicationDataAccess.MicrosoftApplicationDataAccessRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -228,7 +228,7 @@ namespace ApiSdk.Organization.Item.Settings
         {
             var command = new Command("people-insights");
             command.Description = "Provides operations to manage the peopleInsights property of the microsoft.graph.organizationSettings entity.";
-            var builder = new PeopleInsightsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Organization.Item.Settings.PeopleInsights.PeopleInsightsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -240,14 +240,14 @@ namespace ApiSdk.Organization.Item.Settings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Organization.Item.Settings.SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/organization/{organization%2Did}/settings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Organization.Item.Settings.SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/organization/{organization%2Did}/settings{?%24expand,%24select}", rawUrl)
@@ -279,11 +279,11 @@ namespace ApiSdk.Organization.Item.Settings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Organization.Item.Settings.SettingsRequestBuilder.SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Organization.Item.Settings.SettingsRequestBuilder.SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

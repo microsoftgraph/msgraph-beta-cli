@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS endpoint protection configuration profile.
     /// </summary>
-    public class MacOSEndpointProtectionConfiguration : DeviceConfiguration, IParsable
+    public class MacOSEndpointProtectionConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
-        public Enablement? AdvancedThreatProtectionAutomaticSampleSubmission { get; set; }
+        public ApiSdk.Models.Enablement? AdvancedThreatProtectionAutomaticSampleSubmission { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? AdvancedThreatProtectionCloudDelivered { get; set; }
+        public ApiSdk.Models.Enablement? AdvancedThreatProtectionCloudDelivered { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? AdvancedThreatProtectionDiagnosticDataCollection { get; set; }
+        public ApiSdk.Models.Enablement? AdvancedThreatProtectionDiagnosticDataCollection { get; set; }
         /// <summary>A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         public List<string> AdvancedThreatProtectionExcludedProcesses { get; set; }
 #endif
         /// <summary>Possible values of a property</summary>
-        public Enablement? AdvancedThreatProtectionRealTime { get; set; }
+        public ApiSdk.Models.Enablement? AdvancedThreatProtectionRealTime { get; set; }
         /// <summary>Optional. If set to true, the user can defer the enabling of FileVault until they sign out.</summary>
         public bool? FileVaultAllowDeferralUntilSignOut { get; set; }
         /// <summary>Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.</summary>
@@ -88,14 +88,14 @@ namespace ApiSdk.Models
         /// <summary>Optional. If selected recovery key type(s) include PersonalRecoveryKey, the frequency to rotate that key, in months.</summary>
         public int? FileVaultPersonalRecoveryKeyRotationInMonths { get; set; }
         /// <summary>Recovery key types for macOS FileVault</summary>
-        public MacOSFileVaultRecoveryKeyTypes? FileVaultSelectedRecoveryKeyTypes { get; set; }
+        public ApiSdk.Models.MacOSFileVaultRecoveryKeyTypes? FileVaultSelectedRecoveryKeyTypes { get; set; }
         /// <summary>List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSFirewallApplication>? FirewallApplications { get; set; }
+        public List<ApiSdk.Models.MacOSFirewallApplication>? FirewallApplications { get; set; }
 #nullable restore
 #else
-        public List<MacOSFirewallApplication> FirewallApplications { get; set; }
+        public List<ApiSdk.Models.MacOSFirewallApplication> FirewallApplications { get; set; }
 #endif
         /// <summary>Corresponds to the &apos;Block all incoming connections&apos; option.</summary>
         public bool? FirewallBlockAllIncoming { get; set; }
@@ -104,11 +104,11 @@ namespace ApiSdk.Models
         /// <summary>Corresponds to &apos;Enable stealth mode.&apos;</summary>
         public bool? FirewallEnableStealthMode { get; set; }
         /// <summary>App source options for macOS Gatekeeper.</summary>
-        public MacOSGatekeeperAppSources? GatekeeperAllowedAppSource { get; set; }
+        public ApiSdk.Models.MacOSGatekeeperAppSources? GatekeeperAllowedAppSource { get; set; }
         /// <summary>If set to true, the user override for Gatekeeper will be disabled.</summary>
         public bool? GatekeeperBlockOverride { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSEndpointProtectionConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSEndpointProtectionConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSEndpointProtectionConfiguration() : base()
         {
@@ -117,12 +117,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSEndpointProtectionConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSEndpointProtectionConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSEndpointProtectionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSEndpointProtectionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSEndpointProtectionConfiguration();
+            return new ApiSdk.Models.MacOSEndpointProtectionConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -132,14 +132,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "advancedThreatProtectionAutomaticSampleSubmission", n => { AdvancedThreatProtectionAutomaticSampleSubmission = n.GetEnumValue<Enablement>(); } },
-                { "advancedThreatProtectionCloudDelivered", n => { AdvancedThreatProtectionCloudDelivered = n.GetEnumValue<Enablement>(); } },
-                { "advancedThreatProtectionDiagnosticDataCollection", n => { AdvancedThreatProtectionDiagnosticDataCollection = n.GetEnumValue<Enablement>(); } },
+                { "advancedThreatProtectionAutomaticSampleSubmission", n => { AdvancedThreatProtectionAutomaticSampleSubmission = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "advancedThreatProtectionCloudDelivered", n => { AdvancedThreatProtectionCloudDelivered = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "advancedThreatProtectionDiagnosticDataCollection", n => { AdvancedThreatProtectionDiagnosticDataCollection = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
                 { "advancedThreatProtectionExcludedExtensions", n => { AdvancedThreatProtectionExcludedExtensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "advancedThreatProtectionExcludedFiles", n => { AdvancedThreatProtectionExcludedFiles = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "advancedThreatProtectionExcludedFolders", n => { AdvancedThreatProtectionExcludedFolders = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "advancedThreatProtectionExcludedProcesses", n => { AdvancedThreatProtectionExcludedProcesses = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "advancedThreatProtectionRealTime", n => { AdvancedThreatProtectionRealTime = n.GetEnumValue<Enablement>(); } },
+                { "advancedThreatProtectionRealTime", n => { AdvancedThreatProtectionRealTime = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
                 { "fileVaultAllowDeferralUntilSignOut", n => { FileVaultAllowDeferralUntilSignOut = n.GetBoolValue(); } },
                 { "fileVaultDisablePromptAtSignOut", n => { FileVaultDisablePromptAtSignOut = n.GetBoolValue(); } },
                 { "fileVaultEnabled", n => { FileVaultEnabled = n.GetBoolValue(); } },
@@ -149,12 +149,12 @@ namespace ApiSdk.Models
                 { "fileVaultNumberOfTimesUserCanIgnore", n => { FileVaultNumberOfTimesUserCanIgnore = n.GetIntValue(); } },
                 { "fileVaultPersonalRecoveryKeyHelpMessage", n => { FileVaultPersonalRecoveryKeyHelpMessage = n.GetStringValue(); } },
                 { "fileVaultPersonalRecoveryKeyRotationInMonths", n => { FileVaultPersonalRecoveryKeyRotationInMonths = n.GetIntValue(); } },
-                { "fileVaultSelectedRecoveryKeyTypes", n => { FileVaultSelectedRecoveryKeyTypes = n.GetEnumValue<MacOSFileVaultRecoveryKeyTypes>(); } },
-                { "firewallApplications", n => { FirewallApplications = n.GetCollectionOfObjectValues<MacOSFirewallApplication>(MacOSFirewallApplication.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "fileVaultSelectedRecoveryKeyTypes", n => { FileVaultSelectedRecoveryKeyTypes = n.GetEnumValue<ApiSdk.Models.MacOSFileVaultRecoveryKeyTypes>(); } },
+                { "firewallApplications", n => { FirewallApplications = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSFirewallApplication>(ApiSdk.Models.MacOSFirewallApplication.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "firewallBlockAllIncoming", n => { FirewallBlockAllIncoming = n.GetBoolValue(); } },
                 { "firewallEnableStealthMode", n => { FirewallEnableStealthMode = n.GetBoolValue(); } },
                 { "firewallEnabled", n => { FirewallEnabled = n.GetBoolValue(); } },
-                { "gatekeeperAllowedAppSource", n => { GatekeeperAllowedAppSource = n.GetEnumValue<MacOSGatekeeperAppSources>(); } },
+                { "gatekeeperAllowedAppSource", n => { GatekeeperAllowedAppSource = n.GetEnumValue<ApiSdk.Models.MacOSGatekeeperAppSources>(); } },
                 { "gatekeeperBlockOverride", n => { GatekeeperBlockOverride = n.GetBoolValue(); } },
             };
         }
@@ -166,14 +166,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Enablement>("advancedThreatProtectionAutomaticSampleSubmission", AdvancedThreatProtectionAutomaticSampleSubmission);
-            writer.WriteEnumValue<Enablement>("advancedThreatProtectionCloudDelivered", AdvancedThreatProtectionCloudDelivered);
-            writer.WriteEnumValue<Enablement>("advancedThreatProtectionDiagnosticDataCollection", AdvancedThreatProtectionDiagnosticDataCollection);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("advancedThreatProtectionAutomaticSampleSubmission", AdvancedThreatProtectionAutomaticSampleSubmission);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("advancedThreatProtectionCloudDelivered", AdvancedThreatProtectionCloudDelivered);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("advancedThreatProtectionDiagnosticDataCollection", AdvancedThreatProtectionDiagnosticDataCollection);
             writer.WriteCollectionOfPrimitiveValues<string>("advancedThreatProtectionExcludedExtensions", AdvancedThreatProtectionExcludedExtensions);
             writer.WriteCollectionOfPrimitiveValues<string>("advancedThreatProtectionExcludedFiles", AdvancedThreatProtectionExcludedFiles);
             writer.WriteCollectionOfPrimitiveValues<string>("advancedThreatProtectionExcludedFolders", AdvancedThreatProtectionExcludedFolders);
             writer.WriteCollectionOfPrimitiveValues<string>("advancedThreatProtectionExcludedProcesses", AdvancedThreatProtectionExcludedProcesses);
-            writer.WriteEnumValue<Enablement>("advancedThreatProtectionRealTime", AdvancedThreatProtectionRealTime);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("advancedThreatProtectionRealTime", AdvancedThreatProtectionRealTime);
             writer.WriteBoolValue("fileVaultAllowDeferralUntilSignOut", FileVaultAllowDeferralUntilSignOut);
             writer.WriteBoolValue("fileVaultDisablePromptAtSignOut", FileVaultDisablePromptAtSignOut);
             writer.WriteBoolValue("fileVaultEnabled", FileVaultEnabled);
@@ -183,12 +183,12 @@ namespace ApiSdk.Models
             writer.WriteIntValue("fileVaultNumberOfTimesUserCanIgnore", FileVaultNumberOfTimesUserCanIgnore);
             writer.WriteStringValue("fileVaultPersonalRecoveryKeyHelpMessage", FileVaultPersonalRecoveryKeyHelpMessage);
             writer.WriteIntValue("fileVaultPersonalRecoveryKeyRotationInMonths", FileVaultPersonalRecoveryKeyRotationInMonths);
-            writer.WriteEnumValue<MacOSFileVaultRecoveryKeyTypes>("fileVaultSelectedRecoveryKeyTypes", FileVaultSelectedRecoveryKeyTypes);
-            writer.WriteCollectionOfObjectValues<MacOSFirewallApplication>("firewallApplications", FirewallApplications);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSFileVaultRecoveryKeyTypes>("fileVaultSelectedRecoveryKeyTypes", FileVaultSelectedRecoveryKeyTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSFirewallApplication>("firewallApplications", FirewallApplications);
             writer.WriteBoolValue("firewallBlockAllIncoming", FirewallBlockAllIncoming);
             writer.WriteBoolValue("firewallEnabled", FirewallEnabled);
             writer.WriteBoolValue("firewallEnableStealthMode", FirewallEnableStealthMode);
-            writer.WriteEnumValue<MacOSGatekeeperAppSources>("gatekeeperAllowedAppSource", GatekeeperAllowedAppSource);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSGatekeeperAppSources>("gatekeeperAllowedAppSource", GatekeeperAllowedAppSource);
             writer.WriteBoolValue("gatekeeperBlockOverride", GatekeeperBlockOverride);
         }
     }

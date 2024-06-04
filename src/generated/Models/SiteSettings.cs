@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string TimeZone { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SiteSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SiteSettings"/> and sets the default values.
         /// </summary>
         public SiteSettings()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SiteSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SiteSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SiteSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SiteSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SiteSettings();
+            return new ApiSdk.Models.SiteSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

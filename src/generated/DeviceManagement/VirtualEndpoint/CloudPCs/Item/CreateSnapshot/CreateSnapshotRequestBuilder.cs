@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.CreateSnapshot
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateSnapshotRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.CreateSnapshot.CreateSnapshotRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CreateSnapshotRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/{cloudPC%2Did}/createSnapshot", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateSnapshotRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.CloudPCs.Item.CreateSnapshot.CreateSnapshotRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CreateSnapshotRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint/cloudPCs/{cloudPC%2Did}/createSnapshot", rawUrl)

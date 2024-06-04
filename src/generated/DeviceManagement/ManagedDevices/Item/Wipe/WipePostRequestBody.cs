@@ -32,7 +32,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe
         /// <summary>The useProtectedWipe property</summary>
         public bool? UseProtectedWipe { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WipePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe.WipePostRequestBody"/> and sets the default values.
         /// </summary>
         public WipePostRequestBody()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WipePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe.WipePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WipePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe.WipePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WipePostRequestBody();
+            return new ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe.WipePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +59,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe
                 { "keepEnrollmentData", n => { KeepEnrollmentData = n.GetBoolValue(); } },
                 { "keepUserData", n => { KeepUserData = n.GetBoolValue(); } },
                 { "macOsUnlockCode", n => { MacOsUnlockCode = n.GetStringValue(); } },
-                { "obliterationBehavior", n => { ObliterationBehavior = n.GetEnumValue<ObliterationBehavior>(); } },
+                { "obliterationBehavior", n => { ObliterationBehavior = n.GetEnumValue<ApiSdk.Models.ObliterationBehavior>(); } },
                 { "persistEsimDataPlan", n => { PersistEsimDataPlan = n.GetBoolValue(); } },
                 { "useProtectedWipe", n => { UseProtectedWipe = n.GetBoolValue(); } },
             };
@@ -74,7 +74,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.Wipe
             writer.WriteBoolValue("keepEnrollmentData", KeepEnrollmentData);
             writer.WriteBoolValue("keepUserData", KeepUserData);
             writer.WriteStringValue("macOsUnlockCode", MacOsUnlockCode);
-            writer.WriteEnumValue<ObliterationBehavior>("obliterationBehavior", ObliterationBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.ObliterationBehavior>("obliterationBehavior", ObliterationBehavior);
             writer.WriteBoolValue("persistEsimDataPlan", PersistEsimDataPlan);
             writer.WriteBoolValue("useProtectedWipe", UseProtectedWipe);
             writer.WriteAdditionalData(AdditionalData);

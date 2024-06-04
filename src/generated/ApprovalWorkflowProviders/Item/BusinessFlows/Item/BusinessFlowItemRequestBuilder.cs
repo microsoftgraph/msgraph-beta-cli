@@ -157,7 +157,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BusinessFlow>(BusinessFlow.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.BusinessFlow>(ApiSdk.Models.BusinessFlow.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -186,7 +186,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
         {
             var command = new Command("record-decisions");
             command.Description = "Provides operations to call the recordDecisions method.";
-            var builder = new RecordDecisionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.RecordDecisions.RecordDecisionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -196,14 +196,14 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BusinessFlowItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.BusinessFlowItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BusinessFlowItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BusinessFlowItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.BusinessFlowItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BusinessFlowItemRequestBuilder(string rawUrl) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}/businessFlows/{businessFlow%2Did}{?%24expand,%24select}", rawUrl)
@@ -235,11 +235,11 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BusinessFlowItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.BusinessFlowItemRequestBuilder.BusinessFlowItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BusinessFlowItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item.BusinessFlowItemRequestBuilder.BusinessFlowItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -255,11 +255,11 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BusinessFlow body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.BusinessFlow body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BusinessFlow body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.BusinessFlow body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

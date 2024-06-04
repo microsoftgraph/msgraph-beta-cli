@@ -47,7 +47,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatu
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RetrieveRequestStatusPostRequestBody>(RetrieveRequestStatusPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody>(ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -67,14 +67,14 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatu
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveRequestStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveRequestStatusRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveRequestStatus", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveRequestStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveRequestStatusRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveRequestStatus", rawUrl)
@@ -88,11 +88,11 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatu
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RetrieveRequestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RetrieveRequestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DisconnectPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect.DisconnectPostResponse"/> and sets the default values.
         /// </summary>
         public DisconnectPostResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DisconnectPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect.DisconnectPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DisconnectPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect.DisconnectPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DisconnectPostResponse();
+            return new ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect.DisconnectPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

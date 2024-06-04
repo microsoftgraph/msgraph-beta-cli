@@ -23,7 +23,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GradualRolloutSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.GradualRolloutSettings"/> and sets the default values.
         /// </summary>
         public GradualRolloutSettings()
         {
@@ -32,18 +32,18 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GradualRolloutSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.GradualRolloutSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GradualRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.GradualRolloutSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.dateDrivenRolloutSettings" => new DateDrivenRolloutSettings(),
-                "#microsoft.graph.windowsUpdates.durationDrivenRolloutSettings" => new DurationDrivenRolloutSettings(),
-                "#microsoft.graph.windowsUpdates.rateDrivenRolloutSettings" => new RateDrivenRolloutSettings(),
-                _ => new GradualRolloutSettings(),
+                "#microsoft.graph.windowsUpdates.dateDrivenRolloutSettings" => new ApiSdk.Models.WindowsUpdates.DateDrivenRolloutSettings(),
+                "#microsoft.graph.windowsUpdates.durationDrivenRolloutSettings" => new ApiSdk.Models.WindowsUpdates.DurationDrivenRolloutSettings(),
+                "#microsoft.graph.windowsUpdates.rateDrivenRolloutSettings" => new ApiSdk.Models.WindowsUpdates.RateDrivenRolloutSettings(),
+                _ => new ApiSdk.Models.WindowsUpdates.GradualRolloutSettings(),
             };
         }
         /// <summary>

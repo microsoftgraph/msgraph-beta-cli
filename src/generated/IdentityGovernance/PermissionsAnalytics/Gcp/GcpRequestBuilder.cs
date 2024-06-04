@@ -60,7 +60,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp
         {
             var command = new Command("findings");
             command.Description = "Provides operations to manage the findings property of the microsoft.graph.permissionsAnalytics entity.";
-            var builder = new FindingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.Findings.FindingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -178,7 +178,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp
         {
             var command = new Command("permissions-creep-index-distributions");
             command.Description = "Provides operations to manage the permissionsCreepIndexDistributions property of the microsoft.graph.permissionsAnalytics entity.";
-            var builder = new PermissionsCreepIndexDistributionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.PermissionsCreepIndexDistributions.PermissionsCreepIndexDistributionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -198,14 +198,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GcpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.GcpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GcpRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/permissionsAnalytics/gcp{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GcpRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.GcpRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GcpRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/permissionsAnalytics/gcp{?%24expand,%24select}", rawUrl)
@@ -237,11 +237,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GcpRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.GcpRequestBuilder.GcpRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GcpRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsAnalytics.Gcp.GcpRequestBuilder.GcpRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

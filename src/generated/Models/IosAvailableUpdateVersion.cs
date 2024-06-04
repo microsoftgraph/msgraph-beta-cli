@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         public List<string> SupportedDevices { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosAvailableUpdateVersion"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosAvailableUpdateVersion"/> and sets the default values.
         /// </summary>
         public IosAvailableUpdateVersion()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosAvailableUpdateVersion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosAvailableUpdateVersion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosAvailableUpdateVersion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosAvailableUpdateVersion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosAvailableUpdateVersion();
+            return new ApiSdk.Models.IosAvailableUpdateVersion();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationCustomizationsBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationCustomizationsBase"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationCustomizationsBase()
         {
@@ -30,16 +30,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationCustomizationsBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationCustomizationsBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationSynchronizationCustomizationsBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationSynchronizationCustomizationsBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.educationSynchronizationCustomizations" => new EducationSynchronizationCustomizations(),
-                _ => new EducationSynchronizationCustomizationsBase(),
+                "#microsoft.graph.educationSynchronizationCustomizations" => new ApiSdk.Models.EducationSynchronizationCustomizations(),
+                _ => new ApiSdk.Models.EducationSynchronizationCustomizationsBase(),
             };
         }
         /// <summary>

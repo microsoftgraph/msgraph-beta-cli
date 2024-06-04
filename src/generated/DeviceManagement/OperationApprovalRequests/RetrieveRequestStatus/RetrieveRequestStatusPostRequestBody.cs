@@ -29,7 +29,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatu
         public string EntityType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveRequestStatusPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody"/> and sets the default values.
         /// </summary>
         public RetrieveRequestStatusPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatu
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RetrieveRequestStatusPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RetrieveRequestStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RetrieveRequestStatusPostRequestBody();
+            return new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

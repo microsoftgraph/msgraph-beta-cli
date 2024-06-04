@@ -59,10 +59,10 @@ namespace ApiSdk.Models
         /// <summary>The resource property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Entity? Resource { get; set; }
+        public ApiSdk.Models.Entity? Resource { get; set; }
 #nullable restore
 #else
-        public Entity Resource { get; set; }
+        public ApiSdk.Models.Entity Resource { get; set; }
 #endif
         /// <summary>ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         /// <summary>The _source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Entity? Source { get; set; }
+        public ApiSdk.Models.Entity? Source { get; set; }
 #nullable restore
 #else
-        public Entity Source { get; set; }
+        public ApiSdk.Models.Entity Source { get; set; }
 #endif
         /// <summary>A summary of the result, if a summary is available.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
         public string Summary { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SearchHit"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SearchHit"/> and sets the default values.
         /// </summary>
         public SearchHit()
         {
@@ -100,12 +100,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SearchHit"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SearchHit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SearchHit CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SearchHit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SearchHit();
+            return new ApiSdk.Models.SearchHit();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,10 +121,10 @@ namespace ApiSdk.Models
                 { "isCollapsed", n => { IsCollapsed = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "rank", n => { Rank = n.GetIntValue(); } },
-                { "resource", n => { Resource = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<ApiSdk.Models.Entity>(ApiSdk.Models.Entity.CreateFromDiscriminatorValue); } },
                 { "resultTemplateId", n => { ResultTemplateId = n.GetStringValue(); } },
                 { "_score", n => { Score = n.GetIntValue(); } },
-                { "_source", n => { Source = n.GetObjectValue<Entity>(Entity.CreateFromDiscriminatorValue); } },
+                { "_source", n => { Source = n.GetObjectValue<ApiSdk.Models.Entity>(ApiSdk.Models.Entity.CreateFromDiscriminatorValue); } },
                 { "summary", n => { Summary = n.GetStringValue(); } },
                 { "_summary", n => { _summary = n.GetStringValue(); } },
             };
@@ -143,10 +143,10 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("isCollapsed", IsCollapsed);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteIntValue("rank", Rank);
-            writer.WriteObjectValue<Entity>("resource", Resource);
+            writer.WriteObjectValue<ApiSdk.Models.Entity>("resource", Resource);
             writer.WriteStringValue("resultTemplateId", ResultTemplateId);
             writer.WriteIntValue("_score", Score);
-            writer.WriteObjectValue<Entity>("_source", Source);
+            writer.WriteObjectValue<ApiSdk.Models.Entity>("_source", Source);
             writer.WriteStringValue("summary", Summary);
             writer.WriteAdditionalData(AdditionalData);
         }

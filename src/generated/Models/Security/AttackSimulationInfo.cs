@@ -35,7 +35,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AttackSimulationInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.AttackSimulationInfo"/> and sets the default values.
         /// </summary>
         public AttackSimulationInfo()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AttackSimulationInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AttackSimulationInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AttackSimulationInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.AttackSimulationInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AttackSimulationInfo();
+            return new ApiSdk.Models.Security.AttackSimulationInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

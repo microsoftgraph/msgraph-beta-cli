@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PayloadRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PayloadRequest"/> and sets the default values.
         /// </summary>
         public PayloadRequest()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PayloadRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PayloadRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PayloadRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PayloadRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PayloadRequest();
+            return new ApiSdk.Models.PayloadRequest();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class SimplePasswordSettings : PasswordSettings, IParsable
+    public class SimplePasswordSettings : ApiSdk.Models.IndustryData.PasswordSettings, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The password for the user.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models.IndustryData
         public string Password { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SimplePasswordSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.SimplePasswordSettings"/> and sets the default values.
         /// </summary>
         public SimplePasswordSettings() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SimplePasswordSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.SimplePasswordSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SimplePasswordSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.SimplePasswordSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SimplePasswordSettings();
+            return new ApiSdk.Models.IndustryData.SimplePasswordSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

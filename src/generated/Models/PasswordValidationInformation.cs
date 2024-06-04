@@ -25,13 +25,13 @@ namespace ApiSdk.Models
         /// <summary>The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ValidationResult>? ValidationResults { get; set; }
+        public List<ApiSdk.Models.ValidationResult>? ValidationResults { get; set; }
 #nullable restore
 #else
-        public List<ValidationResult> ValidationResults { get; set; }
+        public List<ApiSdk.Models.ValidationResult> ValidationResults { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PasswordValidationInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PasswordValidationInformation"/> and sets the default values.
         /// </summary>
         public PasswordValidationInformation()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PasswordValidationInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PasswordValidationInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PasswordValidationInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PasswordValidationInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PasswordValidationInformation();
+            return new ApiSdk.Models.PasswordValidationInformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "isValid", n => { IsValid = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "validationResults", n => { ValidationResults = n.GetCollectionOfObjectValues<ValidationResult>(ValidationResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "validationResults", n => { ValidationResults = n.GetCollectionOfObjectValues<ApiSdk.Models.ValidationResult>(ApiSdk.Models.ValidationResult.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("isValid", IsValid);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<ValidationResult>("validationResults", ValidationResults);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ValidationResult>("validationResults", ValidationResults);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

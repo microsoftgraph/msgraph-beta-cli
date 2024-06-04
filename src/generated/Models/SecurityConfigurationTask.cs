@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// A security configuration task.
     /// </summary>
-    public class SecurityConfigurationTask : DeviceAppManagementTask, IParsable
+    public class SecurityConfigurationTask : ApiSdk.Models.DeviceAppManagementTask, IParsable
     {
         /// <summary>The endpoint security configuration applicable platform.</summary>
-        public EndpointSecurityConfigurationApplicablePlatform? ApplicablePlatform { get; set; }
+        public ApiSdk.Models.EndpointSecurityConfigurationApplicablePlatform? ApplicablePlatform { get; set; }
         /// <summary>The endpoint security policy type.</summary>
-        public EndpointSecurityConfigurationType? EndpointSecurityPolicy { get; set; }
+        public ApiSdk.Models.EndpointSecurityConfigurationType? EndpointSecurityPolicy { get; set; }
         /// <summary>The endpoint security policy profile type.</summary>
-        public EndpointSecurityConfigurationProfileType? EndpointSecurityPolicyProfile { get; set; }
+        public ApiSdk.Models.EndpointSecurityConfigurationProfileType? EndpointSecurityPolicyProfile { get; set; }
         /// <summary>Information about the mitigation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,23 +28,23 @@ namespace ApiSdk.Models
         /// <summary>The intended settings and their values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? IntendedSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? IntendedSettings { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> IntendedSettings { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> IntendedSettings { get; set; }
 #endif
         /// <summary>The number of vulnerable devices. Valid values 0 to 65536</summary>
         public int? ManagedDeviceCount { get; set; }
         /// <summary>The vulnerable managed devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VulnerableManagedDevice>? ManagedDevices { get; set; }
+        public List<ApiSdk.Models.VulnerableManagedDevice>? ManagedDevices { get; set; }
 #nullable restore
 #else
-        public List<VulnerableManagedDevice> ManagedDevices { get; set; }
+        public List<ApiSdk.Models.VulnerableManagedDevice> ManagedDevices { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityConfigurationTask"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SecurityConfigurationTask"/> and sets the default values.
         /// </summary>
         public SecurityConfigurationTask() : base()
         {
@@ -53,12 +53,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityConfigurationTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityConfigurationTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityConfigurationTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecurityConfigurationTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityConfigurationTask();
+            return new ApiSdk.Models.SecurityConfigurationTask();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,13 +68,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicablePlatform", n => { ApplicablePlatform = n.GetEnumValue<EndpointSecurityConfigurationApplicablePlatform>(); } },
-                { "endpointSecurityPolicy", n => { EndpointSecurityPolicy = n.GetEnumValue<EndpointSecurityConfigurationType>(); } },
-                { "endpointSecurityPolicyProfile", n => { EndpointSecurityPolicyProfile = n.GetEnumValue<EndpointSecurityConfigurationProfileType>(); } },
+                { "applicablePlatform", n => { ApplicablePlatform = n.GetEnumValue<ApiSdk.Models.EndpointSecurityConfigurationApplicablePlatform>(); } },
+                { "endpointSecurityPolicy", n => { EndpointSecurityPolicy = n.GetEnumValue<ApiSdk.Models.EndpointSecurityConfigurationType>(); } },
+                { "endpointSecurityPolicyProfile", n => { EndpointSecurityPolicyProfile = n.GetEnumValue<ApiSdk.Models.EndpointSecurityConfigurationProfileType>(); } },
                 { "insights", n => { Insights = n.GetStringValue(); } },
-                { "intendedSettings", n => { IntendedSettings = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "intendedSettings", n => { IntendedSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "managedDeviceCount", n => { ManagedDeviceCount = n.GetIntValue(); } },
-                { "managedDevices", n => { ManagedDevices = n.GetCollectionOfObjectValues<VulnerableManagedDevice>(VulnerableManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managedDevices", n => { ManagedDevices = n.GetCollectionOfObjectValues<ApiSdk.Models.VulnerableManagedDevice>(ApiSdk.Models.VulnerableManagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -85,13 +85,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<EndpointSecurityConfigurationApplicablePlatform>("applicablePlatform", ApplicablePlatform);
-            writer.WriteEnumValue<EndpointSecurityConfigurationType>("endpointSecurityPolicy", EndpointSecurityPolicy);
-            writer.WriteEnumValue<EndpointSecurityConfigurationProfileType>("endpointSecurityPolicyProfile", EndpointSecurityPolicyProfile);
+            writer.WriteEnumValue<ApiSdk.Models.EndpointSecurityConfigurationApplicablePlatform>("applicablePlatform", ApplicablePlatform);
+            writer.WriteEnumValue<ApiSdk.Models.EndpointSecurityConfigurationType>("endpointSecurityPolicy", EndpointSecurityPolicy);
+            writer.WriteEnumValue<ApiSdk.Models.EndpointSecurityConfigurationProfileType>("endpointSecurityPolicyProfile", EndpointSecurityPolicyProfile);
             writer.WriteStringValue("insights", Insights);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("intendedSettings", IntendedSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("intendedSettings", IntendedSettings);
             writer.WriteIntValue("managedDeviceCount", ManagedDeviceCount);
-            writer.WriteCollectionOfObjectValues<VulnerableManagedDevice>("managedDevices", ManagedDevices);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VulnerableManagedDevice>("managedDevices", ManagedDevices);
         }
     }
 }

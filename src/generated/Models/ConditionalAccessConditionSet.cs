@@ -15,60 +15,60 @@ namespace ApiSdk.Models
         /// <summary>Applications and user actions included in and excluded from the policy. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessApplications? Applications { get; set; }
+        public ApiSdk.Models.ConditionalAccessApplications? Applications { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessApplications Applications { get; set; }
+        public ApiSdk.Models.ConditionalAccessApplications Applications { get; set; }
 #endif
         /// <summary>Authentication flows included in the policy scope. For more information, see Conditional Access: Authentication flows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessAuthenticationFlows? AuthenticationFlows { get; set; }
+        public ApiSdk.Models.ConditionalAccessAuthenticationFlows? AuthenticationFlows { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessAuthenticationFlows AuthenticationFlows { get; set; }
+        public ApiSdk.Models.ConditionalAccessAuthenticationFlows AuthenticationFlows { get; set; }
 #endif
         /// <summary>Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessClientApplications? ClientApplications { get; set; }
+        public ApiSdk.Models.ConditionalAccessClientApplications? ClientApplications { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessClientApplications ClientApplications { get; set; }
+        public ApiSdk.Models.ConditionalAccessClientApplications ClientApplications { get; set; }
 #endif
         /// <summary>Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member is deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessClientApp?>? ClientAppTypes { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessClientApp?>? ClientAppTypes { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessClientApp?> ClientAppTypes { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessClientApp?> ClientAppTypes { get; set; }
 #endif
         /// <summary>Devices in the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessDevices? Devices { get; set; }
+        public ApiSdk.Models.ConditionalAccessDevices? Devices { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessDevices Devices { get; set; }
+        public ApiSdk.Models.ConditionalAccessDevices Devices { get; set; }
 #endif
         /// <summary>Device states in the policy. To be deprecated and removed. Use the devices property instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessDeviceStates? DeviceStates { get; set; }
+        public ApiSdk.Models.ConditionalAccessDeviceStates? DeviceStates { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessDeviceStates DeviceStates { get; set; }
+        public ApiSdk.Models.ConditionalAccessDeviceStates DeviceStates { get; set; }
 #endif
         /// <summary>Insider risk levels included in the policy. The possible values are: minor, moderate, elevated, unknownFutureValue.</summary>
-        public ConditionalAccessInsiderRiskLevels? InsiderRiskLevels { get; set; }
+        public ApiSdk.Models.ConditionalAccessInsiderRiskLevels? InsiderRiskLevels { get; set; }
         /// <summary>Locations included in and excluded from the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessLocations? Locations { get; set; }
+        public ApiSdk.Models.ConditionalAccessLocations? Locations { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessLocations Locations { get; set; }
+        public ApiSdk.Models.ConditionalAccessLocations Locations { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,45 +81,45 @@ namespace ApiSdk.Models
         /// <summary>Platforms included in and excluded from the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessPlatforms? Platforms { get; set; }
+        public ApiSdk.Models.ConditionalAccessPlatforms? Platforms { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessPlatforms Platforms { get; set; }
+        public ApiSdk.Models.ConditionalAccessPlatforms Platforms { get; set; }
 #endif
         /// <summary>Service principal risk levels included in the policy. Possible values are: low, medium, high, none, unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RiskLevel?>? ServicePrincipalRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?>? ServicePrincipalRiskLevels { get; set; }
 #nullable restore
 #else
-        public List<RiskLevel?> ServicePrincipalRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?> ServicePrincipalRiskLevels { get; set; }
 #endif
         /// <summary>Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RiskLevel?>? SignInRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?>? SignInRiskLevels { get; set; }
 #nullable restore
 #else
-        public List<RiskLevel?> SignInRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?> SignInRiskLevels { get; set; }
 #endif
         /// <summary>User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RiskLevel?>? UserRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?>? UserRiskLevels { get; set; }
 #nullable restore
 #else
-        public List<RiskLevel?> UserRiskLevels { get; set; }
+        public List<ApiSdk.Models.RiskLevel?> UserRiskLevels { get; set; }
 #endif
         /// <summary>Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessUsers? Users { get; set; }
+        public ApiSdk.Models.ConditionalAccessUsers? Users { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessUsers Users { get; set; }
+        public ApiSdk.Models.ConditionalAccessUsers Users { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessConditionSet"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessConditionSet"/> and sets the default values.
         /// </summary>
         public ConditionalAccessConditionSet()
         {
@@ -128,12 +128,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessConditionSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessConditionSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessConditionSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessConditionSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessConditionSet();
+            return new ApiSdk.Models.ConditionalAccessConditionSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -143,20 +143,20 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "applications", n => { Applications = n.GetObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications.CreateFromDiscriminatorValue); } },
-                { "authenticationFlows", n => { AuthenticationFlows = n.GetObjectValue<ConditionalAccessAuthenticationFlows>(ConditionalAccessAuthenticationFlows.CreateFromDiscriminatorValue); } },
-                { "clientAppTypes", n => { ClientAppTypes = n.GetCollectionOfEnumValues<ConditionalAccessClientApp>()?.ToList(); } },
-                { "clientApplications", n => { ClientApplications = n.GetObjectValue<ConditionalAccessClientApplications>(ConditionalAccessClientApplications.CreateFromDiscriminatorValue); } },
-                { "deviceStates", n => { DeviceStates = n.GetObjectValue<ConditionalAccessDeviceStates>(ConditionalAccessDeviceStates.CreateFromDiscriminatorValue); } },
-                { "devices", n => { Devices = n.GetObjectValue<ConditionalAccessDevices>(ConditionalAccessDevices.CreateFromDiscriminatorValue); } },
-                { "insiderRiskLevels", n => { InsiderRiskLevels = n.GetEnumValue<ConditionalAccessInsiderRiskLevels>(); } },
-                { "locations", n => { Locations = n.GetObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
+                { "applications", n => { Applications = n.GetObjectValue<ApiSdk.Models.ConditionalAccessApplications>(ApiSdk.Models.ConditionalAccessApplications.CreateFromDiscriminatorValue); } },
+                { "authenticationFlows", n => { AuthenticationFlows = n.GetObjectValue<ApiSdk.Models.ConditionalAccessAuthenticationFlows>(ApiSdk.Models.ConditionalAccessAuthenticationFlows.CreateFromDiscriminatorValue); } },
+                { "clientAppTypes", n => { ClientAppTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.ConditionalAccessClientApp>()?.ToList(); } },
+                { "clientApplications", n => { ClientApplications = n.GetObjectValue<ApiSdk.Models.ConditionalAccessClientApplications>(ApiSdk.Models.ConditionalAccessClientApplications.CreateFromDiscriminatorValue); } },
+                { "deviceStates", n => { DeviceStates = n.GetObjectValue<ApiSdk.Models.ConditionalAccessDeviceStates>(ApiSdk.Models.ConditionalAccessDeviceStates.CreateFromDiscriminatorValue); } },
+                { "devices", n => { Devices = n.GetObjectValue<ApiSdk.Models.ConditionalAccessDevices>(ApiSdk.Models.ConditionalAccessDevices.CreateFromDiscriminatorValue); } },
+                { "insiderRiskLevels", n => { InsiderRiskLevels = n.GetEnumValue<ApiSdk.Models.ConditionalAccessInsiderRiskLevels>(); } },
+                { "locations", n => { Locations = n.GetObjectValue<ApiSdk.Models.ConditionalAccessLocations>(ApiSdk.Models.ConditionalAccessLocations.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "platforms", n => { Platforms = n.GetObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms.CreateFromDiscriminatorValue); } },
-                { "servicePrincipalRiskLevels", n => { ServicePrincipalRiskLevels = n.GetCollectionOfEnumValues<RiskLevel>()?.ToList(); } },
-                { "signInRiskLevels", n => { SignInRiskLevels = n.GetCollectionOfEnumValues<RiskLevel>()?.ToList(); } },
-                { "userRiskLevels", n => { UserRiskLevels = n.GetCollectionOfEnumValues<RiskLevel>()?.ToList(); } },
-                { "users", n => { Users = n.GetObjectValue<ConditionalAccessUsers>(ConditionalAccessUsers.CreateFromDiscriminatorValue); } },
+                { "platforms", n => { Platforms = n.GetObjectValue<ApiSdk.Models.ConditionalAccessPlatforms>(ApiSdk.Models.ConditionalAccessPlatforms.CreateFromDiscriminatorValue); } },
+                { "servicePrincipalRiskLevels", n => { ServicePrincipalRiskLevels = n.GetCollectionOfEnumValues<ApiSdk.Models.RiskLevel>()?.ToList(); } },
+                { "signInRiskLevels", n => { SignInRiskLevels = n.GetCollectionOfEnumValues<ApiSdk.Models.RiskLevel>()?.ToList(); } },
+                { "userRiskLevels", n => { UserRiskLevels = n.GetCollectionOfEnumValues<ApiSdk.Models.RiskLevel>()?.ToList(); } },
+                { "users", n => { Users = n.GetObjectValue<ApiSdk.Models.ConditionalAccessUsers>(ApiSdk.Models.ConditionalAccessUsers.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -166,20 +166,20 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<ConditionalAccessApplications>("applications", Applications);
-            writer.WriteObjectValue<ConditionalAccessAuthenticationFlows>("authenticationFlows", AuthenticationFlows);
-            writer.WriteObjectValue<ConditionalAccessClientApplications>("clientApplications", ClientApplications);
-            writer.WriteCollectionOfEnumValues<ConditionalAccessClientApp>("clientAppTypes", ClientAppTypes);
-            writer.WriteObjectValue<ConditionalAccessDevices>("devices", Devices);
-            writer.WriteObjectValue<ConditionalAccessDeviceStates>("deviceStates", DeviceStates);
-            writer.WriteEnumValue<ConditionalAccessInsiderRiskLevels>("insiderRiskLevels", InsiderRiskLevels);
-            writer.WriteObjectValue<ConditionalAccessLocations>("locations", Locations);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessApplications>("applications", Applications);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessAuthenticationFlows>("authenticationFlows", AuthenticationFlows);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessClientApplications>("clientApplications", ClientApplications);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.ConditionalAccessClientApp>("clientAppTypes", ClientAppTypes);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessDevices>("devices", Devices);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessDeviceStates>("deviceStates", DeviceStates);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessInsiderRiskLevels>("insiderRiskLevels", InsiderRiskLevels);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessLocations>("locations", Locations);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<ConditionalAccessPlatforms>("platforms", Platforms);
-            writer.WriteCollectionOfEnumValues<RiskLevel>("servicePrincipalRiskLevels", ServicePrincipalRiskLevels);
-            writer.WriteCollectionOfEnumValues<RiskLevel>("signInRiskLevels", SignInRiskLevels);
-            writer.WriteCollectionOfEnumValues<RiskLevel>("userRiskLevels", UserRiskLevels);
-            writer.WriteObjectValue<ConditionalAccessUsers>("users", Users);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessPlatforms>("platforms", Platforms);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.RiskLevel>("servicePrincipalRiskLevels", ServicePrincipalRiskLevels);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.RiskLevel>("signInRiskLevels", SignInRiskLevels);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.RiskLevel>("userRiskLevels", UserRiskLevels);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessUsers>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

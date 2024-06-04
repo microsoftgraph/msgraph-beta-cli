@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ServicePrincipalSignInActivity : Entity, IParsable
+    public class ServicePrincipalSignInActivity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The application ID of the resource.</summary>
@@ -21,52 +21,52 @@ namespace ApiSdk.Models
         /// <summary>The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInActivity? ApplicationAuthenticationClientSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity? ApplicationAuthenticationClientSignInActivity { get; set; }
 #nullable restore
 #else
-        public SignInActivity ApplicationAuthenticationClientSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity ApplicationAuthenticationClientSignInActivity { get; set; }
 #endif
         /// <summary>The sign-in activity of the application in a app-only authentication flow (app-to-app tokens) where the application acts like a resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInActivity? ApplicationAuthenticationResourceSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity? ApplicationAuthenticationResourceSignInActivity { get; set; }
 #nullable restore
 #else
-        public SignInActivity ApplicationAuthenticationResourceSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity ApplicationAuthenticationResourceSignInActivity { get; set; }
 #endif
         /// <summary>The sign-in activity of the application in a delegated flow (user sign-in) where the application acts like a client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInActivity? DelegatedClientSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity? DelegatedClientSignInActivity { get; set; }
 #nullable restore
 #else
-        public SignInActivity DelegatedClientSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity DelegatedClientSignInActivity { get; set; }
 #endif
         /// <summary>The sign-in activity of the application in a delegated flow (user sign-in) where the application acts like a resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInActivity? DelegatedResourceSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity? DelegatedResourceSignInActivity { get; set; }
 #nullable restore
 #else
-        public SignInActivity DelegatedResourceSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity DelegatedResourceSignInActivity { get; set; }
 #endif
         /// <summary>The most recent sign-in activity of the application across delegated or app-only flows where the application is used either as a client or resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInActivity? LastSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity? LastSignInActivity { get; set; }
 #nullable restore
 #else
-        public SignInActivity LastSignInActivity { get; set; }
+        public ApiSdk.Models.SignInActivity LastSignInActivity { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServicePrincipalSignInActivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServicePrincipalSignInActivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ServicePrincipalSignInActivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ServicePrincipalSignInActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServicePrincipalSignInActivity();
+            return new ApiSdk.Models.ServicePrincipalSignInActivity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "appId", n => { AppId = n.GetStringValue(); } },
-                { "applicationAuthenticationClientSignInActivity", n => { ApplicationAuthenticationClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                { "applicationAuthenticationResourceSignInActivity", n => { ApplicationAuthenticationResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                { "delegatedClientSignInActivity", n => { DelegatedClientSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                { "delegatedResourceSignInActivity", n => { DelegatedResourceSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
-                { "lastSignInActivity", n => { LastSignInActivity = n.GetObjectValue<SignInActivity>(SignInActivity.CreateFromDiscriminatorValue); } },
+                { "applicationAuthenticationClientSignInActivity", n => { ApplicationAuthenticationClientSignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
+                { "applicationAuthenticationResourceSignInActivity", n => { ApplicationAuthenticationResourceSignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
+                { "delegatedClientSignInActivity", n => { DelegatedClientSignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
+                { "delegatedResourceSignInActivity", n => { DelegatedResourceSignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
+                { "lastSignInActivity", n => { LastSignInActivity = n.GetObjectValue<ApiSdk.Models.SignInActivity>(ApiSdk.Models.SignInActivity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -93,11 +93,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("appId", AppId);
-            writer.WriteObjectValue<SignInActivity>("applicationAuthenticationClientSignInActivity", ApplicationAuthenticationClientSignInActivity);
-            writer.WriteObjectValue<SignInActivity>("applicationAuthenticationResourceSignInActivity", ApplicationAuthenticationResourceSignInActivity);
-            writer.WriteObjectValue<SignInActivity>("delegatedClientSignInActivity", DelegatedClientSignInActivity);
-            writer.WriteObjectValue<SignInActivity>("delegatedResourceSignInActivity", DelegatedResourceSignInActivity);
-            writer.WriteObjectValue<SignInActivity>("lastSignInActivity", LastSignInActivity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("applicationAuthenticationClientSignInActivity", ApplicationAuthenticationClientSignInActivity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("applicationAuthenticationResourceSignInActivity", ApplicationAuthenticationResourceSignInActivity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("delegatedClientSignInActivity", DelegatedClientSignInActivity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("delegatedResourceSignInActivity", DelegatedResourceSignInActivity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInActivity>("lastSignInActivity", LastSignInActivity);
         }
     }
 }

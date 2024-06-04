@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerRecentPlanReferenceCollection"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerRecentPlanReferenceCollection"/> and sets the default values.
         /// </summary>
         public PlannerRecentPlanReferenceCollection()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerRecentPlanReferenceCollection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerRecentPlanReferenceCollection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerRecentPlanReferenceCollection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerRecentPlanReferenceCollection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerRecentPlanReferenceCollection();
+            return new ApiSdk.Models.PlannerRecentPlanReferenceCollection();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The deviceUsageType property</summary>
-        public WindowsDeviceUsageType? DeviceUsageType { get; set; }
+        public ApiSdk.Models.WindowsDeviceUsageType? DeviceUsageType { get; set; }
         /// <summary>When TRUE, the link that allows user to start over with a different account on company sign-in is hidden. When false, the link that allows user to start over with a different account on company sign-in is available. Default value is FALSE.</summary>
         public bool? EscapeLinkHidden { get; set; }
         /// <summary>When TRUE, EULA is hidden to the end user during OOBE. When FALSE, EULA is shown to the end user during OOBE. Default value is FALSE.</summary>
@@ -32,9 +32,9 @@ namespace ApiSdk.Models
         /// <summary>When TRUE, privacy settings is hidden to the end user during OOBE. When FALSE, privacy settings is shown to the end user during OOBE. Default value is FALSE.</summary>
         public bool? PrivacySettingsHidden { get; set; }
         /// <summary>The userType property</summary>
-        public WindowsUserType? UserType { get; set; }
+        public ApiSdk.Models.WindowsUserType? UserType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="OutOfBoxExperienceSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OutOfBoxExperienceSetting"/> and sets the default values.
         /// </summary>
         public OutOfBoxExperienceSetting()
         {
@@ -43,12 +43,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OutOfBoxExperienceSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OutOfBoxExperienceSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OutOfBoxExperienceSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OutOfBoxExperienceSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OutOfBoxExperienceSetting();
+            return new ApiSdk.Models.OutOfBoxExperienceSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,13 +58,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<WindowsDeviceUsageType>(); } },
+                { "deviceUsageType", n => { DeviceUsageType = n.GetEnumValue<ApiSdk.Models.WindowsDeviceUsageType>(); } },
                 { "escapeLinkHidden", n => { EscapeLinkHidden = n.GetBoolValue(); } },
                 { "eulaHidden", n => { EulaHidden = n.GetBoolValue(); } },
                 { "keyboardSelectionPageSkipped", n => { KeyboardSelectionPageSkipped = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "privacySettingsHidden", n => { PrivacySettingsHidden = n.GetBoolValue(); } },
-                { "userType", n => { UserType = n.GetEnumValue<WindowsUserType>(); } },
+                { "userType", n => { UserType = n.GetEnumValue<ApiSdk.Models.WindowsUserType>(); } },
             };
         }
         /// <summary>
@@ -74,13 +74,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<WindowsDeviceUsageType>("deviceUsageType", DeviceUsageType);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsDeviceUsageType>("deviceUsageType", DeviceUsageType);
             writer.WriteBoolValue("escapeLinkHidden", EscapeLinkHidden);
             writer.WriteBoolValue("eulaHidden", EulaHidden);
             writer.WriteBoolValue("keyboardSelectionPageSkipped", KeyboardSelectionPageSkipped);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("privacySettingsHidden", PrivacySettingsHidden);
-            writer.WriteEnumValue<WindowsUserType>("userType", UserType);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUserType>("userType", UserType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

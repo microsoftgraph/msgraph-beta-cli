@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are 4, 6, 12, 16, and 24. The default frequency is 12 hours. The frequencyInHours property is deprecated and will stop returning data on January 31, 2024. Going forward, use the frequencyType property.</summary>
         public int? FrequencyInHours { get; set; }
         /// <summary>The time interval in hours to take snapshots (restore points) of a Cloud PC automatically. Possible values are: default, fourHours, sixHours, twelveHours, sixteenHours, twentyFourHours, unknownFutureValue. The default value is default that indicates that the time interval for automatic capturing of restore point snapshots is set to 12 hours.</summary>
-        public CloudPcRestorePointFrequencyType? FrequencyType { get; set; }
+        public ApiSdk.Models.CloudPcRestorePointFrequencyType? FrequencyType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         /// <summary>If true, the user has the ability to use snapshots to restore Cloud PCs. If false, non-admin users can&apos;t use snapshots to restore the Cloud PC.</summary>
         public bool? UserRestoreEnabled { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcRestorePointSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcRestorePointSetting"/> and sets the default values.
         /// </summary>
         public CloudPcRestorePointSetting()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcRestorePointSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcRestorePointSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcRestorePointSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcRestorePointSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcRestorePointSetting();
+            return new ApiSdk.Models.CloudPcRestorePointSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "frequencyInHours", n => { FrequencyInHours = n.GetIntValue(); } },
-                { "frequencyType", n => { FrequencyType = n.GetEnumValue<CloudPcRestorePointFrequencyType>(); } },
+                { "frequencyType", n => { FrequencyType = n.GetEnumValue<ApiSdk.Models.CloudPcRestorePointFrequencyType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "userRestoreEnabled", n => { UserRestoreEnabled = n.GetBoolValue(); } },
             };
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("frequencyInHours", FrequencyInHours);
-            writer.WriteEnumValue<CloudPcRestorePointFrequencyType>("frequencyType", FrequencyType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcRestorePointFrequencyType>("frequencyType", FrequencyType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("userRestoreEnabled", UserRestoreEnabled);
             writer.WriteAdditionalData(AdditionalData);

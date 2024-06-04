@@ -10,7 +10,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the Windows10EndpointProtectionConfiguration resource.
     /// </summary>
-    public class Windows10EndpointProtectionConfiguration : DeviceConfiguration, IParsable
+    public class Windows10EndpointProtectionConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Gets or sets whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone.</summary>
         public bool? ApplicationGuardAllowCameraMicrophoneRedirection { get; set; }
@@ -29,9 +29,9 @@ namespace ApiSdk.Models
         /// <summary>Allow application guard to use virtual GPU</summary>
         public bool? ApplicationGuardAllowVirtualGPU { get; set; }
         /// <summary>Possible values for applicationGuardBlockClipboardSharingType</summary>
-        public ApplicationGuardBlockClipboardSharingType? ApplicationGuardBlockClipboardSharing { get; set; }
+        public ApiSdk.Models.ApplicationGuardBlockClipboardSharingType? ApplicationGuardBlockClipboardSharing { get; set; }
         /// <summary>Possible values for applicationGuardBlockFileTransfer</summary>
-        public ApplicationGuardBlockFileTransferType? ApplicationGuardBlockFileTransfer { get; set; }
+        public ApiSdk.Models.ApplicationGuardBlockFileTransferType? ApplicationGuardBlockFileTransfer { get; set; }
         /// <summary>Block enterprise sites to load non-enterprise content, such as third party plug-ins</summary>
         public bool? ApplicationGuardBlockNonEnterpriseContent { get; set; }
         /// <summary>Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.</summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         /// <summary>Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)</summary>
         public bool? ApplicationGuardForceAuditing { get; set; }
         /// <summary>Possible values of AppLocker Application Control Types</summary>
-        public AppLockerApplicationControlType? AppLockerApplicationControl { get; set; }
+        public ApiSdk.Models.AppLockerApplicationControlType? AppLockerApplicationControl { get; set; }
         /// <summary>Allows the admin to allow standard users to enable encrpytion during Azure AD Join.</summary>
         public bool? BitLockerAllowStandardUserEncryption { get; set; }
         /// <summary>Allows the Admin to disable the warning prompt for other disk encryption on the user machines.</summary>
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.BitLockerFixedDrivePolicy BitLockerFixedDrivePolicy { get; set; }
 #endif
         /// <summary>BitLocker recovery password rotation type</summary>
-        public BitLockerRecoveryPasswordRotationType? BitLockerRecoveryPasswordRotation { get; set; }
+        public ApiSdk.Models.BitLockerRecoveryPasswordRotationType? BitLockerRecoveryPasswordRotation { get; set; }
         /// <summary>BitLocker Removable Drive Policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,9 +93,9 @@ namespace ApiSdk.Models
         public List<string> DefenderAdditionalGuardedFolders { get; set; }
 #endif
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderAdobeReaderLaunchChildProcess { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderAdobeReaderLaunchChildProcess { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderAdvancedRansomewareProtectionType { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderAdvancedRansomewareProtectionType { get; set; }
         /// <summary>Allows or disallows Windows Defender Behavior Monitoring functionality.</summary>
         public bool? DefenderAllowBehaviorMonitoring { get; set; }
         /// <summary>To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.</summary>
@@ -129,11 +129,11 @@ namespace ApiSdk.Models
         /// <summary>Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.</summary>
         public bool? DefenderBlockEndUserAccess { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderBlockPersistenceThroughWmiType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderBlockPersistenceThroughWmiType { get; set; }
         /// <summary>This policy setting allows you to manage whether a check for new virus and spyware definitions will occur before running a scan.</summary>
         public bool? DefenderCheckForSignaturesBeforeRunningScan { get; set; }
         /// <summary>Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the &apos;Join Microsoft MAPS&apos; setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.</summary>
-        public DefenderCloudBlockLevelType? DefenderCloudBlockLevel { get; set; }
+        public ApiSdk.Models.DefenderCloudBlockLevelType? DefenderCloudBlockLevel { get; set; }
         /// <summary>Added in Windows 10, version 1709. This feature allows Windows Defender Antivirus to block a suspicious file for up to 60 seconds, and scan it in the cloud to make sure it&apos;s safe. Value type is integer, range is 0 - 50. This feature depends on three other MAPS settings the must all be enabled- &apos;Configure the &apos;Block at First Sight&apos; feature; &apos;Join Microsoft MAPS&apos;; &apos;Send file samples when further analysis is required&apos;. Valid values 0 to 50</summary>
         public int? DefenderCloudExtendedTimeoutInSeconds { get; set; }
         /// <summary>Time period (in days) that quarantine items will be stored on the system. Valid values 0 to 90</summary>
@@ -171,9 +171,9 @@ namespace ApiSdk.Models
         /// <summary>Allows or disallows Windows Defender Script Scanning functionality.</summary>
         public bool? DefenderDisableScanScriptsLoadedInInternetExplorer { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderEmailContentExecution { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderEmailContentExecution { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderEmailContentExecutionType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderEmailContentExecutionType { get; set; }
         /// <summary>This policy setting allows you to enable or disable low CPU priority for scheduled scans.</summary>
         public bool? DefenderEnableLowCpuPriority { get; set; }
         /// <summary>Allows or disallows scanning of email.</summary>
@@ -221,35 +221,35 @@ namespace ApiSdk.Models
         public List<string> DefenderGuardedFoldersAllowedAppPaths { get; set; }
 #endif
         /// <summary>Possible values of Folder Protection</summary>
-        public FolderProtectionType? DefenderGuardMyFoldersType { get; set; }
+        public ApiSdk.Models.FolderProtectionType? DefenderGuardMyFoldersType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderNetworkProtectionType { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderNetworkProtectionType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderOfficeAppsExecutableContentCreationOrLaunch { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderOfficeAppsExecutableContentCreationOrLaunch { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderOfficeAppsExecutableContentCreationOrLaunchType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderOfficeAppsExecutableContentCreationOrLaunchType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderOfficeAppsLaunchChildProcess { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderOfficeAppsLaunchChildProcess { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderOfficeAppsLaunchChildProcessType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderOfficeAppsLaunchChildProcessType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderOfficeAppsOtherProcessInjection { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderOfficeAppsOtherProcessInjection { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderOfficeAppsOtherProcessInjectionType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderOfficeAppsOtherProcessInjectionType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderOfficeCommunicationAppsLaunchChildProcess { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderOfficeCommunicationAppsLaunchChildProcess { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderOfficeMacroCodeAllowWin32Imports { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderOfficeMacroCodeAllowWin32Imports { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderOfficeMacroCodeAllowWin32ImportsType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderOfficeMacroCodeAllowWin32ImportsType { get; set; }
         /// <summary>Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.</summary>
-        public DefenderProtectionType? DefenderPotentiallyUnwantedAppAction { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderPotentiallyUnwantedAppAction { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderPreventCredentialStealingType { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderPreventCredentialStealingType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderProcessCreation { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderProcessCreation { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderProcessCreationType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderProcessCreationType { get; set; }
         /// <summary>Processes to exclude from scans and real time protection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -259,7 +259,7 @@ namespace ApiSdk.Models
         public List<string> DefenderProcessesToExclude { get; set; }
 #endif
         /// <summary>Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.</summary>
-        public DefenderRealtimeScanDirection? DefenderScanDirection { get; set; }
+        public ApiSdk.Models.DefenderRealtimeScanDirection? DefenderScanDirection { get; set; }
         /// <summary>Represents the average CPU load factor for the Windows Defender scan (in percent). The default value is 50. Valid values 0 to 100</summary>
         public int? DefenderScanMaxCpuPercentage { get; set; }
         /// <summary>Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.</summary>
@@ -267,17 +267,17 @@ namespace ApiSdk.Models
         /// <summary>Selects the time of day that the Windows Defender quick scan should run. For example, a value of 0=12:00AM, a value of 60=1:00AM, a value of 120=2:00, and so on, up to a value of 1380=11:00PM. The default value is 120</summary>
         public Time? DefenderScheduledQuickScanTime { get; set; }
         /// <summary>Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.</summary>
-        public WeeklySchedule? DefenderScheduledScanDay { get; set; }
+        public ApiSdk.Models.WeeklySchedule? DefenderScheduledScanDay { get; set; }
         /// <summary>Selects the time of day that the Windows Defender scan should run.</summary>
         public Time? DefenderScheduledScanTime { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderScriptDownloadedPayloadExecution { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderScriptDownloadedPayloadExecution { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderScriptDownloadedPayloadExecutionType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderScriptDownloadedPayloadExecutionType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderScriptObfuscatedMacroCode { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderScriptObfuscatedMacroCode { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderScriptObfuscatedMacroCodeType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderScriptObfuscatedMacroCodeType { get; set; }
         /// <summary>Indicates whether or not to block user from overriding Exploit Protection settings.</summary>
         public bool? DefenderSecurityCenterBlockExploitProtectionOverride { get; set; }
         /// <summary>Used to disable the display of the account protection area.</summary>
@@ -331,9 +331,9 @@ namespace ApiSdk.Models
         public string DefenderSecurityCenterHelpURL { get; set; }
 #endif
         /// <summary>Possible values for defenderSecurityCenterITContactDisplay</summary>
-        public DefenderSecurityCenterITContactDisplayType? DefenderSecurityCenterITContactDisplay { get; set; }
+        public ApiSdk.Models.DefenderSecurityCenterITContactDisplayType? DefenderSecurityCenterITContactDisplay { get; set; }
         /// <summary>Possible values for defenderSecurityCenterNotificationsFromApp</summary>
-        public DefenderSecurityCenterNotificationsFromAppType? DefenderSecurityCenterNotificationsFromApp { get; set; }
+        public ApiSdk.Models.DefenderSecurityCenterNotificationsFromAppType? DefenderSecurityCenterNotificationsFromApp { get; set; }
         /// <summary>The company name that is displayed to the users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -347,29 +347,29 @@ namespace ApiSdk.Models
         /// <summary>Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.</summary>
         public ApiSdk.Models.DefenderSubmitSamplesConsentType? DefenderSubmitSamplesConsentType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderUntrustedExecutable { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderUntrustedExecutable { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderUntrustedExecutableType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderUntrustedExecutableType { get; set; }
         /// <summary>Possible values of Defender PUA Protection</summary>
-        public DefenderProtectionType? DefenderUntrustedUSBProcess { get; set; }
+        public ApiSdk.Models.DefenderProtectionType? DefenderUntrustedUSBProcess { get; set; }
         /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
-        public DefenderAttackSurfaceType? DefenderUntrustedUSBProcessType { get; set; }
+        public ApiSdk.Models.DefenderAttackSurfaceType? DefenderUntrustedUSBProcessType { get; set; }
         /// <summary>This property will be deprecated in May 2019 and will be replaced with property DeviceGuardSecureBootWithDMA. Specifies whether Platform Security Level is enabled at next reboot.</summary>
         public bool? DeviceGuardEnableSecureBootWithDMA { get; set; }
         /// <summary>Turns On Virtualization Based Security(VBS).</summary>
         public bool? DeviceGuardEnableVirtualizationBasedSecurity { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? DeviceGuardLaunchSystemGuard { get; set; }
+        public ApiSdk.Models.Enablement? DeviceGuardLaunchSystemGuard { get; set; }
         /// <summary>Possible values of Credential Guard settings.</summary>
-        public DeviceGuardLocalSystemAuthorityCredentialGuardType? DeviceGuardLocalSystemAuthorityCredentialGuardSettings { get; set; }
+        public ApiSdk.Models.DeviceGuardLocalSystemAuthorityCredentialGuardType? DeviceGuardLocalSystemAuthorityCredentialGuardSettings { get; set; }
         /// <summary>Possible values of Secure Boot with DMA</summary>
-        public SecureBootWithDMAType? DeviceGuardSecureBootWithDMA { get; set; }
+        public ApiSdk.Models.SecureBootWithDMAType? DeviceGuardSecureBootWithDMA { get; set; }
         /// <summary>Possible values of the DmaGuardDeviceEnumerationPolicy.</summary>
-        public DmaGuardDeviceEnumerationPolicyType? DmaGuardDeviceEnumerationPolicy { get; set; }
+        public ApiSdk.Models.DmaGuardDeviceEnumerationPolicyType? DmaGuardDeviceEnumerationPolicy { get; set; }
         /// <summary>Blocks stateful FTP connections to the device</summary>
         public bool? FirewallBlockStatefulFTP { get; set; }
         /// <summary>Possible values for firewallCertificateRevocationListCheckMethod</summary>
-        public FirewallCertificateRevocationListCheckMethodType? FirewallCertificateRevocationListCheckMethod { get; set; }
+        public ApiSdk.Models.FirewallCertificateRevocationListCheckMethodType? FirewallCertificateRevocationListCheckMethod { get; set; }
         /// <summary>Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600</summary>
         public int? FirewallIdleTimeoutForSecurityAssociationInSeconds { get; set; }
         /// <summary>Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic</summary>
@@ -385,40 +385,40 @@ namespace ApiSdk.Models
         /// <summary>If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set</summary>
         public bool? FirewallMergeKeyingModuleSettings { get; set; }
         /// <summary>Possible values for firewallPacketQueueingMethod</summary>
-        public FirewallPacketQueueingMethodType? FirewallPacketQueueingMethod { get; set; }
+        public ApiSdk.Models.FirewallPacketQueueingMethodType? FirewallPacketQueueingMethod { get; set; }
         /// <summary>Possible values for firewallPreSharedKeyEncodingMethod</summary>
-        public FirewallPreSharedKeyEncodingMethodType? FirewallPreSharedKeyEncodingMethod { get; set; }
+        public ApiSdk.Models.FirewallPreSharedKeyEncodingMethodType? FirewallPreSharedKeyEncodingMethod { get; set; }
         /// <summary>Configures the firewall profile settings for domain networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsFirewallNetworkProfile? FirewallProfileDomain { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile? FirewallProfileDomain { get; set; }
 #nullable restore
 #else
-        public WindowsFirewallNetworkProfile FirewallProfileDomain { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile FirewallProfileDomain { get; set; }
 #endif
         /// <summary>Configures the firewall profile settings for private networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsFirewallNetworkProfile? FirewallProfilePrivate { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile? FirewallProfilePrivate { get; set; }
 #nullable restore
 #else
-        public WindowsFirewallNetworkProfile FirewallProfilePrivate { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile FirewallProfilePrivate { get; set; }
 #endif
         /// <summary>Configures the firewall profile settings for public networks</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsFirewallNetworkProfile? FirewallProfilePublic { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile? FirewallProfilePublic { get; set; }
 #nullable restore
 #else
-        public WindowsFirewallNetworkProfile FirewallProfilePublic { get; set; }
+        public ApiSdk.Models.WindowsFirewallNetworkProfile FirewallProfilePublic { get; set; }
 #endif
         /// <summary>Configures the firewall rule settings. This collection can contain a maximum of 150 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsFirewallRule>? FirewallRules { get; set; }
+        public List<ApiSdk.Models.WindowsFirewallRule>? FirewallRules { get; set; }
 #nullable restore
 #else
-        public List<WindowsFirewallRule> FirewallRules { get; set; }
+        public List<ApiSdk.Models.WindowsFirewallRule> FirewallRules { get; set; }
 #endif
         /// <summary>Possible values for LanManagerAuthenticationLevel</summary>
         public ApiSdk.Models.LanManagerAuthenticationLevel? LanManagerAuthenticationLevel { get; set; }
@@ -433,7 +433,7 @@ namespace ApiSdk.Models
         public string LocalSecurityOptionsAdministratorAccountName { get; set; }
 #endif
         /// <summary>Possible values for LocalSecurityOptionsAdministratorElevationPromptBehavior</summary>
-        public LocalSecurityOptionsAdministratorElevationPromptBehaviorType? LocalSecurityOptionsAdministratorElevationPromptBehavior { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsAdministratorElevationPromptBehaviorType? LocalSecurityOptionsAdministratorElevationPromptBehavior { get; set; }
         /// <summary>This security setting determines whether to allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares.</summary>
         public bool? LocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares { get; set; }
         /// <summary>Block PKU2U authentication requests to this device to use online identities.</summary>
@@ -489,7 +489,7 @@ namespace ApiSdk.Models
         /// <summary>This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. It’s not stored by default.</summary>
         public bool? LocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser</summary>
-        public LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType? LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType? LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser { get; set; }
         /// <summary>Define a different account name to be associated with the security identifier (SID) for the account &apos;Guest&apos;.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -503,9 +503,9 @@ namespace ApiSdk.Models
         /// <summary>Do not display the username of the person signing in to this device after credentials are entered and before the device’s desktop is shown.</summary>
         public bool? LocalSecurityOptionsHideUsernameAtSignIn { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen</summary>
-        public LocalSecurityOptionsInformationDisplayedOnLockScreenType? LocalSecurityOptionsInformationDisplayedOnLockScreen { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsInformationDisplayedOnLockScreenType? LocalSecurityOptionsInformationDisplayedOnLockScreen { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsInformationShownOnLockScreenType</summary>
-        public LocalSecurityOptionsInformationShownOnLockScreenType? LocalSecurityOptionsInformationShownOnLockScreen { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsInformationShownOnLockScreenType? LocalSecurityOptionsInformationShownOnLockScreen { get; set; }
         /// <summary>Set message text for users attempting to log in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -527,17 +527,17 @@ namespace ApiSdk.Models
         /// <summary>Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999</summary>
         public int? LocalSecurityOptionsMachineInactivityLimitInMinutes { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsMinimumSessionSecurity</summary>
-        public LocalSecurityOptionsMinimumSessionSecurity? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsMinimumSessionSecurity</summary>
-        public LocalSecurityOptionsMinimumSessionSecurity? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers { get; set; }
         /// <summary>Enforce PKI certification path validation for a given executable file before it is permitted to run.</summary>
         public bool? LocalSecurityOptionsOnlyElevateSignedExecutables { get; set; }
         /// <summary>By default, this security setting restricts anonymous access to shares and pipes to the settings for named pipes that can be accessed anonymously and Shares that can be accessed anonymously</summary>
         public bool? LocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsSmartCardRemovalBehaviorType</summary>
-        public LocalSecurityOptionsSmartCardRemovalBehaviorType? LocalSecurityOptionsSmartCardRemovalBehavior { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsSmartCardRemovalBehaviorType? LocalSecurityOptionsSmartCardRemovalBehavior { get; set; }
         /// <summary>Possible values for LocalSecurityOptionsStandardUserElevationPromptBehavior</summary>
-        public LocalSecurityOptionsStandardUserElevationPromptBehaviorType? LocalSecurityOptionsStandardUserElevationPromptBehavior { get; set; }
+        public ApiSdk.Models.LocalSecurityOptionsStandardUserElevationPromptBehaviorType? LocalSecurityOptionsStandardUserElevationPromptBehavior { get; set; }
         /// <summary>Enable all elevation requests to go to the interactive user&apos;s desktop rather than the secure desktop. Prompt behavior policy settings for admins and standard users are used.</summary>
         public bool? LocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation { get; set; }
         /// <summary>Defines whether the built-in admin account uses Admin Approval Mode or runs all apps with full admin privileges.Default is enabled</summary>
@@ -553,249 +553,249 @@ namespace ApiSdk.Models
         /// <summary>This user right is used by Credential Manager during Backup/Restore. Users&apos; saved credentials might be compromised if this privilege is given to other entities. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsAccessCredentialManagerAsTrustedCaller { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsAccessCredentialManagerAsTrustedCaller { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsAccessCredentialManagerAsTrustedCaller { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsAccessCredentialManagerAsTrustedCaller { get; set; }
 #endif
         /// <summary>This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsActAsPartOfTheOperatingSystem { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsActAsPartOfTheOperatingSystem { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsActAsPartOfTheOperatingSystem { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsActAsPartOfTheOperatingSystem { get; set; }
 #endif
         /// <summary>This user right determines which users and groups are allowed to connect to the computer over the network. State Allowed is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsAllowAccessFromNetwork { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsAllowAccessFromNetwork { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsAllowAccessFromNetwork { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsAllowAccessFromNetwork { get; set; }
 #endif
         /// <summary>This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when backing up files and directories. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsBackupData { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsBackupData { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsBackupData { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsBackupData { get; set; }
 #endif
         /// <summary>This user right determines which users and groups are block from connecting to the computer over the network. State Block is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsBlockAccessFromNetwork { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsBlockAccessFromNetwork { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsBlockAccessFromNetwork { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsBlockAccessFromNetwork { get; set; }
 #endif
         /// <summary>This user right determines which users and groups can change the time and date on the internal clock of the computer. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsChangeSystemTime { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsChangeSystemTime { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsChangeSystemTime { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsChangeSystemTime { get; set; }
 #endif
         /// <summary>This security setting determines whether users can create global objects that are available to all sessions. Users who can create global objects could affect processes that run under other users&apos; sessions, which could lead to application failure or data corruption. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsCreateGlobalObjects { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsCreateGlobalObjects { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsCreateGlobalObjects { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsCreateGlobalObjects { get; set; }
 #endif
         /// <summary>This user right determines which users and groups can call an internal API to create and change the size of a page file. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsCreatePageFile { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsCreatePageFile { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsCreatePageFile { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsCreatePageFile { get; set; }
 #endif
         /// <summary>This user right determines which accounts can be used by processes to create a directory object using the object manager. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsCreatePermanentSharedObjects { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsCreatePermanentSharedObjects { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsCreatePermanentSharedObjects { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsCreatePermanentSharedObjects { get; set; }
 #endif
         /// <summary>This user right determines if the user can create a symbolic link from the computer to which they are logged on. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsCreateSymbolicLinks { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsCreateSymbolicLinks { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsCreateSymbolicLinks { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsCreateSymbolicLinks { get; set; }
 #endif
         /// <summary>This user right determines which users/groups can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal API to create an access token. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsCreateToken { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsCreateToken { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsCreateToken { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsCreateToken { get; set; }
 #endif
         /// <summary>This user right determines which users can attach a debugger to any process or to the kernel. Only states NotConfigured and Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsDebugPrograms { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsDebugPrograms { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsDebugPrograms { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsDebugPrograms { get; set; }
 #endif
         /// <summary>This user right determines which users can set the Trusted for Delegation setting on a user or computer object. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsDelegation { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsDelegation { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsDelegation { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsDelegation { get; set; }
 #endif
         /// <summary>This user right determines which users cannot log on to the computer. States NotConfigured, Blocked are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsDenyLocalLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsDenyLocalLogOn { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsDenyLocalLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsDenyLocalLogOn { get; set; }
 #endif
         /// <summary>This user right determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access.  Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsGenerateSecurityAudits { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsGenerateSecurityAudits { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsGenerateSecurityAudits { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsGenerateSecurityAudits { get; set; }
 #endif
         /// <summary>Assigning this user right to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect to a service that they have created and then impersonating that client, which can elevate the unauthorized user&apos;s permissions to administrative or system levels. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsImpersonateClient { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsImpersonateClient { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsImpersonateClient { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsImpersonateClient { get; set; }
 #endif
         /// <summary>This user right determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsIncreaseSchedulingPriority { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsIncreaseSchedulingPriority { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsIncreaseSchedulingPriority { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsIncreaseSchedulingPriority { get; set; }
 #endif
         /// <summary>This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsLoadUnloadDrivers { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsLoadUnloadDrivers { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsLoadUnloadDrivers { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsLoadUnloadDrivers { get; set; }
 #endif
         /// <summary>This user right determines which users can log on to the computer. States NotConfigured, Allowed are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsLocalLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsLocalLogOn { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsLocalLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsLocalLogOn { get; set; }
 #endif
         /// <summary>This user right determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsLockMemory { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsLockMemory { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsLockMemory { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsLockMemory { get; set; }
 #endif
         /// <summary>This user right determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsManageAuditingAndSecurityLogs { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsManageAuditingAndSecurityLogs { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsManageAuditingAndSecurityLogs { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsManageAuditingAndSecurityLogs { get; set; }
 #endif
         /// <summary>This user right determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsManageVolumes { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsManageVolumes { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsManageVolumes { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsManageVolumes { get; set; }
 #endif
         /// <summary>This user right determines who can modify firmware environment values. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsModifyFirmwareEnvironment { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsModifyFirmwareEnvironment { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsModifyFirmwareEnvironment { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsModifyFirmwareEnvironment { get; set; }
 #endif
         /// <summary>This user right determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsModifyObjectLabels { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsModifyObjectLabels { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsModifyObjectLabels { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsModifyObjectLabels { get; set; }
 #endif
         /// <summary>This user right determines which users can use performance monitoring tools to monitor the performance of system processes. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsProfileSingleProcess { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsProfileSingleProcess { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsProfileSingleProcess { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsProfileSingleProcess { get; set; }
 #endif
         /// <summary>This user right determines which users and groups are prohibited from logging on as a Remote Desktop Services client. Only states NotConfigured and Blocked are supported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsRemoteDesktopServicesLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsRemoteDesktopServicesLogOn { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsRemoteDesktopServicesLogOn { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsRemoteDesktopServicesLogOn { get; set; }
 #endif
         /// <summary>This user right determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsRemoteShutdown { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsRemoteShutdown { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsRemoteShutdown { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsRemoteShutdown { get; set; }
 #endif
         /// <summary>This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsRestoreData { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsRestoreData { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsRestoreData { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsRestoreData { get; set; }
 #endif
         /// <summary>This user right determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads. Only states NotConfigured and Allowed are supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementUserRightsSetting? UserRightsTakeOwnership { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting? UserRightsTakeOwnership { get; set; }
 #nullable restore
 #else
-        public DeviceManagementUserRightsSetting UserRightsTakeOwnership { get; set; }
+        public ApiSdk.Models.DeviceManagementUserRightsSetting UserRightsTakeOwnership { get; set; }
 #endif
         /// <summary>Defender TamperProtection setting options</summary>
-        public WindowsDefenderTamperProtectionOptions? WindowsDefenderTamperProtection { get; set; }
+        public ApiSdk.Models.WindowsDefenderTamperProtectionOptions? WindowsDefenderTamperProtection { get; set; }
         /// <summary>Possible values of xbox service start type</summary>
-        public ServiceStartType? XboxServicesAccessoryManagementServiceStartupMode { get; set; }
+        public ApiSdk.Models.ServiceStartType? XboxServicesAccessoryManagementServiceStartupMode { get; set; }
         /// <summary>This setting determines whether xbox game save is enabled (1) or disabled (0).</summary>
         public bool? XboxServicesEnableXboxGameSaveTask { get; set; }
         /// <summary>Possible values of xbox service start type</summary>
-        public ServiceStartType? XboxServicesLiveAuthManagerServiceStartupMode { get; set; }
+        public ApiSdk.Models.ServiceStartType? XboxServicesLiveAuthManagerServiceStartupMode { get; set; }
         /// <summary>Possible values of xbox service start type</summary>
-        public ServiceStartType? XboxServicesLiveGameSaveServiceStartupMode { get; set; }
+        public ApiSdk.Models.ServiceStartType? XboxServicesLiveGameSaveServiceStartupMode { get; set; }
         /// <summary>Possible values of xbox service start type</summary>
-        public ServiceStartType? XboxServicesLiveNetworkingServiceStartupMode { get; set; }
+        public ApiSdk.Models.ServiceStartType? XboxServicesLiveNetworkingServiceStartupMode { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10EndpointProtectionConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10EndpointProtectionConfiguration"/> and sets the default values.
         /// </summary>
         public Windows10EndpointProtectionConfiguration() : base()
         {
@@ -804,12 +804,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10EndpointProtectionConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10EndpointProtectionConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10EndpointProtectionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10EndpointProtectionConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10EndpointProtectionConfiguration();
+            return new ApiSdk.Models.Windows10EndpointProtectionConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -819,7 +819,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "appLockerApplicationControl", n => { AppLockerApplicationControl = n.GetEnumValue<AppLockerApplicationControlType>(); } },
+                { "appLockerApplicationControl", n => { AppLockerApplicationControl = n.GetEnumValue<ApiSdk.Models.AppLockerApplicationControlType>(); } },
                 { "applicationGuardAllowCameraMicrophoneRedirection", n => { ApplicationGuardAllowCameraMicrophoneRedirection = n.GetBoolValue(); } },
                 { "applicationGuardAllowFileSaveOnHost", n => { ApplicationGuardAllowFileSaveOnHost = n.GetBoolValue(); } },
                 { "applicationGuardAllowPersistence", n => { ApplicationGuardAllowPersistence = n.GetBoolValue(); } },
@@ -828,24 +828,24 @@ namespace ApiSdk.Models
                 { "applicationGuardAllowPrintToPDF", n => { ApplicationGuardAllowPrintToPDF = n.GetBoolValue(); } },
                 { "applicationGuardAllowPrintToXPS", n => { ApplicationGuardAllowPrintToXPS = n.GetBoolValue(); } },
                 { "applicationGuardAllowVirtualGPU", n => { ApplicationGuardAllowVirtualGPU = n.GetBoolValue(); } },
-                { "applicationGuardBlockClipboardSharing", n => { ApplicationGuardBlockClipboardSharing = n.GetEnumValue<ApplicationGuardBlockClipboardSharingType>(); } },
-                { "applicationGuardBlockFileTransfer", n => { ApplicationGuardBlockFileTransfer = n.GetEnumValue<ApplicationGuardBlockFileTransferType>(); } },
+                { "applicationGuardBlockClipboardSharing", n => { ApplicationGuardBlockClipboardSharing = n.GetEnumValue<ApiSdk.Models.ApplicationGuardBlockClipboardSharingType>(); } },
+                { "applicationGuardBlockFileTransfer", n => { ApplicationGuardBlockFileTransfer = n.GetEnumValue<ApiSdk.Models.ApplicationGuardBlockFileTransferType>(); } },
                 { "applicationGuardBlockNonEnterpriseContent", n => { ApplicationGuardBlockNonEnterpriseContent = n.GetBoolValue(); } },
                 { "applicationGuardCertificateThumbprints", n => { ApplicationGuardCertificateThumbprints = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "applicationGuardEnabled", n => { ApplicationGuardEnabled = n.GetBoolValue(); } },
-                { "applicationGuardEnabledOptions", n => { ApplicationGuardEnabledOptions = n.GetEnumValue<ApplicationGuardEnabledOptions>(); } },
+                { "applicationGuardEnabledOptions", n => { ApplicationGuardEnabledOptions = n.GetEnumValue<ApiSdk.Models.ApplicationGuardEnabledOptions>(); } },
                 { "applicationGuardForceAuditing", n => { ApplicationGuardForceAuditing = n.GetBoolValue(); } },
                 { "bitLockerAllowStandardUserEncryption", n => { BitLockerAllowStandardUserEncryption = n.GetBoolValue(); } },
                 { "bitLockerDisableWarningForOtherDiskEncryption", n => { BitLockerDisableWarningForOtherDiskEncryption = n.GetBoolValue(); } },
                 { "bitLockerEnableStorageCardEncryptionOnMobile", n => { BitLockerEnableStorageCardEncryptionOnMobile = n.GetBoolValue(); } },
                 { "bitLockerEncryptDevice", n => { BitLockerEncryptDevice = n.GetBoolValue(); } },
                 { "bitLockerFixedDrivePolicy", n => { BitLockerFixedDrivePolicy = n.GetObjectValue<ApiSdk.Models.BitLockerFixedDrivePolicy>(ApiSdk.Models.BitLockerFixedDrivePolicy.CreateFromDiscriminatorValue); } },
-                { "bitLockerRecoveryPasswordRotation", n => { BitLockerRecoveryPasswordRotation = n.GetEnumValue<BitLockerRecoveryPasswordRotationType>(); } },
+                { "bitLockerRecoveryPasswordRotation", n => { BitLockerRecoveryPasswordRotation = n.GetEnumValue<ApiSdk.Models.BitLockerRecoveryPasswordRotationType>(); } },
                 { "bitLockerRemovableDrivePolicy", n => { BitLockerRemovableDrivePolicy = n.GetObjectValue<ApiSdk.Models.BitLockerRemovableDrivePolicy>(ApiSdk.Models.BitLockerRemovableDrivePolicy.CreateFromDiscriminatorValue); } },
                 { "bitLockerSystemDrivePolicy", n => { BitLockerSystemDrivePolicy = n.GetObjectValue<ApiSdk.Models.BitLockerSystemDrivePolicy>(ApiSdk.Models.BitLockerSystemDrivePolicy.CreateFromDiscriminatorValue); } },
                 { "defenderAdditionalGuardedFolders", n => { DefenderAdditionalGuardedFolders = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "defenderAdobeReaderLaunchChildProcess", n => { DefenderAdobeReaderLaunchChildProcess = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderAdvancedRansomewareProtectionType", n => { DefenderAdvancedRansomewareProtectionType = n.GetEnumValue<DefenderProtectionType>(); } },
+                { "defenderAdobeReaderLaunchChildProcess", n => { DefenderAdobeReaderLaunchChildProcess = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderAdvancedRansomewareProtectionType", n => { DefenderAdvancedRansomewareProtectionType = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
                 { "defenderAllowBehaviorMonitoring", n => { DefenderAllowBehaviorMonitoring = n.GetBoolValue(); } },
                 { "defenderAllowCloudProtection", n => { DefenderAllowCloudProtection = n.GetBoolValue(); } },
                 { "defenderAllowEndUserAccess", n => { DefenderAllowEndUserAccess = n.GetBoolValue(); } },
@@ -859,9 +859,9 @@ namespace ApiSdk.Models
                 { "defenderAllowScanScriptsLoadedInInternetExplorer", n => { DefenderAllowScanScriptsLoadedInInternetExplorer = n.GetBoolValue(); } },
                 { "defenderAttackSurfaceReductionExcludedPaths", n => { DefenderAttackSurfaceReductionExcludedPaths = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "defenderBlockEndUserAccess", n => { DefenderBlockEndUserAccess = n.GetBoolValue(); } },
-                { "defenderBlockPersistenceThroughWmiType", n => { DefenderBlockPersistenceThroughWmiType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
+                { "defenderBlockPersistenceThroughWmiType", n => { DefenderBlockPersistenceThroughWmiType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
                 { "defenderCheckForSignaturesBeforeRunningScan", n => { DefenderCheckForSignaturesBeforeRunningScan = n.GetBoolValue(); } },
-                { "defenderCloudBlockLevel", n => { DefenderCloudBlockLevel = n.GetEnumValue<DefenderCloudBlockLevelType>(); } },
+                { "defenderCloudBlockLevel", n => { DefenderCloudBlockLevel = n.GetEnumValue<ApiSdk.Models.DefenderCloudBlockLevelType>(); } },
                 { "defenderCloudExtendedTimeoutInSeconds", n => { DefenderCloudExtendedTimeoutInSeconds = n.GetIntValue(); } },
                 { "defenderDaysBeforeDeletingQuarantinedMalware", n => { DefenderDaysBeforeDeletingQuarantinedMalware = n.GetIntValue(); } },
                 { "defenderDetectedMalwareActions", n => { DefenderDetectedMalwareActions = n.GetObjectValue<ApiSdk.Models.DefenderDetectedMalwareActions>(ApiSdk.Models.DefenderDetectedMalwareActions.CreateFromDiscriminatorValue); } },
@@ -877,8 +877,8 @@ namespace ApiSdk.Models
                 { "defenderDisableScanNetworkFiles", n => { DefenderDisableScanNetworkFiles = n.GetBoolValue(); } },
                 { "defenderDisableScanRemovableDrivesDuringFullScan", n => { DefenderDisableScanRemovableDrivesDuringFullScan = n.GetBoolValue(); } },
                 { "defenderDisableScanScriptsLoadedInInternetExplorer", n => { DefenderDisableScanScriptsLoadedInInternetExplorer = n.GetBoolValue(); } },
-                { "defenderEmailContentExecution", n => { DefenderEmailContentExecution = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderEmailContentExecutionType", n => { DefenderEmailContentExecutionType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
+                { "defenderEmailContentExecution", n => { DefenderEmailContentExecution = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderEmailContentExecutionType", n => { DefenderEmailContentExecutionType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
                 { "defenderEnableLowCpuPriority", n => { DefenderEnableLowCpuPriority = n.GetBoolValue(); } },
                 { "defenderEnableScanIncomingMail", n => { DefenderEnableScanIncomingMail = n.GetBoolValue(); } },
                 { "defenderEnableScanMappedNetworkDrivesDuringFullScan", n => { DefenderEnableScanMappedNetworkDrivesDuringFullScan = n.GetBoolValue(); } },
@@ -886,33 +886,33 @@ namespace ApiSdk.Models
                 { "defenderExploitProtectionXmlFileName", n => { DefenderExploitProtectionXmlFileName = n.GetStringValue(); } },
                 { "defenderFileExtensionsToExclude", n => { DefenderFileExtensionsToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "defenderFilesAndFoldersToExclude", n => { DefenderFilesAndFoldersToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "defenderGuardMyFoldersType", n => { DefenderGuardMyFoldersType = n.GetEnumValue<FolderProtectionType>(); } },
+                { "defenderGuardMyFoldersType", n => { DefenderGuardMyFoldersType = n.GetEnumValue<ApiSdk.Models.FolderProtectionType>(); } },
                 { "defenderGuardedFoldersAllowedAppPaths", n => { DefenderGuardedFoldersAllowedAppPaths = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "defenderNetworkProtectionType", n => { DefenderNetworkProtectionType = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeAppsExecutableContentCreationOrLaunch", n => { DefenderOfficeAppsExecutableContentCreationOrLaunch = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeAppsExecutableContentCreationOrLaunchType", n => { DefenderOfficeAppsExecutableContentCreationOrLaunchType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderOfficeAppsLaunchChildProcess", n => { DefenderOfficeAppsLaunchChildProcess = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeAppsLaunchChildProcessType", n => { DefenderOfficeAppsLaunchChildProcessType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderOfficeAppsOtherProcessInjection", n => { DefenderOfficeAppsOtherProcessInjection = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeAppsOtherProcessInjectionType", n => { DefenderOfficeAppsOtherProcessInjectionType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderOfficeCommunicationAppsLaunchChildProcess", n => { DefenderOfficeCommunicationAppsLaunchChildProcess = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeMacroCodeAllowWin32Imports", n => { DefenderOfficeMacroCodeAllowWin32Imports = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderOfficeMacroCodeAllowWin32ImportsType", n => { DefenderOfficeMacroCodeAllowWin32ImportsType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderPotentiallyUnwantedAppAction", n => { DefenderPotentiallyUnwantedAppAction = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderPreventCredentialStealingType", n => { DefenderPreventCredentialStealingType = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderProcessCreation", n => { DefenderProcessCreation = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderProcessCreationType", n => { DefenderProcessCreationType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
+                { "defenderNetworkProtectionType", n => { DefenderNetworkProtectionType = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeAppsExecutableContentCreationOrLaunch", n => { DefenderOfficeAppsExecutableContentCreationOrLaunch = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeAppsExecutableContentCreationOrLaunchType", n => { DefenderOfficeAppsExecutableContentCreationOrLaunchType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderOfficeAppsLaunchChildProcess", n => { DefenderOfficeAppsLaunchChildProcess = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeAppsLaunchChildProcessType", n => { DefenderOfficeAppsLaunchChildProcessType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderOfficeAppsOtherProcessInjection", n => { DefenderOfficeAppsOtherProcessInjection = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeAppsOtherProcessInjectionType", n => { DefenderOfficeAppsOtherProcessInjectionType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderOfficeCommunicationAppsLaunchChildProcess", n => { DefenderOfficeCommunicationAppsLaunchChildProcess = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeMacroCodeAllowWin32Imports", n => { DefenderOfficeMacroCodeAllowWin32Imports = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderOfficeMacroCodeAllowWin32ImportsType", n => { DefenderOfficeMacroCodeAllowWin32ImportsType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderPotentiallyUnwantedAppAction", n => { DefenderPotentiallyUnwantedAppAction = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderPreventCredentialStealingType", n => { DefenderPreventCredentialStealingType = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderProcessCreation", n => { DefenderProcessCreation = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderProcessCreationType", n => { DefenderProcessCreationType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
                 { "defenderProcessesToExclude", n => { DefenderProcessesToExclude = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "defenderScanDirection", n => { DefenderScanDirection = n.GetEnumValue<DefenderRealtimeScanDirection>(); } },
+                { "defenderScanDirection", n => { DefenderScanDirection = n.GetEnumValue<ApiSdk.Models.DefenderRealtimeScanDirection>(); } },
                 { "defenderScanMaxCpuPercentage", n => { DefenderScanMaxCpuPercentage = n.GetIntValue(); } },
-                { "defenderScanType", n => { DefenderScanType = n.GetEnumValue<DefenderScanType>(); } },
+                { "defenderScanType", n => { DefenderScanType = n.GetEnumValue<ApiSdk.Models.DefenderScanType>(); } },
                 { "defenderScheduledQuickScanTime", n => { DefenderScheduledQuickScanTime = n.GetTimeValue(); } },
-                { "defenderScheduledScanDay", n => { DefenderScheduledScanDay = n.GetEnumValue<WeeklySchedule>(); } },
+                { "defenderScheduledScanDay", n => { DefenderScheduledScanDay = n.GetEnumValue<ApiSdk.Models.WeeklySchedule>(); } },
                 { "defenderScheduledScanTime", n => { DefenderScheduledScanTime = n.GetTimeValue(); } },
-                { "defenderScriptDownloadedPayloadExecution", n => { DefenderScriptDownloadedPayloadExecution = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderScriptDownloadedPayloadExecutionType", n => { DefenderScriptDownloadedPayloadExecutionType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderScriptObfuscatedMacroCode", n => { DefenderScriptObfuscatedMacroCode = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderScriptObfuscatedMacroCodeType", n => { DefenderScriptObfuscatedMacroCodeType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
+                { "defenderScriptDownloadedPayloadExecution", n => { DefenderScriptDownloadedPayloadExecution = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderScriptDownloadedPayloadExecutionType", n => { DefenderScriptDownloadedPayloadExecutionType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderScriptObfuscatedMacroCode", n => { DefenderScriptObfuscatedMacroCode = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderScriptObfuscatedMacroCodeType", n => { DefenderScriptObfuscatedMacroCodeType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
                 { "defenderSecurityCenterBlockExploitProtectionOverride", n => { DefenderSecurityCenterBlockExploitProtectionOverride = n.GetBoolValue(); } },
                 { "defenderSecurityCenterDisableAccountUI", n => { DefenderSecurityCenterDisableAccountUI = n.GetBoolValue(); } },
                 { "defenderSecurityCenterDisableAppBrowserUI", n => { DefenderSecurityCenterDisableAppBrowserUI = n.GetBoolValue(); } },
@@ -930,23 +930,23 @@ namespace ApiSdk.Models
                 { "defenderSecurityCenterHelpEmail", n => { DefenderSecurityCenterHelpEmail = n.GetStringValue(); } },
                 { "defenderSecurityCenterHelpPhone", n => { DefenderSecurityCenterHelpPhone = n.GetStringValue(); } },
                 { "defenderSecurityCenterHelpURL", n => { DefenderSecurityCenterHelpURL = n.GetStringValue(); } },
-                { "defenderSecurityCenterITContactDisplay", n => { DefenderSecurityCenterITContactDisplay = n.GetEnumValue<DefenderSecurityCenterITContactDisplayType>(); } },
-                { "defenderSecurityCenterNotificationsFromApp", n => { DefenderSecurityCenterNotificationsFromApp = n.GetEnumValue<DefenderSecurityCenterNotificationsFromAppType>(); } },
+                { "defenderSecurityCenterITContactDisplay", n => { DefenderSecurityCenterITContactDisplay = n.GetEnumValue<ApiSdk.Models.DefenderSecurityCenterITContactDisplayType>(); } },
+                { "defenderSecurityCenterNotificationsFromApp", n => { DefenderSecurityCenterNotificationsFromApp = n.GetEnumValue<ApiSdk.Models.DefenderSecurityCenterNotificationsFromAppType>(); } },
                 { "defenderSecurityCenterOrganizationDisplayName", n => { DefenderSecurityCenterOrganizationDisplayName = n.GetStringValue(); } },
                 { "defenderSignatureUpdateIntervalInHours", n => { DefenderSignatureUpdateIntervalInHours = n.GetIntValue(); } },
-                { "defenderSubmitSamplesConsentType", n => { DefenderSubmitSamplesConsentType = n.GetEnumValue<DefenderSubmitSamplesConsentType>(); } },
-                { "defenderUntrustedExecutable", n => { DefenderUntrustedExecutable = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderUntrustedExecutableType", n => { DefenderUntrustedExecutableType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
-                { "defenderUntrustedUSBProcess", n => { DefenderUntrustedUSBProcess = n.GetEnumValue<DefenderProtectionType>(); } },
-                { "defenderUntrustedUSBProcessType", n => { DefenderUntrustedUSBProcessType = n.GetEnumValue<DefenderAttackSurfaceType>(); } },
+                { "defenderSubmitSamplesConsentType", n => { DefenderSubmitSamplesConsentType = n.GetEnumValue<ApiSdk.Models.DefenderSubmitSamplesConsentType>(); } },
+                { "defenderUntrustedExecutable", n => { DefenderUntrustedExecutable = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderUntrustedExecutableType", n => { DefenderUntrustedExecutableType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
+                { "defenderUntrustedUSBProcess", n => { DefenderUntrustedUSBProcess = n.GetEnumValue<ApiSdk.Models.DefenderProtectionType>(); } },
+                { "defenderUntrustedUSBProcessType", n => { DefenderUntrustedUSBProcessType = n.GetEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>(); } },
                 { "deviceGuardEnableSecureBootWithDMA", n => { DeviceGuardEnableSecureBootWithDMA = n.GetBoolValue(); } },
                 { "deviceGuardEnableVirtualizationBasedSecurity", n => { DeviceGuardEnableVirtualizationBasedSecurity = n.GetBoolValue(); } },
-                { "deviceGuardLaunchSystemGuard", n => { DeviceGuardLaunchSystemGuard = n.GetEnumValue<Enablement>(); } },
-                { "deviceGuardLocalSystemAuthorityCredentialGuardSettings", n => { DeviceGuardLocalSystemAuthorityCredentialGuardSettings = n.GetEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardType>(); } },
-                { "deviceGuardSecureBootWithDMA", n => { DeviceGuardSecureBootWithDMA = n.GetEnumValue<SecureBootWithDMAType>(); } },
-                { "dmaGuardDeviceEnumerationPolicy", n => { DmaGuardDeviceEnumerationPolicy = n.GetEnumValue<DmaGuardDeviceEnumerationPolicyType>(); } },
+                { "deviceGuardLaunchSystemGuard", n => { DeviceGuardLaunchSystemGuard = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "deviceGuardLocalSystemAuthorityCredentialGuardSettings", n => { DeviceGuardLocalSystemAuthorityCredentialGuardSettings = n.GetEnumValue<ApiSdk.Models.DeviceGuardLocalSystemAuthorityCredentialGuardType>(); } },
+                { "deviceGuardSecureBootWithDMA", n => { DeviceGuardSecureBootWithDMA = n.GetEnumValue<ApiSdk.Models.SecureBootWithDMAType>(); } },
+                { "dmaGuardDeviceEnumerationPolicy", n => { DmaGuardDeviceEnumerationPolicy = n.GetEnumValue<ApiSdk.Models.DmaGuardDeviceEnumerationPolicyType>(); } },
                 { "firewallBlockStatefulFTP", n => { FirewallBlockStatefulFTP = n.GetBoolValue(); } },
-                { "firewallCertificateRevocationListCheckMethod", n => { FirewallCertificateRevocationListCheckMethod = n.GetEnumValue<FirewallCertificateRevocationListCheckMethodType>(); } },
+                { "firewallCertificateRevocationListCheckMethod", n => { FirewallCertificateRevocationListCheckMethod = n.GetEnumValue<ApiSdk.Models.FirewallCertificateRevocationListCheckMethodType>(); } },
                 { "firewallIPSecExemptionsAllowDHCP", n => { FirewallIPSecExemptionsAllowDHCP = n.GetBoolValue(); } },
                 { "firewallIPSecExemptionsAllowICMP", n => { FirewallIPSecExemptionsAllowICMP = n.GetBoolValue(); } },
                 { "firewallIPSecExemptionsAllowNeighborDiscovery", n => { FirewallIPSecExemptionsAllowNeighborDiscovery = n.GetBoolValue(); } },
@@ -954,16 +954,16 @@ namespace ApiSdk.Models
                 { "firewallIPSecExemptionsNone", n => { FirewallIPSecExemptionsNone = n.GetBoolValue(); } },
                 { "firewallIdleTimeoutForSecurityAssociationInSeconds", n => { FirewallIdleTimeoutForSecurityAssociationInSeconds = n.GetIntValue(); } },
                 { "firewallMergeKeyingModuleSettings", n => { FirewallMergeKeyingModuleSettings = n.GetBoolValue(); } },
-                { "firewallPacketQueueingMethod", n => { FirewallPacketQueueingMethod = n.GetEnumValue<FirewallPacketQueueingMethodType>(); } },
-                { "firewallPreSharedKeyEncodingMethod", n => { FirewallPreSharedKeyEncodingMethod = n.GetEnumValue<FirewallPreSharedKeyEncodingMethodType>(); } },
-                { "firewallProfileDomain", n => { FirewallProfileDomain = n.GetObjectValue<WindowsFirewallNetworkProfile>(WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
-                { "firewallProfilePrivate", n => { FirewallProfilePrivate = n.GetObjectValue<WindowsFirewallNetworkProfile>(WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
-                { "firewallProfilePublic", n => { FirewallProfilePublic = n.GetObjectValue<WindowsFirewallNetworkProfile>(WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
-                { "firewallRules", n => { FirewallRules = n.GetCollectionOfObjectValues<WindowsFirewallRule>(WindowsFirewallRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "lanManagerAuthenticationLevel", n => { LanManagerAuthenticationLevel = n.GetEnumValue<LanManagerAuthenticationLevel>(); } },
+                { "firewallPacketQueueingMethod", n => { FirewallPacketQueueingMethod = n.GetEnumValue<ApiSdk.Models.FirewallPacketQueueingMethodType>(); } },
+                { "firewallPreSharedKeyEncodingMethod", n => { FirewallPreSharedKeyEncodingMethod = n.GetEnumValue<ApiSdk.Models.FirewallPreSharedKeyEncodingMethodType>(); } },
+                { "firewallProfileDomain", n => { FirewallProfileDomain = n.GetObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>(ApiSdk.Models.WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
+                { "firewallProfilePrivate", n => { FirewallProfilePrivate = n.GetObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>(ApiSdk.Models.WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
+                { "firewallProfilePublic", n => { FirewallProfilePublic = n.GetObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>(ApiSdk.Models.WindowsFirewallNetworkProfile.CreateFromDiscriminatorValue); } },
+                { "firewallRules", n => { FirewallRules = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsFirewallRule>(ApiSdk.Models.WindowsFirewallRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lanManagerAuthenticationLevel", n => { LanManagerAuthenticationLevel = n.GetEnumValue<ApiSdk.Models.LanManagerAuthenticationLevel>(); } },
                 { "lanManagerWorkstationDisableInsecureGuestLogons", n => { LanManagerWorkstationDisableInsecureGuestLogons = n.GetBoolValue(); } },
                 { "localSecurityOptionsAdministratorAccountName", n => { LocalSecurityOptionsAdministratorAccountName = n.GetStringValue(); } },
-                { "localSecurityOptionsAdministratorElevationPromptBehavior", n => { LocalSecurityOptionsAdministratorElevationPromptBehavior = n.GetEnumValue<LocalSecurityOptionsAdministratorElevationPromptBehaviorType>(); } },
+                { "localSecurityOptionsAdministratorElevationPromptBehavior", n => { LocalSecurityOptionsAdministratorElevationPromptBehavior = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsAdministratorElevationPromptBehaviorType>(); } },
                 { "localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares", n => { LocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares = n.GetBoolValue(); } },
                 { "localSecurityOptionsAllowPKU2UAuthenticationRequests", n => { LocalSecurityOptionsAllowPKU2UAuthenticationRequests = n.GetBoolValue(); } },
                 { "localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager", n => { LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager = n.GetStringValue(); } },
@@ -988,63 +988,63 @@ namespace ApiSdk.Models
                 { "localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts", n => { LocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts = n.GetBoolValue(); } },
                 { "localSecurityOptionsDoNotRequireCtrlAltDel", n => { LocalSecurityOptionsDoNotRequireCtrlAltDel = n.GetBoolValue(); } },
                 { "localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange", n => { LocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange = n.GetBoolValue(); } },
-                { "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser", n => { LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser = n.GetEnumValue<LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType>(); } },
+                { "localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser", n => { LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType>(); } },
                 { "localSecurityOptionsGuestAccountName", n => { LocalSecurityOptionsGuestAccountName = n.GetStringValue(); } },
                 { "localSecurityOptionsHideLastSignedInUser", n => { LocalSecurityOptionsHideLastSignedInUser = n.GetBoolValue(); } },
                 { "localSecurityOptionsHideUsernameAtSignIn", n => { LocalSecurityOptionsHideUsernameAtSignIn = n.GetBoolValue(); } },
-                { "localSecurityOptionsInformationDisplayedOnLockScreen", n => { LocalSecurityOptionsInformationDisplayedOnLockScreen = n.GetEnumValue<LocalSecurityOptionsInformationDisplayedOnLockScreenType>(); } },
-                { "localSecurityOptionsInformationShownOnLockScreen", n => { LocalSecurityOptionsInformationShownOnLockScreen = n.GetEnumValue<LocalSecurityOptionsInformationShownOnLockScreenType>(); } },
+                { "localSecurityOptionsInformationDisplayedOnLockScreen", n => { LocalSecurityOptionsInformationDisplayedOnLockScreen = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsInformationDisplayedOnLockScreenType>(); } },
+                { "localSecurityOptionsInformationShownOnLockScreen", n => { LocalSecurityOptionsInformationShownOnLockScreen = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsInformationShownOnLockScreenType>(); } },
                 { "localSecurityOptionsLogOnMessageText", n => { LocalSecurityOptionsLogOnMessageText = n.GetStringValue(); } },
                 { "localSecurityOptionsLogOnMessageTitle", n => { LocalSecurityOptionsLogOnMessageTitle = n.GetStringValue(); } },
                 { "localSecurityOptionsMachineInactivityLimit", n => { LocalSecurityOptionsMachineInactivityLimit = n.GetIntValue(); } },
                 { "localSecurityOptionsMachineInactivityLimitInMinutes", n => { LocalSecurityOptionsMachineInactivityLimitInMinutes = n.GetIntValue(); } },
-                { "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients", n => { LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients = n.GetEnumValue<LocalSecurityOptionsMinimumSessionSecurity>(); } },
-                { "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers", n => { LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers = n.GetEnumValue<LocalSecurityOptionsMinimumSessionSecurity>(); } },
+                { "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients", n => { LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity>(); } },
+                { "localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers", n => { LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity>(); } },
                 { "localSecurityOptionsOnlyElevateSignedExecutables", n => { LocalSecurityOptionsOnlyElevateSignedExecutables = n.GetBoolValue(); } },
                 { "localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares", n => { LocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares = n.GetBoolValue(); } },
-                { "localSecurityOptionsSmartCardRemovalBehavior", n => { LocalSecurityOptionsSmartCardRemovalBehavior = n.GetEnumValue<LocalSecurityOptionsSmartCardRemovalBehaviorType>(); } },
-                { "localSecurityOptionsStandardUserElevationPromptBehavior", n => { LocalSecurityOptionsStandardUserElevationPromptBehavior = n.GetEnumValue<LocalSecurityOptionsStandardUserElevationPromptBehaviorType>(); } },
+                { "localSecurityOptionsSmartCardRemovalBehavior", n => { LocalSecurityOptionsSmartCardRemovalBehavior = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsSmartCardRemovalBehaviorType>(); } },
+                { "localSecurityOptionsStandardUserElevationPromptBehavior", n => { LocalSecurityOptionsStandardUserElevationPromptBehavior = n.GetEnumValue<ApiSdk.Models.LocalSecurityOptionsStandardUserElevationPromptBehaviorType>(); } },
                 { "localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation", n => { LocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation = n.GetBoolValue(); } },
                 { "localSecurityOptionsUseAdminApprovalMode", n => { LocalSecurityOptionsUseAdminApprovalMode = n.GetBoolValue(); } },
                 { "localSecurityOptionsUseAdminApprovalModeForAdministrators", n => { LocalSecurityOptionsUseAdminApprovalModeForAdministrators = n.GetBoolValue(); } },
                 { "localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations", n => { LocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations = n.GetBoolValue(); } },
                 { "smartScreenBlockOverrideForFiles", n => { SmartScreenBlockOverrideForFiles = n.GetBoolValue(); } },
                 { "smartScreenEnableInShell", n => { SmartScreenEnableInShell = n.GetBoolValue(); } },
-                { "userRightsAccessCredentialManagerAsTrustedCaller", n => { UserRightsAccessCredentialManagerAsTrustedCaller = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsActAsPartOfTheOperatingSystem", n => { UserRightsActAsPartOfTheOperatingSystem = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsAllowAccessFromNetwork", n => { UserRightsAllowAccessFromNetwork = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsBackupData", n => { UserRightsBackupData = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsBlockAccessFromNetwork", n => { UserRightsBlockAccessFromNetwork = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsChangeSystemTime", n => { UserRightsChangeSystemTime = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsCreateGlobalObjects", n => { UserRightsCreateGlobalObjects = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsCreatePageFile", n => { UserRightsCreatePageFile = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsCreatePermanentSharedObjects", n => { UserRightsCreatePermanentSharedObjects = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsCreateSymbolicLinks", n => { UserRightsCreateSymbolicLinks = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsCreateToken", n => { UserRightsCreateToken = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsDebugPrograms", n => { UserRightsDebugPrograms = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsDelegation", n => { UserRightsDelegation = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsDenyLocalLogOn", n => { UserRightsDenyLocalLogOn = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsGenerateSecurityAudits", n => { UserRightsGenerateSecurityAudits = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsImpersonateClient", n => { UserRightsImpersonateClient = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsIncreaseSchedulingPriority", n => { UserRightsIncreaseSchedulingPriority = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsLoadUnloadDrivers", n => { UserRightsLoadUnloadDrivers = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsLocalLogOn", n => { UserRightsLocalLogOn = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsLockMemory", n => { UserRightsLockMemory = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsManageAuditingAndSecurityLogs", n => { UserRightsManageAuditingAndSecurityLogs = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsManageVolumes", n => { UserRightsManageVolumes = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsModifyFirmwareEnvironment", n => { UserRightsModifyFirmwareEnvironment = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsModifyObjectLabels", n => { UserRightsModifyObjectLabels = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsProfileSingleProcess", n => { UserRightsProfileSingleProcess = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsRemoteDesktopServicesLogOn", n => { UserRightsRemoteDesktopServicesLogOn = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsRemoteShutdown", n => { UserRightsRemoteShutdown = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsRestoreData", n => { UserRightsRestoreData = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "userRightsTakeOwnership", n => { UserRightsTakeOwnership = n.GetObjectValue<DeviceManagementUserRightsSetting>(DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
-                { "windowsDefenderTamperProtection", n => { WindowsDefenderTamperProtection = n.GetEnumValue<WindowsDefenderTamperProtectionOptions>(); } },
-                { "xboxServicesAccessoryManagementServiceStartupMode", n => { XboxServicesAccessoryManagementServiceStartupMode = n.GetEnumValue<ServiceStartType>(); } },
+                { "userRightsAccessCredentialManagerAsTrustedCaller", n => { UserRightsAccessCredentialManagerAsTrustedCaller = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsActAsPartOfTheOperatingSystem", n => { UserRightsActAsPartOfTheOperatingSystem = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsAllowAccessFromNetwork", n => { UserRightsAllowAccessFromNetwork = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsBackupData", n => { UserRightsBackupData = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsBlockAccessFromNetwork", n => { UserRightsBlockAccessFromNetwork = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsChangeSystemTime", n => { UserRightsChangeSystemTime = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsCreateGlobalObjects", n => { UserRightsCreateGlobalObjects = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsCreatePageFile", n => { UserRightsCreatePageFile = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsCreatePermanentSharedObjects", n => { UserRightsCreatePermanentSharedObjects = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsCreateSymbolicLinks", n => { UserRightsCreateSymbolicLinks = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsCreateToken", n => { UserRightsCreateToken = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsDebugPrograms", n => { UserRightsDebugPrograms = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsDelegation", n => { UserRightsDelegation = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsDenyLocalLogOn", n => { UserRightsDenyLocalLogOn = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsGenerateSecurityAudits", n => { UserRightsGenerateSecurityAudits = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsImpersonateClient", n => { UserRightsImpersonateClient = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsIncreaseSchedulingPriority", n => { UserRightsIncreaseSchedulingPriority = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsLoadUnloadDrivers", n => { UserRightsLoadUnloadDrivers = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsLocalLogOn", n => { UserRightsLocalLogOn = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsLockMemory", n => { UserRightsLockMemory = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsManageAuditingAndSecurityLogs", n => { UserRightsManageAuditingAndSecurityLogs = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsManageVolumes", n => { UserRightsManageVolumes = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsModifyFirmwareEnvironment", n => { UserRightsModifyFirmwareEnvironment = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsModifyObjectLabels", n => { UserRightsModifyObjectLabels = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsProfileSingleProcess", n => { UserRightsProfileSingleProcess = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsRemoteDesktopServicesLogOn", n => { UserRightsRemoteDesktopServicesLogOn = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsRemoteShutdown", n => { UserRightsRemoteShutdown = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsRestoreData", n => { UserRightsRestoreData = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "userRightsTakeOwnership", n => { UserRightsTakeOwnership = n.GetObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>(ApiSdk.Models.DeviceManagementUserRightsSetting.CreateFromDiscriminatorValue); } },
+                { "windowsDefenderTamperProtection", n => { WindowsDefenderTamperProtection = n.GetEnumValue<ApiSdk.Models.WindowsDefenderTamperProtectionOptions>(); } },
+                { "xboxServicesAccessoryManagementServiceStartupMode", n => { XboxServicesAccessoryManagementServiceStartupMode = n.GetEnumValue<ApiSdk.Models.ServiceStartType>(); } },
                 { "xboxServicesEnableXboxGameSaveTask", n => { XboxServicesEnableXboxGameSaveTask = n.GetBoolValue(); } },
-                { "xboxServicesLiveAuthManagerServiceStartupMode", n => { XboxServicesLiveAuthManagerServiceStartupMode = n.GetEnumValue<ServiceStartType>(); } },
-                { "xboxServicesLiveGameSaveServiceStartupMode", n => { XboxServicesLiveGameSaveServiceStartupMode = n.GetEnumValue<ServiceStartType>(); } },
-                { "xboxServicesLiveNetworkingServiceStartupMode", n => { XboxServicesLiveNetworkingServiceStartupMode = n.GetEnumValue<ServiceStartType>(); } },
+                { "xboxServicesLiveAuthManagerServiceStartupMode", n => { XboxServicesLiveAuthManagerServiceStartupMode = n.GetEnumValue<ApiSdk.Models.ServiceStartType>(); } },
+                { "xboxServicesLiveGameSaveServiceStartupMode", n => { XboxServicesLiveGameSaveServiceStartupMode = n.GetEnumValue<ApiSdk.Models.ServiceStartType>(); } },
+                { "xboxServicesLiveNetworkingServiceStartupMode", n => { XboxServicesLiveNetworkingServiceStartupMode = n.GetEnumValue<ApiSdk.Models.ServiceStartType>(); } },
             };
         }
         /// <summary>
@@ -1063,25 +1063,25 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("applicationGuardAllowPrintToPDF", ApplicationGuardAllowPrintToPDF);
             writer.WriteBoolValue("applicationGuardAllowPrintToXPS", ApplicationGuardAllowPrintToXPS);
             writer.WriteBoolValue("applicationGuardAllowVirtualGPU", ApplicationGuardAllowVirtualGPU);
-            writer.WriteEnumValue<ApplicationGuardBlockClipboardSharingType>("applicationGuardBlockClipboardSharing", ApplicationGuardBlockClipboardSharing);
-            writer.WriteEnumValue<ApplicationGuardBlockFileTransferType>("applicationGuardBlockFileTransfer", ApplicationGuardBlockFileTransfer);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationGuardBlockClipboardSharingType>("applicationGuardBlockClipboardSharing", ApplicationGuardBlockClipboardSharing);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationGuardBlockFileTransferType>("applicationGuardBlockFileTransfer", ApplicationGuardBlockFileTransfer);
             writer.WriteBoolValue("applicationGuardBlockNonEnterpriseContent", ApplicationGuardBlockNonEnterpriseContent);
             writer.WriteCollectionOfPrimitiveValues<string>("applicationGuardCertificateThumbprints", ApplicationGuardCertificateThumbprints);
             writer.WriteBoolValue("applicationGuardEnabled", ApplicationGuardEnabled);
-            writer.WriteEnumValue<ApplicationGuardEnabledOptions>("applicationGuardEnabledOptions", ApplicationGuardEnabledOptions);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationGuardEnabledOptions>("applicationGuardEnabledOptions", ApplicationGuardEnabledOptions);
             writer.WriteBoolValue("applicationGuardForceAuditing", ApplicationGuardForceAuditing);
-            writer.WriteEnumValue<AppLockerApplicationControlType>("appLockerApplicationControl", AppLockerApplicationControl);
+            writer.WriteEnumValue<ApiSdk.Models.AppLockerApplicationControlType>("appLockerApplicationControl", AppLockerApplicationControl);
             writer.WriteBoolValue("bitLockerAllowStandardUserEncryption", BitLockerAllowStandardUserEncryption);
             writer.WriteBoolValue("bitLockerDisableWarningForOtherDiskEncryption", BitLockerDisableWarningForOtherDiskEncryption);
             writer.WriteBoolValue("bitLockerEnableStorageCardEncryptionOnMobile", BitLockerEnableStorageCardEncryptionOnMobile);
             writer.WriteBoolValue("bitLockerEncryptDevice", BitLockerEncryptDevice);
             writer.WriteObjectValue<ApiSdk.Models.BitLockerFixedDrivePolicy>("bitLockerFixedDrivePolicy", BitLockerFixedDrivePolicy);
-            writer.WriteEnumValue<BitLockerRecoveryPasswordRotationType>("bitLockerRecoveryPasswordRotation", BitLockerRecoveryPasswordRotation);
+            writer.WriteEnumValue<ApiSdk.Models.BitLockerRecoveryPasswordRotationType>("bitLockerRecoveryPasswordRotation", BitLockerRecoveryPasswordRotation);
             writer.WriteObjectValue<ApiSdk.Models.BitLockerRemovableDrivePolicy>("bitLockerRemovableDrivePolicy", BitLockerRemovableDrivePolicy);
             writer.WriteObjectValue<ApiSdk.Models.BitLockerSystemDrivePolicy>("bitLockerSystemDrivePolicy", BitLockerSystemDrivePolicy);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderAdditionalGuardedFolders", DefenderAdditionalGuardedFolders);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderAdobeReaderLaunchChildProcess", DefenderAdobeReaderLaunchChildProcess);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderAdvancedRansomewareProtectionType", DefenderAdvancedRansomewareProtectionType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderAdobeReaderLaunchChildProcess", DefenderAdobeReaderLaunchChildProcess);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderAdvancedRansomewareProtectionType", DefenderAdvancedRansomewareProtectionType);
             writer.WriteBoolValue("defenderAllowBehaviorMonitoring", DefenderAllowBehaviorMonitoring);
             writer.WriteBoolValue("defenderAllowCloudProtection", DefenderAllowCloudProtection);
             writer.WriteBoolValue("defenderAllowEndUserAccess", DefenderAllowEndUserAccess);
@@ -1095,9 +1095,9 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("defenderAllowScanScriptsLoadedInInternetExplorer", DefenderAllowScanScriptsLoadedInInternetExplorer);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderAttackSurfaceReductionExcludedPaths", DefenderAttackSurfaceReductionExcludedPaths);
             writer.WriteBoolValue("defenderBlockEndUserAccess", DefenderBlockEndUserAccess);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderBlockPersistenceThroughWmiType", DefenderBlockPersistenceThroughWmiType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderBlockPersistenceThroughWmiType", DefenderBlockPersistenceThroughWmiType);
             writer.WriteBoolValue("defenderCheckForSignaturesBeforeRunningScan", DefenderCheckForSignaturesBeforeRunningScan);
-            writer.WriteEnumValue<DefenderCloudBlockLevelType>("defenderCloudBlockLevel", DefenderCloudBlockLevel);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderCloudBlockLevelType>("defenderCloudBlockLevel", DefenderCloudBlockLevel);
             writer.WriteIntValue("defenderCloudExtendedTimeoutInSeconds", DefenderCloudExtendedTimeoutInSeconds);
             writer.WriteIntValue("defenderDaysBeforeDeletingQuarantinedMalware", DefenderDaysBeforeDeletingQuarantinedMalware);
             writer.WriteObjectValue<ApiSdk.Models.DefenderDetectedMalwareActions>("defenderDetectedMalwareActions", DefenderDetectedMalwareActions);
@@ -1113,8 +1113,8 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("defenderDisableScanNetworkFiles", DefenderDisableScanNetworkFiles);
             writer.WriteBoolValue("defenderDisableScanRemovableDrivesDuringFullScan", DefenderDisableScanRemovableDrivesDuringFullScan);
             writer.WriteBoolValue("defenderDisableScanScriptsLoadedInInternetExplorer", DefenderDisableScanScriptsLoadedInInternetExplorer);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderEmailContentExecution", DefenderEmailContentExecution);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderEmailContentExecutionType", DefenderEmailContentExecutionType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderEmailContentExecution", DefenderEmailContentExecution);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderEmailContentExecutionType", DefenderEmailContentExecutionType);
             writer.WriteBoolValue("defenderEnableLowCpuPriority", DefenderEnableLowCpuPriority);
             writer.WriteBoolValue("defenderEnableScanIncomingMail", DefenderEnableScanIncomingMail);
             writer.WriteBoolValue("defenderEnableScanMappedNetworkDrivesDuringFullScan", DefenderEnableScanMappedNetworkDrivesDuringFullScan);
@@ -1123,32 +1123,32 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFileExtensionsToExclude", DefenderFileExtensionsToExclude);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderFilesAndFoldersToExclude", DefenderFilesAndFoldersToExclude);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderGuardedFoldersAllowedAppPaths", DefenderGuardedFoldersAllowedAppPaths);
-            writer.WriteEnumValue<FolderProtectionType>("defenderGuardMyFoldersType", DefenderGuardMyFoldersType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderNetworkProtectionType", DefenderNetworkProtectionType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderOfficeAppsExecutableContentCreationOrLaunch", DefenderOfficeAppsExecutableContentCreationOrLaunch);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderOfficeAppsExecutableContentCreationOrLaunchType", DefenderOfficeAppsExecutableContentCreationOrLaunchType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderOfficeAppsLaunchChildProcess", DefenderOfficeAppsLaunchChildProcess);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderOfficeAppsLaunchChildProcessType", DefenderOfficeAppsLaunchChildProcessType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderOfficeAppsOtherProcessInjection", DefenderOfficeAppsOtherProcessInjection);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderOfficeAppsOtherProcessInjectionType", DefenderOfficeAppsOtherProcessInjectionType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderOfficeCommunicationAppsLaunchChildProcess", DefenderOfficeCommunicationAppsLaunchChildProcess);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderOfficeMacroCodeAllowWin32Imports", DefenderOfficeMacroCodeAllowWin32Imports);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderOfficeMacroCodeAllowWin32ImportsType", DefenderOfficeMacroCodeAllowWin32ImportsType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderPotentiallyUnwantedAppAction", DefenderPotentiallyUnwantedAppAction);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderPreventCredentialStealingType", DefenderPreventCredentialStealingType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderProcessCreation", DefenderProcessCreation);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderProcessCreationType", DefenderProcessCreationType);
+            writer.WriteEnumValue<ApiSdk.Models.FolderProtectionType>("defenderGuardMyFoldersType", DefenderGuardMyFoldersType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderNetworkProtectionType", DefenderNetworkProtectionType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderOfficeAppsExecutableContentCreationOrLaunch", DefenderOfficeAppsExecutableContentCreationOrLaunch);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderOfficeAppsExecutableContentCreationOrLaunchType", DefenderOfficeAppsExecutableContentCreationOrLaunchType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderOfficeAppsLaunchChildProcess", DefenderOfficeAppsLaunchChildProcess);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderOfficeAppsLaunchChildProcessType", DefenderOfficeAppsLaunchChildProcessType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderOfficeAppsOtherProcessInjection", DefenderOfficeAppsOtherProcessInjection);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderOfficeAppsOtherProcessInjectionType", DefenderOfficeAppsOtherProcessInjectionType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderOfficeCommunicationAppsLaunchChildProcess", DefenderOfficeCommunicationAppsLaunchChildProcess);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderOfficeMacroCodeAllowWin32Imports", DefenderOfficeMacroCodeAllowWin32Imports);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderOfficeMacroCodeAllowWin32ImportsType", DefenderOfficeMacroCodeAllowWin32ImportsType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderPotentiallyUnwantedAppAction", DefenderPotentiallyUnwantedAppAction);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderPreventCredentialStealingType", DefenderPreventCredentialStealingType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderProcessCreation", DefenderProcessCreation);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderProcessCreationType", DefenderProcessCreationType);
             writer.WriteCollectionOfPrimitiveValues<string>("defenderProcessesToExclude", DefenderProcessesToExclude);
-            writer.WriteEnumValue<DefenderRealtimeScanDirection>("defenderScanDirection", DefenderScanDirection);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderRealtimeScanDirection>("defenderScanDirection", DefenderScanDirection);
             writer.WriteIntValue("defenderScanMaxCpuPercentage", DefenderScanMaxCpuPercentage);
-            writer.WriteEnumValue<DefenderScanType>("defenderScanType", DefenderScanType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderScanType>("defenderScanType", DefenderScanType);
             writer.WriteTimeValue("defenderScheduledQuickScanTime", DefenderScheduledQuickScanTime);
-            writer.WriteEnumValue<WeeklySchedule>("defenderScheduledScanDay", DefenderScheduledScanDay);
+            writer.WriteEnumValue<ApiSdk.Models.WeeklySchedule>("defenderScheduledScanDay", DefenderScheduledScanDay);
             writer.WriteTimeValue("defenderScheduledScanTime", DefenderScheduledScanTime);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderScriptDownloadedPayloadExecution", DefenderScriptDownloadedPayloadExecution);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderScriptDownloadedPayloadExecutionType", DefenderScriptDownloadedPayloadExecutionType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderScriptObfuscatedMacroCode", DefenderScriptObfuscatedMacroCode);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderScriptObfuscatedMacroCodeType", DefenderScriptObfuscatedMacroCodeType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderScriptDownloadedPayloadExecution", DefenderScriptDownloadedPayloadExecution);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderScriptDownloadedPayloadExecutionType", DefenderScriptDownloadedPayloadExecutionType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderScriptObfuscatedMacroCode", DefenderScriptObfuscatedMacroCode);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderScriptObfuscatedMacroCodeType", DefenderScriptObfuscatedMacroCodeType);
             writer.WriteBoolValue("defenderSecurityCenterBlockExploitProtectionOverride", DefenderSecurityCenterBlockExploitProtectionOverride);
             writer.WriteBoolValue("defenderSecurityCenterDisableAccountUI", DefenderSecurityCenterDisableAccountUI);
             writer.WriteBoolValue("defenderSecurityCenterDisableAppBrowserUI", DefenderSecurityCenterDisableAppBrowserUI);
@@ -1166,23 +1166,23 @@ namespace ApiSdk.Models
             writer.WriteStringValue("defenderSecurityCenterHelpEmail", DefenderSecurityCenterHelpEmail);
             writer.WriteStringValue("defenderSecurityCenterHelpPhone", DefenderSecurityCenterHelpPhone);
             writer.WriteStringValue("defenderSecurityCenterHelpURL", DefenderSecurityCenterHelpURL);
-            writer.WriteEnumValue<DefenderSecurityCenterITContactDisplayType>("defenderSecurityCenterITContactDisplay", DefenderSecurityCenterITContactDisplay);
-            writer.WriteEnumValue<DefenderSecurityCenterNotificationsFromAppType>("defenderSecurityCenterNotificationsFromApp", DefenderSecurityCenterNotificationsFromApp);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderSecurityCenterITContactDisplayType>("defenderSecurityCenterITContactDisplay", DefenderSecurityCenterITContactDisplay);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderSecurityCenterNotificationsFromAppType>("defenderSecurityCenterNotificationsFromApp", DefenderSecurityCenterNotificationsFromApp);
             writer.WriteStringValue("defenderSecurityCenterOrganizationDisplayName", DefenderSecurityCenterOrganizationDisplayName);
             writer.WriteIntValue("defenderSignatureUpdateIntervalInHours", DefenderSignatureUpdateIntervalInHours);
-            writer.WriteEnumValue<DefenderSubmitSamplesConsentType>("defenderSubmitSamplesConsentType", DefenderSubmitSamplesConsentType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderUntrustedExecutable", DefenderUntrustedExecutable);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderUntrustedExecutableType", DefenderUntrustedExecutableType);
-            writer.WriteEnumValue<DefenderProtectionType>("defenderUntrustedUSBProcess", DefenderUntrustedUSBProcess);
-            writer.WriteEnumValue<DefenderAttackSurfaceType>("defenderUntrustedUSBProcessType", DefenderUntrustedUSBProcessType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderSubmitSamplesConsentType>("defenderSubmitSamplesConsentType", DefenderSubmitSamplesConsentType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderUntrustedExecutable", DefenderUntrustedExecutable);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderUntrustedExecutableType", DefenderUntrustedExecutableType);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderProtectionType>("defenderUntrustedUSBProcess", DefenderUntrustedUSBProcess);
+            writer.WriteEnumValue<ApiSdk.Models.DefenderAttackSurfaceType>("defenderUntrustedUSBProcessType", DefenderUntrustedUSBProcessType);
             writer.WriteBoolValue("deviceGuardEnableSecureBootWithDMA", DeviceGuardEnableSecureBootWithDMA);
             writer.WriteBoolValue("deviceGuardEnableVirtualizationBasedSecurity", DeviceGuardEnableVirtualizationBasedSecurity);
-            writer.WriteEnumValue<Enablement>("deviceGuardLaunchSystemGuard", DeviceGuardLaunchSystemGuard);
-            writer.WriteEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardType>("deviceGuardLocalSystemAuthorityCredentialGuardSettings", DeviceGuardLocalSystemAuthorityCredentialGuardSettings);
-            writer.WriteEnumValue<SecureBootWithDMAType>("deviceGuardSecureBootWithDMA", DeviceGuardSecureBootWithDMA);
-            writer.WriteEnumValue<DmaGuardDeviceEnumerationPolicyType>("dmaGuardDeviceEnumerationPolicy", DmaGuardDeviceEnumerationPolicy);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("deviceGuardLaunchSystemGuard", DeviceGuardLaunchSystemGuard);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceGuardLocalSystemAuthorityCredentialGuardType>("deviceGuardLocalSystemAuthorityCredentialGuardSettings", DeviceGuardLocalSystemAuthorityCredentialGuardSettings);
+            writer.WriteEnumValue<ApiSdk.Models.SecureBootWithDMAType>("deviceGuardSecureBootWithDMA", DeviceGuardSecureBootWithDMA);
+            writer.WriteEnumValue<ApiSdk.Models.DmaGuardDeviceEnumerationPolicyType>("dmaGuardDeviceEnumerationPolicy", DmaGuardDeviceEnumerationPolicy);
             writer.WriteBoolValue("firewallBlockStatefulFTP", FirewallBlockStatefulFTP);
-            writer.WriteEnumValue<FirewallCertificateRevocationListCheckMethodType>("firewallCertificateRevocationListCheckMethod", FirewallCertificateRevocationListCheckMethod);
+            writer.WriteEnumValue<ApiSdk.Models.FirewallCertificateRevocationListCheckMethodType>("firewallCertificateRevocationListCheckMethod", FirewallCertificateRevocationListCheckMethod);
             writer.WriteIntValue("firewallIdleTimeoutForSecurityAssociationInSeconds", FirewallIdleTimeoutForSecurityAssociationInSeconds);
             writer.WriteBoolValue("firewallIPSecExemptionsAllowDHCP", FirewallIPSecExemptionsAllowDHCP);
             writer.WriteBoolValue("firewallIPSecExemptionsAllowICMP", FirewallIPSecExemptionsAllowICMP);
@@ -1190,16 +1190,16 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("firewallIPSecExemptionsAllowRouterDiscovery", FirewallIPSecExemptionsAllowRouterDiscovery);
             writer.WriteBoolValue("firewallIPSecExemptionsNone", FirewallIPSecExemptionsNone);
             writer.WriteBoolValue("firewallMergeKeyingModuleSettings", FirewallMergeKeyingModuleSettings);
-            writer.WriteEnumValue<FirewallPacketQueueingMethodType>("firewallPacketQueueingMethod", FirewallPacketQueueingMethod);
-            writer.WriteEnumValue<FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", FirewallPreSharedKeyEncodingMethod);
-            writer.WriteObjectValue<WindowsFirewallNetworkProfile>("firewallProfileDomain", FirewallProfileDomain);
-            writer.WriteObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePrivate", FirewallProfilePrivate);
-            writer.WriteObjectValue<WindowsFirewallNetworkProfile>("firewallProfilePublic", FirewallProfilePublic);
-            writer.WriteCollectionOfObjectValues<WindowsFirewallRule>("firewallRules", FirewallRules);
-            writer.WriteEnumValue<LanManagerAuthenticationLevel>("lanManagerAuthenticationLevel", LanManagerAuthenticationLevel);
+            writer.WriteEnumValue<ApiSdk.Models.FirewallPacketQueueingMethodType>("firewallPacketQueueingMethod", FirewallPacketQueueingMethod);
+            writer.WriteEnumValue<ApiSdk.Models.FirewallPreSharedKeyEncodingMethodType>("firewallPreSharedKeyEncodingMethod", FirewallPreSharedKeyEncodingMethod);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>("firewallProfileDomain", FirewallProfileDomain);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>("firewallProfilePrivate", FirewallProfilePrivate);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsFirewallNetworkProfile>("firewallProfilePublic", FirewallProfilePublic);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsFirewallRule>("firewallRules", FirewallRules);
+            writer.WriteEnumValue<ApiSdk.Models.LanManagerAuthenticationLevel>("lanManagerAuthenticationLevel", LanManagerAuthenticationLevel);
             writer.WriteBoolValue("lanManagerWorkstationDisableInsecureGuestLogons", LanManagerWorkstationDisableInsecureGuestLogons);
             writer.WriteStringValue("localSecurityOptionsAdministratorAccountName", LocalSecurityOptionsAdministratorAccountName);
-            writer.WriteEnumValue<LocalSecurityOptionsAdministratorElevationPromptBehaviorType>("localSecurityOptionsAdministratorElevationPromptBehavior", LocalSecurityOptionsAdministratorElevationPromptBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsAdministratorElevationPromptBehaviorType>("localSecurityOptionsAdministratorElevationPromptBehavior", LocalSecurityOptionsAdministratorElevationPromptBehavior);
             writer.WriteBoolValue("localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares", LocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares);
             writer.WriteBoolValue("localSecurityOptionsAllowPKU2UAuthenticationRequests", LocalSecurityOptionsAllowPKU2UAuthenticationRequests);
             writer.WriteStringValue("localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager", LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager);
@@ -1224,63 +1224,63 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts", LocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts);
             writer.WriteBoolValue("localSecurityOptionsDoNotRequireCtrlAltDel", LocalSecurityOptionsDoNotRequireCtrlAltDel);
             writer.WriteBoolValue("localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange", LocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange);
-            writer.WriteEnumValue<LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType>("localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser", LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType>("localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser", LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser);
             writer.WriteStringValue("localSecurityOptionsGuestAccountName", LocalSecurityOptionsGuestAccountName);
             writer.WriteBoolValue("localSecurityOptionsHideLastSignedInUser", LocalSecurityOptionsHideLastSignedInUser);
             writer.WriteBoolValue("localSecurityOptionsHideUsernameAtSignIn", LocalSecurityOptionsHideUsernameAtSignIn);
-            writer.WriteEnumValue<LocalSecurityOptionsInformationDisplayedOnLockScreenType>("localSecurityOptionsInformationDisplayedOnLockScreen", LocalSecurityOptionsInformationDisplayedOnLockScreen);
-            writer.WriteEnumValue<LocalSecurityOptionsInformationShownOnLockScreenType>("localSecurityOptionsInformationShownOnLockScreen", LocalSecurityOptionsInformationShownOnLockScreen);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsInformationDisplayedOnLockScreenType>("localSecurityOptionsInformationDisplayedOnLockScreen", LocalSecurityOptionsInformationDisplayedOnLockScreen);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsInformationShownOnLockScreenType>("localSecurityOptionsInformationShownOnLockScreen", LocalSecurityOptionsInformationShownOnLockScreen);
             writer.WriteStringValue("localSecurityOptionsLogOnMessageText", LocalSecurityOptionsLogOnMessageText);
             writer.WriteStringValue("localSecurityOptionsLogOnMessageTitle", LocalSecurityOptionsLogOnMessageTitle);
             writer.WriteIntValue("localSecurityOptionsMachineInactivityLimit", LocalSecurityOptionsMachineInactivityLimit);
             writer.WriteIntValue("localSecurityOptionsMachineInactivityLimitInMinutes", LocalSecurityOptionsMachineInactivityLimitInMinutes);
-            writer.WriteEnumValue<LocalSecurityOptionsMinimumSessionSecurity>("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients", LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients);
-            writer.WriteEnumValue<LocalSecurityOptionsMinimumSessionSecurity>("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers", LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity>("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients", LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsMinimumSessionSecurity>("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers", LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers);
             writer.WriteBoolValue("localSecurityOptionsOnlyElevateSignedExecutables", LocalSecurityOptionsOnlyElevateSignedExecutables);
             writer.WriteBoolValue("localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares", LocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares);
-            writer.WriteEnumValue<LocalSecurityOptionsSmartCardRemovalBehaviorType>("localSecurityOptionsSmartCardRemovalBehavior", LocalSecurityOptionsSmartCardRemovalBehavior);
-            writer.WriteEnumValue<LocalSecurityOptionsStandardUserElevationPromptBehaviorType>("localSecurityOptionsStandardUserElevationPromptBehavior", LocalSecurityOptionsStandardUserElevationPromptBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsSmartCardRemovalBehaviorType>("localSecurityOptionsSmartCardRemovalBehavior", LocalSecurityOptionsSmartCardRemovalBehavior);
+            writer.WriteEnumValue<ApiSdk.Models.LocalSecurityOptionsStandardUserElevationPromptBehaviorType>("localSecurityOptionsStandardUserElevationPromptBehavior", LocalSecurityOptionsStandardUserElevationPromptBehavior);
             writer.WriteBoolValue("localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation", LocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation);
             writer.WriteBoolValue("localSecurityOptionsUseAdminApprovalMode", LocalSecurityOptionsUseAdminApprovalMode);
             writer.WriteBoolValue("localSecurityOptionsUseAdminApprovalModeForAdministrators", LocalSecurityOptionsUseAdminApprovalModeForAdministrators);
             writer.WriteBoolValue("localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations", LocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations);
             writer.WriteBoolValue("smartScreenBlockOverrideForFiles", SmartScreenBlockOverrideForFiles);
             writer.WriteBoolValue("smartScreenEnableInShell", SmartScreenEnableInShell);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsAccessCredentialManagerAsTrustedCaller", UserRightsAccessCredentialManagerAsTrustedCaller);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsActAsPartOfTheOperatingSystem", UserRightsActAsPartOfTheOperatingSystem);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsAllowAccessFromNetwork", UserRightsAllowAccessFromNetwork);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsBackupData", UserRightsBackupData);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsBlockAccessFromNetwork", UserRightsBlockAccessFromNetwork);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsChangeSystemTime", UserRightsChangeSystemTime);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsCreateGlobalObjects", UserRightsCreateGlobalObjects);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsCreatePageFile", UserRightsCreatePageFile);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsCreatePermanentSharedObjects", UserRightsCreatePermanentSharedObjects);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsCreateSymbolicLinks", UserRightsCreateSymbolicLinks);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsCreateToken", UserRightsCreateToken);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsDebugPrograms", UserRightsDebugPrograms);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsDelegation", UserRightsDelegation);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsDenyLocalLogOn", UserRightsDenyLocalLogOn);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsGenerateSecurityAudits", UserRightsGenerateSecurityAudits);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsImpersonateClient", UserRightsImpersonateClient);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsIncreaseSchedulingPriority", UserRightsIncreaseSchedulingPriority);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsLoadUnloadDrivers", UserRightsLoadUnloadDrivers);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsLocalLogOn", UserRightsLocalLogOn);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsLockMemory", UserRightsLockMemory);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsManageAuditingAndSecurityLogs", UserRightsManageAuditingAndSecurityLogs);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsManageVolumes", UserRightsManageVolumes);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsModifyFirmwareEnvironment", UserRightsModifyFirmwareEnvironment);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsModifyObjectLabels", UserRightsModifyObjectLabels);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsProfileSingleProcess", UserRightsProfileSingleProcess);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsRemoteDesktopServicesLogOn", UserRightsRemoteDesktopServicesLogOn);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsRemoteShutdown", UserRightsRemoteShutdown);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsRestoreData", UserRightsRestoreData);
-            writer.WriteObjectValue<DeviceManagementUserRightsSetting>("userRightsTakeOwnership", UserRightsTakeOwnership);
-            writer.WriteEnumValue<WindowsDefenderTamperProtectionOptions>("windowsDefenderTamperProtection", WindowsDefenderTamperProtection);
-            writer.WriteEnumValue<ServiceStartType>("xboxServicesAccessoryManagementServiceStartupMode", XboxServicesAccessoryManagementServiceStartupMode);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsAccessCredentialManagerAsTrustedCaller", UserRightsAccessCredentialManagerAsTrustedCaller);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsActAsPartOfTheOperatingSystem", UserRightsActAsPartOfTheOperatingSystem);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsAllowAccessFromNetwork", UserRightsAllowAccessFromNetwork);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsBackupData", UserRightsBackupData);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsBlockAccessFromNetwork", UserRightsBlockAccessFromNetwork);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsChangeSystemTime", UserRightsChangeSystemTime);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsCreateGlobalObjects", UserRightsCreateGlobalObjects);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsCreatePageFile", UserRightsCreatePageFile);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsCreatePermanentSharedObjects", UserRightsCreatePermanentSharedObjects);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsCreateSymbolicLinks", UserRightsCreateSymbolicLinks);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsCreateToken", UserRightsCreateToken);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsDebugPrograms", UserRightsDebugPrograms);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsDelegation", UserRightsDelegation);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsDenyLocalLogOn", UserRightsDenyLocalLogOn);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsGenerateSecurityAudits", UserRightsGenerateSecurityAudits);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsImpersonateClient", UserRightsImpersonateClient);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsIncreaseSchedulingPriority", UserRightsIncreaseSchedulingPriority);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsLoadUnloadDrivers", UserRightsLoadUnloadDrivers);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsLocalLogOn", UserRightsLocalLogOn);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsLockMemory", UserRightsLockMemory);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsManageAuditingAndSecurityLogs", UserRightsManageAuditingAndSecurityLogs);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsManageVolumes", UserRightsManageVolumes);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsModifyFirmwareEnvironment", UserRightsModifyFirmwareEnvironment);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsModifyObjectLabels", UserRightsModifyObjectLabels);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsProfileSingleProcess", UserRightsProfileSingleProcess);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsRemoteDesktopServicesLogOn", UserRightsRemoteDesktopServicesLogOn);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsRemoteShutdown", UserRightsRemoteShutdown);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsRestoreData", UserRightsRestoreData);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementUserRightsSetting>("userRightsTakeOwnership", UserRightsTakeOwnership);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsDefenderTamperProtectionOptions>("windowsDefenderTamperProtection", WindowsDefenderTamperProtection);
+            writer.WriteEnumValue<ApiSdk.Models.ServiceStartType>("xboxServicesAccessoryManagementServiceStartupMode", XboxServicesAccessoryManagementServiceStartupMode);
             writer.WriteBoolValue("xboxServicesEnableXboxGameSaveTask", XboxServicesEnableXboxGameSaveTask);
-            writer.WriteEnumValue<ServiceStartType>("xboxServicesLiveAuthManagerServiceStartupMode", XboxServicesLiveAuthManagerServiceStartupMode);
-            writer.WriteEnumValue<ServiceStartType>("xboxServicesLiveGameSaveServiceStartupMode", XboxServicesLiveGameSaveServiceStartupMode);
-            writer.WriteEnumValue<ServiceStartType>("xboxServicesLiveNetworkingServiceStartupMode", XboxServicesLiveNetworkingServiceStartupMode);
+            writer.WriteEnumValue<ApiSdk.Models.ServiceStartType>("xboxServicesLiveAuthManagerServiceStartupMode", XboxServicesLiveAuthManagerServiceStartupMode);
+            writer.WriteEnumValue<ApiSdk.Models.ServiceStartType>("xboxServicesLiveGameSaveServiceStartupMode", XboxServicesLiveGameSaveServiceStartupMode);
+            writer.WriteEnumValue<ApiSdk.Models.ServiceStartType>("xboxServicesLiveNetworkingServiceStartupMode", XboxServicesLiveNetworkingServiceStartupMode);
         }
     }
 }

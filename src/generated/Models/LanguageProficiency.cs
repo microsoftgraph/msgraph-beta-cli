@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class LanguageProficiency : ItemFacet, IParsable
+    public class LanguageProficiency : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the long-form name for the language.</summary>
@@ -19,11 +19,11 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>The proficiency property</summary>
-        public LanguageProficiencyLevel? Proficiency { get; set; }
+        public ApiSdk.Models.LanguageProficiencyLevel? Proficiency { get; set; }
         /// <summary>Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.</summary>
-        public LanguageProficiencyLevel? Reading { get; set; }
+        public ApiSdk.Models.LanguageProficiencyLevel? Reading { get; set; }
         /// <summary>Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.</summary>
-        public LanguageProficiencyLevel? Spoken { get; set; }
+        public ApiSdk.Models.LanguageProficiencyLevel? Spoken { get; set; }
         /// <summary>Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,9 +41,9 @@ namespace ApiSdk.Models
         public string ThumbnailUrl { get; set; }
 #endif
         /// <summary>Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.</summary>
-        public LanguageProficiencyLevel? Written { get; set; }
+        public ApiSdk.Models.LanguageProficiencyLevel? Written { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="LanguageProficiency"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LanguageProficiency"/> and sets the default values.
         /// </summary>
         public LanguageProficiency() : base()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LanguageProficiency"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LanguageProficiency"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new LanguageProficiency CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.LanguageProficiency CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LanguageProficiency();
+            return new ApiSdk.Models.LanguageProficiency();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "proficiency", n => { Proficiency = n.GetEnumValue<LanguageProficiencyLevel>(); } },
-                { "reading", n => { Reading = n.GetEnumValue<LanguageProficiencyLevel>(); } },
-                { "spoken", n => { Spoken = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "proficiency", n => { Proficiency = n.GetEnumValue<ApiSdk.Models.LanguageProficiencyLevel>(); } },
+                { "reading", n => { Reading = n.GetEnumValue<ApiSdk.Models.LanguageProficiencyLevel>(); } },
+                { "spoken", n => { Spoken = n.GetEnumValue<ApiSdk.Models.LanguageProficiencyLevel>(); } },
                 { "tag", n => { Tag = n.GetStringValue(); } },
                 { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
-                { "written", n => { Written = n.GetEnumValue<LanguageProficiencyLevel>(); } },
+                { "written", n => { Written = n.GetEnumValue<ApiSdk.Models.LanguageProficiencyLevel>(); } },
             };
         }
         /// <summary>
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<LanguageProficiencyLevel>("proficiency", Proficiency);
-            writer.WriteEnumValue<LanguageProficiencyLevel>("reading", Reading);
-            writer.WriteEnumValue<LanguageProficiencyLevel>("spoken", Spoken);
+            writer.WriteEnumValue<ApiSdk.Models.LanguageProficiencyLevel>("proficiency", Proficiency);
+            writer.WriteEnumValue<ApiSdk.Models.LanguageProficiencyLevel>("reading", Reading);
+            writer.WriteEnumValue<ApiSdk.Models.LanguageProficiencyLevel>("spoken", Spoken);
             writer.WriteStringValue("tag", Tag);
             writer.WriteStringValue("thumbnailUrl", ThumbnailUrl);
-            writer.WriteEnumValue<LanguageProficiencyLevel>("written", Written);
+            writer.WriteEnumValue<ApiSdk.Models.LanguageProficiencyLevel>("written", Written);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Base type for a setting instance
     /// </summary>
-    public class DeviceManagementSettingInstance : Entity, IParsable
+    public class DeviceManagementSettingInstance : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The ID of the setting definition for this instance</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,21 +30,21 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementAbstractComplexSettingInstance" => new DeviceManagementAbstractComplexSettingInstance(),
-                "#microsoft.graph.deviceManagementBooleanSettingInstance" => new DeviceManagementBooleanSettingInstance(),
-                "#microsoft.graph.deviceManagementCollectionSettingInstance" => new DeviceManagementCollectionSettingInstance(),
-                "#microsoft.graph.deviceManagementComplexSettingInstance" => new DeviceManagementComplexSettingInstance(),
-                "#microsoft.graph.deviceManagementIntegerSettingInstance" => new DeviceManagementIntegerSettingInstance(),
-                "#microsoft.graph.deviceManagementStringSettingInstance" => new DeviceManagementStringSettingInstance(),
-                _ => new DeviceManagementSettingInstance(),
+                "#microsoft.graph.deviceManagementAbstractComplexSettingInstance" => new ApiSdk.Models.DeviceManagementAbstractComplexSettingInstance(),
+                "#microsoft.graph.deviceManagementBooleanSettingInstance" => new ApiSdk.Models.DeviceManagementBooleanSettingInstance(),
+                "#microsoft.graph.deviceManagementCollectionSettingInstance" => new ApiSdk.Models.DeviceManagementCollectionSettingInstance(),
+                "#microsoft.graph.deviceManagementComplexSettingInstance" => new ApiSdk.Models.DeviceManagementComplexSettingInstance(),
+                "#microsoft.graph.deviceManagementIntegerSettingInstance" => new ApiSdk.Models.DeviceManagementIntegerSettingInstance(),
+                "#microsoft.graph.deviceManagementStringSettingInstance" => new ApiSdk.Models.DeviceManagementStringSettingInstance(),
+                _ => new ApiSdk.Models.DeviceManagementSettingInstance(),
             };
         }
         /// <summary>

@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskAppConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskAppConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsKioskAppConfiguration()
         {
@@ -31,18 +31,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskAppConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskAppConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsKioskAppConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsKioskAppConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsKioskMultipleApps" => new WindowsKioskMultipleApps(),
-                "#microsoft.graph.windowsKioskSingleUWPApp" => new WindowsKioskSingleUWPApp(),
-                "#microsoft.graph.windowsKioskSingleWin32App" => new WindowsKioskSingleWin32App(),
-                _ => new WindowsKioskAppConfiguration(),
+                "#microsoft.graph.windowsKioskMultipleApps" => new ApiSdk.Models.WindowsKioskMultipleApps(),
+                "#microsoft.graph.windowsKioskSingleUWPApp" => new ApiSdk.Models.WindowsKioskSingleUWPApp(),
+                "#microsoft.graph.windowsKioskSingleWin32App" => new ApiSdk.Models.WindowsKioskSingleWin32App(),
+                _ => new ApiSdk.Models.WindowsKioskAppConfiguration(),
             };
         }
         /// <summary>

@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// The class used to identify the UWP app info for the kiosk configuration
     /// </summary>
-    public class WindowsKioskSingleUWPApp : WindowsKioskAppConfiguration, IParsable
+    public class WindowsKioskSingleUWPApp : ApiSdk.Models.WindowsKioskAppConfiguration, IParsable
     {
         /// <summary>The uwpApp property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsKioskUWPApp? UwpApp { get; set; }
+        public ApiSdk.Models.WindowsKioskUWPApp? UwpApp { get; set; }
 #nullable restore
 #else
-        public WindowsKioskUWPApp UwpApp { get; set; }
+        public ApiSdk.Models.WindowsKioskUWPApp UwpApp { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskSingleUWPApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskSingleUWPApp"/> and sets the default values.
         /// </summary>
         public WindowsKioskSingleUWPApp() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskSingleUWPApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskSingleUWPApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsKioskSingleUWPApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsKioskSingleUWPApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsKioskSingleUWPApp();
+            return new ApiSdk.Models.WindowsKioskSingleUWPApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "uwpApp", n => { UwpApp = n.GetObjectValue<WindowsKioskUWPApp>(WindowsKioskUWPApp.CreateFromDiscriminatorValue); } },
+                { "uwpApp", n => { UwpApp = n.GetObjectValue<ApiSdk.Models.WindowsKioskUWPApp>(ApiSdk.Models.WindowsKioskUWPApp.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<WindowsKioskUWPApp>("uwpApp", UwpApp);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsKioskUWPApp>("uwpApp", UwpApp);
         }
     }
 }

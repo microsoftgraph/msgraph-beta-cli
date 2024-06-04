@@ -61,14 +61,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphM
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsResetTenantOnboardingStatus.MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/microsoft.graph.managedTenants.resetTenantOnboardingStatus", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsResetTenantOnboardingStatus.MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphManagedTenantsResetTenantOnboardingStatusRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/microsoft.graph.managedTenants.resetTenantOnboardingStatus", rawUrl)

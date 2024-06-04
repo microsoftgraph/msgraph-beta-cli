@@ -22,7 +22,7 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScr
         public ApiSdk.Models.DeviceCompliancePolicyScript DeviceCompliancePolicyScript { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ValidateComplianceScriptPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript.ValidateComplianceScriptPostRequestBody"/> and sets the default values.
         /// </summary>
         public ValidateComplianceScriptPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScr
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidateComplianceScriptPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript.ValidateComplianceScriptPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ValidateComplianceScriptPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript.ValidateComplianceScriptPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ValidateComplianceScriptPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceCompliancePolicies.ValidateComplianceScript.ValidateComplianceScriptPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -31,7 +31,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new UnifiedRbacResourceNamespaceItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.Item.UnifiedRbacResourceNamespaceItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildImportResourceActionsNavCommand());
@@ -47,7 +47,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -87,7 +87,7 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UnifiedRbacResourceNamespace>(UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.UnifiedRbacResourceNamespace>(ApiSdk.Models.UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -210,14 +210,14 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResourceNamespacesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.ResourceNamespacesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResourceNamespacesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/resourceNamespaces{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResourceNamespacesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.ResourceNamespacesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResourceNamespacesRequestBuilder(string rawUrl) : base("{+baseurl}/roleManagement/enterpriseApps/{rbacApplication%2Did}/resourceNamespaces{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -230,11 +230,11 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ResourceNamespacesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.ResourceNamespacesRequestBuilder.ResourceNamespacesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ResourceNamespacesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces.ResourceNamespacesRequestBuilder.ResourceNamespacesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -250,11 +250,11 @@ namespace ApiSdk.RoleManagement.EnterpriseApps.Item.ResourceNamespaces
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UnifiedRbacResourceNamespace body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.UnifiedRbacResourceNamespace body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UnifiedRbacResourceNamespace body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.UnifiedRbacResourceNamespace body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

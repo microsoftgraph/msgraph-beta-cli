@@ -102,14 +102,14 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetSupportedPropertiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties.GetSupportedPropertiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetSupportedPropertiesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/assignmentFilters/{deviceAndAppManagementAssignmentFilter%2Did}/getSupportedProperties(){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetSupportedPropertiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties.GetSupportedPropertiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetSupportedPropertiesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/assignmentFilters/{deviceAndAppManagementAssignmentFilter%2Did}/getSupportedProperties(){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -122,11 +122,11 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetSupportedPropertiesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties.GetSupportedPropertiesRequestBuilder.GetSupportedPropertiesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetSupportedPropertiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AssignmentFilters.Item.GetSupportedProperties.GetSupportedPropertiesRequestBuilder.GetSupportedPropertiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

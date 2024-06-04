@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents a single Microsoft Tunnel server
     /// </summary>
-    public class MicrosoftTunnelServer : Entity, IParsable
+    public class MicrosoftTunnelServer : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The digest of the current agent image running on this server</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,16 +38,16 @@ namespace ApiSdk.Models
         public string ServerImageDigest { get; set; }
 #endif
         /// <summary>Enum of possible MicrosoftTunnelServer health status types</summary>
-        public MicrosoftTunnelServerHealthStatus? TunnelServerHealthStatus { get; set; }
+        public ApiSdk.Models.MicrosoftTunnelServerHealthStatus? TunnelServerHealthStatus { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftTunnelServer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftTunnelServer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftTunnelServer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MicrosoftTunnelServer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftTunnelServer();
+            return new ApiSdk.Models.MicrosoftTunnelServer();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastCheckinDateTime", n => { LastCheckinDateTime = n.GetDateTimeOffsetValue(); } },
                 { "serverImageDigest", n => { ServerImageDigest = n.GetStringValue(); } },
-                { "tunnelServerHealthStatus", n => { TunnelServerHealthStatus = n.GetEnumValue<MicrosoftTunnelServerHealthStatus>(); } },
+                { "tunnelServerHealthStatus", n => { TunnelServerHealthStatus = n.GetEnumValue<ApiSdk.Models.MicrosoftTunnelServerHealthStatus>(); } },
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastCheckinDateTime", LastCheckinDateTime);
             writer.WriteStringValue("serverImageDigest", ServerImageDigest);
-            writer.WriteEnumValue<MicrosoftTunnelServerHealthStatus>("tunnelServerHealthStatus", TunnelServerHealthStatus);
+            writer.WriteEnumValue<ApiSdk.Models.MicrosoftTunnelServerHealthStatus>("tunnelServerHealthStatus", TunnelServerHealthStatus);
         }
     }
 }

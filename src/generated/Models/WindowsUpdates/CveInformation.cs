@@ -37,7 +37,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CveInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.CveInformation"/> and sets the default values.
         /// </summary>
         public CveInformation()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CveInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.CveInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CveInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.CveInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CveInformation();
+            return new ApiSdk.Models.WindowsUpdates.CveInformation();
         }
         /// <summary>
         /// The deserialization information for the current model

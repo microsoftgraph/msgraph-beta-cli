@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GetRoleScopeTagsByIdPostRequestBody>(GetRoleScopeTagsByIdPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody>(ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -79,14 +79,14 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRoleScopeTagsByIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetRoleScopeTagsByIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/roleScopeTags/getRoleScopeTagsById", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetRoleScopeTagsByIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetRoleScopeTagsByIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/roleScopeTags/getRoleScopeTagsById", rawUrl)
@@ -100,11 +100,11 @@ namespace ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GetRoleScopeTagsByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GetRoleScopeTagsByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.RoleScopeTags.GetRoleScopeTagsById.GetRoleScopeTagsByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

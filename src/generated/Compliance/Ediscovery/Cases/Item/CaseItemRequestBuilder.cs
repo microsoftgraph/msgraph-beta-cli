@@ -39,7 +39,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("custodians");
             command.Description = "Provides operations to manage the custodians property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new CustodiansRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Custodians.CustodiansRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -159,7 +159,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("legal-holds");
             command.Description = "Provides operations to manage the legalHolds property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new LegalHoldsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.LegalHolds.LegalHoldsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -186,7 +186,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("microsoft-graph-ediscovery-close");
             command.Description = "Provides operations to call the close method.";
-            var builder = new MicrosoftGraphEdiscoveryCloseRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryClose.MicrosoftGraphEdiscoveryCloseRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -203,7 +203,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("microsoft-graph-ediscovery-reopen");
             command.Description = "Provides operations to call the reopen method.";
-            var builder = new MicrosoftGraphEdiscoveryReopenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.MicrosoftGraphEdiscoveryReopen.MicrosoftGraphEdiscoveryReopenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -220,7 +220,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("noncustodial-data-sources");
             command.Description = "Provides operations to manage the noncustodialDataSources property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new NoncustodialDataSourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.NoncustodialDataSources.NoncustodialDataSourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -249,7 +249,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new OperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Operations.OperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -302,7 +302,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<Case>(Case.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Ediscovery.Case>(ApiSdk.Models.Ediscovery.Case.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -330,7 +330,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("review-sets");
             command.Description = "Provides operations to manage the reviewSets property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new ReviewSetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.ReviewSetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -357,7 +357,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -382,7 +382,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("source-collections");
             command.Description = "Provides operations to manage the sourceCollections property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new SourceCollectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.SourceCollections.SourceCollectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -409,7 +409,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         {
             var command = new Command("tags");
             command.Description = "Provides operations to manage the tags property of the microsoft.graph.ediscovery.case entity.";
-            var builder = new TagsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.Tags.TagsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -430,14 +430,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CaseItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.CaseItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CaseItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CaseItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.CaseItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CaseItemRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}{?%24expand,%24select}", rawUrl)
@@ -471,11 +471,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CaseItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.CaseItemRequestBuilder.CaseItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CaseItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.CaseItemRequestBuilder.CaseItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -492,11 +492,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Case body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Ediscovery.Case body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Case body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Ediscovery.Case body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

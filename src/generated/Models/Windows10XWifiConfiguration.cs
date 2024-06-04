@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows X WifiXml configuration profile
     /// </summary>
-    public class Windows10XWifiConfiguration : DeviceManagementResourceAccessProfileBase, IParsable
+    public class Windows10XWifiConfiguration : ApiSdk.Models.DeviceManagementResourceAccessProfileBase, IParsable
     {
         /// <summary>ID to the Authentication Certificate</summary>
         public Guid? AuthenticationCertificateId { get; set; }
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string CustomXmlFileName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10XWifiConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10XWifiConfiguration"/> and sets the default values.
         /// </summary>
         public Windows10XWifiConfiguration() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10XWifiConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10XWifiConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10XWifiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10XWifiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10XWifiConfiguration();
+            return new ApiSdk.Models.Windows10XWifiConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

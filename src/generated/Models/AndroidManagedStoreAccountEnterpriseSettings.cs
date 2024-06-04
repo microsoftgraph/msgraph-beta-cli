@@ -9,28 +9,28 @@ namespace ApiSdk.Models
     /// <summary>
     /// Enterprise settings for an Android managed store account.
     /// </summary>
-    public class AndroidManagedStoreAccountEnterpriseSettings : Entity, IParsable
+    public class AndroidManagedStoreAccountEnterpriseSettings : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Company codes for AndroidManagedStoreAccountEnterpriseSettings</summary>
         public bool? AndroidDeviceOwnerFullyManagedEnrollmentEnabled { get; set; }
         /// <summary>Bind status of the tenant with the Google EMM API</summary>
-        public AndroidManagedStoreAccountBindStatus? BindStatus { get; set; }
+        public ApiSdk.Models.AndroidManagedStoreAccountBindStatus? BindStatus { get; set; }
         /// <summary>Company codes for AndroidManagedStoreAccountEnterpriseSettings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidEnrollmentCompanyCode>? CompanyCodes { get; set; }
+        public List<ApiSdk.Models.AndroidEnrollmentCompanyCode>? CompanyCodes { get; set; }
 #nullable restore
 #else
-        public List<AndroidEnrollmentCompanyCode> CompanyCodes { get; set; }
+        public List<ApiSdk.Models.AndroidEnrollmentCompanyCode> CompanyCodes { get; set; }
 #endif
         /// <summary>Indicates if this account is flighting for Android Device Owner Management with CloudDPC.</summary>
         public bool? DeviceOwnerManagementEnabled { get; set; }
         /// <summary>Android for Work device management targeting type for the account</summary>
-        public AndroidManagedStoreAccountEnrollmentTarget? EnrollmentTarget { get; set; }
+        public ApiSdk.Models.AndroidManagedStoreAccountEnrollmentTarget? EnrollmentTarget { get; set; }
         /// <summary>Last completion time for app sync</summary>
         public DateTimeOffset? LastAppSyncDateTime { get; set; }
         /// <summary>Sync status of the tenant with the Google EMM API</summary>
-        public AndroidManagedStoreAccountAppSyncStatus? LastAppSyncStatus { get; set; }
+        public ApiSdk.Models.AndroidManagedStoreAccountAppSyncStatus? LastAppSyncStatus { get; set; }
         /// <summary>Last modification time for Android enterprise settings</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Initial scope tags for MGP apps</summary>
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreAccountEnterpriseSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreAccountEnterpriseSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedStoreAccountEnterpriseSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedStoreAccountEnterpriseSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedStoreAccountEnterpriseSettings();
+            return new ApiSdk.Models.AndroidManagedStoreAccountEnterpriseSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,12 +84,12 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "androidDeviceOwnerFullyManagedEnrollmentEnabled", n => { AndroidDeviceOwnerFullyManagedEnrollmentEnabled = n.GetBoolValue(); } },
-                { "bindStatus", n => { BindStatus = n.GetEnumValue<AndroidManagedStoreAccountBindStatus>(); } },
-                { "companyCodes", n => { CompanyCodes = n.GetCollectionOfObjectValues<AndroidEnrollmentCompanyCode>(AndroidEnrollmentCompanyCode.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "bindStatus", n => { BindStatus = n.GetEnumValue<ApiSdk.Models.AndroidManagedStoreAccountBindStatus>(); } },
+                { "companyCodes", n => { CompanyCodes = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidEnrollmentCompanyCode>(ApiSdk.Models.AndroidEnrollmentCompanyCode.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deviceOwnerManagementEnabled", n => { DeviceOwnerManagementEnabled = n.GetBoolValue(); } },
-                { "enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<AndroidManagedStoreAccountEnrollmentTarget>(); } },
+                { "enrollmentTarget", n => { EnrollmentTarget = n.GetEnumValue<ApiSdk.Models.AndroidManagedStoreAccountEnrollmentTarget>(); } },
                 { "lastAppSyncDateTime", n => { LastAppSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                { "lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<AndroidManagedStoreAccountAppSyncStatus>(); } },
+                { "lastAppSyncStatus", n => { LastAppSyncStatus = n.GetEnumValue<ApiSdk.Models.AndroidManagedStoreAccountAppSyncStatus>(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "managedGooglePlayInitialScopeTagIds", n => { ManagedGooglePlayInitialScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "ownerOrganizationName", n => { OwnerOrganizationName = n.GetStringValue(); } },
@@ -106,12 +106,12 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("androidDeviceOwnerFullyManagedEnrollmentEnabled", AndroidDeviceOwnerFullyManagedEnrollmentEnabled);
-            writer.WriteEnumValue<AndroidManagedStoreAccountBindStatus>("bindStatus", BindStatus);
-            writer.WriteCollectionOfObjectValues<AndroidEnrollmentCompanyCode>("companyCodes", CompanyCodes);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedStoreAccountBindStatus>("bindStatus", BindStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidEnrollmentCompanyCode>("companyCodes", CompanyCodes);
             writer.WriteBoolValue("deviceOwnerManagementEnabled", DeviceOwnerManagementEnabled);
-            writer.WriteEnumValue<AndroidManagedStoreAccountEnrollmentTarget>("enrollmentTarget", EnrollmentTarget);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedStoreAccountEnrollmentTarget>("enrollmentTarget", EnrollmentTarget);
             writer.WriteDateTimeOffsetValue("lastAppSyncDateTime", LastAppSyncDateTime);
-            writer.WriteEnumValue<AndroidManagedStoreAccountAppSyncStatus>("lastAppSyncStatus", LastAppSyncStatus);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidManagedStoreAccountAppSyncStatus>("lastAppSyncStatus", LastAppSyncStatus);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("managedGooglePlayInitialScopeTagIds", ManagedGooglePlayInitialScopeTagIds);
             writer.WriteStringValue("ownerOrganizationName", OwnerOrganizationName);

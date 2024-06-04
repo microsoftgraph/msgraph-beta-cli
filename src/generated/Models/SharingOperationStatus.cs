@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SharingOperationStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SharingOperationStatus"/> and sets the default values.
         /// </summary>
         public SharingOperationStatus()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SharingOperationStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SharingOperationStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SharingOperationStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SharingOperationStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SharingOperationStatus();
+            return new ApiSdk.Models.SharingOperationStatus();
         }
         /// <summary>
         /// The deserialization information for the current model

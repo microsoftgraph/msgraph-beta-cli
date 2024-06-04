@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The DepEnrollmentBaseProfile resource represents an Apple Device Enrollment Program (DEP) enrollment profile. This type of profile must be assigned to Apple DEP serial numbers before the corresponding devices can enroll via DEP.
     /// </summary>
-    public class DepEnrollmentBaseProfile : EnrollmentProfile, IParsable
+    public class DepEnrollmentBaseProfile : ApiSdk.Models.EnrollmentProfile, IParsable
     {
         /// <summary>Indicates if Apple id setup pane is disabled</summary>
         public bool? AppleIdDisabled { get; set; }
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates if the device will need to wait for configured confirmation</summary>
         public bool? WaitForDeviceConfiguredConfirmation { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DepEnrollmentBaseProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DepEnrollmentBaseProfile"/> and sets the default values.
         /// </summary>
         public DepEnrollmentBaseProfile() : base()
         {
@@ -95,17 +95,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DepEnrollmentBaseProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DepEnrollmentBaseProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DepEnrollmentBaseProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DepEnrollmentBaseProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.depIOSEnrollmentProfile" => new DepIOSEnrollmentProfile(),
-                "#microsoft.graph.depMacOSEnrollmentProfile" => new DepMacOSEnrollmentProfile(),
-                _ => new DepEnrollmentBaseProfile(),
+                "#microsoft.graph.depIOSEnrollmentProfile" => new ApiSdk.Models.DepIOSEnrollmentProfile(),
+                "#microsoft.graph.depMacOSEnrollmentProfile" => new ApiSdk.Models.DepMacOSEnrollmentProfile(),
+                _ => new ApiSdk.Models.DepEnrollmentBaseProfile(),
             };
         }
         /// <summary>

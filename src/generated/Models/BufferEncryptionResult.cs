@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public byte[] PublishingLicense { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BufferEncryptionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BufferEncryptionResult"/> and sets the default values.
         /// </summary>
         public BufferEncryptionResult()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BufferEncryptionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BufferEncryptionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BufferEncryptionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.BufferEncryptionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BufferEncryptionResult();
+            return new ApiSdk.Models.BufferEncryptionResult();
         }
         /// <summary>
         /// The deserialization information for the current model

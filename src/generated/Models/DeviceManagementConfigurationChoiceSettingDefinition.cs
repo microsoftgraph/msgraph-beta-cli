@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationChoiceSettingDefinition : DeviceManagementConfigurationSettingDefinition, IParsable
+    public class DeviceManagementConfigurationChoiceSettingDefinition : ApiSdk.Models.DeviceManagementConfigurationSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Default option for the choice setting.</summary>
@@ -21,24 +21,24 @@ namespace ApiSdk.Models
         /// <summary>Options for the setting that can be selected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationOptionDefinition>? Options { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationOptionDefinition>? Options { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationOptionDefinition> Options { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationOptionDefinition> Options { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationChoiceSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition" => new DeviceManagementConfigurationChoiceSettingCollectionDefinition(),
-                _ => new DeviceManagementConfigurationChoiceSettingDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionDefinition" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionDefinition(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingDefinition(),
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "defaultOptionId", n => { DefaultOptionId = n.GetStringValue(); } },
-                { "options", n => { Options = n.GetCollectionOfObjectValues<DeviceManagementConfigurationOptionDefinition>(DeviceManagementConfigurationOptionDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationOptionDefinition>(ApiSdk.Models.DeviceManagementConfigurationOptionDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("defaultOptionId", DefaultOptionId);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationOptionDefinition>("options", Options);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationOptionDefinition>("options", Options);
         }
     }
 }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InvalidLicenseAlertIncident : UnifiedRoleManagementAlertIncident, IParsable
+    public class InvalidLicenseAlertIncident : ApiSdk.Models.UnifiedRoleManagementAlertIncident, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Status of the tenant&apos;s Microsoft Entra ID P2 license.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string TenantLicenseStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="InvalidLicenseAlertIncident"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.InvalidLicenseAlertIncident"/> and sets the default values.
         /// </summary>
         public InvalidLicenseAlertIncident() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InvalidLicenseAlertIncident"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InvalidLicenseAlertIncident"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InvalidLicenseAlertIncident CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InvalidLicenseAlertIncident CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InvalidLicenseAlertIncident();
+            return new ApiSdk.Models.InvalidLicenseAlertIncident();
         }
         /// <summary>
         /// The deserialization information for the current model

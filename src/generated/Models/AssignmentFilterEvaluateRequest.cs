@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public List<string> OrderBy { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DevicePlatformType? Platform { get; set; }
+        public ApiSdk.Models.DevicePlatformType? Platform { get; set; }
         /// <summary>Rule definition of the Assignment Filter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         /// <summary>Limit of records per request. Default value is 100, if provided less than 0 or greater than 100</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AssignmentFilterEvaluateRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AssignmentFilterEvaluateRequest"/> and sets the default values.
         /// </summary>
         public AssignmentFilterEvaluateRequest()
         {
@@ -61,12 +61,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignmentFilterEvaluateRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AssignmentFilterEvaluateRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignmentFilterEvaluateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AssignmentFilterEvaluateRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignmentFilterEvaluateRequest();
+            return new ApiSdk.Models.AssignmentFilterEvaluateRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace ApiSdk.Models
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "platform", n => { Platform = n.GetEnumValue<DevicePlatformType>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.DevicePlatformType>(); } },
                 { "rule", n => { Rule = n.GetStringValue(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "skip", n => { Skip = n.GetIntValue(); } },
@@ -94,7 +94,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("orderBy", OrderBy);
-            writer.WriteEnumValue<DevicePlatformType>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.DevicePlatformType>("platform", Platform);
             writer.WriteStringValue("rule", Rule);
             writer.WriteStringValue("search", Search);
             writer.WriteIntValue("skip", Skip);

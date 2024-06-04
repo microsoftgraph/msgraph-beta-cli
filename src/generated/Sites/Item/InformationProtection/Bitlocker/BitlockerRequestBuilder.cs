@@ -82,7 +82,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker
         {
             var command = new Command("recovery-keys");
             command.Description = "Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.";
-            var builder = new RecoveryKeysRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Sites.Item.InformationProtection.Bitlocker.RecoveryKeys.RecoveryKeysRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -101,14 +101,14 @@ namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BitlockerRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.InformationProtection.Bitlocker.BitlockerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BitlockerRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/sites/{site%2Did}/informationProtection/bitlocker{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BitlockerRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.InformationProtection.Bitlocker.BitlockerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BitlockerRequestBuilder(string rawUrl) : base("{+baseurl}/sites/{site%2Did}/informationProtection/bitlocker{?%24expand,%24select}", rawUrl)
@@ -121,11 +121,11 @@ namespace ApiSdk.Sites.Item.InformationProtection.Bitlocker
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BitlockerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Sites.Item.InformationProtection.Bitlocker.BitlockerRequestBuilder.BitlockerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BitlockerRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Sites.Item.InformationProtection.Bitlocker.BitlockerRequestBuilder.BitlockerRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

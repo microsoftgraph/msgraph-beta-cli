@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks
 {
     #pragma warning disable CS1591
-    public class HasPayloadLinksPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class HasPayloadLinksPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HasPayloadLinkResultItem>? Value { get; set; }
+        public List<ApiSdk.Models.HasPayloadLinkResultItem>? Value { get; set; }
 #nullable restore
 #else
-        public List<HasPayloadLinkResultItem> Value { get; set; }
+        public List<ApiSdk.Models.HasPayloadLinkResultItem> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HasPayloadLinksPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks.HasPayloadLinksPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HasPayloadLinksPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks.HasPayloadLinksPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HasPayloadLinksPostResponse();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks.HasPayloadLinksPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<HasPayloadLinkResultItem>(HasPayloadLinkResultItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.HasPayloadLinkResultItem>(ApiSdk.Models.HasPayloadLinkResultItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.HasPayloadLinks
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<HasPayloadLinkResultItem>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HasPayloadLinkResultItem>("value", Value);
         }
     }
 }

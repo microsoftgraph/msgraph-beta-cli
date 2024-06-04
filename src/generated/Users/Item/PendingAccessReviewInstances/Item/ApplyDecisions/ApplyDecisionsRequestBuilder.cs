@@ -56,14 +56,14 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ApplyDecisions
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApplyDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ApplyDecisions.ApplyDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ApplyDecisionsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}/applyDecisions", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApplyDecisionsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.ApplyDecisions.ApplyDecisionsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ApplyDecisionsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}/applyDecisions", rawUrl)

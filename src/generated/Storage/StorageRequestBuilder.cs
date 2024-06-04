@@ -31,7 +31,7 @@ namespace ApiSdk.Storage
         {
             var command = new Command("file-storage");
             command.Description = "Provides operations to manage the fileStorage property of the microsoft.graph.storage entity.";
-            var builder = new FileStorageRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.FileStorageRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildContainersNavCommand());
@@ -148,7 +148,7 @@ namespace ApiSdk.Storage
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.storage entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -166,14 +166,14 @@ namespace ApiSdk.Storage
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="StorageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.StorageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public StorageRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/storage{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="StorageRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.StorageRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public StorageRequestBuilder(string rawUrl) : base("{+baseurl}/storage{?%24expand,%24select}", rawUrl)
@@ -186,11 +186,11 @@ namespace ApiSdk.Storage
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<StorageRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.StorageRequestBuilder.StorageRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<StorageRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.StorageRequestBuilder.StorageRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

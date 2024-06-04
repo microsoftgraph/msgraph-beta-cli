@@ -15,10 +15,10 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>The administrativeUnitInfos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AdministrativeUnitInfo>? AdministrativeUnitInfos { get; set; }
+        public List<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>? AdministrativeUnitInfos { get; set; }
 #nullable restore
 #else
-        public List<AdministrativeUnitInfo> AdministrativeUnitInfos { get; set; }
+        public List<ApiSdk.Models.CallRecords.AdministrativeUnitInfo> AdministrativeUnitInfos { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,7 +69,7 @@ namespace ApiSdk.Models.CallRecords
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CallLogRow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CallRecords.CallLogRow"/> and sets the default values.
         /// </summary>
         public CallLogRow()
         {
@@ -78,18 +78,18 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CallLogRow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CallRecords.CallLogRow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CallLogRow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CallRecords.CallLogRow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.callRecords.directRoutingLogRow" => new DirectRoutingLogRow(),
-                "#microsoft.graph.callRecords.pstnCallLogRow" => new PstnCallLogRow(),
-                "#microsoft.graph.callRecords.smsLogRow" => new SmsLogRow(),
-                _ => new CallLogRow(),
+                "#microsoft.graph.callRecords.directRoutingLogRow" => new ApiSdk.Models.CallRecords.DirectRoutingLogRow(),
+                "#microsoft.graph.callRecords.pstnCallLogRow" => new ApiSdk.Models.CallRecords.PstnCallLogRow(),
+                "#microsoft.graph.callRecords.smsLogRow" => new ApiSdk.Models.CallRecords.SmsLogRow(),
+                _ => new ApiSdk.Models.CallRecords.CallLogRow(),
             };
         }
         /// <summary>
@@ -100,7 +100,7 @@ namespace ApiSdk.Models.CallRecords
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<AdministrativeUnitInfo>(AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "administrativeUnitInfos", n => { AdministrativeUnitInfos = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>(ApiSdk.Models.CallRecords.AdministrativeUnitInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "otherPartyCountryCode", n => { OtherPartyCountryCode = n.GetStringValue(); } },
@@ -116,7 +116,7 @@ namespace ApiSdk.Models.CallRecords
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<AdministrativeUnitInfo>("administrativeUnitInfos", AdministrativeUnitInfos);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.AdministrativeUnitInfo>("administrativeUnitInfos", AdministrativeUnitInfos);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("otherPartyCountryCode", OtherPartyCountryCode);

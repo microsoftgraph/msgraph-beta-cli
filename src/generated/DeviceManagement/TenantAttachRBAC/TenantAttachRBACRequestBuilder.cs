@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceManagement.TenantAttachRBAC
         {
             var command = new Command("enable");
             command.Description = "Provides operations to call the enable method.";
-            var builder = new EnableRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.TenantAttachRBAC.Enable.EnableRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -123,7 +123,7 @@ namespace ApiSdk.DeviceManagement.TenantAttachRBAC
         {
             var command = new Command("get-state");
             command.Description = "Provides operations to call the getState method.";
-            var builder = new GetStateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.TenantAttachRBAC.GetState.GetStateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -178,14 +178,14 @@ namespace ApiSdk.DeviceManagement.TenantAttachRBAC
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TenantAttachRBACRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.TenantAttachRBAC.TenantAttachRBACRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TenantAttachRBACRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/tenantAttachRBAC{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TenantAttachRBACRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.TenantAttachRBAC.TenantAttachRBACRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TenantAttachRBACRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/tenantAttachRBAC{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.DeviceManagement.TenantAttachRBAC
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantAttachRBACRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.TenantAttachRBAC.TenantAttachRBACRequestBuilder.TenantAttachRBACRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantAttachRBACRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.TenantAttachRBAC.TenantAttachRBACRequestBuilder.TenantAttachRBACRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

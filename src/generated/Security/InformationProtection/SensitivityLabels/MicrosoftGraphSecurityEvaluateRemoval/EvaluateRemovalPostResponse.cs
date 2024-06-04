@@ -9,7 +9,7 @@ using System;
 namespace ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval
 {
     #pragma warning disable CS1591
-    public class EvaluateRemovalPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class EvaluateRemovalPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -23,12 +23,12 @@ namespace ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraph
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateRemovalPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval.EvaluateRemovalPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EvaluateRemovalPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval.EvaluateRemovalPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateRemovalPostResponse();
+            return new ApiSdk.Security.InformationProtection.SensitivityLabels.MicrosoftGraphSecurityEvaluateRemoval.EvaluateRemovalPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

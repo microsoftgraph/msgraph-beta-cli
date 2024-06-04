@@ -150,7 +150,7 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings
         {
             var command = new Command("sync");
             command.Description = "Provides operations to call the sync method.";
-            var builder = new SyncRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.WindowsAutopilotSettings.Sync.SyncRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -160,14 +160,14 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsAutopilotSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotSettings.WindowsAutopilotSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public WindowsAutopilotSettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/windowsAutopilotSettings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsAutopilotSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotSettings.WindowsAutopilotSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public WindowsAutopilotSettingsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/windowsAutopilotSettings{?%24expand,%24select}", rawUrl)
@@ -199,11 +199,11 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotSettings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WindowsAutopilotSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.WindowsAutopilotSettings.WindowsAutopilotSettingsRequestBuilder.WindowsAutopilotSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<WindowsAutopilotSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.WindowsAutopilotSettings.WindowsAutopilotSettingsRequestBuilder.WindowsAutopilotSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

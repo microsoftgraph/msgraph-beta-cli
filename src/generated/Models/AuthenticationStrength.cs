@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationStrength"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthenticationStrength"/> and sets the default values.
         /// </summary>
         public AuthenticationStrength()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthenticationStrength"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthenticationStrength"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuthenticationStrength CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuthenticationStrength CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthenticationStrength();
+            return new ApiSdk.Models.AuthenticationStrength();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "authenticationStrengthId", n => { AuthenticationStrengthId = n.GetStringValue(); } },
-                { "authenticationStrengthResult", n => { AuthenticationStrengthResult = n.GetEnumValue<AuthenticationStrengthResult>(); } },
+                { "authenticationStrengthResult", n => { AuthenticationStrengthResult = n.GetEnumValue<ApiSdk.Models.AuthenticationStrengthResult>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("authenticationStrengthId", AuthenticationStrengthId);
-            writer.WriteEnumValue<AuthenticationStrengthResult>("authenticationStrengthResult", AuthenticationStrengthResult);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationStrengthResult>("authenticationStrengthResult", AuthenticationStrengthResult);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

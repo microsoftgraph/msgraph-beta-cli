@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationChoiceSettingCollectionDefinition : DeviceManagementConfigurationChoiceSettingDefinition, IParsable
+    public class DeviceManagementConfigurationChoiceSettingCollectionDefinition : ApiSdk.Models.DeviceManagementConfigurationChoiceSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Maximum number of choices in the collection. Valid values 1 to 100</summary>
@@ -17,12 +17,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingCollectionDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationChoiceSettingCollectionDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationChoiceSettingCollectionDefinition();
+            return new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model

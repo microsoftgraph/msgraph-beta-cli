@@ -65,7 +65,7 @@ namespace ApiSdk.MessageRecipients.Item
         {
             var command = new Command("events");
             command.Description = "Provides operations to manage the events property of the microsoft.graph.messageRecipient entity.";
-            var builder = new EventsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.MessageRecipients.Item.Events.EventsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -167,7 +167,7 @@ namespace ApiSdk.MessageRecipients.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<MessageRecipient>(MessageRecipient.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.MessageRecipient>(ApiSdk.Models.MessageRecipient.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -188,14 +188,14 @@ namespace ApiSdk.MessageRecipients.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MessageRecipientItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.MessageRecipients.Item.MessageRecipientItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MessageRecipientItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/messageRecipients/{messageRecipient%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MessageRecipientItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.MessageRecipients.Item.MessageRecipientItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MessageRecipientItemRequestBuilder(string rawUrl) : base("{+baseurl}/messageRecipients/{messageRecipient%2Did}{?%24expand,%24select}", rawUrl)
@@ -227,11 +227,11 @@ namespace ApiSdk.MessageRecipients.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageRecipientItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.MessageRecipients.Item.MessageRecipientItemRequestBuilder.MessageRecipientItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageRecipientItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.MessageRecipients.Item.MessageRecipientItemRequestBuilder.MessageRecipientItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -247,11 +247,11 @@ namespace ApiSdk.MessageRecipients.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(MessageRecipient body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MessageRecipient body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(MessageRecipient body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.MessageRecipient body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -33,7 +33,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         {
             var command = new Command("currency");
             command.Description = "Provides operations to manage the currency property of the microsoft.graph.salesOrder entity.";
-            var builder = new CurrencyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrders.Item.Currency.CurrencyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -52,7 +52,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         {
             var command = new Command("customer");
             command.Description = "Provides operations to manage the customer property of the microsoft.graph.salesOrder entity.";
-            var builder = new CustomerRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrders.Item.Customer.CustomerRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCurrencyNavCommand());
@@ -167,7 +167,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SalesOrder>(SalesOrder.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.SalesOrder>(ApiSdk.Models.SalesOrder.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -196,7 +196,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         {
             var command = new Command("payment-term");
             command.Description = "Provides operations to manage the paymentTerm property of the microsoft.graph.salesOrder entity.";
-            var builder = new PaymentTermRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrders.Item.PaymentTerm.PaymentTermRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -215,7 +215,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         {
             var command = new Command("sales-order-lines");
             command.Description = "Provides operations to manage the salesOrderLines property of the microsoft.graph.salesOrder entity.";
-            var builder = new SalesOrderLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderLines.SalesOrderLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -234,14 +234,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesOrderItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SalesOrderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesOrders/{salesOrder%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesOrderItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SalesOrderItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesOrders/{salesOrder%2Did}{?%24expand,%24select}", rawUrl)
@@ -254,11 +254,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesOrderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderItemRequestBuilder.SalesOrderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesOrderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesOrders.Item.SalesOrderItemRequestBuilder.SalesOrderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -274,11 +274,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesOrders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SalesOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesOrder body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SalesOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesOrder body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

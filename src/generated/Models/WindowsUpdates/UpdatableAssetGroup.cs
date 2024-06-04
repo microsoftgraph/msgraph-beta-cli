@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class UpdatableAssetGroup : UpdatableAsset, IParsable
+    public class UpdatableAssetGroup : ApiSdk.Models.WindowsUpdates.UpdatableAsset, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Members of the group. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatableAsset>? Members { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset>? Members { get; set; }
 #nullable restore
 #else
-        public List<UpdatableAsset> Members { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatableAsset> Members { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdatableAssetGroup"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.UpdatableAssetGroup"/> and sets the default values.
         /// </summary>
         public UpdatableAssetGroup() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatableAssetGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.UpdatableAssetGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UpdatableAssetGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.UpdatableAssetGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdatableAssetGroup();
+            return new ApiSdk.Models.WindowsUpdates.UpdatableAssetGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "members", n => { Members = n.GetCollectionOfObjectValues<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "members", n => { Members = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UpdatableAsset>("members", Members);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatableAsset>("members", Members);
         }
     }
 }

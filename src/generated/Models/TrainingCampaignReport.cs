@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The overview of the attack simulation and training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserSimulationDetails>? CampaignUsers { get; set; }
+        public List<ApiSdk.Models.UserSimulationDetails>? CampaignUsers { get; set; }
 #nullable restore
 #else
-        public List<UserSimulationDetails> CampaignUsers { get; set; }
+        public List<ApiSdk.Models.UserSimulationDetails> CampaignUsers { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The overview property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TrainingCampaignReportOverview? Overview { get; set; }
+        public ApiSdk.Models.TrainingCampaignReportOverview? Overview { get; set; }
 #nullable restore
 #else
-        public TrainingCampaignReportOverview Overview { get; set; }
+        public ApiSdk.Models.TrainingCampaignReportOverview Overview { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TrainingCampaignReport"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrainingCampaignReport"/> and sets the default values.
         /// </summary>
         public TrainingCampaignReport()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrainingCampaignReport"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrainingCampaignReport"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TrainingCampaignReport CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TrainingCampaignReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrainingCampaignReport();
+            return new ApiSdk.Models.TrainingCampaignReport();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "campaignUsers", n => { CampaignUsers = n.GetCollectionOfObjectValues<UserSimulationDetails>(UserSimulationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "campaignUsers", n => { CampaignUsers = n.GetCollectionOfObjectValues<ApiSdk.Models.UserSimulationDetails>(ApiSdk.Models.UserSimulationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "overview", n => { Overview = n.GetObjectValue<TrainingCampaignReportOverview>(TrainingCampaignReportOverview.CreateFromDiscriminatorValue); } },
+                { "overview", n => { Overview = n.GetObjectValue<ApiSdk.Models.TrainingCampaignReportOverview>(ApiSdk.Models.TrainingCampaignReportOverview.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<UserSimulationDetails>("campaignUsers", CampaignUsers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserSimulationDetails>("campaignUsers", CampaignUsers);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TrainingCampaignReportOverview>("overview", Overview);
+            writer.WriteObjectValue<ApiSdk.Models.TrainingCampaignReportOverview>("overview", Overview);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

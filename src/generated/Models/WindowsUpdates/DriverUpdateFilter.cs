@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class DriverUpdateFilter : WindowsUpdateFilter, IParsable
+    public class DriverUpdateFilter : ApiSdk.Models.WindowsUpdates.WindowsUpdateFilter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="DriverUpdateFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.DriverUpdateFilter"/> and sets the default values.
         /// </summary>
         public DriverUpdateFilter() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DriverUpdateFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.DriverUpdateFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DriverUpdateFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.DriverUpdateFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DriverUpdateFilter();
+            return new ApiSdk.Models.WindowsUpdates.DriverUpdateFilter();
         }
         /// <summary>
         /// The deserialization information for the current model

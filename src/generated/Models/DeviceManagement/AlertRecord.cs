@@ -43,18 +43,18 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ResolvedDateTime { get; set; }
         /// <summary>The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.</summary>
-        public RuleSeverityType? Severity { get; set; }
+        public ApiSdk.Models.DeviceManagement.RuleSeverityType? Severity { get; set; }
         /// <summary>The status of the alert record. The possible values are: active, resolved, unknownFutureValue.</summary>
-        public AlertStatusType? Status { get; set; }
+        public ApiSdk.Models.DeviceManagement.AlertStatusType? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AlertRecord"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.AlertRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AlertRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagement.AlertRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AlertRecord();
+            return new ApiSdk.Models.DeviceManagement.AlertRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,13 +66,13 @@ namespace ApiSdk.Models.DeviceManagement
             {
                 { "alertImpact", n => { AlertImpact = n.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>(ApiSdk.Models.DeviceManagement.AlertImpact.CreateFromDiscriminatorValue); } },
                 { "alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
-                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>(); } },
                 { "detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "resolvedDateTime", n => { ResolvedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
-                { "status", n => { Status = n.GetEnumValue<AlertStatusType>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AlertStatusType>(); } },
             };
         }
         /// <summary>
@@ -85,13 +85,13 @@ namespace ApiSdk.Models.DeviceManagement
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.DeviceManagement.AlertImpact>("alertImpact", AlertImpact);
             writer.WriteStringValue("alertRuleId", AlertRuleId);
-            writer.WriteEnumValue<AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
             writer.WriteDateTimeOffsetValue("detectedDateTime", DetectedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteDateTimeOffsetValue("resolvedDateTime", ResolvedDateTime);
-            writer.WriteEnumValue<RuleSeverityType>("severity", Severity);
-            writer.WriteEnumValue<AlertStatusType>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AlertStatusType>("status", Status);
         }
     }
 }

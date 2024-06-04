@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VirtualEventPresenter : Entity, IParsable
+    public class VirtualEventPresenter : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Email address of the presenter.</summary>
@@ -29,28 +29,28 @@ namespace ApiSdk.Models
         /// <summary>Other detail information of the presenter. This property returns null when the virtual event type is virtualEventTownhall.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VirtualEventPresenterDetails? PresenterDetails { get; set; }
+        public ApiSdk.Models.VirtualEventPresenterDetails? PresenterDetails { get; set; }
 #nullable restore
 #else
-        public VirtualEventPresenterDetails PresenterDetails { get; set; }
+        public ApiSdk.Models.VirtualEventPresenterDetails PresenterDetails { get; set; }
 #endif
         /// <summary>The sessions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventSession>? Sessions { get; set; }
+        public List<ApiSdk.Models.VirtualEventSession>? Sessions { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventSession> Sessions { get; set; }
+        public List<ApiSdk.Models.VirtualEventSession> Sessions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventPresenter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventPresenter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventPresenter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VirtualEventPresenter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VirtualEventPresenter();
+            return new ApiSdk.Models.VirtualEventPresenter();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,8 +62,8 @@ namespace ApiSdk.Models
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue); } },
-                { "presenterDetails", n => { PresenterDetails = n.GetObjectValue<VirtualEventPresenterDetails>(VirtualEventPresenterDetails.CreateFromDiscriminatorValue); } },
-                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "presenterDetails", n => { PresenterDetails = n.GetObjectValue<ApiSdk.Models.VirtualEventPresenterDetails>(ApiSdk.Models.VirtualEventPresenterDetails.CreateFromDiscriminatorValue); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventSession>(ApiSdk.Models.VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -76,8 +76,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("email", Email);
             writer.WriteObjectValue<ApiSdk.Models.Identity>("identity", Identity);
-            writer.WriteObjectValue<VirtualEventPresenterDetails>("presenterDetails", PresenterDetails);
-            writer.WriteCollectionOfObjectValues<VirtualEventSession>("sessions", Sessions);
+            writer.WriteObjectValue<ApiSdk.Models.VirtualEventPresenterDetails>("presenterDetails", PresenterDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventSession>("sessions", Sessions);
         }
     }
 }

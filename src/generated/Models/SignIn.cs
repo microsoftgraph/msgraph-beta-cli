@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SignIn : Entity, IParsable
+    public class SignIn : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).</summary>
@@ -29,21 +29,21 @@ namespace ApiSdk.Models
         /// <summary>A list of conditional access policies that the corresponding sign-in activity triggers. Apps need more Conditional Access-related privileges to read the details of this property. For more information, see Viewing applied conditional access (CA) policies in sign-ins.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppliedConditionalAccessPolicy>? AppliedConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.AppliedConditionalAccessPolicy>? AppliedConditionalAccessPolicies { get; set; }
 #nullable restore
 #else
-        public List<AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.AppliedConditionalAccessPolicy> AppliedConditionalAccessPolicies { get; set; }
 #endif
         /// <summary>Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, which the corresponding events in the sign-in event triggered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppliedAuthenticationEventListener>? AppliedEventListeners { get; set; }
+        public List<ApiSdk.Models.AppliedAuthenticationEventListener>? AppliedEventListeners { get; set; }
 #nullable restore
 #else
-        public List<AppliedAuthenticationEventListener> AppliedEventListeners { get; set; }
+        public List<ApiSdk.Models.AppliedAuthenticationEventListener> AppliedEventListeners { get; set; }
 #endif
         /// <summary>Token protection creates a cryptographically secure tie between the token and the device it&apos;s issued to. This field indicates whether the app token was bound to the device.</summary>
-        public TokenProtectionStatus? AppTokenProtectionStatus { get; set; }
+        public ApiSdk.Models.TokenProtectionStatus? AppTokenProtectionStatus { get; set; }
         /// <summary>Provides details about the app and device used during a Microsoft Entra authentication step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,26 +55,26 @@ namespace ApiSdk.Models
         /// <summary>Provides details of the Microsoft Entra policies applied to a user and client authentication app during an authentication step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationAppPolicyDetails>? AuthenticationAppPolicyEvaluationDetails { get; set; }
+        public List<ApiSdk.Models.AuthenticationAppPolicyDetails>? AuthenticationAppPolicyEvaluationDetails { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationAppPolicyDetails> AuthenticationAppPolicyEvaluationDetails { get; set; }
+        public List<ApiSdk.Models.AuthenticationAppPolicyDetails> AuthenticationAppPolicyEvaluationDetails { get; set; }
 #endif
         /// <summary>Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationContext>? AuthenticationContextClassReferences { get; set; }
+        public List<ApiSdk.Models.AuthenticationContext>? AuthenticationContextClassReferences { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationContext> AuthenticationContextClassReferences { get; set; }
+        public List<ApiSdk.Models.AuthenticationContext> AuthenticationContextClassReferences { get; set; }
 #endif
         /// <summary>The result of the authentication attempt and more details on the authentication method.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationDetail>? AuthenticationDetails { get; set; }
+        public List<ApiSdk.Models.AuthenticationDetail>? AuthenticationDetails { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationDetail> AuthenticationDetails { get; set; }
+        public List<ApiSdk.Models.AuthenticationDetail> AuthenticationDetails { get; set; }
 #endif
         /// <summary>The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,13 +87,13 @@ namespace ApiSdk.Models
         /// <summary>More authentication processing details, such as the agent name for  PTA and PHS, or a server or farm name for federated authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? AuthenticationProcessingDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue>? AuthenticationProcessingDetails { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> AuthenticationProcessingDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue> AuthenticationProcessingDetails { get; set; }
 #endif
         /// <summary>Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don&apos;t have a specific value in that list. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.</summary>
-        public ProtocolType? AuthenticationProtocol { get; set; }
+        public ApiSdk.Models.ProtocolType? AuthenticationProtocol { get; set; }
         /// <summary>This holds the highest level of authentication needed through all the sign-in steps, for sign-in to succeed.  Supports $filter (eq, startsWith).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -105,10 +105,10 @@ namespace ApiSdk.Models
         /// <summary>Sources of authentication requirement, such as conditional access, per-user MFA, identity protection, and security defaults.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationRequirementPolicy>? AuthenticationRequirementPolicies { get; set; }
+        public List<ApiSdk.Models.AuthenticationRequirementPolicy>? AuthenticationRequirementPolicies { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationRequirementPolicy> AuthenticationRequirementPolicies { get; set; }
+        public List<ApiSdk.Models.AuthenticationRequirementPolicy> AuthenticationRequirementPolicies { get; set; }
 #endif
         /// <summary>The Autonomous System Number (ASN) of the network used by the actor.</summary>
         public int? AutonomousSystemNumber { get; set; }
@@ -133,10 +133,10 @@ namespace ApiSdk.Models
         /// <summary>A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessAudience>? ConditionalAccessAudiences { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessAudience>? ConditionalAccessAudiences { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessAudience> ConditionalAccessAudiences { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessAudience> ConditionalAccessAudiences { get; set; }
 #endif
         /// <summary>The status of the conditional access policy triggered. Possible values: success, failure, notApplied, or unknownFutureValue.  Supports $filter (eq).</summary>
         public ApiSdk.Models.ConditionalAccessStatus? ConditionalAccessStatus { get; set; }
@@ -151,7 +151,7 @@ namespace ApiSdk.Models
         /// <summary>The date and time the sign-in was initiated. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  Supports $orderby, $filter (eq, le, and ge).</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn&apos;t cross tenant boundaries, the value is none.</summary>
-        public SignInAccessType? CrossTenantAccessType { get; set; }
+        public ApiSdk.Models.SignInAccessType? CrossTenantAccessType { get; set; }
         /// <summary>The device information from where the sign-in occurred. Includes information such as deviceId, OS, and browser.  Supports $filter (eq, startsWith) on browser and operatingSystem properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -221,18 +221,18 @@ namespace ApiSdk.Models
         /// <summary>The city, state, and two letter country code from where the sign-in occurred.  Supports $filter (eq, startsWith) on city, state, and countryOrRegion properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInLocation? Location { get; set; }
+        public ApiSdk.Models.SignInLocation? Location { get; set; }
 #nullable restore
 #else
-        public SignInLocation Location { get; set; }
+        public ApiSdk.Models.SignInLocation Location { get; set; }
 #endif
         /// <summary>Contains information about the managed identity used for the sign in, including its type, associated Azure Resource Manager (ARM) resource ID, and federated token information.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagedIdentity? ManagedServiceIdentity { get; set; }
+        public ApiSdk.Models.ManagedIdentity? ManagedServiceIdentity { get; set; }
 #nullable restore
 #else
-        public ManagedIdentity ManagedServiceIdentity { get; set; }
+        public ApiSdk.Models.ManagedIdentity ManagedServiceIdentity { get; set; }
 #endif
         /// <summary>This property is deprecated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -245,10 +245,10 @@ namespace ApiSdk.Models
         /// <summary>The network location details including the type of network used and its names.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NetworkLocationDetail>? NetworkLocationDetails { get; set; }
+        public List<ApiSdk.Models.NetworkLocationDetail>? NetworkLocationDetails { get; set; }
 #nullable restore
 #else
-        public List<NetworkLocationDetail> NetworkLocationDetails { get; set; }
+        public List<ApiSdk.Models.NetworkLocationDetail> NetworkLocationDetails { get; set; }
 #endif
         /// <summary>The request identifier of the first request in the authentication sequence.  Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -259,7 +259,7 @@ namespace ApiSdk.Models
         public string OriginalRequestId { get; set; }
 #endif
         /// <summary>Transfer method used to initiate a session throughout all subsequent request. The possible values are: none, deviceCodeFlow, authenticationTransfer, unknownFutureValue.</summary>
-        public OriginalTransferMethods? OriginalTransferMethod { get; set; }
+        public ApiSdk.Models.OriginalTransferMethods? OriginalTransferMethod { get; set; }
         /// <summary>Contains information about the Microsoft Entra Private Link policy that is associated with the sign in event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -313,9 +313,9 @@ namespace ApiSdk.Models
         public List<string> RiskEventTypesV2 { get; set; }
 #endif
         /// <summary>The aggregated risk level. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn&apos;t enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.</summary>
-        public RiskLevel? RiskLevelAggregated { get; set; }
+        public ApiSdk.Models.RiskLevel? RiskLevelAggregated { get; set; }
         /// <summary>The risk level during sign-in. Possible values: none, low, medium, high, hidden, or unknownFutureValue. The value hidden means the user or sign-in wasn&apos;t enabled for Microsoft Entra ID Protection.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.</summary>
-        public RiskLevel? RiskLevelDuringSignIn { get; set; }
+        public ApiSdk.Models.RiskLevel? RiskLevelDuringSignIn { get; set; }
         /// <summary>The risk state of a risky user, sign-in, or a risk event. Possible values: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, or unknownFutureValue.  Supports $filter (eq).</summary>
         public ApiSdk.Models.RiskState? RiskState { get; set; }
         /// <summary>The unique identifier of the key credential used by the service principal to authenticate.</summary>
@@ -353,10 +353,10 @@ namespace ApiSdk.Models
         /// <summary>Any conditional access session management policies that were applied during the sign-in event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SessionLifetimePolicy>? SessionLifetimePolicies { get; set; }
+        public List<ApiSdk.Models.SessionLifetimePolicy>? SessionLifetimePolicies { get; set; }
 #nullable restore
 #else
-        public List<SessionLifetimePolicy> SessionLifetimePolicies { get; set; }
+        public List<ApiSdk.Models.SessionLifetimePolicy> SessionLifetimePolicies { get; set; }
 #endif
         /// <summary>Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -377,14 +377,14 @@ namespace ApiSdk.Models
         /// <summary>The type of sign in identifier. Possible values are: userPrincipalName, phoneNumber, proxyAddress, qrCode, onPremisesUserPrincipalName, unknownFutureValue.</summary>
         public ApiSdk.Models.SignInIdentifierType? SignInIdentifierType { get; set; }
         /// <summary>Token protection creates a cryptographically secure tie between the token and the device it&apos;s issued to. This field indicates whether the signin token was bound to the device or not. The possible values are: none, bound, unbound, unknownFutureValue.</summary>
-        public TokenProtectionStatus? SignInTokenProtectionStatus { get; set; }
+        public ApiSdk.Models.TokenProtectionStatus? SignInTokenProtectionStatus { get; set; }
         /// <summary>The sign-in status. Includes the error code and description of the error (for a sign-in failure).  Supports $filter (eq) on errorCode property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SignInStatus? Status { get; set; }
+        public ApiSdk.Models.SignInStatus? Status { get; set; }
 #nullable restore
 #else
-        public SignInStatus Status { get; set; }
+        public ApiSdk.Models.SignInStatus Status { get; set; }
 #endif
         /// <summary>The name of the identity provider. For example, sts.microsoft.com.  Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -437,16 +437,16 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>Identifies whether the user is a member or guest in the tenant. Possible values are: member, guest, unknownFutureValue.</summary>
-        public SignInUserType? UserType { get; set; }
+        public ApiSdk.Models.SignInUserType? UserType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SignIn"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SignIn"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SignIn CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SignIn CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SignIn();
+            return new ApiSdk.Models.SignIn();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -458,74 +458,74 @@ namespace ApiSdk.Models
             {
                 { "appDisplayName", n => { AppDisplayName = n.GetStringValue(); } },
                 { "appId", n => { AppId = n.GetStringValue(); } },
-                { "appTokenProtectionStatus", n => { AppTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
-                { "appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "appliedEventListeners", n => { AppliedEventListeners = n.GetCollectionOfObjectValues<AppliedAuthenticationEventListener>(AppliedAuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appTokenProtectionStatus", n => { AppTokenProtectionStatus = n.GetEnumValue<ApiSdk.Models.TokenProtectionStatus>(); } },
+                { "appliedConditionalAccessPolicies", n => { AppliedConditionalAccessPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.AppliedConditionalAccessPolicy>(ApiSdk.Models.AppliedConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appliedEventListeners", n => { AppliedEventListeners = n.GetCollectionOfObjectValues<ApiSdk.Models.AppliedAuthenticationEventListener>(ApiSdk.Models.AppliedAuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "authenticationAppDeviceDetails", n => { AuthenticationAppDeviceDetails = n.GetObjectValue<ApiSdk.Models.AuthenticationAppDeviceDetails>(ApiSdk.Models.AuthenticationAppDeviceDetails.CreateFromDiscriminatorValue); } },
-                { "authenticationAppPolicyEvaluationDetails", n => { AuthenticationAppPolicyEvaluationDetails = n.GetCollectionOfObjectValues<AuthenticationAppPolicyDetails>(AuthenticationAppPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<AuthenticationContext>(AuthenticationContext.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationDetails", n => { AuthenticationDetails = n.GetCollectionOfObjectValues<AuthenticationDetail>(AuthenticationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationAppPolicyEvaluationDetails", n => { AuthenticationAppPolicyEvaluationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationAppPolicyDetails>(ApiSdk.Models.AuthenticationAppPolicyDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationContextClassReferences", n => { AuthenticationContextClassReferences = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationContext>(ApiSdk.Models.AuthenticationContext.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationDetails", n => { AuthenticationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationDetail>(ApiSdk.Models.AuthenticationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "authenticationMethodsUsed", n => { AuthenticationMethodsUsed = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "authenticationProcessingDetails", n => { AuthenticationProcessingDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationProtocol", n => { AuthenticationProtocol = n.GetEnumValue<ProtocolType>(); } },
+                { "authenticationProcessingDetails", n => { AuthenticationProcessingDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationProtocol", n => { AuthenticationProtocol = n.GetEnumValue<ApiSdk.Models.ProtocolType>(); } },
                 { "authenticationRequirement", n => { AuthenticationRequirement = n.GetStringValue(); } },
-                { "authenticationRequirementPolicies", n => { AuthenticationRequirementPolicies = n.GetCollectionOfObjectValues<AuthenticationRequirementPolicy>(AuthenticationRequirementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationRequirementPolicies", n => { AuthenticationRequirementPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationRequirementPolicy>(ApiSdk.Models.AuthenticationRequirementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "autonomousSystemNumber", n => { AutonomousSystemNumber = n.GetIntValue(); } },
                 { "azureResourceId", n => { AzureResourceId = n.GetStringValue(); } },
                 { "clientAppUsed", n => { ClientAppUsed = n.GetStringValue(); } },
-                { "clientCredentialType", n => { ClientCredentialType = n.GetEnumValue<ClientCredentialType>(); } },
-                { "conditionalAccessAudiences", n => { ConditionalAccessAudiences = n.GetCollectionOfObjectValues<ConditionalAccessAudience>(ConditionalAccessAudience.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ConditionalAccessStatus>(); } },
+                { "clientCredentialType", n => { ClientCredentialType = n.GetEnumValue<ApiSdk.Models.ClientCredentialType>(); } },
+                { "conditionalAccessAudiences", n => { ConditionalAccessAudiences = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessAudience>(ApiSdk.Models.ConditionalAccessAudience.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessStatus", n => { ConditionalAccessStatus = n.GetEnumValue<ApiSdk.Models.ConditionalAccessStatus>(); } },
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "crossTenantAccessType", n => { CrossTenantAccessType = n.GetEnumValue<SignInAccessType>(); } },
+                { "crossTenantAccessType", n => { CrossTenantAccessType = n.GetEnumValue<ApiSdk.Models.SignInAccessType>(); } },
                 { "deviceDetail", n => { DeviceDetail = n.GetObjectValue<ApiSdk.Models.DeviceDetail>(ApiSdk.Models.DeviceDetail.CreateFromDiscriminatorValue); } },
                 { "federatedCredentialId", n => { FederatedCredentialId = n.GetStringValue(); } },
                 { "flaggedForReview", n => { FlaggedForReview = n.GetBoolValue(); } },
                 { "globalSecureAccessIpAddress", n => { GlobalSecureAccessIpAddress = n.GetStringValue(); } },
                 { "homeTenantId", n => { HomeTenantId = n.GetStringValue(); } },
                 { "homeTenantName", n => { HomeTenantName = n.GetStringValue(); } },
-                { "incomingTokenType", n => { IncomingTokenType = n.GetEnumValue<IncomingTokenType>(); } },
+                { "incomingTokenType", n => { IncomingTokenType = n.GetEnumValue<ApiSdk.Models.IncomingTokenType>(); } },
                 { "ipAddress", n => { IpAddress = n.GetStringValue(); } },
                 { "ipAddressFromResourceProvider", n => { IpAddressFromResourceProvider = n.GetStringValue(); } },
                 { "isInteractive", n => { IsInteractive = n.GetBoolValue(); } },
                 { "isTenantRestricted", n => { IsTenantRestricted = n.GetBoolValue(); } },
                 { "isThroughGlobalSecureAccess", n => { IsThroughGlobalSecureAccess = n.GetBoolValue(); } },
-                { "location", n => { Location = n.GetObjectValue<SignInLocation>(SignInLocation.CreateFromDiscriminatorValue); } },
-                { "managedServiceIdentity", n => { ManagedServiceIdentity = n.GetObjectValue<ManagedIdentity>(ManagedIdentity.CreateFromDiscriminatorValue); } },
+                { "location", n => { Location = n.GetObjectValue<ApiSdk.Models.SignInLocation>(ApiSdk.Models.SignInLocation.CreateFromDiscriminatorValue); } },
+                { "managedServiceIdentity", n => { ManagedServiceIdentity = n.GetObjectValue<ApiSdk.Models.ManagedIdentity>(ApiSdk.Models.ManagedIdentity.CreateFromDiscriminatorValue); } },
                 { "mfaDetail", n => { MfaDetail = n.GetObjectValue<ApiSdk.Models.MfaDetail>(ApiSdk.Models.MfaDetail.CreateFromDiscriminatorValue); } },
-                { "networkLocationDetails", n => { NetworkLocationDetails = n.GetCollectionOfObjectValues<NetworkLocationDetail>(NetworkLocationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "networkLocationDetails", n => { NetworkLocationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.NetworkLocationDetail>(ApiSdk.Models.NetworkLocationDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "originalRequestId", n => { OriginalRequestId = n.GetStringValue(); } },
-                { "originalTransferMethod", n => { OriginalTransferMethod = n.GetEnumValue<OriginalTransferMethods>(); } },
+                { "originalTransferMethod", n => { OriginalTransferMethod = n.GetEnumValue<ApiSdk.Models.OriginalTransferMethods>(); } },
                 { "privateLinkDetails", n => { PrivateLinkDetails = n.GetObjectValue<ApiSdk.Models.PrivateLinkDetails>(ApiSdk.Models.PrivateLinkDetails.CreateFromDiscriminatorValue); } },
                 { "processingTimeInMilliseconds", n => { ProcessingTimeInMilliseconds = n.GetIntValue(); } },
                 { "resourceDisplayName", n => { ResourceDisplayName = n.GetStringValue(); } },
                 { "resourceId", n => { ResourceId = n.GetStringValue(); } },
                 { "resourceServicePrincipalId", n => { ResourceServicePrincipalId = n.GetStringValue(); } },
                 { "resourceTenantId", n => { ResourceTenantId = n.GetStringValue(); } },
-                { "riskDetail", n => { RiskDetail = n.GetEnumValue<RiskDetail>(); } },
+                { "riskDetail", n => { RiskDetail = n.GetEnumValue<ApiSdk.Models.RiskDetail>(); } },
                 { "riskEventTypes_v2", n => { RiskEventTypesV2 = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<RiskLevel>(); } },
-                { "riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<RiskLevel>(); } },
-                { "riskState", n => { RiskState = n.GetEnumValue<RiskState>(); } },
+                { "riskLevelAggregated", n => { RiskLevelAggregated = n.GetEnumValue<ApiSdk.Models.RiskLevel>(); } },
+                { "riskLevelDuringSignIn", n => { RiskLevelDuringSignIn = n.GetEnumValue<ApiSdk.Models.RiskLevel>(); } },
+                { "riskState", n => { RiskState = n.GetEnumValue<ApiSdk.Models.RiskState>(); } },
                 { "servicePrincipalCredentialKeyId", n => { ServicePrincipalCredentialKeyId = n.GetStringValue(); } },
                 { "servicePrincipalCredentialThumbprint", n => { ServicePrincipalCredentialThumbprint = n.GetStringValue(); } },
                 { "servicePrincipalId", n => { ServicePrincipalId = n.GetStringValue(); } },
                 { "servicePrincipalName", n => { ServicePrincipalName = n.GetStringValue(); } },
-                { "sessionLifetimePolicies", n => { SessionLifetimePolicies = n.GetCollectionOfObjectValues<SessionLifetimePolicy>(SessionLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sessionLifetimePolicies", n => { SessionLifetimePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.SessionLifetimePolicy>(ApiSdk.Models.SessionLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "signInEventTypes", n => { SignInEventTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "signInIdentifier", n => { SignInIdentifier = n.GetStringValue(); } },
-                { "signInIdentifierType", n => { SignInIdentifierType = n.GetEnumValue<SignInIdentifierType>(); } },
-                { "signInTokenProtectionStatus", n => { SignInTokenProtectionStatus = n.GetEnumValue<TokenProtectionStatus>(); } },
-                { "status", n => { Status = n.GetObjectValue<SignInStatus>(SignInStatus.CreateFromDiscriminatorValue); } },
+                { "signInIdentifierType", n => { SignInIdentifierType = n.GetEnumValue<ApiSdk.Models.SignInIdentifierType>(); } },
+                { "signInTokenProtectionStatus", n => { SignInTokenProtectionStatus = n.GetEnumValue<ApiSdk.Models.TokenProtectionStatus>(); } },
+                { "status", n => { Status = n.GetObjectValue<ApiSdk.Models.SignInStatus>(ApiSdk.Models.SignInStatus.CreateFromDiscriminatorValue); } },
                 { "tokenIssuerName", n => { TokenIssuerName = n.GetStringValue(); } },
-                { "tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<TokenIssuerType>(); } },
+                { "tokenIssuerType", n => { TokenIssuerType = n.GetEnumValue<ApiSdk.Models.TokenIssuerType>(); } },
                 { "uniqueTokenIdentifier", n => { UniqueTokenIdentifier = n.GetStringValue(); } },
                 { "userAgent", n => { UserAgent = n.GetStringValue(); } },
                 { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                { "userType", n => { UserType = n.GetEnumValue<SignInUserType>(); } },
+                { "userType", n => { UserType = n.GetEnumValue<ApiSdk.Models.SignInUserType>(); } },
             };
         }
         /// <summary>
@@ -538,74 +538,74 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("appDisplayName", AppDisplayName);
             writer.WriteStringValue("appId", AppId);
-            writer.WriteCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", AppliedConditionalAccessPolicies);
-            writer.WriteCollectionOfObjectValues<AppliedAuthenticationEventListener>("appliedEventListeners", AppliedEventListeners);
-            writer.WriteEnumValue<TokenProtectionStatus>("appTokenProtectionStatus", AppTokenProtectionStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", AppliedConditionalAccessPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppliedAuthenticationEventListener>("appliedEventListeners", AppliedEventListeners);
+            writer.WriteEnumValue<ApiSdk.Models.TokenProtectionStatus>("appTokenProtectionStatus", AppTokenProtectionStatus);
             writer.WriteObjectValue<ApiSdk.Models.AuthenticationAppDeviceDetails>("authenticationAppDeviceDetails", AuthenticationAppDeviceDetails);
-            writer.WriteCollectionOfObjectValues<AuthenticationAppPolicyDetails>("authenticationAppPolicyEvaluationDetails", AuthenticationAppPolicyEvaluationDetails);
-            writer.WriteCollectionOfObjectValues<AuthenticationContext>("authenticationContextClassReferences", AuthenticationContextClassReferences);
-            writer.WriteCollectionOfObjectValues<AuthenticationDetail>("authenticationDetails", AuthenticationDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationAppPolicyDetails>("authenticationAppPolicyEvaluationDetails", AuthenticationAppPolicyEvaluationDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationContext>("authenticationContextClassReferences", AuthenticationContextClassReferences);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationDetail>("authenticationDetails", AuthenticationDetails);
             writer.WriteCollectionOfPrimitiveValues<string>("authenticationMethodsUsed", AuthenticationMethodsUsed);
-            writer.WriteCollectionOfObjectValues<KeyValue>("authenticationProcessingDetails", AuthenticationProcessingDetails);
-            writer.WriteEnumValue<ProtocolType>("authenticationProtocol", AuthenticationProtocol);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("authenticationProcessingDetails", AuthenticationProcessingDetails);
+            writer.WriteEnumValue<ApiSdk.Models.ProtocolType>("authenticationProtocol", AuthenticationProtocol);
             writer.WriteStringValue("authenticationRequirement", AuthenticationRequirement);
-            writer.WriteCollectionOfObjectValues<AuthenticationRequirementPolicy>("authenticationRequirementPolicies", AuthenticationRequirementPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationRequirementPolicy>("authenticationRequirementPolicies", AuthenticationRequirementPolicies);
             writer.WriteIntValue("autonomousSystemNumber", AutonomousSystemNumber);
             writer.WriteStringValue("azureResourceId", AzureResourceId);
             writer.WriteStringValue("clientAppUsed", ClientAppUsed);
-            writer.WriteEnumValue<ClientCredentialType>("clientCredentialType", ClientCredentialType);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessAudience>("conditionalAccessAudiences", ConditionalAccessAudiences);
-            writer.WriteEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", ConditionalAccessStatus);
+            writer.WriteEnumValue<ApiSdk.Models.ClientCredentialType>("clientCredentialType", ClientCredentialType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessAudience>("conditionalAccessAudiences", ConditionalAccessAudiences);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessStatus>("conditionalAccessStatus", ConditionalAccessStatus);
             writer.WriteStringValue("correlationId", CorrelationId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteEnumValue<SignInAccessType>("crossTenantAccessType", CrossTenantAccessType);
+            writer.WriteEnumValue<ApiSdk.Models.SignInAccessType>("crossTenantAccessType", CrossTenantAccessType);
             writer.WriteObjectValue<ApiSdk.Models.DeviceDetail>("deviceDetail", DeviceDetail);
             writer.WriteStringValue("federatedCredentialId", FederatedCredentialId);
             writer.WriteBoolValue("flaggedForReview", FlaggedForReview);
             writer.WriteStringValue("globalSecureAccessIpAddress", GlobalSecureAccessIpAddress);
             writer.WriteStringValue("homeTenantId", HomeTenantId);
             writer.WriteStringValue("homeTenantName", HomeTenantName);
-            writer.WriteEnumValue<IncomingTokenType>("incomingTokenType", IncomingTokenType);
+            writer.WriteEnumValue<ApiSdk.Models.IncomingTokenType>("incomingTokenType", IncomingTokenType);
             writer.WriteStringValue("ipAddress", IpAddress);
             writer.WriteStringValue("ipAddressFromResourceProvider", IpAddressFromResourceProvider);
             writer.WriteBoolValue("isInteractive", IsInteractive);
             writer.WriteBoolValue("isTenantRestricted", IsTenantRestricted);
             writer.WriteBoolValue("isThroughGlobalSecureAccess", IsThroughGlobalSecureAccess);
-            writer.WriteObjectValue<SignInLocation>("location", Location);
-            writer.WriteObjectValue<ManagedIdentity>("managedServiceIdentity", ManagedServiceIdentity);
+            writer.WriteObjectValue<ApiSdk.Models.SignInLocation>("location", Location);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedIdentity>("managedServiceIdentity", ManagedServiceIdentity);
             writer.WriteObjectValue<ApiSdk.Models.MfaDetail>("mfaDetail", MfaDetail);
-            writer.WriteCollectionOfObjectValues<NetworkLocationDetail>("networkLocationDetails", NetworkLocationDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.NetworkLocationDetail>("networkLocationDetails", NetworkLocationDetails);
             writer.WriteStringValue("originalRequestId", OriginalRequestId);
-            writer.WriteEnumValue<OriginalTransferMethods>("originalTransferMethod", OriginalTransferMethod);
+            writer.WriteEnumValue<ApiSdk.Models.OriginalTransferMethods>("originalTransferMethod", OriginalTransferMethod);
             writer.WriteObjectValue<ApiSdk.Models.PrivateLinkDetails>("privateLinkDetails", PrivateLinkDetails);
             writer.WriteIntValue("processingTimeInMilliseconds", ProcessingTimeInMilliseconds);
             writer.WriteStringValue("resourceDisplayName", ResourceDisplayName);
             writer.WriteStringValue("resourceId", ResourceId);
             writer.WriteStringValue("resourceServicePrincipalId", ResourceServicePrincipalId);
             writer.WriteStringValue("resourceTenantId", ResourceTenantId);
-            writer.WriteEnumValue<RiskDetail>("riskDetail", RiskDetail);
+            writer.WriteEnumValue<ApiSdk.Models.RiskDetail>("riskDetail", RiskDetail);
             writer.WriteCollectionOfPrimitiveValues<string>("riskEventTypes_v2", RiskEventTypesV2);
-            writer.WriteEnumValue<RiskLevel>("riskLevelAggregated", RiskLevelAggregated);
-            writer.WriteEnumValue<RiskLevel>("riskLevelDuringSignIn", RiskLevelDuringSignIn);
-            writer.WriteEnumValue<RiskState>("riskState", RiskState);
+            writer.WriteEnumValue<ApiSdk.Models.RiskLevel>("riskLevelAggregated", RiskLevelAggregated);
+            writer.WriteEnumValue<ApiSdk.Models.RiskLevel>("riskLevelDuringSignIn", RiskLevelDuringSignIn);
+            writer.WriteEnumValue<ApiSdk.Models.RiskState>("riskState", RiskState);
             writer.WriteStringValue("servicePrincipalCredentialKeyId", ServicePrincipalCredentialKeyId);
             writer.WriteStringValue("servicePrincipalCredentialThumbprint", ServicePrincipalCredentialThumbprint);
             writer.WriteStringValue("servicePrincipalId", ServicePrincipalId);
             writer.WriteStringValue("servicePrincipalName", ServicePrincipalName);
-            writer.WriteCollectionOfObjectValues<SessionLifetimePolicy>("sessionLifetimePolicies", SessionLifetimePolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SessionLifetimePolicy>("sessionLifetimePolicies", SessionLifetimePolicies);
             writer.WriteCollectionOfPrimitiveValues<string>("signInEventTypes", SignInEventTypes);
             writer.WriteStringValue("signInIdentifier", SignInIdentifier);
-            writer.WriteEnumValue<SignInIdentifierType>("signInIdentifierType", SignInIdentifierType);
-            writer.WriteEnumValue<TokenProtectionStatus>("signInTokenProtectionStatus", SignInTokenProtectionStatus);
-            writer.WriteObjectValue<SignInStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.SignInIdentifierType>("signInIdentifierType", SignInIdentifierType);
+            writer.WriteEnumValue<ApiSdk.Models.TokenProtectionStatus>("signInTokenProtectionStatus", SignInTokenProtectionStatus);
+            writer.WriteObjectValue<ApiSdk.Models.SignInStatus>("status", Status);
             writer.WriteStringValue("tokenIssuerName", TokenIssuerName);
-            writer.WriteEnumValue<TokenIssuerType>("tokenIssuerType", TokenIssuerType);
+            writer.WriteEnumValue<ApiSdk.Models.TokenIssuerType>("tokenIssuerType", TokenIssuerType);
             writer.WriteStringValue("uniqueTokenIdentifier", UniqueTokenIdentifier);
             writer.WriteStringValue("userAgent", UserAgent);
             writer.WriteStringValue("userDisplayName", UserDisplayName);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
-            writer.WriteEnumValue<SignInUserType>("userType", UserType);
+            writer.WriteEnumValue<ApiSdk.Models.SignInUserType>("userType", UserType);
         }
     }
 }

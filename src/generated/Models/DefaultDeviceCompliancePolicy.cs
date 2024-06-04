@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Default device compliance policy rules that are enforced account wide.
     /// </summary>
-    public class DefaultDeviceCompliancePolicy : DeviceCompliancePolicy, IParsable
+    public class DefaultDeviceCompliancePolicy : ApiSdk.Models.DeviceCompliancePolicy, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DefaultDeviceCompliancePolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DefaultDeviceCompliancePolicy"/> and sets the default values.
         /// </summary>
         public DefaultDeviceCompliancePolicy() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DefaultDeviceCompliancePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DefaultDeviceCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DefaultDeviceCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DefaultDeviceCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DefaultDeviceCompliancePolicy();
+            return new ApiSdk.Models.DefaultDeviceCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

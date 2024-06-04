@@ -13,18 +13,18 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The conditionalAccess property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessSettings? ConditionalAccess { get; set; }
+        public ApiSdk.Models.Networkaccess.ConditionalAccessSettings? ConditionalAccess { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessSettings ConditionalAccess { get; set; }
+        public ApiSdk.Models.Networkaccess.ConditionalAccessSettings ConditionalAccess { get; set; }
 #endif
         /// <summary>The crossTenantAccess property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CrossTenantAccessSettings? CrossTenantAccess { get; set; }
+        public ApiSdk.Models.Networkaccess.CrossTenantAccessSettings? CrossTenantAccess { get; set; }
 #nullable restore
 #else
-        public CrossTenantAccessSettings CrossTenantAccess { get; set; }
+        public ApiSdk.Models.Networkaccess.CrossTenantAccessSettings CrossTenantAccess { get; set; }
 #endif
         /// <summary>The enrichedAuditLogs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,12 +45,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Settings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Settings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Settings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Settings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Settings();
+            return new ApiSdk.Models.Networkaccess.Settings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessSettings>(ConditionalAccessSettings.CreateFromDiscriminatorValue); } },
-                { "crossTenantAccess", n => { CrossTenantAccess = n.GetObjectValue<CrossTenantAccessSettings>(CrossTenantAccessSettings.CreateFromDiscriminatorValue); } },
+                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ApiSdk.Models.Networkaccess.ConditionalAccessSettings>(ApiSdk.Models.Networkaccess.ConditionalAccessSettings.CreateFromDiscriminatorValue); } },
+                { "crossTenantAccess", n => { CrossTenantAccess = n.GetObjectValue<ApiSdk.Models.Networkaccess.CrossTenantAccessSettings>(ApiSdk.Models.Networkaccess.CrossTenantAccessSettings.CreateFromDiscriminatorValue); } },
                 { "enrichedAuditLogs", n => { EnrichedAuditLogs = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogs>(ApiSdk.Models.Networkaccess.EnrichedAuditLogs.CreateFromDiscriminatorValue); } },
                 { "forwardingOptions", n => { ForwardingOptions = n.GetObjectValue<ApiSdk.Models.Networkaccess.ForwardingOptions>(ApiSdk.Models.Networkaccess.ForwardingOptions.CreateFromDiscriminatorValue); } },
             };
@@ -74,8 +74,8 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ConditionalAccessSettings>("conditionalAccess", ConditionalAccess);
-            writer.WriteObjectValue<CrossTenantAccessSettings>("crossTenantAccess", CrossTenantAccess);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.ConditionalAccessSettings>("conditionalAccess", ConditionalAccess);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.CrossTenantAccessSettings>("crossTenantAccess", CrossTenantAccess);
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogs>("enrichedAuditLogs", EnrichedAuditLogs);
             writer.WriteObjectValue<ApiSdk.Models.Networkaccess.ForwardingOptions>("forwardingOptions", ForwardingOptions);
         }

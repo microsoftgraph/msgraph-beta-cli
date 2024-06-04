@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationIdentityMatchingConfiguration : EducationIdentitySynchronizationConfiguration, IParsable
+    public class EducationIdentityMatchingConfiguration : ApiSdk.Models.EducationIdentitySynchronizationConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Mapping between the user account and the options to use to uniquely identify the user to update.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EducationIdentityMatchingOptions>? MatchingOptions { get; set; }
+        public List<ApiSdk.Models.EducationIdentityMatchingOptions>? MatchingOptions { get; set; }
 #nullable restore
 #else
-        public List<EducationIdentityMatchingOptions> MatchingOptions { get; set; }
+        public List<ApiSdk.Models.EducationIdentityMatchingOptions> MatchingOptions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationIdentityMatchingConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationIdentityMatchingConfiguration"/> and sets the default values.
         /// </summary>
         public EducationIdentityMatchingConfiguration() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationIdentityMatchingConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationIdentityMatchingConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationIdentityMatchingConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationIdentityMatchingConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationIdentityMatchingConfiguration();
+            return new ApiSdk.Models.EducationIdentityMatchingConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "matchingOptions", n => { MatchingOptions = n.GetCollectionOfObjectValues<EducationIdentityMatchingOptions>(EducationIdentityMatchingOptions.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "matchingOptions", n => { MatchingOptions = n.GetCollectionOfObjectValues<ApiSdk.Models.EducationIdentityMatchingOptions>(ApiSdk.Models.EducationIdentityMatchingOptions.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<EducationIdentityMatchingOptions>("matchingOptions", MatchingOptions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EducationIdentityMatchingOptions>("matchingOptions", MatchingOptions);
         }
     }
 }

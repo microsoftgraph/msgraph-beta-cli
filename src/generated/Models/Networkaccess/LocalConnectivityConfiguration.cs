@@ -41,7 +41,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The region property</summary>
         public ApiSdk.Models.Networkaccess.Region? Region { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="LocalConnectivityConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration"/> and sets the default values.
         /// </summary>
         public LocalConnectivityConfiguration()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LocalConnectivityConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LocalConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LocalConnectivityConfiguration();
+            return new ApiSdk.Models.Networkaccess.LocalConnectivityConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models.Networkaccess
                 { "bgpAddress", n => { BgpAddress = n.GetStringValue(); } },
                 { "endpoint", n => { Endpoint = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "region", n => { Region = n.GetEnumValue<Region>(); } },
+                { "region", n => { Region = n.GetEnumValue<ApiSdk.Models.Networkaccess.Region>(); } },
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace ApiSdk.Models.Networkaccess
             writer.WriteStringValue("bgpAddress", BgpAddress);
             writer.WriteStringValue("endpoint", Endpoint);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<Region>("region", Region);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.Region>("region", Region);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

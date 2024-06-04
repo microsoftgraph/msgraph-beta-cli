@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class AddContentFooterAction : InformationProtectionAction, IParsable
+    public class AddContentFooterAction : ApiSdk.Models.Security.InformationProtectionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The alignment property</summary>
-        public ContentAlignment? Alignment { get; set; }
+        public ApiSdk.Models.Security.ContentAlignment? Alignment { get; set; }
         /// <summary>Color of the font to use for the footer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,7 +49,7 @@ namespace ApiSdk.Models.Security
         public string UiElementName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AddContentFooterAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.AddContentFooterAction"/> and sets the default values.
         /// </summary>
         public AddContentFooterAction() : base()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddContentFooterAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AddContentFooterAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AddContentFooterAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.AddContentFooterAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddContentFooterAction();
+            return new ApiSdk.Models.Security.AddContentFooterAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alignment", n => { Alignment = n.GetEnumValue<ContentAlignment>(); } },
+                { "alignment", n => { Alignment = n.GetEnumValue<ApiSdk.Models.Security.ContentAlignment>(); } },
                 { "fontColor", n => { FontColor = n.GetStringValue(); } },
                 { "fontName", n => { FontName = n.GetStringValue(); } },
                 { "fontSize", n => { FontSize = n.GetIntValue(); } },
@@ -90,7 +90,7 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ContentAlignment>("alignment", Alignment);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ContentAlignment>("alignment", Alignment);
             writer.WriteStringValue("fontColor", FontColor);
             writer.WriteStringValue("fontName", FontName);
             writer.WriteIntValue("fontSize", FontSize);

@@ -31,9 +31,9 @@ namespace ApiSdk.Models.Security
         /// <summary>Specifies the date time when the review occurred.</summary>
         public DateTimeOffset? ReviewDateTime { get; set; }
         /// <summary>Specifies what the review result was. The possible values are: notJunk, spam, phishing, malware, allowedByPolicy, blockedByPolicy, spoof, unknown, noResultAvailable, and unknownFutureValue.</summary>
-        public SubmissionResultCategory? ReviewResult { get; set; }
+        public ApiSdk.Models.Security.SubmissionResultCategory? ReviewResult { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SubmissionAdminReview"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.SubmissionAdminReview"/> and sets the default values.
         /// </summary>
         public SubmissionAdminReview()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SubmissionAdminReview"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.SubmissionAdminReview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SubmissionAdminReview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.SubmissionAdminReview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SubmissionAdminReview();
+            return new ApiSdk.Models.Security.SubmissionAdminReview();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models.Security
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "reviewBy", n => { ReviewBy = n.GetStringValue(); } },
                 { "reviewDateTime", n => { ReviewDateTime = n.GetDateTimeOffsetValue(); } },
-                { "reviewResult", n => { ReviewResult = n.GetEnumValue<SubmissionResultCategory>(); } },
+                { "reviewResult", n => { ReviewResult = n.GetEnumValue<ApiSdk.Models.Security.SubmissionResultCategory>(); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.Security
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("reviewBy", ReviewBy);
             writer.WriteDateTimeOffsetValue("reviewDateTime", ReviewDateTime);
-            writer.WriteEnumValue<SubmissionResultCategory>("reviewResult", ReviewResult);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SubmissionResultCategory>("reviewResult", ReviewResult);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,33 +9,33 @@ namespace ApiSdk.Models
     /// <summary>
     /// Singleton entity which represents the Exchange OnPremises policy configured for a tenant.
     /// </summary>
-    public class DeviceManagementExchangeOnPremisesPolicy : Entity, IParsable
+    public class DeviceManagementExchangeOnPremisesPolicy : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementExchangeAccessRule>? AccessRules { get; set; }
+        public List<ApiSdk.Models.DeviceManagementExchangeAccessRule>? AccessRules { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementExchangeAccessRule> AccessRules { get; set; }
+        public List<ApiSdk.Models.DeviceManagementExchangeAccessRule> AccessRules { get; set; }
 #endif
         /// <summary>The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnPremisesConditionalAccessSettings? ConditionalAccessSettings { get; set; }
+        public ApiSdk.Models.OnPremisesConditionalAccessSettings? ConditionalAccessSettings { get; set; }
 #nullable restore
 #else
-        public OnPremisesConditionalAccessSettings ConditionalAccessSettings { get; set; }
+        public ApiSdk.Models.OnPremisesConditionalAccessSettings ConditionalAccessSettings { get; set; }
 #endif
         /// <summary>Access Level in Exchange.</summary>
-        public DeviceManagementExchangeAccessLevel? DefaultAccessLevel { get; set; }
+        public ApiSdk.Models.DeviceManagementExchangeAccessLevel? DefaultAccessLevel { get; set; }
         /// <summary>The list of device classes known to Exchange</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementExchangeDeviceClass>? KnownDeviceClasses { get; set; }
+        public List<ApiSdk.Models.DeviceManagementExchangeDeviceClass>? KnownDeviceClasses { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementExchangeDeviceClass> KnownDeviceClasses { get; set; }
+        public List<ApiSdk.Models.DeviceManagementExchangeDeviceClass> KnownDeviceClasses { get; set; }
 #endif
         /// <summary>Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementExchangeOnPremisesPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementExchangeOnPremisesPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementExchangeOnPremisesPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementExchangeOnPremisesPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementExchangeOnPremisesPolicy();
+            return new ApiSdk.Models.DeviceManagementExchangeOnPremisesPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessRules", n => { AccessRules = n.GetCollectionOfObjectValues<DeviceManagementExchangeAccessRule>(DeviceManagementExchangeAccessRule.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "conditionalAccessSettings", n => { ConditionalAccessSettings = n.GetObjectValue<OnPremisesConditionalAccessSettings>(OnPremisesConditionalAccessSettings.CreateFromDiscriminatorValue); } },
-                { "defaultAccessLevel", n => { DefaultAccessLevel = n.GetEnumValue<DeviceManagementExchangeAccessLevel>(); } },
-                { "knownDeviceClasses", n => { KnownDeviceClasses = n.GetCollectionOfObjectValues<DeviceManagementExchangeDeviceClass>(DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessRules", n => { AccessRules = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementExchangeAccessRule>(ApiSdk.Models.DeviceManagementExchangeAccessRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessSettings", n => { ConditionalAccessSettings = n.GetObjectValue<ApiSdk.Models.OnPremisesConditionalAccessSettings>(ApiSdk.Models.OnPremisesConditionalAccessSettings.CreateFromDiscriminatorValue); } },
+                { "defaultAccessLevel", n => { DefaultAccessLevel = n.GetEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessLevel>(); } },
+                { "knownDeviceClasses", n => { KnownDeviceClasses = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementExchangeDeviceClass>(ApiSdk.Models.DeviceManagementExchangeDeviceClass.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "notificationContent", n => { NotificationContent = n.GetByteArrayValue(); } },
             };
         }
@@ -78,10 +78,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementExchangeAccessRule>("accessRules", AccessRules);
-            writer.WriteObjectValue<OnPremisesConditionalAccessSettings>("conditionalAccessSettings", ConditionalAccessSettings);
-            writer.WriteEnumValue<DeviceManagementExchangeAccessLevel>("defaultAccessLevel", DefaultAccessLevel);
-            writer.WriteCollectionOfObjectValues<DeviceManagementExchangeDeviceClass>("knownDeviceClasses", KnownDeviceClasses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementExchangeAccessRule>("accessRules", AccessRules);
+            writer.WriteObjectValue<ApiSdk.Models.OnPremisesConditionalAccessSettings>("conditionalAccessSettings", ConditionalAccessSettings);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementExchangeAccessLevel>("defaultAccessLevel", DefaultAccessLevel);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementExchangeDeviceClass>("knownDeviceClasses", KnownDeviceClasses);
             writer.WriteByteArrayValue("notificationContent", NotificationContent);
         }
     }

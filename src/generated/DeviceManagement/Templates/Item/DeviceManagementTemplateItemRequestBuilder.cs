@@ -34,7 +34,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         {
             var command = new Command("categories");
             command.Description = "Provides operations to manage the categories property of the microsoft.graph.deviceManagementTemplate entity.";
-            var builder = new CategoriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.Categories.CategoriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -61,7 +61,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         {
             var command = new Command("compare-with-template-id");
             command.Description = "Provides operations to call the compare method.";
-            var builder = new CompareWithTemplateIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.CompareWithTemplateId.CompareWithTemplateIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -78,7 +78,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         {
             var command = new Command("create-instance");
             command.Description = "Provides operations to call the createInstance method.";
-            var builder = new CreateInstanceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.CreateInstance.CreateInstanceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -182,7 +182,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         {
             var command = new Command("migratable-to");
             command.Description = "Provides operations to manage the migratableTo property of the microsoft.graph.deviceManagementTemplate entity.";
-            var builder = new MigratableToRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.MigratableTo.MigratableToRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -233,7 +233,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceManagementTemplate>(DeviceManagementTemplate.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagementTemplate>(ApiSdk.Models.DeviceManagementTemplate.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -261,7 +261,7 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.deviceManagementTemplate entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Templates.Item.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -281,14 +281,14 @@ namespace ApiSdk.DeviceManagement.Templates.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTemplateItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.DeviceManagementTemplateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceManagementTemplateItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTemplateItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Templates.Item.DeviceManagementTemplateItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceManagementTemplateItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/templates/{deviceManagementTemplate%2Did}{?%24expand,%24select}", rawUrl)
@@ -320,11 +320,11 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Templates.Item.DeviceManagementTemplateItemRequestBuilder.DeviceManagementTemplateItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Templates.Item.DeviceManagementTemplateItemRequestBuilder.DeviceManagementTemplateItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -340,11 +340,11 @@ namespace ApiSdk.DeviceManagement.Templates.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementTemplate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementTemplate body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementTemplate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementTemplate body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

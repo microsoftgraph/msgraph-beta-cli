@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OverprovisionedUserFinding : IdentityFinding, IParsable
+    public class OverprovisionedUserFinding : ApiSdk.Models.IdentityFinding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OverprovisionedUserFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OverprovisionedUserFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OverprovisionedUserFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OverprovisionedUserFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OverprovisionedUserFinding();
+            return new ApiSdk.Models.OverprovisionedUserFinding();
         }
         /// <summary>
         /// The deserialization information for the current model

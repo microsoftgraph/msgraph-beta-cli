@@ -55,13 +55,13 @@ namespace ApiSdk.Models.Security
         /// <summary>The otherProperties property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public StringValueDictionary? OtherProperties { get; set; }
+        public ApiSdk.Models.Security.StringValueDictionary? OtherProperties { get; set; }
 #nullable restore
 #else
-        public StringValueDictionary OtherProperties { get; set; }
+        public ApiSdk.Models.Security.StringValueDictionary OtherProperties { get; set; }
 #endif
         /// <summary>The processingStatus property</summary>
-        public FileProcessingStatus? ProcessingStatus { get; set; }
+        public ApiSdk.Models.Security.FileProcessingStatus? ProcessingStatus { get; set; }
         /// <summary>The senderOrAuthors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -85,16 +85,16 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FileObject"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.FileObject"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FileObject CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.FileObject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.security.ediscoveryFile" => new EdiscoveryFile(),
-                _ => new FileObject(),
+                "#microsoft.graph.security.ediscoveryFile" => new ApiSdk.Models.Security.EdiscoveryFile(),
+                _ => new ApiSdk.Models.Security.FileObject(),
             };
         }
         /// <summary>
@@ -111,11 +111,11 @@ namespace ApiSdk.Models.Security
                 { "extractedTextContent", n => { ExtractedTextContent = n.GetByteArrayValue(); } },
                 { "mediaType", n => { MediaType = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "otherProperties", n => { OtherProperties = n.GetObjectValue<StringValueDictionary>(StringValueDictionary.CreateFromDiscriminatorValue); } },
-                { "processingStatus", n => { ProcessingStatus = n.GetEnumValue<FileProcessingStatus>(); } },
+                { "otherProperties", n => { OtherProperties = n.GetObjectValue<ApiSdk.Models.Security.StringValueDictionary>(ApiSdk.Models.Security.StringValueDictionary.CreateFromDiscriminatorValue); } },
+                { "processingStatus", n => { ProcessingStatus = n.GetEnumValue<ApiSdk.Models.Security.FileProcessingStatus>(); } },
                 { "senderOrAuthors", n => { SenderOrAuthors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "size", n => { Size = n.GetLongValue(); } },
-                { "sourceType", n => { SourceType = n.GetEnumValue<SourceType>(); } },
+                { "sourceType", n => { SourceType = n.GetEnumValue<ApiSdk.Models.Security.SourceType>(); } },
                 { "subjectTitle", n => { SubjectTitle = n.GetStringValue(); } },
             };
         }
@@ -133,11 +133,11 @@ namespace ApiSdk.Models.Security
             writer.WriteByteArrayValue("extractedTextContent", ExtractedTextContent);
             writer.WriteStringValue("mediaType", MediaType);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<StringValueDictionary>("otherProperties", OtherProperties);
-            writer.WriteEnumValue<FileProcessingStatus>("processingStatus", ProcessingStatus);
+            writer.WriteObjectValue<ApiSdk.Models.Security.StringValueDictionary>("otherProperties", OtherProperties);
+            writer.WriteEnumValue<ApiSdk.Models.Security.FileProcessingStatus>("processingStatus", ProcessingStatus);
             writer.WriteCollectionOfPrimitiveValues<string>("senderOrAuthors", SenderOrAuthors);
             writer.WriteLongValue("size", Size);
-            writer.WriteEnumValue<SourceType>("sourceType", SourceType);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SourceType>("sourceType", SourceType);
             writer.WriteStringValue("subjectTitle", SubjectTitle);
         }
     }

@@ -56,14 +56,14 @@ namespace ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages.Item.Stop.StopRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public StopRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/stages/{accessReviewStage%2Did}/stop", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.AccessReviews.Decisions.Item.Instance.Stages.Item.Stop.StopRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public StopRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/accessReviews/decisions/{accessReviewInstanceDecisionItem%2Did}/instance/stages/{accessReviewStage%2Did}/stop", rawUrl)

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Apple VPN configuration profile.
     /// </summary>
-    public class AppleVpnConfiguration : DeviceConfiguration, IParsable
+    public class AppleVpnConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Associated Domains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public List<string> AssociatedDomains { get; set; }
 #endif
         /// <summary>VPN Authentication Method.</summary>
-        public VpnAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.VpnAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Connection name displayed to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,22 +30,22 @@ namespace ApiSdk.Models
         public string ConnectionName { get; set; }
 #endif
         /// <summary>Apple VPN connection type.</summary>
-        public AppleVpnConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.AppleVpnConnectionType? ConnectionType { get; set; }
         /// <summary>Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue>? CustomData { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue> CustomData { get; set; }
 #endif
         /// <summary>Custom data when connection type is set to Custom VPN. Use this field to enable functionality not supported by Intune, but available in your VPN solution. Contact your VPN vendor to learn how to add these key/value pairs. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? CustomKeyValueData { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> CustomKeyValueData { get; set; }
 #endif
         /// <summary>Toggle to prevent user from disabling automatic VPN in the Settings app</summary>
         public bool? DisableOnDemandUserOverride { get; set; }
@@ -84,22 +84,22 @@ namespace ApiSdk.Models
         /// <summary>On-Demand Rules. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnOnDemandRule>? OnDemandRules { get; set; }
+        public List<ApiSdk.Models.VpnOnDemandRule>? OnDemandRules { get; set; }
 #nullable restore
 #else
-        public List<VpnOnDemandRule> OnDemandRules { get; set; }
+        public List<ApiSdk.Models.VpnOnDemandRule> OnDemandRules { get; set; }
 #endif
         /// <summary>Opt-In to sharing the device&apos;s Id to third-party vpn clients for use during network access control validation.</summary>
         public bool? OptInToDeviceIdSharing { get; set; }
         /// <summary>Provider type for per-app VPN. Possible values are: notConfigured, appProxy, packetTunnel.</summary>
-        public VpnProviderType? ProviderType { get; set; }
+        public ApiSdk.Models.VpnProviderType? ProviderType { get; set; }
         /// <summary>Proxy Server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VpnProxyServer? ProxyServer { get; set; }
+        public ApiSdk.Models.VpnProxyServer? ProxyServer { get; set; }
 #nullable restore
 #else
-        public VpnProxyServer ProxyServer { get; set; }
+        public ApiSdk.Models.VpnProxyServer ProxyServer { get; set; }
 #endif
         /// <summary>Realm when connection type is set to Pulse Secure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -128,13 +128,13 @@ namespace ApiSdk.Models
         /// <summary>VPN Server definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VpnServer? Server { get; set; }
+        public ApiSdk.Models.VpnServer? Server { get; set; }
 #nullable restore
 #else
-        public VpnServer Server { get; set; }
+        public ApiSdk.Models.VpnServer Server { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AppleVpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AppleVpnConfiguration"/> and sets the default values.
         /// </summary>
         public AppleVpnConfiguration() : base()
         {
@@ -143,18 +143,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppleVpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppleVpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppleVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppleVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.iosikEv2VpnConfiguration" => new IosikEv2VpnConfiguration(),
-                "#microsoft.graph.iosVpnConfiguration" => new IosVpnConfiguration(),
-                "#microsoft.graph.macOSVpnConfiguration" => new MacOSVpnConfiguration(),
-                _ => new AppleVpnConfiguration(),
+                "#microsoft.graph.iosikEv2VpnConfiguration" => new ApiSdk.Models.IosikEv2VpnConfiguration(),
+                "#microsoft.graph.iosVpnConfiguration" => new ApiSdk.Models.IosVpnConfiguration(),
+                "#microsoft.graph.macOSVpnConfiguration" => new ApiSdk.Models.MacOSVpnConfiguration(),
+                _ => new ApiSdk.Models.AppleVpnConfiguration(),
             };
         }
         /// <summary>
@@ -166,11 +166,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "associatedDomains", n => { AssociatedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.VpnAuthenticationMethod>(); } },
                 { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<AppleVpnConnectionType>(); } },
-                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.AppleVpnConnectionType>(); } },
+                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "disableOnDemandUserOverride", n => { DisableOnDemandUserOverride = n.GetBoolValue(); } },
                 { "disconnectOnIdle", n => { DisconnectOnIdle = n.GetBoolValue(); } },
                 { "disconnectOnIdleTimerInSeconds", n => { DisconnectOnIdleTimerInSeconds = n.GetIntValue(); } },
@@ -179,14 +179,14 @@ namespace ApiSdk.Models
                 { "excludedDomains", n => { ExcludedDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
                 { "loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
-                { "onDemandRules", n => { OnDemandRules = n.GetCollectionOfObjectValues<VpnOnDemandRule>(VpnOnDemandRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "onDemandRules", n => { OnDemandRules = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnOnDemandRule>(ApiSdk.Models.VpnOnDemandRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "optInToDeviceIdSharing", n => { OptInToDeviceIdSharing = n.GetBoolValue(); } },
-                { "providerType", n => { ProviderType = n.GetEnumValue<VpnProviderType>(); } },
-                { "proxyServer", n => { ProxyServer = n.GetObjectValue<VpnProxyServer>(VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "providerType", n => { ProviderType = n.GetEnumValue<ApiSdk.Models.VpnProviderType>(); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<ApiSdk.Models.VpnProxyServer>(ApiSdk.Models.VpnProxyServer.CreateFromDiscriminatorValue); } },
                 { "realm", n => { Realm = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
                 { "safariDomains", n => { SafariDomains = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "server", n => { Server = n.GetObjectValue<VpnServer>(VpnServer.CreateFromDiscriminatorValue); } },
+                { "server", n => { Server = n.GetObjectValue<ApiSdk.Models.VpnServer>(ApiSdk.Models.VpnServer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -198,11 +198,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("associatedDomains", AssociatedDomains);
-            writer.WriteEnumValue<VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
             writer.WriteStringValue("connectionName", ConnectionName);
-            writer.WriteEnumValue<AppleVpnConnectionType>("connectionType", ConnectionType);
-            writer.WriteCollectionOfObjectValues<KeyValue>("customData", CustomData);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("customKeyValueData", CustomKeyValueData);
+            writer.WriteEnumValue<ApiSdk.Models.AppleVpnConnectionType>("connectionType", ConnectionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("customData", CustomData);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("customKeyValueData", CustomKeyValueData);
             writer.WriteBoolValue("disableOnDemandUserOverride", DisableOnDemandUserOverride);
             writer.WriteBoolValue("disconnectOnIdle", DisconnectOnIdle);
             writer.WriteIntValue("disconnectOnIdleTimerInSeconds", DisconnectOnIdleTimerInSeconds);
@@ -211,14 +211,14 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("excludedDomains", ExcludedDomains);
             writer.WriteStringValue("identifier", Identifier);
             writer.WriteStringValue("loginGroupOrDomain", LoginGroupOrDomain);
-            writer.WriteCollectionOfObjectValues<VpnOnDemandRule>("onDemandRules", OnDemandRules);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnOnDemandRule>("onDemandRules", OnDemandRules);
             writer.WriteBoolValue("optInToDeviceIdSharing", OptInToDeviceIdSharing);
-            writer.WriteEnumValue<VpnProviderType>("providerType", ProviderType);
-            writer.WriteObjectValue<VpnProxyServer>("proxyServer", ProxyServer);
+            writer.WriteEnumValue<ApiSdk.Models.VpnProviderType>("providerType", ProviderType);
+            writer.WriteObjectValue<ApiSdk.Models.VpnProxyServer>("proxyServer", ProxyServer);
             writer.WriteStringValue("realm", Realm);
             writer.WriteStringValue("role", Role);
             writer.WriteCollectionOfPrimitiveValues<string>("safariDomains", SafariDomains);
-            writer.WriteObjectValue<VpnServer>("server", Server);
+            writer.WriteObjectValue<ApiSdk.Models.VpnServer>("server", Server);
         }
     }
 }

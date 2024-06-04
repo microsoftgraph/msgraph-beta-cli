@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Report of remote actions initiated on the devices belonging to a certain tenant.
     /// </summary>
-    public class RemoteActionAudit : Entity, IParsable
+    public class RemoteActionAudit : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Remote actions Intune supports.</summary>
-        public RemoteAction? Action { get; set; }
+        public ApiSdk.Models.RemoteAction? Action { get; set; }
         /// <summary>The actionState property</summary>
         public ApiSdk.Models.ActionState? ActionState { get; set; }
         /// <summary>Intune device name.</summary>
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RemoteActionAudit"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RemoteActionAudit"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RemoteActionAudit CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RemoteActionAudit CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RemoteActionAudit();
+            return new ApiSdk.Models.RemoteActionAudit();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,8 +83,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "action", n => { Action = n.GetEnumValue<RemoteAction>(); } },
-                { "actionState", n => { ActionState = n.GetEnumValue<ActionState>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.RemoteAction>(); } },
+                { "actionState", n => { ActionState = n.GetEnumValue<ApiSdk.Models.ActionState>(); } },
                 { "deviceDisplayName", n => { DeviceDisplayName = n.GetStringValue(); } },
                 { "deviceIMEI", n => { DeviceIMEI = n.GetStringValue(); } },
                 { "deviceOwnerUserPrincipalName", n => { DeviceOwnerUserPrincipalName = n.GetStringValue(); } },
@@ -102,8 +102,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<RemoteAction>("action", Action);
-            writer.WriteEnumValue<ActionState>("actionState", ActionState);
+            writer.WriteEnumValue<ApiSdk.Models.RemoteAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.ActionState>("actionState", ActionState);
             writer.WriteStringValue("deviceDisplayName", DeviceDisplayName);
             writer.WriteStringValue("deviceIMEI", DeviceIMEI);
             writer.WriteStringValue("deviceOwnerUserPrincipalName", DeviceOwnerUserPrincipalName);

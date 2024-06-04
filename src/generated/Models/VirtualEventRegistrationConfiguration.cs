@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VirtualEventRegistrationConfiguration : Entity, IParsable
+    public class VirtualEventRegistrationConfiguration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Total capacity of the virtual event.</summary>
@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Registration questions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventRegistrationQuestionBase>? Questions { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistrationQuestionBase>? Questions { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventRegistrationQuestionBase> Questions { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistrationQuestionBase> Questions { get; set; }
 #endif
         /// <summary>Registration URL of the virtual event.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,16 +31,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventRegistrationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventRegistrationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventRegistrationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VirtualEventRegistrationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.virtualEventWebinarRegistrationConfiguration" => new VirtualEventWebinarRegistrationConfiguration(),
-                _ => new VirtualEventRegistrationConfiguration(),
+                "#microsoft.graph.virtualEventWebinarRegistrationConfiguration" => new ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration(),
+                _ => new ApiSdk.Models.VirtualEventRegistrationConfiguration(),
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "capacity", n => { Capacity = n.GetIntValue(); } },
-                { "questions", n => { Questions = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>(VirtualEventRegistrationQuestionBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistrationQuestionBase>(ApiSdk.Models.VirtualEventRegistrationQuestionBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "registrationWebUrl", n => { RegistrationWebUrl = n.GetStringValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("capacity", Capacity);
-            writer.WriteCollectionOfObjectValues<VirtualEventRegistrationQuestionBase>("questions", Questions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistrationQuestionBase>("questions", Questions);
             writer.WriteStringValue("registrationWebUrl", RegistrationWebUrl);
         }
     }

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class X509CertificateCombinationConfiguration : AuthenticationCombinationConfiguration, IParsable
+    public class X509CertificateCombinationConfiguration : ApiSdk.Models.AuthenticationCombinationConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A list of allowed subject key identifier values.</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public List<string> AllowedPolicyOIDs { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="X509CertificateCombinationConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.X509CertificateCombinationConfiguration"/> and sets the default values.
         /// </summary>
         public X509CertificateCombinationConfiguration() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="X509CertificateCombinationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.X509CertificateCombinationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new X509CertificateCombinationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.X509CertificateCombinationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new X509CertificateCombinationConfiguration();
+            return new ApiSdk.Models.X509CertificateCombinationConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

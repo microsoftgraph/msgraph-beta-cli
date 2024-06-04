@@ -9,34 +9,34 @@ namespace ApiSdk.Models
     /// <summary>
     /// iOS Education device configuration
     /// </summary>
-    public class IosEduDeviceConfiguration : DeviceConfiguration, IParsable
+    public class IosEduDeviceConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>The Trusted Root and PFX certificates for Device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosEduCertificateSettings? DeviceCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings? DeviceCertificateSettings { get; set; }
 #nullable restore
 #else
-        public IosEduCertificateSettings DeviceCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings DeviceCertificateSettings { get; set; }
 #endif
         /// <summary>The Trusted Root and PFX certificates for Student</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosEduCertificateSettings? StudentCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings? StudentCertificateSettings { get; set; }
 #nullable restore
 #else
-        public IosEduCertificateSettings StudentCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings StudentCertificateSettings { get; set; }
 #endif
         /// <summary>Trusted Root and PFX certificates for iOS EDU.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosEduCertificateSettings? TeacherCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings? TeacherCertificateSettings { get; set; }
 #nullable restore
 #else
-        public IosEduCertificateSettings TeacherCertificateSettings { get; set; }
+        public ApiSdk.Models.IosEduCertificateSettings TeacherCertificateSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosEduDeviceConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosEduDeviceConfiguration"/> and sets the default values.
         /// </summary>
         public IosEduDeviceConfiguration() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosEduDeviceConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosEduDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosEduDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosEduDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosEduDeviceConfiguration();
+            return new ApiSdk.Models.IosEduDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deviceCertificateSettings", n => { DeviceCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
-                { "studentCertificateSettings", n => { StudentCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
-                { "teacherCertificateSettings", n => { TeacherCertificateSettings = n.GetObjectValue<IosEduCertificateSettings>(IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "deviceCertificateSettings", n => { DeviceCertificateSettings = n.GetObjectValue<ApiSdk.Models.IosEduCertificateSettings>(ApiSdk.Models.IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "studentCertificateSettings", n => { StudentCertificateSettings = n.GetObjectValue<ApiSdk.Models.IosEduCertificateSettings>(ApiSdk.Models.IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
+                { "teacherCertificateSettings", n => { TeacherCertificateSettings = n.GetObjectValue<ApiSdk.Models.IosEduCertificateSettings>(ApiSdk.Models.IosEduCertificateSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<IosEduCertificateSettings>("deviceCertificateSettings", DeviceCertificateSettings);
-            writer.WriteObjectValue<IosEduCertificateSettings>("studentCertificateSettings", StudentCertificateSettings);
-            writer.WriteObjectValue<IosEduCertificateSettings>("teacherCertificateSettings", TeacherCertificateSettings);
+            writer.WriteObjectValue<ApiSdk.Models.IosEduCertificateSettings>("deviceCertificateSettings", DeviceCertificateSettings);
+            writer.WriteObjectValue<ApiSdk.Models.IosEduCertificateSettings>("studentCertificateSettings", StudentCertificateSettings);
+            writer.WriteObjectValue<ApiSdk.Models.IosEduCertificateSettings>("teacherCertificateSettings", TeacherCertificateSettings);
         }
     }
 }

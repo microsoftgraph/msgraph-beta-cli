@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics anomaly correlation group overview entity contains the information for each correlation group of an anomaly.
     /// </summary>
-    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverview : Entity, IParsable
+    public class UserExperienceAnalyticsAnomalyCorrelationGroupOverview : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the number of correlation groups in the anomaly. Valid values -2147483648 to 2147483647</summary>
         public int? AnomalyCorrelationGroupCount { get; set; }
@@ -30,10 +30,10 @@ namespace ApiSdk.Models
         /// <summary>Describes the features of a device that are shared between all devices in a correlation group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>? CorrelationGroupFeatures { get; set; }
+        public List<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature>? CorrelationGroupFeatures { get; set; }
 #nullable restore
 #else
-        public List<UserExperienceAnalyticsAnomalyCorrelationGroupFeature> CorrelationGroupFeatures { get; set; }
+        public List<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature> CorrelationGroupFeatures { get; set; }
 #endif
         /// <summary>The unique identifier for the correlation group which will uniquely identify one of the correlation group within an anomaly. The correlation Id can be mapped to the correlation group name by concatinating the correlation group features. Example of correlation group name which is the indicative of concatenated features names are  for names, Contoso manufacture 4.4.1 and Windows 11.22621.1485.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         public string CorrelationGroupId { get; set; }
 #endif
         /// <summary>Indicates the level of prevalence of the correlation group features in the anomaly. Possible values are: high, medium or low</summary>
-        public UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence? CorrelationGroupPrevalence { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence? CorrelationGroupPrevalence { get; set; }
         /// <summary>The percentage of the devices in the correlation group that are anomalous. Valid values -1.79769313486232E+308 to 1.79769313486232E+308</summary>
         public double? CorrelationGroupPrevalencePercentage { get; set; }
         /// <summary>Indicates the total number of devices in the tenant. Valid values -2147483648 to 2147483647</summary>
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsAnomalyCorrelationGroupOverview"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupOverview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsAnomalyCorrelationGroupOverview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupOverview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsAnomalyCorrelationGroupOverview();
+            return new ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupOverview();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,9 +72,9 @@ namespace ApiSdk.Models
                 { "correlationGroupAnomalousDeviceCount", n => { CorrelationGroupAnomalousDeviceCount = n.GetIntValue(); } },
                 { "correlationGroupAtRiskDeviceCount", n => { CorrelationGroupAtRiskDeviceCount = n.GetIntValue(); } },
                 { "correlationGroupDeviceCount", n => { CorrelationGroupDeviceCount = n.GetIntValue(); } },
-                { "correlationGroupFeatures", n => { CorrelationGroupFeatures = n.GetCollectionOfObjectValues<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>(UserExperienceAnalyticsAnomalyCorrelationGroupFeature.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "correlationGroupFeatures", n => { CorrelationGroupFeatures = n.GetCollectionOfObjectValues<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature>(ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "correlationGroupId", n => { CorrelationGroupId = n.GetStringValue(); } },
-                { "correlationGroupPrevalence", n => { CorrelationGroupPrevalence = n.GetEnumValue<UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>(); } },
+                { "correlationGroupPrevalence", n => { CorrelationGroupPrevalence = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>(); } },
                 { "correlationGroupPrevalencePercentage", n => { CorrelationGroupPrevalencePercentage = n.GetDoubleValue(); } },
                 { "totalDeviceCount", n => { TotalDeviceCount = n.GetIntValue(); } },
             };
@@ -92,9 +92,9 @@ namespace ApiSdk.Models
             writer.WriteIntValue("correlationGroupAnomalousDeviceCount", CorrelationGroupAnomalousDeviceCount);
             writer.WriteIntValue("correlationGroupAtRiskDeviceCount", CorrelationGroupAtRiskDeviceCount);
             writer.WriteIntValue("correlationGroupDeviceCount", CorrelationGroupDeviceCount);
-            writer.WriteCollectionOfObjectValues<UserExperienceAnalyticsAnomalyCorrelationGroupFeature>("correlationGroupFeatures", CorrelationGroupFeatures);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupFeature>("correlationGroupFeatures", CorrelationGroupFeatures);
             writer.WriteStringValue("correlationGroupId", CorrelationGroupId);
-            writer.WriteEnumValue<UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>("correlationGroupPrevalence", CorrelationGroupPrevalence);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsAnomalyCorrelationGroupPrevalence>("correlationGroupPrevalence", CorrelationGroupPrevalence);
             writer.WriteDoubleValue("correlationGroupPrevalencePercentage", CorrelationGroupPrevalencePercentage);
             writer.WriteIntValue("totalDeviceCount", TotalDeviceCount);
         }

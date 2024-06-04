@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics battery health runtime history entity contains the trend of runtime of a device over a period of 30 days
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory : Entity, IParsable
+    public class UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The unique identifier of the device, Intune DeviceID or SCCM device id.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory();
+            return new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WindowsUpdateState : Entity, IParsable
+    public class WindowsUpdateState : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Device display name.</summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public string QualityUpdateVersion { get; set; }
 #endif
         /// <summary>Windows update for business configuration device states</summary>
-        public WindowsUpdateStatus? Status { get; set; }
+        public ApiSdk.Models.WindowsUpdateStatus? Status { get; set; }
         /// <summary>The id of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,12 +67,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsUpdateState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdateState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsUpdateState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdateState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsUpdateState();
+            return new ApiSdk.Models.WindowsUpdateState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
                 { "lastScanDateTime", n => { LastScanDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "qualityUpdateVersion", n => { QualityUpdateVersion = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<WindowsUpdateStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.WindowsUpdateStatus>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
@@ -107,7 +107,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastScanDateTime", LastScanDateTime);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteStringValue("qualityUpdateVersion", QualityUpdateVersion);
-            writer.WriteEnumValue<WindowsUpdateStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdateStatus>("status", Status);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }

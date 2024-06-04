@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that represents an intent to apply settings to a device
     /// </summary>
-    public class DeviceManagementIntent : Entity, IParsable
+    public class DeviceManagementIntent : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Collection of assignments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementIntentAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementIntentAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentAssignment> Assignments { get; set; }
 #endif
         /// <summary>Collection of setting categories within the intent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementIntentSettingCategory>? Categories { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentSettingCategory>? Categories { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementIntentSettingCategory> Categories { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentSettingCategory> Categories { get; set; }
 #endif
         /// <summary>The user given description</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,26 +38,26 @@ namespace ApiSdk.Models
         /// <summary>Collection of settings and their states and counts of devices that belong to corresponding state for all settings within the intent</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementIntentDeviceSettingStateSummary>? DeviceSettingStateSummaries { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentDeviceSettingStateSummary>? DeviceSettingStateSummaries { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementIntentDeviceSettingStateSummary> DeviceSettingStateSummaries { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentDeviceSettingStateSummary> DeviceSettingStateSummaries { get; set; }
 #endif
         /// <summary>Collection of states of all devices that the intent is applied to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementIntentDeviceState>? DeviceStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentDeviceState>? DeviceStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementIntentDeviceState> DeviceStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentDeviceState> DeviceStates { get; set; }
 #endif
         /// <summary>A summary of device states and counts of devices that belong to corresponding state for all devices that the intent is applied to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementIntentDeviceStateSummary? DeviceStateSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementIntentDeviceStateSummary? DeviceStateSummary { get; set; }
 #nullable restore
 #else
-        public DeviceManagementIntentDeviceStateSummary DeviceStateSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementIntentDeviceStateSummary DeviceStateSummary { get; set; }
 #endif
         /// <summary>The user given display name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -84,10 +84,10 @@ namespace ApiSdk.Models
         /// <summary>Collection of all settings to be applied</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementSettingInstance>? Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance>? Settings { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementSettingInstance> Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance> Settings { get; set; }
 #endif
         /// <summary>The ID of the template this intent was created from (if any)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -100,28 +100,28 @@ namespace ApiSdk.Models
         /// <summary>Collection of states of all users that the intent is applied to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementIntentUserState>? UserStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentUserState>? UserStates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementIntentUserState> UserStates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementIntentUserState> UserStates { get; set; }
 #endif
         /// <summary>A summary of user states and counts of users that belong to corresponding state for all users that the intent is applied to</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementIntentUserStateSummary? UserStateSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementIntentUserStateSummary? UserStateSummary { get; set; }
 #nullable restore
 #else
-        public DeviceManagementIntentUserStateSummary UserStateSummary { get; set; }
+        public ApiSdk.Models.DeviceManagementIntentUserStateSummary UserStateSummary { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementIntent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementIntent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementIntent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementIntent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementIntent();
+            return new ApiSdk.Models.DeviceManagementIntent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -131,21 +131,21 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementIntentAssignment>(DeviceManagementIntentAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "categories", n => { Categories = n.GetCollectionOfObjectValues<DeviceManagementIntentSettingCategory>(DeviceManagementIntentSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentAssignment>(ApiSdk.Models.DeviceManagementIntentAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categories", n => { Categories = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentSettingCategory>(ApiSdk.Models.DeviceManagementIntentSettingCategory.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "deviceSettingStateSummaries", n => { DeviceSettingStateSummaries = n.GetCollectionOfObjectValues<DeviceManagementIntentDeviceSettingStateSummary>(DeviceManagementIntentDeviceSettingStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<DeviceManagementIntentDeviceStateSummary>(DeviceManagementIntentDeviceStateSummary.CreateFromDiscriminatorValue); } },
-                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<DeviceManagementIntentDeviceState>(DeviceManagementIntentDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceSettingStateSummaries", n => { DeviceSettingStateSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentDeviceSettingStateSummary>(ApiSdk.Models.DeviceManagementIntentDeviceSettingStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<ApiSdk.Models.DeviceManagementIntentDeviceStateSummary>(ApiSdk.Models.DeviceManagementIntentDeviceStateSummary.CreateFromDiscriminatorValue); } },
+                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentDeviceState>(ApiSdk.Models.DeviceManagementIntentDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
                 { "isMigratingToConfigurationPolicy", n => { IsMigratingToConfigurationPolicy = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>(ApiSdk.Models.DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "templateId", n => { TemplateId = n.GetStringValue(); } },
-                { "userStateSummary", n => { UserStateSummary = n.GetObjectValue<DeviceManagementIntentUserStateSummary>(DeviceManagementIntentUserStateSummary.CreateFromDiscriminatorValue); } },
-                { "userStates", n => { UserStates = n.GetCollectionOfObjectValues<DeviceManagementIntentUserState>(DeviceManagementIntentUserState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userStateSummary", n => { UserStateSummary = n.GetObjectValue<ApiSdk.Models.DeviceManagementIntentUserStateSummary>(ApiSdk.Models.DeviceManagementIntentUserStateSummary.CreateFromDiscriminatorValue); } },
+                { "userStates", n => { UserStates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentUserState>(ApiSdk.Models.DeviceManagementIntentUserState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -156,21 +156,21 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementIntentAssignment>("assignments", Assignments);
-            writer.WriteCollectionOfObjectValues<DeviceManagementIntentSettingCategory>("categories", Categories);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentSettingCategory>("categories", Categories);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<DeviceManagementIntentDeviceSettingStateSummary>("deviceSettingStateSummaries", DeviceSettingStateSummaries);
-            writer.WriteCollectionOfObjectValues<DeviceManagementIntentDeviceState>("deviceStates", DeviceStates);
-            writer.WriteObjectValue<DeviceManagementIntentDeviceStateSummary>("deviceStateSummary", DeviceStateSummary);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentDeviceSettingStateSummary>("deviceSettingStateSummaries", DeviceSettingStateSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentDeviceState>("deviceStates", DeviceStates);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementIntentDeviceStateSummary>("deviceStateSummary", DeviceStateSummary);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isAssigned", IsAssigned);
             writer.WriteBoolValue("isMigratingToConfigurationPolicy", IsMigratingToConfigurationPolicy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteCollectionOfObjectValues<DeviceManagementSettingInstance>("settings", Settings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>("settings", Settings);
             writer.WriteStringValue("templateId", TemplateId);
-            writer.WriteCollectionOfObjectValues<DeviceManagementIntentUserState>("userStates", UserStates);
-            writer.WriteObjectValue<DeviceManagementIntentUserStateSummary>("userStateSummary", UserStateSummary);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementIntentUserState>("userStates", UserStates);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementIntentUserStateSummary>("userStateSummary", UserStateSummary);
         }
     }
 }

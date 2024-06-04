@@ -9,21 +9,21 @@ namespace ApiSdk.Models
     /// <summary>
     /// Android SCEP certificate profile
     /// </summary>
-    public class AndroidScepCertificateProfile : AndroidCertificateProfileBase, IParsable
+    public class AndroidScepCertificateProfile : ApiSdk.Models.AndroidCertificateProfileBase, IParsable
     {
         /// <summary>Hash Algorithm Options.</summary>
-        public HashAlgorithms? HashAlgorithm { get; set; }
+        public ApiSdk.Models.HashAlgorithms? HashAlgorithm { get; set; }
         /// <summary>Key Size Options.</summary>
         public ApiSdk.Models.KeySize? KeySize { get; set; }
         /// <summary>Key Usage Options.</summary>
-        public KeyUsages? KeyUsage { get; set; }
+        public ApiSdk.Models.KeyUsages? KeyUsage { get; set; }
         /// <summary>Certificate state for devices. This collection can contain a maximum of 2147483647 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState>? ManagedDeviceCertificateStates { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceCertificateState> ManagedDeviceCertificateStates { get; set; }
 #endif
         /// <summary>SCEP Server Url(s)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         public string SubjectNameFormatString { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidScepCertificateProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidScepCertificateProfile"/> and sets the default values.
         /// </summary>
         public AndroidScepCertificateProfile() : base()
         {
@@ -59,12 +59,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidScepCertificateProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidScepCertificateProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidScepCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidScepCertificateProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidScepCertificateProfile();
+            return new ApiSdk.Models.AndroidScepCertificateProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,10 +74,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "hashAlgorithm", n => { HashAlgorithm = n.GetEnumValue<HashAlgorithms>(); } },
-                { "keySize", n => { KeySize = n.GetEnumValue<KeySize>(); } },
-                { "keyUsage", n => { KeyUsage = n.GetEnumValue<KeyUsages>(); } },
-                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ManagedDeviceCertificateState>(ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hashAlgorithm", n => { HashAlgorithm = n.GetEnumValue<ApiSdk.Models.HashAlgorithms>(); } },
+                { "keySize", n => { KeySize = n.GetEnumValue<ApiSdk.Models.KeySize>(); } },
+                { "keyUsage", n => { KeyUsage = n.GetEnumValue<ApiSdk.Models.KeyUsages>(); } },
+                { "managedDeviceCertificateStates", n => { ManagedDeviceCertificateStates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>(ApiSdk.Models.ManagedDeviceCertificateState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "scepServerUrls", n => { ScepServerUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "subjectAlternativeNameFormatString", n => { SubjectAlternativeNameFormatString = n.GetStringValue(); } },
                 { "subjectNameFormatString", n => { SubjectNameFormatString = n.GetStringValue(); } },
@@ -91,10 +91,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<HashAlgorithms>("hashAlgorithm", HashAlgorithm);
-            writer.WriteEnumValue<KeySize>("keySize", KeySize);
-            writer.WriteEnumValue<KeyUsages>("keyUsage", KeyUsage);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
+            writer.WriteEnumValue<ApiSdk.Models.HashAlgorithms>("hashAlgorithm", HashAlgorithm);
+            writer.WriteEnumValue<ApiSdk.Models.KeySize>("keySize", KeySize);
+            writer.WriteEnumValue<ApiSdk.Models.KeyUsages>("keyUsage", KeyUsage);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceCertificateState>("managedDeviceCertificateStates", ManagedDeviceCertificateStates);
             writer.WriteCollectionOfPrimitiveValues<string>("scepServerUrls", ScepServerUrls);
             writer.WriteStringValue("subjectAlternativeNameFormatString", SubjectAlternativeNameFormatString);
             writer.WriteStringValue("subjectNameFormatString", SubjectNameFormatString);

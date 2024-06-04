@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RejectPostResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject.RejectPostResponse"/> and sets the default values.
         /// </summary>
         public RejectPostResponse()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RejectPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject.RejectPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RejectPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject.RejectPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RejectPostResponse();
+            return new ApiSdk.DeviceManagement.OperationApprovalRequests.Item.Reject.RejectPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

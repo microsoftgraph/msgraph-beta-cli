@@ -31,7 +31,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
         {
             var command = new Command("authentication-method-modes");
             command.Description = "Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.";
-            var builder = new AuthenticationMethodModesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationMethodModes.AuthenticationMethodModesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -154,7 +154,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AuthenticationStrengthRoot>(AuthenticationStrengthRoot.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.AuthenticationStrengthRoot>(ApiSdk.Models.AuthenticationStrengthRoot.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -181,7 +181,7 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
         {
             var command = new Command("policies");
             command.Description = "Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.";
-            var builder = new PoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.Policies.PoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -202,14 +202,14 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationStrengthsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationStrengthsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AuthenticationStrengthsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity/conditionalAccess/authenticationStrengths{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationStrengthsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationStrengthsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AuthenticationStrengthsRequestBuilder(string rawUrl) : base("{+baseurl}/identity/conditionalAccess/authenticationStrengths{?%24expand,%24select}", rawUrl)
@@ -243,11 +243,11 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
         [Obsolete("The &apos;authenticationStrengths&apos; segment is deprecated. Please use &apos;authenticationStrength&apos; instead. as of 2023-02/AuthenticationStrengthsRemove")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationStrengthsRequestBuilder.AuthenticationStrengthsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationStrengthsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths.AuthenticationStrengthsRequestBuilder.AuthenticationStrengthsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -264,11 +264,11 @@ namespace ApiSdk.Identity.ConditionalAccess.AuthenticationStrengths
         [Obsolete("The &apos;authenticationStrengths&apos; segment is deprecated. Please use &apos;authenticationStrength&apos; instead. as of 2023-02/AuthenticationStrengthsRemove")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AuthenticationStrengthRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AuthenticationStrengthRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.AuthenticationStrengthRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

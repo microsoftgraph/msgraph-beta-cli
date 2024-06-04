@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>Choice Setting Value Default Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationChoiceSettingValueDefaultTemplate? DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate? DefaultValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationChoiceSettingValueDefaultTemplate DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate DefaultValue { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,18 +32,18 @@ namespace ApiSdk.Models
         /// <summary>Recommended definition override.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate? RecommendedValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate? RecommendedValueDefinition { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate RecommendedValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate RecommendedValueDefinition { get; set; }
 #endif
         /// <summary>Required definition override.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate? RequiredValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate? RequiredValueDefinition { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate RequiredValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate RequiredValueDefinition { get; set; }
 #endif
         /// <summary>Setting Value Template Id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         public string SettingValueTemplateId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationChoiceSettingValueTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationChoiceSettingValueTemplate()
         {
@@ -63,12 +63,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingValueTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationChoiceSettingValueTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationChoiceSettingValueTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,10 +78,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultValue", n => { DefaultValue = n.GetObjectValue<DeviceManagementConfigurationChoiceSettingValueDefaultTemplate>(DeviceManagementConfigurationChoiceSettingValueDefaultTemplate.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate>(ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "recommendedValueDefinition", n => { RecommendedValueDefinition = n.GetObjectValue<DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
-                { "requiredValueDefinition", n => { RequiredValueDefinition = n.GetObjectValue<DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>(DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
+                { "recommendedValueDefinition", n => { RecommendedValueDefinition = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>(ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
+                { "requiredValueDefinition", n => { RequiredValueDefinition = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>(ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
                 { "settingValueTemplateId", n => { SettingValueTemplateId = n.GetStringValue(); } },
             };
         }
@@ -92,10 +92,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<DeviceManagementConfigurationChoiceSettingValueDefaultTemplate>("defaultValue", DefaultValue);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate>("defaultValue", DefaultValue);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>("recommendedValueDefinition", RecommendedValueDefinition);
-            writer.WriteObjectValue<DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>("requiredValueDefinition", RequiredValueDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>("recommendedValueDefinition", RecommendedValueDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate>("requiredValueDefinition", RequiredValueDefinition);
             writer.WriteStringValue("settingValueTemplateId", SettingValueTemplateId);
             writer.WriteAdditionalData(AdditionalData);
         }

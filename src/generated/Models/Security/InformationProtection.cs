@@ -13,28 +13,28 @@ namespace ApiSdk.Models.Security
         /// <summary>Read the Microsoft Purview Information Protection policy settings for the user or organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public InformationProtectionPolicySetting? LabelPolicySettings { get; set; }
+        public ApiSdk.Models.Security.InformationProtectionPolicySetting? LabelPolicySettings { get; set; }
 #nullable restore
 #else
-        public InformationProtectionPolicySetting LabelPolicySettings { get; set; }
+        public ApiSdk.Models.Security.InformationProtectionPolicySetting LabelPolicySettings { get; set; }
 #endif
         /// <summary>Read the Microsoft Purview Information Protection labels for the user or organization.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitivityLabel>? SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.Security.SensitivityLabel>? SensitivityLabels { get; set; }
 #nullable restore
 #else
-        public List<SensitivityLabel> SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.Security.SensitivityLabel> SensitivityLabels { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InformationProtection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.InformationProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InformationProtection();
+            return new ApiSdk.Models.Security.InformationProtection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "labelPolicySettings", n => { LabelPolicySettings = n.GetObjectValue<InformationProtectionPolicySetting>(InformationProtectionPolicySetting.CreateFromDiscriminatorValue); } },
-                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "labelPolicySettings", n => { LabelPolicySettings = n.GetObjectValue<ApiSdk.Models.Security.InformationProtectionPolicySetting>(ApiSdk.Models.Security.InformationProtectionPolicySetting.CreateFromDiscriminatorValue); } },
+                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.SensitivityLabel>(ApiSdk.Models.Security.SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<InformationProtectionPolicySetting>("labelPolicySettings", LabelPolicySettings);
-            writer.WriteCollectionOfObjectValues<SensitivityLabel>("sensitivityLabels", SensitivityLabels);
+            writer.WriteObjectValue<ApiSdk.Models.Security.InformationProtectionPolicySetting>("labelPolicySettings", LabelPolicySettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.SensitivityLabel>("sensitivityLabels", SensitivityLabels);
         }
     }
 }

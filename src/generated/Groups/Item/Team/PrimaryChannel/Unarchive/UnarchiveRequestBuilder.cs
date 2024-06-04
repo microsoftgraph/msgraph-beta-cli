@@ -50,14 +50,14 @@ namespace ApiSdk.Groups.Item.Team.PrimaryChannel.Unarchive
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnarchiveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.PrimaryChannel.Unarchive.UnarchiveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UnarchiveRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/team/primaryChannel/unarchive", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UnarchiveRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.PrimaryChannel.Unarchive.UnarchiveRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UnarchiveRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/team/primaryChannel/unarchive", rawUrl)

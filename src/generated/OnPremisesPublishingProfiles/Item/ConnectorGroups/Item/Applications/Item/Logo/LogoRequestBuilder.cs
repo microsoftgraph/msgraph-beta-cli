@@ -182,14 +182,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applicat
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="LogoRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item.Logo.LogoRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public LogoRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/applications/{application%2Did}/logo", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="LogoRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.Applications.Item.Logo.LogoRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public LogoRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups/{connectorGroup%2Did}/applications/{application%2Did}/logo", rawUrl)

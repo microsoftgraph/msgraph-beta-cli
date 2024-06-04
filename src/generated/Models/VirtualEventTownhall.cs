@@ -7,31 +7,31 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VirtualEventTownhall : VirtualEvent, IParsable
+    public class VirtualEventTownhall : ApiSdk.Models.VirtualEvent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The audience to whom the town hall is visible. Possible values are: everyone, organization, unknownFutureValue.</summary>
-        public MeetingAudience? Audience { get; set; }
+        public ApiSdk.Models.MeetingAudience? Audience { get; set; }
         /// <summary>Identity information of the coorganizers of the town hall.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CommunicationsUserIdentity>? CoOrganizers { get; set; }
+        public List<ApiSdk.Models.CommunicationsUserIdentity>? CoOrganizers { get; set; }
 #nullable restore
 #else
-        public List<CommunicationsUserIdentity> CoOrganizers { get; set; }
+        public List<ApiSdk.Models.CommunicationsUserIdentity> CoOrganizers { get; set; }
 #endif
         /// <summary>The attendees invited to the town hall. The supported identities are: communicationsUserIdentity and communicationsGuestIdentity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Identity>? InvitedAttendees { get; set; }
+        public List<ApiSdk.Models.Identity>? InvitedAttendees { get; set; }
 #nullable restore
 #else
-        public List<Identity> InvitedAttendees { get; set; }
+        public List<ApiSdk.Models.Identity> InvitedAttendees { get; set; }
 #endif
         /// <summary>Indicates whether the town hall is only open to invited people and groups within your organization. The isInviteOnly property can only be true if the value of the audience property is set to organization.</summary>
         public bool? IsInviteOnly { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="VirtualEventTownhall"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VirtualEventTownhall"/> and sets the default values.
         /// </summary>
         public VirtualEventTownhall() : base()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventTownhall"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventTownhall"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventTownhall CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VirtualEventTownhall CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VirtualEventTownhall();
+            return new ApiSdk.Models.VirtualEventTownhall();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,9 +55,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
-                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "invitedAttendees", n => { InvitedAttendees = n.GetCollectionOfObjectValues<Identity>(Identity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "audience", n => { Audience = n.GetEnumValue<ApiSdk.Models.MeetingAudience>(); } },
+                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<ApiSdk.Models.CommunicationsUserIdentity>(ApiSdk.Models.CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "invitedAttendees", n => { InvitedAttendees = n.GetCollectionOfObjectValues<ApiSdk.Models.Identity>(ApiSdk.Models.Identity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isInviteOnly", n => { IsInviteOnly = n.GetBoolValue(); } },
             };
         }
@@ -69,9 +69,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MeetingAudience>("audience", Audience);
-            writer.WriteCollectionOfObjectValues<CommunicationsUserIdentity>("coOrganizers", CoOrganizers);
-            writer.WriteCollectionOfObjectValues<Identity>("invitedAttendees", InvitedAttendees);
+            writer.WriteEnumValue<ApiSdk.Models.MeetingAudience>("audience", Audience);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CommunicationsUserIdentity>("coOrganizers", CoOrganizers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Identity>("invitedAttendees", InvitedAttendees);
             writer.WriteBoolValue("isInviteOnly", IsInviteOnly);
         }
     }

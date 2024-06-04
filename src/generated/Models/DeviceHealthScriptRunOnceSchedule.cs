@@ -10,12 +10,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device health script run once schedule.
     /// </summary>
-    public class DeviceHealthScriptRunOnceSchedule : DeviceHealthScriptTimeSchedule, IParsable
+    public class DeviceHealthScriptRunOnceSchedule : ApiSdk.Models.DeviceHealthScriptTimeSchedule, IParsable
     {
         /// <summary>The date the script is scheduled to run. This collection can contain a maximum of 20 elements.</summary>
         public Date? Date { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptRunOnceSchedule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptRunOnceSchedule"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptRunOnceSchedule() : base()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptRunOnceSchedule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptRunOnceSchedule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceHealthScriptRunOnceSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceHealthScriptRunOnceSchedule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptRunOnceSchedule();
+            return new ApiSdk.Models.DeviceHealthScriptRunOnceSchedule();
         }
         /// <summary>
         /// The deserialization information for the current model

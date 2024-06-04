@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// Group Setting Instance Template
     /// </summary>
-    public class DeviceManagementConfigurationGroupSettingInstanceTemplate : DeviceManagementConfigurationSettingInstanceTemplate, IParsable
+    public class DeviceManagementConfigurationGroupSettingInstanceTemplate : ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate, IParsable
     {
         /// <summary>Group Setting Value Template</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationGroupSettingValueTemplate? GroupSettingValueTemplate { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationGroupSettingValueTemplate? GroupSettingValueTemplate { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationGroupSettingValueTemplate GroupSettingValueTemplate { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationGroupSettingValueTemplate GroupSettingValueTemplate { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationGroupSettingInstanceTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstanceTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationGroupSettingInstanceTemplate() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationGroupSettingInstanceTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstanceTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationGroupSettingInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstanceTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationGroupSettingInstanceTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstanceTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "groupSettingValueTemplate", n => { GroupSettingValueTemplate = n.GetObjectValue<DeviceManagementConfigurationGroupSettingValueTemplate>(DeviceManagementConfigurationGroupSettingValueTemplate.CreateFromDiscriminatorValue); } },
+                { "groupSettingValueTemplate", n => { GroupSettingValueTemplate = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationGroupSettingValueTemplate>(ApiSdk.Models.DeviceManagementConfigurationGroupSettingValueTemplate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementConfigurationGroupSettingValueTemplate>("groupSettingValueTemplate", GroupSettingValueTemplate);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationGroupSettingValueTemplate>("groupSettingValueTemplate", GroupSettingValueTemplate);
         }
     }
 }

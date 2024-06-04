@@ -168,7 +168,7 @@ namespace ApiSdk.NetworkAccess.Alerts.Item
         {
             var command = new Command("policy");
             command.Description = "Provides operations to manage the policy property of the microsoft.graph.networkaccess.alert entity.";
-            var builder = new PolicyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Alerts.Item.Policy.PolicyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -178,14 +178,14 @@ namespace ApiSdk.NetworkAccess.Alerts.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlertItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Alerts.Item.AlertItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AlertItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/alerts/{alert%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlertItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Alerts.Item.AlertItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AlertItemRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/alerts/{alert%2Did}{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.NetworkAccess.Alerts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Alerts.Item.AlertItemRequestBuilder.AlertItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Alerts.Item.AlertItemRequestBuilder.AlertItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserSubject : ConditionalAccessWhatIfSubject, IParsable
+    public class UserSubject : ApiSdk.Models.ConditionalAccessWhatIfSubject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The externalTenantId property</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string ExternalTenantId { get; set; }
 #endif
         /// <summary>The externalUserType property</summary>
-        public ConditionalAccessGuestOrExternalUserTypes? ExternalUserType { get; set; }
+        public ApiSdk.Models.ConditionalAccessGuestOrExternalUserTypes? ExternalUserType { get; set; }
         /// <summary>The userId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string UserId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserSubject"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserSubject"/> and sets the default values.
         /// </summary>
         public UserSubject() : base()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserSubject"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserSubject"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserSubject CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserSubject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserSubject();
+            return new ApiSdk.Models.UserSubject();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "externalTenantId", n => { ExternalTenantId = n.GetStringValue(); } },
-                { "externalUserType", n => { ExternalUserType = n.GetEnumValue<ConditionalAccessGuestOrExternalUserTypes>(); } },
+                { "externalUserType", n => { ExternalUserType = n.GetEnumValue<ApiSdk.Models.ConditionalAccessGuestOrExternalUserTypes>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("externalTenantId", ExternalTenantId);
-            writer.WriteEnumValue<ConditionalAccessGuestOrExternalUserTypes>("externalUserType", ExternalUserType);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessGuestOrExternalUserTypes>("externalUserType", ExternalUserType);
             writer.WriteStringValue("userId", UserId);
         }
     }

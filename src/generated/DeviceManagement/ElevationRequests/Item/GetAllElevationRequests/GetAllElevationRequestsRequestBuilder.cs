@@ -72,14 +72,14 @@ namespace ApiSdk.DeviceManagement.ElevationRequests.Item.GetAllElevationRequests
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetAllElevationRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.GetAllElevationRequests.GetAllElevationRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetAllElevationRequestsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}/getAllElevationRequests", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetAllElevationRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ElevationRequests.Item.GetAllElevationRequests.GetAllElevationRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetAllElevationRequestsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/elevationRequests/{privilegeManagementElevationRequest%2Did}/getAllElevationRequests", rawUrl)

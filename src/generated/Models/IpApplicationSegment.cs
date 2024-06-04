@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class IpApplicationSegment : ApplicationSegment, IParsable
+    public class IpApplicationSegment : ApiSdk.Models.ApplicationSegment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The application property</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string DestinationHost { get; set; }
 #endif
         /// <summary>The destinationType property</summary>
-        public PrivateNetworkDestinationType? DestinationType { get; set; }
+        public ApiSdk.Models.PrivateNetworkDestinationType? DestinationType { get; set; }
         /// <summary>The port property</summary>
         public int? Port { get; set; }
         /// <summary>The ports property</summary>
@@ -39,9 +39,9 @@ namespace ApiSdk.Models
         public List<string> Ports { get; set; }
 #endif
         /// <summary>The protocol property</summary>
-        public PrivateNetworkProtocol? Protocol { get; set; }
+        public ApiSdk.Models.PrivateNetworkProtocol? Protocol { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IpApplicationSegment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IpApplicationSegment"/> and sets the default values.
         /// </summary>
         public IpApplicationSegment() : base()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IpApplicationSegment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IpApplicationSegment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IpApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IpApplicationSegment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IpApplicationSegment();
+            return new ApiSdk.Models.IpApplicationSegment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,10 +67,10 @@ namespace ApiSdk.Models
             {
                 { "application", n => { Application = n.GetObjectValue<ApiSdk.Models.Application>(ApiSdk.Models.Application.CreateFromDiscriminatorValue); } },
                 { "destinationHost", n => { DestinationHost = n.GetStringValue(); } },
-                { "destinationType", n => { DestinationType = n.GetEnumValue<PrivateNetworkDestinationType>(); } },
+                { "destinationType", n => { DestinationType = n.GetEnumValue<ApiSdk.Models.PrivateNetworkDestinationType>(); } },
                 { "port", n => { Port = n.GetIntValue(); } },
                 { "ports", n => { Ports = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "protocol", n => { Protocol = n.GetEnumValue<PrivateNetworkProtocol>(); } },
+                { "protocol", n => { Protocol = n.GetEnumValue<ApiSdk.Models.PrivateNetworkProtocol>(); } },
             };
         }
         /// <summary>
@@ -83,10 +83,10 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.Application>("application", Application);
             writer.WriteStringValue("destinationHost", DestinationHost);
-            writer.WriteEnumValue<PrivateNetworkDestinationType>("destinationType", DestinationType);
+            writer.WriteEnumValue<ApiSdk.Models.PrivateNetworkDestinationType>("destinationType", DestinationType);
             writer.WriteIntValue("port", Port);
             writer.WriteCollectionOfPrimitiveValues<string>("ports", Ports);
-            writer.WriteEnumValue<PrivateNetworkProtocol>("protocol", Protocol);
+            writer.WriteEnumValue<ApiSdk.Models.PrivateNetworkProtocol>("protocol", Protocol);
         }
     }
 }

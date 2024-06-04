@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RelatedResource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RelatedResource"/> and sets the default values.
         /// </summary>
         public RelatedResource()
         {
@@ -30,23 +30,23 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RelatedResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RelatedResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RelatedResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.RelatedResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.relatedDestination" => new RelatedDestination(),
-                "#microsoft.graph.networkaccess.relatedDevice" => new RelatedDevice(),
-                "#microsoft.graph.networkaccess.relatedMalware" => new RelatedMalware(),
-                "#microsoft.graph.networkaccess.relatedProcess" => new RelatedProcess(),
-                "#microsoft.graph.networkaccess.relatedRemoteNetwork" => new RelatedRemoteNetwork(),
-                "#microsoft.graph.networkaccess.relatedTenant" => new RelatedTenant(),
-                "#microsoft.graph.networkaccess.relatedThreatIntelligence" => new RelatedThreatIntelligence(),
-                "#microsoft.graph.networkaccess.relatedWebCategory" => new RelatedWebCategory(),
-                _ => new RelatedResource(),
+                "#microsoft.graph.networkaccess.relatedDestination" => new ApiSdk.Models.Networkaccess.RelatedDestination(),
+                "#microsoft.graph.networkaccess.relatedDevice" => new ApiSdk.Models.Networkaccess.RelatedDevice(),
+                "#microsoft.graph.networkaccess.relatedMalware" => new ApiSdk.Models.Networkaccess.RelatedMalware(),
+                "#microsoft.graph.networkaccess.relatedProcess" => new ApiSdk.Models.Networkaccess.RelatedProcess(),
+                "#microsoft.graph.networkaccess.relatedRemoteNetwork" => new ApiSdk.Models.Networkaccess.RelatedRemoteNetwork(),
+                "#microsoft.graph.networkaccess.relatedTenant" => new ApiSdk.Models.Networkaccess.RelatedTenant(),
+                "#microsoft.graph.networkaccess.relatedThreatIntelligence" => new ApiSdk.Models.Networkaccess.RelatedThreatIntelligence(),
+                "#microsoft.graph.networkaccess.relatedWebCategory" => new ApiSdk.Models.Networkaccess.RelatedWebCategory(),
+                _ => new ApiSdk.Models.Networkaccess.RelatedResource(),
             };
         }
         /// <summary>

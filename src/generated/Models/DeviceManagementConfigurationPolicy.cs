@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Management Configuration Policy
     /// </summary>
-    public class DeviceManagementConfigurationPolicy : Entity, IParsable
+    public class DeviceManagementConfigurationPolicy : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Policy assignments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationPolicyAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationPolicyAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment> Assignments { get; set; }
 #endif
         /// <summary>Policy creation date and time</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -50,14 +50,14 @@ namespace ApiSdk.Models
         public string Name { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DeviceManagementConfigurationPlatforms? Platforms { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPlatforms? Platforms { get; set; }
         /// <summary>Indicates the priority of each policies that are selected by the admin during enrollment process</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementPriorityMetaData? PriorityMetaData { get; set; }
+        public ApiSdk.Models.DeviceManagementPriorityMetaData? PriorityMetaData { get; set; }
 #nullable restore
 #else
-        public DeviceManagementPriorityMetaData PriorityMetaData { get; set; }
+        public ApiSdk.Models.DeviceManagementPriorityMetaData PriorityMetaData { get; set; }
 #endif
         /// <summary>List of Scope Tags for this Entity instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -72,30 +72,30 @@ namespace ApiSdk.Models
         /// <summary>Policy settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSetting>? Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSetting>? Settings { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSetting> Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSetting> Settings { get; set; }
 #endif
         /// <summary>Describes which technology this setting can be deployed with</summary>
-        public DeviceManagementConfigurationTechnologies? Technologies { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTechnologies? Technologies { get; set; }
         /// <summary>Template reference information</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationPolicyTemplateReference? TemplateReference { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference? TemplateReference { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationPolicyTemplateReference TemplateReference { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference TemplateReference { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationPolicy();
+            return new ApiSdk.Models.DeviceManagementConfigurationPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,20 +105,20 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>(DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>(ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "creationSource", n => { CreationSource = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
-                { "priorityMetaData", n => { PriorityMetaData = n.GetObjectValue<DeviceManagementPriorityMetaData>(DeviceManagementPriorityMetaData.CreateFromDiscriminatorValue); } },
+                { "platforms", n => { Platforms = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>(); } },
+                { "priorityMetaData", n => { PriorityMetaData = n.GetObjectValue<ApiSdk.Models.DeviceManagementPriorityMetaData>(ApiSdk.Models.DeviceManagementPriorityMetaData.CreateFromDiscriminatorValue); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "settingCount", n => { SettingCount = n.GetIntValue(); } },
-                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSetting>(DeviceManagementConfigurationSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
-                { "templateReference", n => { TemplateReference = n.GetObjectValue<DeviceManagementConfigurationPolicyTemplateReference>(DeviceManagementConfigurationPolicyTemplateReference.CreateFromDiscriminatorValue); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSetting>(ApiSdk.Models.DeviceManagementConfigurationSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>(); } },
+                { "templateReference", n => { TemplateReference = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference>(ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -129,19 +129,19 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("creationSource", CreationSource);
             writer.WriteStringValue("description", Description);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<DeviceManagementConfigurationPlatforms>("platforms", Platforms);
-            writer.WriteObjectValue<DeviceManagementPriorityMetaData>("priorityMetaData", PriorityMetaData);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>("platforms", Platforms);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementPriorityMetaData>("priorityMetaData", PriorityMetaData);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteIntValue("settingCount", SettingCount);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSetting>("settings", Settings);
-            writer.WriteEnumValue<DeviceManagementConfigurationTechnologies>("technologies", Technologies);
-            writer.WriteObjectValue<DeviceManagementConfigurationPolicyTemplateReference>("templateReference", TemplateReference);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSetting>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>("technologies", Technologies);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference>("templateReference", TemplateReference);
         }
     }
 }

@@ -9,46 +9,46 @@ namespace ApiSdk.Models
     /// <summary>
     /// The base presentation value entity that stores the value for a single group policy presentation.
     /// </summary>
-    public class GroupPolicyPresentationValue : Entity, IParsable
+    public class GroupPolicyPresentationValue : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The date and time the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The group policy definition value associated with the presentation value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinitionValue? DefinitionValue { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionValue? DefinitionValue { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinitionValue DefinitionValue { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionValue DefinitionValue { get; set; }
 #endif
         /// <summary>The date and time the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The group policy presentation associated with the presentation value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyPresentation? Presentation { get; set; }
+        public ApiSdk.Models.GroupPolicyPresentation? Presentation { get; set; }
 #nullable restore
 #else
-        public GroupPolicyPresentation Presentation { get; set; }
+        public ApiSdk.Models.GroupPolicyPresentation Presentation { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.groupPolicyPresentationValueBoolean" => new GroupPolicyPresentationValueBoolean(),
-                "#microsoft.graph.groupPolicyPresentationValueDecimal" => new GroupPolicyPresentationValueDecimal(),
-                "#microsoft.graph.groupPolicyPresentationValueList" => new GroupPolicyPresentationValueList(),
-                "#microsoft.graph.groupPolicyPresentationValueLongDecimal" => new GroupPolicyPresentationValueLongDecimal(),
-                "#microsoft.graph.groupPolicyPresentationValueMultiText" => new GroupPolicyPresentationValueMultiText(),
-                "#microsoft.graph.groupPolicyPresentationValueText" => new GroupPolicyPresentationValueText(),
-                _ => new GroupPolicyPresentationValue(),
+                "#microsoft.graph.groupPolicyPresentationValueBoolean" => new ApiSdk.Models.GroupPolicyPresentationValueBoolean(),
+                "#microsoft.graph.groupPolicyPresentationValueDecimal" => new ApiSdk.Models.GroupPolicyPresentationValueDecimal(),
+                "#microsoft.graph.groupPolicyPresentationValueList" => new ApiSdk.Models.GroupPolicyPresentationValueList(),
+                "#microsoft.graph.groupPolicyPresentationValueLongDecimal" => new ApiSdk.Models.GroupPolicyPresentationValueLongDecimal(),
+                "#microsoft.graph.groupPolicyPresentationValueMultiText" => new ApiSdk.Models.GroupPolicyPresentationValueMultiText(),
+                "#microsoft.graph.groupPolicyPresentationValueText" => new ApiSdk.Models.GroupPolicyPresentationValueText(),
+                _ => new ApiSdk.Models.GroupPolicyPresentationValue(),
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "definitionValue", n => { DefinitionValue = n.GetObjectValue<GroupPolicyDefinitionValue>(GroupPolicyDefinitionValue.CreateFromDiscriminatorValue); } },
+                { "definitionValue", n => { DefinitionValue = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinitionValue>(ApiSdk.Models.GroupPolicyDefinitionValue.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "presentation", n => { Presentation = n.GetObjectValue<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue); } },
+                { "presentation", n => { Presentation = n.GetObjectValue<ApiSdk.Models.GroupPolicyPresentation>(ApiSdk.Models.GroupPolicyPresentation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -74,9 +74,9 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<GroupPolicyDefinitionValue>("definitionValue", DefinitionValue);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinitionValue>("definitionValue", DefinitionValue);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<GroupPolicyPresentation>("presentation", Presentation);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyPresentation>("presentation", Presentation);
         }
     }
 }

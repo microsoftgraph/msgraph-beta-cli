@@ -29,16 +29,16 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidateOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.ValidateOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ValidateOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.ValidateOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.fileValidateOperation" => new FileValidateOperation(),
-                _ => new ValidateOperation(),
+                "#microsoft.graph.industryData.fileValidateOperation" => new ApiSdk.Models.IndustryData.FileValidateOperation(),
+                _ => new ApiSdk.Models.IndustryData.ValidateOperation(),
             };
         }
         /// <summary>

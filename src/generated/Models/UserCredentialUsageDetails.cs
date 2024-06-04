@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserCredentialUsageDetails : Entity, IParsable
+    public class UserCredentialUsageDetails : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authMethod property</summary>
-        public UsageAuthMethod? AuthMethod { get; set; }
+        public ApiSdk.Models.UsageAuthMethod? AuthMethod { get; set; }
         /// <summary>The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? EventDateTime { get; set; }
         /// <summary>Provides the failure reason for the corresponding reset or registration workflow.</summary>
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string FailureReason { get; set; }
 #endif
         /// <summary>The feature property</summary>
-        public FeatureType? Feature { get; set; }
+        public ApiSdk.Models.FeatureType? Feature { get; set; }
         /// <summary>Indicates success or failure of the workflow.</summary>
         public bool? IsSuccess { get; set; }
         /// <summary>User name of the user performing the reset or registration workflow.</summary>
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserCredentialUsageDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserCredentialUsageDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserCredentialUsageDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserCredentialUsageDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserCredentialUsageDetails();
+            return new ApiSdk.Models.UserCredentialUsageDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,10 +60,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
+                { "authMethod", n => { AuthMethod = n.GetEnumValue<ApiSdk.Models.UsageAuthMethod>(); } },
                 { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
                 { "failureReason", n => { FailureReason = n.GetStringValue(); } },
-                { "feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
+                { "feature", n => { Feature = n.GetEnumValue<ApiSdk.Models.FeatureType>(); } },
                 { "isSuccess", n => { IsSuccess = n.GetBoolValue(); } },
                 { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<UsageAuthMethod>("authMethod", AuthMethod);
+            writer.WriteEnumValue<ApiSdk.Models.UsageAuthMethod>("authMethod", AuthMethod);
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("failureReason", FailureReason);
-            writer.WriteEnumValue<FeatureType>("feature", Feature);
+            writer.WriteEnumValue<ApiSdk.Models.FeatureType>("feature", Feature);
             writer.WriteBoolValue("isSuccess", IsSuccess);
             writer.WriteStringValue("userDisplayName", UserDisplayName);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

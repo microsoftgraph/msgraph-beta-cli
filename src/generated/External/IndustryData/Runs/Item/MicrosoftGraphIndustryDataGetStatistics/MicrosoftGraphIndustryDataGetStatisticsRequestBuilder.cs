@@ -61,14 +61,14 @@ namespace ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetSt
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataGetStatisticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetStatistics.MicrosoftGraphIndustryDataGetStatisticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphIndustryDataGetStatisticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}/microsoft.graph.industryData.getStatistics()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataGetStatisticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.MicrosoftGraphIndustryDataGetStatistics.MicrosoftGraphIndustryDataGetStatisticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphIndustryDataGetStatisticsRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}/microsoft.graph.industryData.getStatistics()", rawUrl)

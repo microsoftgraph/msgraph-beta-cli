@@ -61,7 +61,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("activities");
             command.Description = "Provides operations to manage the activities property of the microsoft.graph.driveItem entity.";
-            var builder = new ActivitiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Activities.ActivitiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -87,7 +87,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("analytics");
             command.Description = "Provides operations to manage the analytics property of the microsoft.graph.driveItem entity.";
-            var builder = new AnalyticsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Analytics.AnalyticsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAllTimeNavCommand());
@@ -114,7 +114,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("assign-sensitivity-label");
             command.Description = "Provides operations to call the assignSensitivityLabel method.";
-            var builder = new AssignSensitivityLabelRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.AssignSensitivityLabel.AssignSensitivityLabelRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -131,7 +131,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("checkin");
             command.Description = "Provides operations to call the checkin method.";
-            var builder = new CheckinRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Checkin.CheckinRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -148,7 +148,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("checkout");
             command.Description = "Provides operations to call the checkout method.";
-            var builder = new CheckoutRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Checkout.CheckoutRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -165,7 +165,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("children");
             command.Description = "Provides operations to manage the children property of the microsoft.graph.driveItem entity.";
-            var builder = new ChildrenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Children.ChildrenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -192,7 +192,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the storage entity.";
-            var builder = new ContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Content.ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -211,7 +211,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("content-stream");
             command.Description = "Provides operations to manage the media for the storage entity.";
-            var builder = new ContentStreamRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.ContentStream.ContentStreamRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -230,7 +230,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("copy");
             command.Description = "Provides operations to call the copy method.";
-            var builder = new CopyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Copy.CopyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -247,7 +247,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("created-by-user");
             command.Description = "Provides operations to manage the createdByUser property of the microsoft.graph.baseItem entity.";
-            var builder = new CreatedByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.CreatedByUser.CreatedByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
@@ -271,7 +271,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("create-link");
             command.Description = "Provides operations to call the createLink method.";
-            var builder = new CreateLinkRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.CreateLink.CreateLinkRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -288,7 +288,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("create-upload-session");
             command.Description = "Provides operations to call the createUploadSession method.";
-            var builder = new CreateUploadSessionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.CreateUploadSession.CreateUploadSessionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -346,7 +346,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("delta");
             command.Description = "Provides operations to call the delta method.";
-            var builder = new DeltaRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Delta.DeltaRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -363,7 +363,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("delta-with-token");
             command.Description = "Provides operations to call the delta method.";
-            var builder = new DeltaWithTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.DeltaWithToken.DeltaWithTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -380,7 +380,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("extract-sensitivity-labels");
             command.Description = "Provides operations to call the extractSensitivityLabels method.";
-            var builder = new ExtractSensitivityLabelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.ExtractSensitivityLabels.ExtractSensitivityLabelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -397,7 +397,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("follow");
             command.Description = "Provides operations to call the follow method.";
-            var builder = new FollowRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Follow.FollowRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -414,7 +414,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("get-activities-by-interval-with-start-date-time-with-end-date-time-with-interval");
             command.Description = "Provides operations to call the getActivitiesByInterval method.";
-            var builder = new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval.GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -489,7 +489,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("invite");
             command.Description = "Provides operations to call the invite method.";
-            var builder = new InviteRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Invite.InviteRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -506,7 +506,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("last-modified-by-user");
             command.Description = "Provides operations to manage the lastModifiedByUser property of the microsoft.graph.baseItem entity.";
-            var builder = new LastModifiedByUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.LastModifiedByUser.LastModifiedByUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
@@ -530,7 +530,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("list-item");
             command.Description = "Provides operations to manage the listItem property of the microsoft.graph.driveItem entity.";
-            var builder = new ListItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.ListItem.ListItemRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -604,7 +604,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("permanent-delete");
             command.Description = "Provides operations to call the permanentDelete method.";
-            var builder = new PermanentDeleteRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.PermanentDelete.PermanentDeleteRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -621,7 +621,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("permissions");
             command.Description = "Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.";
-            var builder = new PermissionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Permissions.PermissionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -648,7 +648,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("preview");
             command.Description = "Provides operations to call the preview method.";
-            var builder = new PreviewRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Preview.PreviewRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -665,7 +665,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("restore");
             command.Description = "Provides operations to call the restore method.";
-            var builder = new RestoreRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Restore.RestoreRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -682,7 +682,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("retention-label");
             command.Description = "Provides operations to manage the retentionLabel property of the microsoft.graph.driveItem entity.";
-            var builder = new RetentionLabelRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.RetentionLabel.RetentionLabelRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -701,7 +701,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("search-with-q");
             command.Description = "Provides operations to call the search method.";
-            var builder = new SearchWithQRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.SearchWithQ.SearchWithQRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -718,7 +718,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("subscriptions");
             command.Description = "Provides operations to manage the subscriptions property of the microsoft.graph.driveItem entity.";
-            var builder = new SubscriptionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Subscriptions.SubscriptionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -745,7 +745,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("thumbnails");
             command.Description = "Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.";
-            var builder = new ThumbnailsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Thumbnails.ThumbnailsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -772,7 +772,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("unfollow");
             command.Description = "Provides operations to call the unfollow method.";
-            var builder = new UnfollowRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Unfollow.UnfollowRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -789,7 +789,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("validate-permission");
             command.Description = "Provides operations to call the validatePermission method.";
-            var builder = new ValidatePermissionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.ValidatePermission.ValidatePermissionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -806,7 +806,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("versions");
             command.Description = "Provides operations to manage the versions property of the microsoft.graph.driveItem entity.";
-            var builder = new VersionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Versions.VersionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -833,7 +833,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         {
             var command = new Command("workbook");
             command.Description = "Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.";
-            var builder = new WorkbookRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.WorkbookRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildApplicationNavCommand());
@@ -862,14 +862,14 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DriveItemItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.DriveItemItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DriveItemItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/storage/fileStorage/containers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DriveItemItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.DriveItemItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DriveItemItemRequestBuilder(string rawUrl) : base("{+baseurl}/storage/fileStorage/containers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}{?%24expand,%24select}", rawUrl)
@@ -901,11 +901,11 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.DriveItemItemRequestBuilder.DriveItemItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DriveItemItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.DriveItemItemRequestBuilder.DriveItemItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

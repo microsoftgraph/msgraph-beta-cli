@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a booked appointment of a service by a customer in a business.
     /// </summary>
-    public class BookingAppointment : Entity, IParsable
+    public class BookingAppointment : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Additional information that is sent to the customer when an appointment is confirmed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,10 +56,10 @@ namespace ApiSdk.Models
         /// <summary>Represents location information for the bookingCustomer who is booking the appointment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Location? CustomerLocation { get; set; }
+        public ApiSdk.Models.Location? CustomerLocation { get; set; }
 #nullable restore
 #else
-        public Location CustomerLocation { get; set; }
+        public ApiSdk.Models.Location CustomerLocation { get; set; }
 #endif
         /// <summary>The customer&apos;s name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,10 +88,10 @@ namespace ApiSdk.Models
         /// <summary>A collection of the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingCustomerInformationBase>? Customers { get; set; }
+        public List<ApiSdk.Models.BookingCustomerInformationBase>? Customers { get; set; }
 #nullable restore
 #else
-        public List<BookingCustomerInformationBase> Customers { get; set; }
+        public List<ApiSdk.Models.BookingCustomerInformationBase> Customers { get; set; }
 #endif
         /// <summary>The time zone of the customer. For a list of possible values, see dateTimeTimeZone.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,10 +106,10 @@ namespace ApiSdk.Models
         /// <summary>The end property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? End { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? End { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone End { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone End { get; set; }
 #endif
         /// <summary>The current number of customers in the appointment.</summary>
         public int? FilledAttendeesCount { get; private set; }
@@ -118,10 +118,10 @@ namespace ApiSdk.Models
         /// <summary>The date, time, and time zone of the invoice for this appointment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? InvoiceDate { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? InvoiceDate { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone InvoiceDate { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone InvoiceDate { get; set; }
 #endif
         /// <summary>The ID of the invoice.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -132,7 +132,7 @@ namespace ApiSdk.Models
         public string InvoiceId { get; set; }
 #endif
         /// <summary>The invoiceStatus property</summary>
-        public BookingInvoiceStatus? InvoiceStatus { get; set; }
+        public ApiSdk.Models.BookingInvoiceStatus? InvoiceStatus { get; set; }
         /// <summary>The URL of the invoice in Microsoft Bookings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -174,14 +174,14 @@ namespace ApiSdk.Models
         /// <summary>The regular price for an appointment for the specified bookingService.</summary>
         public double? Price { get; set; }
         /// <summary>Represents the type of pricing of a booking service.</summary>
-        public BookingPriceType? PriceType { get; set; }
+        public ApiSdk.Models.BookingPriceType? PriceType { get; set; }
         /// <summary>The collection of customer reminders sent for this appointment. The value of this property is available only when reading this bookingAppointment by its ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BookingReminder>? Reminders { get; set; }
+        public List<ApiSdk.Models.BookingReminder>? Reminders { get; set; }
 #nullable restore
 #else
-        public List<BookingReminder> Reminders { get; set; }
+        public List<ApiSdk.Models.BookingReminder> Reminders { get; set; }
 #endif
         /// <summary>Another tracking ID for the appointment, if the appointment was created directly by the customer on the scheduling page, as opposed to by a staff member on behalf of customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -202,10 +202,10 @@ namespace ApiSdk.Models
         /// <summary>The location where the service is delivered.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Location? ServiceLocation { get; set; }
+        public ApiSdk.Models.Location? ServiceLocation { get; set; }
 #nullable restore
 #else
-        public Location ServiceLocation { get; set; }
+        public ApiSdk.Models.Location ServiceLocation { get; set; }
 #endif
         /// <summary>The name of the bookingService associated with this appointment.This property is optional when creating a new appointment. If not specified, it is computed from the service associated with the appointment by the serviceId property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -236,20 +236,20 @@ namespace ApiSdk.Models
         /// <summary>The start property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? Start { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? Start { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone Start { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone Start { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingAppointment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingAppointment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingAppointment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingAppointment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BookingAppointment();
+            return new ApiSdk.Models.BookingAppointment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -265,19 +265,19 @@ namespace ApiSdk.Models
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "customerEmailAddress", n => { CustomerEmailAddress = n.GetStringValue(); } },
                 { "customerId", n => { CustomerId = n.GetStringValue(); } },
-                { "customerLocation", n => { CustomerLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
+                { "customerLocation", n => { CustomerLocation = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
                 { "customerName", n => { CustomerName = n.GetStringValue(); } },
                 { "customerNotes", n => { CustomerNotes = n.GetStringValue(); } },
                 { "customerPhone", n => { CustomerPhone = n.GetStringValue(); } },
                 { "customerTimeZone", n => { CustomerTimeZone = n.GetStringValue(); } },
-                { "customers", n => { Customers = n.GetCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customers", n => { Customers = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingCustomerInformationBase>(ApiSdk.Models.BookingCustomerInformationBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "duration", n => { Duration = n.GetTimeSpanValue(); } },
-                { "end", n => { End = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "end", n => { End = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 { "filledAttendeesCount", n => { FilledAttendeesCount = n.GetIntValue(); } },
                 { "invoiceAmount", n => { InvoiceAmount = n.GetDoubleValue(); } },
-                { "invoiceDate", n => { InvoiceDate = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "invoiceDate", n => { InvoiceDate = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 { "invoiceId", n => { InvoiceId = n.GetStringValue(); } },
-                { "invoiceStatus", n => { InvoiceStatus = n.GetEnumValue<BookingInvoiceStatus>(); } },
+                { "invoiceStatus", n => { InvoiceStatus = n.GetEnumValue<ApiSdk.Models.BookingInvoiceStatus>(); } },
                 { "invoiceUrl", n => { InvoiceUrl = n.GetStringValue(); } },
                 { "isCustomerAllowedToManageBooking", n => { IsCustomerAllowedToManageBooking = n.GetBoolValue(); } },
                 { "isLocationOnline", n => { IsLocationOnline = n.GetBoolValue(); } },
@@ -289,16 +289,16 @@ namespace ApiSdk.Models
                 { "postBuffer", n => { PostBuffer = n.GetTimeSpanValue(); } },
                 { "preBuffer", n => { PreBuffer = n.GetTimeSpanValue(); } },
                 { "price", n => { Price = n.GetDoubleValue(); } },
-                { "priceType", n => { PriceType = n.GetEnumValue<BookingPriceType>(); } },
-                { "reminders", n => { Reminders = n.GetCollectionOfObjectValues<BookingReminder>(BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "priceType", n => { PriceType = n.GetEnumValue<ApiSdk.Models.BookingPriceType>(); } },
+                { "reminders", n => { Reminders = n.GetCollectionOfObjectValues<ApiSdk.Models.BookingReminder>(ApiSdk.Models.BookingReminder.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "selfServiceAppointmentId", n => { SelfServiceAppointmentId = n.GetStringValue(); } },
                 { "serviceId", n => { ServiceId = n.GetStringValue(); } },
-                { "serviceLocation", n => { ServiceLocation = n.GetObjectValue<Location>(Location.CreateFromDiscriminatorValue); } },
+                { "serviceLocation", n => { ServiceLocation = n.GetObjectValue<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue); } },
                 { "serviceName", n => { ServiceName = n.GetStringValue(); } },
                 { "serviceNotes", n => { ServiceNotes = n.GetStringValue(); } },
                 { "smsNotificationsEnabled", n => { SmsNotificationsEnabled = n.GetBoolValue(); } },
                 { "staffMemberIds", n => { StaffMemberIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "start", n => { Start = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "start", n => { Start = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -315,17 +315,17 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("customerEmailAddress", CustomerEmailAddress);
             writer.WriteStringValue("customerId", CustomerId);
-            writer.WriteObjectValue<Location>("customerLocation", CustomerLocation);
+            writer.WriteObjectValue<ApiSdk.Models.Location>("customerLocation", CustomerLocation);
             writer.WriteStringValue("customerName", CustomerName);
             writer.WriteStringValue("customerNotes", CustomerNotes);
             writer.WriteStringValue("customerPhone", CustomerPhone);
-            writer.WriteCollectionOfObjectValues<BookingCustomerInformationBase>("customers", Customers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingCustomerInformationBase>("customers", Customers);
             writer.WriteStringValue("customerTimeZone", CustomerTimeZone);
-            writer.WriteObjectValue<DateTimeTimeZone>("end", End);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("end", End);
             writer.WriteDoubleValue("invoiceAmount", InvoiceAmount);
-            writer.WriteObjectValue<DateTimeTimeZone>("invoiceDate", InvoiceDate);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("invoiceDate", InvoiceDate);
             writer.WriteStringValue("invoiceId", InvoiceId);
-            writer.WriteEnumValue<BookingInvoiceStatus>("invoiceStatus", InvoiceStatus);
+            writer.WriteEnumValue<ApiSdk.Models.BookingInvoiceStatus>("invoiceStatus", InvoiceStatus);
             writer.WriteStringValue("invoiceUrl", InvoiceUrl);
             writer.WriteBoolValue("isCustomerAllowedToManageBooking", IsCustomerAllowedToManageBooking);
             writer.WriteBoolValue("isLocationOnline", IsLocationOnline);
@@ -337,16 +337,16 @@ namespace ApiSdk.Models
             writer.WriteTimeSpanValue("postBuffer", PostBuffer);
             writer.WriteTimeSpanValue("preBuffer", PreBuffer);
             writer.WriteDoubleValue("price", Price);
-            writer.WriteEnumValue<BookingPriceType>("priceType", PriceType);
-            writer.WriteCollectionOfObjectValues<BookingReminder>("reminders", Reminders);
+            writer.WriteEnumValue<ApiSdk.Models.BookingPriceType>("priceType", PriceType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BookingReminder>("reminders", Reminders);
             writer.WriteStringValue("selfServiceAppointmentId", SelfServiceAppointmentId);
             writer.WriteStringValue("serviceId", ServiceId);
-            writer.WriteObjectValue<Location>("serviceLocation", ServiceLocation);
+            writer.WriteObjectValue<ApiSdk.Models.Location>("serviceLocation", ServiceLocation);
             writer.WriteStringValue("serviceName", ServiceName);
             writer.WriteStringValue("serviceNotes", ServiceNotes);
             writer.WriteBoolValue("smsNotificationsEnabled", SmsNotificationsEnabled);
             writer.WriteCollectionOfPrimitiveValues<string>("staffMemberIds", StaffMemberIds);
-            writer.WriteObjectValue<DateTimeTimeZone>("start", Start);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("start", Start);
         }
     }
 }

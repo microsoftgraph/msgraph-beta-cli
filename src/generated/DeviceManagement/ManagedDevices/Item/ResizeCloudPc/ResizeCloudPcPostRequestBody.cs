@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc
         public string TargetServicePlanId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ResizeCloudPcPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc.ResizeCloudPcPostRequestBody"/> and sets the default values.
         /// </summary>
         public ResizeCloudPcPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ResizeCloudPcPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc.ResizeCloudPcPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ResizeCloudPcPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc.ResizeCloudPcPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ResizeCloudPcPostRequestBody();
+            return new ApiSdk.DeviceManagement.ManagedDevices.Item.ResizeCloudPc.ResizeCloudPcPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

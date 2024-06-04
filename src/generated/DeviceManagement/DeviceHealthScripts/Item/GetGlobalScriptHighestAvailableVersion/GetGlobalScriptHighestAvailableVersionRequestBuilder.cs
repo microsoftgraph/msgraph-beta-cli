@@ -59,14 +59,14 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighes
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetGlobalScriptHighestAvailableVersionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighestAvailableVersion.GetGlobalScriptHighestAvailableVersionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetGlobalScriptHighestAvailableVersionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/getGlobalScriptHighestAvailableVersion", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetGlobalScriptHighestAvailableVersionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighestAvailableVersion.GetGlobalScriptHighestAvailableVersionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetGlobalScriptHighestAvailableVersionRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}/getGlobalScriptHighestAvailableVersion", rawUrl)

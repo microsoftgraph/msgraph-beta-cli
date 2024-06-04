@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties used when assigning a Windows AppX mobile app to a group.
     /// </summary>
-    public class WindowsAppXAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
+    public class WindowsAppXAppAssignmentSettings : ApiSdk.Models.MobileAppAssignmentSettings, IParsable
     {
         /// <summary>Whether or not to use device execution context for Windows AppX mobile app.</summary>
         public bool? UseDeviceContext { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsAppXAppAssignmentSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsAppXAppAssignmentSettings"/> and sets the default values.
         /// </summary>
         public WindowsAppXAppAssignmentSettings() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsAppXAppAssignmentSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsAppXAppAssignmentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsAppXAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsAppXAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsAppXAppAssignmentSettings();
+            return new ApiSdk.Models.WindowsAppXAppAssignmentSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// This is the base class for Setup Configuration. Setup configurations are platform specific and individual per-platform setup configurations inherit from here.
     /// </summary>
-    public class DeviceSetupConfiguration : Entity, IParsable
+    public class DeviceSetupConfiguration : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>DateTime the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceSetupConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceSetupConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceSetupConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceSetupConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceSetupConfiguration();
+            return new ApiSdk.Models.DeviceSetupConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

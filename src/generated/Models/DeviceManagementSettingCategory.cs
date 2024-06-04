@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity representing a setting category
     /// </summary>
-    public class DeviceManagementSettingCategory : Entity, IParsable
+    public class DeviceManagementSettingCategory : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The category name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,25 +24,25 @@ namespace ApiSdk.Models
         /// <summary>The setting definitions this category contains</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementSettingDefinition>? SettingDefinitions { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingDefinition>? SettingDefinitions { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementSettingDefinition> SettingDefinitions { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingDefinition> SettingDefinitions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingCategory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingCategory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingCategory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingCategory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementIntentSettingCategory" => new DeviceManagementIntentSettingCategory(),
-                "#microsoft.graph.deviceManagementTemplateSettingCategory" => new DeviceManagementTemplateSettingCategory(),
-                _ => new DeviceManagementSettingCategory(),
+                "#microsoft.graph.deviceManagementIntentSettingCategory" => new ApiSdk.Models.DeviceManagementIntentSettingCategory(),
+                "#microsoft.graph.deviceManagementTemplateSettingCategory" => new ApiSdk.Models.DeviceManagementTemplateSettingCategory(),
+                _ => new ApiSdk.Models.DeviceManagementSettingCategory(),
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "hasRequiredSetting", n => { HasRequiredSetting = n.GetBoolValue(); } },
-                { "settingDefinitions", n => { SettingDefinitions = n.GetCollectionOfObjectValues<DeviceManagementSettingDefinition>(DeviceManagementSettingDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "settingDefinitions", n => { SettingDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingDefinition>(ApiSdk.Models.DeviceManagementSettingDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("hasRequiredSetting", HasRequiredSetting);
-            writer.WriteCollectionOfObjectValues<DeviceManagementSettingDefinition>("settingDefinitions", SettingDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingDefinition>("settingDefinitions", SettingDefinitions);
         }
     }
 }

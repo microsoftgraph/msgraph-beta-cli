@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MeetingRegistrant : MeetingRegistrantBase, IParsable
+    public class MeetingRegistrant : ApiSdk.Models.MeetingRegistrantBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The registrant&apos;s answer to custom questions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomQuestionAnswer>? CustomQuestionAnswers { get; set; }
+        public List<ApiSdk.Models.CustomQuestionAnswer>? CustomQuestionAnswers { get; set; }
 #nullable restore
 #else
-        public List<CustomQuestionAnswer> CustomQuestionAnswers { get; set; }
+        public List<ApiSdk.Models.CustomQuestionAnswer> CustomQuestionAnswers { get; set; }
 #endif
         /// <summary>The email address of the registrant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,9 +45,9 @@ namespace ApiSdk.Models
         /// <summary>Time in UTC when the registrant registers for the meeting. Read-only.</summary>
         public DateTimeOffset? RegistrationDateTime { get; set; }
         /// <summary>The registration status of the registrant. Read-only.</summary>
-        public MeetingRegistrantStatus? Status { get; set; }
+        public ApiSdk.Models.MeetingRegistrantStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MeetingRegistrant"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MeetingRegistrant"/> and sets the default values.
         /// </summary>
         public MeetingRegistrant() : base()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MeetingRegistrant"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MeetingRegistrant"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MeetingRegistrant CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MeetingRegistrant CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MeetingRegistrant();
+            return new ApiSdk.Models.MeetingRegistrant();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customQuestionAnswers", n => { CustomQuestionAnswers = n.GetCollectionOfObjectValues<CustomQuestionAnswer>(CustomQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customQuestionAnswers", n => { CustomQuestionAnswers = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomQuestionAnswer>(ApiSdk.Models.CustomQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "firstName", n => { FirstName = n.GetStringValue(); } },
                 { "lastName", n => { LastName = n.GetStringValue(); } },
                 { "registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<MeetingRegistrantStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.MeetingRegistrantStatus>(); } },
             };
         }
         /// <summary>
@@ -87,12 +87,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CustomQuestionAnswer>("customQuestionAnswers", CustomQuestionAnswers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomQuestionAnswer>("customQuestionAnswers", CustomQuestionAnswers);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("firstName", FirstName);
             writer.WriteStringValue("lastName", LastName);
             writer.WriteDateTimeOffsetValue("registrationDateTime", RegistrationDateTime);
-            writer.WriteEnumValue<MeetingRegistrantStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.MeetingRegistrantStatus>("status", Status);
         }
     }
 }

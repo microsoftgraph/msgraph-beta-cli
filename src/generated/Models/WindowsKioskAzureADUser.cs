@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The class used to identify an AzureAD user account for the kiosk configuration
     /// </summary>
-    public class WindowsKioskAzureADUser : WindowsKioskUser, IParsable
+    public class WindowsKioskAzureADUser : ApiSdk.Models.WindowsKioskUser, IParsable
     {
         /// <summary>The ID of the AzureAD user that will be locked to this kiosk configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskAzureADUser"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskAzureADUser"/> and sets the default values.
         /// </summary>
         public WindowsKioskAzureADUser() : base()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskAzureADUser"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskAzureADUser"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsKioskAzureADUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsKioskAzureADUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsKioskAzureADUser();
+            return new ApiSdk.Models.WindowsKioskAzureADUser();
         }
         /// <summary>
         /// The deserialization information for the current model

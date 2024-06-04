@@ -30,7 +30,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
         {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the appCatalogs entity.";
-            var builder = new ContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.HostedContent.Value.ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -176,7 +176,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TeamworkHostedContent>(TeamworkHostedContent.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.TeamworkHostedContent>(ApiSdk.Models.TeamworkHostedContent.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -198,14 +198,14 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="HostedContentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.HostedContent.HostedContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public HostedContentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/colorIcon/hostedContent{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="HostedContentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.HostedContent.HostedContentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public HostedContentRequestBuilder(string rawUrl) : base("{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/colorIcon/hostedContent{?%24expand,%24select}", rawUrl)
@@ -237,11 +237,11 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostedContentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.HostedContent.HostedContentRequestBuilder.HostedContentRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HostedContentRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.HostedContent.HostedContentRequestBuilder.HostedContentRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -257,11 +257,11 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.ColorIcon.Hosted
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(TeamworkHostedContent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamworkHostedContent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(TeamworkHostedContent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamworkHostedContent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

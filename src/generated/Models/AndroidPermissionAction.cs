@@ -12,7 +12,7 @@ namespace ApiSdk.Models
     public class AndroidPermissionAction : IAdditionalDataHolder, IParsable
     {
         /// <summary>Android action taken when an app requests a dangerous permission.</summary>
-        public AndroidPermissionActionType? Action { get; set; }
+        public ApiSdk.Models.AndroidPermissionActionType? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string Permission { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidPermissionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidPermissionAction"/> and sets the default values.
         /// </summary>
         public AndroidPermissionAction()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidPermissionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidPermissionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidPermissionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidPermissionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidPermissionAction();
+            return new ApiSdk.Models.AndroidPermissionAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<AndroidPermissionActionType>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.AndroidPermissionActionType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "permission", n => { Permission = n.GetStringValue(); } },
             };
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AndroidPermissionActionType>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidPermissionActionType>("action", Action);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("permission", Permission);
             writer.WriteAdditionalData(AdditionalData);

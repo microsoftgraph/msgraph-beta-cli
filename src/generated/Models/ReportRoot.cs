@@ -10,15 +10,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// The resource that represents an instance of Enrollment Failure Reports.
     /// </summary>
-    public class ReportRoot : Entity, IParsable
+    public class ReportRoot : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Represents a collection of sign-in activities of application credentials.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppCredentialSignInActivity>? AppCredentialSignInActivities { get; set; }
+        public List<ApiSdk.Models.AppCredentialSignInActivity>? AppCredentialSignInActivities { get; set; }
 #nullable restore
 #else
-        public List<AppCredentialSignInActivity> AppCredentialSignInActivities { get; set; }
+        public List<ApiSdk.Models.AppCredentialSignInActivity> AppCredentialSignInActivities { get; set; }
 #endif
         /// <summary>Represents a detailed summary of an application sign-in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,10 +31,10 @@ namespace ApiSdk.Models
         /// <summary>Container for navigation properties for Microsoft Entra authentication methods resources.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthenticationMethodsRoot? AuthenticationMethods { get; set; }
+        public ApiSdk.Models.AuthenticationMethodsRoot? AuthenticationMethods { get; set; }
 #nullable restore
 #else
-        public AuthenticationMethodsRoot AuthenticationMethods { get; set; }
+        public ApiSdk.Models.AuthenticationMethodsRoot AuthenticationMethods { get; set; }
 #endif
         /// <summary>Details of the usage of self-service password reset and multifactor authentication (MFA) for all registered users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,74 +47,74 @@ namespace ApiSdk.Models
         /// <summary>The dailyPrintUsage property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsage>? DailyPrintUsage { get; set; }
+        public List<ApiSdk.Models.PrintUsage>? DailyPrintUsage { get; set; }
 #nullable restore
 #else
-        public List<PrintUsage> DailyPrintUsage { get; set; }
+        public List<ApiSdk.Models.PrintUsage> DailyPrintUsage { get; set; }
 #endif
         /// <summary>Retrieve a list of daily print usage summaries, grouped by printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByPrinter>? DailyPrintUsageByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter>? DailyPrintUsageByPrinter { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter> DailyPrintUsageByPrinter { get; set; }
 #endif
         /// <summary>Retrieve a list of daily print usage summaries, grouped by user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByUser>? DailyPrintUsageByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser>? DailyPrintUsageByUser { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByUser> DailyPrintUsageByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser> DailyPrintUsageByUser { get; set; }
 #endif
         /// <summary>The dailyPrintUsageSummariesByPrinter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByPrinter>? DailyPrintUsageSummariesByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter>? DailyPrintUsageSummariesByPrinter { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByPrinter> DailyPrintUsageSummariesByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter> DailyPrintUsageSummariesByPrinter { get; set; }
 #endif
         /// <summary>The dailyPrintUsageSummariesByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByUser>? DailyPrintUsageSummariesByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser>? DailyPrintUsageSummariesByUser { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByUser> DailyPrintUsageSummariesByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser> DailyPrintUsageSummariesByUser { get; set; }
 #endif
         /// <summary>Retrieve a list of monthly print usage summaries, grouped by printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByPrinter>? MonthlyPrintUsageByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter>? MonthlyPrintUsageByPrinter { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByPrinter> MonthlyPrintUsageByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter> MonthlyPrintUsageByPrinter { get; set; }
 #endif
         /// <summary>Retrieve a list of monthly print usage summaries, grouped by user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByUser>? MonthlyPrintUsageByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser>? MonthlyPrintUsageByUser { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByUser> MonthlyPrintUsageByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser> MonthlyPrintUsageByUser { get; set; }
 #endif
         /// <summary>The monthlyPrintUsageSummariesByPrinter property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByPrinter>? MonthlyPrintUsageSummariesByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter>? MonthlyPrintUsageSummariesByPrinter { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByPrinter> MonthlyPrintUsageSummariesByPrinter { get; set; }
+        public List<ApiSdk.Models.PrintUsageByPrinter> MonthlyPrintUsageSummariesByPrinter { get; set; }
 #endif
         /// <summary>The monthlyPrintUsageSummariesByUser property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintUsageByUser>? MonthlyPrintUsageSummariesByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser>? MonthlyPrintUsageSummariesByUser { get; set; }
 #nullable restore
 #else
-        public List<PrintUsageByUser> MonthlyPrintUsageSummariesByUser { get; set; }
+        public List<ApiSdk.Models.PrintUsageByUser> MonthlyPrintUsageSummariesByUser { get; set; }
 #endif
         /// <summary>Represents billing details for a Microsoft direct partner.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -127,10 +127,10 @@ namespace ApiSdk.Models
         /// <summary>Provides the ability to launch a simulated phishing attack that organizations can learn from.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityReportsRoot? Security { get; set; }
+        public ApiSdk.Models.SecurityReportsRoot? Security { get; set; }
 #nullable restore
 #else
-        public SecurityReportsRoot Security { get; set; }
+        public ApiSdk.Models.SecurityReportsRoot Security { get; set; }
 #endif
         /// <summary>Reports that relate to tenant-level authentication activities in Microsoft Entra.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -143,18 +143,18 @@ namespace ApiSdk.Models
         /// <summary>Represents a collection of sign-in activities of service principals.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicePrincipalSignInActivity>? ServicePrincipalSignInActivities { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalSignInActivity>? ServicePrincipalSignInActivities { get; set; }
 #nullable restore
 #else
-        public List<ServicePrincipalSignInActivity> ServicePrincipalSignInActivities { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalSignInActivity> ServicePrincipalSignInActivities { get; set; }
 #endif
         /// <summary>Reports that relate to tenant-level Microsoft Entra SLA attainment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ServiceLevelAgreementRoot? Sla { get; set; }
+        public ApiSdk.Models.ServiceLevelAgreementRoot? Sla { get; set; }
 #nullable restore
 #else
-        public ServiceLevelAgreementRoot Sla { get; set; }
+        public ApiSdk.Models.ServiceLevelAgreementRoot Sla { get; set; }
 #endif
         /// <summary>Represents the self-service password reset (SSPR) usage for a given tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -167,20 +167,20 @@ namespace ApiSdk.Models
         /// <summary>Represents a collection of user activities on applications in a tenant that is configured for Microsoft Entra External ID for customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserInsightsRoot? UserInsights { get; set; }
+        public ApiSdk.Models.UserInsightsRoot? UserInsights { get; set; }
 #nullable restore
 #else
-        public UserInsightsRoot UserInsights { get; set; }
+        public ApiSdk.Models.UserInsightsRoot UserInsights { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReportRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ReportRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ReportRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ReportRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReportRoot();
+            return new ApiSdk.Models.ReportRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -190,26 +190,26 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "appCredentialSignInActivities", n => { AppCredentialSignInActivities = n.GetCollectionOfObjectValues<AppCredentialSignInActivity>(AppCredentialSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appCredentialSignInActivities", n => { AppCredentialSignInActivities = n.GetCollectionOfObjectValues<ApiSdk.Models.AppCredentialSignInActivity>(ApiSdk.Models.AppCredentialSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "applicationSignInDetailedSummary", n => { ApplicationSignInDetailedSummary = n.GetCollectionOfObjectValues<ApiSdk.Models.ApplicationSignInDetailedSummary>(ApiSdk.Models.ApplicationSignInDetailedSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationMethods", n => { AuthenticationMethods = n.GetObjectValue<AuthenticationMethodsRoot>(AuthenticationMethodsRoot.CreateFromDiscriminatorValue); } },
+                { "authenticationMethods", n => { AuthenticationMethods = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodsRoot>(ApiSdk.Models.AuthenticationMethodsRoot.CreateFromDiscriminatorValue); } },
                 { "credentialUserRegistrationDetails", n => { CredentialUserRegistrationDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationDetails>(ApiSdk.Models.CredentialUserRegistrationDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dailyPrintUsage", n => { DailyPrintUsage = n.GetCollectionOfObjectValues<PrintUsage>(PrintUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dailyPrintUsageByPrinter", n => { DailyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dailyPrintUsageByUser", n => { DailyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dailyPrintUsageSummariesByPrinter", n => { DailyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dailyPrintUsageSummariesByUser", n => { DailyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "monthlyPrintUsageByPrinter", n => { MonthlyPrintUsageByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "monthlyPrintUsageByUser", n => { MonthlyPrintUsageByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "monthlyPrintUsageSummariesByPrinter", n => { MonthlyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<PrintUsageByPrinter>(PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "monthlyPrintUsageSummariesByUser", n => { MonthlyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<PrintUsageByUser>(PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsage", n => { DailyPrintUsage = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsage>(ApiSdk.Models.PrintUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageByPrinter", n => { DailyPrintUsageByPrinter = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>(ApiSdk.Models.PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageByUser", n => { DailyPrintUsageByUser = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>(ApiSdk.Models.PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageSummariesByPrinter", n => { DailyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>(ApiSdk.Models.PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dailyPrintUsageSummariesByUser", n => { DailyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>(ApiSdk.Models.PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageByPrinter", n => { MonthlyPrintUsageByPrinter = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>(ApiSdk.Models.PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageByUser", n => { MonthlyPrintUsageByUser = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>(ApiSdk.Models.PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageSummariesByPrinter", n => { MonthlyPrintUsageSummariesByPrinter = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>(ApiSdk.Models.PrintUsageByPrinter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "monthlyPrintUsageSummariesByUser", n => { MonthlyPrintUsageSummariesByUser = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>(ApiSdk.Models.PrintUsageByUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "partners", n => { Partners = n.GetObjectValue<ApiSdk.Models.Partners.Partners>(ApiSdk.Models.Partners.Partners.CreateFromDiscriminatorValue); } },
-                { "security", n => { Security = n.GetObjectValue<SecurityReportsRoot>(SecurityReportsRoot.CreateFromDiscriminatorValue); } },
+                { "security", n => { Security = n.GetObjectValue<ApiSdk.Models.SecurityReportsRoot>(ApiSdk.Models.SecurityReportsRoot.CreateFromDiscriminatorValue); } },
                 { "serviceActivity", n => { ServiceActivity = n.GetObjectValue<ApiSdk.Models.ServiceActivity>(ApiSdk.Models.ServiceActivity.CreateFromDiscriminatorValue); } },
-                { "servicePrincipalSignInActivities", n => { ServicePrincipalSignInActivities = n.GetCollectionOfObjectValues<ServicePrincipalSignInActivity>(ServicePrincipalSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sla", n => { Sla = n.GetObjectValue<ServiceLevelAgreementRoot>(ServiceLevelAgreementRoot.CreateFromDiscriminatorValue); } },
+                { "servicePrincipalSignInActivities", n => { ServicePrincipalSignInActivities = n.GetCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalSignInActivity>(ApiSdk.Models.ServicePrincipalSignInActivity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sla", n => { Sla = n.GetObjectValue<ApiSdk.Models.ServiceLevelAgreementRoot>(ApiSdk.Models.ServiceLevelAgreementRoot.CreateFromDiscriminatorValue); } },
                 { "userCredentialUsageDetails", n => { UserCredentialUsageDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.UserCredentialUsageDetails>(ApiSdk.Models.UserCredentialUsageDetails.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "userInsights", n => { UserInsights = n.GetObjectValue<UserInsightsRoot>(UserInsightsRoot.CreateFromDiscriminatorValue); } },
+                { "userInsights", n => { UserInsights = n.GetObjectValue<ApiSdk.Models.UserInsightsRoot>(ApiSdk.Models.UserInsightsRoot.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -220,26 +220,26 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AppCredentialSignInActivity>("appCredentialSignInActivities", AppCredentialSignInActivities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppCredentialSignInActivity>("appCredentialSignInActivities", AppCredentialSignInActivities);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.ApplicationSignInDetailedSummary>("applicationSignInDetailedSummary", ApplicationSignInDetailedSummary);
-            writer.WriteObjectValue<AuthenticationMethodsRoot>("authenticationMethods", AuthenticationMethods);
+            writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodsRoot>("authenticationMethods", AuthenticationMethods);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationDetails>("credentialUserRegistrationDetails", CredentialUserRegistrationDetails);
-            writer.WriteCollectionOfObjectValues<PrintUsage>("dailyPrintUsage", DailyPrintUsage);
-            writer.WriteCollectionOfObjectValues<PrintUsageByPrinter>("dailyPrintUsageByPrinter", DailyPrintUsageByPrinter);
-            writer.WriteCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageByUser", DailyPrintUsageByUser);
-            writer.WriteCollectionOfObjectValues<PrintUsageByPrinter>("dailyPrintUsageSummariesByPrinter", DailyPrintUsageSummariesByPrinter);
-            writer.WriteCollectionOfObjectValues<PrintUsageByUser>("dailyPrintUsageSummariesByUser", DailyPrintUsageSummariesByUser);
-            writer.WriteCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageByPrinter", MonthlyPrintUsageByPrinter);
-            writer.WriteCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageByUser", MonthlyPrintUsageByUser);
-            writer.WriteCollectionOfObjectValues<PrintUsageByPrinter>("monthlyPrintUsageSummariesByPrinter", MonthlyPrintUsageSummariesByPrinter);
-            writer.WriteCollectionOfObjectValues<PrintUsageByUser>("monthlyPrintUsageSummariesByUser", MonthlyPrintUsageSummariesByUser);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsage>("dailyPrintUsage", DailyPrintUsage);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>("dailyPrintUsageByPrinter", DailyPrintUsageByPrinter);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>("dailyPrintUsageByUser", DailyPrintUsageByUser);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>("dailyPrintUsageSummariesByPrinter", DailyPrintUsageSummariesByPrinter);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>("dailyPrintUsageSummariesByUser", DailyPrintUsageSummariesByUser);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>("monthlyPrintUsageByPrinter", MonthlyPrintUsageByPrinter);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>("monthlyPrintUsageByUser", MonthlyPrintUsageByUser);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByPrinter>("monthlyPrintUsageSummariesByPrinter", MonthlyPrintUsageSummariesByPrinter);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintUsageByUser>("monthlyPrintUsageSummariesByUser", MonthlyPrintUsageSummariesByUser);
             writer.WriteObjectValue<ApiSdk.Models.Partners.Partners>("partners", Partners);
-            writer.WriteObjectValue<SecurityReportsRoot>("security", Security);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityReportsRoot>("security", Security);
             writer.WriteObjectValue<ApiSdk.Models.ServiceActivity>("serviceActivity", ServiceActivity);
-            writer.WriteCollectionOfObjectValues<ServicePrincipalSignInActivity>("servicePrincipalSignInActivities", ServicePrincipalSignInActivities);
-            writer.WriteObjectValue<ServiceLevelAgreementRoot>("sla", Sla);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalSignInActivity>("servicePrincipalSignInActivities", ServicePrincipalSignInActivities);
+            writer.WriteObjectValue<ApiSdk.Models.ServiceLevelAgreementRoot>("sla", Sla);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserCredentialUsageDetails>("userCredentialUsageDetails", UserCredentialUsageDetails);
-            writer.WriteObjectValue<UserInsightsRoot>("userInsights", UserInsights);
+            writer.WriteObjectValue<ApiSdk.Models.UserInsightsRoot>("userInsights", UserInsights);
         }
     }
 }

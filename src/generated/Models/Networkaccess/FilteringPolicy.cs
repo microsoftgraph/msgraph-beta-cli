@@ -7,17 +7,17 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class FilteringPolicy : Policy, IParsable
+    public class FilteringPolicy : ApiSdk.Models.Networkaccess.Policy, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
-        public FilteringPolicyAction? Action { get; set; }
+        public ApiSdk.Models.Networkaccess.FilteringPolicyAction? Action { get; set; }
         /// <summary>The date and time when the filtering Policy was originally created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The date and time when a particular profile was last modified or updated.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="FilteringPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.FilteringPolicy"/> and sets the default values.
         /// </summary>
         public FilteringPolicy() : base()
         {
@@ -26,12 +26,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FilteringPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.FilteringPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FilteringPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.FilteringPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FilteringPolicy();
+            return new ApiSdk.Models.Networkaccess.FilteringPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +41,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "action", n => { Action = n.GetEnumValue<FilteringPolicyAction>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Networkaccess.FilteringPolicyAction>(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -54,7 +54,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<FilteringPolicyAction>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.FilteringPolicyAction>("action", Action);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
         }

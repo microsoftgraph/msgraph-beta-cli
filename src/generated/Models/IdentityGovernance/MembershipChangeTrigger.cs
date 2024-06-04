@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.IdentityGovernance
 {
     #pragma warning disable CS1591
-    public class MembershipChangeTrigger : WorkflowExecutionTrigger, IParsable
+    public class MembershipChangeTrigger : ApiSdk.Models.IdentityGovernance.WorkflowExecutionTrigger, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The changeType property</summary>
-        public MembershipChangeType? ChangeType { get; set; }
+        public ApiSdk.Models.IdentityGovernance.MembershipChangeType? ChangeType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MembershipChangeTrigger"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.MembershipChangeTrigger"/> and sets the default values.
         /// </summary>
         public MembershipChangeTrigger() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MembershipChangeTrigger"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.MembershipChangeTrigger"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MembershipChangeTrigger CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IdentityGovernance.MembershipChangeTrigger CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MembershipChangeTrigger();
+            return new ApiSdk.Models.IdentityGovernance.MembershipChangeTrigger();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.IdentityGovernance
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "changeType", n => { ChangeType = n.GetEnumValue<MembershipChangeType>(); } },
+                { "changeType", n => { ChangeType = n.GetEnumValue<ApiSdk.Models.IdentityGovernance.MembershipChangeType>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models.IdentityGovernance
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MembershipChangeType>("changeType", ChangeType);
+            writer.WriteEnumValue<ApiSdk.Models.IdentityGovernance.MembershipChangeType>("changeType", ChangeType);
         }
     }
 }

@@ -17,10 +17,10 @@ namespace ApiSdk.Models
         /// <summary>The evidences property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitiveContentEvidence>? Evidences { get; set; }
+        public List<ApiSdk.Models.SensitiveContentEvidence>? Evidences { get; set; }
 #nullable restore
 #else
-        public List<SensitiveContentEvidence> Evidences { get; set; }
+        public List<ApiSdk.Models.SensitiveContentEvidence> Evidences { get; set; }
 #endif
         /// <summary>The idMatch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         /// <summary>The offset property</summary>
         public int? Offset { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SensitiveContentLocation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SensitiveContentLocation"/> and sets the default values.
         /// </summary>
         public SensitiveContentLocation()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SensitiveContentLocation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SensitiveContentLocation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SensitiveContentLocation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SensitiveContentLocation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SensitiveContentLocation();
+            return new ApiSdk.Models.SensitiveContentLocation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "confidence", n => { Confidence = n.GetIntValue(); } },
-                { "evidences", n => { Evidences = n.GetCollectionOfObjectValues<SensitiveContentEvidence>(SensitiveContentEvidence.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "evidences", n => { Evidences = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitiveContentEvidence>(ApiSdk.Models.SensitiveContentEvidence.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "idMatch", n => { IdMatch = n.GetStringValue(); } },
                 { "length", n => { Length = n.GetIntValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("confidence", Confidence);
-            writer.WriteCollectionOfObjectValues<SensitiveContentEvidence>("evidences", Evidences);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitiveContentEvidence>("evidences", Evidences);
             writer.WriteStringValue("idMatch", IdMatch);
             writer.WriteIntValue("length", Length);
             writer.WriteStringValue("@odata.type", OdataType);

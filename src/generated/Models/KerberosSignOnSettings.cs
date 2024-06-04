@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="KerberosSignOnSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.KerberosSignOnSettings"/> and sets the default values.
         /// </summary>
         public KerberosSignOnSettings()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="KerberosSignOnSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.KerberosSignOnSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static KerberosSignOnSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.KerberosSignOnSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new KerberosSignOnSettings();
+            return new ApiSdk.Models.KerberosSignOnSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "kerberosServicePrincipalName", n => { KerberosServicePrincipalName = n.GetStringValue(); } },
-                { "kerberosSignOnMappingAttributeType", n => { KerberosSignOnMappingAttributeType = n.GetEnumValue<KerberosSignOnMappingAttributeType>(); } },
+                { "kerberosSignOnMappingAttributeType", n => { KerberosSignOnMappingAttributeType = n.GetEnumValue<ApiSdk.Models.KerberosSignOnMappingAttributeType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("kerberosServicePrincipalName", KerberosServicePrincipalName);
-            writer.WriteEnumValue<KerberosSignOnMappingAttributeType>("kerberosSignOnMappingAttributeType", KerberosSignOnMappingAttributeType);
+            writer.WriteEnumValue<ApiSdk.Models.KerberosSignOnMappingAttributeType>("kerberosSignOnMappingAttributeType", KerberosSignOnMappingAttributeType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

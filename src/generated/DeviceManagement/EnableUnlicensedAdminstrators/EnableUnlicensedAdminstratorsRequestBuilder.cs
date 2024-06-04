@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.EnableUnlicensedAdminstrators
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableUnlicensedAdminstratorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableUnlicensedAdminstrators.EnableUnlicensedAdminstratorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EnableUnlicensedAdminstratorsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/enableUnlicensedAdminstrators", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableUnlicensedAdminstratorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableUnlicensedAdminstrators.EnableUnlicensedAdminstratorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EnableUnlicensedAdminstratorsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/enableUnlicensedAdminstrators", rawUrl)

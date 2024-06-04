@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class RoomList : Place, IParsable
+    public class RoomList : ApiSdk.Models.Place, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The email address of the room list.</summary>
@@ -21,21 +21,21 @@ namespace ApiSdk.Models
         /// <summary>The rooms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Room>? Rooms { get; set; }
+        public List<ApiSdk.Models.Room>? Rooms { get; set; }
 #nullable restore
 #else
-        public List<Room> Rooms { get; set; }
+        public List<ApiSdk.Models.Room> Rooms { get; set; }
 #endif
         /// <summary>The workspaces property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Workspace>? Workspaces { get; set; }
+        public List<ApiSdk.Models.Workspace>? Workspaces { get; set; }
 #nullable restore
 #else
-        public List<Workspace> Workspaces { get; set; }
+        public List<ApiSdk.Models.Workspace> Workspaces { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RoomList"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RoomList"/> and sets the default values.
         /// </summary>
         public RoomList() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RoomList"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RoomList"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RoomList CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RoomList CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RoomList();
+            return new ApiSdk.Models.RoomList();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                { "rooms", n => { Rooms = n.GetCollectionOfObjectValues<Room>(Room.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "workspaces", n => { Workspaces = n.GetCollectionOfObjectValues<Workspace>(Workspace.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "rooms", n => { Rooms = n.GetCollectionOfObjectValues<ApiSdk.Models.Room>(ApiSdk.Models.Room.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workspaces", n => { Workspaces = n.GetCollectionOfObjectValues<ApiSdk.Models.Workspace>(ApiSdk.Models.Workspace.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,8 +73,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("emailAddress", EmailAddress);
-            writer.WriteCollectionOfObjectValues<Room>("rooms", Rooms);
-            writer.WriteCollectionOfObjectValues<Workspace>("workspaces", Workspaces);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Room>("rooms", Rooms);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Workspace>("workspaces", Workspaces);
         }
     }
 }

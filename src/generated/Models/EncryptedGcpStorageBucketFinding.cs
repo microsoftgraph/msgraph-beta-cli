@@ -7,30 +7,30 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EncryptedGcpStorageBucketFinding : Finding, IParsable
+    public class EncryptedGcpStorageBucketFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessibility property</summary>
-        public GcpAccessType? Accessibility { get; set; }
+        public ApiSdk.Models.GcpAccessType? Accessibility { get; set; }
         /// <summary>The encryptionManagedBy property</summary>
-        public GcpEncryption? EncryptionManagedBy { get; set; }
+        public ApiSdk.Models.GcpEncryption? EncryptionManagedBy { get; set; }
         /// <summary>The storageBucket property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemResource? StorageBucket { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource? StorageBucket { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemResource StorageBucket { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource StorageBucket { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptedGcpStorageBucketFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptedGcpStorageBucketFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EncryptedGcpStorageBucketFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EncryptedGcpStorageBucketFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptedGcpStorageBucketFinding();
+            return new ApiSdk.Models.EncryptedGcpStorageBucketFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -40,9 +40,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessibility", n => { Accessibility = n.GetEnumValue<GcpAccessType>(); } },
-                { "encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<GcpEncryption>(); } },
-                { "storageBucket", n => { StorageBucket = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessibility", n => { Accessibility = n.GetEnumValue<ApiSdk.Models.GcpAccessType>(); } },
+                { "encryptionManagedBy", n => { EncryptionManagedBy = n.GetEnumValue<ApiSdk.Models.GcpEncryption>(); } },
+                { "storageBucket", n => { StorageBucket = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemResource>(ApiSdk.Models.AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,9 +53,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<GcpAccessType>("accessibility", Accessibility);
-            writer.WriteEnumValue<GcpEncryption>("encryptionManagedBy", EncryptionManagedBy);
-            writer.WriteObjectValue<AuthorizationSystemResource>("storageBucket", StorageBucket);
+            writer.WriteEnumValue<ApiSdk.Models.GcpAccessType>("accessibility", Accessibility);
+            writer.WriteEnumValue<ApiSdk.Models.GcpEncryption>("encryptionManagedBy", EncryptionManagedBy);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemResource>("storageBucket", StorageBucket);
         }
     }
 }

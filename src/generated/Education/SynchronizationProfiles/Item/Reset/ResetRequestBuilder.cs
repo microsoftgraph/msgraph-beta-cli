@@ -50,14 +50,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Reset
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.Reset.ResetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResetRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/reset", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.Reset.ResetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResetRequestBuilder(string rawUrl) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/reset", rawUrl)

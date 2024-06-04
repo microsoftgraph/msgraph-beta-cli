@@ -31,7 +31,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The totalTrafficCount property</summary>
         public long? TotalTrafficCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UsageProfilingPoint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.UsageProfilingPoint"/> and sets the default values.
         /// </summary>
         public UsageProfilingPoint()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UsageProfilingPoint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.UsageProfilingPoint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UsageProfilingPoint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.UsageProfilingPoint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UsageProfilingPoint();
+            return new ApiSdk.Models.Networkaccess.UsageProfilingPoint();
         }
         /// <summary>
         /// The deserialization information for the current model

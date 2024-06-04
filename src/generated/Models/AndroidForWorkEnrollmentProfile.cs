@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Enrollment Profile used to enroll COSU devices using Google&apos;s Cloud Management.
     /// </summary>
-    public class AndroidForWorkEnrollmentProfile : Entity, IParsable
+    public class AndroidForWorkEnrollmentProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Tenant GUID the enrollment profile belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,10 +52,10 @@ namespace ApiSdk.Models
         /// <summary>String used to generate a QR code for the token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? QrCodeImage { get; set; }
+        public ApiSdk.Models.MimeContent? QrCodeImage { get; set; }
 #nullable restore
 #else
-        public MimeContent QrCodeImage { get; set; }
+        public ApiSdk.Models.MimeContent QrCodeImage { get; set; }
 #endif
         /// <summary>Date time the most recently created token will expire.</summary>
         public DateTimeOffset? TokenExpirationDateTime { get; set; }
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkEnrollmentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkEnrollmentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkEnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkEnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidForWorkEnrollmentProfile();
+            return new ApiSdk.Models.AndroidForWorkEnrollmentProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,7 +92,7 @@ namespace ApiSdk.Models
                 { "enrolledDeviceCount", n => { EnrolledDeviceCount = n.GetIntValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "qrCodeContent", n => { QrCodeContent = n.GetStringValue(); } },
-                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "qrCodeImage", n => { QrCodeImage = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
                 { "tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "tokenValue", n => { TokenValue = n.GetStringValue(); } },
             };
@@ -112,7 +112,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("enrolledDeviceCount", EnrolledDeviceCount);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("qrCodeContent", QrCodeContent);
-            writer.WriteObjectValue<MimeContent>("qrCodeImage", QrCodeImage);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("qrCodeImage", QrCodeImage);
             writer.WriteDateTimeOffsetValue("tokenExpirationDateTime", TokenExpirationDateTime);
             writer.WriteStringValue("tokenValue", TokenValue);
         }

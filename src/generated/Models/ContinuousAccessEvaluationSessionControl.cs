@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue, strictLocation. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: strictLocation.</summary>
-        public ContinuousAccessEvaluationMode? Mode { get; set; }
+        public ApiSdk.Models.ContinuousAccessEvaluationMode? Mode { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContinuousAccessEvaluationSessionControl"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ContinuousAccessEvaluationSessionControl"/> and sets the default values.
         /// </summary>
         public ContinuousAccessEvaluationSessionControl()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContinuousAccessEvaluationSessionControl"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ContinuousAccessEvaluationSessionControl"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ContinuousAccessEvaluationSessionControl CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ContinuousAccessEvaluationSessionControl CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContinuousAccessEvaluationSessionControl();
+            return new ApiSdk.Models.ContinuousAccessEvaluationSessionControl();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "mode", n => { Mode = n.GetEnumValue<ContinuousAccessEvaluationMode>(); } },
+                { "mode", n => { Mode = n.GetEnumValue<ApiSdk.Models.ContinuousAccessEvaluationMode>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ContinuousAccessEvaluationMode>("mode", Mode);
+            writer.WriteEnumValue<ApiSdk.Models.ContinuousAccessEvaluationMode>("mode", Mode);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

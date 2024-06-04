@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TrustedCertificateAuthorityAsEntityBase : DirectoryObject, IParsable
+    public class TrustedCertificateAuthorityAsEntityBase : ApiSdk.Models.DirectoryObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Collection of trusted certificate authorities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CertificateAuthorityAsEntity>? TrustedCertificateAuthorities { get; set; }
+        public List<ApiSdk.Models.CertificateAuthorityAsEntity>? TrustedCertificateAuthorities { get; set; }
 #nullable restore
 #else
-        public List<CertificateAuthorityAsEntity> TrustedCertificateAuthorities { get; set; }
+        public List<ApiSdk.Models.CertificateAuthorityAsEntity> TrustedCertificateAuthorities { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TrustedCertificateAuthorityAsEntityBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrustedCertificateAuthorityAsEntityBase"/> and sets the default values.
         /// </summary>
         public TrustedCertificateAuthorityAsEntityBase() : base()
         {
@@ -28,16 +28,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrustedCertificateAuthorityAsEntityBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrustedCertificateAuthorityAsEntityBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TrustedCertificateAuthorityAsEntityBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TrustedCertificateAuthorityAsEntityBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.certificateBasedApplicationConfiguration" => new CertificateBasedApplicationConfiguration(),
-                _ => new TrustedCertificateAuthorityAsEntityBase(),
+                "#microsoft.graph.certificateBasedApplicationConfiguration" => new ApiSdk.Models.CertificateBasedApplicationConfiguration(),
+                _ => new ApiSdk.Models.TrustedCertificateAuthorityAsEntityBase(),
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "trustedCertificateAuthorities", n => { TrustedCertificateAuthorities = n.GetCollectionOfObjectValues<CertificateAuthorityAsEntity>(CertificateAuthorityAsEntity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "trustedCertificateAuthorities", n => { TrustedCertificateAuthorities = n.GetCollectionOfObjectValues<ApiSdk.Models.CertificateAuthorityAsEntity>(ApiSdk.Models.CertificateAuthorityAsEntity.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CertificateAuthorityAsEntity>("trustedCertificateAuthorities", TrustedCertificateAuthorities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CertificateAuthorityAsEntity>("trustedCertificateAuthorities", TrustedCertificateAuthorities);
         }
     }
 }

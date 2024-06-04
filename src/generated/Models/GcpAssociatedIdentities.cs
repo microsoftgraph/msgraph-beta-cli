@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The all property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpIdentity>? All { get; set; }
+        public List<ApiSdk.Models.GcpIdentity>? All { get; set; }
 #nullable restore
 #else
-        public List<GcpIdentity> All { get; set; }
+        public List<ApiSdk.Models.GcpIdentity> All { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,21 +31,21 @@ namespace ApiSdk.Models
         /// <summary>The serviceAccounts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpServiceAccount>? ServiceAccounts { get; set; }
+        public List<ApiSdk.Models.GcpServiceAccount>? ServiceAccounts { get; set; }
 #nullable restore
 #else
-        public List<GcpServiceAccount> ServiceAccounts { get; set; }
+        public List<ApiSdk.Models.GcpServiceAccount> ServiceAccounts { get; set; }
 #endif
         /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpUser>? Users { get; set; }
+        public List<ApiSdk.Models.GcpUser>? Users { get; set; }
 #nullable restore
 #else
-        public List<GcpUser> Users { get; set; }
+        public List<ApiSdk.Models.GcpUser> Users { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GcpAssociatedIdentities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GcpAssociatedIdentities"/> and sets the default values.
         /// </summary>
         public GcpAssociatedIdentities()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpAssociatedIdentities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpAssociatedIdentities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GcpAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.GcpAssociatedIdentities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GcpAssociatedIdentities();
+            return new ApiSdk.Models.GcpAssociatedIdentities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,10 +69,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "all", n => { All = n.GetCollectionOfObjectValues<GcpIdentity>(GcpIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "all", n => { All = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpIdentity>(ApiSdk.Models.GcpIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "serviceAccounts", n => { ServiceAccounts = n.GetCollectionOfObjectValues<GcpServiceAccount>(GcpServiceAccount.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "users", n => { Users = n.GetCollectionOfObjectValues<GcpUser>(GcpUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "serviceAccounts", n => { ServiceAccounts = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpServiceAccount>(ApiSdk.Models.GcpServiceAccount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "users", n => { Users = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpUser>(ApiSdk.Models.GcpUser.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -82,10 +82,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<GcpIdentity>("all", All);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpIdentity>("all", All);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<GcpServiceAccount>("serviceAccounts", ServiceAccounts);
-            writer.WriteCollectionOfObjectValues<GcpUser>("users", Users);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpServiceAccount>("serviceAccounts", ServiceAccounts);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpUser>("users", Users);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

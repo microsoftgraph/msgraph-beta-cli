@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExternalIdentitiesPolicy : PolicyBase, IParsable
+    public class ExternalIdentitiesPolicy : ApiSdk.Models.PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Reserved for future use.</summary>
@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>Defines whether external users can leave the guest tenant. If set to false, self-service controls are disabled, and the admin of the guest tenant must manually remove the external user from the guest tenant. When the external user leaves the tenant, their data in the guest tenant is first soft-deleted then permanently deleted in 30 days.</summary>
         public bool? AllowExternalIdentitiesToLeave { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ExternalIdentitiesPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExternalIdentitiesPolicy"/> and sets the default values.
         /// </summary>
         public ExternalIdentitiesPolicy() : base()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExternalIdentitiesPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalIdentitiesPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExternalIdentitiesPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExternalIdentitiesPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExternalIdentitiesPolicy();
+            return new ApiSdk.Models.ExternalIdentitiesPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

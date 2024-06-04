@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.ConfigManagerCollections.GetPolicySummaryWithP
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPolicySummaryWithPolicyIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ConfigManagerCollections.GetPolicySummaryWithPolicyId.GetPolicySummaryWithPolicyIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetPolicySummaryWithPolicyIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/configManagerCollections/getPolicySummary(policyId='{policyId}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPolicySummaryWithPolicyIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ConfigManagerCollections.GetPolicySummaryWithPolicyId.GetPolicySummaryWithPolicyIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetPolicySummaryWithPolicyIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/configManagerCollections/getPolicySummary(policyId='{policyId}')", rawUrl)

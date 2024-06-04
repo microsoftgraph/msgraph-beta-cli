@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EdgeHomeButtonConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EdgeHomeButtonConfiguration"/> and sets the default values.
         /// </summary>
         public EdgeHomeButtonConfiguration()
         {
@@ -31,19 +31,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EdgeHomeButtonConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EdgeHomeButtonConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EdgeHomeButtonConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EdgeHomeButtonConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.edgeHomeButtonHidden" => new EdgeHomeButtonHidden(),
-                "#microsoft.graph.edgeHomeButtonLoadsStartPage" => new EdgeHomeButtonLoadsStartPage(),
-                "#microsoft.graph.edgeHomeButtonOpensCustomURL" => new EdgeHomeButtonOpensCustomURL(),
-                "#microsoft.graph.edgeHomeButtonOpensNewTab" => new EdgeHomeButtonOpensNewTab(),
-                _ => new EdgeHomeButtonConfiguration(),
+                "#microsoft.graph.edgeHomeButtonHidden" => new ApiSdk.Models.EdgeHomeButtonHidden(),
+                "#microsoft.graph.edgeHomeButtonLoadsStartPage" => new ApiSdk.Models.EdgeHomeButtonLoadsStartPage(),
+                "#microsoft.graph.edgeHomeButtonOpensCustomURL" => new ApiSdk.Models.EdgeHomeButtonOpensCustomURL(),
+                "#microsoft.graph.edgeHomeButtonOpensNewTab" => new ApiSdk.Models.EdgeHomeButtonOpensNewTab(),
+                _ => new ApiSdk.Models.EdgeHomeButtonConfiguration(),
             };
         }
         /// <summary>

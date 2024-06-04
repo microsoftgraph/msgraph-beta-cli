@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing configurations in this profile you can instruct the Nine Work email client on Android For Work devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class AndroidForWorkNineWorkEasConfiguration : AndroidForWorkEasEmailProfileBase, IParsable
+    public class AndroidForWorkNineWorkEasConfiguration : ApiSdk.Models.AndroidForWorkEasEmailProfileBase, IParsable
     {
         /// <summary>Toggles syncing the calendar. If set to false the calendar is turned off on the device.</summary>
         public bool? SyncCalendar { get; set; }
@@ -18,7 +18,7 @@ namespace ApiSdk.Models
         /// <summary>Toggles syncing tasks. If set to false tasks are turned off on the device.</summary>
         public bool? SyncTasks { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkNineWorkEasConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidForWorkNineWorkEasConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidForWorkNineWorkEasConfiguration() : base()
         {
@@ -27,12 +27,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkNineWorkEasConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkNineWorkEasConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkNineWorkEasConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkNineWorkEasConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidForWorkNineWorkEasConfiguration();
+            return new ApiSdk.Models.AndroidForWorkNineWorkEasConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

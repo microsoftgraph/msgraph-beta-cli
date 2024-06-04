@@ -18,13 +18,13 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak
         /// <summary>The notes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Notes { get; set; }
+        public ApiSdk.Models.ItemBody? Notes { get; set; }
 #nullable restore
 #else
-        public ItemBody Notes { get; set; }
+        public ApiSdk.Models.ItemBody Notes { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EndBreakPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak.EndBreakPostRequestBody"/> and sets the default values.
         /// </summary>
         public EndBreakPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EndBreakPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak.EndBreakPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EndBreakPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak.EndBreakPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EndBreakPostRequestBody();
+            return new ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak.EndBreakPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +49,7 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "atApprovedLocation", n => { AtApprovedLocation = n.GetBoolValue(); } },
-                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "notes", n => { Notes = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace ApiSdk.Groups.Item.Team.Schedule.TimeCards.Item.EndBreak
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("atApprovedLocation", AtApprovedLocation);
-            writer.WriteObjectValue<ItemBody>("notes", Notes);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("notes", Notes);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

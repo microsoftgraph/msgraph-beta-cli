@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.S
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SyncApps.SyncAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SyncAppsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings/syncApps", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncAppsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SyncApps.SyncAppsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SyncAppsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings/syncApps", rawUrl)

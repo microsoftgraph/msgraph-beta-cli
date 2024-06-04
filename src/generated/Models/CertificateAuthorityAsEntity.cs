@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CertificateAuthorityAsEntity : Entity, IParsable
+    public class CertificateAuthorityAsEntity : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The trusted certificate.</summary>
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CertificateAuthorityAsEntity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CertificateAuthorityAsEntity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CertificateAuthorityAsEntity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CertificateAuthorityAsEntity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CertificateAuthorityAsEntity();
+            return new ApiSdk.Models.CertificateAuthorityAsEntity();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,74 +9,74 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Enrollment Configuration that restricts the types of devices a user can enroll
     /// </summary>
-    public class DeviceEnrollmentPlatformRestrictionsConfiguration : DeviceEnrollmentConfiguration, IParsable
+    public class DeviceEnrollmentPlatformRestrictionsConfiguration : ApiSdk.Models.DeviceEnrollmentConfiguration, IParsable
     {
         /// <summary>Android for work restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? AndroidForWorkRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? AndroidForWorkRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction AndroidForWorkRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction AndroidForWorkRestriction { get; set; }
 #endif
         /// <summary>Android restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? AndroidRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? AndroidRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction AndroidRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction AndroidRestriction { get; set; }
 #endif
         /// <summary>Ios restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? IosRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? IosRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction IosRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction IosRestriction { get; set; }
 #endif
         /// <summary>Mac restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? MacOSRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? MacOSRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction MacOSRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction MacOSRestriction { get; set; }
 #endif
         /// <summary>Mac restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? MacRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? MacRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction MacRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction MacRestriction { get; set; }
 #endif
         /// <summary>Windows Home Sku restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? WindowsHomeSkuRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? WindowsHomeSkuRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction WindowsHomeSkuRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction WindowsHomeSkuRestriction { get; set; }
 #endif
         /// <summary>Windows mobile restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? WindowsMobileRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? WindowsMobileRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction WindowsMobileRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction WindowsMobileRestriction { get; set; }
 #endif
         /// <summary>Windows restrictions based on platform, platform operating system version, and device ownership</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceEnrollmentPlatformRestriction? WindowsRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction? WindowsRestriction { get; set; }
 #nullable restore
 #else
-        public DeviceEnrollmentPlatformRestriction WindowsRestriction { get; set; }
+        public ApiSdk.Models.DeviceEnrollmentPlatformRestriction WindowsRestriction { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceEnrollmentPlatformRestrictionsConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceEnrollmentPlatformRestrictionsConfiguration"/> and sets the default values.
         /// </summary>
         public DeviceEnrollmentPlatformRestrictionsConfiguration() : base()
         {
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceEnrollmentPlatformRestrictionsConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceEnrollmentPlatformRestrictionsConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceEnrollmentPlatformRestrictionsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceEnrollmentPlatformRestrictionsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceEnrollmentPlatformRestrictionsConfiguration();
+            return new ApiSdk.Models.DeviceEnrollmentPlatformRestrictionsConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,14 +100,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "androidForWorkRestriction", n => { AndroidForWorkRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "androidRestriction", n => { AndroidRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "iosRestriction", n => { IosRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "macOSRestriction", n => { MacOSRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "macRestriction", n => { MacRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "windowsHomeSkuRestriction", n => { WindowsHomeSkuRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "windowsMobileRestriction", n => { WindowsMobileRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
-                { "windowsRestriction", n => { WindowsRestriction = n.GetObjectValue<DeviceEnrollmentPlatformRestriction>(DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "androidForWorkRestriction", n => { AndroidForWorkRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "androidRestriction", n => { AndroidRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "iosRestriction", n => { IosRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "macOSRestriction", n => { MacOSRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "macRestriction", n => { MacRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "windowsHomeSkuRestriction", n => { WindowsHomeSkuRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "windowsMobileRestriction", n => { WindowsMobileRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
+                { "windowsRestriction", n => { WindowsRestriction = n.GetObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>(ApiSdk.Models.DeviceEnrollmentPlatformRestriction.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -118,14 +118,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("androidForWorkRestriction", AndroidForWorkRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("androidRestriction", AndroidRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("iosRestriction", IosRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("macOSRestriction", MacOSRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("macRestriction", MacRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("windowsHomeSkuRestriction", WindowsHomeSkuRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("windowsMobileRestriction", WindowsMobileRestriction);
-            writer.WriteObjectValue<DeviceEnrollmentPlatformRestriction>("windowsRestriction", WindowsRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("androidForWorkRestriction", AndroidForWorkRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("androidRestriction", AndroidRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("iosRestriction", IosRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("macOSRestriction", MacOSRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("macRestriction", MacRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("windowsHomeSkuRestriction", WindowsHomeSkuRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("windowsMobileRestriction", WindowsMobileRestriction);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceEnrollmentPlatformRestriction>("windowsRestriction", WindowsRestriction);
         }
     }
 }

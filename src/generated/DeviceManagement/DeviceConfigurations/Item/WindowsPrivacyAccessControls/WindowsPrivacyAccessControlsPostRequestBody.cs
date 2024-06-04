@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccess
         /// <summary>The windowsPrivacyAccessControls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsPrivacyDataAccessControlItem>? WindowsPrivacyAccessControls { get; set; }
+        public List<ApiSdk.Models.WindowsPrivacyDataAccessControlItem>? WindowsPrivacyAccessControls { get; set; }
 #nullable restore
 #else
-        public List<WindowsPrivacyDataAccessControlItem> WindowsPrivacyAccessControls { get; set; }
+        public List<ApiSdk.Models.WindowsPrivacyDataAccessControlItem> WindowsPrivacyAccessControls { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPrivacyAccessControlsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls.WindowsPrivacyAccessControlsPostRequestBody"/> and sets the default values.
         /// </summary>
         public WindowsPrivacyAccessControlsPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPrivacyAccessControlsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls.WindowsPrivacyAccessControlsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsPrivacyAccessControlsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls.WindowsPrivacyAccessControlsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsPrivacyAccessControlsPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccessControls.WindowsPrivacyAccessControlsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccess
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "windowsPrivacyAccessControls", n => { WindowsPrivacyAccessControls = n.GetCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>(WindowsPrivacyDataAccessControlItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "windowsPrivacyAccessControls", n => { WindowsPrivacyAccessControls = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsPrivacyDataAccessControlItem>(ApiSdk.Models.WindowsPrivacyDataAccessControlItem.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.WindowsPrivacyAccess
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<WindowsPrivacyDataAccessControlItem>("windowsPrivacyAccessControls", WindowsPrivacyAccessControls);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsPrivacyDataAccessControlItem>("windowsPrivacyAccessControls", WindowsPrivacyAccessControls);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

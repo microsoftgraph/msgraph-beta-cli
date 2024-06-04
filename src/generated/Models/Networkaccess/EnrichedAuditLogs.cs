@@ -13,36 +13,36 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Exchange Online enriched audit logs settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EnrichedAuditLogsSettings? Exchange { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings? Exchange { get; set; }
 #nullable restore
 #else
-        public EnrichedAuditLogsSettings Exchange { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings Exchange { get; set; }
 #endif
         /// <summary>SharePoint Online enriched audit logs settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EnrichedAuditLogsSettings? Sharepoint { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings? Sharepoint { get; set; }
 #nullable restore
 #else
-        public EnrichedAuditLogsSettings Sharepoint { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings Sharepoint { get; set; }
 #endif
         /// <summary>Teams enriched audit logs settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EnrichedAuditLogsSettings? Teams { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings? Teams { get; set; }
 #nullable restore
 #else
-        public EnrichedAuditLogsSettings Teams { get; set; }
+        public ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings Teams { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnrichedAuditLogs"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.EnrichedAuditLogs"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EnrichedAuditLogs CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.EnrichedAuditLogs CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EnrichedAuditLogs();
+            return new ApiSdk.Models.Networkaccess.EnrichedAuditLogs();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "exchange", n => { Exchange = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
-                { "sharepoint", n => { Sharepoint = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
-                { "teams", n => { Teams = n.GetObjectValue<EnrichedAuditLogsSettings>(EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "exchange", n => { Exchange = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>(ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "sharepoint", n => { Sharepoint = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>(ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
+                { "teams", n => { Teams = n.GetObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>(ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<EnrichedAuditLogsSettings>("exchange", Exchange);
-            writer.WriteObjectValue<EnrichedAuditLogsSettings>("sharepoint", Sharepoint);
-            writer.WriteObjectValue<EnrichedAuditLogsSettings>("teams", Teams);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>("exchange", Exchange);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>("sharepoint", Sharepoint);
+            writer.WriteObjectValue<ApiSdk.Models.Networkaccess.EnrichedAuditLogsSettings>("teams", Teams);
         }
     }
 }

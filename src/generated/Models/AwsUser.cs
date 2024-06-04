@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsUser : AwsIdentity, IParsable
+    public class AwsUser : ApiSdk.Models.AwsIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Roles assumed by the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AwsRole>? AssumableRoles { get; set; }
+        public List<ApiSdk.Models.AwsRole>? AssumableRoles { get; set; }
 #nullable restore
 #else
-        public List<AwsRole> AssumableRoles { get; set; }
+        public List<ApiSdk.Models.AwsRole> AssumableRoles { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsUser"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsUser"/> and sets the default values.
         /// </summary>
         public AwsUser() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsUser"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsUser"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsUser();
+            return new ApiSdk.Models.AwsUser();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assumableRoles", n => { AssumableRoles = n.GetCollectionOfObjectValues<AwsRole>(AwsRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assumableRoles", n => { AssumableRoles = n.GetCollectionOfObjectValues<ApiSdk.Models.AwsRole>(ApiSdk.Models.AwsRole.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AwsRole>("assumableRoles", AssumableRoles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AwsRole>("assumableRoles", AssumableRoles);
         }
     }
 }

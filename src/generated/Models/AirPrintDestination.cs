@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         public string ResourcePath { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AirPrintDestination"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AirPrintDestination"/> and sets the default values.
         /// </summary>
         public AirPrintDestination()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AirPrintDestination"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AirPrintDestination"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AirPrintDestination CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AirPrintDestination CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AirPrintDestination();
+            return new ApiSdk.Models.AirPrintDestination();
         }
         /// <summary>
         /// The deserialization information for the current model

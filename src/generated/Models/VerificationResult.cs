@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         /// <summary>The signatureValid property</summary>
         public bool? SignatureValid { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="VerificationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerificationResult"/> and sets the default values.
         /// </summary>
         public VerificationResult()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerificationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerificationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VerificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VerificationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VerificationResult();
+            return new ApiSdk.Models.VerificationResult();
         }
         /// <summary>
         /// The deserialization information for the current model

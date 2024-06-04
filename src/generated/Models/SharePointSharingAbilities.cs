@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The anyone link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkScopeAbilities? AnyoneLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities? AnyoneLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkScopeAbilities AnyoneLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities AnyoneLinkAbilities { get; set; }
 #endif
         /// <summary>The direct sharing abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,21 +39,21 @@ namespace ApiSdk.Models
         /// <summary>The organization link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkScopeAbilities? OrganizationLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities? OrganizationLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkScopeAbilities OrganizationLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities OrganizationLinkAbilities { get; set; }
 #endif
         /// <summary>The specificPeople link abilities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public LinkScopeAbilities? SpecificPeopleLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities? SpecificPeopleLinkAbilities { get; set; }
 #nullable restore
 #else
-        public LinkScopeAbilities SpecificPeopleLinkAbilities { get; set; }
+        public ApiSdk.Models.LinkScopeAbilities SpecificPeopleLinkAbilities { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SharePointSharingAbilities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SharePointSharingAbilities"/> and sets the default values.
         /// </summary>
         public SharePointSharingAbilities()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SharePointSharingAbilities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SharePointSharingAbilities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SharePointSharingAbilities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SharePointSharingAbilities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SharePointSharingAbilities();
+            return new ApiSdk.Models.SharePointSharingAbilities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "anyoneLinkAbilities", n => { AnyoneLinkAbilities = n.GetObjectValue<LinkScopeAbilities>(LinkScopeAbilities.CreateFromDiscriminatorValue); } },
+                { "anyoneLinkAbilities", n => { AnyoneLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkScopeAbilities>(ApiSdk.Models.LinkScopeAbilities.CreateFromDiscriminatorValue); } },
                 { "directSharingAbilities", n => { DirectSharingAbilities = n.GetObjectValue<ApiSdk.Models.DirectSharingAbilities>(ApiSdk.Models.DirectSharingAbilities.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "organizationLinkAbilities", n => { OrganizationLinkAbilities = n.GetObjectValue<LinkScopeAbilities>(LinkScopeAbilities.CreateFromDiscriminatorValue); } },
-                { "specificPeopleLinkAbilities", n => { SpecificPeopleLinkAbilities = n.GetObjectValue<LinkScopeAbilities>(LinkScopeAbilities.CreateFromDiscriminatorValue); } },
+                { "organizationLinkAbilities", n => { OrganizationLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkScopeAbilities>(ApiSdk.Models.LinkScopeAbilities.CreateFromDiscriminatorValue); } },
+                { "specificPeopleLinkAbilities", n => { SpecificPeopleLinkAbilities = n.GetObjectValue<ApiSdk.Models.LinkScopeAbilities>(ApiSdk.Models.LinkScopeAbilities.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -91,11 +91,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<LinkScopeAbilities>("anyoneLinkAbilities", AnyoneLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkScopeAbilities>("anyoneLinkAbilities", AnyoneLinkAbilities);
             writer.WriteObjectValue<ApiSdk.Models.DirectSharingAbilities>("directSharingAbilities", DirectSharingAbilities);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<LinkScopeAbilities>("organizationLinkAbilities", OrganizationLinkAbilities);
-            writer.WriteObjectValue<LinkScopeAbilities>("specificPeopleLinkAbilities", SpecificPeopleLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkScopeAbilities>("organizationLinkAbilities", OrganizationLinkAbilities);
+            writer.WriteObjectValue<ApiSdk.Models.LinkScopeAbilities>("specificPeopleLinkAbilities", SpecificPeopleLinkAbilities);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

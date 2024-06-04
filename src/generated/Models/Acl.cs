@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The identitySource property</summary>
-        public IdentitySourceType? IdentitySource { get; set; }
+        public ApiSdk.Models.IdentitySourceType? IdentitySource { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public AclType? Type { get; set; }
+        public ApiSdk.Models.AclType? Type { get; set; }
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Acl"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Acl"/> and sets the default values.
         /// </summary>
         public Acl()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Acl"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Acl"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Acl CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Acl CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Acl();
+            return new ApiSdk.Models.Acl();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,10 +59,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessType", n => { AccessType = n.GetEnumValue<AccessType>(); } },
-                { "identitySource", n => { IdentitySource = n.GetEnumValue<IdentitySourceType>(); } },
+                { "accessType", n => { AccessType = n.GetEnumValue<ApiSdk.Models.AccessType>(); } },
+                { "identitySource", n => { IdentitySource = n.GetEnumValue<ApiSdk.Models.IdentitySourceType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<AclType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.AclType>(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -73,10 +73,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AccessType>("accessType", AccessType);
-            writer.WriteEnumValue<IdentitySourceType>("identitySource", IdentitySource);
+            writer.WriteEnumValue<ApiSdk.Models.AccessType>("accessType", AccessType);
+            writer.WriteEnumValue<ApiSdk.Models.IdentitySourceType>("identitySource", IdentitySource);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AclType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.AclType>("type", Type);
             writer.WriteStringValue("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }

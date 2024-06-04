@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DlpNotification"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DlpNotification"/> and sets the default values.
         /// </summary>
         public DlpNotification()
         {
@@ -38,16 +38,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DlpNotification"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DlpNotification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DlpNotification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DlpNotification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.dlpWindowsDevicesNotification" => new DlpWindowsDevicesNotification(),
-                _ => new DlpNotification(),
+                "#microsoft.graph.dlpWindowsDevicesNotification" => new ApiSdk.Models.DlpWindowsDevicesNotification(),
+                _ => new ApiSdk.Models.DlpNotification(),
             };
         }
         /// <summary>

@@ -7,37 +7,37 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VirtualEventWebinar : VirtualEvent, IParsable
+    public class VirtualEventWebinar : ApiSdk.Models.VirtualEvent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>To whom the webinar is visible.</summary>
-        public MeetingAudience? Audience { get; set; }
+        public ApiSdk.Models.MeetingAudience? Audience { get; set; }
         /// <summary>Identity information of coorganizers of the webinar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CommunicationsUserIdentity>? CoOrganizers { get; set; }
+        public List<ApiSdk.Models.CommunicationsUserIdentity>? CoOrganizers { get; set; }
 #nullable restore
 #else
-        public List<CommunicationsUserIdentity> CoOrganizers { get; set; }
+        public List<ApiSdk.Models.CommunicationsUserIdentity> CoOrganizers { get; set; }
 #endif
         /// <summary>Registration configuration of the webinar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VirtualEventWebinarRegistrationConfiguration? RegistrationConfiguration { get; set; }
+        public ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration? RegistrationConfiguration { get; set; }
 #nullable restore
 #else
-        public VirtualEventWebinarRegistrationConfiguration RegistrationConfiguration { get; set; }
+        public ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration RegistrationConfiguration { get; set; }
 #endif
         /// <summary>Registration records of the webinar.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventRegistration>? Registrations { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistration>? Registrations { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventRegistration> Registrations { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistration> Registrations { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VirtualEventWebinar"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VirtualEventWebinar"/> and sets the default values.
         /// </summary>
         public VirtualEventWebinar() : base()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventWebinar"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventWebinar"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventWebinar CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VirtualEventWebinar CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VirtualEventWebinar();
+            return new ApiSdk.Models.VirtualEventWebinar();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "audience", n => { Audience = n.GetEnumValue<MeetingAudience>(); } },
-                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<CommunicationsUserIdentity>(CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "registrationConfiguration", n => { RegistrationConfiguration = n.GetObjectValue<VirtualEventWebinarRegistrationConfiguration>(VirtualEventWebinarRegistrationConfiguration.CreateFromDiscriminatorValue); } },
-                { "registrations", n => { Registrations = n.GetCollectionOfObjectValues<VirtualEventRegistration>(VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "audience", n => { Audience = n.GetEnumValue<ApiSdk.Models.MeetingAudience>(); } },
+                { "coOrganizers", n => { CoOrganizers = n.GetCollectionOfObjectValues<ApiSdk.Models.CommunicationsUserIdentity>(ApiSdk.Models.CommunicationsUserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "registrationConfiguration", n => { RegistrationConfiguration = n.GetObjectValue<ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration>(ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration.CreateFromDiscriminatorValue); } },
+                { "registrations", n => { Registrations = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistration>(ApiSdk.Models.VirtualEventRegistration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MeetingAudience>("audience", Audience);
-            writer.WriteCollectionOfObjectValues<CommunicationsUserIdentity>("coOrganizers", CoOrganizers);
-            writer.WriteObjectValue<VirtualEventWebinarRegistrationConfiguration>("registrationConfiguration", RegistrationConfiguration);
-            writer.WriteCollectionOfObjectValues<VirtualEventRegistration>("registrations", Registrations);
+            writer.WriteEnumValue<ApiSdk.Models.MeetingAudience>("audience", Audience);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CommunicationsUserIdentity>("coOrganizers", CoOrganizers);
+            writer.WriteObjectValue<ApiSdk.Models.VirtualEventWebinarRegistrationConfiguration>("registrationConfiguration", RegistrationConfiguration);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistration>("registrations", Registrations);
         }
     }
 }

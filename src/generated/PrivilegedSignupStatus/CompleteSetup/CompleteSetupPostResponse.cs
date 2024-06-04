@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
 {
     #pragma warning disable CS1591
-    public class CompleteSetupPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class CompleteSetupPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleSuccessStatistics>? Value { get; set; }
+        public List<ApiSdk.Models.RoleSuccessStatistics>? Value { get; set; }
 #nullable restore
 #else
-        public List<RoleSuccessStatistics> Value { get; set; }
+        public List<ApiSdk.Models.RoleSuccessStatistics> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompleteSetupPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CompleteSetupPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompleteSetupPostResponse();
+            return new ApiSdk.PrivilegedSignupStatus.CompleteSetup.CompleteSetupPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<RoleSuccessStatistics>(RoleSuccessStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.RoleSuccessStatistics>(ApiSdk.Models.RoleSuccessStatistics.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CompleteSetup
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RoleSuccessStatistics>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.RoleSuccessStatistics>("value", Value);
         }
     }
 }

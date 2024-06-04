@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete
 {
     #pragma warning disable CS1591
-    public class CompletePostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class CompletePostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OutlookTask>? Value { get; set; }
+        public List<ApiSdk.Models.OutlookTask>? Value { get; set; }
 #nullable restore
 #else
-        public List<OutlookTask> Value { get; set; }
+        public List<ApiSdk.Models.OutlookTask> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CompletePostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete.CompletePostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CompletePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete.CompletePostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CompletePostResponse();
+            return new ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.Complete.CompletePostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<OutlookTask>(OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.OutlookTask>(ApiSdk.Models.OutlookTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.Outlook.TaskGroups.Item.TaskFolders.Item.Tasks.Item.
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OutlookTask>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OutlookTask>("value", Value);
         }
     }
 }

@@ -25,19 +25,19 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CatalogEntry"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.CatalogEntry"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.CatalogEntry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry" => new DriverUpdateCatalogEntry(),
-                "#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry" => new FeatureUpdateCatalogEntry(),
-                "#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry" => new QualityUpdateCatalogEntry(),
-                "#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry" => new SoftwareUpdateCatalogEntry(),
-                _ => new CatalogEntry(),
+                "#microsoft.graph.windowsUpdates.driverUpdateCatalogEntry" => new ApiSdk.Models.WindowsUpdates.DriverUpdateCatalogEntry(),
+                "#microsoft.graph.windowsUpdates.featureUpdateCatalogEntry" => new ApiSdk.Models.WindowsUpdates.FeatureUpdateCatalogEntry(),
+                "#microsoft.graph.windowsUpdates.qualityUpdateCatalogEntry" => new ApiSdk.Models.WindowsUpdates.QualityUpdateCatalogEntry(),
+                "#microsoft.graph.windowsUpdates.softwareUpdateCatalogEntry" => new ApiSdk.Models.WindowsUpdates.SoftwareUpdateCatalogEntry(),
+                _ => new ApiSdk.Models.WindowsUpdates.CatalogEntry(),
             };
         }
         /// <summary>

@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationSystemIdentitySource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthorizationSystemIdentitySource"/> and sets the default values.
         /// </summary>
         public AuthorizationSystemIdentitySource()
         {
@@ -38,20 +38,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthorizationSystemIdentitySource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthorizationSystemIdentitySource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuthorizationSystemIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuthorizationSystemIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.aadSource" => new AadSource(),
-                "#microsoft.graph.awsSource" => new AwsSource(),
-                "#microsoft.graph.azureSource" => new AzureSource(),
-                "#microsoft.graph.gsuiteSource" => new GsuiteSource(),
-                "#microsoft.graph.unknownSource" => new UnknownSource(),
-                _ => new AuthorizationSystemIdentitySource(),
+                "#microsoft.graph.aadSource" => new ApiSdk.Models.AadSource(),
+                "#microsoft.graph.awsSource" => new ApiSdk.Models.AwsSource(),
+                "#microsoft.graph.azureSource" => new ApiSdk.Models.AzureSource(),
+                "#microsoft.graph.gsuiteSource" => new ApiSdk.Models.GsuiteSource(),
+                "#microsoft.graph.unknownSource" => new ApiSdk.Models.UnknownSource(),
+                _ => new ApiSdk.Models.AuthorizationSystemIdentitySource(),
             };
         }
         /// <summary>

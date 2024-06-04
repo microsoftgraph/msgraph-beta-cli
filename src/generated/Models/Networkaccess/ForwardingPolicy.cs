@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class ForwardingPolicy : Policy, IParsable
+    public class ForwardingPolicy : ApiSdk.Models.Networkaccess.Policy, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The trafficForwardingType property</summary>
         public ApiSdk.Models.Networkaccess.TrafficForwardingType? TrafficForwardingType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ForwardingPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.ForwardingPolicy"/> and sets the default values.
         /// </summary>
         public ForwardingPolicy() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ForwardingPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ForwardingPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ForwardingPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.ForwardingPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ForwardingPolicy();
+            return new ApiSdk.Models.Networkaccess.ForwardingPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<TrafficForwardingType>(); } },
+                { "trafficForwardingType", n => { TrafficForwardingType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficForwardingType>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<TrafficForwardingType>("trafficForwardingType", TrafficForwardingType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficForwardingType>("trafficForwardingType", TrafficForwardingType);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Booking entities that provide a display name.
     /// </summary>
-    public class BookingNamedEntity : Entity, IParsable
+    public class BookingNamedEntity : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>A name for the derived entity, which interfaces with customers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,20 +22,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingNamedEntity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingNamedEntity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingNamedEntity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingNamedEntity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.bookingBusiness" => new BookingBusiness(),
-                "#microsoft.graph.bookingCustomer" => new BookingCustomer(),
-                "#microsoft.graph.bookingPerson" => new BookingPerson(),
-                "#microsoft.graph.bookingService" => new BookingService(),
-                "#microsoft.graph.bookingStaffMember" => new BookingStaffMember(),
-                _ => new BookingNamedEntity(),
+                "#microsoft.graph.bookingBusiness" => new ApiSdk.Models.BookingBusiness(),
+                "#microsoft.graph.bookingCustomer" => new ApiSdk.Models.BookingCustomer(),
+                "#microsoft.graph.bookingPerson" => new ApiSdk.Models.BookingPerson(),
+                "#microsoft.graph.bookingService" => new ApiSdk.Models.BookingService(),
+                "#microsoft.graph.bookingStaffMember" => new ApiSdk.Models.BookingStaffMember(),
+                _ => new ApiSdk.Models.BookingNamedEntity(),
             };
         }
         /// <summary>

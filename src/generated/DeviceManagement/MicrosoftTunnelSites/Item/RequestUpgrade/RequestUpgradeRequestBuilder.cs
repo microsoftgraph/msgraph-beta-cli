@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RequestUpgradeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade.RequestUpgradeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RequestUpgradeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/microsoftTunnelSites/{microsoftTunnelSite%2Did}/requestUpgrade", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RequestUpgradeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.RequestUpgrade.RequestUpgradeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RequestUpgradeRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/microsoftTunnelSites/{microsoftTunnelSite%2Did}/requestUpgrade", rawUrl)

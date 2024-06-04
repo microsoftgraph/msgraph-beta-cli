@@ -23,18 +23,18 @@ namespace ApiSdk.Models
         /// <summary>The start event of the timeCardBreak.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? End { get; set; }
+        public ApiSdk.Models.TimeCardEvent? End { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent End { get; set; }
+        public ApiSdk.Models.TimeCardEvent End { get; set; }
 #endif
         /// <summary>Notes about the timeCardBreak.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Notes { get; set; }
+        public ApiSdk.Models.ItemBody? Notes { get; set; }
 #nullable restore
 #else
-        public ItemBody Notes { get; set; }
+        public ApiSdk.Models.ItemBody Notes { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,13 +47,13 @@ namespace ApiSdk.Models
         /// <summary>The start property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TimeCardEvent? Start { get; set; }
+        public ApiSdk.Models.TimeCardEvent? Start { get; set; }
 #nullable restore
 #else
-        public TimeCardEvent Start { get; set; }
+        public ApiSdk.Models.TimeCardEvent Start { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TimeCardBreak"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TimeCardBreak"/> and sets the default values.
         /// </summary>
         public TimeCardBreak()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TimeCardBreak"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TimeCardBreak"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TimeCardBreak CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TimeCardBreak CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TimeCardBreak();
+            return new ApiSdk.Models.TimeCardBreak();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,10 +78,10 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "breakId", n => { BreakId = n.GetStringValue(); } },
-                { "end", n => { End = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
-                { "notes", n => { Notes = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
+                { "end", n => { End = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "notes", n => { Notes = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "start", n => { Start = n.GetObjectValue<TimeCardEvent>(TimeCardEvent.CreateFromDiscriminatorValue); } },
+                { "start", n => { Start = n.GetObjectValue<ApiSdk.Models.TimeCardEvent>(ApiSdk.Models.TimeCardEvent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,10 +92,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("breakId", BreakId);
-            writer.WriteObjectValue<TimeCardEvent>("end", End);
-            writer.WriteObjectValue<ItemBody>("notes", Notes);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("end", End);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("notes", Notes);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TimeCardEvent>("start", Start);
+            writer.WriteObjectValue<ApiSdk.Models.TimeCardEvent>("start", Start);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

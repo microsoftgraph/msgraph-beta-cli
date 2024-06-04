@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiM
         /// <summary>The assignedAccessMultiModeProfiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WindowsAssignedAccessProfile>? AssignedAccessMultiModeProfiles { get; set; }
+        public List<ApiSdk.Models.WindowsAssignedAccessProfile>? AssignedAccessMultiModeProfiles { get; set; }
 #nullable restore
 #else
-        public List<WindowsAssignedAccessProfile> AssignedAccessMultiModeProfiles { get; set; }
+        public List<ApiSdk.Models.WindowsAssignedAccessProfile> AssignedAccessMultiModeProfiles { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignedAccessMultiModeProfilesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles.AssignedAccessMultiModeProfilesPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignedAccessMultiModeProfilesPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiM
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignedAccessMultiModeProfilesPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles.AssignedAccessMultiModeProfilesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignedAccessMultiModeProfilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles.AssignedAccessMultiModeProfilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignedAccessMultiModeProfilesPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiModeProfiles.AssignedAccessMultiModeProfilesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiM
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignedAccessMultiModeProfiles", n => { AssignedAccessMultiModeProfiles = n.GetCollectionOfObjectValues<WindowsAssignedAccessProfile>(WindowsAssignedAccessProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedAccessMultiModeProfiles", n => { AssignedAccessMultiModeProfiles = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsAssignedAccessProfile>(ApiSdk.Models.WindowsAssignedAccessProfile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.Item.AssignedAccessMultiM
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<WindowsAssignedAccessProfile>("assignedAccessMultiModeProfiles", AssignedAccessMultiModeProfiles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsAssignedAccessProfile>("assignedAccessMultiModeProfiles", AssignedAccessMultiModeProfiles);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

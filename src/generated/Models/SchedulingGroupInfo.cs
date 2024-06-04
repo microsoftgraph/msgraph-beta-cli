@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string SchedulingGroupId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SchedulingGroupInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SchedulingGroupInfo"/> and sets the default values.
         /// </summary>
         public SchedulingGroupInfo()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SchedulingGroupInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SchedulingGroupInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SchedulingGroupInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SchedulingGroupInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SchedulingGroupInfo();
+            return new ApiSdk.Models.SchedulingGroupInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -15,7 +15,7 @@ namespace ApiSdk.DeviceManagement.ScopedForResourceWithResource
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ScopedForResourceWithResourceGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ScopedForResourceWithResource.ScopedForResourceWithResourceGetResponse"/> and sets the default values.
         /// </summary>
         public ScopedForResourceWithResourceGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.DeviceManagement.ScopedForResourceWithResource
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ScopedForResourceWithResourceGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ScopedForResourceWithResource.ScopedForResourceWithResourceGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ScopedForResourceWithResourceGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ScopedForResourceWithResource.ScopedForResourceWithResourceGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ScopedForResourceWithResourceGetResponse();
+            return new ApiSdk.DeviceManagement.ScopedForResourceWithResource.ScopedForResourceWithResourceGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

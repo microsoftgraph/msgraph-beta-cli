@@ -31,7 +31,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new SalesInvoiceItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoices.Item.SalesInvoiceItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildCancelAndSendNavCommand());
             commands.Add(builder.BuildCancelNavCommand());
             commands.Add(builder.BuildCurrencyNavCommand());
@@ -54,7 +54,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoices.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -166,14 +166,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesInvoicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.SalesInvoicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SalesInvoicesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesInvoicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.SalesInvoicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SalesInvoicesRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -186,11 +186,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesInvoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesInvoices.SalesInvoicesRequestBuilder.SalesInvoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesInvoicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesInvoices.SalesInvoicesRequestBuilder.SalesInvoicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

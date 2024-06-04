@@ -9,26 +9,26 @@ using System;
 namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime
 {
     #pragma warning disable CS1591
-    public class GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PstnBlockedUsersLogRow>? Value { get; set; }
+        public List<ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow>? Value { get; set; }
 #nullable restore
 #else
-        public List<PstnBlockedUsersLogRow> Value { get; set; }
+        public List<ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime.GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime.GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse();
+            return new ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBlockedUsersLogWithFromDateTimeWithToDateTime.GetPstnBlockedUsersLogWithFromDateTimeWithToDateTimeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBloc
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PstnBlockedUsersLogRow>(PstnBlockedUsersLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow>(ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetPstnBloc
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PstnBlockedUsersLogRow>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow>("value", Value);
         }
     }
 }

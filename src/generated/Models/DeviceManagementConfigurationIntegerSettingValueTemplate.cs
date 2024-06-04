@@ -9,34 +9,34 @@ namespace ApiSdk.Models
     /// <summary>
     /// Integer Setting Value Template
     /// </summary>
-    public class DeviceManagementConfigurationIntegerSettingValueTemplate : DeviceManagementConfigurationSimpleSettingValueTemplate, IParsable
+    public class DeviceManagementConfigurationIntegerSettingValueTemplate : ApiSdk.Models.DeviceManagementConfigurationSimpleSettingValueTemplate, IParsable
     {
         /// <summary>Integer Setting Value Default Template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationIntegerSettingValueDefaultTemplate? DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate? DefaultValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationIntegerSettingValueDefaultTemplate DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate DefaultValue { get; set; }
 #endif
         /// <summary>Recommended value definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate? RecommendedValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate? RecommendedValueDefinition { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate RecommendedValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate RecommendedValueDefinition { get; set; }
 #endif
         /// <summary>Required value definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate? RequiredValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate? RequiredValueDefinition { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate RequiredValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate RequiredValueDefinition { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationIntegerSettingValueTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationIntegerSettingValueTemplate() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationIntegerSettingValueTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationIntegerSettingValueTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationIntegerSettingValueTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "defaultValue", n => { DefaultValue = n.GetObjectValue<DeviceManagementConfigurationIntegerSettingValueDefaultTemplate>(DeviceManagementConfigurationIntegerSettingValueDefaultTemplate.CreateFromDiscriminatorValue); } },
-                { "recommendedValueDefinition", n => { RecommendedValueDefinition = n.GetObjectValue<DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>(DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
-                { "requiredValueDefinition", n => { RequiredValueDefinition = n.GetObjectValue<DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>(DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate>(ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate.CreateFromDiscriminatorValue); } },
+                { "recommendedValueDefinition", n => { RecommendedValueDefinition = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>(ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
+                { "requiredValueDefinition", n => { RequiredValueDefinition = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>(ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementConfigurationIntegerSettingValueDefaultTemplate>("defaultValue", DefaultValue);
-            writer.WriteObjectValue<DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>("recommendedValueDefinition", RecommendedValueDefinition);
-            writer.WriteObjectValue<DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>("requiredValueDefinition", RequiredValueDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefaultTemplate>("defaultValue", DefaultValue);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>("recommendedValueDefinition", RecommendedValueDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate>("requiredValueDefinition", RequiredValueDefinition);
         }
     }
 }

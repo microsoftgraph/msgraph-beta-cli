@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SamlNameIdClaim : CustomClaimBase, IParsable
+    public class SamlNameIdClaim : ApiSdk.Models.CustomClaimBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The nameIdFormat property</summary>
-        public SamlNameIDFormat? NameIdFormat { get; set; }
+        public ApiSdk.Models.SamlNameIDFormat? NameIdFormat { get; set; }
         /// <summary>Allows the specification of a service provider name qualifier reflected in the sAML response. The value provided must match one of the service provider names configured for the application and is only applicable for IdP-initiated applications (the sign-on URL should be empty for the IdP-initiated applications), in all other cases this value is ignored.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string ServiceProviderNameQualifier { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SamlNameIdClaim"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SamlNameIdClaim"/> and sets the default values.
         /// </summary>
         public SamlNameIdClaim() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SamlNameIdClaim"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SamlNameIdClaim"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SamlNameIdClaim CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SamlNameIdClaim CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SamlNameIdClaim();
+            return new ApiSdk.Models.SamlNameIdClaim();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "nameIdFormat", n => { NameIdFormat = n.GetEnumValue<SamlNameIDFormat>(); } },
+                { "nameIdFormat", n => { NameIdFormat = n.GetEnumValue<ApiSdk.Models.SamlNameIDFormat>(); } },
                 { "serviceProviderNameQualifier", n => { ServiceProviderNameQualifier = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<SamlNameIDFormat>("nameIdFormat", NameIdFormat);
+            writer.WriteEnumValue<ApiSdk.Models.SamlNameIDFormat>("nameIdFormat", NameIdFormat);
             writer.WriteStringValue("serviceProviderNameQualifier", ServiceProviderNameQualifier);
         }
     }

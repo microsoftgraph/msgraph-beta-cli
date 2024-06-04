@@ -85,26 +85,26 @@ namespace ApiSdk.Models
         /// <summary>Represents the application segment collection for an on-premises wildcard application. This property is deprecated and will stop returning data on June 1, 2023. Use segmentsConfiguration instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesApplicationSegment>? OnPremisesApplicationSegments { get; set; }
+        public List<ApiSdk.Models.OnPremisesApplicationSegment>? OnPremisesApplicationSegments { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesApplicationSegment> OnPremisesApplicationSegments { get; set; }
+        public List<ApiSdk.Models.OnPremisesApplicationSegment> OnPremisesApplicationSegments { get; set; }
 #endif
         /// <summary>Represents the collection of application segments for an on-premises wildcard application that&apos;s published through Microsoft Entra application proxy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SegmentConfiguration? SegmentsConfiguration { get; set; }
+        public ApiSdk.Models.SegmentConfiguration? SegmentsConfiguration { get; set; }
 #nullable restore
 #else
-        public SegmentConfiguration SegmentsConfiguration { get; set; }
+        public ApiSdk.Models.SegmentConfiguration SegmentsConfiguration { get; set; }
 #endif
         /// <summary>Represents the single sign-on configuration for the on-premises application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnPremisesPublishingSingleSignOn? SingleSignOnSettings { get; set; }
+        public ApiSdk.Models.OnPremisesPublishingSingleSignOn? SingleSignOnSettings { get; set; }
 #nullable restore
 #else
-        public OnPremisesPublishingSingleSignOn SingleSignOnSettings { get; set; }
+        public ApiSdk.Models.OnPremisesPublishingSingleSignOn SingleSignOnSettings { get; set; }
 #endif
         /// <summary>The useAlternateUrlForTranslationAndRedirect property</summary>
         public bool? UseAlternateUrlForTranslationAndRedirect { get; set; }
@@ -119,21 +119,21 @@ namespace ApiSdk.Models
         /// <summary>The associated key credential for the custom domain used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public KeyCredential? VerifiedCustomDomainKeyCredential { get; set; }
+        public ApiSdk.Models.KeyCredential? VerifiedCustomDomainKeyCredential { get; set; }
 #nullable restore
 #else
-        public KeyCredential VerifiedCustomDomainKeyCredential { get; set; }
+        public ApiSdk.Models.KeyCredential VerifiedCustomDomainKeyCredential { get; set; }
 #endif
         /// <summary>The associated password credential for the custom domain used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PasswordCredential? VerifiedCustomDomainPasswordCredential { get; set; }
+        public ApiSdk.Models.PasswordCredential? VerifiedCustomDomainPasswordCredential { get; set; }
 #nullable restore
 #else
-        public PasswordCredential VerifiedCustomDomainPasswordCredential { get; set; }
+        public ApiSdk.Models.PasswordCredential VerifiedCustomDomainPasswordCredential { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OnPremisesPublishing"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OnPremisesPublishing"/> and sets the default values.
         /// </summary>
         public OnPremisesPublishing()
         {
@@ -142,12 +142,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesPublishing"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesPublishing"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OnPremisesPublishing CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OnPremisesPublishing CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesPublishing();
+            return new ApiSdk.Models.OnPremisesPublishing();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -160,7 +160,7 @@ namespace ApiSdk.Models
                 { "alternateUrl", n => { AlternateUrl = n.GetStringValue(); } },
                 { "applicationServerTimeout", n => { ApplicationServerTimeout = n.GetStringValue(); } },
                 { "applicationType", n => { ApplicationType = n.GetStringValue(); } },
-                { "externalAuthenticationType", n => { ExternalAuthenticationType = n.GetEnumValue<ExternalAuthenticationType>(); } },
+                { "externalAuthenticationType", n => { ExternalAuthenticationType = n.GetEnumValue<ApiSdk.Models.ExternalAuthenticationType>(); } },
                 { "externalUrl", n => { ExternalUrl = n.GetStringValue(); } },
                 { "internalUrl", n => { InternalUrl = n.GetStringValue(); } },
                 { "isAccessibleViaZTNAClient", n => { IsAccessibleViaZTNAClient = n.GetBoolValue(); } },
@@ -174,13 +174,13 @@ namespace ApiSdk.Models
                 { "isTranslateHostHeaderEnabled", n => { IsTranslateHostHeaderEnabled = n.GetBoolValue(); } },
                 { "isTranslateLinksInBodyEnabled", n => { IsTranslateLinksInBodyEnabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "onPremisesApplicationSegments", n => { OnPremisesApplicationSegments = n.GetCollectionOfObjectValues<OnPremisesApplicationSegment>(OnPremisesApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "segmentsConfiguration", n => { SegmentsConfiguration = n.GetObjectValue<SegmentConfiguration>(SegmentConfiguration.CreateFromDiscriminatorValue); } },
-                { "singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<OnPremisesPublishingSingleSignOn>(OnPremisesPublishingSingleSignOn.CreateFromDiscriminatorValue); } },
+                { "onPremisesApplicationSegments", n => { OnPremisesApplicationSegments = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesApplicationSegment>(ApiSdk.Models.OnPremisesApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "segmentsConfiguration", n => { SegmentsConfiguration = n.GetObjectValue<ApiSdk.Models.SegmentConfiguration>(ApiSdk.Models.SegmentConfiguration.CreateFromDiscriminatorValue); } },
+                { "singleSignOnSettings", n => { SingleSignOnSettings = n.GetObjectValue<ApiSdk.Models.OnPremisesPublishingSingleSignOn>(ApiSdk.Models.OnPremisesPublishingSingleSignOn.CreateFromDiscriminatorValue); } },
                 { "useAlternateUrlForTranslationAndRedirect", n => { UseAlternateUrlForTranslationAndRedirect = n.GetBoolValue(); } },
                 { "verifiedCustomDomainCertificatesMetadata", n => { VerifiedCustomDomainCertificatesMetadata = n.GetObjectValue<ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata>(ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata.CreateFromDiscriminatorValue); } },
-                { "verifiedCustomDomainKeyCredential", n => { VerifiedCustomDomainKeyCredential = n.GetObjectValue<KeyCredential>(KeyCredential.CreateFromDiscriminatorValue); } },
-                { "verifiedCustomDomainPasswordCredential", n => { VerifiedCustomDomainPasswordCredential = n.GetObjectValue<PasswordCredential>(PasswordCredential.CreateFromDiscriminatorValue); } },
+                { "verifiedCustomDomainKeyCredential", n => { VerifiedCustomDomainKeyCredential = n.GetObjectValue<ApiSdk.Models.KeyCredential>(ApiSdk.Models.KeyCredential.CreateFromDiscriminatorValue); } },
+                { "verifiedCustomDomainPasswordCredential", n => { VerifiedCustomDomainPasswordCredential = n.GetObjectValue<ApiSdk.Models.PasswordCredential>(ApiSdk.Models.PasswordCredential.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -193,7 +193,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("alternateUrl", AlternateUrl);
             writer.WriteStringValue("applicationServerTimeout", ApplicationServerTimeout);
             writer.WriteStringValue("applicationType", ApplicationType);
-            writer.WriteEnumValue<ExternalAuthenticationType>("externalAuthenticationType", ExternalAuthenticationType);
+            writer.WriteEnumValue<ApiSdk.Models.ExternalAuthenticationType>("externalAuthenticationType", ExternalAuthenticationType);
             writer.WriteStringValue("externalUrl", ExternalUrl);
             writer.WriteStringValue("internalUrl", InternalUrl);
             writer.WriteBoolValue("isAccessibleViaZTNAClient", IsAccessibleViaZTNAClient);
@@ -207,13 +207,13 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("isTranslateHostHeaderEnabled", IsTranslateHostHeaderEnabled);
             writer.WriteBoolValue("isTranslateLinksInBodyEnabled", IsTranslateLinksInBodyEnabled);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<OnPremisesApplicationSegment>("onPremisesApplicationSegments", OnPremisesApplicationSegments);
-            writer.WriteObjectValue<SegmentConfiguration>("segmentsConfiguration", SegmentsConfiguration);
-            writer.WriteObjectValue<OnPremisesPublishingSingleSignOn>("singleSignOnSettings", SingleSignOnSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesApplicationSegment>("onPremisesApplicationSegments", OnPremisesApplicationSegments);
+            writer.WriteObjectValue<ApiSdk.Models.SegmentConfiguration>("segmentsConfiguration", SegmentsConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.OnPremisesPublishingSingleSignOn>("singleSignOnSettings", SingleSignOnSettings);
             writer.WriteBoolValue("useAlternateUrlForTranslationAndRedirect", UseAlternateUrlForTranslationAndRedirect);
             writer.WriteObjectValue<ApiSdk.Models.VerifiedCustomDomainCertificatesMetadata>("verifiedCustomDomainCertificatesMetadata", VerifiedCustomDomainCertificatesMetadata);
-            writer.WriteObjectValue<KeyCredential>("verifiedCustomDomainKeyCredential", VerifiedCustomDomainKeyCredential);
-            writer.WriteObjectValue<PasswordCredential>("verifiedCustomDomainPasswordCredential", VerifiedCustomDomainPasswordCredential);
+            writer.WriteObjectValue<ApiSdk.Models.KeyCredential>("verifiedCustomDomainKeyCredential", VerifiedCustomDomainKeyCredential);
+            writer.WriteObjectValue<ApiSdk.Models.PasswordCredential>("verifiedCustomDomainPasswordCredential", VerifiedCustomDomainPasswordCredential);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

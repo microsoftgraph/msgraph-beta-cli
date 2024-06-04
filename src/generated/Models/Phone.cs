@@ -29,9 +29,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.</summary>
-        public PhoneType? Type { get; set; }
+        public ApiSdk.Models.PhoneType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Phone"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Phone"/> and sets the default values.
         /// </summary>
         public Phone()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Phone"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Phone"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Phone CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Phone CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Phone();
+            return new ApiSdk.Models.Phone();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "number", n => { Number = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<PhoneType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.PhoneType>(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("number", Number);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PhoneType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.PhoneType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

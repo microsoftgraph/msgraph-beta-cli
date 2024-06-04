@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WebSegmentConfiguration : SegmentConfiguration, IParsable
+    public class WebSegmentConfiguration : ApiSdk.Models.SegmentConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicationSegments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WebApplicationSegment>? ApplicationSegments { get; set; }
+        public List<ApiSdk.Models.WebApplicationSegment>? ApplicationSegments { get; set; }
 #nullable restore
 #else
-        public List<WebApplicationSegment> ApplicationSegments { get; set; }
+        public List<ApiSdk.Models.WebApplicationSegment> ApplicationSegments { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WebSegmentConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WebSegmentConfiguration"/> and sets the default values.
         /// </summary>
         public WebSegmentConfiguration() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WebSegmentConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WebSegmentConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WebSegmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WebSegmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WebSegmentConfiguration();
+            return new ApiSdk.Models.WebSegmentConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<WebApplicationSegment>(WebApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "applicationSegments", n => { ApplicationSegments = n.GetCollectionOfObjectValues<ApiSdk.Models.WebApplicationSegment>(ApiSdk.Models.WebApplicationSegment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WebApplicationSegment>("applicationSegments", ApplicationSegments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WebApplicationSegment>("applicationSegments", ApplicationSegments);
         }
     }
 }

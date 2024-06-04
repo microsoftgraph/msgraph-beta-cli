@@ -23,9 +23,9 @@ namespace ApiSdk.Models
         /// <summary>Provides the registration count for your tenant.</summary>
         public long? RegistrationCount { get; set; }
         /// <summary>The registrationStatus property</summary>
-        public RegistrationStatusType? RegistrationStatus { get; set; }
+        public ApiSdk.Models.RegistrationStatusType? RegistrationStatus { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UserRegistrationCount"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserRegistrationCount"/> and sets the default values.
         /// </summary>
         public UserRegistrationCount()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserRegistrationCount"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserRegistrationCount"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserRegistrationCount CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserRegistrationCount CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserRegistrationCount();
+            return new ApiSdk.Models.UserRegistrationCount();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "registrationCount", n => { RegistrationCount = n.GetLongValue(); } },
-                { "registrationStatus", n => { RegistrationStatus = n.GetEnumValue<RegistrationStatusType>(); } },
+                { "registrationStatus", n => { RegistrationStatus = n.GetEnumValue<ApiSdk.Models.RegistrationStatusType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteLongValue("registrationCount", RegistrationCount);
-            writer.WriteEnumValue<RegistrationStatusType>("registrationStatus", RegistrationStatus);
+            writer.WriteEnumValue<ApiSdk.Models.RegistrationStatusType>("registrationStatus", RegistrationStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

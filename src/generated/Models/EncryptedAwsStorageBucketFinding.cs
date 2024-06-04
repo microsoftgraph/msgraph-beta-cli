@@ -7,28 +7,28 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EncryptedAwsStorageBucketFinding : Finding, IParsable
+    public class EncryptedAwsStorageBucketFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessibility property</summary>
-        public AwsAccessType? Accessibility { get; set; }
+        public ApiSdk.Models.AwsAccessType? Accessibility { get; set; }
         /// <summary>The storageBucket property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemResource? StorageBucket { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource? StorageBucket { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemResource StorageBucket { get; set; }
+        public ApiSdk.Models.AuthorizationSystemResource StorageBucket { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptedAwsStorageBucketFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptedAwsStorageBucketFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EncryptedAwsStorageBucketFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EncryptedAwsStorageBucketFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptedAwsStorageBucketFinding();
+            return new ApiSdk.Models.EncryptedAwsStorageBucketFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,8 +38,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessibility", n => { Accessibility = n.GetEnumValue<AwsAccessType>(); } },
-                { "storageBucket", n => { StorageBucket = n.GetObjectValue<AuthorizationSystemResource>(AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "accessibility", n => { Accessibility = n.GetEnumValue<ApiSdk.Models.AwsAccessType>(); } },
+                { "storageBucket", n => { StorageBucket = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemResource>(ApiSdk.Models.AuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -50,8 +50,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AwsAccessType>("accessibility", Accessibility);
-            writer.WriteObjectValue<AuthorizationSystemResource>("storageBucket", StorageBucket);
+            writer.WriteEnumValue<ApiSdk.Models.AwsAccessType>("accessibility", Accessibility);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemResource>("storageBucket", StorageBucket);
         }
     }
 }

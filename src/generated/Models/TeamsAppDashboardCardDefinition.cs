@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TeamsAppDashboardCardDefinition : Entity, IParsable
+    public class TeamsAppDashboardCardDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration for the source of the card content. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamsAppDashboardCardContentSource? ContentSource { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardContentSource? ContentSource { get; set; }
 #nullable restore
 #else
-        public TeamsAppDashboardCardContentSource ContentSource { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardContentSource ContentSource { get; set; }
 #endif
         /// <summary>The size of the card. The possible values are: medium, large, unknownFutureValue. Required.</summary>
-        public TeamsAppDashboardCardSize? DefaultSize { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardSize? DefaultSize { get; set; }
         /// <summary>The description for the card. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,10 +39,10 @@ namespace ApiSdk.Models
         /// <summary>Configuration for the display of the icon in the card picker. If neither this nor any of its properties (iconUrl and officeUIFabricIconName) are specified, the color icon of the app is used. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamsAppDashboardCardIcon? Icon { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardIcon? Icon { get; set; }
 #nullable restore
 #else
-        public TeamsAppDashboardCardIcon Icon { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardIcon Icon { get; set; }
 #endif
         /// <summary>ID for the group in the card picker. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,12 +55,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamsAppDashboardCardDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamsAppDashboardCardDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TeamsAppDashboardCardDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TeamsAppDashboardCardDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamsAppDashboardCardDefinition();
+            return new ApiSdk.Models.TeamsAppDashboardCardDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,11 +70,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "contentSource", n => { ContentSource = n.GetObjectValue<TeamsAppDashboardCardContentSource>(TeamsAppDashboardCardContentSource.CreateFromDiscriminatorValue); } },
-                { "defaultSize", n => { DefaultSize = n.GetEnumValue<TeamsAppDashboardCardSize>(); } },
+                { "contentSource", n => { ContentSource = n.GetObjectValue<ApiSdk.Models.TeamsAppDashboardCardContentSource>(ApiSdk.Models.TeamsAppDashboardCardContentSource.CreateFromDiscriminatorValue); } },
+                { "defaultSize", n => { DefaultSize = n.GetEnumValue<ApiSdk.Models.TeamsAppDashboardCardSize>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "icon", n => { Icon = n.GetObjectValue<TeamsAppDashboardCardIcon>(TeamsAppDashboardCardIcon.CreateFromDiscriminatorValue); } },
+                { "icon", n => { Icon = n.GetObjectValue<ApiSdk.Models.TeamsAppDashboardCardIcon>(ApiSdk.Models.TeamsAppDashboardCardIcon.CreateFromDiscriminatorValue); } },
                 { "pickerGroupId", n => { PickerGroupId = n.GetStringValue(); } },
             };
         }
@@ -86,11 +86,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<TeamsAppDashboardCardContentSource>("contentSource", ContentSource);
-            writer.WriteEnumValue<TeamsAppDashboardCardSize>("defaultSize", DefaultSize);
+            writer.WriteObjectValue<ApiSdk.Models.TeamsAppDashboardCardContentSource>("contentSource", ContentSource);
+            writer.WriteEnumValue<ApiSdk.Models.TeamsAppDashboardCardSize>("defaultSize", DefaultSize);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<TeamsAppDashboardCardIcon>("icon", Icon);
+            writer.WriteObjectValue<ApiSdk.Models.TeamsAppDashboardCardIcon>("icon", Icon);
             writer.WriteStringValue("pickerGroupId", PickerGroupId);
         }
     }

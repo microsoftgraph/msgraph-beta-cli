@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CredentialUsageSummary : Entity, IParsable
+    public class CredentialUsageSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authMethod property</summary>
-        public UsageAuthMethod? AuthMethod { get; set; }
+        public ApiSdk.Models.UsageAuthMethod? AuthMethod { get; set; }
         /// <summary>Provides the count of failed resets or registration data.</summary>
         public long? FailureActivityCount { get; set; }
         /// <summary>The feature property</summary>
-        public FeatureType? Feature { get; set; }
+        public ApiSdk.Models.FeatureType? Feature { get; set; }
         /// <summary>Provides the count of successful registrations or resets.</summary>
         public long? SuccessfulActivityCount { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CredentialUsageSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CredentialUsageSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CredentialUsageSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CredentialUsageSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CredentialUsageSummary();
+            return new ApiSdk.Models.CredentialUsageSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,9 +36,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authMethod", n => { AuthMethod = n.GetEnumValue<UsageAuthMethod>(); } },
+                { "authMethod", n => { AuthMethod = n.GetEnumValue<ApiSdk.Models.UsageAuthMethod>(); } },
                 { "failureActivityCount", n => { FailureActivityCount = n.GetLongValue(); } },
-                { "feature", n => { Feature = n.GetEnumValue<FeatureType>(); } },
+                { "feature", n => { Feature = n.GetEnumValue<ApiSdk.Models.FeatureType>(); } },
                 { "successfulActivityCount", n => { SuccessfulActivityCount = n.GetLongValue(); } },
             };
         }
@@ -50,9 +50,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<UsageAuthMethod>("authMethod", AuthMethod);
+            writer.WriteEnumValue<ApiSdk.Models.UsageAuthMethod>("authMethod", AuthMethod);
             writer.WriteLongValue("failureActivityCount", FailureActivityCount);
-            writer.WriteEnumValue<FeatureType>("feature", Feature);
+            writer.WriteEnumValue<ApiSdk.Models.FeatureType>("feature", Feature);
             writer.WriteLongValue("successfulActivityCount", SuccessfulActivityCount);
         }
     }

@@ -25,7 +25,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AdditionalUserOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.AdditionalUserOptions"/> and sets the default values.
         /// </summary>
         public AdditionalUserOptions()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdditionalUserOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.AdditionalUserOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AdditionalUserOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.AdditionalUserOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdditionalUserOptions();
+            return new ApiSdk.Models.IndustryData.AdditionalUserOptions();
         }
         /// <summary>
         /// The deserialization information for the current model

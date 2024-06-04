@@ -38,9 +38,9 @@ namespace ApiSdk.Models
         public string SourceId { get; set; }
 #endif
         /// <summary>Authoring source of a policy</summary>
-        public SecurityBaselinePolicySourceType? SourceType { get; set; }
+        public ApiSdk.Models.SecurityBaselinePolicySourceType? SourceType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="SecurityBaselineContributingPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SecurityBaselineContributingPolicy"/> and sets the default values.
         /// </summary>
         public SecurityBaselineContributingPolicy()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityBaselineContributingPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityBaselineContributingPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SecurityBaselineContributingPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SecurityBaselineContributingPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityBaselineContributingPolicy();
+            return new ApiSdk.Models.SecurityBaselineContributingPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "sourceId", n => { SourceId = n.GetStringValue(); } },
-                { "sourceType", n => { SourceType = n.GetEnumValue<SecurityBaselinePolicySourceType>(); } },
+                { "sourceType", n => { SourceType = n.GetEnumValue<ApiSdk.Models.SecurityBaselinePolicySourceType>(); } },
             };
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("sourceId", SourceId);
-            writer.WriteEnumValue<SecurityBaselinePolicySourceType>("sourceType", SourceType);
+            writer.WriteEnumValue<ApiSdk.Models.SecurityBaselinePolicySourceType>("sourceType", SourceType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

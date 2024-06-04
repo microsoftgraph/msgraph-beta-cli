@@ -25,13 +25,13 @@ namespace ApiSdk.Models
         /// <summary>The peripheral property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheral? Peripheral { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral? Peripheral { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheral Peripheral { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral Peripheral { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkConfiguredPeripheral"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkConfiguredPeripheral"/> and sets the default values.
         /// </summary>
         public TeamworkConfiguredPeripheral()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkConfiguredPeripheral"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkConfiguredPeripheral"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkConfiguredPeripheral CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkConfiguredPeripheral CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkConfiguredPeripheral();
+            return new ApiSdk.Models.TeamworkConfiguredPeripheral();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "isOptional", n => { IsOptional = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "peripheral", n => { Peripheral = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "peripheral", n => { Peripheral = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("isOptional", IsOptional);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TeamworkPeripheral>("peripheral", Peripheral);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheral>("peripheral", Peripheral);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

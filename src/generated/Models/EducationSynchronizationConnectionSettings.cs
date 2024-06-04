@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationConnectionSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationConnectionSettings"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationConnectionSettings()
         {
@@ -46,17 +46,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationConnectionSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationConnectionSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationSynchronizationConnectionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationSynchronizationConnectionSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.educationSynchronizationOAuth1ConnectionSettings" => new EducationSynchronizationOAuth1ConnectionSettings(),
-                "#microsoft.graph.educationSynchronizationOAuth2ClientCredentialsConnectionSettings" => new EducationSynchronizationOAuth2ClientCredentialsConnectionSettings(),
-                _ => new EducationSynchronizationConnectionSettings(),
+                "#microsoft.graph.educationSynchronizationOAuth1ConnectionSettings" => new ApiSdk.Models.EducationSynchronizationOAuth1ConnectionSettings(),
+                "#microsoft.graph.educationSynchronizationOAuth2ClientCredentialsConnectionSettings" => new ApiSdk.Models.EducationSynchronizationOAuth2ClientCredentialsConnectionSettings(),
+                _ => new ApiSdk.Models.EducationSynchronizationConnectionSettings(),
             };
         }
         /// <summary>

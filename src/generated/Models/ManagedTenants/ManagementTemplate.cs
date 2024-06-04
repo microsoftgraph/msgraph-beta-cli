@@ -11,7 +11,7 @@ namespace ApiSdk.Models.ManagedTenants
     #pragma warning restore CS1591
     {
         /// <summary>The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.</summary>
-        public ManagementCategory? Category { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementCategory? Category { get; set; }
         /// <summary>The createdByUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,31 +59,31 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The managementTemplateCollections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateCollection>? ManagementTemplateCollections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>? ManagementTemplateCollections { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateCollection> ManagementTemplateCollections { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection> ManagementTemplateCollections { get; set; }
 #endif
         /// <summary>The managementTemplateSteps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStep>? ManagementTemplateSteps { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>? ManagementTemplateSteps { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStep> ManagementTemplateSteps { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStep> ManagementTemplateSteps { get; set; }
 #endif
         /// <summary>The collection of parameters used by the management template. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TemplateParameter>? Parameters { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TemplateParameter>? Parameters { get; set; }
 #nullable restore
 #else
-        public List<TemplateParameter> Parameters { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.TemplateParameter> Parameters { get; set; }
 #endif
         /// <summary>The priority property</summary>
         public int? Priority { get; set; }
         /// <summary>The provider property</summary>
-        public ManagementProvider? Provider { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementProvider? Provider { get; set; }
         /// <summary>The userImpact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -97,20 +97,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of workload actions associated with the management template. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkloadAction>? WorkloadActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadAction>? WorkloadActions { get; set; }
 #nullable restore
 #else
-        public List<WorkloadAction> WorkloadActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.WorkloadAction> WorkloadActions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementTemplate();
+            return new ApiSdk.Models.ManagedTenants.ManagementTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -120,7 +120,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>(); } },
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -128,14 +128,14 @@ namespace ApiSdk.Models.ManagedTenants
                 { "informationLinks", n => { InformationLinks = n.GetCollectionOfObjectValues<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastActionByUserId", n => { LastActionByUserId = n.GetStringValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
-                { "managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ManagementTemplateCollection>(ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ManagementTemplateStep>(ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<TemplateParameter>(TemplateParameter.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateCollections", n => { ManagementTemplateCollections = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>(ApiSdk.Models.ManagedTenants.ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplateSteps", n => { ManagementTemplateSteps = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>(ApiSdk.Models.ManagedTenants.ManagementTemplateStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "parameters", n => { Parameters = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TemplateParameter>(ApiSdk.Models.ManagedTenants.TemplateParameter.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
-                { "provider", n => { Provider = n.GetEnumValue<ManagementProvider>(); } },
+                { "provider", n => { Provider = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementProvider>(); } },
                 { "userImpact", n => { UserImpact = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
-                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<WorkloadAction>(WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workloadActions", n => { WorkloadActions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadAction>(ApiSdk.Models.ManagedTenants.WorkloadAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -146,7 +146,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ManagementCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>("category", Category);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
@@ -154,14 +154,14 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.ActionUrl>("informationLinks", InformationLinks);
             writer.WriteStringValue("lastActionByUserId", LastActionByUserId);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateCollection>("managementTemplateCollections", ManagementTemplateCollections);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStep>("managementTemplateSteps", ManagementTemplateSteps);
-            writer.WriteCollectionOfObjectValues<TemplateParameter>("parameters", Parameters);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>("managementTemplateCollections", ManagementTemplateCollections);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStep>("managementTemplateSteps", ManagementTemplateSteps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.TemplateParameter>("parameters", Parameters);
             writer.WriteIntValue("priority", Priority);
-            writer.WriteEnumValue<ManagementProvider>("provider", Provider);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementProvider>("provider", Provider);
             writer.WriteStringValue("userImpact", UserImpact);
             writer.WriteIntValue("version", Version);
-            writer.WriteCollectionOfObjectValues<WorkloadAction>("workloadActions", WorkloadActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.WorkloadAction>("workloadActions", WorkloadActions);
         }
     }
 }

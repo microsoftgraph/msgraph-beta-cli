@@ -64,7 +64,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("accounts");
             command.Description = "Provides operations to manage the accounts property of the microsoft.graph.company entity.";
-            var builder = new AccountsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Accounts.AccountsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -90,7 +90,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("aged-accounts-payable");
             command.Description = "Provides operations to manage the agedAccountsPayable property of the microsoft.graph.company entity.";
-            var builder = new AgedAccountsPayableRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.AgedAccountsPayable.AgedAccountsPayableRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -116,7 +116,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("aged-accounts-receivable");
             command.Description = "Provides operations to manage the agedAccountsReceivable property of the microsoft.graph.company entity.";
-            var builder = new AgedAccountsReceivableRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.AgedAccountsReceivable.AgedAccountsReceivableRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -142,7 +142,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("company-information");
             command.Description = "Provides operations to manage the companyInformation property of the microsoft.graph.company entity.";
-            var builder = new CompanyInformationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CompanyInformation.CompanyInformationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -168,7 +168,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("countries-regions");
             command.Description = "Provides operations to manage the countriesRegions property of the microsoft.graph.company entity.";
-            var builder = new CountriesRegionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CountriesRegions.CountriesRegionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -195,7 +195,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("currencies");
             command.Description = "Provides operations to manage the currencies property of the microsoft.graph.company entity.";
-            var builder = new CurrenciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Currencies.CurrenciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -222,7 +222,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("customer-payment-journals");
             command.Description = "Provides operations to manage the customerPaymentJournals property of the microsoft.graph.company entity.";
-            var builder = new CustomerPaymentJournalsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.CustomerPaymentJournalsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -249,7 +249,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("customer-payments");
             command.Description = "Provides operations to manage the customerPayments property of the microsoft.graph.company entity.";
-            var builder = new CustomerPaymentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CustomerPayments.CustomerPaymentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -276,7 +276,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("customers");
             command.Description = "Provides operations to manage the customers property of the microsoft.graph.company entity.";
-            var builder = new CustomersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Customers.CustomersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -303,7 +303,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("dimensions");
             command.Description = "Provides operations to manage the dimensions property of the microsoft.graph.company entity.";
-            var builder = new DimensionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Dimensions.DimensionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -329,7 +329,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("dimension-values");
             command.Description = "Provides operations to manage the dimensionValues property of the microsoft.graph.company entity.";
-            var builder = new DimensionValuesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.DimensionValues.DimensionValuesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -355,7 +355,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("employees");
             command.Description = "Provides operations to manage the employees property of the microsoft.graph.company entity.";
-            var builder = new EmployeesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Employees.EmployeesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -382,7 +382,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("general-ledger-entries");
             command.Description = "Provides operations to manage the generalLedgerEntries property of the microsoft.graph.company entity.";
-            var builder = new GeneralLedgerEntriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.GeneralLedgerEntriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -460,7 +460,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("item-categories");
             command.Description = "Provides operations to manage the itemCategories property of the microsoft.graph.company entity.";
-            var builder = new ItemCategoriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.ItemCategories.ItemCategoriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -487,7 +487,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("items");
             command.Description = "Provides operations to manage the items property of the microsoft.graph.company entity.";
-            var builder = new ItemsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Items.ItemsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -514,7 +514,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("journal-lines");
             command.Description = "Provides operations to manage the journalLines property of the microsoft.graph.company entity.";
-            var builder = new JournalLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.JournalLines.JournalLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -541,7 +541,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("journals");
             command.Description = "Provides operations to manage the journals property of the microsoft.graph.company entity.";
-            var builder = new JournalsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Journals.JournalsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -568,7 +568,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("payment-methods");
             command.Description = "Provides operations to manage the paymentMethods property of the microsoft.graph.company entity.";
-            var builder = new PaymentMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PaymentMethods.PaymentMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -595,7 +595,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("payment-terms");
             command.Description = "Provides operations to manage the paymentTerms property of the microsoft.graph.company entity.";
-            var builder = new PaymentTermsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PaymentTerms.PaymentTermsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -622,7 +622,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("picture");
             command.Description = "Provides operations to manage the picture property of the microsoft.graph.company entity.";
-            var builder = new PictureRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Picture.PictureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -649,7 +649,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("purchase-invoice-lines");
             command.Description = "Provides operations to manage the purchaseInvoiceLines property of the microsoft.graph.company entity.";
-            var builder = new PurchaseInvoiceLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PurchaseInvoiceLines.PurchaseInvoiceLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -675,7 +675,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("purchase-invoices");
             command.Description = "Provides operations to manage the purchaseInvoices property of the microsoft.graph.company entity.";
-            var builder = new PurchaseInvoicesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.PurchaseInvoices.PurchaseInvoicesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -701,7 +701,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-credit-memo-lines");
             command.Description = "Provides operations to manage the salesCreditMemoLines property of the microsoft.graph.company entity.";
-            var builder = new SalesCreditMemoLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesCreditMemoLines.SalesCreditMemoLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -727,7 +727,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-credit-memos");
             command.Description = "Provides operations to manage the salesCreditMemos property of the microsoft.graph.company entity.";
-            var builder = new SalesCreditMemosRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesCreditMemos.SalesCreditMemosRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -753,7 +753,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-invoice-lines");
             command.Description = "Provides operations to manage the salesInvoiceLines property of the microsoft.graph.company entity.";
-            var builder = new SalesInvoiceLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoiceLines.SalesInvoiceLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -779,7 +779,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-invoices");
             command.Description = "Provides operations to manage the salesInvoices property of the microsoft.graph.company entity.";
-            var builder = new SalesInvoicesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesInvoices.SalesInvoicesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -805,7 +805,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-order-lines");
             command.Description = "Provides operations to manage the salesOrderLines property of the microsoft.graph.company entity.";
-            var builder = new SalesOrderLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrderLines.SalesOrderLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -831,7 +831,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-orders");
             command.Description = "Provides operations to manage the salesOrders property of the microsoft.graph.company entity.";
-            var builder = new SalesOrdersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesOrders.SalesOrdersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -857,7 +857,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-quote-lines");
             command.Description = "Provides operations to manage the salesQuoteLines property of the microsoft.graph.company entity.";
-            var builder = new SalesQuoteLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuoteLines.SalesQuoteLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -883,7 +883,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("sales-quotes");
             command.Description = "Provides operations to manage the salesQuotes property of the microsoft.graph.company entity.";
-            var builder = new SalesQuotesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.SalesQuotesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -909,7 +909,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("shipment-methods");
             command.Description = "Provides operations to manage the shipmentMethods property of the microsoft.graph.company entity.";
-            var builder = new ShipmentMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.ShipmentMethods.ShipmentMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -936,7 +936,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("tax-areas");
             command.Description = "Provides operations to manage the taxAreas property of the microsoft.graph.company entity.";
-            var builder = new TaxAreasRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.TaxAreas.TaxAreasRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -963,7 +963,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("tax-groups");
             command.Description = "Provides operations to manage the taxGroups property of the microsoft.graph.company entity.";
-            var builder = new TaxGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.TaxGroups.TaxGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -990,7 +990,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("units-of-measure");
             command.Description = "Provides operations to manage the unitsOfMeasure property of the microsoft.graph.company entity.";
-            var builder = new UnitsOfMeasureRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.UnitsOfMeasure.UnitsOfMeasureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1017,7 +1017,7 @@ namespace ApiSdk.Financials.Companies.Item
         {
             var command = new Command("vendors");
             command.Description = "Provides operations to manage the vendors property of the microsoft.graph.company entity.";
-            var builder = new VendorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.Vendors.VendorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -1037,14 +1037,14 @@ namespace ApiSdk.Financials.Companies.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompanyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CompanyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CompanyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CompanyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CompanyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CompanyItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}{?%24expand,%24select}", rawUrl)
@@ -1057,11 +1057,11 @@ namespace ApiSdk.Financials.Companies.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CompanyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.CompanyItemRequestBuilder.CompanyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CompanyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.CompanyItemRequestBuilder.CompanyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

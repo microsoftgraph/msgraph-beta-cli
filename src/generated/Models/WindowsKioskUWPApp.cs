@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The base class for a type of apps
     /// </summary>
-    public class WindowsKioskUWPApp : WindowsKioskAppBase, IParsable
+    public class WindowsKioskUWPApp : ApiSdk.Models.WindowsKioskAppBase, IParsable
     {
         /// <summary>This references an Intune App that will be target to the same assignments as Kiosk configuration</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         public string ContainedAppId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsKioskUWPApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsKioskUWPApp"/> and sets the default values.
         /// </summary>
         public WindowsKioskUWPApp() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsKioskUWPApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsKioskUWPApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsKioskUWPApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsKioskUWPApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsKioskUWPApp();
+            return new ApiSdk.Models.WindowsKioskUWPApp();
         }
         /// <summary>
         /// The deserialization information for the current model

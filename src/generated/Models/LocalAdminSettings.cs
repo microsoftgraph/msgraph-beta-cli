@@ -25,13 +25,13 @@ namespace ApiSdk.Models
         /// <summary>The registeringUsers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceRegistrationMembership? RegisteringUsers { get; set; }
+        public ApiSdk.Models.DeviceRegistrationMembership? RegisteringUsers { get; set; }
 #nullable restore
 #else
-        public DeviceRegistrationMembership RegisteringUsers { get; set; }
+        public ApiSdk.Models.DeviceRegistrationMembership RegisteringUsers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LocalAdminSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LocalAdminSettings"/> and sets the default values.
         /// </summary>
         public LocalAdminSettings()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LocalAdminSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LocalAdminSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LocalAdminSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.LocalAdminSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LocalAdminSettings();
+            return new ApiSdk.Models.LocalAdminSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "enableGlobalAdmins", n => { EnableGlobalAdmins = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "registeringUsers", n => { RegisteringUsers = n.GetObjectValue<DeviceRegistrationMembership>(DeviceRegistrationMembership.CreateFromDiscriminatorValue); } },
+                { "registeringUsers", n => { RegisteringUsers = n.GetObjectValue<ApiSdk.Models.DeviceRegistrationMembership>(ApiSdk.Models.DeviceRegistrationMembership.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enableGlobalAdmins", EnableGlobalAdmins);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<DeviceRegistrationMembership>("registeringUsers", RegisteringUsers);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceRegistrationMembership>("registeringUsers", RegisteringUsers);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

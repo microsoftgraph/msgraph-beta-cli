@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class AndroidVpnConfiguration : DeviceConfiguration, IParsable
+    public class AndroidVpnConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>VPN Authentication Method.</summary>
-        public VpnAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.VpnAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Connection name displayed to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,22 +22,22 @@ namespace ApiSdk.Models
         public string ConnectionName { get; set; }
 #endif
         /// <summary>Android VPN connection type.</summary>
-        public AndroidVpnConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.AndroidVpnConnectionType? ConnectionType { get; set; }
         /// <summary>Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue>? CustomData { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> CustomData { get; set; }
+        public List<ApiSdk.Models.KeyValue> CustomData { get; set; }
 #endif
         /// <summary>Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? CustomKeyValueData { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> CustomKeyValueData { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> CustomKeyValueData { get; set; }
 #endif
         /// <summary>Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace ApiSdk.Models
         /// <summary>Identity certificate for client authentication when authentication method is certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidCertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidCertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public AndroidCertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidCertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>Realm when connection type is set to Pulse Secure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,13 +74,13 @@ namespace ApiSdk.Models
         /// <summary>List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnServer>? Servers { get; set; }
+        public List<ApiSdk.Models.VpnServer>? Servers { get; set; }
 #nullable restore
 #else
-        public List<VpnServer> Servers { get; set; }
+        public List<ApiSdk.Models.VpnServer> Servers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidVpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidVpnConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidVpnConfiguration() : base()
         {
@@ -89,12 +89,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidVpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidVpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidVpnConfiguration();
+            return new ApiSdk.Models.AndroidVpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -104,16 +104,16 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<VpnAuthenticationMethod>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.VpnAuthenticationMethod>(); } },
                 { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<AndroidVpnConnectionType>(); } },
-                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.AndroidVpnConnectionType>(); } },
+                { "customData", n => { CustomData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customKeyValueData", n => { CustomKeyValueData = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "fingerprint", n => { Fingerprint = n.GetStringValue(); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidCertificateProfileBase>(AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.AndroidCertificateProfileBase>(ApiSdk.Models.AndroidCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "realm", n => { Realm = n.GetStringValue(); } },
                 { "role", n => { Role = n.GetStringValue(); } },
-                { "servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servers", n => { Servers = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnServer>(ApiSdk.Models.VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -124,16 +124,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.VpnAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
             writer.WriteStringValue("connectionName", ConnectionName);
-            writer.WriteEnumValue<AndroidVpnConnectionType>("connectionType", ConnectionType);
-            writer.WriteCollectionOfObjectValues<KeyValue>("customData", CustomData);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("customKeyValueData", CustomKeyValueData);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidVpnConnectionType>("connectionType", ConnectionType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("customData", CustomData);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("customKeyValueData", CustomKeyValueData);
             writer.WriteStringValue("fingerprint", Fingerprint);
-            writer.WriteObjectValue<AndroidCertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidCertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteStringValue("realm", Realm);
             writer.WriteStringValue("role", Role);
-            writer.WriteCollectionOfObjectValues<VpnServer>("servers", Servers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnServer>("servers", Servers);
         }
     }
 }

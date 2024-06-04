@@ -15,10 +15,10 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The enrollmentMappings member for the class group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SectionRoleReferenceValue>? MemberEnrollmentMappings { get; set; }
+        public List<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>? MemberEnrollmentMappings { get; set; }
 #nullable restore
 #else
-        public List<SectionRoleReferenceValue> MemberEnrollmentMappings { get; set; }
+        public List<ApiSdk.Models.IndustryData.SectionRoleReferenceValue> MemberEnrollmentMappings { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The enrollmentMappings owner for the class group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SectionRoleReferenceValue>? OwnerEnrollmentMappings { get; set; }
+        public List<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>? OwnerEnrollmentMappings { get; set; }
 #nullable restore
 #else
-        public List<SectionRoleReferenceValue> OwnerEnrollmentMappings { get; set; }
+        public List<ApiSdk.Models.IndustryData.SectionRoleReferenceValue> OwnerEnrollmentMappings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EnrollmentMappings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.EnrollmentMappings"/> and sets the default values.
         /// </summary>
         public EnrollmentMappings()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnrollmentMappings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.EnrollmentMappings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EnrollmentMappings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.EnrollmentMappings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EnrollmentMappings();
+            return new ApiSdk.Models.IndustryData.EnrollmentMappings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "memberEnrollmentMappings", n => { MemberEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "memberEnrollmentMappings", n => { MemberEnrollmentMappings = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>(ApiSdk.Models.IndustryData.SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "ownerEnrollmentMappings", n => { OwnerEnrollmentMappings = n.GetCollectionOfObjectValues<SectionRoleReferenceValue>(SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ownerEnrollmentMappings", n => { OwnerEnrollmentMappings = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>(ApiSdk.Models.IndustryData.SectionRoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models.IndustryData
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<SectionRoleReferenceValue>("memberEnrollmentMappings", MemberEnrollmentMappings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>("memberEnrollmentMappings", MemberEnrollmentMappings);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<SectionRoleReferenceValue>("ownerEnrollmentMappings", OwnerEnrollmentMappings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.SectionRoleReferenceValue>("ownerEnrollmentMappings", OwnerEnrollmentMappings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

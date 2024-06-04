@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The scope property</summary>
-        public TeamsAppInstallationScopes? Scope { get; set; }
+        public ApiSdk.Models.TeamsAppInstallationScopes? Scope { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TeamsAppInstallationScopeInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamsAppInstallationScopeInfo"/> and sets the default values.
         /// </summary>
         public TeamsAppInstallationScopeInfo()
         {
@@ -32,18 +32,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamsAppInstallationScopeInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamsAppInstallationScopeInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamsAppInstallationScopeInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamsAppInstallationScopeInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.groupChatTeamsAppInstallationScopeInfo" => new GroupChatTeamsAppInstallationScopeInfo(),
-                "#microsoft.graph.personalTeamsAppInstallationScopeInfo" => new PersonalTeamsAppInstallationScopeInfo(),
-                "#microsoft.graph.teamTeamsAppInstallationScopeInfo" => new TeamTeamsAppInstallationScopeInfo(),
-                _ => new TeamsAppInstallationScopeInfo(),
+                "#microsoft.graph.groupChatTeamsAppInstallationScopeInfo" => new ApiSdk.Models.GroupChatTeamsAppInstallationScopeInfo(),
+                "#microsoft.graph.personalTeamsAppInstallationScopeInfo" => new ApiSdk.Models.PersonalTeamsAppInstallationScopeInfo(),
+                "#microsoft.graph.teamTeamsAppInstallationScopeInfo" => new ApiSdk.Models.TeamTeamsAppInstallationScopeInfo(),
+                _ => new ApiSdk.Models.TeamsAppInstallationScopeInfo(),
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "scope", n => { Scope = n.GetEnumValue<TeamsAppInstallationScopes>(); } },
+                { "scope", n => { Scope = n.GetEnumValue<ApiSdk.Models.TeamsAppInstallationScopes>(); } },
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<TeamsAppInstallationScopes>("scope", Scope);
+            writer.WriteEnumValue<ApiSdk.Models.TeamsAppInstallationScopes>("scope", Scope);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

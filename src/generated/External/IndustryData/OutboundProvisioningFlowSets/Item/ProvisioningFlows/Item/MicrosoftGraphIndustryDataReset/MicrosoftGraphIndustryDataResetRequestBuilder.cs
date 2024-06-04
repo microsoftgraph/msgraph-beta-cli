@@ -56,14 +56,14 @@ namespace ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.Provisi
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataResetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.ProvisioningFlows.Item.MicrosoftGraphIndustryDataReset.MicrosoftGraphIndustryDataResetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphIndustryDataResetRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData/outboundProvisioningFlowSets/{outboundProvisioningFlowSet%2Did}/provisioningFlows/{provisioningFlow%2Did}/microsoft.graph.industryData.reset", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphIndustryDataResetRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.Item.ProvisioningFlows.Item.MicrosoftGraphIndustryDataReset.MicrosoftGraphIndustryDataResetRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphIndustryDataResetRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData/outboundProvisioningFlowSets/{outboundProvisioningFlowSet%2Did}/provisioningFlows/{provisioningFlow%2Did}/microsoft.graph.industryData.reset", rawUrl)

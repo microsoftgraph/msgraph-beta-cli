@@ -30,7 +30,7 @@ namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item
         {
             var command = new Command("account");
             command.Description = "Provides operations to manage the account property of the microsoft.graph.generalLedgerEntry entity.";
-            var builder = new AccountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.Account.AccountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -98,14 +98,14 @@ namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GeneralLedgerEntryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.GeneralLedgerEntryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GeneralLedgerEntryItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/generalLedgerEntries/{generalLedgerEntry%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GeneralLedgerEntryItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.GeneralLedgerEntryItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GeneralLedgerEntryItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/generalLedgerEntries/{generalLedgerEntry%2Did}{?%24expand,%24select}", rawUrl)
@@ -118,11 +118,11 @@ namespace ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GeneralLedgerEntryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.GeneralLedgerEntryItemRequestBuilder.GeneralLedgerEntryItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GeneralLedgerEntryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.GeneralLedgerEntries.Item.GeneralLedgerEntryItemRequestBuilder.GeneralLedgerEntryItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

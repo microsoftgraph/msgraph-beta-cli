@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerPlanConfigurationLocalizationCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class PlannerPlanConfigurationLocalizationCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PlannerPlanConfigurationLocalization>? Value { get; set; }
+        public List<ApiSdk.Models.PlannerPlanConfigurationLocalization>? Value { get; set; }
 #nullable restore
 #else
-        public List<PlannerPlanConfigurationLocalization> Value { get; set; }
+        public List<ApiSdk.Models.PlannerPlanConfigurationLocalization> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerPlanConfigurationLocalizationCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerPlanConfigurationLocalizationCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerPlanConfigurationLocalizationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerPlanConfigurationLocalizationCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerPlanConfigurationLocalizationCollectionResponse();
+            return new ApiSdk.Models.PlannerPlanConfigurationLocalizationCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PlannerPlanConfigurationLocalization>(PlannerPlanConfigurationLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PlannerPlanConfigurationLocalization>(ApiSdk.Models.PlannerPlanConfigurationLocalization.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PlannerPlanConfigurationLocalization>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PlannerPlanConfigurationLocalization>("value", Value);
         }
     }
 }

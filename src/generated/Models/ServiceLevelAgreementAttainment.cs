@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         /// <summary>The start date for the calendar month for which SLA attainment is measured.</summary>
         public Date? StartDate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ServiceLevelAgreementAttainment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServiceLevelAgreementAttainment"/> and sets the default values.
         /// </summary>
         public ServiceLevelAgreementAttainment()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceLevelAgreementAttainment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceLevelAgreementAttainment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ServiceLevelAgreementAttainment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ServiceLevelAgreementAttainment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServiceLevelAgreementAttainment();
+            return new ApiSdk.Models.ServiceLevelAgreementAttainment();
         }
         /// <summary>
         /// The deserialization information for the current model

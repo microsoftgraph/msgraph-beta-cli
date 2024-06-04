@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.Authentication.Methods.Item.EnableSmsSignIn
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableSmsSignInRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Authentication.Methods.Item.EnableSmsSignIn.EnableSmsSignInRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EnableSmsSignInRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}/enableSmsSignIn", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableSmsSignInRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Authentication.Methods.Item.EnableSmsSignIn.EnableSmsSignInRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EnableSmsSignInRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/authentication/methods/{authenticationMethod%2Did}/enableSmsSignIn", rawUrl)

@@ -87,16 +87,16 @@ namespace ApiSdk.Models.Security
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>The type of user that performed the operation. The possible values are: regular, reserved, admin, dcAdmin, system, application, servicePrincipal, customPolicy, systemPolicy, partnerTechnician, guest, unknownFutureValue.</summary>
-        public AuditLogUserType? UserType { get; set; }
+        public ApiSdk.Models.Security.AuditLogUserType? UserType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuditLogRecord"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.AuditLogRecord"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuditLogRecord CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.AuditLogRecord CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuditLogRecord();
+            return new ApiSdk.Models.Security.AuditLogRecord();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -108,7 +108,7 @@ namespace ApiSdk.Models.Security
             {
                 { "administrativeUnits", n => { AdministrativeUnits = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "auditData", n => { AuditData = n.GetObjectValue<ApiSdk.Models.Security.AuditData>(ApiSdk.Models.Security.AuditData.CreateFromDiscriminatorValue); } },
-                { "auditLogRecordType", n => { AuditLogRecordType = n.GetEnumValue<AuditLogRecordType>(); } },
+                { "auditLogRecordType", n => { AuditLogRecordType = n.GetEnumValue<ApiSdk.Models.Security.AuditLogRecordType>(); } },
                 { "clientIp", n => { ClientIp = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "objectId", n => { ObjectId = n.GetStringValue(); } },
@@ -117,7 +117,7 @@ namespace ApiSdk.Models.Security
                 { "service", n => { Service = n.GetStringValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                { "userType", n => { UserType = n.GetEnumValue<AuditLogUserType>(); } },
+                { "userType", n => { UserType = n.GetEnumValue<ApiSdk.Models.Security.AuditLogUserType>(); } },
             };
         }
         /// <summary>
@@ -130,7 +130,7 @@ namespace ApiSdk.Models.Security
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("administrativeUnits", AdministrativeUnits);
             writer.WriteObjectValue<ApiSdk.Models.Security.AuditData>("auditData", AuditData);
-            writer.WriteEnumValue<AuditLogRecordType>("auditLogRecordType", AuditLogRecordType);
+            writer.WriteEnumValue<ApiSdk.Models.Security.AuditLogRecordType>("auditLogRecordType", AuditLogRecordType);
             writer.WriteStringValue("clientIp", ClientIp);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("objectId", ObjectId);
@@ -139,7 +139,7 @@ namespace ApiSdk.Models.Security
             writer.WriteStringValue("service", Service);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
-            writer.WriteEnumValue<AuditLogUserType>("userType", UserType);
+            writer.WriteEnumValue<ApiSdk.Models.Security.AuditLogUserType>("userType", UserType);
         }
     }
 }

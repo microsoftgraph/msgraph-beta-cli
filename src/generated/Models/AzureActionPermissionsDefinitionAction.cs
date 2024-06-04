@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AzureActionPermissionsDefinitionAction : AzurePermissionsDefinitionAction, IParsable
+    public class AzureActionPermissionsDefinitionAction : ApiSdk.Models.AzurePermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions relating to the Azure permission.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public List<string> Actions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AzureActionPermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AzureActionPermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public AzureActionPermissionsDefinitionAction() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureActionPermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureActionPermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureActionPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureActionPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureActionPermissionsDefinitionAction();
+            return new ApiSdk.Models.AzureActionPermissionsDefinitionAction();
         }
         /// <summary>
         /// The deserialization information for the current model

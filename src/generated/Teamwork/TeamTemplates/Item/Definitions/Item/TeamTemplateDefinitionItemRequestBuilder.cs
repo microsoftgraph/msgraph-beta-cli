@@ -187,7 +187,7 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item
         {
             var command = new Command("team-definition");
             command.Description = "Provides operations to manage the teamDefinition property of the microsoft.graph.teamTemplateDefinition entity.";
-            var builder = new TeamDefinitionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamDefinition.TeamDefinitionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAllChannelsNavCommand());
@@ -224,14 +224,14 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamTemplateDefinitionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamTemplateDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TeamTemplateDefinitionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TeamTemplateDefinitionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamTemplateDefinitionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TeamTemplateDefinitionItemRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/teamTemplates/{teamTemplate%2Did}/definitions/{teamTemplateDefinition%2Did}{?%24expand,%24select}", rawUrl)
@@ -263,11 +263,11 @@ namespace ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamTemplateDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamTemplateDefinitionItemRequestBuilder.TeamTemplateDefinitionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TeamTemplateDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Teamwork.TeamTemplates.Item.Definitions.Item.TeamTemplateDefinitionItemRequestBuilder.TeamTemplateDefinitionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

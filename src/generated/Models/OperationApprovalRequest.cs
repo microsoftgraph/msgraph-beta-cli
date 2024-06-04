@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The OperationApprovalRequest entity encompasses the operation an admin wishes to perform and is requesting approval to complete. It contains the detail of the operation one wishes to perform, user metadata of the requestor, and a justification for the change. It allows for several operations for both the requestor and the potential approver to either approve, deny, or cancel the request and a response justification to provide information for the decision.
     /// </summary>
-    public class OperationApprovalRequest : Entity, IParsable
+    public class OperationApprovalRequest : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Indicates the justification for approving or rejecting the request. Maximum length of justification is 1024 characters. For example: &apos;Approved per Change 23423 - needed for Feb 2023 application baseline updates.&apos; Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,10 +22,10 @@ namespace ApiSdk.Models
         /// <summary>The identity of the approver as an Identity Set. Optionally contains the application ID, the device ID and the User ID. See information about this type here: https://learn.microsoft.com/graph/api/resources/identityset?view=graph-rest-1.0. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? Approver { get; private set; }
+        public ApiSdk.Models.IdentitySet? Approver { get; private set; }
 #nullable restore
 #else
-        public IdentitySet Approver { get; private set; }
+        public ApiSdk.Models.IdentitySet Approver { get; private set; }
 #endif
         /// <summary>Indicates the DateTime when any action on the approval request is no longer permitted. The value cannot be modified and is automatically populated when the request is created using expiration offset values defined in the service controllers. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only. This property is read-only.</summary>
         public DateTimeOffset? ExpirationDateTime { get; private set; }
@@ -44,30 +44,30 @@ namespace ApiSdk.Models
         /// <summary>The identity of the requestor as an Identity Set. Optionally contains the application ID, the device ID and the User ID. See information about this type here: https://learn.microsoft.com/graph/api/resources/identityset?view=graph-rest-1.0. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? Requestor { get; private set; }
+        public ApiSdk.Models.IdentitySet? Requestor { get; private set; }
 #nullable restore
 #else
-        public IdentitySet Requestor { get; private set; }
+        public ApiSdk.Models.IdentitySet Requestor { get; private set; }
 #endif
         /// <summary>Indicates the approval policy types required by the request in order for the request to be approved or rejected. Read-only. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OperationApprovalPolicyType?>? RequiredOperationApprovalPolicyTypes { get; private set; }
+        public List<ApiSdk.Models.OperationApprovalPolicyType?>? RequiredOperationApprovalPolicyTypes { get; private set; }
 #nullable restore
 #else
-        public List<OperationApprovalPolicyType?> RequiredOperationApprovalPolicyTypes { get; private set; }
+        public List<ApiSdk.Models.OperationApprovalPolicyType?> RequiredOperationApprovalPolicyTypes { get; private set; }
 #endif
         /// <summary>Indicates the status of the Approval Request. The status of a request will change when an action is successfully performed on it, such as when it is `approved` or `rejected`, or when the request&apos;s expiration DateTime passes and the result is `expired`.</summary>
-        public OperationApprovalRequestStatus? Status { get; set; }
+        public ApiSdk.Models.OperationApprovalRequestStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OperationApprovalRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OperationApprovalRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OperationApprovalRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OperationApprovalRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OperationApprovalRequest();
+            return new ApiSdk.Models.OperationApprovalRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,14 +78,14 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "approvalJustification", n => { ApprovalJustification = n.GetStringValue(); } },
-                { "approver", n => { Approver = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "approver", n => { Approver = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "requestDateTime", n => { RequestDateTime = n.GetDateTimeOffsetValue(); } },
                 { "requestJustification", n => { RequestJustification = n.GetStringValue(); } },
-                { "requestor", n => { Requestor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                { "requiredOperationApprovalPolicyTypes", n => { RequiredOperationApprovalPolicyTypes = n.GetCollectionOfEnumValues<OperationApprovalPolicyType>()?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<OperationApprovalRequestStatus>(); } },
+                { "requestor", n => { Requestor = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "requiredOperationApprovalPolicyTypes", n => { RequiredOperationApprovalPolicyTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.OperationApprovalPolicyType>()?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.OperationApprovalRequestStatus>(); } },
             };
         }
         /// <summary>
@@ -96,7 +96,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<OperationApprovalRequestStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.OperationApprovalRequestStatus>("status", Status);
         }
     }
 }

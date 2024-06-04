@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TrainingCampaign : Entity, IParsable
+    public class TrainingCampaign : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Details about the schedule and current status for a training campaign</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>Identity of the user who created the training campaign</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EmailIdentity? CreatedBy { get; set; }
+        public ApiSdk.Models.EmailIdentity? CreatedBy { get; set; }
 #nullable restore
 #else
-        public EmailIdentity CreatedBy { get; set; }
+        public ApiSdk.Models.EmailIdentity CreatedBy { get; set; }
 #endif
         /// <summary>Date and time of creation of the training campaign.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -55,36 +55,36 @@ namespace ApiSdk.Models
         /// <summary>Users excluded from the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccountTargetContent? ExcludedAccountTarget { get; set; }
+        public ApiSdk.Models.AccountTargetContent? ExcludedAccountTarget { get; set; }
 #nullable restore
 #else
-        public AccountTargetContent ExcludedAccountTarget { get; set; }
+        public ApiSdk.Models.AccountTargetContent ExcludedAccountTarget { get; set; }
 #endif
         /// <summary>Users targeted in the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccountTargetContent? IncludedAccountTarget { get; set; }
+        public ApiSdk.Models.AccountTargetContent? IncludedAccountTarget { get; set; }
 #nullable restore
 #else
-        public AccountTargetContent IncludedAccountTarget { get; set; }
+        public ApiSdk.Models.AccountTargetContent IncludedAccountTarget { get; set; }
 #endif
         /// <summary>Identity of the user who most recently modified the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EmailIdentity? LastModifiedBy { get; set; }
+        public ApiSdk.Models.EmailIdentity? LastModifiedBy { get; set; }
 #nullable restore
 #else
-        public EmailIdentity LastModifiedBy { get; set; }
+        public ApiSdk.Models.EmailIdentity LastModifiedBy { get; set; }
 #endif
         /// <summary>Date and time of the most recent modification of the training campaign.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Report of the training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TrainingCampaignReport? Report { get; set; }
+        public ApiSdk.Models.TrainingCampaignReport? Report { get; set; }
 #nullable restore
 #else
-        public TrainingCampaignReport Report { get; set; }
+        public ApiSdk.Models.TrainingCampaignReport Report { get; set; }
 #endif
         /// <summary>Details about the training settings for a training campaign.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,12 +97,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrainingCampaign"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrainingCampaign"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TrainingCampaign CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TrainingCampaign CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrainingCampaign();
+            return new ApiSdk.Models.TrainingCampaign();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,16 +113,16 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "campaignSchedule", n => { CampaignSchedule = n.GetObjectValue<ApiSdk.Models.CampaignSchedule>(ApiSdk.Models.CampaignSchedule.CreateFromDiscriminatorValue); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.EmailIdentity>(ApiSdk.Models.EmailIdentity.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "endUserNotificationSetting", n => { EndUserNotificationSetting = n.GetObjectValue<ApiSdk.Models.EndUserNotificationSetting>(ApiSdk.Models.EndUserNotificationSetting.CreateFromDiscriminatorValue); } },
-                { "excludedAccountTarget", n => { ExcludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
-                { "includedAccountTarget", n => { IncludedAccountTarget = n.GetObjectValue<AccountTargetContent>(AccountTargetContent.CreateFromDiscriminatorValue); } },
-                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<EmailIdentity>(EmailIdentity.CreateFromDiscriminatorValue); } },
+                { "excludedAccountTarget", n => { ExcludedAccountTarget = n.GetObjectValue<ApiSdk.Models.AccountTargetContent>(ApiSdk.Models.AccountTargetContent.CreateFromDiscriminatorValue); } },
+                { "includedAccountTarget", n => { IncludedAccountTarget = n.GetObjectValue<ApiSdk.Models.AccountTargetContent>(ApiSdk.Models.AccountTargetContent.CreateFromDiscriminatorValue); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.EmailIdentity>(ApiSdk.Models.EmailIdentity.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "report", n => { Report = n.GetObjectValue<TrainingCampaignReport>(TrainingCampaignReport.CreateFromDiscriminatorValue); } },
+                { "report", n => { Report = n.GetObjectValue<ApiSdk.Models.TrainingCampaignReport>(ApiSdk.Models.TrainingCampaignReport.CreateFromDiscriminatorValue); } },
                 { "trainingSetting", n => { TrainingSetting = n.GetObjectValue<ApiSdk.Models.TrainingSetting>(ApiSdk.Models.TrainingSetting.CreateFromDiscriminatorValue); } },
             };
         }
@@ -135,16 +135,16 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.CampaignSchedule>("campaignSchedule", CampaignSchedule);
-            writer.WriteObjectValue<EmailIdentity>("createdBy", CreatedBy);
+            writer.WriteObjectValue<ApiSdk.Models.EmailIdentity>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.EndUserNotificationSetting>("endUserNotificationSetting", EndUserNotificationSetting);
-            writer.WriteObjectValue<AccountTargetContent>("excludedAccountTarget", ExcludedAccountTarget);
-            writer.WriteObjectValue<AccountTargetContent>("includedAccountTarget", IncludedAccountTarget);
-            writer.WriteObjectValue<EmailIdentity>("lastModifiedBy", LastModifiedBy);
+            writer.WriteObjectValue<ApiSdk.Models.AccountTargetContent>("excludedAccountTarget", ExcludedAccountTarget);
+            writer.WriteObjectValue<ApiSdk.Models.AccountTargetContent>("includedAccountTarget", IncludedAccountTarget);
+            writer.WriteObjectValue<ApiSdk.Models.EmailIdentity>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<TrainingCampaignReport>("report", Report);
+            writer.WriteObjectValue<ApiSdk.Models.TrainingCampaignReport>("report", Report);
             writer.WriteObjectValue<ApiSdk.Models.TrainingSetting>("trainingSetting", TrainingSetting);
         }
     }

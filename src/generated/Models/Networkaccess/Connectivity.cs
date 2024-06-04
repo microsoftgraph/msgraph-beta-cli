@@ -13,36 +13,36 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>Branches represent locations for connectivity. DEPRECATED AND TO BE RETIRED SOON. Use the remoteNetwork relationship and its associated APIs instead.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BranchSite>? Branches { get; set; }
+        public List<ApiSdk.Models.Networkaccess.BranchSite>? Branches { get; set; }
 #nullable restore
 #else
-        public List<BranchSite> Branches { get; set; }
+        public List<ApiSdk.Models.Networkaccess.BranchSite> Branches { get; set; }
 #endif
         /// <summary>Represent locations, such as branches, that are connected to Global Secure Access services through an IPsec tunnel.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RemoteNetwork>? RemoteNetworks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RemoteNetwork>? RemoteNetworks { get; set; }
 #nullable restore
 #else
-        public List<RemoteNetwork> RemoteNetworks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RemoteNetwork> RemoteNetworks { get; set; }
 #endif
         /// <summary>The webCategories property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WebCategory>? WebCategories { get; set; }
+        public List<ApiSdk.Models.Networkaccess.WebCategory>? WebCategories { get; set; }
 #nullable restore
 #else
-        public List<WebCategory> WebCategories { get; set; }
+        public List<ApiSdk.Models.Networkaccess.WebCategory> WebCategories { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Connectivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Connectivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Connectivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Connectivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Connectivity();
+            return new ApiSdk.Models.Networkaccess.Connectivity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "branches", n => { Branches = n.GetCollectionOfObjectValues<BranchSite>(BranchSite.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<RemoteNetwork>(RemoteNetwork.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "webCategories", n => { WebCategories = n.GetCollectionOfObjectValues<WebCategory>(WebCategory.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "branches", n => { Branches = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.BranchSite>(ApiSdk.Models.Networkaccess.BranchSite.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RemoteNetwork>(ApiSdk.Models.Networkaccess.RemoteNetwork.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "webCategories", n => { WebCategories = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.WebCategory>(ApiSdk.Models.Networkaccess.WebCategory.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<BranchSite>("branches", Branches);
-            writer.WriteCollectionOfObjectValues<RemoteNetwork>("remoteNetworks", RemoteNetworks);
-            writer.WriteCollectionOfObjectValues<WebCategory>("webCategories", WebCategories);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.BranchSite>("branches", Branches);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RemoteNetwork>("remoteNetworks", RemoteNetworks);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.WebCategory>("webCategories", WebCategories);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk
         /// <summary>The MoveToInbox property</summary>
         public bool? MoveToInbox { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MarkAsNotJunkPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk.MarkAsNotJunkPostRequestBody"/> and sets the default values.
         /// </summary>
         public MarkAsNotJunkPostRequestBody()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MarkAsNotJunkPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk.MarkAsNotJunkPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MarkAsNotJunkPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk.MarkAsNotJunkPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MarkAsNotJunkPostRequestBody();
+            return new ApiSdk.Users.Item.MailFolders.Item.Messages.Item.MarkAsNotJunk.MarkAsNotJunkPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

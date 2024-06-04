@@ -31,7 +31,7 @@ namespace ApiSdk.DeviceManagement.Monitoring
         {
             var command = new Command("alert-records");
             command.Description = "Provides operations to manage the alertRecords property of the microsoft.graph.deviceManagement.monitoring entity.";
-            var builder = new AlertRecordsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Monitoring.AlertRecords.AlertRecordsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceManagement.Monitoring
         {
             var command = new Command("alert-rules");
             command.Description = "Provides operations to manage the alertRules property of the microsoft.graph.deviceManagement.monitoring entity.";
-            var builder = new AlertRulesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Monitoring.AlertRules.AlertRulesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -200,14 +200,14 @@ namespace ApiSdk.DeviceManagement.Monitoring
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MonitoringRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Monitoring.MonitoringRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MonitoringRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/monitoring{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MonitoringRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Monitoring.MonitoringRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MonitoringRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/monitoring{?%24expand,%24select}", rawUrl)
@@ -239,11 +239,11 @@ namespace ApiSdk.DeviceManagement.Monitoring
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MonitoringRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Monitoring.MonitoringRequestBuilder.MonitoringRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MonitoringRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Monitoring.MonitoringRequestBuilder.MonitoringRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

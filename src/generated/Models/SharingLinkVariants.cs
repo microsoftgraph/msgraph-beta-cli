@@ -13,14 +13,14 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Indicates the most permissive role with which an address bar link can be created. The possible values are: none, view, edit, manageList, review, restrictedView, submitOnly, unknownFutureValue.</summary>
-        public SharingRole? AddressBarLinkPermission { get; set; }
+        public ApiSdk.Models.SharingRole? AddressBarLinkPermission { get; set; }
         /// <summary>Indicates whether a link can be embedded.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SharingOperationStatus? AllowEmbed { get; set; }
+        public ApiSdk.Models.SharingOperationStatus? AllowEmbed { get; set; }
 #nullable restore
 #else
-        public SharingOperationStatus AllowEmbed { get; set; }
+        public ApiSdk.Models.SharingOperationStatus AllowEmbed { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -33,21 +33,21 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether a link can be password protected, meaning that link users would need to enter a password to access the item for which the sharing link is produced. Creating a passwordProtected link for the first time requires providing a password.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SharingOperationStatus? PasswordProtected { get; set; }
+        public ApiSdk.Models.SharingOperationStatus? PasswordProtected { get; set; }
 #nullable restore
 #else
-        public SharingOperationStatus PasswordProtected { get; set; }
+        public ApiSdk.Models.SharingOperationStatus PasswordProtected { get; set; }
 #endif
         /// <summary>Indicates whether a link requires identity authentication for recipients. Users can be verified through either an email address or identity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SharingOperationStatus? RequiresAuthentication { get; set; }
+        public ApiSdk.Models.SharingOperationStatus? RequiresAuthentication { get; set; }
 #nullable restore
 #else
-        public SharingOperationStatus RequiresAuthentication { get; set; }
+        public ApiSdk.Models.SharingOperationStatus RequiresAuthentication { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SharingLinkVariants"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SharingLinkVariants"/> and sets the default values.
         /// </summary>
         public SharingLinkVariants()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SharingLinkVariants"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SharingLinkVariants"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SharingLinkVariants CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SharingLinkVariants CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SharingLinkVariants();
+            return new ApiSdk.Models.SharingLinkVariants();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,11 +71,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "addressBarLinkPermission", n => { AddressBarLinkPermission = n.GetEnumValue<SharingRole>(); } },
-                { "allowEmbed", n => { AllowEmbed = n.GetObjectValue<SharingOperationStatus>(SharingOperationStatus.CreateFromDiscriminatorValue); } },
+                { "addressBarLinkPermission", n => { AddressBarLinkPermission = n.GetEnumValue<ApiSdk.Models.SharingRole>(); } },
+                { "allowEmbed", n => { AllowEmbed = n.GetObjectValue<ApiSdk.Models.SharingOperationStatus>(ApiSdk.Models.SharingOperationStatus.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "passwordProtected", n => { PasswordProtected = n.GetObjectValue<SharingOperationStatus>(SharingOperationStatus.CreateFromDiscriminatorValue); } },
-                { "requiresAuthentication", n => { RequiresAuthentication = n.GetObjectValue<SharingOperationStatus>(SharingOperationStatus.CreateFromDiscriminatorValue); } },
+                { "passwordProtected", n => { PasswordProtected = n.GetObjectValue<ApiSdk.Models.SharingOperationStatus>(ApiSdk.Models.SharingOperationStatus.CreateFromDiscriminatorValue); } },
+                { "requiresAuthentication", n => { RequiresAuthentication = n.GetObjectValue<ApiSdk.Models.SharingOperationStatus>(ApiSdk.Models.SharingOperationStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<SharingRole>("addressBarLinkPermission", AddressBarLinkPermission);
-            writer.WriteObjectValue<SharingOperationStatus>("allowEmbed", AllowEmbed);
+            writer.WriteEnumValue<ApiSdk.Models.SharingRole>("addressBarLinkPermission", AddressBarLinkPermission);
+            writer.WriteObjectValue<ApiSdk.Models.SharingOperationStatus>("allowEmbed", AllowEmbed);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<SharingOperationStatus>("passwordProtected", PasswordProtected);
-            writer.WriteObjectValue<SharingOperationStatus>("requiresAuthentication", RequiresAuthentication);
+            writer.WriteObjectValue<ApiSdk.Models.SharingOperationStatus>("passwordProtected", PasswordProtected);
+            writer.WriteObjectValue<ApiSdk.Models.SharingOperationStatus>("requiresAuthentication", RequiresAuthentication);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

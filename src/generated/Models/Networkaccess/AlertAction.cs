@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AlertAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.AlertAction"/> and sets the default values.
         /// </summary>
         public AlertAction()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AlertAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.AlertAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AlertAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.AlertAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AlertAction();
+            return new ApiSdk.Models.Networkaccess.AlertAction();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string Path { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSLaunchItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSLaunchItem"/> and sets the default values.
         /// </summary>
         public MacOSLaunchItem()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSLaunchItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSLaunchItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MacOSLaunchItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MacOSLaunchItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSLaunchItem();
+            return new ApiSdk.Models.MacOSLaunchItem();
         }
         /// <summary>
         /// The deserialization information for the current model

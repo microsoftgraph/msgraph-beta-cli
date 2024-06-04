@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OldName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RenameAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RenameAction"/> and sets the default values.
         /// </summary>
         public RenameAction()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RenameAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RenameAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RenameAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.RenameAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RenameAction();
+            return new ApiSdk.Models.RenameAction();
         }
         /// <summary>
         /// The deserialization information for the current model

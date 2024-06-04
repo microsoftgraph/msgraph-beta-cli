@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsExternalSystemAccessFinding : Finding, IParsable
+    public class AwsExternalSystemAccessFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The accessMethods property</summary>
-        public ExternalSystemAccessMethods? AccessMethods { get; set; }
+        public ApiSdk.Models.ExternalSystemAccessMethods? AccessMethods { get; set; }
         /// <summary>The affectedSystem property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystem? AffectedSystem { get; set; }
+        public ApiSdk.Models.AuthorizationSystem? AffectedSystem { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystem AffectedSystem { get; set; }
+        public ApiSdk.Models.AuthorizationSystem AffectedSystem { get; set; }
 #endif
         /// <summary>The systemWithAccess property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuthorizationSystemInfo? SystemWithAccess { get; set; }
+        public ApiSdk.Models.AuthorizationSystemInfo? SystemWithAccess { get; set; }
 #nullable restore
 #else
-        public AuthorizationSystemInfo SystemWithAccess { get; set; }
+        public ApiSdk.Models.AuthorizationSystemInfo SystemWithAccess { get; set; }
 #endif
         /// <summary>The number of identities in the external system that are trusted, if not all. Supports $orderby.</summary>
         public int? TrustedIdentityCount { get; set; }
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsExternalSystemAccessFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsExternalSystemAccessFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsExternalSystemAccessFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsExternalSystemAccessFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsExternalSystemAccessFinding();
+            return new ApiSdk.Models.AwsExternalSystemAccessFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,9 +50,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "accessMethods", n => { AccessMethods = n.GetEnumValue<ExternalSystemAccessMethods>(); } },
-                { "affectedSystem", n => { AffectedSystem = n.GetObjectValue<AuthorizationSystem>(AuthorizationSystem.CreateFromDiscriminatorValue); } },
-                { "systemWithAccess", n => { SystemWithAccess = n.GetObjectValue<AuthorizationSystemInfo>(AuthorizationSystemInfo.CreateFromDiscriminatorValue); } },
+                { "accessMethods", n => { AccessMethods = n.GetEnumValue<ApiSdk.Models.ExternalSystemAccessMethods>(); } },
+                { "affectedSystem", n => { AffectedSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
+                { "systemWithAccess", n => { SystemWithAccess = n.GetObjectValue<ApiSdk.Models.AuthorizationSystemInfo>(ApiSdk.Models.AuthorizationSystemInfo.CreateFromDiscriminatorValue); } },
                 { "trustedIdentityCount", n => { TrustedIdentityCount = n.GetIntValue(); } },
                 { "trustsAllIdentities", n => { TrustsAllIdentities = n.GetBoolValue(); } },
             };
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ExternalSystemAccessMethods>("accessMethods", AccessMethods);
-            writer.WriteObjectValue<AuthorizationSystem>("affectedSystem", AffectedSystem);
-            writer.WriteObjectValue<AuthorizationSystemInfo>("systemWithAccess", SystemWithAccess);
+            writer.WriteEnumValue<ApiSdk.Models.ExternalSystemAccessMethods>("accessMethods", AccessMethods);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystem>("affectedSystem", AffectedSystem);
+            writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystemInfo>("systemWithAccess", SystemWithAccess);
             writer.WriteIntValue("trustedIdentityCount", TrustedIdentityCount);
             writer.WriteBoolValue("trustsAllIdentities", TrustsAllIdentities);
         }

@@ -23,17 +23,17 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataActivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataActivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IndustryDataActivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.IndustryDataActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.inboundFileFlow" => new InboundFileFlow(),
-                "#microsoft.graph.industryData.inboundFlow" => new InboundFlow(),
-                _ => new IndustryDataActivity(),
+                "#microsoft.graph.industryData.inboundFileFlow" => new ApiSdk.Models.IndustryData.InboundFileFlow(),
+                "#microsoft.graph.industryData.inboundFlow" => new ApiSdk.Models.IndustryData.InboundFlow(),
+                _ => new ApiSdk.Models.IndustryData.IndustryDataActivity(),
             };
         }
         /// <summary>
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.IndustryData
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "readinessStatus", n => { ReadinessStatus = n.GetEnumValue<ReadinessStatus>(); } },
+                { "readinessStatus", n => { ReadinessStatus = n.GetEnumValue<ApiSdk.Models.IndustryData.ReadinessStatus>(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.IndustryData
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<ReadinessStatus>("readinessStatus", ReadinessStatus);
+            writer.WriteEnumValue<ApiSdk.Models.IndustryData.ReadinessStatus>("readinessStatus", ReadinessStatus);
         }
     }
 }

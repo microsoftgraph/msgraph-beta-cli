@@ -50,14 +50,14 @@ namespace ApiSdk.Education.SynchronizationProfiles.Item.Resume
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResumeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.Resume.ResumeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResumeRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/resume", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResumeRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Education.SynchronizationProfiles.Item.Resume.ResumeRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResumeRequestBuilder(string rawUrl) : base("{+baseurl}/education/synchronizationProfiles/{educationSynchronizationProfile%2Did}/resume", rawUrl)

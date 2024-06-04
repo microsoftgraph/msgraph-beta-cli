@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing configurations in this profile you can instruct the native email client on iOS devices to communicate with an Exchange server and get email, contacts, calendar, reminders, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
     /// </summary>
-    public class IosEasEmailProfileConfiguration : EasEmailProfileConfigurationBase, IParsable
+    public class IosEasEmailProfileConfiguration : ApiSdk.Models.EasEmailProfileConfigurationBase, IParsable
     {
         /// <summary>Account name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string AccountName { get; set; }
 #endif
         /// <summary>Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.</summary>
-        public EasAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.EasAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Indicates whether or not to block moving messages to other email accounts.</summary>
         public bool? BlockMovingMessagesToOtherEmailAccounts { get; set; }
         /// <summary>Indicates whether or not to block sending email from third party apps.</summary>
@@ -30,21 +30,21 @@ namespace ApiSdk.Models
         /// <summary>Tenant level settings for the Derived Credentials to be used for authentication.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings? DerivedCredentialSettings { get; set; }
 #nullable restore
 #else
-        public DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialSettings DerivedCredentialSettings { get; set; }
 #endif
         /// <summary>Possible values for email sync duration.</summary>
-        public EmailSyncDuration? DurationOfEmailToSync { get; set; }
+        public ApiSdk.Models.EmailSyncDuration? DurationOfEmailToSync { get; set; }
         /// <summary>Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.</summary>
         public ApiSdk.Models.EasServices? EasServices { get; set; }
         /// <summary>Allow users to change sync settings.</summary>
         public bool? EasServicesUserOverrideEnabled { get; set; }
         /// <summary>Possible values for username source or email source.</summary>
-        public UserEmailSource? EmailAddressSource { get; set; }
+        public ApiSdk.Models.UserEmailSource? EmailAddressSource { get; set; }
         /// <summary>Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.</summary>
-        public EmailCertificateType? EncryptionCertificateType { get; set; }
+        public ApiSdk.Models.EmailCertificateType? EncryptionCertificateType { get; set; }
         /// <summary>Exchange location that (URL) that the native mail app connects to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,10 +56,10 @@ namespace ApiSdk.Models
         /// <summary>Identity certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosCertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public IosCertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>Profile ID of the Per-App VPN policy to be used to access emails from the native Mail client</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not to use SSL.</summary>
         public bool? RequireSsl { get; set; }
         /// <summary>Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.</summary>
-        public EmailCertificateType? SigningCertificateType { get; set; }
+        public ApiSdk.Models.EmailCertificateType? SigningCertificateType { get; set; }
         /// <summary>Indicates whether or not to allow unencrypted emails.</summary>
         public bool? SmimeEnablePerMessageSwitch { get; set; }
         /// <summary>If set to true S/MIME encryption is enabled by default.</summary>
@@ -84,20 +84,20 @@ namespace ApiSdk.Models
         /// <summary>S/MIME encryption certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosCertificateProfile? SmimeEncryptionCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfile? SmimeEncryptionCertificate { get; set; }
 #nullable restore
 #else
-        public IosCertificateProfile SmimeEncryptionCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfile SmimeEncryptionCertificate { get; set; }
 #endif
         /// <summary>If set to true the user can select the S/MIME encryption identity.</summary>
         public bool? SmimeEncryptionCertificateUserOverrideEnabled { get; set; }
         /// <summary>S/MIME signing certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IosCertificateProfile? SmimeSigningCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfile? SmimeSigningCertificate { get; set; }
 #nullable restore
 #else
-        public IosCertificateProfile SmimeSigningCertificate { get; set; }
+        public ApiSdk.Models.IosCertificateProfile SmimeSigningCertificate { get; set; }
 #endif
         /// <summary>If set to true, the user can select the signing identity.</summary>
         public bool? SmimeSigningCertificateUserOverrideEnabled { get; set; }
@@ -108,7 +108,7 @@ namespace ApiSdk.Models
         /// <summary>Specifies whether the connection should use OAuth for authentication.</summary>
         public bool? UseOAuth { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosEasEmailProfileConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosEasEmailProfileConfiguration"/> and sets the default values.
         /// </summary>
         public IosEasEmailProfileConfiguration() : base()
         {
@@ -117,12 +117,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosEasEmailProfileConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosEasEmailProfileConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosEasEmailProfileConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosEasEmailProfileConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosEasEmailProfileConfiguration();
+            return new ApiSdk.Models.IosEasEmailProfileConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,28 +133,28 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "accountName", n => { AccountName = n.GetStringValue(); } },
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.EasAuthenticationMethod>(); } },
                 { "blockMovingMessagesToOtherEmailAccounts", n => { BlockMovingMessagesToOtherEmailAccounts = n.GetBoolValue(); } },
                 { "blockSendingEmailFromThirdPartyApps", n => { BlockSendingEmailFromThirdPartyApps = n.GetBoolValue(); } },
                 { "blockSyncingRecentlyUsedEmailAddresses", n => { BlockSyncingRecentlyUsedEmailAddresses = n.GetBoolValue(); } },
-                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<DeviceManagementDerivedCredentialSettings>(DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
-                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                { "easServices", n => { EasServices = n.GetEnumValue<EasServices>(); } },
+                { "derivedCredentialSettings", n => { DerivedCredentialSettings = n.GetObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>(ApiSdk.Models.DeviceManagementDerivedCredentialSettings.CreateFromDiscriminatorValue); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<ApiSdk.Models.EmailSyncDuration>(); } },
+                { "easServices", n => { EasServices = n.GetEnumValue<ApiSdk.Models.EasServices>(); } },
                 { "easServicesUserOverrideEnabled", n => { EasServicesUserOverrideEnabled = n.GetBoolValue(); } },
-                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
-                { "encryptionCertificateType", n => { EncryptionCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<ApiSdk.Models.UserEmailSource>(); } },
+                { "encryptionCertificateType", n => { EncryptionCertificateType = n.GetEnumValue<ApiSdk.Models.EmailCertificateType>(); } },
                 { "hostName", n => { HostName = n.GetStringValue(); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<IosCertificateProfileBase>(IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.IosCertificateProfileBase>(ApiSdk.Models.IosCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "perAppVPNProfileId", n => { PerAppVPNProfileId = n.GetStringValue(); } },
                 { "requireSmime", n => { RequireSmime = n.GetBoolValue(); } },
                 { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                { "signingCertificateType", n => { SigningCertificateType = n.GetEnumValue<EmailCertificateType>(); } },
+                { "signingCertificateType", n => { SigningCertificateType = n.GetEnumValue<ApiSdk.Models.EmailCertificateType>(); } },
                 { "smimeEnablePerMessageSwitch", n => { SmimeEnablePerMessageSwitch = n.GetBoolValue(); } },
                 { "smimeEncryptByDefaultEnabled", n => { SmimeEncryptByDefaultEnabled = n.GetBoolValue(); } },
                 { "smimeEncryptByDefaultUserOverrideEnabled", n => { SmimeEncryptByDefaultUserOverrideEnabled = n.GetBoolValue(); } },
-                { "smimeEncryptionCertificate", n => { SmimeEncryptionCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
+                { "smimeEncryptionCertificate", n => { SmimeEncryptionCertificate = n.GetObjectValue<ApiSdk.Models.IosCertificateProfile>(ApiSdk.Models.IosCertificateProfile.CreateFromDiscriminatorValue); } },
                 { "smimeEncryptionCertificateUserOverrideEnabled", n => { SmimeEncryptionCertificateUserOverrideEnabled = n.GetBoolValue(); } },
-                { "smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<IosCertificateProfile>(IosCertificateProfile.CreateFromDiscriminatorValue); } },
+                { "smimeSigningCertificate", n => { SmimeSigningCertificate = n.GetObjectValue<ApiSdk.Models.IosCertificateProfile>(ApiSdk.Models.IosCertificateProfile.CreateFromDiscriminatorValue); } },
                 { "smimeSigningCertificateUserOverrideEnabled", n => { SmimeSigningCertificateUserOverrideEnabled = n.GetBoolValue(); } },
                 { "smimeSigningEnabled", n => { SmimeSigningEnabled = n.GetBoolValue(); } },
                 { "smimeSigningUserOverrideEnabled", n => { SmimeSigningUserOverrideEnabled = n.GetBoolValue(); } },
@@ -170,28 +170,28 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("accountName", AccountName);
-            writer.WriteEnumValue<EasAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.EasAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
             writer.WriteBoolValue("blockMovingMessagesToOtherEmailAccounts", BlockMovingMessagesToOtherEmailAccounts);
             writer.WriteBoolValue("blockSendingEmailFromThirdPartyApps", BlockSendingEmailFromThirdPartyApps);
             writer.WriteBoolValue("blockSyncingRecentlyUsedEmailAddresses", BlockSyncingRecentlyUsedEmailAddresses);
-            writer.WriteObjectValue<DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
-            writer.WriteEnumValue<EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
-            writer.WriteEnumValue<EasServices>("easServices", EasServices);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementDerivedCredentialSettings>("derivedCredentialSettings", DerivedCredentialSettings);
+            writer.WriteEnumValue<ApiSdk.Models.EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
+            writer.WriteEnumValue<ApiSdk.Models.EasServices>("easServices", EasServices);
             writer.WriteBoolValue("easServicesUserOverrideEnabled", EasServicesUserOverrideEnabled);
-            writer.WriteEnumValue<UserEmailSource>("emailAddressSource", EmailAddressSource);
-            writer.WriteEnumValue<EmailCertificateType>("encryptionCertificateType", EncryptionCertificateType);
+            writer.WriteEnumValue<ApiSdk.Models.UserEmailSource>("emailAddressSource", EmailAddressSource);
+            writer.WriteEnumValue<ApiSdk.Models.EmailCertificateType>("encryptionCertificateType", EncryptionCertificateType);
             writer.WriteStringValue("hostName", HostName);
-            writer.WriteObjectValue<IosCertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.IosCertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteStringValue("perAppVPNProfileId", PerAppVPNProfileId);
             writer.WriteBoolValue("requireSmime", RequireSmime);
             writer.WriteBoolValue("requireSsl", RequireSsl);
-            writer.WriteEnumValue<EmailCertificateType>("signingCertificateType", SigningCertificateType);
+            writer.WriteEnumValue<ApiSdk.Models.EmailCertificateType>("signingCertificateType", SigningCertificateType);
             writer.WriteBoolValue("smimeEnablePerMessageSwitch", SmimeEnablePerMessageSwitch);
             writer.WriteBoolValue("smimeEncryptByDefaultEnabled", SmimeEncryptByDefaultEnabled);
             writer.WriteBoolValue("smimeEncryptByDefaultUserOverrideEnabled", SmimeEncryptByDefaultUserOverrideEnabled);
-            writer.WriteObjectValue<IosCertificateProfile>("smimeEncryptionCertificate", SmimeEncryptionCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.IosCertificateProfile>("smimeEncryptionCertificate", SmimeEncryptionCertificate);
             writer.WriteBoolValue("smimeEncryptionCertificateUserOverrideEnabled", SmimeEncryptionCertificateUserOverrideEnabled);
-            writer.WriteObjectValue<IosCertificateProfile>("smimeSigningCertificate", SmimeSigningCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.IosCertificateProfile>("smimeSigningCertificate", SmimeSigningCertificate);
             writer.WriteBoolValue("smimeSigningCertificateUserOverrideEnabled", SmimeSigningCertificateUserOverrideEnabled);
             writer.WriteBoolValue("smimeSigningEnabled", SmimeSigningEnabled);
             writer.WriteBoolValue("smimeSigningUserOverrideEnabled", SmimeSigningUserOverrideEnabled);

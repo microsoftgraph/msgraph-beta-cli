@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an ADMX checkBox element and an ADMX boolean element.
     /// </summary>
-    public class GroupPolicyUploadedPresentation : GroupPolicyPresentation, IParsable
+    public class GroupPolicyUploadedPresentation : ApiSdk.Models.GroupPolicyPresentation, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyUploadedPresentation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GroupPolicyUploadedPresentation"/> and sets the default values.
         /// </summary>
         public GroupPolicyUploadedPresentation() : base()
         {
@@ -21,24 +21,24 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyUploadedPresentation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyUploadedPresentation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyUploadedPresentation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyUploadedPresentation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.groupPolicyPresentationCheckBox" => new GroupPolicyPresentationCheckBox(),
-                "#microsoft.graph.groupPolicyPresentationComboBox" => new GroupPolicyPresentationComboBox(),
-                "#microsoft.graph.groupPolicyPresentationDecimalTextBox" => new GroupPolicyPresentationDecimalTextBox(),
-                "#microsoft.graph.groupPolicyPresentationDropdownList" => new GroupPolicyPresentationDropdownList(),
-                "#microsoft.graph.groupPolicyPresentationListBox" => new GroupPolicyPresentationListBox(),
-                "#microsoft.graph.groupPolicyPresentationLongDecimalTextBox" => new GroupPolicyPresentationLongDecimalTextBox(),
-                "#microsoft.graph.groupPolicyPresentationMultiTextBox" => new GroupPolicyPresentationMultiTextBox(),
-                "#microsoft.graph.groupPolicyPresentationText" => new GroupPolicyPresentationText(),
-                "#microsoft.graph.groupPolicyPresentationTextBox" => new GroupPolicyPresentationTextBox(),
-                _ => new GroupPolicyUploadedPresentation(),
+                "#microsoft.graph.groupPolicyPresentationCheckBox" => new ApiSdk.Models.GroupPolicyPresentationCheckBox(),
+                "#microsoft.graph.groupPolicyPresentationComboBox" => new ApiSdk.Models.GroupPolicyPresentationComboBox(),
+                "#microsoft.graph.groupPolicyPresentationDecimalTextBox" => new ApiSdk.Models.GroupPolicyPresentationDecimalTextBox(),
+                "#microsoft.graph.groupPolicyPresentationDropdownList" => new ApiSdk.Models.GroupPolicyPresentationDropdownList(),
+                "#microsoft.graph.groupPolicyPresentationListBox" => new ApiSdk.Models.GroupPolicyPresentationListBox(),
+                "#microsoft.graph.groupPolicyPresentationLongDecimalTextBox" => new ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox(),
+                "#microsoft.graph.groupPolicyPresentationMultiTextBox" => new ApiSdk.Models.GroupPolicyPresentationMultiTextBox(),
+                "#microsoft.graph.groupPolicyPresentationText" => new ApiSdk.Models.GroupPolicyPresentationText(),
+                "#microsoft.graph.groupPolicyPresentationTextBox" => new ApiSdk.Models.GroupPolicyPresentationTextBox(),
+                _ => new ApiSdk.Models.GroupPolicyUploadedPresentation(),
             };
         }
         /// <summary>

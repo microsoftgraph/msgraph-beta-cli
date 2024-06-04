@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="NetworkInterface"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.NetworkInterface"/> and sets the default values.
         /// </summary>
         public NetworkInterface()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="NetworkInterface"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.NetworkInterface"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static NetworkInterface CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.NetworkInterface CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new NetworkInterface();
+            return new ApiSdk.Models.NetworkInterface();
         }
         /// <summary>
         /// The deserialization information for the current model

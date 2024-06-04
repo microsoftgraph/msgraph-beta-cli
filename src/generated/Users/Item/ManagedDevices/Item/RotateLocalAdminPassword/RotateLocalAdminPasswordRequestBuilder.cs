@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.RotateLocalAdminPassword
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RotateLocalAdminPasswordRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RotateLocalAdminPassword.RotateLocalAdminPasswordRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RotateLocalAdminPasswordRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/rotateLocalAdminPassword", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RotateLocalAdminPasswordRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.RotateLocalAdminPassword.RotateLocalAdminPasswordRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RotateLocalAdminPasswordRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/rotateLocalAdminPassword", rawUrl)

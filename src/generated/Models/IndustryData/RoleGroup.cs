@@ -21,20 +21,20 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The set of roles included in the role group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RoleReferenceValue>? Roles { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleReferenceValue>? Roles { get; set; }
 #nullable restore
 #else
-        public List<RoleReferenceValue> Roles { get; set; }
+        public List<ApiSdk.Models.IndustryData.RoleReferenceValue> Roles { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RoleGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.RoleGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RoleGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.RoleGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RoleGroup();
+            return new ApiSdk.Models.IndustryData.RoleGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.IndustryData
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "roles", n => { Roles = n.GetCollectionOfObjectValues<RoleReferenceValue>(RoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleReferenceValue>(ApiSdk.Models.IndustryData.RoleReferenceValue.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.IndustryData
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<RoleReferenceValue>("roles", Roles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IndustryData.RoleReferenceValue>("roles", Roles);
         }
     }
 }

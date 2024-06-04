@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// A setting instance representing an integer value
     /// </summary>
-    public class DeviceManagementIntegerSettingInstance : DeviceManagementSettingInstance, IParsable
+    public class DeviceManagementIntegerSettingInstance : ApiSdk.Models.DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The integer value</summary>
         public int? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementIntegerSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementIntegerSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementIntegerSettingInstance() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementIntegerSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementIntegerSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementIntegerSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementIntegerSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementIntegerSettingInstance();
+            return new ApiSdk.Models.DeviceManagementIntegerSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model

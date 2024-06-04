@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         /// <summary>Time the action was initiated</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="VppTokenActionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VppTokenActionResult"/> and sets the default values.
         /// </summary>
         public VppTokenActionResult()
         {
@@ -45,16 +45,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VppTokenActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VppTokenActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VppTokenActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VppTokenActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.vppTokenRevokeLicensesActionResult" => new VppTokenRevokeLicensesActionResult(),
-                _ => new VppTokenActionResult(),
+                "#microsoft.graph.vppTokenRevokeLicensesActionResult" => new ApiSdk.Models.VppTokenRevokeLicensesActionResult(),
+                _ => new ApiSdk.Models.VppTokenActionResult(),
             };
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actionName", n => { ActionName = n.GetStringValue(); } },
-                { "actionState", n => { ActionState = n.GetEnumValue<ActionState>(); } },
+                { "actionState", n => { ActionState = n.GetEnumValue<ApiSdk.Models.ActionState>(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actionName", ActionName);
-            writer.WriteEnumValue<ActionState>("actionState", ActionState);
+            writer.WriteEnumValue<ApiSdk.Models.ActionState>("actionState", ActionState);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedRoleSummary : Entity, IParsable
+    public class PrivilegedRoleSummary : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The elevatedCount property</summary>
@@ -17,18 +17,18 @@ namespace ApiSdk.Models
         /// <summary>The mfaEnabled property</summary>
         public bool? MfaEnabled { get; set; }
         /// <summary>The status property</summary>
-        public RoleSummaryStatus? Status { get; set; }
+        public ApiSdk.Models.RoleSummaryStatus? Status { get; set; }
         /// <summary>The usersCount property</summary>
         public int? UsersCount { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedRoleSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedRoleSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedRoleSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedRoleSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedRoleSummary();
+            return new ApiSdk.Models.PrivilegedRoleSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,7 +41,7 @@ namespace ApiSdk.Models
                 { "elevatedCount", n => { ElevatedCount = n.GetIntValue(); } },
                 { "managedCount", n => { ManagedCount = n.GetIntValue(); } },
                 { "mfaEnabled", n => { MfaEnabled = n.GetBoolValue(); } },
-                { "status", n => { Status = n.GetEnumValue<RoleSummaryStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.RoleSummaryStatus>(); } },
                 { "usersCount", n => { UsersCount = n.GetIntValue(); } },
             };
         }
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("elevatedCount", ElevatedCount);
             writer.WriteIntValue("managedCount", ManagedCount);
             writer.WriteBoolValue("mfaEnabled", MfaEnabled);
-            writer.WriteEnumValue<RoleSummaryStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.RoleSummaryStatus>("status", Status);
             writer.WriteIntValue("usersCount", UsersCount);
         }
     }

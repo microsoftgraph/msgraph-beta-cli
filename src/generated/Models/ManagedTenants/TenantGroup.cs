@@ -23,18 +23,18 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of management action associated with the tenant group. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementActionInfo>? ManagementActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionInfo>? ManagementActions { get; set; }
 #nullable restore
 #else
-        public List<ManagementActionInfo> ManagementActions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionInfo> ManagementActions { get; set; }
 #endif
         /// <summary>The collection of management intents associated with the tenant group. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementIntentInfo>? ManagementIntents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementIntentInfo>? ManagementIntents { get; set; }
 #nullable restore
 #else
-        public List<ManagementIntentInfo> ManagementIntents { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementIntentInfo> ManagementIntents { get; set; }
 #endif
         /// <summary>The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,12 +47,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TenantGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.TenantGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TenantGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.TenantGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TenantGroup();
+            return new ApiSdk.Models.ManagedTenants.TenantGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,8 +64,8 @@ namespace ApiSdk.Models.ManagedTenants
             {
                 { "allTenantsIncluded", n => { AllTenantsIncluded = n.GetBoolValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "managementActions", n => { ManagementActions = n.GetCollectionOfObjectValues<ManagementActionInfo>(ManagementActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "managementIntents", n => { ManagementIntents = n.GetCollectionOfObjectValues<ManagementIntentInfo>(ManagementIntentInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementActions", n => { ManagementActions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionInfo>(ApiSdk.Models.ManagedTenants.ManagementActionInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementIntents", n => { ManagementIntents = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementIntentInfo>(ApiSdk.Models.ManagedTenants.ManagementIntentInfo.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "tenantIds", n => { TenantIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -79,8 +79,8 @@ namespace ApiSdk.Models.ManagedTenants
             base.Serialize(writer);
             writer.WriteBoolValue("allTenantsIncluded", AllTenantsIncluded);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<ManagementActionInfo>("managementActions", ManagementActions);
-            writer.WriteCollectionOfObjectValues<ManagementIntentInfo>("managementIntents", ManagementIntents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionInfo>("managementActions", ManagementActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementIntentInfo>("managementIntents", ManagementIntents);
             writer.WriteCollectionOfPrimitiveValues<string>("tenantIds", TenantIds);
         }
     }

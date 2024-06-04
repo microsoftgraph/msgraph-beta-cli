@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SkillProficiency : ItemFacet, IParsable
+    public class SkillProficiency : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains categories a user has associated with the skill (for example, personal, professional, hobby).</summary>
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.</summary>
-        public SkillProficiencyLevel? Proficiency { get; set; }
+        public ApiSdk.Models.SkillProficiencyLevel? Proficiency { get; set; }
         /// <summary>The thumbnailUrl property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string WebUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SkillProficiency"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SkillProficiency"/> and sets the default values.
         /// </summary>
         public SkillProficiency() : base()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SkillProficiency"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SkillProficiency"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SkillProficiency CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SkillProficiency CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SkillProficiency();
+            return new ApiSdk.Models.SkillProficiency();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
                 { "categories", n => { Categories = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "collaborationTags", n => { CollaborationTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "proficiency", n => { Proficiency = n.GetEnumValue<SkillProficiencyLevel>(); } },
+                { "proficiency", n => { Proficiency = n.GetEnumValue<ApiSdk.Models.SkillProficiencyLevel>(); } },
                 { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
                 { "webUrl", n => { WebUrl = n.GetStringValue(); } },
             };
@@ -96,7 +96,7 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("categories", Categories);
             writer.WriteCollectionOfPrimitiveValues<string>("collaborationTags", CollaborationTags);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<SkillProficiencyLevel>("proficiency", Proficiency);
+            writer.WriteEnumValue<ApiSdk.Models.SkillProficiencyLevel>("proficiency", Proficiency);
             writer.WriteStringValue("thumbnailUrl", ThumbnailUrl);
             writer.WriteStringValue("webUrl", WebUrl);
         }

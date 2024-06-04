@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign
         /// <summary>The deviceHealthScriptAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceHealthScriptAssignment>? DeviceHealthScriptAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptAssignment>? DeviceHealthScriptAssignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceHealthScriptAssignment> DeviceHealthScriptAssignments { get; set; }
+        public List<ApiSdk.Models.DeviceHealthScriptAssignment> DeviceHealthScriptAssignments { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign.AssignPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign.AssignPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign.AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignPostRequestBody();
+            return new ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign.AssignPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceHealthScriptAssignments", n => { DeviceHealthScriptAssignments = n.GetCollectionOfObjectValues<DeviceHealthScriptAssignment>(DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceHealthScriptAssignments", n => { DeviceHealthScriptAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptAssignment>(ApiSdk.Models.DeviceHealthScriptAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.DeviceComplianceScripts.Item.Assign
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DeviceHealthScriptAssignment>("deviceHealthScriptAssignments", DeviceHealthScriptAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceHealthScriptAssignment>("deviceHealthScriptAssignments", DeviceHealthScriptAssignments);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

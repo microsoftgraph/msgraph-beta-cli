@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Reports.GetCredentialUserRegistrationCount
 {
     #pragma warning disable CS1591
-    public class GetCredentialUserRegistrationCountGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetCredentialUserRegistrationCountGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CredentialUserRegistrationCount>? Value { get; set; }
+        public List<ApiSdk.Models.CredentialUserRegistrationCount>? Value { get; set; }
 #nullable restore
 #else
-        public List<CredentialUserRegistrationCount> Value { get; set; }
+        public List<ApiSdk.Models.CredentialUserRegistrationCount> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetCredentialUserRegistrationCountGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Reports.GetCredentialUserRegistrationCount.GetCredentialUserRegistrationCountGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetCredentialUserRegistrationCountGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Reports.GetCredentialUserRegistrationCount.GetCredentialUserRegistrationCountGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetCredentialUserRegistrationCountGetResponse();
+            return new ApiSdk.Reports.GetCredentialUserRegistrationCount.GetCredentialUserRegistrationCountGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Reports.GetCredentialUserRegistrationCount
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CredentialUserRegistrationCount>(CredentialUserRegistrationCount.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationCount>(ApiSdk.Models.CredentialUserRegistrationCount.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Reports.GetCredentialUserRegistrationCount
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CredentialUserRegistrationCount>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CredentialUserRegistrationCount>("value", Value);
         }
     }
 }

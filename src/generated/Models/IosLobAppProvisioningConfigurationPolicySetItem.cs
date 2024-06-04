@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for iOS lob app provisioning configuration PolicySetItem.
     /// </summary>
-    public class IosLobAppProvisioningConfigurationPolicySetItem : PolicySetItem, IParsable
+    public class IosLobAppProvisioningConfigurationPolicySetItem : ApiSdk.Models.PolicySetItem, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="IosLobAppProvisioningConfigurationPolicySetItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosLobAppProvisioningConfigurationPolicySetItem"/> and sets the default values.
         /// </summary>
         public IosLobAppProvisioningConfigurationPolicySetItem() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosLobAppProvisioningConfigurationPolicySetItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosLobAppProvisioningConfigurationPolicySetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosLobAppProvisioningConfigurationPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosLobAppProvisioningConfigurationPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosLobAppProvisioningConfigurationPolicySetItem();
+            return new ApiSdk.Models.IosLobAppProvisioningConfigurationPolicySetItem();
         }
         /// <summary>
         /// The deserialization information for the current model

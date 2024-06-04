@@ -9,52 +9,52 @@ namespace ApiSdk.Models
     /// <summary>
     /// Graph properties for Device Firmware Configuration Interface 
     /// </summary>
-    public class Windows10DeviceFirmwareConfigurationInterface : DeviceConfiguration, IParsable
+    public class Windows10DeviceFirmwareConfigurationInterface : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
-        public Enablement? Bluetooth { get; set; }
+        public ApiSdk.Models.Enablement? Bluetooth { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? BootFromBuiltInNetworkAdapters { get; set; }
+        public ApiSdk.Models.Enablement? BootFromBuiltInNetworkAdapters { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? BootFromExternalMedia { get; set; }
+        public ApiSdk.Models.Enablement? BootFromExternalMedia { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? Cameras { get; set; }
+        public ApiSdk.Models.Enablement? Cameras { get; set; }
         /// <summary>Defines the permission level granted to users to enable them change Uefi settings</summary>
         public ApiSdk.Models.ChangeUefiSettingsPermission? ChangeUefiSettingsPermission { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? FrontCamera { get; set; }
+        public ApiSdk.Models.Enablement? FrontCamera { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? InfraredCamera { get; set; }
+        public ApiSdk.Models.Enablement? InfraredCamera { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? Microphone { get; set; }
+        public ApiSdk.Models.Enablement? Microphone { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? MicrophonesAndSpeakers { get; set; }
+        public ApiSdk.Models.Enablement? MicrophonesAndSpeakers { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? NearFieldCommunication { get; set; }
+        public ApiSdk.Models.Enablement? NearFieldCommunication { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? Radios { get; set; }
+        public ApiSdk.Models.Enablement? Radios { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? RearCamera { get; set; }
+        public ApiSdk.Models.Enablement? RearCamera { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? SdCard { get; set; }
+        public ApiSdk.Models.Enablement? SdCard { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? SimultaneousMultiThreading { get; set; }
+        public ApiSdk.Models.Enablement? SimultaneousMultiThreading { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? UsbTypeAPort { get; set; }
+        public ApiSdk.Models.Enablement? UsbTypeAPort { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? VirtualizationOfCpuAndIO { get; set; }
+        public ApiSdk.Models.Enablement? VirtualizationOfCpuAndIO { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? WakeOnLAN { get; set; }
+        public ApiSdk.Models.Enablement? WakeOnLAN { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? WakeOnPower { get; set; }
+        public ApiSdk.Models.Enablement? WakeOnPower { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? WiFi { get; set; }
+        public ApiSdk.Models.Enablement? WiFi { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? WindowsPlatformBinaryTable { get; set; }
+        public ApiSdk.Models.Enablement? WindowsPlatformBinaryTable { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? WirelessWideAreaNetwork { get; set; }
+        public ApiSdk.Models.Enablement? WirelessWideAreaNetwork { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10DeviceFirmwareConfigurationInterface"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10DeviceFirmwareConfigurationInterface"/> and sets the default values.
         /// </summary>
         public Windows10DeviceFirmwareConfigurationInterface() : base()
         {
@@ -63,12 +63,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10DeviceFirmwareConfigurationInterface"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10DeviceFirmwareConfigurationInterface"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10DeviceFirmwareConfigurationInterface CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10DeviceFirmwareConfigurationInterface CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10DeviceFirmwareConfigurationInterface();
+            return new ApiSdk.Models.Windows10DeviceFirmwareConfigurationInterface();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,27 +78,27 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "bluetooth", n => { Bluetooth = n.GetEnumValue<Enablement>(); } },
-                { "bootFromBuiltInNetworkAdapters", n => { BootFromBuiltInNetworkAdapters = n.GetEnumValue<Enablement>(); } },
-                { "bootFromExternalMedia", n => { BootFromExternalMedia = n.GetEnumValue<Enablement>(); } },
-                { "cameras", n => { Cameras = n.GetEnumValue<Enablement>(); } },
-                { "changeUefiSettingsPermission", n => { ChangeUefiSettingsPermission = n.GetEnumValue<ChangeUefiSettingsPermission>(); } },
-                { "frontCamera", n => { FrontCamera = n.GetEnumValue<Enablement>(); } },
-                { "infraredCamera", n => { InfraredCamera = n.GetEnumValue<Enablement>(); } },
-                { "microphone", n => { Microphone = n.GetEnumValue<Enablement>(); } },
-                { "microphonesAndSpeakers", n => { MicrophonesAndSpeakers = n.GetEnumValue<Enablement>(); } },
-                { "nearFieldCommunication", n => { NearFieldCommunication = n.GetEnumValue<Enablement>(); } },
-                { "radios", n => { Radios = n.GetEnumValue<Enablement>(); } },
-                { "rearCamera", n => { RearCamera = n.GetEnumValue<Enablement>(); } },
-                { "sdCard", n => { SdCard = n.GetEnumValue<Enablement>(); } },
-                { "simultaneousMultiThreading", n => { SimultaneousMultiThreading = n.GetEnumValue<Enablement>(); } },
-                { "usbTypeAPort", n => { UsbTypeAPort = n.GetEnumValue<Enablement>(); } },
-                { "virtualizationOfCpuAndIO", n => { VirtualizationOfCpuAndIO = n.GetEnumValue<Enablement>(); } },
-                { "wakeOnLAN", n => { WakeOnLAN = n.GetEnumValue<Enablement>(); } },
-                { "wakeOnPower", n => { WakeOnPower = n.GetEnumValue<Enablement>(); } },
-                { "wiFi", n => { WiFi = n.GetEnumValue<Enablement>(); } },
-                { "windowsPlatformBinaryTable", n => { WindowsPlatformBinaryTable = n.GetEnumValue<Enablement>(); } },
-                { "wirelessWideAreaNetwork", n => { WirelessWideAreaNetwork = n.GetEnumValue<Enablement>(); } },
+                { "bluetooth", n => { Bluetooth = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "bootFromBuiltInNetworkAdapters", n => { BootFromBuiltInNetworkAdapters = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "bootFromExternalMedia", n => { BootFromExternalMedia = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "cameras", n => { Cameras = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "changeUefiSettingsPermission", n => { ChangeUefiSettingsPermission = n.GetEnumValue<ApiSdk.Models.ChangeUefiSettingsPermission>(); } },
+                { "frontCamera", n => { FrontCamera = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "infraredCamera", n => { InfraredCamera = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "microphone", n => { Microphone = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "microphonesAndSpeakers", n => { MicrophonesAndSpeakers = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "nearFieldCommunication", n => { NearFieldCommunication = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "radios", n => { Radios = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "rearCamera", n => { RearCamera = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "sdCard", n => { SdCard = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "simultaneousMultiThreading", n => { SimultaneousMultiThreading = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "usbTypeAPort", n => { UsbTypeAPort = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "virtualizationOfCpuAndIO", n => { VirtualizationOfCpuAndIO = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "wakeOnLAN", n => { WakeOnLAN = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "wakeOnPower", n => { WakeOnPower = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "wiFi", n => { WiFi = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "windowsPlatformBinaryTable", n => { WindowsPlatformBinaryTable = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
+                { "wirelessWideAreaNetwork", n => { WirelessWideAreaNetwork = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
             };
         }
         /// <summary>
@@ -109,27 +109,27 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Enablement>("bluetooth", Bluetooth);
-            writer.WriteEnumValue<Enablement>("bootFromBuiltInNetworkAdapters", BootFromBuiltInNetworkAdapters);
-            writer.WriteEnumValue<Enablement>("bootFromExternalMedia", BootFromExternalMedia);
-            writer.WriteEnumValue<Enablement>("cameras", Cameras);
-            writer.WriteEnumValue<ChangeUefiSettingsPermission>("changeUefiSettingsPermission", ChangeUefiSettingsPermission);
-            writer.WriteEnumValue<Enablement>("frontCamera", FrontCamera);
-            writer.WriteEnumValue<Enablement>("infraredCamera", InfraredCamera);
-            writer.WriteEnumValue<Enablement>("microphone", Microphone);
-            writer.WriteEnumValue<Enablement>("microphonesAndSpeakers", MicrophonesAndSpeakers);
-            writer.WriteEnumValue<Enablement>("nearFieldCommunication", NearFieldCommunication);
-            writer.WriteEnumValue<Enablement>("radios", Radios);
-            writer.WriteEnumValue<Enablement>("rearCamera", RearCamera);
-            writer.WriteEnumValue<Enablement>("sdCard", SdCard);
-            writer.WriteEnumValue<Enablement>("simultaneousMultiThreading", SimultaneousMultiThreading);
-            writer.WriteEnumValue<Enablement>("usbTypeAPort", UsbTypeAPort);
-            writer.WriteEnumValue<Enablement>("virtualizationOfCpuAndIO", VirtualizationOfCpuAndIO);
-            writer.WriteEnumValue<Enablement>("wakeOnLAN", WakeOnLAN);
-            writer.WriteEnumValue<Enablement>("wakeOnPower", WakeOnPower);
-            writer.WriteEnumValue<Enablement>("wiFi", WiFi);
-            writer.WriteEnumValue<Enablement>("windowsPlatformBinaryTable", WindowsPlatformBinaryTable);
-            writer.WriteEnumValue<Enablement>("wirelessWideAreaNetwork", WirelessWideAreaNetwork);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("bluetooth", Bluetooth);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("bootFromBuiltInNetworkAdapters", BootFromBuiltInNetworkAdapters);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("bootFromExternalMedia", BootFromExternalMedia);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("cameras", Cameras);
+            writer.WriteEnumValue<ApiSdk.Models.ChangeUefiSettingsPermission>("changeUefiSettingsPermission", ChangeUefiSettingsPermission);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("frontCamera", FrontCamera);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("infraredCamera", InfraredCamera);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("microphone", Microphone);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("microphonesAndSpeakers", MicrophonesAndSpeakers);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("nearFieldCommunication", NearFieldCommunication);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("radios", Radios);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("rearCamera", RearCamera);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("sdCard", SdCard);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("simultaneousMultiThreading", SimultaneousMultiThreading);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("usbTypeAPort", UsbTypeAPort);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("virtualizationOfCpuAndIO", VirtualizationOfCpuAndIO);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("wakeOnLAN", WakeOnLAN);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("wakeOnPower", WakeOnPower);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("wiFi", WiFi);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("windowsPlatformBinaryTable", WindowsPlatformBinaryTable);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("wirelessWideAreaNetwork", WirelessWideAreaNetwork);
         }
     }
 }

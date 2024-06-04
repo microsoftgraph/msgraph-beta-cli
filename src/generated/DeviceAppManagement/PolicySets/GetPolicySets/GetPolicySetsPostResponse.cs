@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets
 {
     #pragma warning disable CS1591
-    public class GetPolicySetsPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetPolicySetsPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PolicySet>? Value { get; set; }
+        public List<ApiSdk.Models.PolicySet>? Value { get; set; }
 #nullable restore
 #else
-        public List<PolicySet> Value { get; set; }
+        public List<ApiSdk.Models.PolicySet> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetPolicySetsPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets.GetPolicySetsPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetPolicySetsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets.GetPolicySetsPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetPolicySetsPostResponse();
+            return new ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets.GetPolicySetsPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<PolicySet>(PolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.PolicySet>(ApiSdk.Models.PolicySet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceAppManagement.PolicySets.GetPolicySets
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PolicySet>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PolicySet>("value", Value);
         }
     }
 }

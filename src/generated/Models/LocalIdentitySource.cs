@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class LocalIdentitySource : PermissionsDefinitionIdentitySource, IParsable
+    public class LocalIdentitySource : ApiSdk.Models.PermissionsDefinitionIdentitySource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="LocalIdentitySource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LocalIdentitySource"/> and sets the default values.
         /// </summary>
         public LocalIdentitySource() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LocalIdentitySource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LocalIdentitySource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new LocalIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.LocalIdentitySource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LocalIdentitySource();
+            return new ApiSdk.Models.LocalIdentitySource();
         }
         /// <summary>
         /// The deserialization information for the current model

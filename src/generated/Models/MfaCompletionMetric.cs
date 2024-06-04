@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MfaCompletionMetric : Entity, IParsable
+    public class MfaCompletionMetric : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The ID of the Microsoft Entra application. Supports $filter (eq).</summary>
@@ -50,10 +50,10 @@ namespace ApiSdk.Models
         /// <summary>The mfaFailures property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MfaFailure>? MfaFailures { get; set; }
+        public List<ApiSdk.Models.MfaFailure>? MfaFailures { get; set; }
 #nullable restore
 #else
-        public List<MfaFailure> MfaFailures { get; set; }
+        public List<ApiSdk.Models.MfaFailure> MfaFailures { get; set; }
 #endif
         /// <summary>The MFA authentication method used by the customers. Supports $filter (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MfaCompletionMetric"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MfaCompletionMetric"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MfaCompletionMetric CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MfaCompletionMetric CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MfaCompletionMetric();
+            return new ApiSdk.Models.MfaCompletionMetric();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,7 +97,7 @@ namespace ApiSdk.Models
                 { "factDate", n => { FactDate = n.GetDateValue(); } },
                 { "identityProvider", n => { IdentityProvider = n.GetStringValue(); } },
                 { "language", n => { Language = n.GetStringValue(); } },
-                { "mfaFailures", n => { MfaFailures = n.GetCollectionOfObjectValues<MfaFailure>(MfaFailure.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mfaFailures", n => { MfaFailures = n.GetCollectionOfObjectValues<ApiSdk.Models.MfaFailure>(ApiSdk.Models.MfaFailure.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "mfaMethod", n => { MfaMethod = n.GetStringValue(); } },
                 { "os", n => { Os = n.GetStringValue(); } },
                 { "successCount", n => { SuccessCount = n.GetLongValue(); } },
@@ -117,7 +117,7 @@ namespace ApiSdk.Models
             writer.WriteDateValue("factDate", FactDate);
             writer.WriteStringValue("identityProvider", IdentityProvider);
             writer.WriteStringValue("language", Language);
-            writer.WriteCollectionOfObjectValues<MfaFailure>("mfaFailures", MfaFailures);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MfaFailure>("mfaFailures", MfaFailures);
             writer.WriteStringValue("mfaMethod", MfaMethod);
             writer.WriteStringValue("os", Os);
             writer.WriteLongValue("successCount", SuccessCount);

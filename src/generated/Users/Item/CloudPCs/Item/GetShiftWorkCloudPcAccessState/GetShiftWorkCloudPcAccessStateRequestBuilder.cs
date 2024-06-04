@@ -68,14 +68,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetShiftWorkCloudPcAccessState
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetShiftWorkCloudPcAccessStateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.GetShiftWorkCloudPcAccessState.GetShiftWorkCloudPcAccessStateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetShiftWorkCloudPcAccessStateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/getShiftWorkCloudPcAccessState()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetShiftWorkCloudPcAccessStateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.GetShiftWorkCloudPcAccessState.GetShiftWorkCloudPcAccessStateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetShiftWorkCloudPcAccessStateRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/getShiftWorkCloudPcAccessState()", rawUrl)

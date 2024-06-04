@@ -7,90 +7,90 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DataClassificationService : Entity, IParsable
+    public class DataClassificationService : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The classifyFileJobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<JobResponseBase>? ClassifyFileJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase>? ClassifyFileJobs { get; set; }
 #nullable restore
 #else
-        public List<JobResponseBase> ClassifyFileJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase> ClassifyFileJobs { get; set; }
 #endif
         /// <summary>The classifyTextJobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<JobResponseBase>? ClassifyTextJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase>? ClassifyTextJobs { get; set; }
 #nullable restore
 #else
-        public List<JobResponseBase> ClassifyTextJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase> ClassifyTextJobs { get; set; }
 #endif
         /// <summary>The evaluateDlpPoliciesJobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<JobResponseBase>? EvaluateDlpPoliciesJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase>? EvaluateDlpPoliciesJobs { get; set; }
 #nullable restore
 #else
-        public List<JobResponseBase> EvaluateDlpPoliciesJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase> EvaluateDlpPoliciesJobs { get; set; }
 #endif
         /// <summary>The evaluateLabelJobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<JobResponseBase>? EvaluateLabelJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase>? EvaluateLabelJobs { get; set; }
 #nullable restore
 #else
-        public List<JobResponseBase> EvaluateLabelJobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase> EvaluateLabelJobs { get; set; }
 #endif
         /// <summary>The exactMatchDataStores property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExactMatchDataStore>? ExactMatchDataStores { get; set; }
+        public List<ApiSdk.Models.ExactMatchDataStore>? ExactMatchDataStores { get; set; }
 #nullable restore
 #else
-        public List<ExactMatchDataStore> ExactMatchDataStores { get; set; }
+        public List<ApiSdk.Models.ExactMatchDataStore> ExactMatchDataStores { get; set; }
 #endif
         /// <summary>The exactMatchUploadAgents property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExactMatchUploadAgent>? ExactMatchUploadAgents { get; set; }
+        public List<ApiSdk.Models.ExactMatchUploadAgent>? ExactMatchUploadAgents { get; set; }
 #nullable restore
 #else
-        public List<ExactMatchUploadAgent> ExactMatchUploadAgents { get; set; }
+        public List<ApiSdk.Models.ExactMatchUploadAgent> ExactMatchUploadAgents { get; set; }
 #endif
         /// <summary>The jobs property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<JobResponseBase>? Jobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase>? Jobs { get; set; }
 #nullable restore
 #else
-        public List<JobResponseBase> Jobs { get; set; }
+        public List<ApiSdk.Models.JobResponseBase> Jobs { get; set; }
 #endif
         /// <summary>The sensitiveTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitiveType>? SensitiveTypes { get; set; }
+        public List<ApiSdk.Models.SensitiveType>? SensitiveTypes { get; set; }
 #nullable restore
 #else
-        public List<SensitiveType> SensitiveTypes { get; set; }
+        public List<ApiSdk.Models.SensitiveType> SensitiveTypes { get; set; }
 #endif
         /// <summary>The sensitivityLabels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitivityLabel>? SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel>? SensitivityLabels { get; set; }
 #nullable restore
 #else
-        public List<SensitivityLabel> SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel> SensitivityLabels { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DataClassificationService"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DataClassificationService"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DataClassificationService CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DataClassificationService CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DataClassificationService();
+            return new ApiSdk.Models.DataClassificationService();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,15 +100,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "classifyFileJobs", n => { ClassifyFileJobs = n.GetCollectionOfObjectValues<JobResponseBase>(JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "classifyTextJobs", n => { ClassifyTextJobs = n.GetCollectionOfObjectValues<JobResponseBase>(JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "evaluateDlpPoliciesJobs", n => { EvaluateDlpPoliciesJobs = n.GetCollectionOfObjectValues<JobResponseBase>(JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "evaluateLabelJobs", n => { EvaluateLabelJobs = n.GetCollectionOfObjectValues<JobResponseBase>(JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "exactMatchDataStores", n => { ExactMatchDataStores = n.GetCollectionOfObjectValues<ExactMatchDataStore>(ExactMatchDataStore.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "exactMatchUploadAgents", n => { ExactMatchUploadAgents = n.GetCollectionOfObjectValues<ExactMatchUploadAgent>(ExactMatchUploadAgent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<JobResponseBase>(JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sensitiveTypes", n => { SensitiveTypes = n.GetCollectionOfObjectValues<SensitiveType>(SensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classifyFileJobs", n => { ClassifyFileJobs = n.GetCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>(ApiSdk.Models.JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classifyTextJobs", n => { ClassifyTextJobs = n.GetCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>(ApiSdk.Models.JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "evaluateDlpPoliciesJobs", n => { EvaluateDlpPoliciesJobs = n.GetCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>(ApiSdk.Models.JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "evaluateLabelJobs", n => { EvaluateLabelJobs = n.GetCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>(ApiSdk.Models.JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exactMatchDataStores", n => { ExactMatchDataStores = n.GetCollectionOfObjectValues<ApiSdk.Models.ExactMatchDataStore>(ApiSdk.Models.ExactMatchDataStore.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exactMatchUploadAgents", n => { ExactMatchUploadAgents = n.GetCollectionOfObjectValues<ApiSdk.Models.ExactMatchUploadAgent>(ApiSdk.Models.ExactMatchUploadAgent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "jobs", n => { Jobs = n.GetCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>(ApiSdk.Models.JobResponseBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sensitiveTypes", n => { SensitiveTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitiveType>(ApiSdk.Models.SensitiveType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>(ApiSdk.Models.SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -119,15 +119,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<JobResponseBase>("classifyFileJobs", ClassifyFileJobs);
-            writer.WriteCollectionOfObjectValues<JobResponseBase>("classifyTextJobs", ClassifyTextJobs);
-            writer.WriteCollectionOfObjectValues<JobResponseBase>("evaluateDlpPoliciesJobs", EvaluateDlpPoliciesJobs);
-            writer.WriteCollectionOfObjectValues<JobResponseBase>("evaluateLabelJobs", EvaluateLabelJobs);
-            writer.WriteCollectionOfObjectValues<ExactMatchDataStore>("exactMatchDataStores", ExactMatchDataStores);
-            writer.WriteCollectionOfObjectValues<ExactMatchUploadAgent>("exactMatchUploadAgents", ExactMatchUploadAgents);
-            writer.WriteCollectionOfObjectValues<JobResponseBase>("jobs", Jobs);
-            writer.WriteCollectionOfObjectValues<SensitiveType>("sensitiveTypes", SensitiveTypes);
-            writer.WriteCollectionOfObjectValues<SensitivityLabel>("sensitivityLabels", SensitivityLabels);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>("classifyFileJobs", ClassifyFileJobs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>("classifyTextJobs", ClassifyTextJobs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>("evaluateDlpPoliciesJobs", EvaluateDlpPoliciesJobs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>("evaluateLabelJobs", EvaluateLabelJobs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExactMatchDataStore>("exactMatchDataStores", ExactMatchDataStores);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExactMatchUploadAgent>("exactMatchUploadAgents", ExactMatchUploadAgents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.JobResponseBase>("jobs", Jobs);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitiveType>("sensitiveTypes", SensitiveTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>("sensitivityLabels", SensitivityLabels);
         }
     }
 }

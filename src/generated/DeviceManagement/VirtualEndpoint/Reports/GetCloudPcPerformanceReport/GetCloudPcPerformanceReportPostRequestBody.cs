@@ -38,7 +38,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceR
         public List<string> OrderBy { get; set; }
 #endif
         /// <summary>The reportName property</summary>
-        public CloudPCPerformanceReportName? ReportName { get; set; }
+        public ApiSdk.Models.CloudPCPerformanceReportName? ReportName { get; set; }
         /// <summary>The search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceR
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetCloudPcPerformanceReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport.GetCloudPcPerformanceReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetCloudPcPerformanceReportPostRequestBody()
         {
@@ -69,12 +69,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceR
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetCloudPcPerformanceReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport.GetCloudPcPerformanceReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetCloudPcPerformanceReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport.GetCloudPcPerformanceReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetCloudPcPerformanceReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceReport.GetCloudPcPerformanceReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +87,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceR
                 { "filter", n => { Filter = n.GetStringValue(); } },
                 { "groupBy", n => { GroupBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "orderBy", n => { OrderBy = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "reportName", n => { ReportName = n.GetEnumValue<CloudPCPerformanceReportName>(); } },
+                { "reportName", n => { ReportName = n.GetEnumValue<ApiSdk.Models.CloudPCPerformanceReportName>(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "select", n => { Select = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "skip", n => { Skip = n.GetIntValue(); } },
@@ -104,7 +104,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetCloudPcPerformanceR
             writer.WriteStringValue("filter", Filter);
             writer.WriteCollectionOfPrimitiveValues<string>("groupBy", GroupBy);
             writer.WriteCollectionOfPrimitiveValues<string>("orderBy", OrderBy);
-            writer.WriteEnumValue<CloudPCPerformanceReportName>("reportName", ReportName);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPCPerformanceReportName>("reportName", ReportName);
             writer.WriteStringValue("search", Search);
             writer.WriteCollectionOfPrimitiveValues<string>("select", Select);
             writer.WriteIntValue("skip", Skip);

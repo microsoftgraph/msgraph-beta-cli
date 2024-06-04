@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>The software update available for the admin agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? AdminAgentSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? AdminAgentSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus AdminAgentSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus AdminAgentSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>The software update available for the company portal.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? CompanyPortalSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? CompanyPortalSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus CompanyPortalSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus CompanyPortalSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>The software update available for the firmware.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? FirmwareSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? FirmwareSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus FirmwareSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus FirmwareSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,29 +47,29 @@ namespace ApiSdk.Models
         /// <summary>The software update available for the operating system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? OperatingSystemSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? OperatingSystemSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus OperatingSystemSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus OperatingSystemSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>The software update available for the partner agent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? PartnerAgentSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? PartnerAgentSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus PartnerAgentSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus PartnerAgentSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>The software update available for the Teams client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkSoftwareUpdateStatus? TeamsClientSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus? TeamsClientSoftwareUpdateStatus { get; set; }
 #nullable restore
 #else
-        public TeamworkSoftwareUpdateStatus TeamsClientSoftwareUpdateStatus { get; set; }
+        public ApiSdk.Models.TeamworkSoftwareUpdateStatus TeamsClientSoftwareUpdateStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkSoftwareUpdateHealth"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkSoftwareUpdateHealth"/> and sets the default values.
         /// </summary>
         public TeamworkSoftwareUpdateHealth()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkSoftwareUpdateHealth"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkSoftwareUpdateHealth"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkSoftwareUpdateHealth CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkSoftwareUpdateHealth CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkSoftwareUpdateHealth();
+            return new ApiSdk.Models.TeamworkSoftwareUpdateHealth();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,13 +93,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "adminAgentSoftwareUpdateStatus", n => { AdminAgentSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
-                { "companyPortalSoftwareUpdateStatus", n => { CompanyPortalSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
-                { "firmwareSoftwareUpdateStatus", n => { FirmwareSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "adminAgentSoftwareUpdateStatus", n => { AdminAgentSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "companyPortalSoftwareUpdateStatus", n => { CompanyPortalSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "firmwareSoftwareUpdateStatus", n => { FirmwareSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "operatingSystemSoftwareUpdateStatus", n => { OperatingSystemSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
-                { "partnerAgentSoftwareUpdateStatus", n => { PartnerAgentSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
-                { "teamsClientSoftwareUpdateStatus", n => { TeamsClientSoftwareUpdateStatus = n.GetObjectValue<TeamworkSoftwareUpdateStatus>(TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "operatingSystemSoftwareUpdateStatus", n => { OperatingSystemSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "partnerAgentSoftwareUpdateStatus", n => { PartnerAgentSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
+                { "teamsClientSoftwareUpdateStatus", n => { TeamsClientSoftwareUpdateStatus = n.GetObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>(ApiSdk.Models.TeamworkSoftwareUpdateStatus.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -109,13 +109,13 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("adminAgentSoftwareUpdateStatus", AdminAgentSoftwareUpdateStatus);
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("companyPortalSoftwareUpdateStatus", CompanyPortalSoftwareUpdateStatus);
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("firmwareSoftwareUpdateStatus", FirmwareSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("adminAgentSoftwareUpdateStatus", AdminAgentSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("companyPortalSoftwareUpdateStatus", CompanyPortalSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("firmwareSoftwareUpdateStatus", FirmwareSoftwareUpdateStatus);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("operatingSystemSoftwareUpdateStatus", OperatingSystemSoftwareUpdateStatus);
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("partnerAgentSoftwareUpdateStatus", PartnerAgentSoftwareUpdateStatus);
-            writer.WriteObjectValue<TeamworkSoftwareUpdateStatus>("teamsClientSoftwareUpdateStatus", TeamsClientSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("operatingSystemSoftwareUpdateStatus", OperatingSystemSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("partnerAgentSoftwareUpdateStatus", PartnerAgentSoftwareUpdateStatus);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkSoftwareUpdateStatus>("teamsClientSoftwareUpdateStatus", TeamsClientSoftwareUpdateStatus);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an ADMX checkBox element and an ADMX boolean element.
     /// </summary>
-    public class GroupPolicyPresentationCheckBox : GroupPolicyUploadedPresentation, IParsable
+    public class GroupPolicyPresentationCheckBox : ApiSdk.Models.GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>Default value for the check box. The default value is false.</summary>
         public bool? DefaultChecked { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyPresentationCheckBox"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GroupPolicyPresentationCheckBox"/> and sets the default values.
         /// </summary>
         public GroupPolicyPresentationCheckBox() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationCheckBox"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationCheckBox"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationCheckBox CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationCheckBox CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationCheckBox();
+            return new ApiSdk.Models.GroupPolicyPresentationCheckBox();
         }
         /// <summary>
         /// The deserialization information for the current model

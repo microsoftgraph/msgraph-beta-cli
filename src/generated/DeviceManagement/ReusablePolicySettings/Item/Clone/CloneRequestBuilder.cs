@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.Clone
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CloneRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.Clone.CloneRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CloneRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/clone", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CloneRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.Clone.CloneRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CloneRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/clone", rawUrl)

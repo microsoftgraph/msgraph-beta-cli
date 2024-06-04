@@ -47,9 +47,9 @@ namespace ApiSdk.Models.ManagedTenants
         public string SettingId { get; set; }
 #endif
         /// <summary>The valueType property</summary>
-        public ManagementParameterValueType? ValueType { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementParameterValueType? ValueType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Setting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ManagedTenants.Setting"/> and sets the default values.
         /// </summary>
         public Setting()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Setting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.Setting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Setting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ManagedTenants.Setting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Setting();
+            return new ApiSdk.Models.ManagedTenants.Setting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,7 +78,7 @@ namespace ApiSdk.Models.ManagedTenants
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "overwriteAllowed", n => { OverwriteAllowed = n.GetBoolValue(); } },
                 { "settingId", n => { SettingId = n.GetStringValue(); } },
-                { "valueType", n => { ValueType = n.GetEnumValue<ManagementParameterValueType>(); } },
+                { "valueType", n => { ValueType = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementParameterValueType>(); } },
             };
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("overwriteAllowed", OverwriteAllowed);
             writer.WriteStringValue("settingId", SettingId);
-            writer.WriteEnumValue<ManagementParameterValueType>("valueType", ValueType);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementParameterValueType>("valueType", ValueType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

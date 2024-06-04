@@ -31,7 +31,7 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
         {
             var command = new Command("account");
             command.Description = "Provides operations to manage the account property of the microsoft.graph.customerPaymentJournal entity.";
-            var builder = new AccountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.Account.AccountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -48,7 +48,7 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
         {
             var command = new Command("customer-payments");
             command.Description = "Provides operations to manage the customerPayments property of the microsoft.graph.customerPaymentJournal entity.";
-            var builder = new CustomerPaymentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPayments.CustomerPaymentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -202,7 +202,7 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<CustomerPaymentJournal>(CustomerPaymentJournal.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.CustomerPaymentJournal>(ApiSdk.Models.CustomerPaymentJournal.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -224,14 +224,14 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomerPaymentJournalItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPaymentJournalItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CustomerPaymentJournalItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/customerPaymentJournals/{customerPaymentJournal%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CustomerPaymentJournalItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPaymentJournalItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CustomerPaymentJournalItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/customerPaymentJournals/{customerPaymentJournal%2Did}{?%24expand,%24select}", rawUrl)
@@ -263,11 +263,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustomerPaymentJournalItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPaymentJournalItemRequestBuilder.CustomerPaymentJournalItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<CustomerPaymentJournalItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item.CustomerPaymentJournalItemRequestBuilder.CustomerPaymentJournalItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -283,11 +283,11 @@ namespace ApiSdk.Financials.Companies.Item.CustomerPaymentJournals.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(CustomerPaymentJournal body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CustomerPaymentJournal body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(CustomerPaymentJournal body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.CustomerPaymentJournal body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

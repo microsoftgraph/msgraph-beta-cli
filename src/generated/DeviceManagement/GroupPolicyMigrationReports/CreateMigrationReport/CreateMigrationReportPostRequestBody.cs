@@ -22,7 +22,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationRep
         public ApiSdk.Models.GroupPolicyObjectFile GroupPolicyObjectFile { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CreateMigrationReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport.CreateMigrationReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public CreateMigrationReportPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationRep
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CreateMigrationReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport.CreateMigrationReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CreateMigrationReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport.CreateMigrationReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CreateMigrationReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.GroupPolicyMigrationReports.CreateMigrationReport.CreateMigrationReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

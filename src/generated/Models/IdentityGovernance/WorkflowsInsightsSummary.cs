@@ -39,7 +39,7 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>Count of total users processed by workflows in the tenant.</summary>
         public int? TotalUsers { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WorkflowsInsightsSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.WorkflowsInsightsSummary"/> and sets the default values.
         /// </summary>
         public WorkflowsInsightsSummary()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkflowsInsightsSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.WorkflowsInsightsSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WorkflowsInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityGovernance.WorkflowsInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkflowsInsightsSummary();
+            return new ApiSdk.Models.IdentityGovernance.WorkflowsInsightsSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

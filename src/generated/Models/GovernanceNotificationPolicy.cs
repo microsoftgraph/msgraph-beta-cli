@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The notificationTemplates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceNotificationTemplate>? NotificationTemplates { get; set; }
+        public List<ApiSdk.Models.GovernanceNotificationTemplate>? NotificationTemplates { get; set; }
 #nullable restore
 #else
-        public List<GovernanceNotificationTemplate> NotificationTemplates { get; set; }
+        public List<ApiSdk.Models.GovernanceNotificationTemplate> NotificationTemplates { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceNotificationPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GovernanceNotificationPolicy"/> and sets the default values.
         /// </summary>
         public GovernanceNotificationPolicy()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernanceNotificationPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernanceNotificationPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GovernanceNotificationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.GovernanceNotificationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernanceNotificationPolicy();
+            return new ApiSdk.Models.GovernanceNotificationPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabledTemplateTypes", n => { EnabledTemplateTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "notificationTemplates", n => { NotificationTemplates = n.GetCollectionOfObjectValues<GovernanceNotificationTemplate>(GovernanceNotificationTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "notificationTemplates", n => { NotificationTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceNotificationTemplate>(ApiSdk.Models.GovernanceNotificationTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("enabledTemplateTypes", EnabledTemplateTypes);
-            writer.WriteCollectionOfObjectValues<GovernanceNotificationTemplate>("notificationTemplates", NotificationTemplates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceNotificationTemplate>("notificationTemplates", NotificationTemplates);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

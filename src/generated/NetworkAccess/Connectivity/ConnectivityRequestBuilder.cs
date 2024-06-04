@@ -31,7 +31,7 @@ namespace ApiSdk.NetworkAccess.Connectivity
         {
             var command = new Command("branches");
             command.Description = "Provides operations to manage the branches property of the microsoft.graph.networkaccess.connectivity entity.";
-            var builder = new BranchesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.BranchesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -178,7 +178,7 @@ namespace ApiSdk.NetworkAccess.Connectivity
         {
             var command = new Command("remote-networks");
             command.Description = "Provides operations to manage the remoteNetworks property of the microsoft.graph.networkaccess.connectivity entity.";
-            var builder = new RemoteNetworksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.RemoteNetworks.RemoteNetworksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -198,14 +198,14 @@ namespace ApiSdk.NetworkAccess.Connectivity
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectivityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.ConnectivityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConnectivityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/connectivity{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectivityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.ConnectivityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConnectivityRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/connectivity{?%24expand,%24select}", rawUrl)
@@ -237,11 +237,11 @@ namespace ApiSdk.NetworkAccess.Connectivity
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectivityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.ConnectivityRequestBuilder.ConnectivityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectivityRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.ConnectivityRequestBuilder.ConnectivityRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

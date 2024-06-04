@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class RelatedProcess : RelatedResource, IParsable
+    public class RelatedProcess : ApiSdk.Models.Networkaccess.RelatedResource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The isSuspicious property</summary>
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Networkaccess
         public string ProcessName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RelatedProcess"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RelatedProcess"/> and sets the default values.
         /// </summary>
         public RelatedProcess() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RelatedProcess"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RelatedProcess"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RelatedProcess CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.RelatedProcess CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RelatedProcess();
+            return new ApiSdk.Models.Networkaccess.RelatedProcess();
         }
         /// <summary>
         /// The deserialization information for the current model

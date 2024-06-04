@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>Represents a custom security attribute audit log.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomSecurityAttributeAudit>? CustomSecurityAttributeAudits { get; set; }
+        public List<ApiSdk.Models.CustomSecurityAttributeAudit>? CustomSecurityAttributeAudits { get; set; }
 #nullable restore
 #else
-        public List<CustomSecurityAttributeAudit> CustomSecurityAttributeAudits { get; set; }
+        public List<ApiSdk.Models.CustomSecurityAttributeAudit> CustomSecurityAttributeAudits { get; set; }
 #endif
         /// <summary>The directoryAudits property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DirectoryAudit>? DirectoryAudits { get; set; }
+        public List<ApiSdk.Models.DirectoryAudit>? DirectoryAudits { get; set; }
 #nullable restore
 #else
-        public List<DirectoryAudit> DirectoryAudits { get; set; }
+        public List<ApiSdk.Models.DirectoryAudit> DirectoryAudits { get; set; }
 #endif
         /// <summary>The directoryProvisioning property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProvisioningObjectSummary>? DirectoryProvisioning { get; set; }
+        public List<ApiSdk.Models.ProvisioningObjectSummary>? DirectoryProvisioning { get; set; }
 #nullable restore
 #else
-        public List<ProvisioningObjectSummary> DirectoryProvisioning { get; set; }
+        public List<ApiSdk.Models.ProvisioningObjectSummary> DirectoryProvisioning { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,21 +47,21 @@ namespace ApiSdk.Models
         /// <summary>Represents an action performed by the Microsoft Entra provisioning service and its associated properties.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProvisioningObjectSummary>? Provisioning { get; set; }
+        public List<ApiSdk.Models.ProvisioningObjectSummary>? Provisioning { get; set; }
 #nullable restore
 #else
-        public List<ProvisioningObjectSummary> Provisioning { get; set; }
+        public List<ApiSdk.Models.ProvisioningObjectSummary> Provisioning { get; set; }
 #endif
         /// <summary>The signIns property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SignIn>? SignIns { get; set; }
+        public List<ApiSdk.Models.SignIn>? SignIns { get; set; }
 #nullable restore
 #else
-        public List<SignIn> SignIns { get; set; }
+        public List<ApiSdk.Models.SignIn> SignIns { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuditLogRoot"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuditLogRoot"/> and sets the default values.
         /// </summary>
         public AuditLogRoot()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuditLogRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuditLogRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuditLogRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuditLogRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuditLogRoot();
+            return new ApiSdk.Models.AuditLogRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "customSecurityAttributeAudits", n => { CustomSecurityAttributeAudits = n.GetCollectionOfObjectValues<CustomSecurityAttributeAudit>(CustomSecurityAttributeAudit.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "directoryAudits", n => { DirectoryAudits = n.GetCollectionOfObjectValues<DirectoryAudit>(DirectoryAudit.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "directoryProvisioning", n => { DirectoryProvisioning = n.GetCollectionOfObjectValues<ProvisioningObjectSummary>(ProvisioningObjectSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customSecurityAttributeAudits", n => { CustomSecurityAttributeAudits = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomSecurityAttributeAudit>(ApiSdk.Models.CustomSecurityAttributeAudit.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "directoryAudits", n => { DirectoryAudits = n.GetCollectionOfObjectValues<ApiSdk.Models.DirectoryAudit>(ApiSdk.Models.DirectoryAudit.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "directoryProvisioning", n => { DirectoryProvisioning = n.GetCollectionOfObjectValues<ApiSdk.Models.ProvisioningObjectSummary>(ApiSdk.Models.ProvisioningObjectSummary.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "provisioning", n => { Provisioning = n.GetCollectionOfObjectValues<ProvisioningObjectSummary>(ProvisioningObjectSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "signIns", n => { SignIns = n.GetCollectionOfObjectValues<SignIn>(SignIn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "provisioning", n => { Provisioning = n.GetCollectionOfObjectValues<ApiSdk.Models.ProvisioningObjectSummary>(ApiSdk.Models.ProvisioningObjectSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "signIns", n => { SignIns = n.GetCollectionOfObjectValues<ApiSdk.Models.SignIn>(ApiSdk.Models.SignIn.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -100,12 +100,12 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<CustomSecurityAttributeAudit>("customSecurityAttributeAudits", CustomSecurityAttributeAudits);
-            writer.WriteCollectionOfObjectValues<DirectoryAudit>("directoryAudits", DirectoryAudits);
-            writer.WriteCollectionOfObjectValues<ProvisioningObjectSummary>("directoryProvisioning", DirectoryProvisioning);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomSecurityAttributeAudit>("customSecurityAttributeAudits", CustomSecurityAttributeAudits);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DirectoryAudit>("directoryAudits", DirectoryAudits);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ProvisioningObjectSummary>("directoryProvisioning", DirectoryProvisioning);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<ProvisioningObjectSummary>("provisioning", Provisioning);
-            writer.WriteCollectionOfObjectValues<SignIn>("signIns", SignIns);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ProvisioningObjectSummary>("provisioning", Provisioning);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SignIn>("signIns", SignIns);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

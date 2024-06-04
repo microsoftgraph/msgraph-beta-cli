@@ -7,51 +7,51 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GcpAuthorizationSystem : AuthorizationSystem, IParsable
+    public class GcpAuthorizationSystem : ApiSdk.Models.AuthorizationSystem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for service in authorization system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpAuthorizationSystemTypeAction>? Actions { get; set; }
+        public List<ApiSdk.Models.GcpAuthorizationSystemTypeAction>? Actions { get; set; }
 #nullable restore
 #else
-        public List<GcpAuthorizationSystemTypeAction> Actions { get; set; }
+        public List<ApiSdk.Models.GcpAuthorizationSystemTypeAction> Actions { get; set; }
 #endif
         /// <summary>Identities in the authorization system.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GcpAssociatedIdentities? AssociatedIdentities { get; set; }
+        public ApiSdk.Models.GcpAssociatedIdentities? AssociatedIdentities { get; set; }
 #nullable restore
 #else
-        public GcpAssociatedIdentities AssociatedIdentities { get; set; }
+        public ApiSdk.Models.GcpAssociatedIdentities AssociatedIdentities { get; set; }
 #endif
         /// <summary>Resources associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpAuthorizationSystemResource>? Resources { get; set; }
+        public List<ApiSdk.Models.GcpAuthorizationSystemResource>? Resources { get; set; }
 #nullable restore
 #else
-        public List<GcpAuthorizationSystemResource> Resources { get; set; }
+        public List<ApiSdk.Models.GcpAuthorizationSystemResource> Resources { get; set; }
 #endif
         /// <summary>Roles associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GcpRole>? Roles { get; set; }
+        public List<ApiSdk.Models.GcpRole>? Roles { get; set; }
 #nullable restore
 #else
-        public List<GcpRole> Roles { get; set; }
+        public List<ApiSdk.Models.GcpRole> Roles { get; set; }
 #endif
         /// <summary>Services associated with the authorization system type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthorizationSystemTypeService>? Services { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeService>? Services { get; set; }
 #nullable restore
 #else
-        public List<AuthorizationSystemTypeService> Services { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeService> Services { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GcpAuthorizationSystem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GcpAuthorizationSystem"/> and sets the default values.
         /// </summary>
         public GcpAuthorizationSystem() : base()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpAuthorizationSystem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpAuthorizationSystem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GcpAuthorizationSystem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GcpAuthorizationSystem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GcpAuthorizationSystem();
+            return new ApiSdk.Models.GcpAuthorizationSystem();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,11 +75,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actions", n => { Actions = n.GetCollectionOfObjectValues<GcpAuthorizationSystemTypeAction>(GcpAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<GcpAssociatedIdentities>(GcpAssociatedIdentities.CreateFromDiscriminatorValue); } },
-                { "resources", n => { Resources = n.GetCollectionOfObjectValues<GcpAuthorizationSystemResource>(GcpAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roles", n => { Roles = n.GetCollectionOfObjectValues<GcpRole>(GcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "services", n => { Services = n.GetCollectionOfObjectValues<AuthorizationSystemTypeService>(AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpAuthorizationSystemTypeAction>(ApiSdk.Models.GcpAuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "associatedIdentities", n => { AssociatedIdentities = n.GetObjectValue<ApiSdk.Models.GcpAssociatedIdentities>(ApiSdk.Models.GcpAssociatedIdentities.CreateFromDiscriminatorValue); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpAuthorizationSystemResource>(ApiSdk.Models.GcpAuthorizationSystemResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roles", n => { Roles = n.GetCollectionOfObjectValues<ApiSdk.Models.GcpRole>(ApiSdk.Models.GcpRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "services", n => { Services = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeService>(ApiSdk.Models.AuthorizationSystemTypeService.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -90,11 +90,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GcpAuthorizationSystemTypeAction>("actions", Actions);
-            writer.WriteObjectValue<GcpAssociatedIdentities>("associatedIdentities", AssociatedIdentities);
-            writer.WriteCollectionOfObjectValues<GcpAuthorizationSystemResource>("resources", Resources);
-            writer.WriteCollectionOfObjectValues<GcpRole>("roles", Roles);
-            writer.WriteCollectionOfObjectValues<AuthorizationSystemTypeService>("services", Services);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpAuthorizationSystemTypeAction>("actions", Actions);
+            writer.WriteObjectValue<ApiSdk.Models.GcpAssociatedIdentities>("associatedIdentities", AssociatedIdentities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpAuthorizationSystemResource>("resources", Resources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GcpRole>("roles", Roles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeService>("services", Services);
         }
     }
 }

@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.DataSharingConsents.Item.ConsentToDataSharing
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConsentToDataSharingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DataSharingConsents.Item.ConsentToDataSharing.ConsentToDataSharingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConsentToDataSharingRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/dataSharingConsents/{dataSharingConsent%2Did}/consentToDataSharing", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConsentToDataSharingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DataSharingConsents.Item.ConsentToDataSharing.ConsentToDataSharingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConsentToDataSharingRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/dataSharingConsents/{dataSharingConsent%2Did}/consentToDataSharing", rawUrl)

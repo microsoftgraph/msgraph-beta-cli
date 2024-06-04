@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// String Setting Value Constant Default Template
     /// </summary>
-    public class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate : DeviceManagementConfigurationStringSettingValueDefaultTemplate, IParsable
+    public class DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate : ApiSdk.Models.DeviceManagementConfigurationStringSettingValueDefaultTemplate, IParsable
     {
         /// <summary>Default Constant Value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string ConstantValue { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model

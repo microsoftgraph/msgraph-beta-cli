@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The configuration for the bot source. Required if sourceType is set to bot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamsAppDashboardCardBotConfiguration? BotConfiguration { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardBotConfiguration? BotConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamsAppDashboardCardBotConfiguration BotConfiguration { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardBotConfiguration BotConfiguration { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,9 +29,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Represents the type of source that powers the content of the dashboard card. The possible values are: bot, unknownFutureValue.</summary>
-        public TeamsAppDashboardCardSourceType? SourceType { get; set; }
+        public ApiSdk.Models.TeamsAppDashboardCardSourceType? SourceType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TeamsAppDashboardCardContentSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamsAppDashboardCardContentSource"/> and sets the default values.
         /// </summary>
         public TeamsAppDashboardCardContentSource()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamsAppDashboardCardContentSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamsAppDashboardCardContentSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamsAppDashboardCardContentSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamsAppDashboardCardContentSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamsAppDashboardCardContentSource();
+            return new ApiSdk.Models.TeamsAppDashboardCardContentSource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,9 +55,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "botConfiguration", n => { BotConfiguration = n.GetObjectValue<TeamsAppDashboardCardBotConfiguration>(TeamsAppDashboardCardBotConfiguration.CreateFromDiscriminatorValue); } },
+                { "botConfiguration", n => { BotConfiguration = n.GetObjectValue<ApiSdk.Models.TeamsAppDashboardCardBotConfiguration>(ApiSdk.Models.TeamsAppDashboardCardBotConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "sourceType", n => { SourceType = n.GetEnumValue<TeamsAppDashboardCardSourceType>(); } },
+                { "sourceType", n => { SourceType = n.GetEnumValue<ApiSdk.Models.TeamsAppDashboardCardSourceType>(); } },
             };
         }
         /// <summary>
@@ -67,9 +67,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamsAppDashboardCardBotConfiguration>("botConfiguration", BotConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamsAppDashboardCardBotConfiguration>("botConfiguration", BotConfiguration);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<TeamsAppDashboardCardSourceType>("sourceType", SourceType);
+            writer.WriteEnumValue<ApiSdk.Models.TeamsAppDashboardCardSourceType>("sourceType", SourceType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

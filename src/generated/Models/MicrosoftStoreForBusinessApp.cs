@@ -9,25 +9,25 @@ namespace ApiSdk.Models
     /// <summary>
     /// Microsoft Store for Business Apps. This class does not support Create, Delete, or Update.
     /// </summary>
-    public class MicrosoftStoreForBusinessApp : MobileApp, IParsable
+    public class MicrosoftStoreForBusinessApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The collection of contained apps in a mobileApp acting as a package.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileContainedApp>? ContainedApps { get; set; }
+        public List<ApiSdk.Models.MobileContainedApp>? ContainedApps { get; set; }
 #nullable restore
 #else
-        public List<MobileContainedApp> ContainedApps { get; set; }
+        public List<ApiSdk.Models.MobileContainedApp> ContainedApps { get; set; }
 #endif
         /// <summary>The licenseType property</summary>
-        public MicrosoftStoreForBusinessLicenseType? LicenseType { get; set; }
+        public ApiSdk.Models.MicrosoftStoreForBusinessLicenseType? LicenseType { get; set; }
         /// <summary>The supported License Type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VppLicensingType? LicensingType { get; set; }
+        public ApiSdk.Models.VppLicensingType? LicensingType { get; set; }
 #nullable restore
 #else
-        public VppLicensingType LicensingType { get; set; }
+        public ApiSdk.Models.VppLicensingType LicensingType { get; set; }
 #endif
         /// <summary>The app package identifier</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         /// <summary>The number of Microsoft Store for Business licenses in use.</summary>
         public int? UsedLicenseCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftStoreForBusinessApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MicrosoftStoreForBusinessApp"/> and sets the default values.
         /// </summary>
         public MicrosoftStoreForBusinessApp() : base()
         {
@@ -59,12 +59,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MicrosoftStoreForBusinessApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MicrosoftStoreForBusinessApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MicrosoftStoreForBusinessApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MicrosoftStoreForBusinessApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MicrosoftStoreForBusinessApp();
+            return new ApiSdk.Models.MicrosoftStoreForBusinessApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,9 +74,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "containedApps", n => { ContainedApps = n.GetCollectionOfObjectValues<MobileContainedApp>(MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "licenseType", n => { LicenseType = n.GetEnumValue<MicrosoftStoreForBusinessLicenseType>(); } },
-                { "licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
+                { "containedApps", n => { ContainedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileContainedApp>(ApiSdk.Models.MobileContainedApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "licenseType", n => { LicenseType = n.GetEnumValue<ApiSdk.Models.MicrosoftStoreForBusinessLicenseType>(); } },
+                { "licensingType", n => { LicensingType = n.GetObjectValue<ApiSdk.Models.VppLicensingType>(ApiSdk.Models.VppLicensingType.CreateFromDiscriminatorValue); } },
                 { "packageIdentityName", n => { PackageIdentityName = n.GetStringValue(); } },
                 { "productKey", n => { ProductKey = n.GetStringValue(); } },
                 { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
@@ -91,9 +91,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<MobileContainedApp>("containedApps", ContainedApps);
-            writer.WriteEnumValue<MicrosoftStoreForBusinessLicenseType>("licenseType", LicenseType);
-            writer.WriteObjectValue<VppLicensingType>("licensingType", LicensingType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileContainedApp>("containedApps", ContainedApps);
+            writer.WriteEnumValue<ApiSdk.Models.MicrosoftStoreForBusinessLicenseType>("licenseType", LicenseType);
+            writer.WriteObjectValue<ApiSdk.Models.VppLicensingType>("licensingType", LicensingType);
             writer.WriteStringValue("packageIdentityName", PackageIdentityName);
             writer.WriteStringValue("productKey", ProductKey);
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);

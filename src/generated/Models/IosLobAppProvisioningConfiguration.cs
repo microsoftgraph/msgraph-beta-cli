@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the iOS Lob App Provisioning Configuration resource.
     /// </summary>
-    public class IosLobAppProvisioningConfiguration : Entity, IParsable
+    public class IosLobAppProvisioningConfiguration : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The associated group assignments for IosLobAppProvisioningConfiguration, this determines which devices/users the IOS LOB app provisioning conifguration will be targeted to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosLobAppProvisioningConfigurationAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<IosLobAppProvisioningConfigurationAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment> Assignments { get; set; }
 #endif
         /// <summary>DateTime the object was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -32,10 +32,10 @@ namespace ApiSdk.Models
         /// <summary>The list of device installation states for this mobile app configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceMobileAppConfigurationDeviceStatus>? DeviceStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceMobileAppConfigurationDeviceStatus>? DeviceStatuses { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceMobileAppConfigurationDeviceStatus> DeviceStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceMobileAppConfigurationDeviceStatus> DeviceStatuses { get; set; }
 #endif
         /// <summary>Admin provided name of the device configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,10 +50,10 @@ namespace ApiSdk.Models
         /// <summary>The associated group assignments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileAppProvisioningConfigGroupAssignment>? GroupAssignments { get; set; }
+        public List<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>? GroupAssignments { get; set; }
 #nullable restore
 #else
-        public List<MobileAppProvisioningConfigGroupAssignment> GroupAssignments { get; set; }
+        public List<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment> GroupAssignments { get; set; }
 #endif
         /// <summary>DateTime the object was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -84,22 +84,22 @@ namespace ApiSdk.Models
         /// <summary>The list of user installation states for this mobile app configuration.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceMobileAppConfigurationUserStatus>? UserStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceMobileAppConfigurationUserStatus>? UserStatuses { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceMobileAppConfigurationUserStatus> UserStatuses { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceMobileAppConfigurationUserStatus> UserStatuses { get; set; }
 #endif
         /// <summary>Version of the device configuration.</summary>
         public int? Version { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosLobAppProvisioningConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosLobAppProvisioningConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosLobAppProvisioningConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosLobAppProvisioningConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosLobAppProvisioningConfiguration();
+            return new ApiSdk.Models.IosLobAppProvisioningConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,18 +109,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<IosLobAppProvisioningConfigurationAssignment>(IosLobAppProvisioningConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>(ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>(ManagedDeviceMobileAppConfigurationDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceMobileAppConfigurationDeviceStatus>(ApiSdk.Models.ManagedDeviceMobileAppConfigurationDeviceStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "expirationDateTime", n => { ExpirationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<MobileAppProvisioningConfigGroupAssignment>(MobileAppProvisioningConfigGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupAssignments", n => { GroupAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>(ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "payload", n => { Payload = n.GetByteArrayValue(); } },
                 { "payloadFileName", n => { PayloadFileName = n.GetStringValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "userStatuses", n => { UserStatuses = n.GetCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>(ManagedDeviceMobileAppConfigurationUserStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userStatuses", n => { UserStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceMobileAppConfigurationUserStatus>(ApiSdk.Models.ManagedDeviceMobileAppConfigurationUserStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
         }
@@ -132,18 +132,18 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<IosLobAppProvisioningConfigurationAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationDeviceStatus>("deviceStatuses", DeviceStatuses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceMobileAppConfigurationDeviceStatus>("deviceStatuses", DeviceStatuses);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("expirationDateTime", ExpirationDateTime);
-            writer.WriteCollectionOfObjectValues<MobileAppProvisioningConfigGroupAssignment>("groupAssignments", GroupAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>("groupAssignments", GroupAssignments);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteByteArrayValue("payload", Payload);
             writer.WriteStringValue("payloadFileName", PayloadFileName);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationUserStatus>("userStatuses", UserStatuses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceMobileAppConfigurationUserStatus>("userStatuses", UserStatuses);
             writer.WriteIntValue("version", Version);
         }
     }

@@ -164,14 +164,14 @@ namespace ApiSdk.Users.Item.OnlineMeetings.Item.BroadcastRecording
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BroadcastRecordingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.OnlineMeetings.Item.BroadcastRecording.BroadcastRecordingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BroadcastRecordingRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/broadcastRecording", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BroadcastRecordingRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.OnlineMeetings.Item.BroadcastRecording.BroadcastRecordingRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BroadcastRecordingRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/onlineMeetings/{onlineMeeting%2Did}/broadcastRecording", rawUrl)

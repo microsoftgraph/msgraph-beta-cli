@@ -68,14 +68,14 @@ namespace ApiSdk.Groups.Item.Calendar.Events.Item.Instances.Item.ExceptionOccurr
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DismissReminderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Calendar.Events.Item.Instances.Item.ExceptionOccurrences.Item.DismissReminder.DismissReminderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DismissReminderRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/calendar/events/{event%2Did}/instances/{event%2Did1}/exceptionOccurrences/{event%2Did2}/dismissReminder", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DismissReminderRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Calendar.Events.Item.Instances.Item.ExceptionOccurrences.Item.DismissReminder.DismissReminderRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DismissReminderRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/calendar/events/{event%2Did}/instances/{event%2Did1}/exceptionOccurrences/{event%2Did2}/dismissReminder", rawUrl)

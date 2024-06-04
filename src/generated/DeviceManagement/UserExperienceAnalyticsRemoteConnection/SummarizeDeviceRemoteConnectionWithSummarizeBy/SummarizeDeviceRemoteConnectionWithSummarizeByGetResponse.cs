@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.SummarizeDeviceRemoteConnectionWithSummarizeBy
 {
     #pragma warning disable CS1591
-    public class SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.Summar
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.SummarizeDeviceRemoteConnectionWithSummarizeBy.SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.SummarizeDeviceRemoteConnectionWithSummarizeBy.SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse();
+            return new ApiSdk.DeviceManagement.UserExperienceAnalyticsRemoteConnection.SummarizeDeviceRemoteConnectionWithSummarizeBy.SummarizeDeviceRemoteConnectionWithSummarizeByGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

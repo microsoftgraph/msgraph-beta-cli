@@ -45,7 +45,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("attachments");
             command.Description = "Provides operations to manage the attachments property of the microsoft.graph.message entity.";
-            var builder = new AttachmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Attachments.AttachmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -73,7 +73,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the user entity.";
-            var builder = new ContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Value.ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -92,7 +92,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("copy");
             command.Description = "Provides operations to call the copy method.";
-            var builder = new CopyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Copy.CopyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -109,7 +109,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("create-forward");
             command.Description = "Provides operations to call the createForward method.";
-            var builder = new CreateForwardRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.CreateForward.CreateForwardRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -126,7 +126,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("create-reply-all");
             command.Description = "Provides operations to call the createReplyAll method.";
-            var builder = new CreateReplyAllRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.CreateReplyAll.CreateReplyAllRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -143,7 +143,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("create-reply");
             command.Description = "Provides operations to call the createReply method.";
-            var builder = new CreateReplyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.CreateReply.CreateReplyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -201,7 +201,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("extensions");
             command.Description = "Provides operations to manage the extensions property of the microsoft.graph.message entity.";
-            var builder = new ExtensionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Extensions.ExtensionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -228,7 +228,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("forward");
             command.Description = "Provides operations to call the forward method.";
-            var builder = new ForwardRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Forward.ForwardRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -309,7 +309,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("mark-as-junk");
             command.Description = "Provides operations to call the markAsJunk method.";
-            var builder = new MarkAsJunkRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.MarkAsJunk.MarkAsJunkRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -326,7 +326,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("mark-as-not-junk");
             command.Description = "Provides operations to call the markAsNotJunk method.";
-            var builder = new MarkAsNotJunkRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.MarkAsNotJunk.MarkAsNotJunkRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -343,7 +343,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("mentions");
             command.Description = "Provides operations to manage the mentions property of the microsoft.graph.message entity.";
-            var builder = new MentionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Mentions.MentionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -370,7 +370,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("move");
             command.Description = "Provides operations to call the move method.";
-            var builder = new MoveRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Move.MoveRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -444,7 +444,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("reply-all");
             command.Description = "Provides operations to call the replyAll method.";
-            var builder = new ReplyAllRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.ReplyAll.ReplyAllRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -461,7 +461,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("reply");
             command.Description = "Provides operations to call the reply method.";
-            var builder = new ReplyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Reply.ReplyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -478,7 +478,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("send");
             command.Description = "Provides operations to call the send method.";
-            var builder = new SendRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Send.SendRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -495,7 +495,7 @@ namespace ApiSdk.Users.Item.Messages.Item
         {
             var command = new Command("unsubscribe");
             command.Description = "Provides operations to call the unsubscribe method.";
-            var builder = new UnsubscribeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Messages.Item.Unsubscribe.UnsubscribeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -505,14 +505,14 @@ namespace ApiSdk.Users.Item.Messages.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MessageItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Messages.Item.MessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MessageItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MessageItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Messages.Item.MessageItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MessageItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/messages/{message%2Did}{?%24expand,%24select,includeHiddenMessages*}", rawUrl)
@@ -544,11 +544,11 @@ namespace ApiSdk.Users.Item.Messages.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Messages.Item.MessageItemRequestBuilder.MessageItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<MessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Messages.Item.MessageItemRequestBuilder.MessageItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

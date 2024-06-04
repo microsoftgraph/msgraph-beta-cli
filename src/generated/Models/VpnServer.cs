@@ -40,7 +40,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VpnServer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VpnServer"/> and sets the default values.
         /// </summary>
         public VpnServer()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VpnServer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VpnServer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VpnServer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VpnServer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VpnServer();
+            return new ApiSdk.Models.VpnServer();
         }
         /// <summary>
         /// The deserialization information for the current model

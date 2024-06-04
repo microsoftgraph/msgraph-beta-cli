@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies what kind of creation source the task is created with. The possible values are: external, publication and unknownFutureValue.</summary>
-        public PlannerCreationSourceKind? CreationSourceKind { get; set; }
+        public ApiSdk.Models.PlannerCreationSourceKind? CreationSourceKind { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,13 +25,13 @@ namespace ApiSdk.Models
         /// <summary>Information about the publication process that created this task. This field is deprecated and clients should move to using the new inheritance model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTeamsPublicationInfo? TeamsPublicationInfo { get; set; }
+        public ApiSdk.Models.PlannerTeamsPublicationInfo? TeamsPublicationInfo { get; set; }
 #nullable restore
 #else
-        public PlannerTeamsPublicationInfo TeamsPublicationInfo { get; set; }
+        public ApiSdk.Models.PlannerTeamsPublicationInfo TeamsPublicationInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerTaskCreation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerTaskCreation"/> and sets the default values.
         /// </summary>
         public PlannerTaskCreation()
         {
@@ -40,17 +40,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTaskCreation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTaskCreation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerTaskCreation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerTaskCreation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.plannerExternalTaskSource" => new PlannerExternalTaskSource(),
-                "#microsoft.graph.plannerTeamsPublicationInfo" => new PlannerTeamsPublicationInfo(),
-                _ => new PlannerTaskCreation(),
+                "#microsoft.graph.plannerExternalTaskSource" => new ApiSdk.Models.PlannerExternalTaskSource(),
+                "#microsoft.graph.plannerTeamsPublicationInfo" => new ApiSdk.Models.PlannerTeamsPublicationInfo(),
+                _ => new ApiSdk.Models.PlannerTaskCreation(),
             };
         }
         /// <summary>
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<PlannerCreationSourceKind>(); } },
+                { "creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<ApiSdk.Models.PlannerCreationSourceKind>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "teamsPublicationInfo", n => { TeamsPublicationInfo = n.GetObjectValue<PlannerTeamsPublicationInfo>(PlannerTeamsPublicationInfo.CreateFromDiscriminatorValue); } },
+                { "teamsPublicationInfo", n => { TeamsPublicationInfo = n.GetObjectValue<ApiSdk.Models.PlannerTeamsPublicationInfo>(ApiSdk.Models.PlannerTeamsPublicationInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<PlannerCreationSourceKind>("creationSourceKind", CreationSourceKind);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerCreationSourceKind>("creationSourceKind", CreationSourceKind);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<PlannerTeamsPublicationInfo>("teamsPublicationInfo", TeamsPublicationInfo);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTeamsPublicationInfo>("teamsPublicationInfo", TeamsPublicationInfo);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

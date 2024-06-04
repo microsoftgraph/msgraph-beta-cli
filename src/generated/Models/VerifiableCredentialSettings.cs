@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The types of verifiable credentials that a requestor must present when requesting an access package that has the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VerifiableCredentialType>? CredentialTypes { get; set; }
+        public List<ApiSdk.Models.VerifiableCredentialType>? CredentialTypes { get; set; }
 #nullable restore
 #else
-        public List<VerifiableCredentialType> CredentialTypes { get; set; }
+        public List<ApiSdk.Models.VerifiableCredentialType> CredentialTypes { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VerifiableCredentialSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerifiableCredentialSettings"/> and sets the default values.
         /// </summary>
         public VerifiableCredentialSettings()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerifiableCredentialSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerifiableCredentialSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VerifiableCredentialSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VerifiableCredentialSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VerifiableCredentialSettings();
+            return new ApiSdk.Models.VerifiableCredentialSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "credentialTypes", n => { CredentialTypes = n.GetCollectionOfObjectValues<VerifiableCredentialType>(VerifiableCredentialType.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "credentialTypes", n => { CredentialTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.VerifiableCredentialType>(ApiSdk.Models.VerifiableCredentialType.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<VerifiableCredentialType>("credentialTypes", CredentialTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VerifiableCredentialType>("credentialTypes", CredentialTypes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

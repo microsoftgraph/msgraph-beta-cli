@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Hide the home button.
     /// </summary>
-    public class EdgeHomeButtonHidden : EdgeHomeButtonConfiguration, IParsable
+    public class EdgeHomeButtonHidden : ApiSdk.Models.EdgeHomeButtonConfiguration, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="EdgeHomeButtonHidden"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EdgeHomeButtonHidden"/> and sets the default values.
         /// </summary>
         public EdgeHomeButtonHidden() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EdgeHomeButtonHidden"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EdgeHomeButtonHidden"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdgeHomeButtonHidden CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EdgeHomeButtonHidden CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EdgeHomeButtonHidden();
+            return new ApiSdk.Models.EdgeHomeButtonHidden();
         }
         /// <summary>
         /// The deserialization information for the current model

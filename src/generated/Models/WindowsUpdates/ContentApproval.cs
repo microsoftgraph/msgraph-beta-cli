@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models.WindowsUpdates
 {
     #pragma warning disable CS1591
-    public class ContentApproval : ComplianceChange, IParsable
+    public class ContentApproval : ApiSdk.Models.WindowsUpdates.ComplianceChange, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeployableContent? Content { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeployableContent? Content { get; set; }
 #nullable restore
 #else
-        public DeployableContent Content { get; set; }
+        public ApiSdk.Models.WindowsUpdates.DeployableContent Content { get; set; }
 #endif
         /// <summary>Deployments created as a result of applying the approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Deployment>? Deployments { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Deployment>? Deployments { get; set; }
 #nullable restore
 #else
-        public List<Deployment> Deployments { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Deployment> Deployments { get; set; }
 #endif
         /// <summary>Settings for governing how to deploy content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,7 +35,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public ApiSdk.Models.WindowsUpdates.DeploymentSettings DeploymentSettings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContentApproval"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.ContentApproval"/> and sets the default values.
         /// </summary>
         public ContentApproval() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContentApproval"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ContentApproval"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ContentApproval CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.ContentApproval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContentApproval();
+            return new ApiSdk.Models.WindowsUpdates.ContentApproval();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,9 +59,9 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "content", n => { Content = n.GetObjectValue<DeployableContent>(DeployableContent.CreateFromDiscriminatorValue); } },
+                { "content", n => { Content = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeployableContent>(ApiSdk.Models.WindowsUpdates.DeployableContent.CreateFromDiscriminatorValue); } },
                 { "deploymentSettings", n => { DeploymentSettings = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>(ApiSdk.Models.WindowsUpdates.DeploymentSettings.CreateFromDiscriminatorValue); } },
-                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<Deployment>(Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deployments", n => { Deployments = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Deployment>(ApiSdk.Models.WindowsUpdates.Deployment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -72,8 +72,8 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeployableContent>("content", Content);
-            writer.WriteCollectionOfObjectValues<Deployment>("deployments", Deployments);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeployableContent>("content", Content);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Deployment>("deployments", Deployments);
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.DeploymentSettings>("deploymentSettings", DeploymentSettings);
         }
     }

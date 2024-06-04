@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class UserProvisioningFlow : ProvisioningFlow, IParsable
+    public class UserProvisioningFlow : ApiSdk.Models.IndustryData.ProvisioningFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A boolean choice indicating whether unmatched users should be created or ignored.</summary>
@@ -15,21 +15,21 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The different management choices for the new users to be provisioned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserCreationOptions? CreationOptions { get; set; }
+        public ApiSdk.Models.IndustryData.UserCreationOptions? CreationOptions { get; set; }
 #nullable restore
 #else
-        public UserCreationOptions CreationOptions { get; set; }
+        public ApiSdk.Models.IndustryData.UserCreationOptions CreationOptions { get; set; }
 #endif
         /// <summary>The managementOptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UserManagementOptions? ManagementOptions { get; set; }
+        public ApiSdk.Models.IndustryData.UserManagementOptions? ManagementOptions { get; set; }
 #nullable restore
 #else
-        public UserManagementOptions ManagementOptions { get; set; }
+        public ApiSdk.Models.IndustryData.UserManagementOptions ManagementOptions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserProvisioningFlow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.UserProvisioningFlow"/> and sets the default values.
         /// </summary>
         public UserProvisioningFlow() : base()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserProvisioningFlow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.UserProvisioningFlow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.UserProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserProvisioningFlow();
+            return new ApiSdk.Models.IndustryData.UserProvisioningFlow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,8 +54,8 @@ namespace ApiSdk.Models.IndustryData
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "createUnmatchedUsers", n => { CreateUnmatchedUsers = n.GetBoolValue(); } },
-                { "creationOptions", n => { CreationOptions = n.GetObjectValue<UserCreationOptions>(UserCreationOptions.CreateFromDiscriminatorValue); } },
-                { "managementOptions", n => { ManagementOptions = n.GetObjectValue<UserManagementOptions>(UserManagementOptions.CreateFromDiscriminatorValue); } },
+                { "creationOptions", n => { CreationOptions = n.GetObjectValue<ApiSdk.Models.IndustryData.UserCreationOptions>(ApiSdk.Models.IndustryData.UserCreationOptions.CreateFromDiscriminatorValue); } },
+                { "managementOptions", n => { ManagementOptions = n.GetObjectValue<ApiSdk.Models.IndustryData.UserManagementOptions>(ApiSdk.Models.IndustryData.UserManagementOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace ApiSdk.Models.IndustryData
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("createUnmatchedUsers", CreateUnmatchedUsers);
-            writer.WriteObjectValue<UserCreationOptions>("creationOptions", CreationOptions);
-            writer.WriteObjectValue<UserManagementOptions>("managementOptions", ManagementOptions);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.UserCreationOptions>("creationOptions", CreationOptions);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.UserManagementOptions>("managementOptions", ManagementOptions);
         }
     }
 }

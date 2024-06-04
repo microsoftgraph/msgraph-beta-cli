@@ -13,20 +13,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Lists the content that you can approve for deployment. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CatalogEntry>? Entries { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.CatalogEntry>? Entries { get; set; }
 #nullable restore
 #else
-        public List<CatalogEntry> Entries { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.CatalogEntry> Entries { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Catalog"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.Catalog"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Catalog CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.Catalog CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Catalog();
+            return new ApiSdk.Models.WindowsUpdates.Catalog();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "entries", n => { Entries = n.GetCollectionOfObjectValues<CatalogEntry>(CatalogEntry.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "entries", n => { Entries = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CatalogEntry>("entries", Entries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.CatalogEntry>("entries", Entries);
         }
     }
 }

@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>Value of the metadata. Should be an object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Json? Value { get; set; }
+        public ApiSdk.Models.Json? Value { get; set; }
 #nullable restore
 #else
-        public Json Value { get; set; }
+        public ApiSdk.Models.Json Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MetaDataKeyValuePair"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MetaDataKeyValuePair"/> and sets the default values.
         /// </summary>
         public MetaDataKeyValuePair()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MetaDataKeyValuePair"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MetaDataKeyValuePair"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MetaDataKeyValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MetaDataKeyValuePair CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MetaDataKeyValuePair();
+            return new ApiSdk.Models.MetaDataKeyValuePair();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             {
                 { "key", n => { Key = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<Json>(Json.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<ApiSdk.Models.Json>(ApiSdk.Models.Json.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("key", Key);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<Json>("value", Value);
+            writer.WriteObjectValue<ApiSdk.Models.Json>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

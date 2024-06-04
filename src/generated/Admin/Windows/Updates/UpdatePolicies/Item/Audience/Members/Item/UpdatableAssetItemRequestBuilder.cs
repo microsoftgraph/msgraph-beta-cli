@@ -132,7 +132,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         {
             var command = new Command("microsoft-graph-windows-updates-add-members-by-id");
             command.Description = "Provides operations to call the addMembersById method.";
-            var builder = new MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.MicrosoftGraphWindowsUpdatesAddMembersById.MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -149,7 +149,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         {
             var command = new Command("microsoft-graph-windows-updates-add-members");
             command.Description = "Provides operations to call the addMembers method.";
-            var builder = new MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.MicrosoftGraphWindowsUpdatesAddMembers.MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -166,7 +166,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         {
             var command = new Command("microsoft-graph-windows-updates-remove-members-by-id");
             command.Description = "Provides operations to call the removeMembersById method.";
-            var builder = new MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.MicrosoftGraphWindowsUpdatesRemoveMembersById.MicrosoftGraphWindowsUpdatesRemoveMembersByIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -183,7 +183,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         {
             var command = new Command("microsoft-graph-windows-updates-remove-members");
             command.Description = "Provides operations to call the removeMembers method.";
-            var builder = new MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.MicrosoftGraphWindowsUpdatesRemoveMembers.MicrosoftGraphWindowsUpdatesRemoveMembersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -228,7 +228,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UpdatableAsset>(UpdatableAsset.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.WindowsUpdates.UpdatableAsset>(ApiSdk.Models.WindowsUpdates.UpdatableAsset.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -250,14 +250,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdatableAssetItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.UpdatableAssetItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UpdatableAssetItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/members/{updatableAsset%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdatableAssetItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.UpdatableAssetItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UpdatableAssetItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/members/{updatableAsset%2Did}{?%24expand,%24select}", rawUrl)
@@ -289,11 +289,11 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UpdatableAssetItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.UpdatableAssetItemRequestBuilder.UpdatableAssetItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UpdatableAssetItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item.UpdatableAssetItemRequestBuilder.UpdatableAssetItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -309,11 +309,11 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Members.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.UpdatableAsset body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

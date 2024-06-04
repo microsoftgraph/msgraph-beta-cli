@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WorkforceIntegration : ChangeTrackedEntity, IParsable
+    public class WorkforceIntegration : ApiSdk.Models.ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>API version for the callback URL. Start with 1.</summary>
@@ -25,17 +25,17 @@ namespace ApiSdk.Models
         /// <summary>The workforce integration encryption resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkforceIntegrationEncryption? Encryption { get; set; }
+        public ApiSdk.Models.WorkforceIntegrationEncryption? Encryption { get; set; }
 #nullable restore
 #else
-        public WorkforceIntegrationEncryption Encryption { get; set; }
+        public ApiSdk.Models.WorkforceIntegrationEncryption Encryption { get; set; }
 #endif
         /// <summary>Indicates whether this workforce integration is currently active and available.</summary>
         public bool? IsActive { get; set; }
         /// <summary>This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.</summary>
-        public WorkforceIntegrationSupportedEntities? SupportedEntities { get; set; }
+        public ApiSdk.Models.WorkforceIntegrationSupportedEntities? SupportedEntities { get; set; }
         /// <summary>The Shifts entities supported for synchronous change notifications. Shifts make a callback to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.</summary>
-        public WorkforceIntegrationSupportedEntities? Supports { get; set; }
+        public ApiSdk.Models.WorkforceIntegrationSupportedEntities? Supports { get; set; }
         /// <summary>Workforce Integration URL for callbacks from the Shifts service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string Url { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WorkforceIntegration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WorkforceIntegration"/> and sets the default values.
         /// </summary>
         public WorkforceIntegration() : base()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkforceIntegration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkforceIntegration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkforceIntegration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WorkforceIntegration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkforceIntegration();
+            return new ApiSdk.Models.WorkforceIntegration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -71,11 +71,11 @@ namespace ApiSdk.Models
             {
                 { "apiVersion", n => { ApiVersion = n.GetIntValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "eligibilityFilteringEnabledEntities", n => { EligibilityFilteringEnabledEntities = n.GetEnumValue<EligibilityFilteringEnabledEntities>(); } },
-                { "encryption", n => { Encryption = n.GetObjectValue<WorkforceIntegrationEncryption>(WorkforceIntegrationEncryption.CreateFromDiscriminatorValue); } },
+                { "eligibilityFilteringEnabledEntities", n => { EligibilityFilteringEnabledEntities = n.GetEnumValue<ApiSdk.Models.EligibilityFilteringEnabledEntities>(); } },
+                { "encryption", n => { Encryption = n.GetObjectValue<ApiSdk.Models.WorkforceIntegrationEncryption>(ApiSdk.Models.WorkforceIntegrationEncryption.CreateFromDiscriminatorValue); } },
                 { "isActive", n => { IsActive = n.GetBoolValue(); } },
-                { "supportedEntities", n => { SupportedEntities = n.GetEnumValue<WorkforceIntegrationSupportedEntities>(); } },
-                { "supports", n => { Supports = n.GetEnumValue<WorkforceIntegrationSupportedEntities>(); } },
+                { "supportedEntities", n => { SupportedEntities = n.GetEnumValue<ApiSdk.Models.WorkforceIntegrationSupportedEntities>(); } },
+                { "supports", n => { Supports = n.GetEnumValue<ApiSdk.Models.WorkforceIntegrationSupportedEntities>(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
             };
         }
@@ -89,11 +89,11 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteIntValue("apiVersion", ApiVersion);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<EligibilityFilteringEnabledEntities>("eligibilityFilteringEnabledEntities", EligibilityFilteringEnabledEntities);
-            writer.WriteObjectValue<WorkforceIntegrationEncryption>("encryption", Encryption);
+            writer.WriteEnumValue<ApiSdk.Models.EligibilityFilteringEnabledEntities>("eligibilityFilteringEnabledEntities", EligibilityFilteringEnabledEntities);
+            writer.WriteObjectValue<ApiSdk.Models.WorkforceIntegrationEncryption>("encryption", Encryption);
             writer.WriteBoolValue("isActive", IsActive);
-            writer.WriteEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", SupportedEntities);
-            writer.WriteEnumValue<WorkforceIntegrationSupportedEntities>("supports", Supports);
+            writer.WriteEnumValue<ApiSdk.Models.WorkforceIntegrationSupportedEntities>("supportedEntities", SupportedEntities);
+            writer.WriteEnumValue<ApiSdk.Models.WorkforceIntegrationSupportedEntities>("supports", Supports);
             writer.WriteStringValue("url", Url);
         }
     }

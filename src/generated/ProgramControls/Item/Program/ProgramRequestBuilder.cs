@@ -30,7 +30,7 @@ namespace ApiSdk.ProgramControls.Item.Program
         {
             var command = new Command("controls");
             command.Description = "Provides operations to manage the controls property of the microsoft.graph.program entity.";
-            var builder = new ControlsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ProgramControls.Item.Program.Controls.ControlsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -188,14 +188,14 @@ namespace ApiSdk.ProgramControls.Item.Program
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProgramRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ProgramControls.Item.Program.ProgramRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProgramRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/programControls/{programControl%2Did}/program{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProgramRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ProgramControls.Item.Program.ProgramRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProgramRequestBuilder(string rawUrl) : base("{+baseurl}/programControls/{programControl%2Did}/program{?%24expand,%24select}", rawUrl)
@@ -227,11 +227,11 @@ namespace ApiSdk.ProgramControls.Item.Program
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProgramRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ProgramControls.Item.Program.ProgramRequestBuilder.ProgramRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProgramRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ProgramControls.Item.Program.ProgramRequestBuilder.ProgramRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

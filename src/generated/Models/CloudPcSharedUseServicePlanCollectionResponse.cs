@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcSharedUseServicePlanCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class CloudPcSharedUseServicePlanCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcSharedUseServicePlan>? Value { get; set; }
+        public List<ApiSdk.Models.CloudPcSharedUseServicePlan>? Value { get; set; }
 #nullable restore
 #else
-        public List<CloudPcSharedUseServicePlan> Value { get; set; }
+        public List<ApiSdk.Models.CloudPcSharedUseServicePlan> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcSharedUseServicePlanCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcSharedUseServicePlanCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcSharedUseServicePlanCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcSharedUseServicePlanCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcSharedUseServicePlanCollectionResponse();
+            return new ApiSdk.Models.CloudPcSharedUseServicePlanCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcSharedUseServicePlan>(CloudPcSharedUseServicePlan.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcSharedUseServicePlan>(ApiSdk.Models.CloudPcSharedUseServicePlan.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CloudPcSharedUseServicePlan>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcSharedUseServicePlan>("value", Value);
         }
     }
 }

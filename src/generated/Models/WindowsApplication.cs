@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public List<string> RedirectUris { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsApplication"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsApplication"/> and sets the default values.
         /// </summary>
         public WindowsApplication()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsApplication"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsApplication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsApplication CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsApplication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsApplication();
+            return new ApiSdk.Models.WindowsApplication();
         }
         /// <summary>
         /// The deserialization information for the current model

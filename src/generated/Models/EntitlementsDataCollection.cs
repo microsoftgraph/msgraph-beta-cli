@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EntitlementsDataCollection : EntitlementsDataCollectionInfo, IParsable
+    public class EntitlementsDataCollection : ApiSdk.Models.EntitlementsDataCollectionInfo, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Last transformation time of entitlements.</summary>
@@ -15,9 +15,9 @@ namespace ApiSdk.Models
         /// <summary>The permissionsModificationCapability property</summary>
         public ApiSdk.Models.PermissionsModificationCapability? PermissionsModificationCapability { get; set; }
         /// <summary>The status property</summary>
-        public DataCollectionStatus? Status { get; set; }
+        public ApiSdk.Models.DataCollectionStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EntitlementsDataCollection"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EntitlementsDataCollection"/> and sets the default values.
         /// </summary>
         public EntitlementsDataCollection() : base()
         {
@@ -26,12 +26,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EntitlementsDataCollection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EntitlementsDataCollection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EntitlementsDataCollection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EntitlementsDataCollection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EntitlementsDataCollection();
+            return new ApiSdk.Models.EntitlementsDataCollection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,8 +42,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "lastCollectionDateTime", n => { LastCollectionDateTime = n.GetDateTimeOffsetValue(); } },
-                { "permissionsModificationCapability", n => { PermissionsModificationCapability = n.GetEnumValue<PermissionsModificationCapability>(); } },
-                { "status", n => { Status = n.GetEnumValue<DataCollectionStatus>(); } },
+                { "permissionsModificationCapability", n => { PermissionsModificationCapability = n.GetEnumValue<ApiSdk.Models.PermissionsModificationCapability>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DataCollectionStatus>(); } },
             };
         }
         /// <summary>
@@ -55,8 +55,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("lastCollectionDateTime", LastCollectionDateTime);
-            writer.WriteEnumValue<PermissionsModificationCapability>("permissionsModificationCapability", PermissionsModificationCapability);
-            writer.WriteEnumValue<DataCollectionStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.PermissionsModificationCapability>("permissionsModificationCapability", PermissionsModificationCapability);
+            writer.WriteEnumValue<ApiSdk.Models.DataCollectionStatus>("status", Status);
         }
     }
 }

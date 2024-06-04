@@ -13,12 +13,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Reports"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Reports"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Reports CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Reports CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Reports();
+            return new ApiSdk.Models.Networkaccess.Reports();
         }
         /// <summary>
         /// The deserialization information for the current model

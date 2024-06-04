@@ -34,7 +34,7 @@ namespace ApiSdk.Models
         /// <summary>The number of devices targeted by the policy.</summary>
         public int? TargetedDeviceCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ConfigManagerPolicySummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConfigManagerPolicySummary"/> and sets the default values.
         /// </summary>
         public ConfigManagerPolicySummary()
         {
@@ -43,12 +43,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConfigManagerPolicySummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConfigManagerPolicySummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConfigManagerPolicySummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConfigManagerPolicySummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConfigManagerPolicySummary();
+            return new ApiSdk.Models.ConfigManagerPolicySummary();
         }
         /// <summary>
         /// The deserialization information for the current model

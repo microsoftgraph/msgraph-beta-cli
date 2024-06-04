@@ -68,14 +68,14 @@ namespace ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Messag
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UndoSoftDeleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Messages.Item.Replies.Item.UndoSoftDelete.UndoSoftDeleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UndoSoftDeleteRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/undoSoftDelete", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UndoSoftDeleteRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TeamTemplateDefinition.Item.TeamDefinition.Channels.Item.Messages.Item.Replies.Item.UndoSoftDelete.UndoSoftDeleteRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UndoSoftDeleteRequestBuilder(string rawUrl) : base("{+baseurl}/teamTemplateDefinition/{teamTemplateDefinition%2Did}/teamDefinition/channels/{channel%2Did}/messages/{chatMessage%2Did}/replies/{chatMessage%2Did1}/undoSoftDelete", rawUrl)

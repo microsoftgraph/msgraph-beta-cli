@@ -29,7 +29,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindow
         public string MemberEntityType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AddMembersByIdPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody"/> and sets the default values.
         /// </summary>
         public AddMembersByIdPostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindow
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddMembersByIdPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AddMembersByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddMembersByIdPostRequestBody();
+            return new ApiSdk.Admin.Windows.Updates.UpdatableAssets.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

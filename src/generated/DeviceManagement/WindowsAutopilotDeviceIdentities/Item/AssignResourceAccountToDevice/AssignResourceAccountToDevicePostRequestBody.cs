@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignRe
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignResourceAccountToDevicePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignResourceAccountToDevice.AssignResourceAccountToDevicePostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignResourceAccountToDevicePostRequestBody()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignRe
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignResourceAccountToDevicePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignResourceAccountToDevice.AssignResourceAccountToDevicePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignResourceAccountToDevicePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignResourceAccountToDevice.AssignResourceAccountToDevicePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignResourceAccountToDevicePostRequestBody();
+            return new ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AssignResourceAccountToDevice.AssignResourceAccountToDevicePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,16 +9,16 @@ namespace ApiSdk.Models
     /// <summary>
     /// Describes a dependency type between two mobile apps.
     /// </summary>
-    public class MobileAppDependency : MobileAppRelationship, IParsable
+    public class MobileAppDependency : ApiSdk.Models.MobileAppRelationship, IParsable
     {
         /// <summary>Indicates the dependency type associated with a relationship between two mobile apps.</summary>
-        public MobileAppDependencyType? DependencyType { get; set; }
+        public ApiSdk.Models.MobileAppDependencyType? DependencyType { get; set; }
         /// <summary>The total number of apps that directly or indirectly depend on the parent app. This property is read-only.</summary>
         public int? DependentAppCount { get; private set; }
         /// <summary>The total number of apps the child app directly or indirectly depends on. This property is read-only.</summary>
         public int? DependsOnAppCount { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="MobileAppDependency"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MobileAppDependency"/> and sets the default values.
         /// </summary>
         public MobileAppDependency() : base()
         {
@@ -27,12 +27,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppDependency"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppDependency"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppDependency CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppDependency CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppDependency();
+            return new ApiSdk.Models.MobileAppDependency();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "dependencyType", n => { DependencyType = n.GetEnumValue<MobileAppDependencyType>(); } },
+                { "dependencyType", n => { DependencyType = n.GetEnumValue<ApiSdk.Models.MobileAppDependencyType>(); } },
                 { "dependentAppCount", n => { DependentAppCount = n.GetIntValue(); } },
                 { "dependsOnAppCount", n => { DependsOnAppCount = n.GetIntValue(); } },
             };
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MobileAppDependencyType>("dependencyType", DependencyType);
+            writer.WriteEnumValue<ApiSdk.Models.MobileAppDependencyType>("dependencyType", DependencyType);
         }
     }
 }

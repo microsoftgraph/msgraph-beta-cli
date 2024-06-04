@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics top impacting process entity.
     /// </summary>
-    public class UserExperienceAnalyticsImpactingProcess : Entity, IParsable
+    public class UserExperienceAnalyticsImpactingProcess : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The category of impacting process.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsImpactingProcess"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsImpactingProcess"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsImpactingProcess CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsImpactingProcess CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsImpactingProcess();
+            return new ApiSdk.Models.UserExperienceAnalyticsImpactingProcess();
         }
         /// <summary>
         /// The deserialization information for the current model

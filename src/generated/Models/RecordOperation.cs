@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class RecordOperation : CommsOperation, IParsable
+    public class RecordOperation : ApiSdk.Models.CommsOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.</summary>
-        public RecordCompletionReason? CompletionReason { get; set; }
+        public ApiSdk.Models.RecordCompletionReason? CompletionReason { get; set; }
         /// <summary>The access token required to retrieve the recording.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RecordOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RecordOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RecordOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RecordOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RecordOperation();
+            return new ApiSdk.Models.RecordOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "completionReason", n => { CompletionReason = n.GetEnumValue<RecordCompletionReason>(); } },
+                { "completionReason", n => { CompletionReason = n.GetEnumValue<ApiSdk.Models.RecordCompletionReason>(); } },
                 { "recordingAccessToken", n => { RecordingAccessToken = n.GetStringValue(); } },
                 { "recordingLocation", n => { RecordingLocation = n.GetStringValue(); } },
             };
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<RecordCompletionReason>("completionReason", CompletionReason);
+            writer.WriteEnumValue<ApiSdk.Models.RecordCompletionReason>("completionReason", CompletionReason);
             writer.WriteStringValue("recordingAccessToken", RecordingAccessToken);
             writer.WriteStringValue("recordingLocation", RecordingLocation);
         }

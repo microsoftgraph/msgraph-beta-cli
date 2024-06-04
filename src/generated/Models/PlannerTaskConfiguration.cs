@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlannerTaskConfiguration : Entity, IParsable
+    public class PlannerTaskConfiguration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Policy configuration for tasks created for the businessScenario when they&apos;re being changed outside of the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskPolicy? EditPolicy { get; set; }
+        public ApiSdk.Models.PlannerTaskPolicy? EditPolicy { get; set; }
 #nullable restore
 #else
-        public PlannerTaskPolicy EditPolicy { get; set; }
+        public ApiSdk.Models.PlannerTaskPolicy EditPolicy { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTaskConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTaskConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlannerTaskConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlannerTaskConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerTaskConfiguration();
+            return new ApiSdk.Models.PlannerTaskConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "editPolicy", n => { EditPolicy = n.GetObjectValue<PlannerTaskPolicy>(PlannerTaskPolicy.CreateFromDiscriminatorValue); } },
+                { "editPolicy", n => { EditPolicy = n.GetObjectValue<ApiSdk.Models.PlannerTaskPolicy>(ApiSdk.Models.PlannerTaskPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PlannerTaskPolicy>("editPolicy", EditPolicy);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskPolicy>("editPolicy", EditPolicy);
         }
     }
 }

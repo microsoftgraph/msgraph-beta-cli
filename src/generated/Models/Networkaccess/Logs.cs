@@ -13,28 +13,28 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>A collection of remote network health events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RemoteNetworkHealthEvent>? RemoteNetworks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent>? RemoteNetworks { get; set; }
 #nullable restore
 #else
-        public List<RemoteNetworkHealthEvent> RemoteNetworks { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent> RemoteNetworks { get; set; }
 #endif
         /// <summary>A network access traffic log entry that contains comprehensive information about network traffic events.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<NetworkAccessTraffic>? Traffic { get; set; }
+        public List<ApiSdk.Models.Networkaccess.NetworkAccessTraffic>? Traffic { get; set; }
 #nullable restore
 #else
-        public List<NetworkAccessTraffic> Traffic { get; set; }
+        public List<ApiSdk.Models.Networkaccess.NetworkAccessTraffic> Traffic { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Logs"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.Logs"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Logs CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.Logs CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Logs();
+            return new ApiSdk.Models.Networkaccess.Logs();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<RemoteNetworkHealthEvent>(RemoteNetworkHealthEvent.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "traffic", n => { Traffic = n.GetCollectionOfObjectValues<NetworkAccessTraffic>(NetworkAccessTraffic.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "remoteNetworks", n => { RemoteNetworks = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent>(ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "traffic", n => { Traffic = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.NetworkAccessTraffic>(ApiSdk.Models.Networkaccess.NetworkAccessTraffic.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<RemoteNetworkHealthEvent>("remoteNetworks", RemoteNetworks);
-            writer.WriteCollectionOfObjectValues<NetworkAccessTraffic>("traffic", Traffic);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RemoteNetworkHealthEvent>("remoteNetworks", RemoteNetworks);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.NetworkAccessTraffic>("traffic", Traffic);
         }
     }
 }

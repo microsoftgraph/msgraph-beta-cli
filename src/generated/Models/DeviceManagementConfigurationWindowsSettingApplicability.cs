@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationWindowsSettingApplicability : DeviceManagementConfigurationSettingApplicability, IParsable
+    public class DeviceManagementConfigurationWindowsSettingApplicability : ApiSdk.Models.DeviceManagementConfigurationSettingApplicability, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Version of CSP setting is a part of</summary>
@@ -35,19 +35,19 @@ namespace ApiSdk.Models
         public string MinimumSupportedVersion { get; set; }
 #endif
         /// <summary>Required AAD Trust Type</summary>
-        public DeviceManagementConfigurationAzureAdTrustType? RequiredAzureAdTrustType { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationAzureAdTrustType? RequiredAzureAdTrustType { get; set; }
         /// <summary>AzureAD setting requirement</summary>
         public bool? RequiresAzureAd { get; set; }
         /// <summary>List of Windows SKUs that the setting is applicable for</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationWindowsSkus?>? WindowsSkus { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationWindowsSkus?>? WindowsSkus { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationWindowsSkus?> WindowsSkus { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationWindowsSkus?> WindowsSkus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationWindowsSettingApplicability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationWindowsSettingApplicability"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationWindowsSettingApplicability() : base()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationWindowsSettingApplicability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationWindowsSettingApplicability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationWindowsSettingApplicability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationWindowsSettingApplicability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationWindowsSettingApplicability();
+            return new ApiSdk.Models.DeviceManagementConfigurationWindowsSettingApplicability();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,9 +74,9 @@ namespace ApiSdk.Models
                 { "configurationServiceProviderVersion", n => { ConfigurationServiceProviderVersion = n.GetStringValue(); } },
                 { "maximumSupportedVersion", n => { MaximumSupportedVersion = n.GetStringValue(); } },
                 { "minimumSupportedVersion", n => { MinimumSupportedVersion = n.GetStringValue(); } },
-                { "requiredAzureAdTrustType", n => { RequiredAzureAdTrustType = n.GetEnumValue<DeviceManagementConfigurationAzureAdTrustType>(); } },
+                { "requiredAzureAdTrustType", n => { RequiredAzureAdTrustType = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationAzureAdTrustType>(); } },
                 { "requiresAzureAd", n => { RequiresAzureAd = n.GetBoolValue(); } },
-                { "windowsSkus", n => { WindowsSkus = n.GetCollectionOfEnumValues<DeviceManagementConfigurationWindowsSkus>()?.ToList(); } },
+                { "windowsSkus", n => { WindowsSkus = n.GetCollectionOfEnumValues<ApiSdk.Models.DeviceManagementConfigurationWindowsSkus>()?.ToList(); } },
             };
         }
         /// <summary>
@@ -90,9 +90,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("configurationServiceProviderVersion", ConfigurationServiceProviderVersion);
             writer.WriteStringValue("maximumSupportedVersion", MaximumSupportedVersion);
             writer.WriteStringValue("minimumSupportedVersion", MinimumSupportedVersion);
-            writer.WriteEnumValue<DeviceManagementConfigurationAzureAdTrustType>("requiredAzureAdTrustType", RequiredAzureAdTrustType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationAzureAdTrustType>("requiredAzureAdTrustType", RequiredAzureAdTrustType);
             writer.WriteBoolValue("requiresAzureAd", RequiresAzureAd);
-            writer.WriteCollectionOfEnumValues<DeviceManagementConfigurationWindowsSkus>("windowsSkus", WindowsSkus);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.DeviceManagementConfigurationWindowsSkus>("windowsSkus", WindowsSkus);
         }
     }
 }

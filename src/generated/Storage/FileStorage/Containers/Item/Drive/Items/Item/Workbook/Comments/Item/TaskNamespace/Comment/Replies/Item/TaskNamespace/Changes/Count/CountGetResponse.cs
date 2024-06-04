@@ -15,7 +15,7 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.C
         /// <summary>The value property</summary>
         public int? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CountGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace.Changes.Count.CountGetResponse"/> and sets the default values.
         /// </summary>
         public CountGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.C
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CountGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace.Changes.Count.CountGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CountGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace.Changes.Count.CountGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CountGetResponse();
+            return new ApiSdk.Storage.FileStorage.Containers.Item.Drive.Items.Item.Workbook.Comments.Item.TaskNamespace.Comment.Replies.Item.TaskNamespace.Changes.Count.CountGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

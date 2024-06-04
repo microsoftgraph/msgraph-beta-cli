@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the Windows 8.1 (and later) devices to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
     /// </summary>
-    public class Windows81VpnConfiguration : WindowsVpnConfiguration, IParsable
+    public class Windows81VpnConfiguration : ApiSdk.Models.WindowsVpnConfiguration, IParsable
     {
         /// <summary>Value indicating whether this policy only applies to Windows 8.1. This property is read-only.</summary>
         public bool? ApplyOnlyToWindows81 { get; private set; }
         /// <summary>Windows VPN connection type.</summary>
-        public WindowsVpnConnectionType? ConnectionType { get; set; }
+        public ApiSdk.Models.WindowsVpnConnectionType? ConnectionType { get; set; }
         /// <summary>Enable split tunneling for the VPN.</summary>
         public bool? EnableSplitTunneling { get; set; }
         /// <summary>Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.</summary>
@@ -28,13 +28,13 @@ namespace ApiSdk.Models
         /// <summary>Proxy Server.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public Windows81VpnProxyServer? ProxyServer { get; set; }
+        public ApiSdk.Models.Windows81VpnProxyServer? ProxyServer { get; set; }
 #nullable restore
 #else
-        public Windows81VpnProxyServer ProxyServer { get; set; }
+        public ApiSdk.Models.Windows81VpnProxyServer ProxyServer { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows81VpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows81VpnConfiguration"/> and sets the default values.
         /// </summary>
         public Windows81VpnConfiguration() : base()
         {
@@ -43,16 +43,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows81VpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows81VpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows81VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows81VpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsPhone81VpnConfiguration" => new WindowsPhone81VpnConfiguration(),
-                _ => new Windows81VpnConfiguration(),
+                "#microsoft.graph.windowsPhone81VpnConfiguration" => new ApiSdk.Models.WindowsPhone81VpnConfiguration(),
+                _ => new ApiSdk.Models.Windows81VpnConfiguration(),
             };
         }
         /// <summary>
@@ -64,10 +64,10 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "applyOnlyToWindows81", n => { ApplyOnlyToWindows81 = n.GetBoolValue(); } },
-                { "connectionType", n => { ConnectionType = n.GetEnumValue<WindowsVpnConnectionType>(); } },
+                { "connectionType", n => { ConnectionType = n.GetEnumValue<ApiSdk.Models.WindowsVpnConnectionType>(); } },
                 { "enableSplitTunneling", n => { EnableSplitTunneling = n.GetBoolValue(); } },
                 { "loginGroupOrDomain", n => { LoginGroupOrDomain = n.GetStringValue(); } },
-                { "proxyServer", n => { ProxyServer = n.GetObjectValue<Windows81VpnProxyServer>(Windows81VpnProxyServer.CreateFromDiscriminatorValue); } },
+                { "proxyServer", n => { ProxyServer = n.GetObjectValue<ApiSdk.Models.Windows81VpnProxyServer>(ApiSdk.Models.Windows81VpnProxyServer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -78,10 +78,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<WindowsVpnConnectionType>("connectionType", ConnectionType);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsVpnConnectionType>("connectionType", ConnectionType);
             writer.WriteBoolValue("enableSplitTunneling", EnableSplitTunneling);
             writer.WriteStringValue("loginGroupOrDomain", LoginGroupOrDomain);
-            writer.WriteObjectValue<Windows81VpnProxyServer>("proxyServer", ProxyServer);
+            writer.WriteObjectValue<ApiSdk.Models.Windows81VpnProxyServer>("proxyServer", ProxyServer);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string ErrorMessage { get; set; }
 #endif
         /// <summary>The status of a partner agent installation. Possible values are: installed, installFailed, installing, uninstalling, uninstallFailed and licensed. Read-Only.</summary>
-        public CloudPcPartnerAgentInstallStatus? InstallStatus { get; set; }
+        public ApiSdk.Models.CloudPcPartnerAgentInstallStatus? InstallStatus { get; set; }
         /// <summary>Indicates whether the partner agent is a third party. When true, the agent is a third-party (non-Microsoft) agent and when false, the agent is a Microsoft agent or isn&apos;t known.  The default value is false.</summary>
         public bool? IsThirdPartyPartner { get; set; }
         /// <summary>The OdataType property</summary>
@@ -33,11 +33,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The name of the first-party or third-party partner agent. Possible values for third-party partners are Citrix, VMware and HP. Read-Only.</summary>
-        public CloudPcPartnerAgentName? PartnerAgentName { get; set; }
+        public ApiSdk.Models.CloudPcPartnerAgentName? PartnerAgentName { get; set; }
         /// <summary>Indicates whether the partner agent installation should be retried. The default value is false.</summary>
         public bool? Retriable { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcPartnerAgentInstallResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcPartnerAgentInstallResult"/> and sets the default values.
         /// </summary>
         public CloudPcPartnerAgentInstallResult()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcPartnerAgentInstallResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcPartnerAgentInstallResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcPartnerAgentInstallResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcPartnerAgentInstallResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcPartnerAgentInstallResult();
+            return new ApiSdk.Models.CloudPcPartnerAgentInstallResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,10 +62,10 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
-                { "installStatus", n => { InstallStatus = n.GetEnumValue<CloudPcPartnerAgentInstallStatus>(); } },
+                { "installStatus", n => { InstallStatus = n.GetEnumValue<ApiSdk.Models.CloudPcPartnerAgentInstallStatus>(); } },
                 { "isThirdPartyPartner", n => { IsThirdPartyPartner = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "partnerAgentName", n => { PartnerAgentName = n.GetEnumValue<CloudPcPartnerAgentName>(); } },
+                { "partnerAgentName", n => { PartnerAgentName = n.GetEnumValue<ApiSdk.Models.CloudPcPartnerAgentName>(); } },
                 { "retriable", n => { Retriable = n.GetBoolValue(); } },
             };
         }
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("errorMessage", ErrorMessage);
-            writer.WriteEnumValue<CloudPcPartnerAgentInstallStatus>("installStatus", InstallStatus);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcPartnerAgentInstallStatus>("installStatus", InstallStatus);
             writer.WriteBoolValue("isThirdPartyPartner", IsThirdPartyPartner);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CloudPcPartnerAgentName>("partnerAgentName", PartnerAgentName);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcPartnerAgentName>("partnerAgentName", PartnerAgentName);
             writer.WriteBoolValue("retriable", Retriable);
             writer.WriteAdditionalData(AdditionalData);
         }

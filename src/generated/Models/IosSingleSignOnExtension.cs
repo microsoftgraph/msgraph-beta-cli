@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// An abstract base class for all iOS-specific single sign-on extension types.
     /// </summary>
-    public class IosSingleSignOnExtension : SingleSignOnExtension, IParsable
+    public class IosSingleSignOnExtension : ApiSdk.Models.SingleSignOnExtension, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="IosSingleSignOnExtension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosSingleSignOnExtension"/> and sets the default values.
         /// </summary>
         public IosSingleSignOnExtension() : base()
         {
@@ -21,19 +21,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosSingleSignOnExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosSingleSignOnExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosSingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.iosAzureAdSingleSignOnExtension" => new IosAzureAdSingleSignOnExtension(),
-                "#microsoft.graph.iosCredentialSingleSignOnExtension" => new IosCredentialSingleSignOnExtension(),
-                "#microsoft.graph.iosKerberosSingleSignOnExtension" => new IosKerberosSingleSignOnExtension(),
-                "#microsoft.graph.iosRedirectSingleSignOnExtension" => new IosRedirectSingleSignOnExtension(),
-                _ => new IosSingleSignOnExtension(),
+                "#microsoft.graph.iosAzureAdSingleSignOnExtension" => new ApiSdk.Models.IosAzureAdSingleSignOnExtension(),
+                "#microsoft.graph.iosCredentialSingleSignOnExtension" => new ApiSdk.Models.IosCredentialSingleSignOnExtension(),
+                "#microsoft.graph.iosKerberosSingleSignOnExtension" => new ApiSdk.Models.IosKerberosSingleSignOnExtension(),
+                "#microsoft.graph.iosRedirectSingleSignOnExtension" => new ApiSdk.Models.IosRedirectSingleSignOnExtension(),
+                _ => new ApiSdk.Models.IosSingleSignOnExtension(),
             };
         }
         /// <summary>

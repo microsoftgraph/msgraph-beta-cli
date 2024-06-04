@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The importedDeviceIdentity resource represents a unique hardware identity of a device that has been pre-staged for pre-enrollment configuration.
     /// </summary>
-    public class ImportedDeviceIdentity : Entity, IParsable
+    public class ImportedDeviceIdentity : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Created Date Time of the device</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -42,16 +42,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImportedDeviceIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ImportedDeviceIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ImportedDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ImportedDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.importedDeviceIdentityResult" => new ImportedDeviceIdentityResult(),
-                _ => new ImportedDeviceIdentity(),
+                "#microsoft.graph.importedDeviceIdentityResult" => new ApiSdk.Models.ImportedDeviceIdentityResult(),
+                _ => new ApiSdk.Models.ImportedDeviceIdentity(),
             };
         }
         /// <summary>
@@ -64,12 +64,12 @@ namespace ApiSdk.Models
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<ApiSdk.Models.EnrollmentState>(); } },
                 { "importedDeviceIdentifier", n => { ImportedDeviceIdentifier = n.GetStringValue(); } },
-                { "importedDeviceIdentityType", n => { ImportedDeviceIdentityType = n.GetEnumValue<ImportedDeviceIdentityType>(); } },
+                { "importedDeviceIdentityType", n => { ImportedDeviceIdentityType = n.GetEnumValue<ApiSdk.Models.ImportedDeviceIdentityType>(); } },
                 { "lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "platform", n => { Platform = n.GetEnumValue<Platform>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.Platform>(); } },
             };
         }
         /// <summary>
@@ -82,12 +82,12 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<EnrollmentState>("enrollmentState", EnrollmentState);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentState>("enrollmentState", EnrollmentState);
             writer.WriteStringValue("importedDeviceIdentifier", ImportedDeviceIdentifier);
-            writer.WriteEnumValue<ImportedDeviceIdentityType>("importedDeviceIdentityType", ImportedDeviceIdentityType);
+            writer.WriteEnumValue<ApiSdk.Models.ImportedDeviceIdentityType>("importedDeviceIdentityType", ImportedDeviceIdentityType);
             writer.WriteDateTimeOffsetValue("lastContactedDateTime", LastContactedDateTime);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<Platform>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.Platform>("platform", Platform);
         }
     }
 }

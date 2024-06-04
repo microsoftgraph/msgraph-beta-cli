@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Delivery Optimization Max cache size percentage types.
     /// </summary>
-    public class DeliveryOptimizationMaxCacheSizePercentage : DeliveryOptimizationMaxCacheSize, IParsable
+    public class DeliveryOptimizationMaxCacheSizePercentage : ApiSdk.Models.DeliveryOptimizationMaxCacheSize, IParsable
     {
         /// <summary>Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100</summary>
         public int? MaximumCacheSizePercentage { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeliveryOptimizationMaxCacheSizePercentage"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeliveryOptimizationMaxCacheSizePercentage"/> and sets the default values.
         /// </summary>
         public DeliveryOptimizationMaxCacheSizePercentage() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeliveryOptimizationMaxCacheSizePercentage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeliveryOptimizationMaxCacheSizePercentage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeliveryOptimizationMaxCacheSizePercentage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeliveryOptimizationMaxCacheSizePercentage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeliveryOptimizationMaxCacheSizePercentage();
+            return new ApiSdk.Models.DeliveryOptimizationMaxCacheSizePercentage();
         }
         /// <summary>
         /// The deserialization information for the current model

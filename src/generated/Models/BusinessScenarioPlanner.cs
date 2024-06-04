@@ -7,42 +7,42 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class BusinessScenarioPlanner : Entity, IParsable
+    public class BusinessScenarioPlanner : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration of Planner plans that will be created for the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerPlanConfiguration? PlanConfiguration { get; set; }
+        public ApiSdk.Models.PlannerPlanConfiguration? PlanConfiguration { get; set; }
 #nullable restore
 #else
-        public PlannerPlanConfiguration PlanConfiguration { get; set; }
+        public ApiSdk.Models.PlannerPlanConfiguration PlanConfiguration { get; set; }
 #endif
         /// <summary>The configuration of Planner tasks that will be created for the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerTaskConfiguration? TaskConfiguration { get; set; }
+        public ApiSdk.Models.PlannerTaskConfiguration? TaskConfiguration { get; set; }
 #nullable restore
 #else
-        public PlannerTaskConfiguration TaskConfiguration { get; set; }
+        public ApiSdk.Models.PlannerTaskConfiguration TaskConfiguration { get; set; }
 #endif
         /// <summary>The Planner tasks for the scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<BusinessScenarioTask>? Tasks { get; set; }
+        public List<ApiSdk.Models.BusinessScenarioTask>? Tasks { get; set; }
 #nullable restore
 #else
-        public List<BusinessScenarioTask> Tasks { get; set; }
+        public List<ApiSdk.Models.BusinessScenarioTask> Tasks { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BusinessScenarioPlanner"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BusinessScenarioPlanner"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BusinessScenarioPlanner CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BusinessScenarioPlanner CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BusinessScenarioPlanner();
+            return new ApiSdk.Models.BusinessScenarioPlanner();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,9 +52,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "planConfiguration", n => { PlanConfiguration = n.GetObjectValue<PlannerPlanConfiguration>(PlannerPlanConfiguration.CreateFromDiscriminatorValue); } },
-                { "taskConfiguration", n => { TaskConfiguration = n.GetObjectValue<PlannerTaskConfiguration>(PlannerTaskConfiguration.CreateFromDiscriminatorValue); } },
-                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<BusinessScenarioTask>(BusinessScenarioTask.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "planConfiguration", n => { PlanConfiguration = n.GetObjectValue<ApiSdk.Models.PlannerPlanConfiguration>(ApiSdk.Models.PlannerPlanConfiguration.CreateFromDiscriminatorValue); } },
+                { "taskConfiguration", n => { TaskConfiguration = n.GetObjectValue<ApiSdk.Models.PlannerTaskConfiguration>(ApiSdk.Models.PlannerTaskConfiguration.CreateFromDiscriminatorValue); } },
+                { "tasks", n => { Tasks = n.GetCollectionOfObjectValues<ApiSdk.Models.BusinessScenarioTask>(ApiSdk.Models.BusinessScenarioTask.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,9 +65,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PlannerPlanConfiguration>("planConfiguration", PlanConfiguration);
-            writer.WriteObjectValue<PlannerTaskConfiguration>("taskConfiguration", TaskConfiguration);
-            writer.WriteCollectionOfObjectValues<BusinessScenarioTask>("tasks", Tasks);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerPlanConfiguration>("planConfiguration", PlanConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerTaskConfiguration>("taskConfiguration", TaskConfiguration);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.BusinessScenarioTask>("tasks", Tasks);
         }
     }
 }

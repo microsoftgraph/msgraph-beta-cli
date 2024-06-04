@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class AzureDataLakeConnector : FileDataConnector, IParsable
+    public class AzureDataLakeConnector : ApiSdk.Models.IndustryData.FileDataConnector, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="AzureDataLakeConnector"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.AzureDataLakeConnector"/> and sets the default values.
         /// </summary>
         public AzureDataLakeConnector() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureDataLakeConnector"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.AzureDataLakeConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureDataLakeConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.AzureDataLakeConnector CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureDataLakeConnector();
+            return new ApiSdk.Models.IndustryData.AzureDataLakeConnector();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -15,20 +15,20 @@ namespace ApiSdk.Models
         /// <summary>The list of configured displays. Applicable only for Microsoft Teams Rooms devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamworkConfiguredPeripheral>? ConfiguredDisplays { get; set; }
+        public List<ApiSdk.Models.TeamworkConfiguredPeripheral>? ConfiguredDisplays { get; set; }
 #nullable restore
 #else
-        public List<TeamworkConfiguredPeripheral> ConfiguredDisplays { get; set; }
+        public List<ApiSdk.Models.TeamworkConfiguredPeripheral> ConfiguredDisplays { get; set; }
 #endif
         /// <summary>Total number of connected displays, including the inbuilt display. Applicable only for Teams Rooms devices.</summary>
         public int? DisplayCount { get; set; }
         /// <summary>Configuration for the inbuilt display. Not applicable for Teams Rooms devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkDisplayScreenConfiguration? InBuiltDisplayScreenConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDisplayScreenConfiguration? InBuiltDisplayScreenConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkDisplayScreenConfiguration InBuiltDisplayScreenConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkDisplayScreenConfiguration InBuiltDisplayScreenConfiguration { get; set; }
 #endif
         /// <summary>True if content duplication is allowed. Applicable only for Teams Rooms devices.</summary>
         public bool? IsContentDuplicationAllowed { get; set; }
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkDisplayConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkDisplayConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkDisplayConfiguration()
         {
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkDisplayConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkDisplayConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkDisplayConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkDisplayConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkDisplayConfiguration();
+            return new ApiSdk.Models.TeamworkDisplayConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,9 +67,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configuredDisplays", n => { ConfiguredDisplays = n.GetCollectionOfObjectValues<TeamworkConfiguredPeripheral>(TeamworkConfiguredPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configuredDisplays", n => { ConfiguredDisplays = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamworkConfiguredPeripheral>(ApiSdk.Models.TeamworkConfiguredPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayCount", n => { DisplayCount = n.GetIntValue(); } },
-                { "inBuiltDisplayScreenConfiguration", n => { InBuiltDisplayScreenConfiguration = n.GetObjectValue<TeamworkDisplayScreenConfiguration>(TeamworkDisplayScreenConfiguration.CreateFromDiscriminatorValue); } },
+                { "inBuiltDisplayScreenConfiguration", n => { InBuiltDisplayScreenConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkDisplayScreenConfiguration>(ApiSdk.Models.TeamworkDisplayScreenConfiguration.CreateFromDiscriminatorValue); } },
                 { "isContentDuplicationAllowed", n => { IsContentDuplicationAllowed = n.GetBoolValue(); } },
                 { "isDualDisplayModeEnabled", n => { IsDualDisplayModeEnabled = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TeamworkConfiguredPeripheral>("configuredDisplays", ConfiguredDisplays);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamworkConfiguredPeripheral>("configuredDisplays", ConfiguredDisplays);
             writer.WriteIntValue("displayCount", DisplayCount);
-            writer.WriteObjectValue<TeamworkDisplayScreenConfiguration>("inBuiltDisplayScreenConfiguration", InBuiltDisplayScreenConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkDisplayScreenConfiguration>("inBuiltDisplayScreenConfiguration", InBuiltDisplayScreenConfiguration);
             writer.WriteBoolValue("isContentDuplicationAllowed", IsContentDuplicationAllowed);
             writer.WriteBoolValue("isDualDisplayModeEnabled", IsDualDisplayModeEnabled);
             writer.WriteStringValue("@odata.type", OdataType);

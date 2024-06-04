@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the AOSP device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user. This profile provides limited and simpler security types than Enterprise Wi-Fi profile.
     /// </summary>
-    public class AospDeviceOwnerWiFiConfiguration : DeviceConfiguration, IParsable
+    public class AospDeviceOwnerWiFiConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
         /// <summary>Specify the proxy server port.</summary>
         public int? ProxyManualPort { get; set; }
         /// <summary>Wi-Fi Proxy Settings.</summary>
-        public WiFiProxySetting? ProxySetting { get; set; }
+        public ApiSdk.Models.WiFiProxySetting? ProxySetting { get; set; }
         /// <summary>This is the name of the Wi-Fi network that is broadcast to all devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -70,9 +70,9 @@ namespace ApiSdk.Models
         public string Ssid { get; set; }
 #endif
         /// <summary>Wi-Fi Security Types for AOSP Device Owner.</summary>
-        public AospDeviceOwnerWiFiSecurityType? WiFiSecurityType { get; set; }
+        public ApiSdk.Models.AospDeviceOwnerWiFiSecurityType? WiFiSecurityType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AospDeviceOwnerWiFiConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AospDeviceOwnerWiFiConfiguration"/> and sets the default values.
         /// </summary>
         public AospDeviceOwnerWiFiConfiguration() : base()
         {
@@ -81,16 +81,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AospDeviceOwnerWiFiConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AospDeviceOwnerWiFiConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AospDeviceOwnerWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AospDeviceOwnerWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.aospDeviceOwnerEnterpriseWiFiConfiguration" => new AospDeviceOwnerEnterpriseWiFiConfiguration(),
-                _ => new AospDeviceOwnerWiFiConfiguration(),
+                "#microsoft.graph.aospDeviceOwnerEnterpriseWiFiConfiguration" => new ApiSdk.Models.AospDeviceOwnerEnterpriseWiFiConfiguration(),
+                _ => new ApiSdk.Models.AospDeviceOwnerWiFiConfiguration(),
             };
         }
         /// <summary>
@@ -110,9 +110,9 @@ namespace ApiSdk.Models
                 { "proxyExclusionList", n => { ProxyExclusionList = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
                 { "proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
-                { "proxySetting", n => { ProxySetting = n.GetEnumValue<WiFiProxySetting>(); } },
+                { "proxySetting", n => { ProxySetting = n.GetEnumValue<ApiSdk.Models.WiFiProxySetting>(); } },
                 { "ssid", n => { Ssid = n.GetStringValue(); } },
-                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<AospDeviceOwnerWiFiSecurityType>(); } },
+                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<ApiSdk.Models.AospDeviceOwnerWiFiSecurityType>(); } },
             };
         }
         /// <summary>
@@ -132,9 +132,9 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("proxyExclusionList", ProxyExclusionList);
             writer.WriteStringValue("proxyManualAddress", ProxyManualAddress);
             writer.WriteIntValue("proxyManualPort", ProxyManualPort);
-            writer.WriteEnumValue<WiFiProxySetting>("proxySetting", ProxySetting);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiProxySetting>("proxySetting", ProxySetting);
             writer.WriteStringValue("ssid", Ssid);
-            writer.WriteEnumValue<AospDeviceOwnerWiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
+            writer.WriteEnumValue<ApiSdk.Models.AospDeviceOwnerWiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
         }
     }
 }

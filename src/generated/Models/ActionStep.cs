@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ActionStep"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ActionStep"/> and sets the default values.
         /// </summary>
         public ActionStep()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ActionStep"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ActionStep"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ActionStep CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ActionStep CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ActionStep();
+            return new ApiSdk.Models.ActionStep();
         }
         /// <summary>
         /// The deserialization information for the current model

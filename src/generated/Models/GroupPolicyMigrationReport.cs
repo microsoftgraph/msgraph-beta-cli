@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The Group Policy migration report.
     /// </summary>
-    public class GroupPolicyMigrationReport : Entity, IParsable
+    public class GroupPolicyMigrationReport : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The date and time at which the GroupPolicyMigrationReport was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -30,15 +30,15 @@ namespace ApiSdk.Models
         /// <summary>A list of group policy settings to MDM/Intune mappings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicySettingMapping>? GroupPolicySettingMappings { get; set; }
+        public List<ApiSdk.Models.GroupPolicySettingMapping>? GroupPolicySettingMappings { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicySettingMapping> GroupPolicySettingMappings { get; set; }
+        public List<ApiSdk.Models.GroupPolicySettingMapping> GroupPolicySettingMappings { get; set; }
 #endif
         /// <summary>The date and time at which the GroupPolicyMigrationReport was last modified.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Indicates if the Group Policy Object file is covered and ready for Intune migration.</summary>
-        public GroupPolicyMigrationReadiness? MigrationReadiness { get; set; }
+        public ApiSdk.Models.GroupPolicyMigrationReadiness? MigrationReadiness { get; set; }
         /// <summary>The distinguished name of the OU.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,20 +66,20 @@ namespace ApiSdk.Models
         /// <summary>A list of unsupported group policy extensions inside the Group Policy Object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnsupportedGroupPolicyExtension>? UnsupportedGroupPolicyExtensions { get; set; }
+        public List<ApiSdk.Models.UnsupportedGroupPolicyExtension>? UnsupportedGroupPolicyExtensions { get; set; }
 #nullable restore
 #else
-        public List<UnsupportedGroupPolicyExtension> UnsupportedGroupPolicyExtensions { get; set; }
+        public List<ApiSdk.Models.UnsupportedGroupPolicyExtension> UnsupportedGroupPolicyExtensions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyMigrationReport"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyMigrationReport"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyMigrationReport CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyMigrationReport CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyMigrationReport();
+            return new ApiSdk.Models.GroupPolicyMigrationReport();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,16 +94,16 @@ namespace ApiSdk.Models
                 { "groupPolicyCreatedDateTime", n => { GroupPolicyCreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "groupPolicyLastModifiedDateTime", n => { GroupPolicyLastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "groupPolicyObjectId", n => { GroupPolicyObjectId = n.GetGuidValue(); } },
-                { "groupPolicySettingMappings", n => { GroupPolicySettingMappings = n.GetCollectionOfObjectValues<GroupPolicySettingMapping>(GroupPolicySettingMapping.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupPolicySettingMappings", n => { GroupPolicySettingMappings = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicySettingMapping>(ApiSdk.Models.GroupPolicySettingMapping.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "migrationReadiness", n => { MigrationReadiness = n.GetEnumValue<GroupPolicyMigrationReadiness>(); } },
+                { "migrationReadiness", n => { MigrationReadiness = n.GetEnumValue<ApiSdk.Models.GroupPolicyMigrationReadiness>(); } },
                 { "ouDistinguishedName", n => { OuDistinguishedName = n.GetStringValue(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "supportedSettingsCount", n => { SupportedSettingsCount = n.GetIntValue(); } },
                 { "supportedSettingsPercent", n => { SupportedSettingsPercent = n.GetIntValue(); } },
                 { "targetedInActiveDirectory", n => { TargetedInActiveDirectory = n.GetBoolValue(); } },
                 { "totalSettingsCount", n => { TotalSettingsCount = n.GetIntValue(); } },
-                { "unsupportedGroupPolicyExtensions", n => { UnsupportedGroupPolicyExtensions = n.GetCollectionOfObjectValues<UnsupportedGroupPolicyExtension>(UnsupportedGroupPolicyExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "unsupportedGroupPolicyExtensions", n => { UnsupportedGroupPolicyExtensions = n.GetCollectionOfObjectValues<ApiSdk.Models.UnsupportedGroupPolicyExtension>(ApiSdk.Models.UnsupportedGroupPolicyExtension.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -119,16 +119,16 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("groupPolicyCreatedDateTime", GroupPolicyCreatedDateTime);
             writer.WriteDateTimeOffsetValue("groupPolicyLastModifiedDateTime", GroupPolicyLastModifiedDateTime);
             writer.WriteGuidValue("groupPolicyObjectId", GroupPolicyObjectId);
-            writer.WriteCollectionOfObjectValues<GroupPolicySettingMapping>("groupPolicySettingMappings", GroupPolicySettingMappings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicySettingMapping>("groupPolicySettingMappings", GroupPolicySettingMappings);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteEnumValue<GroupPolicyMigrationReadiness>("migrationReadiness", MigrationReadiness);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyMigrationReadiness>("migrationReadiness", MigrationReadiness);
             writer.WriteStringValue("ouDistinguishedName", OuDistinguishedName);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
             writer.WriteIntValue("supportedSettingsCount", SupportedSettingsCount);
             writer.WriteIntValue("supportedSettingsPercent", SupportedSettingsPercent);
             writer.WriteBoolValue("targetedInActiveDirectory", TargetedInActiveDirectory);
             writer.WriteIntValue("totalSettingsCount", TotalSettingsCount);
-            writer.WriteCollectionOfObjectValues<UnsupportedGroupPolicyExtension>("unsupportedGroupPolicyExtensions", UnsupportedGroupPolicyExtensions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnsupportedGroupPolicyExtension>("unsupportedGroupPolicyExtensions", UnsupportedGroupPolicyExtensions);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows device health monitoring configuration
     /// </summary>
-    public class WindowsHealthMonitoringConfiguration : DeviceConfiguration, IParsable
+    public class WindowsHealthMonitoringConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Possible values of a property</summary>
-        public Enablement? AllowDeviceHealthMonitoring { get; set; }
+        public ApiSdk.Models.Enablement? AllowDeviceHealthMonitoring { get; set; }
         /// <summary>Specifies custom set of events collected from the device where health monitoring is enabled</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -22,9 +22,9 @@ namespace ApiSdk.Models
         public string ConfigDeviceHealthMonitoringCustomScope { get; set; }
 #endif
         /// <summary>Device health monitoring scope</summary>
-        public WindowsHealthMonitoringScope? ConfigDeviceHealthMonitoringScope { get; set; }
+        public ApiSdk.Models.WindowsHealthMonitoringScope? ConfigDeviceHealthMonitoringScope { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsHealthMonitoringConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsHealthMonitoringConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsHealthMonitoringConfiguration() : base()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsHealthMonitoringConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsHealthMonitoringConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsHealthMonitoringConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsHealthMonitoringConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsHealthMonitoringConfiguration();
+            return new ApiSdk.Models.WindowsHealthMonitoringConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,9 +48,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "allowDeviceHealthMonitoring", n => { AllowDeviceHealthMonitoring = n.GetEnumValue<Enablement>(); } },
+                { "allowDeviceHealthMonitoring", n => { AllowDeviceHealthMonitoring = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
                 { "configDeviceHealthMonitoringCustomScope", n => { ConfigDeviceHealthMonitoringCustomScope = n.GetStringValue(); } },
-                { "configDeviceHealthMonitoringScope", n => { ConfigDeviceHealthMonitoringScope = n.GetEnumValue<WindowsHealthMonitoringScope>(); } },
+                { "configDeviceHealthMonitoringScope", n => { ConfigDeviceHealthMonitoringScope = n.GetEnumValue<ApiSdk.Models.WindowsHealthMonitoringScope>(); } },
             };
         }
         /// <summary>
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<Enablement>("allowDeviceHealthMonitoring", AllowDeviceHealthMonitoring);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("allowDeviceHealthMonitoring", AllowDeviceHealthMonitoring);
             writer.WriteStringValue("configDeviceHealthMonitoringCustomScope", ConfigDeviceHealthMonitoringCustomScope);
-            writer.WriteEnumValue<WindowsHealthMonitoringScope>("configDeviceHealthMonitoringScope", ConfigDeviceHealthMonitoringScope);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsHealthMonitoringScope>("configDeviceHealthMonitoringScope", ConfigDeviceHealthMonitoringScope);
         }
     }
 }

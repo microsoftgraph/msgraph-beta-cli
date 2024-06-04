@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string QualityUpdateRelease { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExpeditedWindowsQualityUpdateSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExpeditedWindowsQualityUpdateSettings"/> and sets the default values.
         /// </summary>
         public ExpeditedWindowsQualityUpdateSettings()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExpeditedWindowsQualityUpdateSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExpeditedWindowsQualityUpdateSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExpeditedWindowsQualityUpdateSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ExpeditedWindowsQualityUpdateSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExpeditedWindowsQualityUpdateSettings();
+            return new ApiSdk.Models.ExpeditedWindowsQualityUpdateSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

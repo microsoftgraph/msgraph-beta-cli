@@ -896,9 +896,9 @@ namespace ApiSdk.Models.DeviceManagement
         public ApiSdk.Models.SoftwareUpdateStatusSummary SoftwareUpdateStatusSummary { get; set; }
 #endif
         /// <summary>Tenant mobile device management subscriptions.</summary>
-        public DeviceManagementSubscriptions? Subscriptions { get; set; }
+        public ApiSdk.Models.DeviceManagementSubscriptions? Subscriptions { get; set; }
         /// <summary>Tenant mobile device management subscription state.</summary>
-        public DeviceManagementSubscriptionState? SubscriptionState { get; set; }
+        public ApiSdk.Models.DeviceManagementSubscriptionState? SubscriptionState { get; set; }
         /// <summary>The telecom expense management partners.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -1456,12 +1456,12 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagement"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.DeviceManagement"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagement CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagement.DeviceManagement CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagement();
+            return new ApiSdk.Models.DeviceManagement.DeviceManagement();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -1586,8 +1586,8 @@ namespace ApiSdk.Models.DeviceManagement
                 { "settingDefinitions", n => { SettingDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingDefinition>(ApiSdk.Models.DeviceManagementSettingDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.DeviceManagementSettings>(ApiSdk.Models.DeviceManagementSettings.CreateFromDiscriminatorValue); } },
                 { "softwareUpdateStatusSummary", n => { SoftwareUpdateStatusSummary = n.GetObjectValue<ApiSdk.Models.SoftwareUpdateStatusSummary>(ApiSdk.Models.SoftwareUpdateStatusSummary.CreateFromDiscriminatorValue); } },
-                { "subscriptionState", n => { SubscriptionState = n.GetEnumValue<DeviceManagementSubscriptionState>(); } },
-                { "subscriptions", n => { Subscriptions = n.GetEnumValue<DeviceManagementSubscriptions>(); } },
+                { "subscriptionState", n => { SubscriptionState = n.GetEnumValue<ApiSdk.Models.DeviceManagementSubscriptionState>(); } },
+                { "subscriptions", n => { Subscriptions = n.GetEnumValue<ApiSdk.Models.DeviceManagementSubscriptions>(); } },
                 { "telecomExpenseManagementPartners", n => { TelecomExpenseManagementPartners = n.GetCollectionOfObjectValues<ApiSdk.Models.TelecomExpenseManagementPartner>(ApiSdk.Models.TelecomExpenseManagementPartner.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "templateInsights", n => { TemplateInsights = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplateInsightsDefinition>(ApiSdk.Models.DeviceManagementTemplateInsightsDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "templateSettings", n => { TemplateSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingTemplate>(ApiSdk.Models.DeviceManagementConfigurationSettingTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
@@ -1780,8 +1780,8 @@ namespace ApiSdk.Models.DeviceManagement
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingDefinition>("settingDefinitions", SettingDefinitions);
             writer.WriteObjectValue<ApiSdk.Models.DeviceManagementSettings>("settings", Settings);
             writer.WriteObjectValue<ApiSdk.Models.SoftwareUpdateStatusSummary>("softwareUpdateStatusSummary", SoftwareUpdateStatusSummary);
-            writer.WriteEnumValue<DeviceManagementSubscriptions>("subscriptions", Subscriptions);
-            writer.WriteEnumValue<DeviceManagementSubscriptionState>("subscriptionState", SubscriptionState);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementSubscriptions>("subscriptions", Subscriptions);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementSubscriptionState>("subscriptionState", SubscriptionState);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.TelecomExpenseManagementPartner>("telecomExpenseManagementPartners", TelecomExpenseManagementPartners);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplateInsightsDefinition>("templateInsights", TemplateInsights);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementTemplate>("templates", Templates);

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the secureAssessment resource.
     /// </summary>
-    public class Windows10SecureAssessmentConfiguration : DeviceConfiguration, IParsable
+    public class Windows10SecureAssessmentConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Indicates whether or not to allow the app from printing during the test.</summary>
         public bool? AllowPrinting { get; set; }
@@ -34,7 +34,7 @@ namespace ApiSdk.Models
         public string ConfigurationAccount { get; set; }
 #endif
         /// <summary>Type of accounts that are allowed for Windows10SecureAssessment ConfigurationAccount.</summary>
-        public SecureAssessmentAccountType? ConfigurationAccountType { get; set; }
+        public ApiSdk.Models.SecureAssessmentAccountType? ConfigurationAccountType { get; set; }
         /// <summary>Url link to an assessment that&apos;s automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         public string LocalGuestAccountName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10SecureAssessmentConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10SecureAssessmentConfiguration"/> and sets the default values.
         /// </summary>
         public Windows10SecureAssessmentConfiguration() : base()
         {
@@ -61,12 +61,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10SecureAssessmentConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10SecureAssessmentConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10SecureAssessmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10SecureAssessmentConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10SecureAssessmentConfiguration();
+            return new ApiSdk.Models.Windows10SecureAssessmentConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +81,7 @@ namespace ApiSdk.Models
                 { "allowTextSuggestion", n => { AllowTextSuggestion = n.GetBoolValue(); } },
                 { "assessmentAppUserModelId", n => { AssessmentAppUserModelId = n.GetStringValue(); } },
                 { "configurationAccount", n => { ConfigurationAccount = n.GetStringValue(); } },
-                { "configurationAccountType", n => { ConfigurationAccountType = n.GetEnumValue<SecureAssessmentAccountType>(); } },
+                { "configurationAccountType", n => { ConfigurationAccountType = n.GetEnumValue<ApiSdk.Models.SecureAssessmentAccountType>(); } },
                 { "launchUri", n => { LaunchUri = n.GetStringValue(); } },
                 { "localGuestAccountName", n => { LocalGuestAccountName = n.GetStringValue(); } },
             };
@@ -99,7 +99,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("allowTextSuggestion", AllowTextSuggestion);
             writer.WriteStringValue("assessmentAppUserModelId", AssessmentAppUserModelId);
             writer.WriteStringValue("configurationAccount", ConfigurationAccount);
-            writer.WriteEnumValue<SecureAssessmentAccountType>("configurationAccountType", ConfigurationAccountType);
+            writer.WriteEnumValue<ApiSdk.Models.SecureAssessmentAccountType>("configurationAccountType", ConfigurationAccountType);
             writer.WriteStringValue("launchUri", LaunchUri);
             writer.WriteStringValue("localGuestAccountName", LocalGuestAccountName);
         }

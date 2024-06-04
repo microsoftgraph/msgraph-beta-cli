@@ -49,7 +49,7 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>Count of total users processed by the task.</summary>
         public int? TotalUsers { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TopTasksInsightsSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.TopTasksInsightsSummary"/> and sets the default values.
         /// </summary>
         public TopTasksInsightsSummary()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TopTasksInsightsSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.TopTasksInsightsSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TopTasksInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityGovernance.TopTasksInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TopTasksInsightsSummary();
+            return new ApiSdk.Models.IdentityGovernance.TopTasksInsightsSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

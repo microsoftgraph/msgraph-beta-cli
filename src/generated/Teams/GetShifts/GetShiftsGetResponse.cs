@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Teams.GetShifts
 {
     #pragma warning disable CS1591
-    public class GetShiftsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetShiftsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Shift>? Value { get; set; }
+        public List<ApiSdk.Models.Shift>? Value { get; set; }
 #nullable restore
 #else
-        public List<Shift> Value { get; set; }
+        public List<ApiSdk.Models.Shift> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetShiftsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Teams.GetShifts.GetShiftsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetShiftsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Teams.GetShifts.GetShiftsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetShiftsGetResponse();
+            return new ApiSdk.Teams.GetShifts.GetShiftsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Teams.GetShifts
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<Shift>(Shift.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Shift>(ApiSdk.Models.Shift.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Teams.GetShifts
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Shift>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Shift>("value", Value);
         }
     }
 }

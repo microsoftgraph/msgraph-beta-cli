@@ -21,35 +21,35 @@ namespace ApiSdk.Models.Ediscovery
         public string DisplayName { get; set; }
 #endif
         /// <summary>The holdStatus property</summary>
-        public DataSourceHoldStatus? HoldStatus { get; set; }
+        public ApiSdk.Models.Ediscovery.DataSourceHoldStatus? HoldStatus { get; set; }
         /// <summary>The lastIndexOperation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CaseIndexOperation? LastIndexOperation { get; set; }
+        public ApiSdk.Models.Ediscovery.CaseIndexOperation? LastIndexOperation { get; set; }
 #nullable restore
 #else
-        public CaseIndexOperation LastIndexOperation { get; set; }
+        public ApiSdk.Models.Ediscovery.CaseIndexOperation LastIndexOperation { get; set; }
 #endif
         /// <summary>Last modified date and time of the dataSourceContainer.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Date and time that the dataSourceContainer was released from the case.</summary>
         public DateTimeOffset? ReleasedDateTime { get; set; }
         /// <summary>Latest status of the dataSourceContainer. Possible values are: Active, Released.</summary>
-        public DataSourceContainerStatus? Status { get; set; }
+        public ApiSdk.Models.Ediscovery.DataSourceContainerStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DataSourceContainer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.DataSourceContainer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DataSourceContainer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.DataSourceContainer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.ediscovery.custodian" => new Custodian(),
-                "#microsoft.graph.ediscovery.noncustodialDataSource" => new NoncustodialDataSource(),
-                _ => new DataSourceContainer(),
+                "#microsoft.graph.ediscovery.custodian" => new ApiSdk.Models.Ediscovery.Custodian(),
+                "#microsoft.graph.ediscovery.noncustodialDataSource" => new ApiSdk.Models.Ediscovery.NoncustodialDataSource(),
+                _ => new ApiSdk.Models.Ediscovery.DataSourceContainer(),
             };
         }
         /// <summary>
@@ -62,11 +62,11 @@ namespace ApiSdk.Models.Ediscovery
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "holdStatus", n => { HoldStatus = n.GetEnumValue<DataSourceHoldStatus>(); } },
-                { "lastIndexOperation", n => { LastIndexOperation = n.GetObjectValue<CaseIndexOperation>(CaseIndexOperation.CreateFromDiscriminatorValue); } },
+                { "holdStatus", n => { HoldStatus = n.GetEnumValue<ApiSdk.Models.Ediscovery.DataSourceHoldStatus>(); } },
+                { "lastIndexOperation", n => { LastIndexOperation = n.GetObjectValue<ApiSdk.Models.Ediscovery.CaseIndexOperation>(ApiSdk.Models.Ediscovery.CaseIndexOperation.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "releasedDateTime", n => { ReleasedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<DataSourceContainerStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Ediscovery.DataSourceContainerStatus>(); } },
             };
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace ApiSdk.Models.Ediscovery
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<DataSourceHoldStatus>("holdStatus", HoldStatus);
-            writer.WriteObjectValue<CaseIndexOperation>("lastIndexOperation", LastIndexOperation);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.DataSourceHoldStatus>("holdStatus", HoldStatus);
+            writer.WriteObjectValue<ApiSdk.Models.Ediscovery.CaseIndexOperation>("lastIndexOperation", LastIndexOperation);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteDateTimeOffsetValue("releasedDateTime", ReleasedDateTime);
-            writer.WriteEnumValue<DataSourceContainerStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.DataSourceContainerStatus>("status", Status);
         }
     }
 }

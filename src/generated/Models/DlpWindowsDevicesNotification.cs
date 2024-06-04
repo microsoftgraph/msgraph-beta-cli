@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DlpWindowsDevicesNotification : DlpNotification, IParsable
+    public class DlpWindowsDevicesNotification : ApiSdk.Models.DlpNotification, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contentName property</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string LastModfiedBy { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DlpWindowsDevicesNotification"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DlpWindowsDevicesNotification"/> and sets the default values.
         /// </summary>
         public DlpWindowsDevicesNotification() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DlpWindowsDevicesNotification"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DlpWindowsDevicesNotification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DlpWindowsDevicesNotification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DlpWindowsDevicesNotification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DlpWindowsDevicesNotification();
+            return new ApiSdk.Models.DlpWindowsDevicesNotification();
         }
         /// <summary>
         /// The deserialization information for the current model

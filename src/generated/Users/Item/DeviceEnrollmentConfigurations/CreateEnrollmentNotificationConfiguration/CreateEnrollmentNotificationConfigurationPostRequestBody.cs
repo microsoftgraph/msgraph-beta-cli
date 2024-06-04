@@ -16,13 +16,13 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotif
         /// <summary>The deviceEnrollmentNotificationConfigurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceEnrollmentConfiguration>? DeviceEnrollmentNotificationConfigurations { get; set; }
+        public List<ApiSdk.Models.DeviceEnrollmentConfiguration>? DeviceEnrollmentNotificationConfigurations { get; set; }
 #nullable restore
 #else
-        public List<DeviceEnrollmentConfiguration> DeviceEnrollmentNotificationConfigurations { get; set; }
+        public List<ApiSdk.Models.DeviceEnrollmentConfiguration> DeviceEnrollmentNotificationConfigurations { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CreateEnrollmentNotificationConfigurationPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration.CreateEnrollmentNotificationConfigurationPostRequestBody"/> and sets the default values.
         /// </summary>
         public CreateEnrollmentNotificationConfigurationPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CreateEnrollmentNotificationConfigurationPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration.CreateEnrollmentNotificationConfigurationPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CreateEnrollmentNotificationConfigurationPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration.CreateEnrollmentNotificationConfigurationPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CreateEnrollmentNotificationConfigurationPostRequestBody();
+            return new ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotificationConfiguration.CreateEnrollmentNotificationConfigurationPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotif
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "deviceEnrollmentNotificationConfigurations", n => { DeviceEnrollmentNotificationConfigurations = n.GetCollectionOfObjectValues<DeviceEnrollmentConfiguration>(DeviceEnrollmentConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceEnrollmentNotificationConfigurations", n => { DeviceEnrollmentNotificationConfigurations = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceEnrollmentConfiguration>(ApiSdk.Models.DeviceEnrollmentConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Users.Item.DeviceEnrollmentConfigurations.CreateEnrollmentNotif
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DeviceEnrollmentConfiguration>("deviceEnrollmentNotificationConfigurations", DeviceEnrollmentNotificationConfigurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceEnrollmentConfiguration>("deviceEnrollmentNotificationConfigurations", DeviceEnrollmentNotificationConfigurations);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

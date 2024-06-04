@@ -30,7 +30,7 @@ namespace ApiSdk.Policies.AuthorizationPolicy.Item
         {
             var command = new Command("default-user-role-overrides");
             command.Description = "Provides operations to manage the defaultUserRoleOverrides property of the microsoft.graph.authorizationPolicy entity.";
-            var builder = new DefaultUserRoleOverridesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Policies.AuthorizationPolicy.Item.DefaultUserRoleOverrides.DefaultUserRoleOverridesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -188,14 +188,14 @@ namespace ApiSdk.Policies.AuthorizationPolicy.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Policies.AuthorizationPolicy.Item.AuthorizationPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AuthorizationPolicyItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/policies/authorizationPolicy/{authorizationPolicy%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationPolicyItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Policies.AuthorizationPolicy.Item.AuthorizationPolicyItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AuthorizationPolicyItemRequestBuilder(string rawUrl) : base("{+baseurl}/policies/authorizationPolicy/{authorizationPolicy%2Did}{?%24expand,%24select}", rawUrl)
@@ -227,11 +227,11 @@ namespace ApiSdk.Policies.AuthorizationPolicy.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthorizationPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Policies.AuthorizationPolicy.Item.AuthorizationPolicyItemRequestBuilder.AuthorizationPolicyItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthorizationPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Policies.AuthorizationPolicy.Item.AuthorizationPolicyItemRequestBuilder.AuthorizationPolicyItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

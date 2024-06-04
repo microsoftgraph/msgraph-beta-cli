@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// Base for Android For Work EAS Email profiles
     /// </summary>
-    public class AndroidForWorkEasEmailProfileBase : DeviceConfiguration, IParsable
+    public class AndroidForWorkEasEmailProfileBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Exchange Active Sync authentication method.</summary>
-        public EasAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.EasAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>Possible values for email sync duration.</summary>
-        public EmailSyncDuration? DurationOfEmailToSync { get; set; }
+        public ApiSdk.Models.EmailSyncDuration? DurationOfEmailToSync { get; set; }
         /// <summary>Possible values for username source or email source.</summary>
-        public UserEmailSource? EmailAddressSource { get; set; }
+        public ApiSdk.Models.UserEmailSource? EmailAddressSource { get; set; }
         /// <summary>Exchange location (URL) that the mail app connects to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,17 +28,17 @@ namespace ApiSdk.Models
         /// <summary>Identity certificate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidForWorkCertificateProfileBase? IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidForWorkCertificateProfileBase? IdentityCertificate { get; set; }
 #nullable restore
 #else
-        public AndroidForWorkCertificateProfileBase IdentityCertificate { get; set; }
+        public ApiSdk.Models.AndroidForWorkCertificateProfileBase IdentityCertificate { get; set; }
 #endif
         /// <summary>Indicates whether or not to use SSL.</summary>
         public bool? RequireSsl { get; set; }
         /// <summary>Android username source.</summary>
-        public AndroidUsernameSource? UsernameSource { get; set; }
+        public ApiSdk.Models.AndroidUsernameSource? UsernameSource { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkEasEmailProfileBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidForWorkEasEmailProfileBase"/> and sets the default values.
         /// </summary>
         public AndroidForWorkEasEmailProfileBase() : base()
         {
@@ -47,17 +47,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidForWorkEasEmailProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidForWorkEasEmailProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidForWorkEasEmailProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidForWorkEasEmailProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.androidForWorkGmailEasConfiguration" => new AndroidForWorkGmailEasConfiguration(),
-                "#microsoft.graph.androidForWorkNineWorkEasConfiguration" => new AndroidForWorkNineWorkEasConfiguration(),
-                _ => new AndroidForWorkEasEmailProfileBase(),
+                "#microsoft.graph.androidForWorkGmailEasConfiguration" => new ApiSdk.Models.AndroidForWorkGmailEasConfiguration(),
+                "#microsoft.graph.androidForWorkNineWorkEasConfiguration" => new ApiSdk.Models.AndroidForWorkNineWorkEasConfiguration(),
+                _ => new ApiSdk.Models.AndroidForWorkEasEmailProfileBase(),
             };
         }
         /// <summary>
@@ -68,13 +68,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<EasAuthenticationMethod>(); } },
-                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<EmailSyncDuration>(); } },
-                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<UserEmailSource>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.EasAuthenticationMethod>(); } },
+                { "durationOfEmailToSync", n => { DurationOfEmailToSync = n.GetEnumValue<ApiSdk.Models.EmailSyncDuration>(); } },
+                { "emailAddressSource", n => { EmailAddressSource = n.GetEnumValue<ApiSdk.Models.UserEmailSource>(); } },
                 { "hostName", n => { HostName = n.GetStringValue(); } },
-                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<AndroidForWorkCertificateProfileBase>(AndroidForWorkCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "identityCertificate", n => { IdentityCertificate = n.GetObjectValue<ApiSdk.Models.AndroidForWorkCertificateProfileBase>(ApiSdk.Models.AndroidForWorkCertificateProfileBase.CreateFromDiscriminatorValue); } },
                 { "requireSsl", n => { RequireSsl = n.GetBoolValue(); } },
-                { "usernameSource", n => { UsernameSource = n.GetEnumValue<AndroidUsernameSource>(); } },
+                { "usernameSource", n => { UsernameSource = n.GetEnumValue<ApiSdk.Models.AndroidUsernameSource>(); } },
             };
         }
         /// <summary>
@@ -85,13 +85,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<EasAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
-            writer.WriteEnumValue<EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
-            writer.WriteEnumValue<UserEmailSource>("emailAddressSource", EmailAddressSource);
+            writer.WriteEnumValue<ApiSdk.Models.EasAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.EmailSyncDuration>("durationOfEmailToSync", DurationOfEmailToSync);
+            writer.WriteEnumValue<ApiSdk.Models.UserEmailSource>("emailAddressSource", EmailAddressSource);
             writer.WriteStringValue("hostName", HostName);
-            writer.WriteObjectValue<AndroidForWorkCertificateProfileBase>("identityCertificate", IdentityCertificate);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidForWorkCertificateProfileBase>("identityCertificate", IdentityCertificate);
             writer.WriteBoolValue("requireSsl", RequireSsl);
-            writer.WriteEnumValue<AndroidUsernameSource>("usernameSource", UsernameSource);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidUsernameSource>("usernameSource", UsernameSource);
         }
     }
 }

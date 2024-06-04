@@ -9,26 +9,26 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Configuration.
     /// </summary>
-    public class Windows81CertificateProfileBase : WindowsCertificateProfileBase, IParsable
+    public class Windows81CertificateProfileBase : ApiSdk.Models.WindowsCertificateProfileBase, IParsable
     {
         /// <summary>Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName>? CustomSubjectAlternativeNames { get; set; }
 #nullable restore
 #else
-        public List<CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
+        public List<ApiSdk.Models.CustomSubjectAlternativeName> CustomSubjectAlternativeNames { get; set; }
 #endif
         /// <summary>Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
 #nullable restore
 #else
-        public List<ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows81CertificateProfileBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows81CertificateProfileBase"/> and sets the default values.
         /// </summary>
         public Windows81CertificateProfileBase() : base()
         {
@@ -37,16 +37,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows81CertificateProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows81CertificateProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows81CertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows81CertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windows81SCEPCertificateProfile" => new Windows81SCEPCertificateProfile(),
-                _ => new Windows81CertificateProfileBase(),
+                "#microsoft.graph.windows81SCEPCertificateProfile" => new ApiSdk.Models.Windows81SCEPCertificateProfile(),
+                _ => new ApiSdk.Models.Windows81CertificateProfileBase(),
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<CustomSubjectAlternativeName>(CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customSubjectAlternativeNames", n => { CustomSubjectAlternativeNames = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>(ApiSdk.Models.CustomSubjectAlternativeName.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -69,8 +69,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
-            writer.WriteCollectionOfObjectValues<ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomSubjectAlternativeName>("customSubjectAlternativeNames", CustomSubjectAlternativeNames);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
         }
     }
 }

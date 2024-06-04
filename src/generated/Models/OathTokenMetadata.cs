@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The manufacturerProperties property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? ManufacturerProperties { get; set; }
+        public List<ApiSdk.Models.KeyValue>? ManufacturerProperties { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> ManufacturerProperties { get; set; }
+        public List<ApiSdk.Models.KeyValue> ManufacturerProperties { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         public string TokenType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OathTokenMetadata"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OathTokenMetadata"/> and sets the default values.
         /// </summary>
         public OathTokenMetadata()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OathTokenMetadata"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OathTokenMetadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static OathTokenMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.OathTokenMetadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OathTokenMetadata();
+            return new ApiSdk.Models.OathTokenMetadata();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +81,7 @@ namespace ApiSdk.Models
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
-                { "manufacturerProperties", n => { ManufacturerProperties = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "manufacturerProperties", n => { ManufacturerProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
                 { "tokenType", n => { TokenType = n.GetStringValue(); } },
@@ -96,7 +96,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
             writer.WriteStringValue("manufacturer", Manufacturer);
-            writer.WriteCollectionOfObjectValues<KeyValue>("manufacturerProperties", ManufacturerProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("manufacturerProperties", ManufacturerProperties);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("serialNumber", SerialNumber);
             writer.WriteStringValue("tokenType", TokenType);

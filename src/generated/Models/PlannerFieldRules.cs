@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>Overrides that specify different rules for specific data associated with the field.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PlannerRuleOverride>? Overrides { get; set; }
+        public List<ApiSdk.Models.PlannerRuleOverride>? Overrides { get; set; }
 #nullable restore
 #else
-        public List<PlannerRuleOverride> Overrides { get; set; }
+        public List<ApiSdk.Models.PlannerRuleOverride> Overrides { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerFieldRules"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerFieldRules"/> and sets the default values.
         /// </summary>
         public PlannerFieldRules()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerFieldRules"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerFieldRules"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerFieldRules CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerFieldRules CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerFieldRules();
+            return new ApiSdk.Models.PlannerFieldRules();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             {
                 { "defaultRules", n => { DefaultRules = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "overrides", n => { Overrides = n.GetCollectionOfObjectValues<PlannerRuleOverride>(PlannerRuleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "overrides", n => { Overrides = n.GetCollectionOfObjectValues<ApiSdk.Models.PlannerRuleOverride>(ApiSdk.Models.PlannerRuleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("defaultRules", DefaultRules);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<PlannerRuleOverride>("overrides", Overrides);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PlannerRuleOverride>("overrides", Overrides);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

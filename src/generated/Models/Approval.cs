@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Approval : Entity, IParsable
+    public class Approval : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Used to represent the decision associated with a single step in the approval process configured in approvalStage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ApprovalStep>? Steps { get; set; }
+        public List<ApiSdk.Models.ApprovalStep>? Steps { get; set; }
 #nullable restore
 #else
-        public List<ApprovalStep> Steps { get; set; }
+        public List<ApiSdk.Models.ApprovalStep> Steps { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Approval"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Approval"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Approval CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Approval CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Approval();
+            return new ApiSdk.Models.Approval();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "steps", n => { Steps = n.GetCollectionOfObjectValues<ApprovalStep>(ApprovalStep.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "steps", n => { Steps = n.GetCollectionOfObjectValues<ApiSdk.Models.ApprovalStep>(ApiSdk.Models.ApprovalStep.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ApprovalStep>("steps", Steps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ApprovalStep>("steps", Steps);
         }
     }
 }

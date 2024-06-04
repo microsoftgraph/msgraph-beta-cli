@@ -62,14 +62,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus.GetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetCloudPcReviewStatusRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/getCloudPcReviewStatus()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.GetCloudPcReviewStatus.GetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetCloudPcReviewStatusRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/getCloudPcReviewStatus()", rawUrl)

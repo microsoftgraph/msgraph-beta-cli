@@ -134,7 +134,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
         {
             var command = new Command("microsoft-graph-ediscovery-add-to-review-set");
             command.Description = "Provides operations to call the addToReviewSet method.";
-            var builder = new MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryAddToReviewSet.MicrosoftGraphEdiscoveryAddToReviewSetRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -151,7 +151,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
         {
             var command = new Command("microsoft-graph-ediscovery-export");
             command.Description = "Provides operations to call the export method.";
-            var builder = new MicrosoftGraphEdiscoveryExportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.MicrosoftGraphEdiscoveryExport.MicrosoftGraphEdiscoveryExportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -226,7 +226,7 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
         {
             var command = new Command("queries");
             command.Description = "Provides operations to manage the queries property of the microsoft.graph.ediscovery.reviewSet entity.";
-            var builder = new QueriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.QueriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -246,14 +246,14 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReviewSetItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.ReviewSetItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReviewSetItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReviewSetItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.ReviewSetItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReviewSetItemRequestBuilder(string rawUrl) : base("{+baseurl}/compliance/ediscovery/cases/{case%2Did}/reviewSets/{reviewSet%2Did}{?%24expand,%24select}", rawUrl)
@@ -287,11 +287,11 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item
         [Obsolete("The ediscovery Apis are deprecated under /compliance and will stop returning data from February 01, 2023. Please use the new ediscovery Apis under /security. as of 2022-12/ediscoveryNamespace")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReviewSetItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.ReviewSetItemRequestBuilder.ReviewSetItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ReviewSetItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.ReviewSetItemRequestBuilder.ReviewSetItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

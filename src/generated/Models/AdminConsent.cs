@@ -22,11 +22,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Admin consent state.</summary>
-        public AdminConsentState? ShareAPNSData { get; set; }
+        public ApiSdk.Models.AdminConsentState? ShareAPNSData { get; set; }
         /// <summary>Admin consent state.</summary>
-        public AdminConsentState? ShareUserExperienceAnalyticsData { get; set; }
+        public ApiSdk.Models.AdminConsentState? ShareUserExperienceAnalyticsData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AdminConsent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AdminConsent"/> and sets the default values.
         /// </summary>
         public AdminConsent()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdminConsent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AdminConsent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AdminConsent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AdminConsent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdminConsent();
+            return new ApiSdk.Models.AdminConsent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,8 +51,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "shareAPNSData", n => { ShareAPNSData = n.GetEnumValue<AdminConsentState>(); } },
-                { "shareUserExperienceAnalyticsData", n => { ShareUserExperienceAnalyticsData = n.GetEnumValue<AdminConsentState>(); } },
+                { "shareAPNSData", n => { ShareAPNSData = n.GetEnumValue<ApiSdk.Models.AdminConsentState>(); } },
+                { "shareUserExperienceAnalyticsData", n => { ShareUserExperienceAnalyticsData = n.GetEnumValue<ApiSdk.Models.AdminConsentState>(); } },
             };
         }
         /// <summary>
@@ -63,8 +63,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AdminConsentState>("shareAPNSData", ShareAPNSData);
-            writer.WriteEnumValue<AdminConsentState>("shareUserExperienceAnalyticsData", ShareUserExperienceAnalyticsData);
+            writer.WriteEnumValue<ApiSdk.Models.AdminConsentState>("shareAPNSData", ShareAPNSData);
+            writer.WriteEnumValue<ApiSdk.Models.AdminConsentState>("shareUserExperienceAnalyticsData", ShareUserExperienceAnalyticsData);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

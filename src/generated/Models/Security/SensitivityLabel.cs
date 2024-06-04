@@ -51,10 +51,10 @@ namespace ApiSdk.Models.Security
         /// <summary>The parent label associated with a child label. Null if the label has no parent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SensitivityLabel? Parent { get; set; }
+        public ApiSdk.Models.Security.SensitivityLabel? Parent { get; set; }
 #nullable restore
 #else
-        public SensitivityLabel Parent { get; set; }
+        public ApiSdk.Models.Security.SensitivityLabel Parent { get; set; }
 #endif
         /// <summary>The sensitivity value of the label, where lower is less sensitive.</summary>
         public int? Sensitivity { get; set; }
@@ -69,12 +69,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SensitivityLabel"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.SensitivityLabel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SensitivityLabel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.SensitivityLabel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SensitivityLabel();
+            return new ApiSdk.Models.Security.SensitivityLabel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -91,7 +91,7 @@ namespace ApiSdk.Models.Security
                 { "isActive", n => { IsActive = n.GetBoolValue(); } },
                 { "isAppliable", n => { IsAppliable = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.Security.SensitivityLabel>(ApiSdk.Models.Security.SensitivityLabel.CreateFromDiscriminatorValue); } },
                 { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
@@ -111,7 +111,7 @@ namespace ApiSdk.Models.Security
             writer.WriteBoolValue("isActive", IsActive);
             writer.WriteBoolValue("isAppliable", IsAppliable);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<SensitivityLabel>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.Security.SensitivityLabel>("parent", Parent);
             writer.WriteIntValue("sensitivity", Sensitivity);
             writer.WriteStringValue("tooltip", Tooltip);
         }

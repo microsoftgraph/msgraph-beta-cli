@@ -103,14 +103,14 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetStorageAccountsWithSubscriptionIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetStorageAccountsWithSubscriptionIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/virtualEndpoint/snapshots/getStorageAccounts(subscriptionId='{subscriptionId}'){?%24count,%24filter,%24search,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetStorageAccountsWithSubscriptionIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetStorageAccountsWithSubscriptionIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/virtualEndpoint/snapshots/getStorageAccounts(subscriptionId='{subscriptionId}'){?%24count,%24filter,%24search,%24skip,%24top}", rawUrl)
@@ -123,11 +123,11 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWi
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdRequestBuilder.GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.VirtualEndpoint.Snapshots.GetStorageAccountsWithSubscriptionId.GetStorageAccountsWithSubscriptionIdRequestBuilder.GetStorageAccountsWithSubscriptionIdRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

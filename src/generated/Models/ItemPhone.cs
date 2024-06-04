@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ItemPhone : ItemFacet, IParsable
+    public class ItemPhone : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Friendly name the user has assigned this phone number.</summary>
@@ -27,9 +27,9 @@ namespace ApiSdk.Models
         public string Number { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public PhoneType? Type { get; set; }
+        public ApiSdk.Models.PhoneType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ItemPhone"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ItemPhone"/> and sets the default values.
         /// </summary>
         public ItemPhone() : base()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemPhone"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemPhone"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ItemPhone CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ItemPhone CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ItemPhone();
+            return new ApiSdk.Models.ItemPhone();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "number", n => { Number = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<PhoneType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.PhoneType>(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("number", Number);
-            writer.WriteEnumValue<PhoneType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.PhoneType>("type", Type);
         }
     }
 }

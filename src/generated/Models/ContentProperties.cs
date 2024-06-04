@@ -33,10 +33,10 @@ namespace ApiSdk.Models
         /// <summary>The metadata property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ContentMetadata? Metadata { get; set; }
+        public ApiSdk.Models.ContentMetadata? Metadata { get; set; }
 #nullable restore
 #else
-        public ContentMetadata Metadata { get; set; }
+        public ApiSdk.Models.ContentMetadata Metadata { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ContentProperties"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ContentProperties"/> and sets the default values.
         /// </summary>
         public ContentProperties()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContentProperties"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ContentProperties"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ContentProperties CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ContentProperties CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContentProperties();
+            return new ApiSdk.Models.ContentProperties();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
                 { "extensions", n => { Extensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "metadata", n => { Metadata = n.GetObjectValue<ContentMetadata>(ContentMetadata.CreateFromDiscriminatorValue); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<ApiSdk.Models.ContentMetadata>(ApiSdk.Models.ContentMetadata.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("extensions", Extensions);
             writer.WriteStringValue("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<ContentMetadata>("metadata", Metadata);
+            writer.WriteObjectValue<ApiSdk.Models.ContentMetadata>("metadata", Metadata);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// The base entity for the display presentation of any of the additional options in a group policy definition.
     /// </summary>
-    public class GroupPolicyPresentation : Entity, IParsable
+    public class GroupPolicyPresentation : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The group policy definition associated with the presentation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinition? Definition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition? Definition { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinition Definition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition Definition { get; set; }
 #endif
         /// <summary>Localized text label for any presentation entity. The default value is empty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,25 +32,25 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.groupPolicyPresentationCheckBox" => new GroupPolicyPresentationCheckBox(),
-                "#microsoft.graph.groupPolicyPresentationComboBox" => new GroupPolicyPresentationComboBox(),
-                "#microsoft.graph.groupPolicyPresentationDecimalTextBox" => new GroupPolicyPresentationDecimalTextBox(),
-                "#microsoft.graph.groupPolicyPresentationDropdownList" => new GroupPolicyPresentationDropdownList(),
-                "#microsoft.graph.groupPolicyPresentationListBox" => new GroupPolicyPresentationListBox(),
-                "#microsoft.graph.groupPolicyPresentationLongDecimalTextBox" => new GroupPolicyPresentationLongDecimalTextBox(),
-                "#microsoft.graph.groupPolicyPresentationMultiTextBox" => new GroupPolicyPresentationMultiTextBox(),
-                "#microsoft.graph.groupPolicyPresentationText" => new GroupPolicyPresentationText(),
-                "#microsoft.graph.groupPolicyPresentationTextBox" => new GroupPolicyPresentationTextBox(),
-                "#microsoft.graph.groupPolicyUploadedPresentation" => new GroupPolicyUploadedPresentation(),
-                _ => new GroupPolicyPresentation(),
+                "#microsoft.graph.groupPolicyPresentationCheckBox" => new ApiSdk.Models.GroupPolicyPresentationCheckBox(),
+                "#microsoft.graph.groupPolicyPresentationComboBox" => new ApiSdk.Models.GroupPolicyPresentationComboBox(),
+                "#microsoft.graph.groupPolicyPresentationDecimalTextBox" => new ApiSdk.Models.GroupPolicyPresentationDecimalTextBox(),
+                "#microsoft.graph.groupPolicyPresentationDropdownList" => new ApiSdk.Models.GroupPolicyPresentationDropdownList(),
+                "#microsoft.graph.groupPolicyPresentationListBox" => new ApiSdk.Models.GroupPolicyPresentationListBox(),
+                "#microsoft.graph.groupPolicyPresentationLongDecimalTextBox" => new ApiSdk.Models.GroupPolicyPresentationLongDecimalTextBox(),
+                "#microsoft.graph.groupPolicyPresentationMultiTextBox" => new ApiSdk.Models.GroupPolicyPresentationMultiTextBox(),
+                "#microsoft.graph.groupPolicyPresentationText" => new ApiSdk.Models.GroupPolicyPresentationText(),
+                "#microsoft.graph.groupPolicyPresentationTextBox" => new ApiSdk.Models.GroupPolicyPresentationTextBox(),
+                "#microsoft.graph.groupPolicyUploadedPresentation" => new ApiSdk.Models.GroupPolicyUploadedPresentation(),
+                _ => new ApiSdk.Models.GroupPolicyPresentation(),
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "definition", n => { Definition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
+                { "definition", n => { Definition = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinition>(ApiSdk.Models.GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GroupPolicyDefinition>("definition", Definition);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinition>("definition", Definition);
             writer.WriteStringValue("label", Label);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
         }

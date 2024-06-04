@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class PrivateAccessForwardingRule : ForwardingRule, IParsable
+    public class PrivateAccessForwardingRule : ApiSdk.Models.Networkaccess.ForwardingRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="PrivateAccessForwardingRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.PrivateAccessForwardingRule"/> and sets the default values.
         /// </summary>
         public PrivateAccessForwardingRule() : base()
         {
@@ -20,12 +20,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivateAccessForwardingRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.PrivateAccessForwardingRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivateAccessForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.PrivateAccessForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivateAccessForwardingRule();
+            return new ApiSdk.Models.Networkaccess.PrivateAccessForwardingRule();
         }
         /// <summary>
         /// The deserialization information for the current model

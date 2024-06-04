@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Choice Setting Value Constant Default Template
     /// </summary>
-    public class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate : DeviceManagementConfigurationChoiceSettingValueDefaultTemplate, IParsable
+    public class DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate : ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueDefaultTemplate, IParsable
     {
         /// <summary>Option Children</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSettingInstanceTemplate>? Children { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate>? Children { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSettingInstanceTemplate> Children { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate> Children { get; set; }
 #endif
         /// <summary>Default Constant Value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         public string SettingDefinitionOptionId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate() : base()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "children", n => { Children = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingInstanceTemplate>(DeviceManagementConfigurationSettingInstanceTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "children", n => { Children = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate>(ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "settingDefinitionOptionId", n => { SettingDefinitionOptionId = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSettingInstanceTemplate>("children", Children);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplate>("children", Children);
             writer.WriteStringValue("settingDefinitionOptionId", SettingDefinitionOptionId);
         }
     }

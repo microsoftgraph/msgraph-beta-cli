@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         public string Resource { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CorsConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CorsConfiguration"/> and sets the default values.
         /// </summary>
         public CorsConfiguration()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CorsConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CorsConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CorsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CorsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CorsConfiguration();
+            return new ApiSdk.Models.CorsConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

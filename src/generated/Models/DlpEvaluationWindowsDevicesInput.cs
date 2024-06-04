@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DlpEvaluationWindowsDevicesInput : DlpEvaluationInput, IParsable
+    public class DlpEvaluationWindowsDevicesInput : ApiSdk.Models.DlpEvaluationInput, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contentProperties property</summary>
@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string SharedBy { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DlpEvaluationWindowsDevicesInput"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DlpEvaluationWindowsDevicesInput"/> and sets the default values.
         /// </summary>
         public DlpEvaluationWindowsDevicesInput() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DlpEvaluationWindowsDevicesInput"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DlpEvaluationWindowsDevicesInput"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DlpEvaluationWindowsDevicesInput CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DlpEvaluationWindowsDevicesInput CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DlpEvaluationWindowsDevicesInput();
+            return new ApiSdk.Models.DlpEvaluationWindowsDevicesInput();
         }
         /// <summary>
         /// The deserialization information for the current model

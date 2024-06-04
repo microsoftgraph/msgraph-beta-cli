@@ -129,7 +129,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
         {
             var command = new Command("hosted-content");
             command.Description = "Provides operations to manage the hostedContent property of the microsoft.graph.teamsAppIcon entity.";
-            var builder = new HostedContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.HostedContent.HostedContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildContentNavCommand());
@@ -182,7 +182,7 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TeamsAppIcon>(TeamsAppIcon.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.TeamsAppIcon>(ApiSdk.Models.TeamsAppIcon.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -204,14 +204,14 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OutlineIconRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.OutlineIconRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OutlineIconRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/outlineIcon{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OutlineIconRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.OutlineIconRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OutlineIconRequestBuilder(string rawUrl) : base("{+baseurl}/appCatalogs/teamsApps/{teamsApp%2Did}/appDefinitions/{teamsAppDefinition%2Did}/outlineIcon{?%24expand,%24select}", rawUrl)
@@ -243,11 +243,11 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OutlineIconRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.OutlineIconRequestBuilder.OutlineIconRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OutlineIconRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon.OutlineIconRequestBuilder.OutlineIconRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -263,11 +263,11 @@ namespace ApiSdk.AppCatalogs.TeamsApps.Item.AppDefinitions.Item.OutlineIcon
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(TeamsAppIcon body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamsAppIcon body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(TeamsAppIcon body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TeamsAppIcon body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

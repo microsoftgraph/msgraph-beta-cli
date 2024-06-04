@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>One or more configurations that describe how the claim is sourced and under what conditions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomClaimConfiguration>? Configurations { get; set; }
+        public List<ApiSdk.Models.CustomClaimConfiguration>? Configurations { get; set; }
 #nullable restore
 #else
-        public List<CustomClaimConfiguration> Configurations { get; set; }
+        public List<ApiSdk.Models.CustomClaimConfiguration> Configurations { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomClaimBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomClaimBase"/> and sets the default values.
         /// </summary>
         public CustomClaimBase()
         {
@@ -38,17 +38,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomClaimBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomClaimBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomClaimBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomClaimBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.customClaim" => new CustomClaim(),
-                "#microsoft.graph.samlNameIdClaim" => new SamlNameIdClaim(),
-                _ => new CustomClaimBase(),
+                "#microsoft.graph.customClaim" => new ApiSdk.Models.CustomClaim(),
+                "#microsoft.graph.samlNameIdClaim" => new ApiSdk.Models.SamlNameIdClaim(),
+                _ => new ApiSdk.Models.CustomClaimBase(),
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<CustomClaimConfiguration>(CustomClaimConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "configurations", n => { Configurations = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomClaimConfiguration>(ApiSdk.Models.CustomClaimConfiguration.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<CustomClaimConfiguration>("configurations", Configurations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomClaimConfiguration>("configurations", Configurations);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

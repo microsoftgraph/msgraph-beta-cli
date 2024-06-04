@@ -29,7 +29,7 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12
         public string Password { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UploadPkcs12PostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12.UploadPkcs12PostRequestBody"/> and sets the default values.
         /// </summary>
         public UploadPkcs12PostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UploadPkcs12PostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12.UploadPkcs12PostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UploadPkcs12PostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12.UploadPkcs12PostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UploadPkcs12PostRequestBody();
+            return new ApiSdk.TrustFramework.KeySets.Item.UploadPkcs12.UploadPkcs12PostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

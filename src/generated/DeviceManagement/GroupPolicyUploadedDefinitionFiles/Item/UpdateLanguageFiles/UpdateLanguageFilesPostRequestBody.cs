@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Update
         /// <summary>The groupPolicyUploadedLanguageFiles property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyUploadedLanguageFile>? GroupPolicyUploadedLanguageFiles { get; set; }
+        public List<ApiSdk.Models.GroupPolicyUploadedLanguageFile>? GroupPolicyUploadedLanguageFiles { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyUploadedLanguageFile> GroupPolicyUploadedLanguageFiles { get; set; }
+        public List<ApiSdk.Models.GroupPolicyUploadedLanguageFile> GroupPolicyUploadedLanguageFiles { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdateLanguageFilesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles.UpdateLanguageFilesPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateLanguageFilesPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Update
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateLanguageFilesPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles.UpdateLanguageFilesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateLanguageFilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles.UpdateLanguageFilesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateLanguageFilesPostRequestBody();
+            return new ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.UpdateLanguageFiles.UpdateLanguageFilesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Update
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "groupPolicyUploadedLanguageFiles", n => { GroupPolicyUploadedLanguageFiles = n.GetCollectionOfObjectValues<GroupPolicyUploadedLanguageFile>(GroupPolicyUploadedLanguageFile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "groupPolicyUploadedLanguageFiles", n => { GroupPolicyUploadedLanguageFiles = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyUploadedLanguageFile>(ApiSdk.Models.GroupPolicyUploadedLanguageFile.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.GroupPolicyUploadedDefinitionFiles.Item.Update
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<GroupPolicyUploadedLanguageFile>("groupPolicyUploadedLanguageFiles", GroupPolicyUploadedLanguageFiles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyUploadedLanguageFile>("groupPolicyUploadedLanguageFiles", GroupPolicyUploadedLanguageFiles);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

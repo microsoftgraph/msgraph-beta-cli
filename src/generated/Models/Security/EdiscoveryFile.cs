@@ -7,34 +7,34 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class EdiscoveryFile : FileObject, IParsable
+    public class EdiscoveryFile : ApiSdk.Models.Security.FileObject, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Custodians associated with the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EdiscoveryCustodian? Custodian { get; set; }
+        public ApiSdk.Models.Security.EdiscoveryCustodian? Custodian { get; set; }
 #nullable restore
 #else
-        public EdiscoveryCustodian Custodian { get; set; }
+        public ApiSdk.Models.Security.EdiscoveryCustodian Custodian { get; set; }
 #endif
         /// <summary>Tags associated with the file.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EdiscoveryReviewTag>? Tags { get; set; }
+        public List<ApiSdk.Models.Security.EdiscoveryReviewTag>? Tags { get; set; }
 #nullable restore
 #else
-        public List<EdiscoveryReviewTag> Tags { get; set; }
+        public List<ApiSdk.Models.Security.EdiscoveryReviewTag> Tags { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EdiscoveryFile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.EdiscoveryFile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoveryFile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.EdiscoveryFile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EdiscoveryFile();
+            return new ApiSdk.Models.Security.EdiscoveryFile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,8 +44,8 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "custodian", n => { Custodian = n.GetObjectValue<EdiscoveryCustodian>(EdiscoveryCustodian.CreateFromDiscriminatorValue); } },
-                { "tags", n => { Tags = n.GetCollectionOfObjectValues<EdiscoveryReviewTag>(EdiscoveryReviewTag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "custodian", n => { Custodian = n.GetObjectValue<ApiSdk.Models.Security.EdiscoveryCustodian>(ApiSdk.Models.Security.EdiscoveryCustodian.CreateFromDiscriminatorValue); } },
+                { "tags", n => { Tags = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.EdiscoveryReviewTag>(ApiSdk.Models.Security.EdiscoveryReviewTag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -56,8 +56,8 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<EdiscoveryCustodian>("custodian", Custodian);
-            writer.WriteCollectionOfObjectValues<EdiscoveryReviewTag>("tags", Tags);
+            writer.WriteObjectValue<ApiSdk.Models.Security.EdiscoveryCustodian>("custodian", Custodian);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.EdiscoveryReviewTag>("tags", Tags);
         }
     }
 }

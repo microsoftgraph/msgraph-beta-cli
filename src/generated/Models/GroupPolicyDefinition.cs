@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity describes all of the information about a single group policy.
     /// </summary>
-    public class GroupPolicyDefinition : Entity, IParsable
+    public class GroupPolicyDefinition : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The group policy category associated with the definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyCategory? Category { get; set; }
+        public ApiSdk.Models.GroupPolicyCategory? Category { get; set; }
 #nullable restore
 #else
-        public GroupPolicyCategory Category { get; set; }
+        public ApiSdk.Models.GroupPolicyCategory Category { get; set; }
 #endif
         /// <summary>The localized full category path for the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,14 +28,14 @@ namespace ApiSdk.Models
         public string CategoryPath { get; set; }
 #endif
         /// <summary>Group Policy Definition Class Type.</summary>
-        public GroupPolicyDefinitionClassType? ClassType { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionClassType? ClassType { get; set; }
         /// <summary>The group policy file associated with the definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinitionFile? DefinitionFile { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionFile? DefinitionFile { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinitionFile DefinitionFile { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinitionFile DefinitionFile { get; set; }
 #endif
         /// <summary>The localized policy name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,28 +78,28 @@ namespace ApiSdk.Models
         /// <summary>Definition of the next version of this definition</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinition? NextVersionDefinition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition? NextVersionDefinition { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinition NextVersionDefinition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition NextVersionDefinition { get; set; }
 #endif
         /// <summary>Type of Group Policy File or Definition.</summary>
-        public GroupPolicyType? PolicyType { get; set; }
+        public ApiSdk.Models.GroupPolicyType? PolicyType { get; set; }
         /// <summary>The group policy presentations associated with the definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyPresentation>? Presentations { get; set; }
+        public List<ApiSdk.Models.GroupPolicyPresentation>? Presentations { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyPresentation> Presentations { get; set; }
+        public List<ApiSdk.Models.GroupPolicyPresentation> Presentations { get; set; }
 #endif
         /// <summary>Definition of the previous version of this definition</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyDefinition? PreviousVersionDefinition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition? PreviousVersionDefinition { get; set; }
 #nullable restore
 #else
-        public GroupPolicyDefinition PreviousVersionDefinition { get; set; }
+        public ApiSdk.Models.GroupPolicyDefinition PreviousVersionDefinition { get; set; }
 #endif
         /// <summary>Localized string used to specify what operating system or application version is affected by the policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -120,12 +120,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyDefinition();
+            return new ApiSdk.Models.GroupPolicyDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -135,10 +135,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "category", n => { Category = n.GetObjectValue<GroupPolicyCategory>(GroupPolicyCategory.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetObjectValue<ApiSdk.Models.GroupPolicyCategory>(ApiSdk.Models.GroupPolicyCategory.CreateFromDiscriminatorValue); } },
                 { "categoryPath", n => { CategoryPath = n.GetStringValue(); } },
-                { "classType", n => { ClassType = n.GetEnumValue<GroupPolicyDefinitionClassType>(); } },
-                { "definitionFile", n => { DefinitionFile = n.GetObjectValue<GroupPolicyDefinitionFile>(GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
+                { "classType", n => { ClassType = n.GetEnumValue<ApiSdk.Models.GroupPolicyDefinitionClassType>(); } },
+                { "definitionFile", n => { DefinitionFile = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinitionFile>(ApiSdk.Models.GroupPolicyDefinitionFile.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "explainText", n => { ExplainText = n.GetStringValue(); } },
                 { "groupPolicyCategoryId", n => { GroupPolicyCategoryId = n.GetGuidValue(); } },
@@ -146,10 +146,10 @@ namespace ApiSdk.Models
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "minDeviceCspVersion", n => { MinDeviceCspVersion = n.GetStringValue(); } },
                 { "minUserCspVersion", n => { MinUserCspVersion = n.GetStringValue(); } },
-                { "nextVersionDefinition", n => { NextVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
-                { "policyType", n => { PolicyType = n.GetEnumValue<GroupPolicyType>(); } },
-                { "presentations", n => { Presentations = n.GetCollectionOfObjectValues<GroupPolicyPresentation>(GroupPolicyPresentation.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "previousVersionDefinition", n => { PreviousVersionDefinition = n.GetObjectValue<GroupPolicyDefinition>(GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
+                { "nextVersionDefinition", n => { NextVersionDefinition = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinition>(ApiSdk.Models.GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
+                { "policyType", n => { PolicyType = n.GetEnumValue<ApiSdk.Models.GroupPolicyType>(); } },
+                { "presentations", n => { Presentations = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyPresentation>(ApiSdk.Models.GroupPolicyPresentation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "previousVersionDefinition", n => { PreviousVersionDefinition = n.GetObjectValue<ApiSdk.Models.GroupPolicyDefinition>(ApiSdk.Models.GroupPolicyDefinition.CreateFromDiscriminatorValue); } },
                 { "supportedOn", n => { SupportedOn = n.GetStringValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
@@ -162,10 +162,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GroupPolicyCategory>("category", Category);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyCategory>("category", Category);
             writer.WriteStringValue("categoryPath", CategoryPath);
-            writer.WriteEnumValue<GroupPolicyDefinitionClassType>("classType", ClassType);
-            writer.WriteObjectValue<GroupPolicyDefinitionFile>("definitionFile", DefinitionFile);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyDefinitionClassType>("classType", ClassType);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinitionFile>("definitionFile", DefinitionFile);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("explainText", ExplainText);
             writer.WriteGuidValue("groupPolicyCategoryId", GroupPolicyCategoryId);
@@ -173,10 +173,10 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("minDeviceCspVersion", MinDeviceCspVersion);
             writer.WriteStringValue("minUserCspVersion", MinUserCspVersion);
-            writer.WriteObjectValue<GroupPolicyDefinition>("nextVersionDefinition", NextVersionDefinition);
-            writer.WriteEnumValue<GroupPolicyType>("policyType", PolicyType);
-            writer.WriteCollectionOfObjectValues<GroupPolicyPresentation>("presentations", Presentations);
-            writer.WriteObjectValue<GroupPolicyDefinition>("previousVersionDefinition", PreviousVersionDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinition>("nextVersionDefinition", NextVersionDefinition);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicyType>("policyType", PolicyType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyPresentation>("presentations", Presentations);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyDefinition>("previousVersionDefinition", PreviousVersionDefinition);
             writer.WriteStringValue("supportedOn", SupportedOn);
             writer.WriteStringValue("version", Version);
         }

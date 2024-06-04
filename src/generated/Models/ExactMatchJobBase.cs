@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExactMatchJobBase : Entity, IParsable
+    public class ExactMatchJobBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The completionDateTime property</summary>
@@ -17,10 +17,10 @@ namespace ApiSdk.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ClassificationError? Error { get; set; }
+        public ApiSdk.Models.ClassificationError? Error { get; set; }
 #nullable restore
 #else
-        public ClassificationError Error { get; set; }
+        public ApiSdk.Models.ClassificationError Error { get; set; }
 #endif
         /// <summary>The lastUpdatedDateTime property</summary>
         public DateTimeOffset? LastUpdatedDateTime { get; set; }
@@ -29,18 +29,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExactMatchJobBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExactMatchJobBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExactMatchJobBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExactMatchJobBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.exactMatchLookupJob" => new ExactMatchLookupJob(),
-                "#microsoft.graph.exactMatchSession" => new ExactMatchSession(),
-                "#microsoft.graph.exactMatchSessionBase" => new ExactMatchSessionBase(),
-                _ => new ExactMatchJobBase(),
+                "#microsoft.graph.exactMatchLookupJob" => new ApiSdk.Models.ExactMatchLookupJob(),
+                "#microsoft.graph.exactMatchSession" => new ApiSdk.Models.ExactMatchSession(),
+                "#microsoft.graph.exactMatchSessionBase" => new ApiSdk.Models.ExactMatchSessionBase(),
+                _ => new ApiSdk.Models.ExactMatchJobBase(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             {
                 { "completionDateTime", n => { CompletionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "error", n => { Error = n.GetObjectValue<ClassificationError>(ClassificationError.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<ApiSdk.Models.ClassificationError>(ApiSdk.Models.ClassificationError.CreateFromDiscriminatorValue); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("completionDateTime", CompletionDateTime);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
-            writer.WriteObjectValue<ClassificationError>("error", Error);
+            writer.WriteObjectValue<ApiSdk.Models.ClassificationError>("error", Error);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
         }

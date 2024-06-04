@@ -55,14 +55,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesInvoices.Item.CancelAndSend
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelAndSendRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.Item.CancelAndSend.CancelAndSendRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CancelAndSendRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices/{salesInvoice%2Did}/cancelAndSend", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelAndSendRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesInvoices.Item.CancelAndSend.CancelAndSendRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CancelAndSendRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesInvoices/{salesInvoice%2Did}/cancelAndSend", rawUrl)

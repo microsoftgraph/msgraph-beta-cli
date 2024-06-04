@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Applicability for an Exchange Online Setting
     /// </summary>
-    public class DeviceManagementConfigurationExchangeOnlineSettingApplicability : DeviceManagementConfigurationSettingApplicability, IParsable
+    public class DeviceManagementConfigurationExchangeOnlineSettingApplicability : ApiSdk.Models.DeviceManagementConfigurationSettingApplicability, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationExchangeOnlineSettingApplicability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationExchangeOnlineSettingApplicability"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationExchangeOnlineSettingApplicability() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationExchangeOnlineSettingApplicability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationExchangeOnlineSettingApplicability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationExchangeOnlineSettingApplicability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationExchangeOnlineSettingApplicability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationExchangeOnlineSettingApplicability();
+            return new ApiSdk.Models.DeviceManagementConfigurationExchangeOnlineSettingApplicability();
         }
         /// <summary>
         /// The deserialization information for the current model

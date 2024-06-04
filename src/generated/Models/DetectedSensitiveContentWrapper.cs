@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The classification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DetectedSensitiveContent>? Classification { get; set; }
+        public List<ApiSdk.Models.DetectedSensitiveContent>? Classification { get; set; }
 #nullable restore
 #else
-        public List<DetectedSensitiveContent> Classification { get; set; }
+        public List<ApiSdk.Models.DetectedSensitiveContent> Classification { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DetectedSensitiveContentWrapper"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DetectedSensitiveContentWrapper"/> and sets the default values.
         /// </summary>
         public DetectedSensitiveContentWrapper()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetectedSensitiveContentWrapper"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DetectedSensitiveContentWrapper"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DetectedSensitiveContentWrapper CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DetectedSensitiveContentWrapper CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DetectedSensitiveContentWrapper();
+            return new ApiSdk.Models.DetectedSensitiveContentWrapper();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "classification", n => { Classification = n.GetCollectionOfObjectValues<DetectedSensitiveContent>(DetectedSensitiveContent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classification", n => { Classification = n.GetCollectionOfObjectValues<ApiSdk.Models.DetectedSensitiveContent>(ApiSdk.Models.DetectedSensitiveContent.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<DetectedSensitiveContent>("classification", Classification);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DetectedSensitiveContent>("classification", Classification);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

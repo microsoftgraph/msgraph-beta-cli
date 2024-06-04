@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Base Windows Phone 8.1+ certificate profile.
     /// </summary>
-    public class WindowsPhone81CertificateProfileBase : DeviceConfiguration, IParsable
+    public class WindowsPhone81CertificateProfileBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Certificate Validity Period Options.</summary>
         public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodScale { get; set; }
@@ -18,13 +18,13 @@ namespace ApiSdk.Models
         /// <summary>Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage>? ExtendedKeyUsages { get; set; }
 #nullable restore
 #else
-        public List<ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
+        public List<ApiSdk.Models.ExtendedKeyUsage> ExtendedKeyUsages { get; set; }
 #endif
         /// <summary>Key Storage Provider (KSP) Import Options.</summary>
-        public KeyStorageProviderOption? KeyStorageProvider { get; set; }
+        public ApiSdk.Models.KeyStorageProviderOption? KeyStorageProvider { get; set; }
         /// <summary>Certificate renewal threshold percentage.</summary>
         public int? RenewalThresholdPercentage { get; set; }
         /// <summary>Subject Alternative Name Options.</summary>
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         /// <summary>Subject Name Format Options.</summary>
         public ApiSdk.Models.SubjectNameFormat? SubjectNameFormat { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsPhone81CertificateProfileBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsPhone81CertificateProfileBase"/> and sets the default values.
         /// </summary>
         public WindowsPhone81CertificateProfileBase() : base()
         {
@@ -41,16 +41,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsPhone81CertificateProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsPhone81CertificateProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsPhone81CertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsPhone81CertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsPhone81SCEPCertificateProfile" => new WindowsPhone81SCEPCertificateProfile(),
-                _ => new WindowsPhone81CertificateProfileBase(),
+                "#microsoft.graph.windowsPhone81SCEPCertificateProfile" => new ApiSdk.Models.WindowsPhone81SCEPCertificateProfile(),
+                _ => new ApiSdk.Models.WindowsPhone81CertificateProfileBase(),
             };
         }
         /// <summary>
@@ -61,13 +61,13 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ExtendedKeyUsage>(ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
+                { "extendedKeyUsages", n => { ExtendedKeyUsages = n.GetCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>(ApiSdk.Models.ExtendedKeyUsage.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<ApiSdk.Models.KeyStorageProviderOption>(); } },
                 { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<ApiSdk.Models.SubjectAlternativeNameType>(); } },
+                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<ApiSdk.Models.SubjectNameFormat>(); } },
             };
         }
         /// <summary>
@@ -78,13 +78,13 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
             writer.WriteIntValue("certificateValidityPeriodValue", CertificateValidityPeriodValue);
-            writer.WriteCollectionOfObjectValues<ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
-            writer.WriteEnumValue<KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ExtendedKeyUsage>("extendedKeyUsages", ExtendedKeyUsages);
+            writer.WriteEnumValue<ApiSdk.Models.KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
             writer.WriteIntValue("renewalThresholdPercentage", RenewalThresholdPercentage);
-            writer.WriteEnumValue<SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
-            writer.WriteEnumValue<SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
         }
     }
 }

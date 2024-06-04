@@ -17,7 +17,7 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
         /// <summary>The revokeUntrackedLicenses property</summary>
         public bool? RevokeUntrackedLicenses { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RevokeLicensesPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody"/> and sets the default values.
         /// </summary>
         public RevokeLicensesPostRequestBody()
         {
@@ -26,12 +26,12 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RevokeLicensesPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RevokeLicensesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RevokeLicensesPostRequestBody();
+            return new ApiSdk.DeviceAppManagement.VppTokens.Item.RevokeLicenses.RevokeLicensesPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

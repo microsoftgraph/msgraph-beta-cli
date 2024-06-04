@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows devices that are managed or pre-enrolled through Intune
     /// </summary>
-    public class WindowsManagedDevice : ManagedDevice, IParsable
+    public class WindowsManagedDevice : ApiSdk.Models.ManagedDevice, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="WindowsManagedDevice"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsManagedDevice"/> and sets the default values.
         /// </summary>
         public WindowsManagedDevice() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsManagedDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsManagedDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsManagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsManagedDevice();
+            return new ApiSdk.Models.WindowsManagedDevice();
         }
         /// <summary>
         /// The deserialization information for the current model

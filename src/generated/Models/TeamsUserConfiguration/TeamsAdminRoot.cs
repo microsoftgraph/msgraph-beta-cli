@@ -13,12 +13,12 @@ namespace ApiSdk.Models.TeamsUserConfiguration
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamsAdminRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamsUserConfiguration.TeamsAdminRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TeamsAdminRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TeamsUserConfiguration.TeamsAdminRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamsAdminRoot();
+            return new ApiSdk.Models.TeamsUserConfiguration.TeamsAdminRoot();
         }
         /// <summary>
         /// The deserialization information for the current model

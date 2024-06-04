@@ -63,13 +63,13 @@ namespace ApiSdk.Models
         /// <summary>The targetObjects property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DirectoryObject>? TargetObjects { get; set; }
+        public List<ApiSdk.Models.DirectoryObject>? TargetObjects { get; set; }
 #nullable restore
 #else
-        public List<DirectoryObject> TargetObjects { get; set; }
+        public List<ApiSdk.Models.DirectoryObject> TargetObjects { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnifiedRoleManagementPolicyRuleTarget"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnifiedRoleManagementPolicyRuleTarget"/> and sets the default values.
         /// </summary>
         public UnifiedRoleManagementPolicyRuleTarget()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleManagementPolicyRuleTarget"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleManagementPolicyRuleTarget"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UnifiedRoleManagementPolicyRuleTarget CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UnifiedRoleManagementPolicyRuleTarget CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRoleManagementPolicyRuleTarget();
+            return new ApiSdk.Models.UnifiedRoleManagementPolicyRuleTarget();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -99,7 +99,7 @@ namespace ApiSdk.Models
                 { "level", n => { Level = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "operations", n => { Operations = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "targetObjects", n => { TargetObjects = n.GetCollectionOfObjectValues<DirectoryObject>(DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "targetObjects", n => { TargetObjects = n.GetCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>(ApiSdk.Models.DirectoryObject.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -115,7 +115,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("level", Level);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("operations", Operations);
-            writer.WriteCollectionOfObjectValues<DirectoryObject>("targetObjects", TargetObjects);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DirectoryObject>("targetObjects", TargetObjects);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

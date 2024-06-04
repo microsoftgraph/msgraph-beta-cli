@@ -39,7 +39,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("bitlocker");
             command.Description = "Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.";
-            var builder = new BitlockerRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.Bitlocker.BitlockerRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
@@ -62,7 +62,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("data-loss-prevention-policies");
             command.Description = "Provides operations to manage the dataLossPreventionPolicies property of the microsoft.graph.informationProtection entity.";
-            var builder = new DataLossPreventionPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.DataLossPreventionPolicies.DataLossPreventionPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -90,7 +90,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("decrypt-buffer");
             command.Description = "Provides operations to call the decryptBuffer method.";
-            var builder = new DecryptBufferRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.DecryptBuffer.DecryptBufferRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -148,7 +148,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("encrypt-buffer");
             command.Description = "Provides operations to call the encryptBuffer method.";
-            var builder = new EncryptBufferRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.EncryptBuffer.EncryptBufferRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -280,7 +280,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("policy");
             command.Description = "Provides operations to manage the policy property of the microsoft.graph.informationProtection entity.";
-            var builder = new PolicyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.Policy.PolicyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -305,7 +305,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("sensitivity-labels");
             command.Description = "Provides operations to manage the sensitivityLabels property of the microsoft.graph.informationProtection entity.";
-            var builder = new SensitivityLabelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.SensitivityLabels.SensitivityLabelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -333,7 +333,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("sensitivity-policy-settings");
             command.Description = "Provides operations to manage the sensitivityPolicySettings property of the microsoft.graph.informationProtection entity.";
-            var builder = new SensitivityPolicySettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.SensitivityPolicySettings.SensitivityPolicySettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -352,7 +352,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("sign-digest");
             command.Description = "Provides operations to call the signDigest method.";
-            var builder = new SignDigestRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.SignDigest.SignDigestRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -369,7 +369,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("threat-assessment-requests");
             command.Description = "Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.";
-            var builder = new ThreatAssessmentRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.ThreatAssessmentRequests.ThreatAssessmentRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -396,7 +396,7 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         {
             var command = new Command("verify-signature");
             command.Description = "Provides operations to call the verifySignature method.";
-            var builder = new VerifySignatureRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Groups.Item.Sites.Item.InformationProtection.VerifySignature.VerifySignatureRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -406,14 +406,14 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="InformationProtectionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Sites.Item.InformationProtection.InformationProtectionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public InformationProtectionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/informationProtection{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="InformationProtectionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Groups.Item.Sites.Item.InformationProtection.InformationProtectionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public InformationProtectionRequestBuilder(string rawUrl) : base("{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/informationProtection{?%24expand,%24select}", rawUrl)
@@ -445,11 +445,11 @@ namespace ApiSdk.Groups.Item.Sites.Item.InformationProtection
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InformationProtectionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Groups.Item.Sites.Item.InformationProtection.InformationProtectionRequestBuilder.InformationProtectionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InformationProtectionRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Groups.Item.Sites.Item.InformationProtection.InformationProtectionRequestBuilder.InformationProtectionRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

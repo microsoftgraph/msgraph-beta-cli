@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationGradingSchemeGrade"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationGradingSchemeGrade"/> and sets the default values.
         /// </summary>
         public EducationGradingSchemeGrade()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationGradingSchemeGrade"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationGradingSchemeGrade"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationGradingSchemeGrade CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationGradingSchemeGrade CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationGradingSchemeGrade();
+            return new ApiSdk.Models.EducationGradingSchemeGrade();
         }
         /// <summary>
         /// The deserialization information for the current model

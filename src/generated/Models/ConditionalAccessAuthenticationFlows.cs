@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The transferMethods property</summary>
-        public ConditionalAccessTransferMethods? TransferMethods { get; set; }
+        public ApiSdk.Models.ConditionalAccessTransferMethods? TransferMethods { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessAuthenticationFlows"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessAuthenticationFlows"/> and sets the default values.
         /// </summary>
         public ConditionalAccessAuthenticationFlows()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessAuthenticationFlows"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessAuthenticationFlows"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessAuthenticationFlows CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessAuthenticationFlows CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConditionalAccessAuthenticationFlows();
+            return new ApiSdk.Models.ConditionalAccessAuthenticationFlows();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "transferMethods", n => { TransferMethods = n.GetEnumValue<ConditionalAccessTransferMethods>(); } },
+                { "transferMethods", n => { TransferMethods = n.GetEnumValue<ApiSdk.Models.ConditionalAccessTransferMethods>(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ConditionalAccessTransferMethods>("transferMethods", TransferMethods);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessTransferMethods>("transferMethods", TransferMethods);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

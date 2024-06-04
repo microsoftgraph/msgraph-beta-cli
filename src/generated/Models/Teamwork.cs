@@ -7,32 +7,32 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Teamwork : Entity, IParsable
+    public class Teamwork : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A collection of deleted chats.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeletedChat>? DeletedChats { get; set; }
+        public List<ApiSdk.Models.DeletedChat>? DeletedChats { get; set; }
 #nullable restore
 #else
-        public List<DeletedChat> DeletedChats { get; set; }
+        public List<ApiSdk.Models.DeletedChat> DeletedChats { get; set; }
 #endif
         /// <summary>A collection of deleted teams.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeletedTeam>? DeletedTeams { get; set; }
+        public List<ApiSdk.Models.DeletedTeam>? DeletedTeams { get; set; }
 #nullable restore
 #else
-        public List<DeletedTeam> DeletedTeams { get; set; }
+        public List<ApiSdk.Models.DeletedTeam> DeletedTeams { get; set; }
 #endif
         /// <summary>The Teams devices provisioned for the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamworkDevice>? Devices { get; set; }
+        public List<ApiSdk.Models.TeamworkDevice>? Devices { get; set; }
 #nullable restore
 #else
-        public List<TeamworkDevice> Devices { get; set; }
+        public List<ApiSdk.Models.TeamworkDevice> Devices { get; set; }
 #endif
         /// <summary>Indicates whether Microsoft Teams is enabled for the organization.</summary>
         public bool? IsTeamsEnabled { get; set; }
@@ -55,28 +55,28 @@ namespace ApiSdk.Models
         /// <summary>The templates associated with a team.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamTemplate>? TeamTemplates { get; set; }
+        public List<ApiSdk.Models.TeamTemplate>? TeamTemplates { get; set; }
 #nullable restore
 #else
-        public List<TeamTemplate> TeamTemplates { get; set; }
+        public List<ApiSdk.Models.TeamTemplate> TeamTemplates { get; set; }
 #endif
         /// <summary>A workforce integration with shifts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkforceIntegration>? WorkforceIntegrations { get; set; }
+        public List<ApiSdk.Models.WorkforceIntegration>? WorkforceIntegrations { get; set; }
 #nullable restore
 #else
-        public List<WorkforceIntegration> WorkforceIntegrations { get; set; }
+        public List<ApiSdk.Models.WorkforceIntegration> WorkforceIntegrations { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Teamwork"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Teamwork"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Teamwork CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Teamwork CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Teamwork();
+            return new ApiSdk.Models.Teamwork();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,14 +86,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deletedChats", n => { DeletedChats = n.GetCollectionOfObjectValues<DeletedChat>(DeletedChat.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deletedTeams", n => { DeletedTeams = n.GetCollectionOfObjectValues<DeletedTeam>(DeletedTeam.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "devices", n => { Devices = n.GetCollectionOfObjectValues<TeamworkDevice>(TeamworkDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedChats", n => { DeletedChats = n.GetCollectionOfObjectValues<ApiSdk.Models.DeletedChat>(ApiSdk.Models.DeletedChat.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deletedTeams", n => { DeletedTeams = n.GetCollectionOfObjectValues<ApiSdk.Models.DeletedTeam>(ApiSdk.Models.DeletedTeam.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "devices", n => { Devices = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamworkDevice>(ApiSdk.Models.TeamworkDevice.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isTeamsEnabled", n => { IsTeamsEnabled = n.GetBoolValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
-                { "teamTemplates", n => { TeamTemplates = n.GetCollectionOfObjectValues<TeamTemplate>(TeamTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "teamTemplates", n => { TeamTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamTemplate>(ApiSdk.Models.TeamTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "teamsAppSettings", n => { TeamsAppSettings = n.GetObjectValue<ApiSdk.Models.TeamsAppSettings>(ApiSdk.Models.TeamsAppSettings.CreateFromDiscriminatorValue); } },
-                { "workforceIntegrations", n => { WorkforceIntegrations = n.GetCollectionOfObjectValues<WorkforceIntegration>(WorkforceIntegration.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "workforceIntegrations", n => { WorkforceIntegrations = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkforceIntegration>(ApiSdk.Models.WorkforceIntegration.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -104,14 +104,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeletedChat>("deletedChats", DeletedChats);
-            writer.WriteCollectionOfObjectValues<DeletedTeam>("deletedTeams", DeletedTeams);
-            writer.WriteCollectionOfObjectValues<TeamworkDevice>("devices", Devices);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeletedChat>("deletedChats", DeletedChats);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeletedTeam>("deletedTeams", DeletedTeams);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamworkDevice>("devices", Devices);
             writer.WriteBoolValue("isTeamsEnabled", IsTeamsEnabled);
             writer.WriteStringValue("region", Region);
             writer.WriteObjectValue<ApiSdk.Models.TeamsAppSettings>("teamsAppSettings", TeamsAppSettings);
-            writer.WriteCollectionOfObjectValues<TeamTemplate>("teamTemplates", TeamTemplates);
-            writer.WriteCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", WorkforceIntegrations);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamTemplate>("teamTemplates", TeamTemplates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkforceIntegration>("workforceIntegrations", WorkforceIntegrations);
         }
     }
 }

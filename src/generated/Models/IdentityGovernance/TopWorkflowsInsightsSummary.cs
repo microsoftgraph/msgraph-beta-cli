@@ -33,7 +33,7 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>Total number of users processed by the workflow.</summary>
         public int? TotalUsers { get; set; }
         /// <summary>The workflowCategory property</summary>
-        public LifecycleWorkflowCategory? WorkflowCategory { get; set; }
+        public ApiSdk.Models.IdentityGovernance.LifecycleWorkflowCategory? WorkflowCategory { get; set; }
         /// <summary>The name of the workflow.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,7 +53,7 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>The version of the workflow that was a top workflow ran.</summary>
         public int? WorkflowVersion { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TopWorkflowsInsightsSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary"/> and sets the default values.
         /// </summary>
         public TopWorkflowsInsightsSummary()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models.IdentityGovernance
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TopWorkflowsInsightsSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TopWorkflowsInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TopWorkflowsInsightsSummary();
+            return new ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -84,7 +84,7 @@ namespace ApiSdk.Models.IdentityGovernance
                 { "successfulUsers", n => { SuccessfulUsers = n.GetIntValue(); } },
                 { "totalRuns", n => { TotalRuns = n.GetIntValue(); } },
                 { "totalUsers", n => { TotalUsers = n.GetIntValue(); } },
-                { "workflowCategory", n => { WorkflowCategory = n.GetEnumValue<LifecycleWorkflowCategory>(); } },
+                { "workflowCategory", n => { WorkflowCategory = n.GetEnumValue<ApiSdk.Models.IdentityGovernance.LifecycleWorkflowCategory>(); } },
                 { "workflowDisplayName", n => { WorkflowDisplayName = n.GetStringValue(); } },
                 { "workflowId", n => { WorkflowId = n.GetStringValue(); } },
                 { "workflowVersion", n => { WorkflowVersion = n.GetIntValue(); } },
@@ -104,7 +104,7 @@ namespace ApiSdk.Models.IdentityGovernance
             writer.WriteIntValue("successfulUsers", SuccessfulUsers);
             writer.WriteIntValue("totalRuns", TotalRuns);
             writer.WriteIntValue("totalUsers", TotalUsers);
-            writer.WriteEnumValue<LifecycleWorkflowCategory>("workflowCategory", WorkflowCategory);
+            writer.WriteEnumValue<ApiSdk.Models.IdentityGovernance.LifecycleWorkflowCategory>("workflowCategory", WorkflowCategory);
             writer.WriteStringValue("workflowDisplayName", WorkflowDisplayName);
             writer.WriteStringValue("workflowId", WorkflowId);
             writer.WriteIntValue("workflowVersion", WorkflowVersion);

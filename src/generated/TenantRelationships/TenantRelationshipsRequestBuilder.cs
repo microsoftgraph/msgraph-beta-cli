@@ -35,7 +35,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("delegated-admin-customers");
             command.Description = "Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.";
-            var builder = new DelegatedAdminCustomersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.DelegatedAdminCustomers.DelegatedAdminCustomersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -62,7 +62,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("delegated-admin-relationships");
             command.Description = "Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.";
-            var builder = new DelegatedAdminRelationshipsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.DelegatedAdminRelationships.DelegatedAdminRelationshipsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -89,7 +89,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("find-tenant-information-by-domain-name-with-domain-name");
             command.Description = "Provides operations to call the findTenantInformationByDomainName method.";
-            var builder = new FindTenantInformationByDomainNameWithDomainNameRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.FindTenantInformationByDomainNameWithDomainName.FindTenantInformationByDomainNameWithDomainNameRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -106,7 +106,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("find-tenant-information-by-tenant-id-with-tenant-id");
             command.Description = "Provides operations to call the findTenantInformationByTenantId method.";
-            var builder = new FindTenantInformationByTenantIdWithTenantIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.FindTenantInformationByTenantIdWithTenantId.FindTenantInformationByTenantIdWithTenantIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -169,7 +169,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("managed-tenants");
             command.Description = "Provides operations to manage the managedTenants property of the microsoft.graph.tenantRelationship entity.";
-            var builder = new ManagedTenantsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.ManagedTenants.ManagedTenantsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAggregatedPolicyCompliancesNavCommand());
@@ -230,7 +230,7 @@ namespace ApiSdk.TenantRelationships
         {
             var command = new Command("multi-tenant-organization");
             command.Description = "Provides operations to manage the multiTenantOrganization property of the microsoft.graph.tenantRelationship entity.";
-            var builder = new MultiTenantOrganizationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.TenantRelationships.MultiTenantOrganization.MultiTenantOrganizationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
@@ -273,7 +273,7 @@ namespace ApiSdk.TenantRelationships
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TenantRelationship>(TenantRelationship.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.TenantRelationship>(ApiSdk.Models.TenantRelationship.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -293,14 +293,14 @@ namespace ApiSdk.TenantRelationships
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TenantRelationshipsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.TenantRelationshipsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TenantRelationshipsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TenantRelationshipsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.TenantRelationshipsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TenantRelationshipsRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships{?%24expand,%24select}", rawUrl)
@@ -313,11 +313,11 @@ namespace ApiSdk.TenantRelationships
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.TenantRelationshipsRequestBuilder.TenantRelationshipsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TenantRelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.TenantRelationships.TenantRelationshipsRequestBuilder.TenantRelationshipsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -333,11 +333,11 @@ namespace ApiSdk.TenantRelationships
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.TenantRelationship body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

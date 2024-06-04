@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.Item.EnrollNowAction
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnrollNowActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.EnrollNowAction.EnrollNowActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EnrollNowActionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/enrollNowAction", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnrollNowActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.Item.EnrollNowAction.EnrollNowActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EnrollNowActionRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/managedDevices/{managedDevice%2Did}/enrollNowAction", rawUrl)

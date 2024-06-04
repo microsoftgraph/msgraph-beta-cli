@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccountsWithAccess"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccountsWithAccess"/> and sets the default values.
         /// </summary>
         public AccountsWithAccess()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccountsWithAccess"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccountsWithAccess"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccountsWithAccess CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AccountsWithAccess CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.allAccountsWithAccess" => new AllAccountsWithAccess(),
-                "#microsoft.graph.enumeratedAccountsWithAccess" => new EnumeratedAccountsWithAccess(),
-                _ => new AccountsWithAccess(),
+                "#microsoft.graph.allAccountsWithAccess" => new ApiSdk.Models.AllAccountsWithAccess(),
+                "#microsoft.graph.enumeratedAccountsWithAccess" => new ApiSdk.Models.EnumeratedAccountsWithAccess(),
+                _ => new ApiSdk.Models.AccountsWithAccess(),
             };
         }
         /// <summary>

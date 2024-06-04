@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SecretInformationAccessAwsUserFinding : AwsSecretInformationAccessFinding, IParsable
+    public class SecretInformationAccessAwsUserFinding : ApiSdk.Models.AwsSecretInformationAccessFinding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecretInformationAccessAwsUserFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecretInformationAccessAwsUserFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecretInformationAccessAwsUserFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecretInformationAccessAwsUserFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecretInformationAccessAwsUserFinding();
+            return new ApiSdk.Models.SecretInformationAccessAwsUserFinding();
         }
         /// <summary>
         /// The deserialization information for the current model

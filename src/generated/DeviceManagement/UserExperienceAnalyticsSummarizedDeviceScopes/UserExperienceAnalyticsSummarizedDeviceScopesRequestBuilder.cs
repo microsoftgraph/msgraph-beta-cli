@@ -54,14 +54,14 @@ namespace ApiSdk.DeviceManagement.UserExperienceAnalyticsSummarizedDeviceScopes
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.UserExperienceAnalyticsSummarizedDeviceScopes.UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsSummarizedDeviceScopes()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.UserExperienceAnalyticsSummarizedDeviceScopes.UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UserExperienceAnalyticsSummarizedDeviceScopesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/userExperienceAnalyticsSummarizedDeviceScopes()", rawUrl)

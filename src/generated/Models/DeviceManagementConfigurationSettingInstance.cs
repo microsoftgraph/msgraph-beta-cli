@@ -32,13 +32,13 @@ namespace ApiSdk.Models
         /// <summary>Setting Instance Template Reference</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingInstanceTemplateReference? SettingInstanceTemplateReference { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplateReference? SettingInstanceTemplateReference { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingInstanceTemplateReference SettingInstanceTemplateReference { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplateReference SettingInstanceTemplateReference { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingInstance()
         {
@@ -47,23 +47,23 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstance" => new DeviceManagementConfigurationChoiceSettingCollectionInstance(),
-                "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance" => new DeviceManagementConfigurationChoiceSettingInstance(),
-                "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance" => new DeviceManagementConfigurationGroupSettingCollectionInstance(),
-                "#microsoft.graph.deviceManagementConfigurationGroupSettingInstance" => new DeviceManagementConfigurationGroupSettingInstance(),
-                "#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionInstance" => new DeviceManagementConfigurationSettingGroupCollectionInstance(),
-                "#microsoft.graph.deviceManagementConfigurationSettingGroupInstance" => new DeviceManagementConfigurationSettingGroupInstance(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance" => new DeviceManagementConfigurationSimpleSettingCollectionInstance(),
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance" => new DeviceManagementConfigurationSimpleSettingInstance(),
-                _ => new DeviceManagementConfigurationSettingInstance(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingCollectionInstance" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingCollectionInstance(),
+                "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance" => new ApiSdk.Models.DeviceManagementConfigurationChoiceSettingInstance(),
+                "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance" => new ApiSdk.Models.DeviceManagementConfigurationGroupSettingCollectionInstance(),
+                "#microsoft.graph.deviceManagementConfigurationGroupSettingInstance" => new ApiSdk.Models.DeviceManagementConfigurationGroupSettingInstance(),
+                "#microsoft.graph.deviceManagementConfigurationSettingGroupCollectionInstance" => new ApiSdk.Models.DeviceManagementConfigurationSettingGroupCollectionInstance(),
+                "#microsoft.graph.deviceManagementConfigurationSettingGroupInstance" => new ApiSdk.Models.DeviceManagementConfigurationSettingGroupInstance(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingCollectionInstance(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstance" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingInstance(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSettingInstance(),
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "settingDefinitionId", n => { SettingDefinitionId = n.GetStringValue(); } },
-                { "settingInstanceTemplateReference", n => { SettingInstanceTemplateReference = n.GetObjectValue<DeviceManagementConfigurationSettingInstanceTemplateReference>(DeviceManagementConfigurationSettingInstanceTemplateReference.CreateFromDiscriminatorValue); } },
+                { "settingInstanceTemplateReference", n => { SettingInstanceTemplateReference = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplateReference>(ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplateReference.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("settingDefinitionId", SettingDefinitionId);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingInstanceTemplateReference>("settingInstanceTemplateReference", SettingInstanceTemplateReference);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingInstanceTemplateReference>("settingInstanceTemplateReference", SettingInstanceTemplateReference);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

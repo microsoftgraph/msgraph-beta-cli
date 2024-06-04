@@ -28,7 +28,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item
         {
             var command = new Command("graph-endpoint-by-id");
             command.Description = "Casts the previous resource to endpoint.";
-            var builder = new GraphEndpointRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.GraphEndpoint.GraphEndpointRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -45,7 +45,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item
         {
             var command = new Command("graph-service-principal-by-id");
             command.Description = "Casts the previous resource to servicePrincipal.";
-            var builder = new GraphServicePrincipalRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.GraphServicePrincipal.GraphServicePrincipalRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -62,7 +62,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item
         {
             var command = new Command("graph-user-by-id");
             command.Description = "Casts the previous resource to user.";
-            var builder = new GraphUserRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.GraphUser.GraphUserRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -79,7 +79,7 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item
         {
             var command = new Command("ref-by-id");
             command.Description = "Provides operations to manage the collection of user entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             foreach (var cmd in execCommands)
@@ -89,14 +89,14 @@ namespace ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DirectoryObjectItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.DirectoryObjectItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DirectoryObjectItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredOwners/{directoryObject%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DirectoryObjectItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Devices.Item.RegisteredOwners.Item.DirectoryObjectItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DirectoryObjectItemRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/devices/{device%2Did}/registeredOwners/{directoryObject%2Did}", rawUrl)

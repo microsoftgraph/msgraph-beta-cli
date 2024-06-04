@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         /// <summary>The rootDomains property</summary>
         public ApiSdk.Models.RootDomains? RootDomains { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ValidatingDomains"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ValidatingDomains"/> and sets the default values.
         /// </summary>
         public ValidatingDomains()
         {
@@ -32,17 +32,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidatingDomains"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ValidatingDomains"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ValidatingDomains CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ValidatingDomains CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.allDomains" => new AllDomains(),
-                "#microsoft.graph.enumeratedDomains" => new EnumeratedDomains(),
-                _ => new ValidatingDomains(),
+                "#microsoft.graph.allDomains" => new ApiSdk.Models.AllDomains(),
+                "#microsoft.graph.enumeratedDomains" => new ApiSdk.Models.EnumeratedDomains(),
+                _ => new ApiSdk.Models.ValidatingDomains(),
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "rootDomains", n => { RootDomains = n.GetEnumValue<RootDomains>(); } },
+                { "rootDomains", n => { RootDomains = n.GetEnumValue<ApiSdk.Models.RootDomains>(); } },
             };
         }
         /// <summary>
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RootDomains>("rootDomains", RootDomains);
+            writer.WriteEnumValue<ApiSdk.Models.RootDomains>("rootDomains", RootDomains);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

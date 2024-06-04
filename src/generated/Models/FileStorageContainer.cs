@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class FileStorageContainer : Entity, IParsable
+    public class FileStorageContainer : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Sensitivity label assigned to the fileStorageContainer. Read-write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AssignedLabel? AssignedSensitivityLabel { get; set; }
+        public ApiSdk.Models.AssignedLabel? AssignedSensitivityLabel { get; set; }
 #nullable restore
 #else
-        public AssignedLabel AssignedSensitivityLabel { get; set; }
+        public ApiSdk.Models.AssignedLabel AssignedSensitivityLabel { get; set; }
 #endif
         /// <summary>The set of custom structured metadata supported by the fileStorageContainer. Read-write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ColumnDefinition>? Columns { get; set; }
+        public List<ApiSdk.Models.ColumnDefinition>? Columns { get; set; }
 #nullable restore
 #else
-        public List<ColumnDefinition> Columns { get; set; }
+        public List<ApiSdk.Models.ColumnDefinition> Columns { get; set; }
 #endif
         /// <summary>Container type ID of the fileStorageContainer. Each container must have only one container type. Read-only.</summary>
         public Guid? ContainerTypeId { get; set; }
@@ -33,10 +33,10 @@ namespace ApiSdk.Models
         /// <summary>Custom property collection for the fileStorageContainer. Read-write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public FileStorageContainerCustomPropertyDictionary? CustomProperties { get; set; }
+        public ApiSdk.Models.FileStorageContainerCustomPropertyDictionary? CustomProperties { get; set; }
 #nullable restore
 #else
-        public FileStorageContainerCustomPropertyDictionary CustomProperties { get; set; }
+        public ApiSdk.Models.FileStorageContainerCustomPropertyDictionary CustomProperties { get; set; }
 #endif
         /// <summary>Provides a user-visible description of the fileStorageContainer. Read-write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -69,24 +69,24 @@ namespace ApiSdk.Models
         /// <summary>Maximum number of major versions allowed for items in the fileStorageContainer. Read-write.</summary>
         public int? ItemMajorVersionLimit { get; set; }
         /// <summary>The lockState property</summary>
-        public SiteLockState? LockState { get; set; }
+        public ApiSdk.Models.SiteLockState? LockState { get; set; }
         /// <summary>List of users who own the fileStorageContainer. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserIdentity>? Owners { get; set; }
+        public List<ApiSdk.Models.UserIdentity>? Owners { get; set; }
 #nullable restore
 #else
-        public List<UserIdentity> Owners { get; set; }
+        public List<ApiSdk.Models.UserIdentity> Owners { get; set; }
 #endif
         /// <summary>Ownership type of the fileStorageContainer.The possible values are: tenantOwned. Read-only.</summary>
-        public FileStorageContainerOwnershipType? OwnershipType { get; set; }
+        public ApiSdk.Models.FileStorageContainerOwnershipType? OwnershipType { get; set; }
         /// <summary>The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are &apos;reader&apos;, &apos;writer&apos;, &apos;manager&apos;, and &apos;owner&apos;. Read-write.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Permission>? Permissions { get; set; }
+        public List<ApiSdk.Models.Permission>? Permissions { get; set; }
 #nullable restore
 #else
-        public List<Permission> Permissions { get; set; }
+        public List<ApiSdk.Models.Permission> Permissions { get; set; }
 #endif
         /// <summary>Recycle bin of the fileStorageContainer. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -97,26 +97,26 @@ namespace ApiSdk.Models
         public ApiSdk.Models.RecycleBin RecycleBin { get; set; }
 #endif
         /// <summary>Status of the fileStorageContainer. Containers are created as inactive and require activation. Inactive containers are subjected to automatic deletion in 24 hours. The possible values are: inactive, active. Read-only.</summary>
-        public FileStorageContainerStatus? Status { get; set; }
+        public ApiSdk.Models.FileStorageContainerStatus? Status { get; set; }
         /// <summary>Storage used in the fileStorageContainer. In bytes. Read-only.</summary>
         public long? StorageUsedInBytes { get; set; }
         /// <summary>Data specific to the current user. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public FileStorageContainerViewpoint? Viewpoint { get; set; }
+        public ApiSdk.Models.FileStorageContainerViewpoint? Viewpoint { get; set; }
 #nullable restore
 #else
-        public FileStorageContainerViewpoint Viewpoint { get; set; }
+        public ApiSdk.Models.FileStorageContainerViewpoint Viewpoint { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FileStorageContainer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.FileStorageContainer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FileStorageContainer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.FileStorageContainer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FileStorageContainer();
+            return new ApiSdk.Models.FileStorageContainer();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -126,25 +126,25 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignedSensitivityLabel", n => { AssignedSensitivityLabel = n.GetObjectValue<AssignedLabel>(AssignedLabel.CreateFromDiscriminatorValue); } },
-                { "columns", n => { Columns = n.GetCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedSensitivityLabel", n => { AssignedSensitivityLabel = n.GetObjectValue<ApiSdk.Models.AssignedLabel>(ApiSdk.Models.AssignedLabel.CreateFromDiscriminatorValue); } },
+                { "columns", n => { Columns = n.GetCollectionOfObjectValues<ApiSdk.Models.ColumnDefinition>(ApiSdk.Models.ColumnDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "containerTypeId", n => { ContainerTypeId = n.GetGuidValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "customProperties", n => { CustomProperties = n.GetObjectValue<FileStorageContainerCustomPropertyDictionary>(FileStorageContainerCustomPropertyDictionary.CreateFromDiscriminatorValue); } },
+                { "customProperties", n => { CustomProperties = n.GetObjectValue<ApiSdk.Models.FileStorageContainerCustomPropertyDictionary>(ApiSdk.Models.FileStorageContainerCustomPropertyDictionary.CreateFromDiscriminatorValue); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "drive", n => { Drive = n.GetObjectValue<ApiSdk.Models.Drive>(ApiSdk.Models.Drive.CreateFromDiscriminatorValue); } },
                 { "externalGroupId", n => { ExternalGroupId = n.GetGuidValue(); } },
                 { "isItemVersioningEnabled", n => { IsItemVersioningEnabled = n.GetBoolValue(); } },
                 { "itemMajorVersionLimit", n => { ItemMajorVersionLimit = n.GetIntValue(); } },
-                { "lockState", n => { LockState = n.GetEnumValue<SiteLockState>(); } },
-                { "owners", n => { Owners = n.GetCollectionOfObjectValues<UserIdentity>(UserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "ownershipType", n => { OwnershipType = n.GetEnumValue<FileStorageContainerOwnershipType>(); } },
-                { "permissions", n => { Permissions = n.GetCollectionOfObjectValues<Permission>(Permission.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "lockState", n => { LockState = n.GetEnumValue<ApiSdk.Models.SiteLockState>(); } },
+                { "owners", n => { Owners = n.GetCollectionOfObjectValues<ApiSdk.Models.UserIdentity>(ApiSdk.Models.UserIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ownershipType", n => { OwnershipType = n.GetEnumValue<ApiSdk.Models.FileStorageContainerOwnershipType>(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfObjectValues<ApiSdk.Models.Permission>(ApiSdk.Models.Permission.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "recycleBin", n => { RecycleBin = n.GetObjectValue<ApiSdk.Models.RecycleBin>(ApiSdk.Models.RecycleBin.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<FileStorageContainerStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.FileStorageContainerStatus>(); } },
                 { "storageUsedInBytes", n => { StorageUsedInBytes = n.GetLongValue(); } },
-                { "viewpoint", n => { Viewpoint = n.GetObjectValue<FileStorageContainerViewpoint>(FileStorageContainerViewpoint.CreateFromDiscriminatorValue); } },
+                { "viewpoint", n => { Viewpoint = n.GetObjectValue<ApiSdk.Models.FileStorageContainerViewpoint>(ApiSdk.Models.FileStorageContainerViewpoint.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -155,25 +155,25 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AssignedLabel>("assignedSensitivityLabel", AssignedSensitivityLabel);
-            writer.WriteCollectionOfObjectValues<ColumnDefinition>("columns", Columns);
+            writer.WriteObjectValue<ApiSdk.Models.AssignedLabel>("assignedSensitivityLabel", AssignedSensitivityLabel);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ColumnDefinition>("columns", Columns);
             writer.WriteGuidValue("containerTypeId", ContainerTypeId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<FileStorageContainerCustomPropertyDictionary>("customProperties", CustomProperties);
+            writer.WriteObjectValue<ApiSdk.Models.FileStorageContainerCustomPropertyDictionary>("customProperties", CustomProperties);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.Drive>("drive", Drive);
             writer.WriteGuidValue("externalGroupId", ExternalGroupId);
             writer.WriteBoolValue("isItemVersioningEnabled", IsItemVersioningEnabled);
             writer.WriteIntValue("itemMajorVersionLimit", ItemMajorVersionLimit);
-            writer.WriteEnumValue<SiteLockState>("lockState", LockState);
-            writer.WriteCollectionOfObjectValues<UserIdentity>("owners", Owners);
-            writer.WriteEnumValue<FileStorageContainerOwnershipType>("ownershipType", OwnershipType);
-            writer.WriteCollectionOfObjectValues<Permission>("permissions", Permissions);
+            writer.WriteEnumValue<ApiSdk.Models.SiteLockState>("lockState", LockState);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserIdentity>("owners", Owners);
+            writer.WriteEnumValue<ApiSdk.Models.FileStorageContainerOwnershipType>("ownershipType", OwnershipType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Permission>("permissions", Permissions);
             writer.WriteObjectValue<ApiSdk.Models.RecycleBin>("recycleBin", RecycleBin);
-            writer.WriteEnumValue<FileStorageContainerStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.FileStorageContainerStatus>("status", Status);
             writer.WriteLongValue("storageUsedInBytes", StorageUsedInBytes);
-            writer.WriteObjectValue<FileStorageContainerViewpoint>("viewpoint", Viewpoint);
+            writer.WriteObjectValue<ApiSdk.Models.FileStorageContainerViewpoint>("viewpoint", Viewpoint);
         }
     }
 }

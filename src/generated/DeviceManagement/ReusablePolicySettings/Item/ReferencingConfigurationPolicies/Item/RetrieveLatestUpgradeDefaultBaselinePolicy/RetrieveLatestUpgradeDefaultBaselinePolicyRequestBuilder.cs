@@ -66,14 +66,14 @@ namespace ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigu
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveLatestUpgradeDefaultBaselinePolicy.RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/referencingConfigurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveLatestUpgradeDefaultBaselinePolicy()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ReusablePolicySettings.Item.ReferencingConfigurationPolicies.Item.RetrieveLatestUpgradeDefaultBaselinePolicy.RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveLatestUpgradeDefaultBaselinePolicyRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/reusablePolicySettings/{deviceManagementReusablePolicySetting%2Did}/referencingConfigurationPolicies/{deviceManagementConfigurationPolicy%2Did}/retrieveLatestUpgradeDefaultBaselinePolicy()", rawUrl)

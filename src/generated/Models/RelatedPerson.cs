@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Possible values are: manager, colleague, directReport, dotLineReport, assistant, dotLineManager, alternateContact, friend, spouse, sibling, child, parent, sponsor, emergencyContact, other, unknownFutureValue.</summary>
-        public PersonRelationship? Relationship { get; set; }
+        public ApiSdk.Models.PersonRelationship? Relationship { get; set; }
         /// <summary>The user&apos;s directory object ID (Microsoft Entra ID or CID).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         public string UserPrincipalName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RelatedPerson"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RelatedPerson"/> and sets the default values.
         /// </summary>
         public RelatedPerson()
         {
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RelatedPerson"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RelatedPerson"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RelatedPerson CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.RelatedPerson CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RelatedPerson();
+            return new ApiSdk.Models.RelatedPerson();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "relationship", n => { Relationship = n.GetEnumValue<PersonRelationship>(); } },
+                { "relationship", n => { Relationship = n.GetEnumValue<ApiSdk.Models.PersonRelationship>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
@@ -87,7 +87,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PersonRelationship>("relationship", Relationship);
+            writer.WriteEnumValue<ApiSdk.Models.PersonRelationship>("relationship", Relationship);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
             writer.WriteAdditionalData(AdditionalData);

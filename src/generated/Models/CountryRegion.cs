@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CountryRegion"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CountryRegion"/> and sets the default values.
         /// </summary>
         public CountryRegion()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CountryRegion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CountryRegion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CountryRegion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CountryRegion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CountryRegion();
+            return new ApiSdk.Models.CountryRegion();
         }
         /// <summary>
         /// The deserialization information for the current model

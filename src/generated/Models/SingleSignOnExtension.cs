@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SingleSignOnExtension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SingleSignOnExtension"/> and sets the default values.
         /// </summary>
         public SingleSignOnExtension()
         {
@@ -31,28 +31,28 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SingleSignOnExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SingleSignOnExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.SingleSignOnExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.credentialSingleSignOnExtension" => new CredentialSingleSignOnExtension(),
-                "#microsoft.graph.iosAzureAdSingleSignOnExtension" => new IosAzureAdSingleSignOnExtension(),
-                "#microsoft.graph.iosCredentialSingleSignOnExtension" => new IosCredentialSingleSignOnExtension(),
-                "#microsoft.graph.iosKerberosSingleSignOnExtension" => new IosKerberosSingleSignOnExtension(),
-                "#microsoft.graph.iosRedirectSingleSignOnExtension" => new IosRedirectSingleSignOnExtension(),
-                "#microsoft.graph.iosSingleSignOnExtension" => new IosSingleSignOnExtension(),
-                "#microsoft.graph.kerberosSingleSignOnExtension" => new KerberosSingleSignOnExtension(),
-                "#microsoft.graph.macOSAzureAdSingleSignOnExtension" => new MacOSAzureAdSingleSignOnExtension(),
-                "#microsoft.graph.macOSCredentialSingleSignOnExtension" => new MacOSCredentialSingleSignOnExtension(),
-                "#microsoft.graph.macOSKerberosSingleSignOnExtension" => new MacOSKerberosSingleSignOnExtension(),
-                "#microsoft.graph.macOSRedirectSingleSignOnExtension" => new MacOSRedirectSingleSignOnExtension(),
-                "#microsoft.graph.macOSSingleSignOnExtension" => new MacOSSingleSignOnExtension(),
-                "#microsoft.graph.redirectSingleSignOnExtension" => new RedirectSingleSignOnExtension(),
-                _ => new SingleSignOnExtension(),
+                "#microsoft.graph.credentialSingleSignOnExtension" => new ApiSdk.Models.CredentialSingleSignOnExtension(),
+                "#microsoft.graph.iosAzureAdSingleSignOnExtension" => new ApiSdk.Models.IosAzureAdSingleSignOnExtension(),
+                "#microsoft.graph.iosCredentialSingleSignOnExtension" => new ApiSdk.Models.IosCredentialSingleSignOnExtension(),
+                "#microsoft.graph.iosKerberosSingleSignOnExtension" => new ApiSdk.Models.IosKerberosSingleSignOnExtension(),
+                "#microsoft.graph.iosRedirectSingleSignOnExtension" => new ApiSdk.Models.IosRedirectSingleSignOnExtension(),
+                "#microsoft.graph.iosSingleSignOnExtension" => new ApiSdk.Models.IosSingleSignOnExtension(),
+                "#microsoft.graph.kerberosSingleSignOnExtension" => new ApiSdk.Models.KerberosSingleSignOnExtension(),
+                "#microsoft.graph.macOSAzureAdSingleSignOnExtension" => new ApiSdk.Models.MacOSAzureAdSingleSignOnExtension(),
+                "#microsoft.graph.macOSCredentialSingleSignOnExtension" => new ApiSdk.Models.MacOSCredentialSingleSignOnExtension(),
+                "#microsoft.graph.macOSKerberosSingleSignOnExtension" => new ApiSdk.Models.MacOSKerberosSingleSignOnExtension(),
+                "#microsoft.graph.macOSRedirectSingleSignOnExtension" => new ApiSdk.Models.MacOSRedirectSingleSignOnExtension(),
+                "#microsoft.graph.macOSSingleSignOnExtension" => new ApiSdk.Models.MacOSSingleSignOnExtension(),
+                "#microsoft.graph.redirectSingleSignOnExtension" => new ApiSdk.Models.RedirectSingleSignOnExtension(),
+                _ => new ApiSdk.Models.SingleSignOnExtension(),
             };
         }
         /// <summary>

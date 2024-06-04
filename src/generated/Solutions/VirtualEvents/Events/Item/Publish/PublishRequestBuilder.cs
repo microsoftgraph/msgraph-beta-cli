@@ -49,14 +49,14 @@ namespace ApiSdk.Solutions.VirtualEvents.Events.Item.Publish
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PublishRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Events.Item.Publish.PublishRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PublishRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/publish", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PublishRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Solutions.VirtualEvents.Events.Item.Publish.PublishRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PublishRequestBuilder(string rawUrl) : base("{+baseurl}/solutions/virtualEvents/events/{virtualEvent%2Did}/publish", rawUrl)

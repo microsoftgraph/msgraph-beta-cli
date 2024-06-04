@@ -104,7 +104,7 @@ namespace ApiSdk.Models
         public string OsVersion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnmanagedDevice"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnmanagedDevice"/> and sets the default values.
         /// </summary>
         public UnmanagedDevice()
         {
@@ -113,12 +113,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnmanagedDevice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnmanagedDevice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UnmanagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UnmanagedDevice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnmanagedDevice();
+            return new ApiSdk.Models.UnmanagedDevice();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Security
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SubmissionDetectedFile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.SubmissionDetectedFile"/> and sets the default values.
         /// </summary>
         public SubmissionDetectedFile()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SubmissionDetectedFile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.SubmissionDetectedFile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static SubmissionDetectedFile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.SubmissionDetectedFile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SubmissionDetectedFile();
+            return new ApiSdk.Models.Security.SubmissionDetectedFile();
         }
         /// <summary>
         /// The deserialization information for the current model

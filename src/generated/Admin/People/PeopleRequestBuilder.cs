@@ -108,7 +108,7 @@ namespace ApiSdk.Admin.People
         {
             var command = new Command("item-insights");
             command.Description = "Provides operations to manage the itemInsights property of the microsoft.graph.peopleAdminSettings entity.";
-            var builder = new ItemInsightsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.People.ItemInsights.ItemInsightsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -145,7 +145,7 @@ namespace ApiSdk.Admin.People
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PeopleAdminSettings>(PeopleAdminSettings.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PeopleAdminSettings>(ApiSdk.Models.PeopleAdminSettings.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -172,7 +172,7 @@ namespace ApiSdk.Admin.People
         {
             var command = new Command("profile-card-properties");
             command.Description = "Provides operations to manage the profileCardProperties property of the microsoft.graph.peopleAdminSettings entity.";
-            var builder = new ProfileCardPropertiesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.People.ProfileCardProperties.ProfileCardPropertiesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -199,7 +199,7 @@ namespace ApiSdk.Admin.People
         {
             var command = new Command("pronouns");
             command.Description = "Provides operations to manage the pronouns property of the microsoft.graph.peopleAdminSettings entity.";
-            var builder = new PronounsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.People.Pronouns.PronounsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -211,14 +211,14 @@ namespace ApiSdk.Admin.People
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PeopleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.People.PeopleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PeopleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/people{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PeopleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.People.PeopleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PeopleRequestBuilder(string rawUrl) : base("{+baseurl}/admin/people{?%24expand,%24select}", rawUrl)
@@ -250,11 +250,11 @@ namespace ApiSdk.Admin.People
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PeopleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.People.PeopleRequestBuilder.PeopleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PeopleRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.People.PeopleRequestBuilder.PeopleRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -270,11 +270,11 @@ namespace ApiSdk.Admin.People
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PeopleAdminSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PeopleAdminSettings body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PeopleAdminSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PeopleAdminSettings body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

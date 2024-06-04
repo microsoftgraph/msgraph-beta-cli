@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string Identifier { get; set; }
 #endif
         /// <summary>Process identifier types for MacOS Privacy Preferences</summary>
-        public MacOSProcessIdentifierType? IdentifierType { get; set; }
+        public ApiSdk.Models.MacOSProcessIdentifierType? IdentifierType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSAppleEventReceiver"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSAppleEventReceiver"/> and sets the default values.
         /// </summary>
         public MacOSAppleEventReceiver()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSAppleEventReceiver"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSAppleEventReceiver"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MacOSAppleEventReceiver CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MacOSAppleEventReceiver CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSAppleEventReceiver();
+            return new ApiSdk.Models.MacOSAppleEventReceiver();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
                 { "allowed", n => { Allowed = n.GetBoolValue(); } },
                 { "codeRequirement", n => { CodeRequirement = n.GetStringValue(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
-                { "identifierType", n => { IdentifierType = n.GetEnumValue<MacOSProcessIdentifierType>(); } },
+                { "identifierType", n => { IdentifierType = n.GetEnumValue<ApiSdk.Models.MacOSProcessIdentifierType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("allowed", Allowed);
             writer.WriteStringValue("codeRequirement", CodeRequirement);
             writer.WriteStringValue("identifier", Identifier);
-            writer.WriteEnumValue<MacOSProcessIdentifierType>("identifierType", IdentifierType);
+            writer.WriteEnumValue<ApiSdk.Models.MacOSProcessIdentifierType>("identifierType", IdentifierType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

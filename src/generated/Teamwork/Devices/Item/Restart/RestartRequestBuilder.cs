@@ -50,14 +50,14 @@ namespace ApiSdk.Teamwork.Devices.Item.Restart
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RestartRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.Restart.RestartRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RestartRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/restart", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RestartRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Teamwork.Devices.Item.Restart.RestartRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RestartRequestBuilder(string rawUrl) : base("{+baseurl}/teamwork/devices/{teamworkDevice%2Did}/restart", rawUrl)

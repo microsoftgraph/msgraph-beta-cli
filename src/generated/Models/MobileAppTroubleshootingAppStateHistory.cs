@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// History Item contained in the Mobile App Troubleshooting Event.
     /// </summary>
-    public class MobileAppTroubleshootingAppStateHistory : MobileAppTroubleshootingHistoryItem, IParsable
+    public class MobileAppTroubleshootingAppStateHistory : ApiSdk.Models.MobileAppTroubleshootingHistoryItem, IParsable
     {
         /// <summary>Defines the Action Types for an Intune Application.</summary>
-        public MobileAppActionType? ActionType { get; set; }
+        public ApiSdk.Models.MobileAppActionType? ActionType { get; set; }
         /// <summary>Error code for the failure, empty if no failure.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,12 +26,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MobileAppTroubleshootingAppStateHistory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MobileAppTroubleshootingAppStateHistory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MobileAppTroubleshootingAppStateHistory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MobileAppTroubleshootingAppStateHistory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MobileAppTroubleshootingAppStateHistory();
+            return new ApiSdk.Models.MobileAppTroubleshootingAppStateHistory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,9 +41,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actionType", n => { ActionType = n.GetEnumValue<MobileAppActionType>(); } },
+                { "actionType", n => { ActionType = n.GetEnumValue<ApiSdk.Models.MobileAppActionType>(); } },
                 { "errorCode", n => { ErrorCode = n.GetStringValue(); } },
-                { "runState", n => { RunState = n.GetEnumValue<RunState>(); } },
+                { "runState", n => { RunState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
             };
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MobileAppActionType>("actionType", ActionType);
+            writer.WriteEnumValue<ApiSdk.Models.MobileAppActionType>("actionType", ActionType);
             writer.WriteStringValue("errorCode", ErrorCode);
-            writer.WriteEnumValue<RunState>("runState", RunState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("runState", RunState);
         }
     }
 }

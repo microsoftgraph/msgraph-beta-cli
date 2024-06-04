@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions
 {
     #pragma warning disable CS1591
-    public class GetSupportedCloudPcRemoteActionsGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetSupportedCloudPcRemoteActionsGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcRemoteActionCapability>? Value { get; set; }
+        public List<ApiSdk.Models.CloudPcRemoteActionCapability>? Value { get; set; }
 #nullable restore
 #else
-        public List<CloudPcRemoteActionCapability> Value { get; set; }
+        public List<ApiSdk.Models.CloudPcRemoteActionCapability> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetSupportedCloudPcRemoteActionsGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions.GetSupportedCloudPcRemoteActionsGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetSupportedCloudPcRemoteActionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions.GetSupportedCloudPcRemoteActionsGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetSupportedCloudPcRemoteActionsGetResponse();
+            return new ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions.GetSupportedCloudPcRemoteActionsGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<CloudPcRemoteActionCapability>(CloudPcRemoteActionCapability.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcRemoteActionCapability>(ApiSdk.Models.CloudPcRemoteActionCapability.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.GetSupportedCloudPcRemoteActions
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CloudPcRemoteActionCapability>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcRemoteActionCapability>("value", Value);
         }
     }
 }

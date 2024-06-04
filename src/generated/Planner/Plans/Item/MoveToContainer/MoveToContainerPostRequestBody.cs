@@ -16,13 +16,13 @@ namespace ApiSdk.Planner.Plans.Item.MoveToContainer
         /// <summary>The container property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerPlanContainer? Container { get; set; }
+        public ApiSdk.Models.PlannerPlanContainer? Container { get; set; }
 #nullable restore
 #else
-        public PlannerPlanContainer Container { get; set; }
+        public ApiSdk.Models.PlannerPlanContainer Container { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MoveToContainerPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.Plans.Item.MoveToContainer.MoveToContainerPostRequestBody"/> and sets the default values.
         /// </summary>
         public MoveToContainerPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Planner.Plans.Item.MoveToContainer
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MoveToContainerPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Planner.Plans.Item.MoveToContainer.MoveToContainerPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MoveToContainerPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Planner.Plans.Item.MoveToContainer.MoveToContainerPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MoveToContainerPostRequestBody();
+            return new ApiSdk.Planner.Plans.Item.MoveToContainer.MoveToContainerPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Planner.Plans.Item.MoveToContainer
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "container", n => { Container = n.GetObjectValue<PlannerPlanContainer>(PlannerPlanContainer.CreateFromDiscriminatorValue); } },
+                { "container", n => { Container = n.GetObjectValue<ApiSdk.Models.PlannerPlanContainer>(ApiSdk.Models.PlannerPlanContainer.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Planner.Plans.Item.MoveToContainer
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PlannerPlanContainer>("container", Container);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerPlanContainer>("container", Container);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -47,7 +47,7 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ValidateFilterPostRequestBody>(ValidateFilterPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody>(ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -67,14 +67,14 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ValidateFilterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ValidateFilterRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/assignmentFilters/validateFilter", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ValidateFilterRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ValidateFilterRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/assignmentFilters/validateFilter", rawUrl)
@@ -88,11 +88,11 @@ namespace ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ValidateFilterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ValidateFilterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.AssignmentFilters.ValidateFilter.ValidateFilterPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

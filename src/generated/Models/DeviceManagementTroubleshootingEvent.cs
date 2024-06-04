@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Event representing an general failure.
     /// </summary>
-    public class DeviceManagementTroubleshootingEvent : Entity, IParsable
+    public class DeviceManagementTroubleshootingEvent : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>A set of string key and string value pairs which provides additional information on the Troubleshooting event</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? AdditionalInformation { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? AdditionalInformation { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> AdditionalInformation { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> AdditionalInformation { get; set; }
 #endif
         /// <summary>Id used for tracing the failure in the service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,26 +40,26 @@ namespace ApiSdk.Models
         /// <summary>Object containing detailed information about the error and its remediation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementTroubleshootingErrorDetails? TroubleshootingErrorDetails { get; set; }
+        public ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails? TroubleshootingErrorDetails { get; set; }
 #nullable restore
 #else
-        public DeviceManagementTroubleshootingErrorDetails TroubleshootingErrorDetails { get; set; }
+        public ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails TroubleshootingErrorDetails { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementTroubleshootingEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementTroubleshootingEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementTroubleshootingEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementTroubleshootingEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.appleVppTokenTroubleshootingEvent" => new AppleVppTokenTroubleshootingEvent(),
-                "#microsoft.graph.enrollmentTroubleshootingEvent" => new EnrollmentTroubleshootingEvent(),
-                "#microsoft.graph.mobileAppTroubleshootingEvent" => new MobileAppTroubleshootingEvent(),
-                _ => new DeviceManagementTroubleshootingEvent(),
+                "#microsoft.graph.appleVppTokenTroubleshootingEvent" => new ApiSdk.Models.AppleVppTokenTroubleshootingEvent(),
+                "#microsoft.graph.enrollmentTroubleshootingEvent" => new ApiSdk.Models.EnrollmentTroubleshootingEvent(),
+                "#microsoft.graph.mobileAppTroubleshootingEvent" => new ApiSdk.Models.MobileAppTroubleshootingEvent(),
+                _ => new ApiSdk.Models.DeviceManagementTroubleshootingEvent(),
             };
         }
         /// <summary>
@@ -70,11 +70,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "additionalInformation", n => { AdditionalInformation = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalInformation", n => { AdditionalInformation = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 { "eventDateTime", n => { EventDateTime = n.GetDateTimeOffsetValue(); } },
                 { "eventName", n => { EventName = n.GetStringValue(); } },
-                { "troubleshootingErrorDetails", n => { TroubleshootingErrorDetails = n.GetObjectValue<DeviceManagementTroubleshootingErrorDetails>(DeviceManagementTroubleshootingErrorDetails.CreateFromDiscriminatorValue); } },
+                { "troubleshootingErrorDetails", n => { TroubleshootingErrorDetails = n.GetObjectValue<ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails>(ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,11 +85,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("additionalInformation", AdditionalInformation);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("additionalInformation", AdditionalInformation);
             writer.WriteStringValue("correlationId", CorrelationId);
             writer.WriteDateTimeOffsetValue("eventDateTime", EventDateTime);
             writer.WriteStringValue("eventName", EventName);
-            writer.WriteObjectValue<DeviceManagementTroubleshootingErrorDetails>("troubleshootingErrorDetails", TroubleshootingErrorDetails);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementTroubleshootingErrorDetails>("troubleshootingErrorDetails", TroubleshootingErrorDetails);
         }
     }
 }

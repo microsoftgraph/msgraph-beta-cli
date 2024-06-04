@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("android-managed-app-protections");
             command.Description = "Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new AndroidManagedAppProtectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.AndroidManagedAppProtectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -84,7 +84,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("default-managed-app-protections");
             command.Description = "Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new DefaultManagedAppProtectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.DefaultManagedAppProtections.DefaultManagedAppProtectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -111,7 +111,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("device-app-management-tasks");
             command.Description = "Provides operations to manage the deviceAppManagementTasks property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new DeviceAppManagementTasksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.DeviceAppManagementTasksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -138,7 +138,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("enterprise-code-signing-certificates");
             command.Description = "Provides operations to manage the enterpriseCodeSigningCertificates property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new EnterpriseCodeSigningCertificatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.EnterpriseCodeSigningCertificates.EnterpriseCodeSigningCertificatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -211,7 +211,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("ios-lob-app-provisioning-configurations");
             command.Description = "Provides operations to manage the iosLobAppProvisioningConfigurations property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new IosLobAppProvisioningConfigurationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.IosLobAppProvisioningConfigurationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -239,7 +239,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("ios-managed-app-protections");
             command.Description = "Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new IosManagedAppProtectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.IosManagedAppProtections.IosManagedAppProtectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -267,7 +267,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("managed-app-policies");
             command.Description = "Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new ManagedAppPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.ManagedAppPolicies.ManagedAppPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -294,7 +294,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("managed-app-registrations");
             command.Description = "Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new ManagedAppRegistrationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.ManagedAppRegistrations.ManagedAppRegistrationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -322,7 +322,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("managed-app-statuses");
             command.Description = "Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new ManagedAppStatusesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.ManagedAppStatuses.ManagedAppStatusesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -349,7 +349,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("managed-e-book-categories");
             command.Description = "Provides operations to manage the managedEBookCategories property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new ManagedEBookCategoriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.ManagedEBookCategories.ManagedEBookCategoriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -376,7 +376,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("managed-e-books");
             command.Description = "Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new ManagedEBooksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.ManagedEBooks.ManagedEBooksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -403,7 +403,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("mdm-windows-information-protection-policies");
             command.Description = "Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new MdmWindowsInformationProtectionPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.MdmWindowsInformationProtectionPolicies.MdmWindowsInformationProtectionPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -431,7 +431,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("mobile-app-catalog-packages");
             command.Description = "Provides operations to manage the mobileAppCatalogPackages property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new MobileAppCatalogPackagesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.MobileAppCatalogPackages.MobileAppCatalogPackagesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -458,7 +458,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("mobile-app-categories");
             command.Description = "Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new MobileAppCategoriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.MobileAppCategories.MobileAppCategoriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -485,7 +485,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("mobile-app-configurations");
             command.Description = "Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new MobileAppConfigurationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.MobileAppConfigurations.MobileAppConfigurationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -512,7 +512,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("mobile-apps");
             command.Description = "Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new MobileAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.MobileApps.MobileAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildConvertFromMobileAppCatalogPackageWithMobileAppCatalogPackageIdRbCommand());
@@ -608,7 +608,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("policy-sets");
             command.Description = "Provides operations to manage the policySets property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new PolicySetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.PolicySets.PolicySetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -636,7 +636,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("symantec-code-signing-certificate");
             command.Description = "Provides operations to manage the symantecCodeSigningCertificate property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new SymantecCodeSigningCertificateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.SymantecCodeSigningCertificate.SymantecCodeSigningCertificateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -655,7 +655,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("sync-microsoft-store-for-business-apps");
             command.Description = "Provides operations to call the syncMicrosoftStoreForBusinessApps method.";
-            var builder = new SyncMicrosoftStoreForBusinessAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.SyncMicrosoftStoreForBusinessApps.SyncMicrosoftStoreForBusinessAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -672,7 +672,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("targeted-managed-app-configurations");
             command.Description = "Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new TargetedManagedAppConfigurationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.TargetedManagedAppConfigurations.TargetedManagedAppConfigurationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -700,7 +700,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("vpp-tokens");
             command.Description = "Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new VppTokensRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.VppTokens.VppTokensRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -729,7 +729,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("wdac-supplemental-policies");
             command.Description = "Provides operations to manage the wdacSupplementalPolicies property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WdacSupplementalPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WdacSupplementalPolicies.WdacSupplementalPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -756,7 +756,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("windows-information-protection-device-registrations");
             command.Description = "Provides operations to manage the windowsInformationProtectionDeviceRegistrations property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WindowsInformationProtectionDeviceRegistrationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WindowsInformationProtectionDeviceRegistrations.WindowsInformationProtectionDeviceRegistrationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -783,7 +783,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("windows-information-protection-policies");
             command.Description = "Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WindowsInformationProtectionPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WindowsInformationProtectionPolicies.WindowsInformationProtectionPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -810,7 +810,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("windows-information-protection-wipe-actions");
             command.Description = "Provides operations to manage the windowsInformationProtectionWipeActions property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WindowsInformationProtectionWipeActionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WindowsInformationProtectionWipeActions.WindowsInformationProtectionWipeActionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -837,7 +837,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("windows-managed-app-protections");
             command.Description = "Provides operations to manage the windowsManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WindowsManagedAppProtectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WindowsManagedAppProtections.WindowsManagedAppProtectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -864,7 +864,7 @@ namespace ApiSdk.DeviceAppManagement
         {
             var command = new Command("windows-management-app");
             command.Description = "Provides operations to manage the windowsManagementApp property of the microsoft.graph.deviceAppManagement entity.";
-            var builder = new WindowsManagementAppRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceAppManagement.WindowsManagementApp.WindowsManagementAppRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -874,14 +874,14 @@ namespace ApiSdk.DeviceAppManagement
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceAppManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.DeviceAppManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceAppManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceAppManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.DeviceAppManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceAppManagementRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement{?%24expand,%24select}", rawUrl)
@@ -894,11 +894,11 @@ namespace ApiSdk.DeviceAppManagement
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceAppManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.DeviceAppManagementRequestBuilder.DeviceAppManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceAppManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceAppManagement.DeviceAppManagementRequestBuilder.DeviceAppManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

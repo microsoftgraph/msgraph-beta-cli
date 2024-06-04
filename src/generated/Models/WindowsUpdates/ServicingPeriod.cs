@@ -33,7 +33,7 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The start date and time of the servicing period. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ServicingPeriod"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.ServicingPeriod"/> and sets the default values.
         /// </summary>
         public ServicingPeriod()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServicingPeriod"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ServicingPeriod"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ServicingPeriod CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.ServicingPeriod CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ServicingPeriod();
+            return new ApiSdk.Models.WindowsUpdates.ServicingPeriod();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -40,7 +40,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("classify-exact-matches");
             command.Description = "Provides operations to call the classifyExactMatches method.";
-            var builder = new ClassifyExactMatchesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ClassifyExactMatches.ClassifyExactMatchesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -57,7 +57,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("classify-file-jobs");
             command.Description = "Provides operations to manage the classifyFileJobs property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new ClassifyFileJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ClassifyFileJobs.ClassifyFileJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -84,7 +84,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("classify-file");
             command.Description = "Provides operations to call the classifyFile method.";
-            var builder = new ClassifyFileRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ClassifyFile.ClassifyFileRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -101,7 +101,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("classify-text-jobs");
             command.Description = "Provides operations to manage the classifyTextJobs property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new ClassifyTextJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ClassifyTextJobs.ClassifyTextJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -128,7 +128,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("evaluate-dlp-policies-jobs");
             command.Description = "Provides operations to manage the evaluateDlpPoliciesJobs property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new EvaluateDlpPoliciesJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.EvaluateDlpPoliciesJobs.EvaluateDlpPoliciesJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -155,7 +155,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("evaluate-label-jobs");
             command.Description = "Provides operations to manage the evaluateLabelJobs property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new EvaluateLabelJobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.EvaluateLabelJobs.EvaluateLabelJobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -182,7 +182,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("exact-match-data-stores");
             command.Description = "Provides operations to manage the exactMatchDataStores property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new ExactMatchDataStoresRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchDataStores.ExactMatchDataStoresRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -209,7 +209,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("exact-match-upload-agents");
             command.Description = "Provides operations to manage the exactMatchUploadAgents property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new ExactMatchUploadAgentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.ExactMatchUploadAgents.ExactMatchUploadAgentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -282,7 +282,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("jobs");
             command.Description = "Provides operations to manage the jobs property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new JobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.Jobs.JobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -327,7 +327,7 @@ namespace ApiSdk.DataClassification
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DataClassificationService>(DataClassificationService.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DataClassificationService>(ApiSdk.Models.DataClassificationService.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -354,7 +354,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("sensitive-types");
             command.Description = "Provides operations to manage the sensitiveTypes property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new SensitiveTypesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.SensitiveTypes.SensitiveTypesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -381,7 +381,7 @@ namespace ApiSdk.DataClassification
         {
             var command = new Command("sensitivity-labels");
             command.Description = "Provides operations to manage the sensitivityLabels property of the microsoft.graph.dataClassificationService entity.";
-            var builder = new SensitivityLabelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DataClassification.SensitivityLabels.SensitivityLabelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -402,14 +402,14 @@ namespace ApiSdk.DataClassification
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DataClassificationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.DataClassificationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DataClassificationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/dataClassification{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DataClassificationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.DataClassificationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DataClassificationRequestBuilder(string rawUrl) : base("{+baseurl}/dataClassification{?%24expand,%24select}", rawUrl)
@@ -422,11 +422,11 @@ namespace ApiSdk.DataClassification
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DataClassificationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.DataClassificationRequestBuilder.DataClassificationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DataClassificationRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DataClassification.DataClassificationRequestBuilder.DataClassificationRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -442,11 +442,11 @@ namespace ApiSdk.DataClassification
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DataClassificationService body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DataClassificationService body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DataClassificationService body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DataClassificationService body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

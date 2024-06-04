@@ -33,7 +33,7 @@ namespace ApiSdk.Print.PrinterShares.Item
         {
             var command = new Command("allowed-groups");
             command.Description = "Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.";
-            var builder = new AllowedGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.AllowedGroups.AllowedGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -60,7 +60,7 @@ namespace ApiSdk.Print.PrinterShares.Item
         {
             var command = new Command("allowed-users");
             command.Description = "Provides operations to manage the allowedUsers property of the microsoft.graph.printerShare entity.";
-            var builder = new AllowedUsersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.AllowedUsers.AllowedUsersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -176,7 +176,7 @@ namespace ApiSdk.Print.PrinterShares.Item
         {
             var command = new Command("jobs");
             command.Description = "Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.";
-            var builder = new JobsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.Jobs.JobsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -227,7 +227,7 @@ namespace ApiSdk.Print.PrinterShares.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PrinterShare>(ApiSdk.Models.PrinterShare.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -255,7 +255,7 @@ namespace ApiSdk.Print.PrinterShares.Item
         {
             var command = new Command("printer");
             command.Description = "Provides operations to manage the printer property of the microsoft.graph.printerShare entity.";
-            var builder = new PrinterRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.Printer.PrinterRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -265,14 +265,14 @@ namespace ApiSdk.Print.PrinterShares.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterShareItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.PrinterShareItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrinterShareItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares/{printerShare%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterShareItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.Item.PrinterShareItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrinterShareItemRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares/{printerShare%2Did}{?%24expand,%24select}", rawUrl)
@@ -306,11 +306,11 @@ namespace ApiSdk.Print.PrinterShares.Item
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterShareItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.PrinterShareItemRequestBuilder.PrinterShareItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterShareItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.Item.PrinterShareItemRequestBuilder.PrinterShareItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -327,11 +327,11 @@ namespace ApiSdk.Print.PrinterShares.Item
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

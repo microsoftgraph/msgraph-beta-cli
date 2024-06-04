@@ -28,7 +28,7 @@ namespace ApiSdk.Models
         /// <summary>Count of successful requests/operations.</summary>
         public long? SuccessCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CertificateConnectorHealthMetricValue"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CertificateConnectorHealthMetricValue"/> and sets the default values.
         /// </summary>
         public CertificateConnectorHealthMetricValue()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CertificateConnectorHealthMetricValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CertificateConnectorHealthMetricValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CertificateConnectorHealthMetricValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CertificateConnectorHealthMetricValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CertificateConnectorHealthMetricValue();
+            return new ApiSdk.Models.CertificateConnectorHealthMetricValue();
         }
         /// <summary>
         /// The deserialization information for the current model

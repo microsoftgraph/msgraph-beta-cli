@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The Group Policy setting to MDM/Intune mapping.
     /// </summary>
-    public class GroupPolicySettingMapping : Entity, IParsable
+    public class GroupPolicySettingMapping : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Admx Group Policy Id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -114,9 +114,9 @@ namespace ApiSdk.Models
         public string SettingName { get; set; }
 #endif
         /// <summary>Scope of the group policy setting.</summary>
-        public GroupPolicySettingScope? SettingScope { get; set; }
+        public ApiSdk.Models.GroupPolicySettingScope? SettingScope { get; set; }
         /// <summary>Setting type of the group policy.</summary>
-        public GroupPolicySettingType? SettingType { get; set; }
+        public ApiSdk.Models.GroupPolicySettingType? SettingType { get; set; }
         /// <summary>The value of this group policy setting.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -144,12 +144,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicySettingMapping"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicySettingMapping"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicySettingMapping CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicySettingMapping CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicySettingMapping();
+            return new ApiSdk.Models.GroupPolicySettingMapping();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -167,15 +167,15 @@ namespace ApiSdk.Models
                 { "mdmCspName", n => { MdmCspName = n.GetStringValue(); } },
                 { "mdmMinimumOSVersion", n => { MdmMinimumOSVersion = n.GetIntValue(); } },
                 { "mdmSettingUri", n => { MdmSettingUri = n.GetStringValue(); } },
-                { "mdmSupportedState", n => { MdmSupportedState = n.GetEnumValue<MdmSupportedState>(); } },
+                { "mdmSupportedState", n => { MdmSupportedState = n.GetEnumValue<ApiSdk.Models.MdmSupportedState>(); } },
                 { "parentId", n => { ParentId = n.GetStringValue(); } },
                 { "settingCategory", n => { SettingCategory = n.GetStringValue(); } },
                 { "settingDisplayName", n => { SettingDisplayName = n.GetStringValue(); } },
                 { "settingDisplayValue", n => { SettingDisplayValue = n.GetStringValue(); } },
                 { "settingDisplayValueType", n => { SettingDisplayValueType = n.GetStringValue(); } },
                 { "settingName", n => { SettingName = n.GetStringValue(); } },
-                { "settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
-                { "settingType", n => { SettingType = n.GetEnumValue<GroupPolicySettingType>(); } },
+                { "settingScope", n => { SettingScope = n.GetEnumValue<ApiSdk.Models.GroupPolicySettingScope>(); } },
+                { "settingType", n => { SettingType = n.GetEnumValue<ApiSdk.Models.GroupPolicySettingType>(); } },
                 { "settingValue", n => { SettingValue = n.GetStringValue(); } },
                 { "settingValueDisplayUnits", n => { SettingValueDisplayUnits = n.GetStringValue(); } },
                 { "settingValueType", n => { SettingValueType = n.GetStringValue(); } },
@@ -197,15 +197,15 @@ namespace ApiSdk.Models
             writer.WriteStringValue("mdmCspName", MdmCspName);
             writer.WriteIntValue("mdmMinimumOSVersion", MdmMinimumOSVersion);
             writer.WriteStringValue("mdmSettingUri", MdmSettingUri);
-            writer.WriteEnumValue<MdmSupportedState>("mdmSupportedState", MdmSupportedState);
+            writer.WriteEnumValue<ApiSdk.Models.MdmSupportedState>("mdmSupportedState", MdmSupportedState);
             writer.WriteStringValue("parentId", ParentId);
             writer.WriteStringValue("settingCategory", SettingCategory);
             writer.WriteStringValue("settingDisplayName", SettingDisplayName);
             writer.WriteStringValue("settingDisplayValue", SettingDisplayValue);
             writer.WriteStringValue("settingDisplayValueType", SettingDisplayValueType);
             writer.WriteStringValue("settingName", SettingName);
-            writer.WriteEnumValue<GroupPolicySettingScope>("settingScope", SettingScope);
-            writer.WriteEnumValue<GroupPolicySettingType>("settingType", SettingType);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicySettingScope>("settingScope", SettingScope);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicySettingType>("settingType", SettingType);
             writer.WriteStringValue("settingValue", SettingValue);
             writer.WriteStringValue("settingValueDisplayUnits", SettingValueDisplayUnits);
             writer.WriteStringValue("settingValueType", SettingValueType);

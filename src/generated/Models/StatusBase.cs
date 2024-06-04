@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Possible values are: success, warning, failure, skipped, unknownFutureValue. Supports $filter (eq, contains).</summary>
-        public ProvisioningResult? Status { get; set; }
+        public ApiSdk.Models.ProvisioningResult? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="StatusBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.StatusBase"/> and sets the default values.
         /// </summary>
         public StatusBase()
         {
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="StatusBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.StatusBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static StatusBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.StatusBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.statusDetails" => new StatusDetails(),
-                _ => new StatusBase(),
+                "#microsoft.graph.statusDetails" => new ApiSdk.Models.StatusDetails(),
+                _ => new ApiSdk.Models.StatusBase(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ProvisioningResult>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ProvisioningResult>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ProvisioningResult>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ProvisioningResult>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

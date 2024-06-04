@@ -33,7 +33,7 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
         {
             var command = new Command("complete-signup");
             command.Description = "Provides operations to call the completeSignup method.";
-            var builder = new CompleteSignupRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidForWorkSettings.CompleteSignup.CompleteSignupRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -170,7 +170,7 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
         {
             var command = new Command("request-signup-url");
             command.Description = "Provides operations to call the requestSignupUrl method.";
-            var builder = new RequestSignupUrlRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl.RequestSignupUrlRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -187,7 +187,7 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
         {
             var command = new Command("sync-apps");
             command.Description = "Provides operations to call the syncApps method.";
-            var builder = new SyncAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidForWorkSettings.SyncApps.SyncAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -204,7 +204,7 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
         {
             var command = new Command("unbind");
             command.Description = "Provides operations to call the unbind method.";
-            var builder = new UnbindRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidForWorkSettings.Unbind.UnbindRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -214,14 +214,14 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.AndroidForWorkSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AndroidForWorkSettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidForWorkSettings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidForWorkSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.AndroidForWorkSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AndroidForWorkSettingsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidForWorkSettings{?%24expand,%24select}", rawUrl)
@@ -253,11 +253,11 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AndroidForWorkSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AndroidForWorkSettings.AndroidForWorkSettingsRequestBuilder.AndroidForWorkSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AndroidForWorkSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AndroidForWorkSettings.AndroidForWorkSettingsRequestBuilder.AndroidForWorkSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

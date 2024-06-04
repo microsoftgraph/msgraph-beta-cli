@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Properties of the  Booolean script parameter.
     /// </summary>
-    public class DeviceHealthScriptBooleanParameter : DeviceHealthScriptParameter, IParsable
+    public class DeviceHealthScriptBooleanParameter : ApiSdk.Models.DeviceHealthScriptParameter, IParsable
     {
         /// <summary>The default value of boolean param</summary>
         public bool? DefaultValue { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptBooleanParameter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptBooleanParameter"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptBooleanParameter() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptBooleanParameter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptBooleanParameter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceHealthScriptBooleanParameter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceHealthScriptBooleanParameter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptBooleanParameter();
+            return new ApiSdk.Models.DeviceHealthScriptBooleanParameter();
         }
         /// <summary>
         /// The deserialization information for the current model

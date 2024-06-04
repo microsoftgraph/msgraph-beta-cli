@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>The property to determine if Android device administrator enrollment is enabled for this account.</summary>
         public bool? AndroidDeviceAdministratorEnrollmentEnabled { get; set; }
         /// <summary>Provider type for Derived Credentials.</summary>
-        public DerivedCredentialProviderType? DerivedCredentialProvider { get; set; }
+        public ApiSdk.Models.DerivedCredentialProviderType? DerivedCredentialProvider { get; set; }
         /// <summary>The Derived Credential Provider self-service URI.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         /// <summary>Device should be noncompliant when there is no compliance policy targeted when this is true</summary>
         public bool? SecureByDefault { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettings"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettings()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettings();
+            return new ApiSdk.Models.DeviceManagementSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -80,7 +80,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "androidDeviceAdministratorEnrollmentEnabled", n => { AndroidDeviceAdministratorEnrollmentEnabled = n.GetBoolValue(); } },
-                { "derivedCredentialProvider", n => { DerivedCredentialProvider = n.GetEnumValue<DerivedCredentialProviderType>(); } },
+                { "derivedCredentialProvider", n => { DerivedCredentialProvider = n.GetEnumValue<ApiSdk.Models.DerivedCredentialProviderType>(); } },
                 { "derivedCredentialUrl", n => { DerivedCredentialUrl = n.GetStringValue(); } },
                 { "deviceComplianceCheckinThresholdDays", n => { DeviceComplianceCheckinThresholdDays = n.GetIntValue(); } },
                 { "deviceInactivityBeforeRetirementInDay", n => { DeviceInactivityBeforeRetirementInDay = n.GetIntValue(); } },
@@ -104,7 +104,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("androidDeviceAdministratorEnrollmentEnabled", AndroidDeviceAdministratorEnrollmentEnabled);
-            writer.WriteEnumValue<DerivedCredentialProviderType>("derivedCredentialProvider", DerivedCredentialProvider);
+            writer.WriteEnumValue<ApiSdk.Models.DerivedCredentialProviderType>("derivedCredentialProvider", DerivedCredentialProvider);
             writer.WriteStringValue("derivedCredentialUrl", DerivedCredentialUrl);
             writer.WriteIntValue("deviceComplianceCheckinThresholdDays", DeviceComplianceCheckinThresholdDays);
             writer.WriteIntValue("deviceInactivityBeforeRetirementInDay", DeviceInactivityBeforeRetirementInDay);

@@ -7,54 +7,54 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementConfigurationSimpleSettingDefinition : DeviceManagementConfigurationSettingDefinition, IParsable
+    public class DeviceManagementConfigurationSimpleSettingDefinition : ApiSdk.Models.DeviceManagementConfigurationSettingDefinition, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Default setting value for this setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingValue? DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValue? DefaultValue { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingValue DefaultValue { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValue DefaultValue { get; set; }
 #endif
         /// <summary>list of child settings that depend on this setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSettingDependedOnBy>? DependedOnBy { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>? DependedOnBy { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSettingDependedOnBy> DependedOnBy { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy> DependedOnBy { get; set; }
 #endif
         /// <summary>list of parent settings this setting is dependent on</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationDependentOn>? DependentOn { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationDependentOn>? DependentOn { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationDependentOn> DependentOn { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationDependentOn> DependentOn { get; set; }
 #endif
         /// <summary>Definition of the value for this setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationSettingValueDefinition? ValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition? ValueDefinition { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationSettingValueDefinition ValueDefinition { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition ValueDefinition { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSimpleSettingDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSimpleSettingDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSimpleSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition" => new DeviceManagementConfigurationSimpleSettingCollectionDefinition(),
-                _ => new DeviceManagementConfigurationSimpleSettingDefinition(),
+                "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition" => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingCollectionDefinition(),
+                _ => new ApiSdk.Models.DeviceManagementConfigurationSimpleSettingDefinition(),
             };
         }
         /// <summary>
@@ -65,10 +65,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "defaultValue", n => { DefaultValue = n.GetObjectValue<DeviceManagementConfigurationSettingValue>(DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
-                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>(DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>(DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "valueDefinition", n => { ValueDefinition = n.GetObjectValue<DeviceManagementConfigurationSettingValueDefinition>(DeviceManagementConfigurationSettingValueDefinition.CreateFromDiscriminatorValue); } },
+                { "defaultValue", n => { DefaultValue = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValue>(ApiSdk.Models.DeviceManagementConfigurationSettingValue.CreateFromDiscriminatorValue); } },
+                { "dependedOnBy", n => { DependedOnBy = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>(ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dependentOn", n => { DependentOn = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationDependentOn>(ApiSdk.Models.DeviceManagementConfigurationDependentOn.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "valueDefinition", n => { ValueDefinition = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition>(ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,10 +79,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingValue>("defaultValue", DefaultValue);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSettingDependedOnBy>("dependedOnBy", DependedOnBy);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationDependentOn>("dependentOn", DependentOn);
-            writer.WriteObjectValue<DeviceManagementConfigurationSettingValueDefinition>("valueDefinition", ValueDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValue>("defaultValue", DefaultValue);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingDependedOnBy>("dependedOnBy", DependedOnBy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationDependentOn>("dependentOn", DependentOn);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationSettingValueDefinition>("valueDefinition", ValueDefinition);
         }
     }
 }

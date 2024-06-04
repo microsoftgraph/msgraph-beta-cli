@@ -172,7 +172,7 @@ namespace ApiSdk.PrivilegedAccess.Item
         {
             var command = new Command("resources");
             command.Description = "Provides operations to manage the resources property of the microsoft.graph.privilegedAccess entity.";
-            var builder = new ResourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedAccess.Item.Resources.ResourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -200,7 +200,7 @@ namespace ApiSdk.PrivilegedAccess.Item
         {
             var command = new Command("role-assignment-requests");
             command.Description = "Provides operations to manage the roleAssignmentRequests property of the microsoft.graph.privilegedAccess entity.";
-            var builder = new RoleAssignmentRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedAccess.Item.RoleAssignmentRequests.RoleAssignmentRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -227,7 +227,7 @@ namespace ApiSdk.PrivilegedAccess.Item
         {
             var command = new Command("role-assignments");
             command.Description = "Provides operations to manage the roleAssignments property of the microsoft.graph.privilegedAccess entity.";
-            var builder = new RoleAssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedAccess.Item.RoleAssignments.RoleAssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -255,7 +255,7 @@ namespace ApiSdk.PrivilegedAccess.Item
         {
             var command = new Command("role-definitions");
             command.Description = "Provides operations to manage the roleDefinitions property of the microsoft.graph.privilegedAccess entity.";
-            var builder = new RoleDefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedAccess.Item.RoleDefinitions.RoleDefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -282,7 +282,7 @@ namespace ApiSdk.PrivilegedAccess.Item
         {
             var command = new Command("role-settings");
             command.Description = "Provides operations to manage the roleSettings property of the microsoft.graph.privilegedAccess entity.";
-            var builder = new RoleSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedAccess.Item.RoleSettings.RoleSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -302,14 +302,14 @@ namespace ApiSdk.PrivilegedAccess.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedAccessItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.PrivilegedAccessItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrivilegedAccessItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedAccessItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedAccess.Item.PrivilegedAccessItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrivilegedAccessItemRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedAccess/{privilegedAccess%2Did}{?%24expand,%24select}", rawUrl)
@@ -341,11 +341,11 @@ namespace ApiSdk.PrivilegedAccess.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedAccessItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.PrivilegedAccessItemRequestBuilder.PrivilegedAccessItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedAccessItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedAccess.Item.PrivilegedAccessItemRequestBuilder.PrivilegedAccessItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

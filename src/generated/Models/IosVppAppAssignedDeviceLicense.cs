@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// iOS Volume Purchase Program device license assignment. This class does not support Create, Delete, or Update.
     /// </summary>
-    public class IosVppAppAssignedDeviceLicense : IosVppAppAssignedLicense, IParsable
+    public class IosVppAppAssignedDeviceLicense : ApiSdk.Models.IosVppAppAssignedLicense, IParsable
     {
         /// <summary>The device name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosVppAppAssignedDeviceLicense"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosVppAppAssignedDeviceLicense"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosVppAppAssignedDeviceLicense CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosVppAppAssignedDeviceLicense CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosVppAppAssignedDeviceLicense();
+            return new ApiSdk.Models.IosVppAppAssignedDeviceLicense();
         }
         /// <summary>
         /// The deserialization information for the current model

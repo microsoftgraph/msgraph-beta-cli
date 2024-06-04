@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessPackageSubject : Entity, IParsable
+    public class AccessPackageSubject : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Not Supported.</summary>
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
         public string PrincipalName { get; set; }
 #endif
         /// <summary>The lifecycle of the subject user, if a guest. The possible values are: notDefined, notGoverned, governed, unknownFutureValue.</summary>
-        public AccessPackageSubjectLifecycle? SubjectLifecycle { get; set; }
+        public ApiSdk.Models.AccessPackageSubjectLifecycle? SubjectLifecycle { get; set; }
         /// <summary>The resource type of the subject.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -89,12 +89,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageSubject"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageSubject"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageSubject CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessPackageSubject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageSubject();
+            return new ApiSdk.Models.AccessPackageSubject();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -113,7 +113,7 @@ namespace ApiSdk.Models
                 { "objectId", n => { ObjectId = n.GetStringValue(); } },
                 { "onPremisesSecurityIdentifier", n => { OnPremisesSecurityIdentifier = n.GetStringValue(); } },
                 { "principalName", n => { PrincipalName = n.GetStringValue(); } },
-                { "subjectLifecycle", n => { SubjectLifecycle = n.GetEnumValue<AccessPackageSubjectLifecycle>(); } },
+                { "subjectLifecycle", n => { SubjectLifecycle = n.GetEnumValue<ApiSdk.Models.AccessPackageSubjectLifecycle>(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
         }
@@ -134,7 +134,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("objectId", ObjectId);
             writer.WriteStringValue("onPremisesSecurityIdentifier", OnPremisesSecurityIdentifier);
             writer.WriteStringValue("principalName", PrincipalName);
-            writer.WriteEnumValue<AccessPackageSubjectLifecycle>("subjectLifecycle", SubjectLifecycle);
+            writer.WriteEnumValue<ApiSdk.Models.AccessPackageSubjectLifecycle>("subjectLifecycle", SubjectLifecycle);
             writer.WriteStringValue("type", Type);
         }
     }

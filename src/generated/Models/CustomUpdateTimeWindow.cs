@@ -15,7 +15,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The endDay property</summary>
-        public DayOfWeekObject? EndDay { get; set; }
+        public ApiSdk.Models.DayOfWeekObject? EndDay { get; set; }
         /// <summary>End time of the time window</summary>
         public Time? EndTime { get; set; }
         /// <summary>The OdataType property</summary>
@@ -27,11 +27,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The startDay property</summary>
-        public DayOfWeekObject? StartDay { get; set; }
+        public ApiSdk.Models.DayOfWeekObject? StartDay { get; set; }
         /// <summary>Start time of the time window</summary>
         public Time? StartTime { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CustomUpdateTimeWindow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomUpdateTimeWindow"/> and sets the default values.
         /// </summary>
         public CustomUpdateTimeWindow()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomUpdateTimeWindow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomUpdateTimeWindow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomUpdateTimeWindow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomUpdateTimeWindow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomUpdateTimeWindow();
+            return new ApiSdk.Models.CustomUpdateTimeWindow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,10 +55,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "endDay", n => { EndDay = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "endDay", n => { EndDay = n.GetEnumValue<ApiSdk.Models.DayOfWeekObject>(); } },
                 { "endTime", n => { EndTime = n.GetTimeValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "startDay", n => { StartDay = n.GetEnumValue<DayOfWeekObject>(); } },
+                { "startDay", n => { StartDay = n.GetEnumValue<ApiSdk.Models.DayOfWeekObject>(); } },
                 { "startTime", n => { StartTime = n.GetTimeValue(); } },
             };
         }
@@ -69,10 +69,10 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DayOfWeekObject>("endDay", EndDay);
+            writer.WriteEnumValue<ApiSdk.Models.DayOfWeekObject>("endDay", EndDay);
             writer.WriteTimeValue("endTime", EndTime);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DayOfWeekObject>("startDay", StartDay);
+            writer.WriteEnumValue<ApiSdk.Models.DayOfWeekObject>("startDay", StartDay);
             writer.WriteTimeValue("startTime", StartTime);
             writer.WriteAdditionalData(AdditionalData);
         }

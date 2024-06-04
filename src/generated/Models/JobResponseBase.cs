@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class JobResponseBase : Entity, IParsable
+    public class JobResponseBase : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The creationDateTime property</summary>
@@ -17,10 +17,10 @@ namespace ApiSdk.Models
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ClassificationError? Error { get; set; }
+        public ApiSdk.Models.ClassificationError? Error { get; set; }
 #nullable restore
 #else
-        public ClassificationError Error { get; set; }
+        public ApiSdk.Models.ClassificationError Error { get; set; }
 #endif
         /// <summary>The startDateTime property</summary>
         public DateTimeOffset? StartDateTime { get; set; }
@@ -59,18 +59,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="JobResponseBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.JobResponseBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new JobResponseBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.JobResponseBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.classificationJobResponse" => new ClassificationJobResponse(),
-                "#microsoft.graph.dlpEvaluatePoliciesJobResponse" => new DlpEvaluatePoliciesJobResponse(),
-                "#microsoft.graph.evaluateLabelJobResponse" => new EvaluateLabelJobResponse(),
-                _ => new JobResponseBase(),
+                "#microsoft.graph.classificationJobResponse" => new ApiSdk.Models.ClassificationJobResponse(),
+                "#microsoft.graph.dlpEvaluatePoliciesJobResponse" => new ApiSdk.Models.DlpEvaluatePoliciesJobResponse(),
+                "#microsoft.graph.evaluateLabelJobResponse" => new ApiSdk.Models.EvaluateLabelJobResponse(),
+                _ => new ApiSdk.Models.JobResponseBase(),
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
             {
                 { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                { "error", n => { Error = n.GetObjectValue<ClassificationError>(ClassificationError.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<ApiSdk.Models.ClassificationError>(ApiSdk.Models.ClassificationError.CreateFromDiscriminatorValue); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
@@ -101,7 +101,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteObjectValue<ClassificationError>("error", Error);
+            writer.WriteObjectValue<ApiSdk.Models.ClassificationError>("error", Error);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("tenantId", TenantId);

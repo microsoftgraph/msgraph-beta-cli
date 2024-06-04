@@ -33,7 +33,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
         {
             var command = new Command("approve-fota-apps");
             command.Description = "Provides operations to call the approveFotaApps method.";
-            var builder = new ApproveFotaAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ZebraFotaConnector.ApproveFotaApps.ApproveFotaAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
         {
             var command = new Command("connect");
             command.Description = "Provides operations to call the connect method.";
-            var builder = new ConnectRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ZebraFotaConnector.Connect.ConnectRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -96,7 +96,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
         {
             var command = new Command("disconnect");
             command.Description = "Provides operations to call the disconnect method.";
-            var builder = new DisconnectRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ZebraFotaConnector.Disconnect.DisconnectRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -159,7 +159,7 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
         {
             var command = new Command("has-active-deployments");
             command.Description = "Provides operations to call the hasActiveDeployments method.";
-            var builder = new HasActiveDeploymentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ZebraFotaConnector.HasActiveDeployments.HasActiveDeploymentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -214,14 +214,14 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ZebraFotaConnectorRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ZebraFotaConnectorRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ZebraFotaConnectorRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/zebraFotaConnector{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ZebraFotaConnectorRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ZebraFotaConnector.ZebraFotaConnectorRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ZebraFotaConnectorRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/zebraFotaConnector{?%24expand,%24select}", rawUrl)
@@ -253,11 +253,11 @@ namespace ApiSdk.DeviceManagement.ZebraFotaConnector
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ZebraFotaConnectorRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ZebraFotaConnector.ZebraFotaConnectorRequestBuilder.ZebraFotaConnectorRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ZebraFotaConnectorRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ZebraFotaConnector.ZebraFotaConnectorRequestBuilder.ZebraFotaConnectorRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

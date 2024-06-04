@@ -13,10 +13,10 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of deployment status for each instance of a management action. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementActionDeploymentStatus>? Statuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus>? Statuses { get; set; }
 #nullable restore
 #else
-        public List<ManagementActionDeploymentStatus> Statuses { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus> Statuses { get; set; }
 #endif
         /// <summary>The identifier for the tenant group that is associated with the management action. Required. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,12 +37,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementActionTenantDeploymentStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementActionTenantDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementActionTenantDeploymentStatus();
+            return new ApiSdk.Models.ManagedTenants.ManagementActionTenantDeploymentStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<ManagementActionDeploymentStatus>(ManagementActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "statuses", n => { Statuses = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus>(ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "tenantGroupId", n => { TenantGroupId = n.GetStringValue(); } },
                 { "tenantId", n => { TenantId = n.GetStringValue(); } },
             };
@@ -65,7 +65,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ManagementActionDeploymentStatus>("statuses", Statuses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementActionDeploymentStatus>("statuses", Statuses);
             writer.WriteStringValue("tenantGroupId", TenantGroupId);
             writer.WriteStringValue("tenantId", TenantId);
         }

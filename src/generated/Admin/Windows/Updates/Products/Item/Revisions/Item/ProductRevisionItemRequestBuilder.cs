@@ -31,7 +31,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
         {
             var command = new Command("catalog-entry");
             command.Description = "Provides operations to manage the catalogEntry property of the microsoft.graph.windowsUpdates.productRevision entity.";
-            var builder = new CatalogEntryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.CatalogEntry.CatalogEntryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -149,7 +149,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
         {
             var command = new Command("knowledge-base-article");
             command.Description = "Provides operations to manage the knowledgeBaseArticle property of the microsoft.graph.windowsUpdates.productRevision entity.";
-            var builder = new KnowledgeBaseArticleRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.KnowledgeBaseArticle.KnowledgeBaseArticleRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -196,7 +196,7 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.WindowsUpdates.ProductRevision>(ApiSdk.Models.WindowsUpdates.ProductRevision.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -218,14 +218,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductRevisionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.ProductRevisionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ProductRevisionItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/revisions/{productRevision%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ProductRevisionItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.ProductRevisionItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ProductRevisionItemRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/revisions/{productRevision%2Did}{?%24expand,%24select}", rawUrl)
@@ -257,11 +257,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductRevisionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.ProductRevisionItemRequestBuilder.ProductRevisionItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ProductRevisionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item.ProductRevisionItemRequestBuilder.ProductRevisionItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -277,11 +277,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.Revisions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ProductRevision body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.ProductRevision body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ProductRevision body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.WindowsUpdates.ProductRevision body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

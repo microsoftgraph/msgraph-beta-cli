@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The user role type to assign to license. Possible values are: student, teacher, faculty.</summary>
-        public EducationUserRole? AppliesTo { get; set; }
+        public ApiSdk.Models.EducationUserRole? AppliesTo { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public List<string> SkuIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationSynchronizationLicenseAssignment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationSynchronizationLicenseAssignment"/> and sets the default values.
         /// </summary>
         public EducationSynchronizationLicenseAssignment()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationSynchronizationLicenseAssignment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationSynchronizationLicenseAssignment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationSynchronizationLicenseAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationSynchronizationLicenseAssignment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationSynchronizationLicenseAssignment();
+            return new ApiSdk.Models.EducationSynchronizationLicenseAssignment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appliesTo", n => { AppliesTo = n.GetEnumValue<EducationUserRole>(); } },
+                { "appliesTo", n => { AppliesTo = n.GetEnumValue<ApiSdk.Models.EducationUserRole>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "skuIds", n => { SkuIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<EducationUserRole>("appliesTo", AppliesTo);
+            writer.WriteEnumValue<ApiSdk.Models.EducationUserRole>("appliesTo", AppliesTo);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("skuIds", SkuIds);
             writer.WriteAdditionalData(AdditionalData);

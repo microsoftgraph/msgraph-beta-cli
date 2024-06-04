@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ItemAddress : ItemFacet, IParsable
+    public class ItemAddress : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PhysicalAddress? Detail { get; set; }
+        public ApiSdk.Models.PhysicalAddress? Detail { get; set; }
 #nullable restore
 #else
-        public PhysicalAddress Detail { get; set; }
+        public ApiSdk.Models.PhysicalAddress Detail { get; set; }
 #endif
         /// <summary>Friendly name the user has assigned to this address.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -35,7 +35,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.GeoCoordinates GeoCoordinates { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ItemAddress"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ItemAddress"/> and sets the default values.
         /// </summary>
         public ItemAddress() : base()
         {
@@ -44,12 +44,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemAddress"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemAddress"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ItemAddress CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ItemAddress CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ItemAddress();
+            return new ApiSdk.Models.ItemAddress();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "detail", n => { Detail = n.GetObjectValue<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue); } },
+                { "detail", n => { Detail = n.GetObjectValue<ApiSdk.Models.PhysicalAddress>(ApiSdk.Models.PhysicalAddress.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "geoCoordinates", n => { GeoCoordinates = n.GetObjectValue<ApiSdk.Models.GeoCoordinates>(ApiSdk.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
             };
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PhysicalAddress>("detail", Detail);
+            writer.WriteObjectValue<ApiSdk.Models.PhysicalAddress>("detail", Detail);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.GeoCoordinates>("geoCoordinates", GeoCoordinates);
         }

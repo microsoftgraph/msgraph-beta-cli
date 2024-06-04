@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PlatformCredentialAuthenticationMethod : AuthenticationMethod, IParsable
+    public class PlatformCredentialAuthenticationMethod : ApiSdk.Models.AuthenticationMethod, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time that this Platform Credential Key was registered.</summary>
@@ -29,11 +29,11 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>Key strength of this Platform Credential key. Possible values are: normal, weak, unknown.</summary>
-        public AuthenticationMethodKeyStrength? KeyStrength { get; set; }
+        public ApiSdk.Models.AuthenticationMethodKeyStrength? KeyStrength { get; set; }
         /// <summary>Platform on which this Platform Credential key is present. Possible values are: unknown, windows, macOS,iOS, android, linux.</summary>
-        public AuthenticationMethodPlatform? Platform { get; set; }
+        public ApiSdk.Models.AuthenticationMethodPlatform? Platform { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PlatformCredentialAuthenticationMethod"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlatformCredentialAuthenticationMethod"/> and sets the default values.
         /// </summary>
         public PlatformCredentialAuthenticationMethod() : base()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlatformCredentialAuthenticationMethod"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlatformCredentialAuthenticationMethod"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PlatformCredentialAuthenticationMethod CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PlatformCredentialAuthenticationMethod CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlatformCredentialAuthenticationMethod();
+            return new ApiSdk.Models.PlatformCredentialAuthenticationMethod();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace ApiSdk.Models
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "device", n => { Device = n.GetObjectValue<ApiSdk.Models.Device>(ApiSdk.Models.Device.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "keyStrength", n => { KeyStrength = n.GetEnumValue<AuthenticationMethodKeyStrength>(); } },
-                { "platform", n => { Platform = n.GetEnumValue<AuthenticationMethodPlatform>(); } },
+                { "keyStrength", n => { KeyStrength = n.GetEnumValue<ApiSdk.Models.AuthenticationMethodKeyStrength>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.AuthenticationMethodPlatform>(); } },
             };
         }
         /// <summary>
@@ -75,8 +75,8 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteObjectValue<ApiSdk.Models.Device>("device", Device);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<AuthenticationMethodKeyStrength>("keyStrength", KeyStrength);
-            writer.WriteEnumValue<AuthenticationMethodPlatform>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationMethodKeyStrength>("keyStrength", KeyStrength);
+            writer.WriteEnumValue<ApiSdk.Models.AuthenticationMethodPlatform>("platform", Platform);
         }
     }
 }

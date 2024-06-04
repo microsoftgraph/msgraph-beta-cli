@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS wired network configuration profile.
     /// </summary>
-    public class MacOSWiredNetworkConfiguration : DeviceConfiguration, IParsable
+    public class MacOSWiredNetworkConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Authentication Method when EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.</summary>
-        public WiFiAuthenticationMethod? AuthenticationMethod { get; set; }
+        public ApiSdk.Models.WiFiAuthenticationMethod? AuthenticationMethod { get; set; }
         /// <summary>EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type. Possible values are: noProtectedAccessCredential, useProtectedAccessCredential, useProtectedAccessCredentialAndProvision, useProtectedAccessCredentialAndProvisionAnonymously.</summary>
         public ApiSdk.Models.EapFastConfiguration? EapFastConfiguration { get; set; }
         /// <summary>Extensible Authentication Protocol (EAP) configuration types.</summary>
@@ -28,13 +28,13 @@ namespace ApiSdk.Models
         /// <summary>Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MacOSCertificateProfileBase? IdentityCertificateForClientAuthentication { get; set; }
+        public ApiSdk.Models.MacOSCertificateProfileBase? IdentityCertificateForClientAuthentication { get; set; }
 #nullable restore
 #else
-        public MacOSCertificateProfileBase IdentityCertificateForClientAuthentication { get; set; }
+        public ApiSdk.Models.MacOSCertificateProfileBase IdentityCertificateForClientAuthentication { get; set; }
 #endif
         /// <summary>Apple network interface type.</summary>
-        public WiredNetworkInterface? NetworkInterface { get; set; }
+        public ApiSdk.Models.WiredNetworkInterface? NetworkInterface { get; set; }
         /// <summary>Network Name</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -44,14 +44,14 @@ namespace ApiSdk.Models
         public string NetworkName { get; set; }
 #endif
         /// <summary>Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.</summary>
-        public NonEapAuthenticationMethodForEapTtlsType? NonEapAuthenticationMethodForEapTtls { get; set; }
+        public ApiSdk.Models.NonEapAuthenticationMethodForEapTtlsType? NonEapAuthenticationMethodForEapTtls { get; set; }
         /// <summary>Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MacOSTrustedRootCertificate? RootCertificateForServerValidation { get; set; }
+        public ApiSdk.Models.MacOSTrustedRootCertificate? RootCertificateForServerValidation { get; set; }
 #nullable restore
 #else
-        public MacOSTrustedRootCertificate RootCertificateForServerValidation { get; set; }
+        public ApiSdk.Models.MacOSTrustedRootCertificate RootCertificateForServerValidation { get; set; }
 #endif
         /// <summary>Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         public List<string> TrustedServerCertificateNames { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOSWiredNetworkConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSWiredNetworkConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSWiredNetworkConfiguration() : base()
         {
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSWiredNetworkConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSWiredNetworkConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSWiredNetworkConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSWiredNetworkConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSWiredNetworkConfiguration();
+            return new ApiSdk.Models.MacOSWiredNetworkConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,15 +86,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<WiFiAuthenticationMethod>(); } },
-                { "eapFastConfiguration", n => { EapFastConfiguration = n.GetEnumValue<EapFastConfiguration>(); } },
-                { "eapType", n => { EapType = n.GetEnumValue<EapType>(); } },
+                { "authenticationMethod", n => { AuthenticationMethod = n.GetEnumValue<ApiSdk.Models.WiFiAuthenticationMethod>(); } },
+                { "eapFastConfiguration", n => { EapFastConfiguration = n.GetEnumValue<ApiSdk.Models.EapFastConfiguration>(); } },
+                { "eapType", n => { EapType = n.GetEnumValue<ApiSdk.Models.EapType>(); } },
                 { "enableOuterIdentityPrivacy", n => { EnableOuterIdentityPrivacy = n.GetStringValue(); } },
-                { "identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<MacOSCertificateProfileBase>(MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
-                { "networkInterface", n => { NetworkInterface = n.GetEnumValue<WiredNetworkInterface>(); } },
+                { "identityCertificateForClientAuthentication", n => { IdentityCertificateForClientAuthentication = n.GetObjectValue<ApiSdk.Models.MacOSCertificateProfileBase>(ApiSdk.Models.MacOSCertificateProfileBase.CreateFromDiscriminatorValue); } },
+                { "networkInterface", n => { NetworkInterface = n.GetEnumValue<ApiSdk.Models.WiredNetworkInterface>(); } },
                 { "networkName", n => { NetworkName = n.GetStringValue(); } },
-                { "nonEapAuthenticationMethodForEapTtls", n => { NonEapAuthenticationMethodForEapTtls = n.GetEnumValue<NonEapAuthenticationMethodForEapTtlsType>(); } },
-                { "rootCertificateForServerValidation", n => { RootCertificateForServerValidation = n.GetObjectValue<MacOSTrustedRootCertificate>(MacOSTrustedRootCertificate.CreateFromDiscriminatorValue); } },
+                { "nonEapAuthenticationMethodForEapTtls", n => { NonEapAuthenticationMethodForEapTtls = n.GetEnumValue<ApiSdk.Models.NonEapAuthenticationMethodForEapTtlsType>(); } },
+                { "rootCertificateForServerValidation", n => { RootCertificateForServerValidation = n.GetObjectValue<ApiSdk.Models.MacOSTrustedRootCertificate>(ApiSdk.Models.MacOSTrustedRootCertificate.CreateFromDiscriminatorValue); } },
                 { "trustedServerCertificateNames", n => { TrustedServerCertificateNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -106,15 +106,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<WiFiAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
-            writer.WriteEnumValue<EapFastConfiguration>("eapFastConfiguration", EapFastConfiguration);
-            writer.WriteEnumValue<EapType>("eapType", EapType);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiAuthenticationMethod>("authenticationMethod", AuthenticationMethod);
+            writer.WriteEnumValue<ApiSdk.Models.EapFastConfiguration>("eapFastConfiguration", EapFastConfiguration);
+            writer.WriteEnumValue<ApiSdk.Models.EapType>("eapType", EapType);
             writer.WriteStringValue("enableOuterIdentityPrivacy", EnableOuterIdentityPrivacy);
-            writer.WriteObjectValue<MacOSCertificateProfileBase>("identityCertificateForClientAuthentication", IdentityCertificateForClientAuthentication);
-            writer.WriteEnumValue<WiredNetworkInterface>("networkInterface", NetworkInterface);
+            writer.WriteObjectValue<ApiSdk.Models.MacOSCertificateProfileBase>("identityCertificateForClientAuthentication", IdentityCertificateForClientAuthentication);
+            writer.WriteEnumValue<ApiSdk.Models.WiredNetworkInterface>("networkInterface", NetworkInterface);
             writer.WriteStringValue("networkName", NetworkName);
-            writer.WriteEnumValue<NonEapAuthenticationMethodForEapTtlsType>("nonEapAuthenticationMethodForEapTtls", NonEapAuthenticationMethodForEapTtls);
-            writer.WriteObjectValue<MacOSTrustedRootCertificate>("rootCertificateForServerValidation", RootCertificateForServerValidation);
+            writer.WriteEnumValue<ApiSdk.Models.NonEapAuthenticationMethodForEapTtlsType>("nonEapAuthenticationMethodForEapTtls", NonEapAuthenticationMethodForEapTtls);
+            writer.WriteObjectValue<ApiSdk.Models.MacOSTrustedRootCertificate>("rootCertificateForServerValidation", RootCertificateForServerValidation);
             writer.WriteCollectionOfPrimitiveValues<string>("trustedServerCertificateNames", TrustedServerCertificateNames);
         }
     }

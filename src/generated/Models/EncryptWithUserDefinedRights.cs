@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EncryptWithUserDefinedRights : EncryptContent, IParsable
+    public class EncryptWithUserDefinedRights : ApiSdk.Models.EncryptContent, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The allowAdHocPermissions property</summary>
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string DecryptionRightsManagementTemplateId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EncryptWithUserDefinedRights"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EncryptWithUserDefinedRights"/> and sets the default values.
         /// </summary>
         public EncryptWithUserDefinedRights() : base()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptWithUserDefinedRights"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EncryptWithUserDefinedRights"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EncryptWithUserDefinedRights CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EncryptWithUserDefinedRights CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptWithUserDefinedRights();
+            return new ApiSdk.Models.EncryptWithUserDefinedRights();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,59 +7,59 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ExternalUsersSelfServiceSignUpEventsFlow : AuthenticationEventsFlow, IParsable
+    public class ExternalUsersSelfServiceSignUpEventsFlow : ApiSdk.Models.AuthenticationEventsFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration for what to invoke when attributes are ready to be collected from the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnAttributeCollectionHandler? OnAttributeCollection { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionHandler? OnAttributeCollection { get; set; }
 #nullable restore
 #else
-        public OnAttributeCollectionHandler OnAttributeCollection { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionHandler OnAttributeCollection { get; set; }
 #endif
         /// <summary>The configuration for what to invoke when attribution collection has started.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnAttributeCollectionStartHandler? OnAttributeCollectionStart { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionStartHandler? OnAttributeCollectionStart { get; set; }
 #nullable restore
 #else
-        public OnAttributeCollectionStartHandler OnAttributeCollectionStart { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionStartHandler OnAttributeCollectionStart { get; set; }
 #endif
         /// <summary>The configuration for what to invoke when attributes have been submitted at the end of attribution collection.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnAttributeCollectionSubmitHandler? OnAttributeCollectionSubmit { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionSubmitHandler? OnAttributeCollectionSubmit { get; set; }
 #nullable restore
 #else
-        public OnAttributeCollectionSubmitHandler OnAttributeCollectionSubmit { get; set; }
+        public ApiSdk.Models.OnAttributeCollectionSubmitHandler OnAttributeCollectionSubmit { get; set; }
 #endif
         /// <summary>Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnAuthenticationMethodLoadStartHandler? OnAuthenticationMethodLoadStart { get; set; }
+        public ApiSdk.Models.OnAuthenticationMethodLoadStartHandler? OnAuthenticationMethodLoadStart { get; set; }
 #nullable restore
 #else
-        public OnAuthenticationMethodLoadStartHandler OnAuthenticationMethodLoadStart { get; set; }
+        public ApiSdk.Models.OnAuthenticationMethodLoadStartHandler OnAuthenticationMethodLoadStart { get; set; }
 #endif
         /// <summary>Required. The configuration for what to invoke when an authentication flow is ready to be initiated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnInteractiveAuthFlowStartHandler? OnInteractiveAuthFlowStart { get; set; }
+        public ApiSdk.Models.OnInteractiveAuthFlowStartHandler? OnInteractiveAuthFlowStart { get; set; }
 #nullable restore
 #else
-        public OnInteractiveAuthFlowStartHandler OnInteractiveAuthFlowStart { get; set; }
+        public ApiSdk.Models.OnInteractiveAuthFlowStartHandler OnInteractiveAuthFlowStart { get; set; }
 #endif
         /// <summary>The configuration for what to invoke during user creation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public OnUserCreateStartHandler? OnUserCreateStart { get; set; }
+        public ApiSdk.Models.OnUserCreateStartHandler? OnUserCreateStart { get; set; }
 #nullable restore
 #else
-        public OnUserCreateStartHandler OnUserCreateStart { get; set; }
+        public ApiSdk.Models.OnUserCreateStartHandler OnUserCreateStart { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ExternalUsersSelfServiceSignUpEventsFlow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExternalUsersSelfServiceSignUpEventsFlow"/> and sets the default values.
         /// </summary>
         public ExternalUsersSelfServiceSignUpEventsFlow() : base()
         {
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExternalUsersSelfServiceSignUpEventsFlow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalUsersSelfServiceSignUpEventsFlow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ExternalUsersSelfServiceSignUpEventsFlow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ExternalUsersSelfServiceSignUpEventsFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExternalUsersSelfServiceSignUpEventsFlow();
+            return new ApiSdk.Models.ExternalUsersSelfServiceSignUpEventsFlow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "onAttributeCollection", n => { OnAttributeCollection = n.GetObjectValue<OnAttributeCollectionHandler>(OnAttributeCollectionHandler.CreateFromDiscriminatorValue); } },
-                { "onAttributeCollectionStart", n => { OnAttributeCollectionStart = n.GetObjectValue<OnAttributeCollectionStartHandler>(OnAttributeCollectionStartHandler.CreateFromDiscriminatorValue); } },
-                { "onAttributeCollectionSubmit", n => { OnAttributeCollectionSubmit = n.GetObjectValue<OnAttributeCollectionSubmitHandler>(OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
-                { "onAuthenticationMethodLoadStart", n => { OnAuthenticationMethodLoadStart = n.GetObjectValue<OnAuthenticationMethodLoadStartHandler>(OnAuthenticationMethodLoadStartHandler.CreateFromDiscriminatorValue); } },
-                { "onInteractiveAuthFlowStart", n => { OnInteractiveAuthFlowStart = n.GetObjectValue<OnInteractiveAuthFlowStartHandler>(OnInteractiveAuthFlowStartHandler.CreateFromDiscriminatorValue); } },
-                { "onUserCreateStart", n => { OnUserCreateStart = n.GetObjectValue<OnUserCreateStartHandler>(OnUserCreateStartHandler.CreateFromDiscriminatorValue); } },
+                { "onAttributeCollection", n => { OnAttributeCollection = n.GetObjectValue<ApiSdk.Models.OnAttributeCollectionHandler>(ApiSdk.Models.OnAttributeCollectionHandler.CreateFromDiscriminatorValue); } },
+                { "onAttributeCollectionStart", n => { OnAttributeCollectionStart = n.GetObjectValue<ApiSdk.Models.OnAttributeCollectionStartHandler>(ApiSdk.Models.OnAttributeCollectionStartHandler.CreateFromDiscriminatorValue); } },
+                { "onAttributeCollectionSubmit", n => { OnAttributeCollectionSubmit = n.GetObjectValue<ApiSdk.Models.OnAttributeCollectionSubmitHandler>(ApiSdk.Models.OnAttributeCollectionSubmitHandler.CreateFromDiscriminatorValue); } },
+                { "onAuthenticationMethodLoadStart", n => { OnAuthenticationMethodLoadStart = n.GetObjectValue<ApiSdk.Models.OnAuthenticationMethodLoadStartHandler>(ApiSdk.Models.OnAuthenticationMethodLoadStartHandler.CreateFromDiscriminatorValue); } },
+                { "onInteractiveAuthFlowStart", n => { OnInteractiveAuthFlowStart = n.GetObjectValue<ApiSdk.Models.OnInteractiveAuthFlowStartHandler>(ApiSdk.Models.OnInteractiveAuthFlowStartHandler.CreateFromDiscriminatorValue); } },
+                { "onUserCreateStart", n => { OnUserCreateStart = n.GetObjectValue<ApiSdk.Models.OnUserCreateStartHandler>(ApiSdk.Models.OnUserCreateStartHandler.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -99,12 +99,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<OnAttributeCollectionHandler>("onAttributeCollection", OnAttributeCollection);
-            writer.WriteObjectValue<OnAttributeCollectionStartHandler>("onAttributeCollectionStart", OnAttributeCollectionStart);
-            writer.WriteObjectValue<OnAttributeCollectionSubmitHandler>("onAttributeCollectionSubmit", OnAttributeCollectionSubmit);
-            writer.WriteObjectValue<OnAuthenticationMethodLoadStartHandler>("onAuthenticationMethodLoadStart", OnAuthenticationMethodLoadStart);
-            writer.WriteObjectValue<OnInteractiveAuthFlowStartHandler>("onInteractiveAuthFlowStart", OnInteractiveAuthFlowStart);
-            writer.WriteObjectValue<OnUserCreateStartHandler>("onUserCreateStart", OnUserCreateStart);
+            writer.WriteObjectValue<ApiSdk.Models.OnAttributeCollectionHandler>("onAttributeCollection", OnAttributeCollection);
+            writer.WriteObjectValue<ApiSdk.Models.OnAttributeCollectionStartHandler>("onAttributeCollectionStart", OnAttributeCollectionStart);
+            writer.WriteObjectValue<ApiSdk.Models.OnAttributeCollectionSubmitHandler>("onAttributeCollectionSubmit", OnAttributeCollectionSubmit);
+            writer.WriteObjectValue<ApiSdk.Models.OnAuthenticationMethodLoadStartHandler>("onAuthenticationMethodLoadStart", OnAuthenticationMethodLoadStart);
+            writer.WriteObjectValue<ApiSdk.Models.OnInteractiveAuthFlowStartHandler>("onInteractiveAuthFlowStart", OnInteractiveAuthFlowStart);
+            writer.WriteObjectValue<ApiSdk.Models.OnUserCreateStartHandler>("onUserCreateStart", OnUserCreateStart);
         }
     }
 }

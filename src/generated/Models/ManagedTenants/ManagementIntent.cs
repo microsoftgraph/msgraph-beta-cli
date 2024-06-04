@@ -23,20 +23,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The collection of management templates associated with the management intent. Optional. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateDetailedInfo>? ManagementTemplates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateDetailedInfo>? ManagementTemplates { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateDetailedInfo> ManagementTemplates { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateDetailedInfo> ManagementTemplates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementIntent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementIntent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementIntent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementIntent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementIntent();
+            return new ApiSdk.Models.ManagedTenants.ManagementIntent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Models.ManagedTenants
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isGlobal", n => { IsGlobal = n.GetBoolValue(); } },
-                { "managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ManagementTemplateDetailedInfo>(ManagementTemplateDetailedInfo.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "managementTemplates", n => { ManagementTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateDetailedInfo>(ApiSdk.Models.ManagedTenants.ManagementTemplateDetailedInfo.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -61,7 +61,7 @@ namespace ApiSdk.Models.ManagedTenants
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isGlobal", IsGlobal);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateDetailedInfo>("managementTemplates", ManagementTemplates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateDetailedInfo>("managementTemplates", ManagementTemplates);
         }
     }
 }

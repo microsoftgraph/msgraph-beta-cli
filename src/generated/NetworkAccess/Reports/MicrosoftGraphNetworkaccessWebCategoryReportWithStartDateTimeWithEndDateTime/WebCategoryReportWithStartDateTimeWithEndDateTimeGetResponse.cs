@@ -9,26 +9,26 @@ using System;
 namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime
 {
     #pragma warning disable CS1591
-    public class WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WebCategoriesSummary>? Value { get; set; }
+        public List<ApiSdk.Models.Networkaccess.WebCategoriesSummary>? Value { get; set; }
 #nullable restore
 #else
-        public List<WebCategoriesSummary> Value { get; set; }
+        public List<ApiSdk.Models.Networkaccess.WebCategoriesSummary> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime.WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime.WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse();
+            return new ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryReportWithStartDateTimeWithEndDateTime.WebCategoryReportWithStartDateTimeWithEndDateTimeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryRep
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<WebCategoriesSummary>(WebCategoriesSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.WebCategoriesSummary>(ApiSdk.Models.Networkaccess.WebCategoriesSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.NetworkAccess.Reports.MicrosoftGraphNetworkaccessWebCategoryRep
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<WebCategoriesSummary>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.WebCategoriesSummary>("value", Value);
         }
     }
 }

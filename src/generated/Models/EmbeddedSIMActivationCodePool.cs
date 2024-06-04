@@ -9,35 +9,35 @@ namespace ApiSdk.Models
     /// <summary>
     /// A pool represents a group of embedded SIM activation codes.
     /// </summary>
-    public class EmbeddedSIMActivationCodePool : Entity, IParsable
+    public class EmbeddedSIMActivationCodePool : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The total count of activation codes which belong to this pool.</summary>
         public int? ActivationCodeCount { get; set; }
         /// <summary>The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EmbeddedSIMActivationCode>? ActivationCodes { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMActivationCode>? ActivationCodes { get; set; }
 #nullable restore
 #else
-        public List<EmbeddedSIMActivationCode> ActivationCodes { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMActivationCode> ActivationCodes { get; set; }
 #endif
         /// <summary>Navigational property to a list of targets to which this pool is assigned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EmbeddedSIMActivationCodePoolAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMActivationCodePoolAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<EmbeddedSIMActivationCodePoolAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMActivationCodePoolAssignment> Assignments { get; set; }
 #endif
         /// <summary>The time the embedded SIM activation code pool was created. Generated service side.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Navigational property to a list of device states for this pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EmbeddedSIMDeviceState>? DeviceStates { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMDeviceState>? DeviceStates { get; set; }
 #nullable restore
 #else
-        public List<EmbeddedSIMDeviceState> DeviceStates { get; set; }
+        public List<ApiSdk.Models.EmbeddedSIMDeviceState> DeviceStates { get; set; }
 #endif
         /// <summary>The admin defined name of the embedded SIM activation code pool.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EmbeddedSIMActivationCodePool"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EmbeddedSIMActivationCodePool"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EmbeddedSIMActivationCodePool CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EmbeddedSIMActivationCodePool CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EmbeddedSIMActivationCodePool();
+            return new ApiSdk.Models.EmbeddedSIMActivationCodePool();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,10 +68,10 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "activationCodeCount", n => { ActivationCodeCount = n.GetIntValue(); } },
-                { "activationCodes", n => { ActivationCodes = n.GetCollectionOfObjectValues<EmbeddedSIMActivationCode>(EmbeddedSIMActivationCode.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<EmbeddedSIMActivationCodePoolAssignment>(EmbeddedSIMActivationCodePoolAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activationCodes", n => { ActivationCodes = n.GetCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMActivationCode>(ApiSdk.Models.EmbeddedSIMActivationCode.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMActivationCodePoolAssignment>(ApiSdk.Models.EmbeddedSIMActivationCodePoolAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<EmbeddedSIMDeviceState>(EmbeddedSIMDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMDeviceState>(ApiSdk.Models.EmbeddedSIMDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
             };
@@ -85,10 +85,10 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("activationCodeCount", ActivationCodeCount);
-            writer.WriteCollectionOfObjectValues<EmbeddedSIMActivationCode>("activationCodes", ActivationCodes);
-            writer.WriteCollectionOfObjectValues<EmbeddedSIMActivationCodePoolAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMActivationCode>("activationCodes", ActivationCodes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMActivationCodePoolAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteCollectionOfObjectValues<EmbeddedSIMDeviceState>("deviceStates", DeviceStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EmbeddedSIMDeviceState>("deviceStates", DeviceStates);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
         }

@@ -40,7 +40,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("alerts");
             command.Description = "Provides operations to manage the alerts property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new AlertsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Alerts.AlertsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -67,7 +67,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("connectivity");
             command.Description = "Provides operations to manage the connectivity property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new ConnectivityRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.ConnectivityRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildBranchesNavCommand());
@@ -93,7 +93,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("filtering-policies");
             command.Description = "Provides operations to manage the filteringPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new FilteringPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.FilteringPolicies.FilteringPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -120,7 +120,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("filtering-profiles");
             command.Description = "Provides operations to manage the filteringProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new FilteringProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.FilteringProfiles.FilteringProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -147,7 +147,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("forwarding-policies");
             command.Description = "Provides operations to manage the forwardingPolicies property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new ForwardingPoliciesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.ForwardingPolicies.ForwardingPoliciesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -174,7 +174,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("forwarding-profiles");
             command.Description = "Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new ForwardingProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.ForwardingProfiles.ForwardingProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -247,7 +247,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("logs");
             command.Description = "Provides operations to manage the logs property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new LogsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Logs.LogsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -273,7 +273,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("microsoft-graph-networkaccess-onboard");
             command.Description = "Provides operations to call the onboard method.";
-            var builder = new MicrosoftGraphNetworkaccessOnboardRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.MicrosoftGraphNetworkaccessOnboard.MicrosoftGraphNetworkaccessOnboardRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -308,7 +308,7 @@ namespace ApiSdk.NetworkAccess
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<NetworkAccessRoot>(NetworkAccessRoot.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.NetworkAccessRoot>(ApiSdk.Models.Networkaccess.NetworkAccessRoot.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -335,7 +335,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("reports");
             command.Description = "Provides operations to manage the reports property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new ReportsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Reports.ReportsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -371,7 +371,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildConditionalAccessNavCommand());
@@ -399,7 +399,7 @@ namespace ApiSdk.NetworkAccess
         {
             var command = new Command("tenant-status");
             command.Description = "Provides operations to manage the tenantStatus property of the microsoft.graph.networkaccess.networkAccessRoot entity.";
-            var builder = new TenantStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.TenantStatus.TenantStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -411,14 +411,14 @@ namespace ApiSdk.NetworkAccess
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="NetworkAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.NetworkAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public NetworkAccessRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="NetworkAccessRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.NetworkAccessRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public NetworkAccessRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess{?%24expand,%24select}", rawUrl)
@@ -431,11 +431,11 @@ namespace ApiSdk.NetworkAccess
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<NetworkAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.NetworkAccessRequestBuilder.NetworkAccessRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<NetworkAccessRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.NetworkAccessRequestBuilder.NetworkAccessRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -451,11 +451,11 @@ namespace ApiSdk.NetworkAccess
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(NetworkAccessRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.NetworkAccessRoot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(NetworkAccessRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.NetworkAccessRoot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

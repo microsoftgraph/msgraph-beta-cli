@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity represents a string value of a multi-line text box presentation on a policy definition.
     /// </summary>
-    public class GroupPolicyPresentationValueMultiText : GroupPolicyPresentationValue, IParsable
+    public class GroupPolicyPresentationValueMultiText : ApiSdk.Models.GroupPolicyPresentationValue, IParsable
     {
         /// <summary>A collection of non-empty strings for the associated presentation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationValueMultiText"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationValueMultiText"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationValueMultiText CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationValueMultiText CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationValueMultiText();
+            return new ApiSdk.Models.GroupPolicyPresentationValueMultiText();
         }
         /// <summary>
         /// The deserialization information for the current model

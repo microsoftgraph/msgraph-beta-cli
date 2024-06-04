@@ -14,7 +14,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The approvalSource property</summary>
-        public OperationApprovalSource? ApprovalSource { get; set; }
+        public ApiSdk.Models.OperationApprovalSource? ApprovalSource { get; set; }
         /// <summary>The justification property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -24,7 +24,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
         public string Justification { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CancelApprovalPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval.CancelApprovalPostRequestBody"/> and sets the default values.
         /// </summary>
         public CancelApprovalPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CancelApprovalPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval.CancelApprovalPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CancelApprovalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval.CancelApprovalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CancelApprovalPostRequestBody();
+            return new ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval.CancelApprovalPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approvalSource", n => { ApprovalSource = n.GetEnumValue<OperationApprovalSource>(); } },
+                { "approvalSource", n => { ApprovalSource = n.GetEnumValue<ApiSdk.Models.OperationApprovalSource>(); } },
                 { "justification", n => { Justification = n.GetStringValue(); } },
             };
         }
@@ -59,7 +59,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.Item.CancelApproval
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<OperationApprovalSource>("approvalSource", ApprovalSource);
+            writer.WriteEnumValue<ApiSdk.Models.OperationApprovalSource>("approvalSource", ApprovalSource);
             writer.WriteStringValue("justification", Justification);
             writer.WriteAdditionalData(AdditionalData);
         }

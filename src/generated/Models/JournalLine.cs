@@ -90,7 +90,7 @@ namespace ApiSdk.Models
         /// <summary>The postingDate property</summary>
         public Date? PostingDate { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="JournalLine"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.JournalLine"/> and sets the default values.
         /// </summary>
         public JournalLine()
         {
@@ -99,12 +99,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="JournalLine"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.JournalLine"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static JournalLine CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.JournalLine CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new JournalLine();
+            return new ApiSdk.Models.JournalLine();
         }
         /// <summary>
         /// The deserialization information for the current model

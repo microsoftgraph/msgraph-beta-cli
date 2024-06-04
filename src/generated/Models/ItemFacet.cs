@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ItemFacet : Entity, IParsable
+    public class ItemFacet : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The audiences that are able to see the values contained within the associated entity. Possible values are: me, family, contacts, groupMembers, organization, federatedOrganizations, everyone, unknownFutureValue.</summary>
@@ -15,81 +15,81 @@ namespace ApiSdk.Models
         /// <summary>The createdBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? CreatedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet CreatedBy { get; set; }
+        public ApiSdk.Models.IdentitySet CreatedBy { get; set; }
 #endif
         /// <summary>Provides the dateTimeOffset for when the entity was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>Contains inference detail if the entity is inferred by the creating or modifying application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public InferenceData? Inference { get; set; }
+        public ApiSdk.Models.InferenceData? Inference { get; set; }
 #nullable restore
 #else
-        public InferenceData Inference { get; set; }
+        public ApiSdk.Models.InferenceData Inference { get; set; }
 #endif
         /// <summary>The isSearchable property</summary>
         public bool? IsSearchable { get; set; }
         /// <summary>The lastModifiedBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? LastModifiedBy { get; set; }
+        public ApiSdk.Models.IdentitySet? LastModifiedBy { get; set; }
 #nullable restore
 #else
-        public IdentitySet LastModifiedBy { get; set; }
+        public ApiSdk.Models.IdentitySet LastModifiedBy { get; set; }
 #endif
         /// <summary>Provides the dateTimeOffset for when the entity was created.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Where the values within an entity originated if synced from another service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PersonDataSources? Source { get; set; }
+        public ApiSdk.Models.PersonDataSources? Source { get; set; }
 #nullable restore
 #else
-        public PersonDataSources Source { get; set; }
+        public ApiSdk.Models.PersonDataSources Source { get; set; }
 #endif
         /// <summary>Where the values within an entity originated if synced from another source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProfileSourceAnnotation>? Sources { get; set; }
+        public List<ApiSdk.Models.ProfileSourceAnnotation>? Sources { get; set; }
 #nullable restore
 #else
-        public List<ProfileSourceAnnotation> Sources { get; set; }
+        public List<ApiSdk.Models.ProfileSourceAnnotation> Sources { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ItemFacet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ItemFacet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ItemFacet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ItemFacet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.educationalActivity" => new EducationalActivity(),
-                "#microsoft.graph.itemAddress" => new ItemAddress(),
-                "#microsoft.graph.itemEmail" => new ItemEmail(),
-                "#microsoft.graph.itemPatent" => new ItemPatent(),
-                "#microsoft.graph.itemPhone" => new ItemPhone(),
-                "#microsoft.graph.itemPublication" => new ItemPublication(),
-                "#microsoft.graph.languageProficiency" => new LanguageProficiency(),
-                "#microsoft.graph.personAnnotation" => new PersonAnnotation(),
-                "#microsoft.graph.personAnnualEvent" => new PersonAnnualEvent(),
-                "#microsoft.graph.personAward" => new PersonAward(),
-                "#microsoft.graph.personCertification" => new PersonCertification(),
-                "#microsoft.graph.personInterest" => new PersonInterest(),
-                "#microsoft.graph.personName" => new PersonName(),
-                "#microsoft.graph.personResponsibility" => new PersonResponsibility(),
-                "#microsoft.graph.personWebsite" => new PersonWebsite(),
-                "#microsoft.graph.projectParticipation" => new ProjectParticipation(),
-                "#microsoft.graph.skillProficiency" => new SkillProficiency(),
-                "#microsoft.graph.userAccountInformation" => new UserAccountInformation(),
-                "#microsoft.graph.webAccount" => new WebAccount(),
-                "#microsoft.graph.workPosition" => new WorkPosition(),
-                _ => new ItemFacet(),
+                "#microsoft.graph.educationalActivity" => new ApiSdk.Models.EducationalActivity(),
+                "#microsoft.graph.itemAddress" => new ApiSdk.Models.ItemAddress(),
+                "#microsoft.graph.itemEmail" => new ApiSdk.Models.ItemEmail(),
+                "#microsoft.graph.itemPatent" => new ApiSdk.Models.ItemPatent(),
+                "#microsoft.graph.itemPhone" => new ApiSdk.Models.ItemPhone(),
+                "#microsoft.graph.itemPublication" => new ApiSdk.Models.ItemPublication(),
+                "#microsoft.graph.languageProficiency" => new ApiSdk.Models.LanguageProficiency(),
+                "#microsoft.graph.personAnnotation" => new ApiSdk.Models.PersonAnnotation(),
+                "#microsoft.graph.personAnnualEvent" => new ApiSdk.Models.PersonAnnualEvent(),
+                "#microsoft.graph.personAward" => new ApiSdk.Models.PersonAward(),
+                "#microsoft.graph.personCertification" => new ApiSdk.Models.PersonCertification(),
+                "#microsoft.graph.personInterest" => new ApiSdk.Models.PersonInterest(),
+                "#microsoft.graph.personName" => new ApiSdk.Models.PersonName(),
+                "#microsoft.graph.personResponsibility" => new ApiSdk.Models.PersonResponsibility(),
+                "#microsoft.graph.personWebsite" => new ApiSdk.Models.PersonWebsite(),
+                "#microsoft.graph.projectParticipation" => new ApiSdk.Models.ProjectParticipation(),
+                "#microsoft.graph.skillProficiency" => new ApiSdk.Models.SkillProficiency(),
+                "#microsoft.graph.userAccountInformation" => new ApiSdk.Models.UserAccountInformation(),
+                "#microsoft.graph.webAccount" => new ApiSdk.Models.WebAccount(),
+                "#microsoft.graph.workPosition" => new ApiSdk.Models.WorkPosition(),
+                _ => new ApiSdk.Models.ItemFacet(),
             };
         }
         /// <summary>
@@ -100,15 +100,15 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "allowedAudiences", n => { AllowedAudiences = n.GetEnumValue<AllowedAudiences>(); } },
-                { "createdBy", n => { CreatedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "allowedAudiences", n => { AllowedAudiences = n.GetEnumValue<ApiSdk.Models.AllowedAudiences>(); } },
+                { "createdBy", n => { CreatedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "inference", n => { Inference = n.GetObjectValue<InferenceData>(InferenceData.CreateFromDiscriminatorValue); } },
+                { "inference", n => { Inference = n.GetObjectValue<ApiSdk.Models.InferenceData>(ApiSdk.Models.InferenceData.CreateFromDiscriminatorValue); } },
                 { "isSearchable", n => { IsSearchable = n.GetBoolValue(); } },
-                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "source", n => { Source = n.GetObjectValue<PersonDataSources>(PersonDataSources.CreateFromDiscriminatorValue); } },
-                { "sources", n => { Sources = n.GetCollectionOfObjectValues<ProfileSourceAnnotation>(ProfileSourceAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "source", n => { Source = n.GetObjectValue<ApiSdk.Models.PersonDataSources>(ApiSdk.Models.PersonDataSources.CreateFromDiscriminatorValue); } },
+                { "sources", n => { Sources = n.GetCollectionOfObjectValues<ApiSdk.Models.ProfileSourceAnnotation>(ApiSdk.Models.ProfileSourceAnnotation.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -119,15 +119,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AllowedAudiences>("allowedAudiences", AllowedAudiences);
-            writer.WriteObjectValue<IdentitySet>("createdBy", CreatedBy);
+            writer.WriteEnumValue<ApiSdk.Models.AllowedAudiences>("allowedAudiences", AllowedAudiences);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("createdBy", CreatedBy);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<InferenceData>("inference", Inference);
+            writer.WriteObjectValue<ApiSdk.Models.InferenceData>("inference", Inference);
             writer.WriteBoolValue("isSearchable", IsSearchable);
-            writer.WriteObjectValue<IdentitySet>("lastModifiedBy", LastModifiedBy);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<PersonDataSources>("source", Source);
-            writer.WriteCollectionOfObjectValues<ProfileSourceAnnotation>("sources", Sources);
+            writer.WriteObjectValue<ApiSdk.Models.PersonDataSources>("source", Source);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ProfileSourceAnnotation>("sources", Sources);
         }
     }
 }

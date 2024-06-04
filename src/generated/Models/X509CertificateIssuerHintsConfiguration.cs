@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The possible values are: disabled, enabled, unknownFutureValue.</summary>
-        public X509CertificateIssuerHintsState? State { get; set; }
+        public ApiSdk.Models.X509CertificateIssuerHintsState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="X509CertificateIssuerHintsConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.X509CertificateIssuerHintsConfiguration"/> and sets the default values.
         /// </summary>
         public X509CertificateIssuerHintsConfiguration()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="X509CertificateIssuerHintsConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.X509CertificateIssuerHintsConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static X509CertificateIssuerHintsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.X509CertificateIssuerHintsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new X509CertificateIssuerHintsConfiguration();
+            return new ApiSdk.Models.X509CertificateIssuerHintsConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<X509CertificateIssuerHintsState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.X509CertificateIssuerHintsState>(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<X509CertificateIssuerHintsState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.X509CertificateIssuerHintsState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

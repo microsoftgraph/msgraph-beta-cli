@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class ClassGroupProvisioningFlow : ProvisioningFlow, IParsable
+    public class ClassGroupProvisioningFlow : ApiSdk.Models.IndustryData.ProvisioningFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The configuration property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ClassGroupConfiguration? Configuration { get; set; }
+        public ApiSdk.Models.IndustryData.ClassGroupConfiguration? Configuration { get; set; }
 #nullable restore
 #else
-        public ClassGroupConfiguration Configuration { get; set; }
+        public ApiSdk.Models.IndustryData.ClassGroupConfiguration Configuration { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClassGroupProvisioningFlow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.ClassGroupProvisioningFlow"/> and sets the default values.
         /// </summary>
         public ClassGroupProvisioningFlow() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClassGroupProvisioningFlow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.ClassGroupProvisioningFlow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ClassGroupProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.ClassGroupProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ClassGroupProvisioningFlow();
+            return new ApiSdk.Models.IndustryData.ClassGroupProvisioningFlow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "configuration", n => { Configuration = n.GetObjectValue<ClassGroupConfiguration>(ClassGroupConfiguration.CreateFromDiscriminatorValue); } },
+                { "configuration", n => { Configuration = n.GetObjectValue<ApiSdk.Models.IndustryData.ClassGroupConfiguration>(ApiSdk.Models.IndustryData.ClassGroupConfiguration.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ClassGroupConfiguration>("configuration", Configuration);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.ClassGroupConfiguration>("configuration", Configuration);
         }
     }
 }

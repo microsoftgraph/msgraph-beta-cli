@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosWebContentFilterBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosWebContentFilterBase"/> and sets the default values.
         /// </summary>
         public IosWebContentFilterBase()
         {
@@ -31,17 +31,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosWebContentFilterBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosWebContentFilterBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosWebContentFilterBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosWebContentFilterBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.iosWebContentFilterAutoFilter" => new IosWebContentFilterAutoFilter(),
-                "#microsoft.graph.iosWebContentFilterSpecificWebsitesAccess" => new IosWebContentFilterSpecificWebsitesAccess(),
-                _ => new IosWebContentFilterBase(),
+                "#microsoft.graph.iosWebContentFilterAutoFilter" => new ApiSdk.Models.IosWebContentFilterAutoFilter(),
+                "#microsoft.graph.iosWebContentFilterSpecificWebsitesAccess" => new ApiSdk.Models.IosWebContentFilterSpecificWebsitesAccess(),
+                _ => new ApiSdk.Models.IosWebContentFilterBase(),
             };
         }
         /// <summary>

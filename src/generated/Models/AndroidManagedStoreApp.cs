@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties and inherited properties for Android Managed Store Apps.
     /// </summary>
-    public class AndroidManagedStoreApp : MobileApp, IParsable
+    public class AndroidManagedStoreApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,10 +30,10 @@ namespace ApiSdk.Models
         /// <summary>The tracks that are visible to this enterprise. This property is read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidManagedStoreAppTrack>? AppTracks { get; private set; }
+        public List<ApiSdk.Models.AndroidManagedStoreAppTrack>? AppTracks { get; private set; }
 #nullable restore
 #else
-        public List<AndroidManagedStoreAppTrack> AppTracks { get; private set; }
+        public List<ApiSdk.Models.AndroidManagedStoreAppTrack> AppTracks { get; private set; }
 #endif
         /// <summary>Indicates whether the app is only available to a given enterprise&apos;s users. This property is read-only.</summary>
         public bool? IsPrivate { get; private set; }
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         /// <summary>The number of VPP licenses in use. This property is read-only.</summary>
         public int? UsedLicenseCount { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidManagedStoreApp"/> and sets the default values.
         /// </summary>
         public AndroidManagedStoreApp() : base()
         {
@@ -63,16 +63,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedStoreApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedStoreApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.androidManagedStoreWebApp" => new AndroidManagedStoreWebApp(),
-                _ => new AndroidManagedStoreApp(),
+                "#microsoft.graph.androidManagedStoreWebApp" => new ApiSdk.Models.AndroidManagedStoreWebApp(),
+                _ => new ApiSdk.Models.AndroidManagedStoreApp(),
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
             {
                 { "appIdentifier", n => { AppIdentifier = n.GetStringValue(); } },
                 { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
-                { "appTracks", n => { AppTracks = n.GetCollectionOfObjectValues<AndroidManagedStoreAppTrack>(AndroidManagedStoreAppTrack.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appTracks", n => { AppTracks = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidManagedStoreAppTrack>(ApiSdk.Models.AndroidManagedStoreAppTrack.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isPrivate", n => { IsPrivate = n.GetBoolValue(); } },
                 { "isSystemApp", n => { IsSystemApp = n.GetBoolValue(); } },
                 { "packageId", n => { PackageId = n.GetStringValue(); } },

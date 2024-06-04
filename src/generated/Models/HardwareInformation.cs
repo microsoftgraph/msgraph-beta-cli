@@ -180,10 +180,10 @@ namespace ApiSdk.Models
         /// <summary>All users on the shared Apple device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SharedAppleDeviceUser>? SharedDeviceCachedUsers { get; set; }
+        public List<ApiSdk.Models.SharedAppleDeviceUser>? SharedDeviceCachedUsers { get; set; }
 #nullable restore
 #else
-        public List<SharedAppleDeviceUser> SharedDeviceCachedUsers { get; set; }
+        public List<ApiSdk.Models.SharedAppleDeviceUser> SharedDeviceCachedUsers { get; set; }
 #endif
         /// <summary>SubnetAddress</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -252,7 +252,7 @@ namespace ApiSdk.Models
         public List<string> WiredIPv4Addresses { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="HardwareInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.HardwareInformation"/> and sets the default values.
         /// </summary>
         public HardwareInformation()
         {
@@ -261,12 +261,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HardwareInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HardwareInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static HardwareInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.HardwareInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HardwareInformation();
+            return new ApiSdk.Models.HardwareInformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -282,12 +282,12 @@ namespace ApiSdk.Models
                 { "batterySerialNumber", n => { BatterySerialNumber = n.GetStringValue(); } },
                 { "cellularTechnology", n => { CellularTechnology = n.GetStringValue(); } },
                 { "deviceFullQualifiedDomainName", n => { DeviceFullQualifiedDomainName = n.GetStringValue(); } },
-                { "deviceGuardLocalSystemAuthorityCredentialGuardState", n => { DeviceGuardLocalSystemAuthorityCredentialGuardState = n.GetEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardState>(); } },
-                { "deviceGuardVirtualizationBasedSecurityHardwareRequirementState", n => { DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>(); } },
-                { "deviceGuardVirtualizationBasedSecurityState", n => { DeviceGuardVirtualizationBasedSecurityState = n.GetEnumValue<DeviceGuardVirtualizationBasedSecurityState>(); } },
+                { "deviceGuardLocalSystemAuthorityCredentialGuardState", n => { DeviceGuardLocalSystemAuthorityCredentialGuardState = n.GetEnumValue<ApiSdk.Models.DeviceGuardLocalSystemAuthorityCredentialGuardState>(); } },
+                { "deviceGuardVirtualizationBasedSecurityHardwareRequirementState", n => { DeviceGuardVirtualizationBasedSecurityHardwareRequirementState = n.GetEnumValue<ApiSdk.Models.DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>(); } },
+                { "deviceGuardVirtualizationBasedSecurityState", n => { DeviceGuardVirtualizationBasedSecurityState = n.GetEnumValue<ApiSdk.Models.DeviceGuardVirtualizationBasedSecurityState>(); } },
                 { "deviceLicensingLastErrorCode", n => { DeviceLicensingLastErrorCode = n.GetIntValue(); } },
                 { "deviceLicensingLastErrorDescription", n => { DeviceLicensingLastErrorDescription = n.GetStringValue(); } },
-                { "deviceLicensingStatus", n => { DeviceLicensingStatus = n.GetEnumValue<DeviceLicensingStatus>(); } },
+                { "deviceLicensingStatus", n => { DeviceLicensingStatus = n.GetEnumValue<ApiSdk.Models.DeviceLicensingStatus>(); } },
                 { "esimIdentifier", n => { EsimIdentifier = n.GetStringValue(); } },
                 { "freeStorageSpace", n => { FreeStorageSpace = n.GetLongValue(); } },
                 { "imei", n => { Imei = n.GetStringValue(); } },
@@ -307,7 +307,7 @@ namespace ApiSdk.Models
                 { "productName", n => { ProductName = n.GetStringValue(); } },
                 { "residentUsersCount", n => { ResidentUsersCount = n.GetIntValue(); } },
                 { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
-                { "sharedDeviceCachedUsers", n => { SharedDeviceCachedUsers = n.GetCollectionOfObjectValues<SharedAppleDeviceUser>(SharedAppleDeviceUser.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sharedDeviceCachedUsers", n => { SharedDeviceCachedUsers = n.GetCollectionOfObjectValues<ApiSdk.Models.SharedAppleDeviceUser>(ApiSdk.Models.SharedAppleDeviceUser.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "subnetAddress", n => { SubnetAddress = n.GetStringValue(); } },
                 { "subscriberCarrier", n => { SubscriberCarrier = n.GetStringValue(); } },
                 { "systemManagementBIOSVersion", n => { SystemManagementBIOSVersion = n.GetStringValue(); } },
@@ -332,12 +332,12 @@ namespace ApiSdk.Models
             writer.WriteStringValue("batterySerialNumber", BatterySerialNumber);
             writer.WriteStringValue("cellularTechnology", CellularTechnology);
             writer.WriteStringValue("deviceFullQualifiedDomainName", DeviceFullQualifiedDomainName);
-            writer.WriteEnumValue<DeviceGuardLocalSystemAuthorityCredentialGuardState>("deviceGuardLocalSystemAuthorityCredentialGuardState", DeviceGuardLocalSystemAuthorityCredentialGuardState);
-            writer.WriteEnumValue<DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>("deviceGuardVirtualizationBasedSecurityHardwareRequirementState", DeviceGuardVirtualizationBasedSecurityHardwareRequirementState);
-            writer.WriteEnumValue<DeviceGuardVirtualizationBasedSecurityState>("deviceGuardVirtualizationBasedSecurityState", DeviceGuardVirtualizationBasedSecurityState);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceGuardLocalSystemAuthorityCredentialGuardState>("deviceGuardLocalSystemAuthorityCredentialGuardState", DeviceGuardLocalSystemAuthorityCredentialGuardState);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceGuardVirtualizationBasedSecurityHardwareRequirementState>("deviceGuardVirtualizationBasedSecurityHardwareRequirementState", DeviceGuardVirtualizationBasedSecurityHardwareRequirementState);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceGuardVirtualizationBasedSecurityState>("deviceGuardVirtualizationBasedSecurityState", DeviceGuardVirtualizationBasedSecurityState);
             writer.WriteIntValue("deviceLicensingLastErrorCode", DeviceLicensingLastErrorCode);
             writer.WriteStringValue("deviceLicensingLastErrorDescription", DeviceLicensingLastErrorDescription);
-            writer.WriteEnumValue<DeviceLicensingStatus>("deviceLicensingStatus", DeviceLicensingStatus);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceLicensingStatus>("deviceLicensingStatus", DeviceLicensingStatus);
             writer.WriteStringValue("esimIdentifier", EsimIdentifier);
             writer.WriteLongValue("freeStorageSpace", FreeStorageSpace);
             writer.WriteStringValue("imei", Imei);
@@ -357,7 +357,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("productName", ProductName);
             writer.WriteIntValue("residentUsersCount", ResidentUsersCount);
             writer.WriteStringValue("serialNumber", SerialNumber);
-            writer.WriteCollectionOfObjectValues<SharedAppleDeviceUser>("sharedDeviceCachedUsers", SharedDeviceCachedUsers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SharedAppleDeviceUser>("sharedDeviceCachedUsers", SharedDeviceCachedUsers);
             writer.WriteStringValue("subnetAddress", SubnetAddress);
             writer.WriteStringValue("subscriberCarrier", SubscriberCarrier);
             writer.WriteStringValue("systemManagementBIOSVersion", SystemManagementBIOSVersion);

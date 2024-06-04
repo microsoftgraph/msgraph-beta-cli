@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The calls property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Call>? Calls { get; set; }
+        public List<ApiSdk.Models.Call>? Calls { get; set; }
 #nullable restore
 #else
-        public List<Call> Calls { get; set; }
+        public List<ApiSdk.Models.Call> Calls { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The onlineMeetings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnlineMeeting>? OnlineMeetings { get; set; }
+        public List<ApiSdk.Models.OnlineMeeting>? OnlineMeetings { get; set; }
 #nullable restore
 #else
-        public List<OnlineMeeting> OnlineMeetings { get; set; }
+        public List<ApiSdk.Models.OnlineMeeting> OnlineMeetings { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CommsApplication"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CommsApplication"/> and sets the default values.
         /// </summary>
         public CommsApplication()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CommsApplication"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CommsApplication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CommsApplication CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CommsApplication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CommsApplication();
+            return new ApiSdk.Models.CommsApplication();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "calls", n => { Calls = n.GetCollectionOfObjectValues<Call>(Call.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "calls", n => { Calls = n.GetCollectionOfObjectValues<ApiSdk.Models.Call>(ApiSdk.Models.Call.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "onlineMeetings", n => { OnlineMeetings = n.GetCollectionOfObjectValues<OnlineMeeting>(OnlineMeeting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "onlineMeetings", n => { OnlineMeetings = n.GetCollectionOfObjectValues<ApiSdk.Models.OnlineMeeting>(ApiSdk.Models.OnlineMeeting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<Call>("calls", Calls);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Call>("calls", Calls);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<OnlineMeeting>("onlineMeetings", OnlineMeetings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnlineMeeting>("onlineMeetings", OnlineMeetings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

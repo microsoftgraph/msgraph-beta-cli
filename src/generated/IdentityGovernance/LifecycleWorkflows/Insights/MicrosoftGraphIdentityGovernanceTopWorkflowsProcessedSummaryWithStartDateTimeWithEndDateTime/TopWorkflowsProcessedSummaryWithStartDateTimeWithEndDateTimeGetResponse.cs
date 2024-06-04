@@ -9,26 +9,26 @@ using System;
 namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime
 {
     #pragma warning disable CS1591
-    public class TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TopWorkflowsInsightsSummary>? Value { get; set; }
+        public List<ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary>? Value { get; set; }
 #nullable restore
 #else
-        public List<TopWorkflowsInsightsSummary> Value { get; set; }
+        public List<ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime.TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime.TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse();
+            return new ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphIdentityGovernanceTopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTime.TopWorkflowsProcessedSummaryWithStartDateTimeWithEndDateTimeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphId
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<TopWorkflowsInsightsSummary>(TopWorkflowsInsightsSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary>(ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.IdentityGovernance.LifecycleWorkflows.Insights.MicrosoftGraphId
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<TopWorkflowsInsightsSummary>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentityGovernance.TopWorkflowsInsightsSummary>("value", Value);
         }
     }
 }

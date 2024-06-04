@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>Key-value pair of claims retrieved from the credential that the user presented, and the service verified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VerifiedCredentialClaims? Claims { get; set; }
+        public ApiSdk.Models.VerifiedCredentialClaims? Claims { get; set; }
 #nullable restore
 #else
-        public VerifiedCredentialClaims Claims { get; set; }
+        public ApiSdk.Models.VerifiedCredentialClaims Claims { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public List<string> Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="VerifiedCredentialData"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VerifiedCredentialData"/> and sets the default values.
         /// </summary>
         public VerifiedCredentialData()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VerifiedCredentialData"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VerifiedCredentialData"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VerifiedCredentialData CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VerifiedCredentialData CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VerifiedCredentialData();
+            return new ApiSdk.Models.VerifiedCredentialData();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "authority", n => { Authority = n.GetStringValue(); } },
-                { "claims", n => { Claims = n.GetObjectValue<VerifiedCredentialClaims>(VerifiedCredentialClaims.CreateFromDiscriminatorValue); } },
+                { "claims", n => { Claims = n.GetObjectValue<ApiSdk.Models.VerifiedCredentialClaims>(ApiSdk.Models.VerifiedCredentialClaims.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("authority", Authority);
-            writer.WriteObjectValue<VerifiedCredentialClaims>("claims", Claims);
+            writer.WriteObjectValue<ApiSdk.Models.VerifiedCredentialClaims>("claims", Claims);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteCollectionOfPrimitiveValues<string>("type", Type);
             writer.WriteAdditionalData(AdditionalData);

@@ -32,7 +32,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Micr
         /// <summary>The updateCategory property</summary>
         public ApiSdk.Models.WindowsUpdates.UpdateCategory? UpdateCategory { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EnrollAssetsByIdPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssetsById.EnrollAssetsByIdPostRequestBody"/> and sets the default values.
         /// </summary>
         public EnrollAssetsByIdPostRequestBody()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Micr
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnrollAssetsByIdPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssetsById.EnrollAssetsByIdPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EnrollAssetsByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssetsById.EnrollAssetsByIdPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EnrollAssetsByIdPostRequestBody();
+            return new ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.MicrosoftGraphWindowsUpdatesEnrollAssetsById.EnrollAssetsByIdPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Micr
             {
                 { "ids", n => { Ids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "memberEntityType", n => { MemberEntityType = n.GetStringValue(); } },
-                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<UpdateCategory>(); } },
+                { "updateCategory", n => { UpdateCategory = n.GetEnumValue<ApiSdk.Models.WindowsUpdates.UpdateCategory>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Micr
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("ids", Ids);
             writer.WriteStringValue("memberEntityType", MemberEntityType);
-            writer.WriteEnumValue<UpdateCategory>("updateCategory", UpdateCategory);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdates.UpdateCategory>("updateCategory", UpdateCategory);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

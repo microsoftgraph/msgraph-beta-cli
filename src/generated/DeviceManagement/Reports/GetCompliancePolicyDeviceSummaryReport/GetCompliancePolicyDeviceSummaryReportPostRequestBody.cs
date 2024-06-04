@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetCompliancePolicyDeviceSummaryReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport.GetCompliancePolicyDeviceSummaryReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetCompliancePolicyDeviceSummaryReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetCompliancePolicyDeviceSummaryReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport.GetCompliancePolicyDeviceSummaryReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetCompliancePolicyDeviceSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport.GetCompliancePolicyDeviceSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetCompliancePolicyDeviceSummaryReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetCompliancePolicyDeviceSummaryReport.GetCompliancePolicyDeviceSummaryReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

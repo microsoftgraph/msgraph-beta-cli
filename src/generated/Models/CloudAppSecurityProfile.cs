@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudAppSecurityProfile : Entity, IParsable
+    public class CloudAppSecurityProfile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The azureSubscriptionId property</summary>
@@ -65,7 +65,7 @@ namespace ApiSdk.Models
         public string Name { get; set; }
 #endif
         /// <summary>The permissionsRequired property</summary>
-        public ApplicationPermissionsRequired? PermissionsRequired { get; set; }
+        public ApiSdk.Models.ApplicationPermissionsRequired? PermissionsRequired { get; set; }
         /// <summary>The platform property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -117,20 +117,20 @@ namespace ApiSdk.Models
         /// <summary>The vendorInformation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityVendorInformation? VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation? VendorInformation { get; set; }
 #nullable restore
 #else
-        public SecurityVendorInformation VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation VendorInformation { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudAppSecurityProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudAppSecurityProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudAppSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudAppSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudAppSecurityProfile();
+            return new ApiSdk.Models.CloudAppSecurityProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -149,14 +149,14 @@ namespace ApiSdk.Models
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "manifest", n => { Manifest = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "permissionsRequired", n => { PermissionsRequired = n.GetEnumValue<ApplicationPermissionsRequired>(); } },
+                { "permissionsRequired", n => { PermissionsRequired = n.GetEnumValue<ApiSdk.Models.ApplicationPermissionsRequired>(); } },
                 { "platform", n => { Platform = n.GetStringValue(); } },
                 { "policyName", n => { PolicyName = n.GetStringValue(); } },
                 { "publisher", n => { Publisher = n.GetStringValue(); } },
                 { "riskScore", n => { RiskScore = n.GetStringValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
-                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<ApiSdk.Models.SecurityVendorInformation>(ApiSdk.Models.SecurityVendorInformation.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -176,14 +176,14 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("manifest", Manifest);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<ApplicationPermissionsRequired>("permissionsRequired", PermissionsRequired);
+            writer.WriteEnumValue<ApiSdk.Models.ApplicationPermissionsRequired>("permissionsRequired", PermissionsRequired);
             writer.WriteStringValue("platform", Platform);
             writer.WriteStringValue("policyName", PolicyName);
             writer.WriteStringValue("publisher", Publisher);
             writer.WriteStringValue("riskScore", RiskScore);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
             writer.WriteStringValue("type", Type);
-            writer.WriteObjectValue<SecurityVendorInformation>("vendorInformation", VendorInformation);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityVendorInformation>("vendorInformation", VendorInformation);
         }
     }
 }

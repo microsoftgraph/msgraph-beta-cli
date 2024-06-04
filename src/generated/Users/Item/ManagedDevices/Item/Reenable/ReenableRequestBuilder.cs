@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.Reenable
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReenableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.Reenable.ReenableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReenableRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/reenable", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReenableRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.Reenable.ReenableRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReenableRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/managedDevices/{managedDevice%2Did}/reenable", rawUrl)

@@ -16,10 +16,10 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResul
         /// <summary>The classificationResults property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ClassificationResult>? ClassificationResults { get; set; }
+        public List<ApiSdk.Models.ClassificationResult>? ClassificationResults { get; set; }
 #nullable restore
 #else
-        public List<ClassificationResult> ClassificationResults { get; set; }
+        public List<ApiSdk.Models.ClassificationResult> ClassificationResults { get; set; }
 #endif
         /// <summary>The contentInfo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,7 +30,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResul
         public ApiSdk.Models.ContentInfo ContentInfo { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluateClassificationResultsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResults.EvaluateClassificationResultsPostRequestBody"/> and sets the default values.
         /// </summary>
         public EvaluateClassificationResultsPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResul
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateClassificationResultsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResults.EvaluateClassificationResultsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluateClassificationResultsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResults.EvaluateClassificationResultsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateClassificationResultsPostRequestBody();
+            return new ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResults.EvaluateClassificationResultsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResul
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "classificationResults", n => { ClassificationResults = n.GetCollectionOfObjectValues<ClassificationResult>(ClassificationResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "classificationResults", n => { ClassificationResults = n.GetCollectionOfObjectValues<ApiSdk.Models.ClassificationResult>(ApiSdk.Models.ClassificationResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contentInfo", n => { ContentInfo = n.GetObjectValue<ApiSdk.Models.ContentInfo>(ApiSdk.Models.ContentInfo.CreateFromDiscriminatorValue); } },
             };
         }
@@ -65,7 +65,7 @@ namespace ApiSdk.InformationProtection.Policy.Labels.EvaluateClassificationResul
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<ClassificationResult>("classificationResults", ClassificationResults);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ClassificationResult>("classificationResults", ClassificationResults);
             writer.WriteObjectValue<ApiSdk.Models.ContentInfo>("contentInfo", ContentInfo);
             writer.WriteAdditionalData(AdditionalData);
         }

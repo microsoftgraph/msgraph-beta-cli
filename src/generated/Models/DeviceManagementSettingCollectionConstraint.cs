@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint that enforces the maximum number of elements a collection
     /// </summary>
-    public class DeviceManagementSettingCollectionConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingCollectionConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>The maximum number of elements in the collection</summary>
         public int? MaximumLength { get; set; }
         /// <summary>The minimum number of elements in the collection</summary>
         public int? MinimumLength { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingCollectionConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingCollectionConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingCollectionConstraint() : base()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingCollectionConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingCollectionConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingCollectionConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingCollectionConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingCollectionConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingCollectionConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

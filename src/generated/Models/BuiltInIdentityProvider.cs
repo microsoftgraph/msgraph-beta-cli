@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class BuiltInIdentityProvider : IdentityProviderBase, IParsable
+    public class BuiltInIdentityProvider : ApiSdk.Models.IdentityProviderBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.</summary>
@@ -19,9 +19,9 @@ namespace ApiSdk.Models
         public string IdentityProviderType { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public IdentityProviderState? State { get; set; }
+        public ApiSdk.Models.IdentityProviderState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="BuiltInIdentityProvider"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.BuiltInIdentityProvider"/> and sets the default values.
         /// </summary>
         public BuiltInIdentityProvider() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BuiltInIdentityProvider"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BuiltInIdentityProvider"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BuiltInIdentityProvider CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BuiltInIdentityProvider CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BuiltInIdentityProvider();
+            return new ApiSdk.Models.BuiltInIdentityProvider();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "identityProviderType", n => { IdentityProviderType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<IdentityProviderState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.IdentityProviderState>(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("identityProviderType", IdentityProviderType);
-            writer.WriteEnumValue<IdentityProviderState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.IdentityProviderState>("state", State);
         }
     }
 }

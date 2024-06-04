@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity that describes tenant level settings for derived credentials
     /// </summary>
-    public class DeviceManagementDerivedCredentialSettings : Entity, IParsable
+    public class DeviceManagementDerivedCredentialSettings : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The display name for the profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -28,20 +28,20 @@ namespace ApiSdk.Models
         public string HelpUrl { get; set; }
 #endif
         /// <summary>Supported values for the derived credential issuer.</summary>
-        public DeviceManagementDerivedCredentialIssuer? Issuer { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialIssuer? Issuer { get; set; }
         /// <summary>Supported values for the notification type to use.</summary>
-        public DeviceManagementDerivedCredentialNotificationType? NotificationType { get; set; }
+        public ApiSdk.Models.DeviceManagementDerivedCredentialNotificationType? NotificationType { get; set; }
         /// <summary>The nominal percentage of time before certificate renewal is initiated by the client.</summary>
         public int? RenewalThresholdPercentage { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementDerivedCredentialSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementDerivedCredentialSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementDerivedCredentialSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementDerivedCredentialSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementDerivedCredentialSettings();
+            return new ApiSdk.Models.DeviceManagementDerivedCredentialSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,8 +53,8 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "helpUrl", n => { HelpUrl = n.GetStringValue(); } },
-                { "issuer", n => { Issuer = n.GetEnumValue<DeviceManagementDerivedCredentialIssuer>(); } },
-                { "notificationType", n => { NotificationType = n.GetEnumValue<DeviceManagementDerivedCredentialNotificationType>(); } },
+                { "issuer", n => { Issuer = n.GetEnumValue<ApiSdk.Models.DeviceManagementDerivedCredentialIssuer>(); } },
+                { "notificationType", n => { NotificationType = n.GetEnumValue<ApiSdk.Models.DeviceManagementDerivedCredentialNotificationType>(); } },
                 { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
             };
         }
@@ -68,8 +68,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("helpUrl", HelpUrl);
-            writer.WriteEnumValue<DeviceManagementDerivedCredentialIssuer>("issuer", Issuer);
-            writer.WriteEnumValue<DeviceManagementDerivedCredentialNotificationType>("notificationType", NotificationType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementDerivedCredentialIssuer>("issuer", Issuer);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementDerivedCredentialNotificationType>("notificationType", NotificationType);
             writer.WriteIntValue("renewalThresholdPercentage", RenewalThresholdPercentage);
         }
     }

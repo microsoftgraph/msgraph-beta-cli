@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Person : Entity, IParsable
+    public class Person : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The person&apos;s birthday.</summary>
@@ -45,10 +45,10 @@ namespace ApiSdk.Models
         /// <summary>The person&apos;s email addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RankedEmailAddress>? EmailAddresses { get; set; }
+        public List<ApiSdk.Models.RankedEmailAddress>? EmailAddresses { get; set; }
 #nullable restore
 #else
-        public List<RankedEmailAddress> EmailAddresses { get; set; }
+        public List<ApiSdk.Models.RankedEmailAddress> EmailAddresses { get; set; }
 #endif
         /// <summary>The person&apos;s given name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,18 +95,18 @@ namespace ApiSdk.Models
         /// <summary>The person&apos;s phone numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Phone>? Phones { get; set; }
+        public List<ApiSdk.Models.Phone>? Phones { get; set; }
 #nullable restore
 #else
-        public List<Phone> Phones { get; set; }
+        public List<ApiSdk.Models.Phone> Phones { get; set; }
 #endif
         /// <summary>The person&apos;s addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Location>? PostalAddresses { get; set; }
+        public List<ApiSdk.Models.Location>? PostalAddresses { get; set; }
 #nullable restore
 #else
-        public List<Location> PostalAddresses { get; set; }
+        public List<ApiSdk.Models.Location> PostalAddresses { get; set; }
 #endif
         /// <summary>The person&apos;s profession.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -119,10 +119,10 @@ namespace ApiSdk.Models
         /// <summary>The sources the user data comes from, for example Directory or Outlook Contacts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PersonDataSource>? Sources { get; set; }
+        public List<ApiSdk.Models.PersonDataSource>? Sources { get; set; }
 #nullable restore
 #else
-        public List<PersonDataSource> Sources { get; set; }
+        public List<ApiSdk.Models.PersonDataSource> Sources { get; set; }
 #endif
         /// <summary>The person&apos;s surname.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -151,10 +151,10 @@ namespace ApiSdk.Models
         /// <summary>The person&apos;s websites.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Website>? Websites { get; set; }
+        public List<ApiSdk.Models.Website>? Websites { get; set; }
 #nullable restore
 #else
-        public List<Website> Websites { get; set; }
+        public List<ApiSdk.Models.Website> Websites { get; set; }
 #endif
         /// <summary>The phonetic Japanese name of the person&apos;s company.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -167,12 +167,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Person"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Person"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Person CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Person CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Person();
+            return new ApiSdk.Models.Person();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -186,21 +186,21 @@ namespace ApiSdk.Models
                 { "companyName", n => { CompanyName = n.GetStringValue(); } },
                 { "department", n => { Department = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "emailAddresses", n => { EmailAddresses = n.GetCollectionOfObjectValues<RankedEmailAddress>(RankedEmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "emailAddresses", n => { EmailAddresses = n.GetCollectionOfObjectValues<ApiSdk.Models.RankedEmailAddress>(ApiSdk.Models.RankedEmailAddress.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "givenName", n => { GivenName = n.GetStringValue(); } },
                 { "isFavorite", n => { IsFavorite = n.GetBoolValue(); } },
                 { "mailboxType", n => { MailboxType = n.GetStringValue(); } },
                 { "officeLocation", n => { OfficeLocation = n.GetStringValue(); } },
                 { "personNotes", n => { PersonNotes = n.GetStringValue(); } },
                 { "personType", n => { PersonType = n.GetStringValue(); } },
-                { "phones", n => { Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "postalAddresses", n => { PostalAddresses = n.GetCollectionOfObjectValues<Location>(Location.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "phones", n => { Phones = n.GetCollectionOfObjectValues<ApiSdk.Models.Phone>(ApiSdk.Models.Phone.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "postalAddresses", n => { PostalAddresses = n.GetCollectionOfObjectValues<ApiSdk.Models.Location>(ApiSdk.Models.Location.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "profession", n => { Profession = n.GetStringValue(); } },
-                { "sources", n => { Sources = n.GetCollectionOfObjectValues<PersonDataSource>(PersonDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sources", n => { Sources = n.GetCollectionOfObjectValues<ApiSdk.Models.PersonDataSource>(ApiSdk.Models.PersonDataSource.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "surname", n => { Surname = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
-                { "websites", n => { Websites = n.GetCollectionOfObjectValues<Website>(Website.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "websites", n => { Websites = n.GetCollectionOfObjectValues<ApiSdk.Models.Website>(ApiSdk.Models.Website.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "yomiCompany", n => { YomiCompany = n.GetStringValue(); } },
             };
         }
@@ -216,21 +216,21 @@ namespace ApiSdk.Models
             writer.WriteStringValue("companyName", CompanyName);
             writer.WriteStringValue("department", Department);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<RankedEmailAddress>("emailAddresses", EmailAddresses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.RankedEmailAddress>("emailAddresses", EmailAddresses);
             writer.WriteStringValue("givenName", GivenName);
             writer.WriteBoolValue("isFavorite", IsFavorite);
             writer.WriteStringValue("mailboxType", MailboxType);
             writer.WriteStringValue("officeLocation", OfficeLocation);
             writer.WriteStringValue("personNotes", PersonNotes);
             writer.WriteStringValue("personType", PersonType);
-            writer.WriteCollectionOfObjectValues<Phone>("phones", Phones);
-            writer.WriteCollectionOfObjectValues<Location>("postalAddresses", PostalAddresses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Phone>("phones", Phones);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Location>("postalAddresses", PostalAddresses);
             writer.WriteStringValue("profession", Profession);
-            writer.WriteCollectionOfObjectValues<PersonDataSource>("sources", Sources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PersonDataSource>("sources", Sources);
             writer.WriteStringValue("surname", Surname);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
-            writer.WriteCollectionOfObjectValues<Website>("websites", Websites);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Website>("websites", Websites);
             writer.WriteStringValue("yomiCompany", YomiCompany);
         }
     }

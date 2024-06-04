@@ -37,7 +37,7 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
         public List<string> Values { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LookupPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostRequestBody"/> and sets the default values.
         /// </summary>
         public LookupPostRequestBody()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LookupPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LookupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LookupPostRequestBody();
+            return new ApiSdk.DataClassification.ExactMatchDataStores.Item.Lookup.LookupPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

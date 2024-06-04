@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OutlookTaskGroup : Entity, IParsable
+    public class OutlookTaskGroup : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The version of the task group.</summary>
@@ -33,20 +33,20 @@ namespace ApiSdk.Models
         /// <summary>The collection of task folders in the task group. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OutlookTaskFolder>? TaskFolders { get; set; }
+        public List<ApiSdk.Models.OutlookTaskFolder>? TaskFolders { get; set; }
 #nullable restore
 #else
-        public List<OutlookTaskFolder> TaskFolders { get; set; }
+        public List<ApiSdk.Models.OutlookTaskFolder> TaskFolders { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OutlookTaskGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OutlookTaskGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OutlookTaskGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OutlookTaskGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OutlookTaskGroup();
+            return new ApiSdk.Models.OutlookTaskGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
                 { "groupKey", n => { GroupKey = n.GetGuidValue(); } },
                 { "isDefaultGroup", n => { IsDefaultGroup = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<OutlookTaskFolder>(OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "taskFolders", n => { TaskFolders = n.GetCollectionOfObjectValues<ApiSdk.Models.OutlookTaskFolder>(ApiSdk.Models.OutlookTaskFolder.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
             writer.WriteGuidValue("groupKey", GroupKey);
             writer.WriteBoolValue("isDefaultGroup", IsDefaultGroup);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<OutlookTaskFolder>("taskFolders", TaskFolders);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OutlookTaskFolder>("taskFolders", TaskFolders);
         }
     }
 }

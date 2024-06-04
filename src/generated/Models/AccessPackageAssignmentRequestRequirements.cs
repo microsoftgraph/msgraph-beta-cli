@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Answers that have already been provided.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageAnswer>? ExistingAnswers { get; set; }
+        public List<ApiSdk.Models.AccessPackageAnswer>? ExistingAnswers { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageAnswer> ExistingAnswers { get; set; }
+        public List<ApiSdk.Models.AccessPackageAnswer> ExistingAnswers { get; set; }
 #endif
         /// <summary>Indicates whether a request must be approved by an approver.</summary>
         public bool? IsApprovalRequired { get; set; }
@@ -63,18 +63,18 @@ namespace ApiSdk.Models
         /// <summary>Questions that are configured on the policy. The questions can be required or optional; callers can determine whether a question is required or optional based on the isRequired property on accessPackageQuestion.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageQuestion>? Questions { get; set; }
+        public List<ApiSdk.Models.AccessPackageQuestion>? Questions { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageQuestion> Questions { get; set; }
+        public List<ApiSdk.Models.AccessPackageQuestion> Questions { get; set; }
 #endif
         /// <summary>Schedule restrictions enforced, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestSchedule? Schedule { get; set; }
+        public ApiSdk.Models.RequestSchedule? Schedule { get; set; }
 #nullable restore
 #else
-        public RequestSchedule Schedule { get; set; }
+        public ApiSdk.Models.RequestSchedule Schedule { get; set; }
 #endif
         /// <summary>The status of the process to process the verifiable credential, if any.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,7 +85,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.VerifiableCredentialRequirementStatus VerifiableCredentialRequirementStatus { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageAssignmentRequestRequirements"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessPackageAssignmentRequestRequirements"/> and sets the default values.
         /// </summary>
         public AccessPackageAssignmentRequestRequirements()
         {
@@ -94,12 +94,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageAssignmentRequestRequirements"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageAssignmentRequestRequirements"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccessPackageAssignmentRequestRequirements CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AccessPackageAssignmentRequestRequirements CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageAssignmentRequestRequirements();
+            return new ApiSdk.Models.AccessPackageAssignmentRequestRequirements();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,7 +109,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "existingAnswers", n => { ExistingAnswers = n.GetCollectionOfObjectValues<AccessPackageAnswer>(AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "existingAnswers", n => { ExistingAnswers = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageAnswer>(ApiSdk.Models.AccessPackageAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "isApprovalRequired", n => { IsApprovalRequired = n.GetBoolValue(); } },
                 { "isApprovalRequiredForExtension", n => { IsApprovalRequiredForExtension = n.GetBoolValue(); } },
                 { "isCustomAssignmentScheduleAllowed", n => { IsCustomAssignmentScheduleAllowed = n.GetBoolValue(); } },
@@ -118,8 +118,8 @@ namespace ApiSdk.Models
                 { "policyDescription", n => { PolicyDescription = n.GetStringValue(); } },
                 { "policyDisplayName", n => { PolicyDisplayName = n.GetStringValue(); } },
                 { "policyId", n => { PolicyId = n.GetStringValue(); } },
-                { "questions", n => { Questions = n.GetCollectionOfObjectValues<AccessPackageQuestion>(AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "schedule", n => { Schedule = n.GetObjectValue<RequestSchedule>(RequestSchedule.CreateFromDiscriminatorValue); } },
+                { "questions", n => { Questions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageQuestion>(ApiSdk.Models.AccessPackageQuestion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<ApiSdk.Models.RequestSchedule>(ApiSdk.Models.RequestSchedule.CreateFromDiscriminatorValue); } },
                 { "verifiableCredentialRequirementStatus", n => { VerifiableCredentialRequirementStatus = n.GetObjectValue<ApiSdk.Models.VerifiableCredentialRequirementStatus>(ApiSdk.Models.VerifiableCredentialRequirementStatus.CreateFromDiscriminatorValue); } },
             };
         }
@@ -130,7 +130,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<AccessPackageAnswer>("existingAnswers", ExistingAnswers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageAnswer>("existingAnswers", ExistingAnswers);
             writer.WriteBoolValue("isApprovalRequired", IsApprovalRequired);
             writer.WriteBoolValue("isApprovalRequiredForExtension", IsApprovalRequiredForExtension);
             writer.WriteBoolValue("isCustomAssignmentScheduleAllowed", IsCustomAssignmentScheduleAllowed);
@@ -139,8 +139,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("policyDescription", PolicyDescription);
             writer.WriteStringValue("policyDisplayName", PolicyDisplayName);
             writer.WriteStringValue("policyId", PolicyId);
-            writer.WriteCollectionOfObjectValues<AccessPackageQuestion>("questions", Questions);
-            writer.WriteObjectValue<RequestSchedule>("schedule", Schedule);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageQuestion>("questions", Questions);
+            writer.WriteObjectValue<ApiSdk.Models.RequestSchedule>("schedule", Schedule);
             writer.WriteObjectValue<ApiSdk.Models.VerifiableCredentialRequirementStatus>("verifiableCredentialRequirementStatus", VerifiableCredentialRequirementStatus);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AuthorizationSystemTypeAction : Entity, IParsable
+    public class AuthorizationSystemTypeAction : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The type of action allowed in the authorization system&apos;s service. The possible values are: delete, read, unknownFutureValue. Supports $filter and (eq).</summary>
-        public AuthorizationSystemActionType? ActionType { get; set; }
+        public ApiSdk.Models.AuthorizationSystemActionType? ActionType { get; set; }
         /// <summary>The display name of an action. Read-only. Supports $filter and (eq).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,22 +29,22 @@ namespace ApiSdk.Models
         public List<string> ResourceTypes { get; set; }
 #endif
         /// <summary>The severity property</summary>
-        public AuthorizationSystemActionSeverity? Severity { get; set; }
+        public ApiSdk.Models.AuthorizationSystemActionSeverity? Severity { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthorizationSystemTypeAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthorizationSystemTypeAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuthorizationSystemTypeAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AuthorizationSystemTypeAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.awsAuthorizationSystemTypeAction" => new AwsAuthorizationSystemTypeAction(),
-                "#microsoft.graph.azureAuthorizationSystemTypeAction" => new AzureAuthorizationSystemTypeAction(),
-                "#microsoft.graph.gcpAuthorizationSystemTypeAction" => new GcpAuthorizationSystemTypeAction(),
-                _ => new AuthorizationSystemTypeAction(),
+                "#microsoft.graph.awsAuthorizationSystemTypeAction" => new ApiSdk.Models.AwsAuthorizationSystemTypeAction(),
+                "#microsoft.graph.azureAuthorizationSystemTypeAction" => new ApiSdk.Models.AzureAuthorizationSystemTypeAction(),
+                "#microsoft.graph.gcpAuthorizationSystemTypeAction" => new ApiSdk.Models.GcpAuthorizationSystemTypeAction(),
+                _ => new ApiSdk.Models.AuthorizationSystemTypeAction(),
             };
         }
         /// <summary>
@@ -55,10 +55,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actionType", n => { ActionType = n.GetEnumValue<AuthorizationSystemActionType>(); } },
+                { "actionType", n => { ActionType = n.GetEnumValue<ApiSdk.Models.AuthorizationSystemActionType>(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
                 { "resourceTypes", n => { ResourceTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "severity", n => { Severity = n.GetEnumValue<AuthorizationSystemActionSeverity>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.AuthorizationSystemActionSeverity>(); } },
             };
         }
         /// <summary>
@@ -69,10 +69,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AuthorizationSystemActionType>("actionType", ActionType);
+            writer.WriteEnumValue<ApiSdk.Models.AuthorizationSystemActionType>("actionType", ActionType);
             writer.WriteStringValue("externalId", ExternalId);
             writer.WriteCollectionOfPrimitiveValues<string>("resourceTypes", ResourceTypes);
-            writer.WriteEnumValue<AuthorizationSystemActionSeverity>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.AuthorizationSystemActionSeverity>("severity", Severity);
         }
     }
 }

@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// This entity contains data which is used in customizing the tenant level appearance of the Company Portal applications as well as the end user web portal.
     /// </summary>
-    public class IntuneBrandingProfile : Entity, IParsable
+    public class IntuneBrandingProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of group assignments for the branding profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IntuneBrandingProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.IntuneBrandingProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<IntuneBrandingProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.IntuneBrandingProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>Collection of blocked actions on the company portal as per platform and device ownership types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CompanyPortalBlockedAction>? CompanyPortalBlockedActions { get; set; }
+        public List<ApiSdk.Models.CompanyPortalBlockedAction>? CompanyPortalBlockedActions { get; set; }
 #nullable restore
 #else
-        public List<CompanyPortalBlockedAction> CompanyPortalBlockedActions { get; set; }
+        public List<ApiSdk.Models.CompanyPortalBlockedAction> CompanyPortalBlockedActions { get; set; }
 #endif
         /// <summary>E-mail address of the person/organization responsible for IT support</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -98,7 +98,7 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>Options available for enrollment flow customization</summary>
-        public EnrollmentAvailabilityOptions? EnrollmentAvailability { get; set; }
+        public ApiSdk.Models.EnrollmentAvailabilityOptions? EnrollmentAvailability { get; set; }
         /// <summary>Boolean that represents whether the profile is used as default or not</summary>
         public bool? IsDefaultProfile { get; set; }
         /// <summary>Boolean that represents whether the adminsistrator has disabled the &apos;Factory Reset&apos; action on corporate owned devices.</summary>
@@ -108,20 +108,20 @@ namespace ApiSdk.Models
         /// <summary>Customized image displayed in Company Portal apps landing page</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? LandingPageCustomizedImage { get; set; }
+        public ApiSdk.Models.MimeContent? LandingPageCustomizedImage { get; set; }
 #nullable restore
 #else
-        public MimeContent LandingPageCustomizedImage { get; set; }
+        public ApiSdk.Models.MimeContent LandingPageCustomizedImage { get; set; }
 #endif
         /// <summary>Time when the BrandingProfile was last modified</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>Logo image displayed in Company Portal apps which have a light background behind the logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? LightBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent? LightBackgroundLogo { get; set; }
 #nullable restore
 #else
-        public MimeContent LightBackgroundLogo { get; set; }
+        public ApiSdk.Models.MimeContent LightBackgroundLogo { get; set; }
 #endif
         /// <summary>Display name of the company/organization’s IT helpdesk site</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -186,28 +186,28 @@ namespace ApiSdk.Models
         /// <summary>Primary theme color used in the Company Portal applications and web portal</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RgbColor? ThemeColor { get; set; }
+        public ApiSdk.Models.RgbColor? ThemeColor { get; set; }
 #nullable restore
 #else
-        public RgbColor ThemeColor { get; set; }
+        public ApiSdk.Models.RgbColor ThemeColor { get; set; }
 #endif
         /// <summary>Logo image displayed in Company Portal apps which have a theme color background behind the logo</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MimeContent? ThemeColorLogo { get; set; }
+        public ApiSdk.Models.MimeContent? ThemeColorLogo { get; set; }
 #nullable restore
 #else
-        public MimeContent ThemeColorLogo { get; set; }
+        public ApiSdk.Models.MimeContent ThemeColorLogo { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IntuneBrandingProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IntuneBrandingProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IntuneBrandingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IntuneBrandingProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IntuneBrandingProfile();
+            return new ApiSdk.Models.IntuneBrandingProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -217,8 +217,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<IntuneBrandingProfileAssignment>(IntuneBrandingProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<CompanyPortalBlockedAction>(CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.IntuneBrandingProfileAssignment>(ApiSdk.Models.IntuneBrandingProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "companyPortalBlockedActions", n => { CompanyPortalBlockedActions = n.GetCollectionOfObjectValues<ApiSdk.Models.CompanyPortalBlockedAction>(ApiSdk.Models.CompanyPortalBlockedAction.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "contactITEmailAddress", n => { ContactITEmailAddress = n.GetStringValue(); } },
                 { "contactITName", n => { ContactITName = n.GetStringValue(); } },
                 { "contactITNotes", n => { ContactITNotes = n.GetStringValue(); } },
@@ -230,13 +230,13 @@ namespace ApiSdk.Models
                 { "disableClientTelemetry", n => { DisableClientTelemetry = n.GetBoolValue(); } },
                 { "disableDeviceCategorySelection", n => { DisableDeviceCategorySelection = n.GetBoolValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<EnrollmentAvailabilityOptions>(); } },
+                { "enrollmentAvailability", n => { EnrollmentAvailability = n.GetEnumValue<ApiSdk.Models.EnrollmentAvailabilityOptions>(); } },
                 { "isDefaultProfile", n => { IsDefaultProfile = n.GetBoolValue(); } },
                 { "isFactoryResetDisabled", n => { IsFactoryResetDisabled = n.GetBoolValue(); } },
                 { "isRemoveDeviceDisabled", n => { IsRemoveDeviceDisabled = n.GetBoolValue(); } },
-                { "landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "landingPageCustomizedImage", n => { LandingPageCustomizedImage = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "lightBackgroundLogo", n => { LightBackgroundLogo = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
                 { "onlineSupportSiteName", n => { OnlineSupportSiteName = n.GetStringValue(); } },
                 { "onlineSupportSiteUrl", n => { OnlineSupportSiteUrl = n.GetStringValue(); } },
                 { "privacyUrl", n => { PrivacyUrl = n.GetStringValue(); } },
@@ -249,8 +249,8 @@ namespace ApiSdk.Models
                 { "showDisplayNameNextToLogo", n => { ShowDisplayNameNextToLogo = n.GetBoolValue(); } },
                 { "showLogo", n => { ShowLogo = n.GetBoolValue(); } },
                 { "showOfficeWebApps", n => { ShowOfficeWebApps = n.GetBoolValue(); } },
-                { "themeColor", n => { ThemeColor = n.GetObjectValue<RgbColor>(RgbColor.CreateFromDiscriminatorValue); } },
-                { "themeColorLogo", n => { ThemeColorLogo = n.GetObjectValue<MimeContent>(MimeContent.CreateFromDiscriminatorValue); } },
+                { "themeColor", n => { ThemeColor = n.GetObjectValue<ApiSdk.Models.RgbColor>(ApiSdk.Models.RgbColor.CreateFromDiscriminatorValue); } },
+                { "themeColorLogo", n => { ThemeColorLogo = n.GetObjectValue<ApiSdk.Models.MimeContent>(ApiSdk.Models.MimeContent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -261,8 +261,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<IntuneBrandingProfileAssignment>("assignments", Assignments);
-            writer.WriteCollectionOfObjectValues<CompanyPortalBlockedAction>("companyPortalBlockedActions", CompanyPortalBlockedActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IntuneBrandingProfileAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CompanyPortalBlockedAction>("companyPortalBlockedActions", CompanyPortalBlockedActions);
             writer.WriteStringValue("contactITEmailAddress", ContactITEmailAddress);
             writer.WriteStringValue("contactITName", ContactITName);
             writer.WriteStringValue("contactITNotes", ContactITNotes);
@@ -274,13 +274,13 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("disableClientTelemetry", DisableClientTelemetry);
             writer.WriteBoolValue("disableDeviceCategorySelection", DisableDeviceCategorySelection);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<EnrollmentAvailabilityOptions>("enrollmentAvailability", EnrollmentAvailability);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentAvailabilityOptions>("enrollmentAvailability", EnrollmentAvailability);
             writer.WriteBoolValue("isDefaultProfile", IsDefaultProfile);
             writer.WriteBoolValue("isFactoryResetDisabled", IsFactoryResetDisabled);
             writer.WriteBoolValue("isRemoveDeviceDisabled", IsRemoveDeviceDisabled);
-            writer.WriteObjectValue<MimeContent>("landingPageCustomizedImage", LandingPageCustomizedImage);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("landingPageCustomizedImage", LandingPageCustomizedImage);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("lightBackgroundLogo", LightBackgroundLogo);
             writer.WriteStringValue("onlineSupportSiteName", OnlineSupportSiteName);
             writer.WriteStringValue("onlineSupportSiteUrl", OnlineSupportSiteUrl);
             writer.WriteStringValue("privacyUrl", PrivacyUrl);
@@ -293,8 +293,8 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("showDisplayNameNextToLogo", ShowDisplayNameNextToLogo);
             writer.WriteBoolValue("showLogo", ShowLogo);
             writer.WriteBoolValue("showOfficeWebApps", ShowOfficeWebApps);
-            writer.WriteObjectValue<RgbColor>("themeColor", ThemeColor);
-            writer.WriteObjectValue<MimeContent>("themeColorLogo", ThemeColorLogo);
+            writer.WriteObjectValue<ApiSdk.Models.RgbColor>("themeColor", ThemeColor);
+            writer.WriteObjectValue<ApiSdk.Models.MimeContent>("themeColorLogo", ThemeColorLogo);
         }
     }
 }

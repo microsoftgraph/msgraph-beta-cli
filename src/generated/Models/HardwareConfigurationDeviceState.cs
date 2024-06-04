@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for device run state of the hardware configuration
     /// </summary>
-    public class HardwareConfigurationDeviceState : Entity, IParsable
+    public class HardwareConfigurationDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>A list of identifier strings of different assignment filters applied</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         public string ConfigurationOutput { get; set; }
 #endif
         /// <summary>Indicates the type of execution status of the device management script.</summary>
-        public RunState? ConfigurationState { get; set; }
+        public ApiSdk.Models.RunState? ConfigurationState { get; set; }
         /// <summary>The name of the device</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HardwareConfigurationDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HardwareConfigurationDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HardwareConfigurationDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.HardwareConfigurationDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HardwareConfigurationDeviceState();
+            return new ApiSdk.Models.HardwareConfigurationDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -94,7 +94,7 @@ namespace ApiSdk.Models
                 { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetStringValue(); } },
                 { "configurationError", n => { ConfigurationError = n.GetStringValue(); } },
                 { "configurationOutput", n => { ConfigurationOutput = n.GetStringValue(); } },
-                { "configurationState", n => { ConfigurationState = n.GetEnumValue<RunState>(); } },
+                { "configurationState", n => { ConfigurationState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "internalVersion", n => { InternalVersion = n.GetIntValue(); } },
                 { "lastStateUpdateDateTime", n => { LastStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
@@ -114,7 +114,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("assignmentFilterIds", AssignmentFilterIds);
             writer.WriteStringValue("configurationError", ConfigurationError);
             writer.WriteStringValue("configurationOutput", ConfigurationOutput);
-            writer.WriteEnumValue<RunState>("configurationState", ConfigurationState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("configurationState", ConfigurationState);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteIntValue("internalVersion", InternalVersion);
             writer.WriteDateTimeOffsetValue("lastStateUpdateDateTime", LastStateUpdateDateTime);

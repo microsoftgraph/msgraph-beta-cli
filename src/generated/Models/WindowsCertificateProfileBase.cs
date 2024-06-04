@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Configuration.
     /// </summary>
-    public class WindowsCertificateProfileBase : DeviceConfiguration, IParsable
+    public class WindowsCertificateProfileBase : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Certificate Validity Period Options.</summary>
         public ApiSdk.Models.CertificateValidityPeriodScale? CertificateValidityPeriodScale { get; set; }
         /// <summary>Value for the Certificate Validity Period</summary>
         public int? CertificateValidityPeriodValue { get; set; }
         /// <summary>Key Storage Provider (KSP) Import Options.</summary>
-        public KeyStorageProviderOption? KeyStorageProvider { get; set; }
+        public ApiSdk.Models.KeyStorageProviderOption? KeyStorageProvider { get; set; }
         /// <summary>Certificate renewal threshold percentage. Valid values 1 to 99</summary>
         public int? RenewalThresholdPercentage { get; set; }
         /// <summary>Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.</summary>
@@ -24,7 +24,7 @@ namespace ApiSdk.Models
         /// <summary>Subject Name Format Options.</summary>
         public ApiSdk.Models.SubjectNameFormat? SubjectNameFormat { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsCertificateProfileBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsCertificateProfileBase"/> and sets the default values.
         /// </summary>
         public WindowsCertificateProfileBase() : base()
         {
@@ -33,21 +33,21 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsCertificateProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsCertificateProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsCertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsCertificateProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windows10CertificateProfileBase" => new Windows10CertificateProfileBase(),
-                "#microsoft.graph.windows10ImportedPFXCertificateProfile" => new Windows10ImportedPFXCertificateProfile(),
-                "#microsoft.graph.windows10PkcsCertificateProfile" => new Windows10PkcsCertificateProfile(),
-                "#microsoft.graph.windows81CertificateProfileBase" => new Windows81CertificateProfileBase(),
-                "#microsoft.graph.windows81SCEPCertificateProfile" => new Windows81SCEPCertificateProfile(),
-                "#microsoft.graph.windowsPhone81ImportedPFXCertificateProfile" => new WindowsPhone81ImportedPFXCertificateProfile(),
-                _ => new WindowsCertificateProfileBase(),
+                "#microsoft.graph.windows10CertificateProfileBase" => new ApiSdk.Models.Windows10CertificateProfileBase(),
+                "#microsoft.graph.windows10ImportedPFXCertificateProfile" => new ApiSdk.Models.Windows10ImportedPFXCertificateProfile(),
+                "#microsoft.graph.windows10PkcsCertificateProfile" => new ApiSdk.Models.Windows10PkcsCertificateProfile(),
+                "#microsoft.graph.windows81CertificateProfileBase" => new ApiSdk.Models.Windows81CertificateProfileBase(),
+                "#microsoft.graph.windows81SCEPCertificateProfile" => new ApiSdk.Models.Windows81SCEPCertificateProfile(),
+                "#microsoft.graph.windowsPhone81ImportedPFXCertificateProfile" => new ApiSdk.Models.WindowsPhone81ImportedPFXCertificateProfile(),
+                _ => new ApiSdk.Models.WindowsCertificateProfileBase(),
             };
         }
         /// <summary>
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<CertificateValidityPeriodScale>(); } },
+                { "certificateValidityPeriodScale", n => { CertificateValidityPeriodScale = n.GetEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>(); } },
                 { "certificateValidityPeriodValue", n => { CertificateValidityPeriodValue = n.GetIntValue(); } },
-                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<KeyStorageProviderOption>(); } },
+                { "keyStorageProvider", n => { KeyStorageProvider = n.GetEnumValue<ApiSdk.Models.KeyStorageProviderOption>(); } },
                 { "renewalThresholdPercentage", n => { RenewalThresholdPercentage = n.GetIntValue(); } },
-                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
-                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<SubjectNameFormat>(); } },
+                { "subjectAlternativeNameType", n => { SubjectAlternativeNameType = n.GetEnumValue<ApiSdk.Models.SubjectAlternativeNameType>(); } },
+                { "subjectNameFormat", n => { SubjectNameFormat = n.GetEnumValue<ApiSdk.Models.SubjectNameFormat>(); } },
             };
         }
         /// <summary>
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
+            writer.WriteEnumValue<ApiSdk.Models.CertificateValidityPeriodScale>("certificateValidityPeriodScale", CertificateValidityPeriodScale);
             writer.WriteIntValue("certificateValidityPeriodValue", CertificateValidityPeriodValue);
-            writer.WriteEnumValue<KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
+            writer.WriteEnumValue<ApiSdk.Models.KeyStorageProviderOption>("keyStorageProvider", KeyStorageProvider);
             writer.WriteIntValue("renewalThresholdPercentage", RenewalThresholdPercentage);
-            writer.WriteEnumValue<SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
-            writer.WriteEnumValue<SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectAlternativeNameType>("subjectAlternativeNameType", SubjectAlternativeNameType);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectNameFormat>("subjectNameFormat", SubjectNameFormat);
         }
     }
 }

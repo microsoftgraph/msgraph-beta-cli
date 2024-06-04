@@ -152,7 +152,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement
         {
             var command = new Command("permissions-request-changes");
             command.Description = "Provides operations to manage the permissionsRequestChanges property of the microsoft.graph.permissionsManagement entity.";
-            var builder = new PermissionsRequestChangesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsRequestChanges.PermissionsRequestChangesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -179,7 +179,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement
         {
             var command = new Command("scheduled-permissions-approvals");
             command.Description = "Provides operations to manage the scheduledPermissionsApprovals property of the microsoft.graph.permissionsManagement entity.";
-            var builder = new ScheduledPermissionsApprovalsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsApprovals.ScheduledPermissionsApprovalsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -207,7 +207,7 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement
         {
             var command = new Command("scheduled-permissions-requests");
             command.Description = "Provides operations to manage the scheduledPermissionsRequests property of the microsoft.graph.permissionsManagement entity.";
-            var builder = new ScheduledPermissionsRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.IdentityGovernance.PermissionsManagement.ScheduledPermissionsRequests.ScheduledPermissionsRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildFilterByCurrentUserWithOnRbCommand());
@@ -224,14 +224,14 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PermissionsManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identityGovernance/permissionsManagement{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PermissionsManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PermissionsManagementRequestBuilder(string rawUrl) : base("{+baseurl}/identityGovernance/permissionsManagement{?%24expand,%24select}", rawUrl)
@@ -263,11 +263,11 @@ namespace ApiSdk.IdentityGovernance.PermissionsManagement
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsManagementRequestBuilder.PermissionsManagementRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PermissionsManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.IdentityGovernance.PermissionsManagement.PermissionsManagementRequestBuilder.PermissionsManagementRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

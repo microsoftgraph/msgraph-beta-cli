@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Subject Alternative Name Options.</summary>
-        public SubjectAlternativeNameType? SanType { get; set; }
+        public ApiSdk.Models.SubjectAlternativeNameType? SanType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows10XCustomSubjectAlternativeName"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10XCustomSubjectAlternativeName"/> and sets the default values.
         /// </summary>
         public Windows10XCustomSubjectAlternativeName()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10XCustomSubjectAlternativeName"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10XCustomSubjectAlternativeName"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Windows10XCustomSubjectAlternativeName CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Windows10XCustomSubjectAlternativeName CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10XCustomSubjectAlternativeName();
+            return new ApiSdk.Models.Windows10XCustomSubjectAlternativeName();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             {
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "sanType", n => { SanType = n.GetEnumValue<SubjectAlternativeNameType>(); } },
+                { "sanType", n => { SanType = n.GetEnumValue<ApiSdk.Models.SubjectAlternativeNameType>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<SubjectAlternativeNameType>("sanType", SanType);
+            writer.WriteEnumValue<ApiSdk.Models.SubjectAlternativeNameType>("sanType", SanType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

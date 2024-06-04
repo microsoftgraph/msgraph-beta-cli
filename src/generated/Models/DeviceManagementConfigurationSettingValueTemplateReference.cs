@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether to update policy setting value to match template setting default value</summary>
         public bool? UseTemplateDefault { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingValueTemplateReference"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingValueTemplateReference"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingValueTemplateReference()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingValueTemplateReference"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingValueTemplateReference"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationSettingValueTemplateReference CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationSettingValueTemplateReference CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationSettingValueTemplateReference();
+            return new ApiSdk.Models.DeviceManagementConfigurationSettingValueTemplateReference();
         }
         /// <summary>
         /// The deserialization information for the current model

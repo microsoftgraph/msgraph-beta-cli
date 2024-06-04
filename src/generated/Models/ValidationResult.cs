@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         /// <summary>Whether the password passed or failed the validation rule. Read-only. Not nullable.</summary>
         public bool? ValidationPassed { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ValidationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ValidationResult"/> and sets the default values.
         /// </summary>
         public ValidationResult()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ValidationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ValidationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ValidationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ValidationResult();
+            return new ApiSdk.Models.ValidationResult();
         }
         /// <summary>
         /// The deserialization information for the current model

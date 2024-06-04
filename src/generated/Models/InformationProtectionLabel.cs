@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InformationProtectionLabel : Entity, IParsable
+    public class InformationProtectionLabel : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The color that the UI should display for the label, if configured.</summary>
@@ -39,10 +39,10 @@ namespace ApiSdk.Models
         /// <summary>The parent label associated with a child label. Null if label has no parent.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ParentLabelDetails? Parent { get; set; }
+        public ApiSdk.Models.ParentLabelDetails? Parent { get; set; }
 #nullable restore
 #else
-        public ParentLabelDetails Parent { get; set; }
+        public ApiSdk.Models.ParentLabelDetails Parent { get; set; }
 #endif
         /// <summary>The sensitivity value of the label, where lower is less sensitive.</summary>
         public int? Sensitivity { get; set; }
@@ -57,12 +57,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InformationProtectionLabel"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InformationProtectionLabel"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InformationProtectionLabel CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InformationProtectionLabel CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InformationProtectionLabel();
+            return new ApiSdk.Models.InformationProtectionLabel();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isActive", n => { IsActive = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "parent", n => { Parent = n.GetObjectValue<ParentLabelDetails>(ParentLabelDetails.CreateFromDiscriminatorValue); } },
+                { "parent", n => { Parent = n.GetObjectValue<ApiSdk.Models.ParentLabelDetails>(ApiSdk.Models.ParentLabelDetails.CreateFromDiscriminatorValue); } },
                 { "sensitivity", n => { Sensitivity = n.GetIntValue(); } },
                 { "tooltip", n => { Tooltip = n.GetStringValue(); } },
             };
@@ -93,7 +93,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("description", Description);
             writer.WriteBoolValue("isActive", IsActive);
             writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<ParentLabelDetails>("parent", Parent);
+            writer.WriteObjectValue<ApiSdk.Models.ParentLabelDetails>("parent", Parent);
             writer.WriteIntValue("sensitivity", Sensitivity);
             writer.WriteStringValue("tooltip", Tooltip);
         }

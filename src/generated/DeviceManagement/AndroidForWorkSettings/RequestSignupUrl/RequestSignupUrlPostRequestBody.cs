@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl
         public string HostName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RequestSignupUrlPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody"/> and sets the default values.
         /// </summary>
         public RequestSignupUrlPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RequestSignupUrlPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RequestSignupUrlPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RequestSignupUrlPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidForWorkSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

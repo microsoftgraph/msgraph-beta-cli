@@ -13,20 +13,20 @@ namespace ApiSdk.Models
         /// <summary>The configuration of the Microsoft Teams client user account for a device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkAccountConfiguration? AccountConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkAccountConfiguration? AccountConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkAccountConfiguration AccountConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkAccountConfiguration AccountConfiguration { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The configuration of Microsoft Teams client features for a device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkFeaturesConfiguration? FeaturesConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkFeaturesConfiguration? FeaturesConfiguration { get; set; }
 #nullable restore
 #else
-        public TeamworkFeaturesConfiguration FeaturesConfiguration { get; set; }
+        public ApiSdk.Models.TeamworkFeaturesConfiguration FeaturesConfiguration { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkTeamsClientConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkTeamsClientConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkTeamsClientConfiguration()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkTeamsClientConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkTeamsClientConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkTeamsClientConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkTeamsClientConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkTeamsClientConfiguration();
+            return new ApiSdk.Models.TeamworkTeamsClientConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,8 +61,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accountConfiguration", n => { AccountConfiguration = n.GetObjectValue<TeamworkAccountConfiguration>(TeamworkAccountConfiguration.CreateFromDiscriminatorValue); } },
-                { "featuresConfiguration", n => { FeaturesConfiguration = n.GetObjectValue<TeamworkFeaturesConfiguration>(TeamworkFeaturesConfiguration.CreateFromDiscriminatorValue); } },
+                { "accountConfiguration", n => { AccountConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkAccountConfiguration>(ApiSdk.Models.TeamworkAccountConfiguration.CreateFromDiscriminatorValue); } },
+                { "featuresConfiguration", n => { FeaturesConfiguration = n.GetObjectValue<ApiSdk.Models.TeamworkFeaturesConfiguration>(ApiSdk.Models.TeamworkFeaturesConfiguration.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -73,8 +73,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkAccountConfiguration>("accountConfiguration", AccountConfiguration);
-            writer.WriteObjectValue<TeamworkFeaturesConfiguration>("featuresConfiguration", FeaturesConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkAccountConfiguration>("accountConfiguration", AccountConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkFeaturesConfiguration>("featuresConfiguration", FeaturesConfiguration);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

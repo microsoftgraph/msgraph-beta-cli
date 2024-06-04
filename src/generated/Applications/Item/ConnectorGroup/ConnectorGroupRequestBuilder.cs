@@ -82,7 +82,7 @@ namespace ApiSdk.Applications.Item.ConnectorGroup
         {
             var command = new Command("ref");
             command.Description = "Provides operations to manage the collection of application entities.";
-            var builder = new RefRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Applications.Item.ConnectorGroup.Ref.RefRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -94,14 +94,14 @@ namespace ApiSdk.Applications.Item.ConnectorGroup
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorGroupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Applications.Item.ConnectorGroup.ConnectorGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConnectorGroupRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/applications/{application%2Did}/connectorGroup{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorGroupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Applications.Item.ConnectorGroup.ConnectorGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConnectorGroupRequestBuilder(string rawUrl) : base("{+baseurl}/applications/{application%2Did}/connectorGroup{?%24expand,%24select}", rawUrl)
@@ -114,11 +114,11 @@ namespace ApiSdk.Applications.Item.ConnectorGroup
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectorGroupRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Applications.Item.ConnectorGroup.ConnectorGroupRequestBuilder.ConnectorGroupRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectorGroupRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Applications.Item.ConnectorGroup.ConnectorGroupRequestBuilder.ConnectorGroupRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

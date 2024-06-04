@@ -49,7 +49,7 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AddMembersByIdPostRequestBody>(AddMembersByIdPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody>(ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -69,14 +69,14 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/deployments/{deployment%2Did}/audience/exclusions/{updatableAsset%2Did}/microsoft.graph.windowsUpdates.addMembersById", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphWindowsUpdatesAddMembersByIdRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/deployments/{deployment%2Did}/audience/exclusions/{updatableAsset%2Did}/microsoft.graph.windowsUpdates.addMembersById", rawUrl)
@@ -90,11 +90,11 @@ namespace ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(AddMembersByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(AddMembersByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.Deployments.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembersById.AddMembersByIdPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

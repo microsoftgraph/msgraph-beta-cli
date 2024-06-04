@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class VirtualEventRegistration : Entity, IParsable
+    public class VirtualEventRegistration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Date and time when the registrant cancels their registration for the virtual event. Only appears when applicable. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -57,21 +57,21 @@ namespace ApiSdk.Models
         /// <summary>The registrant&apos;s answer to the registration questions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventRegistrationQuestionAnswer>? RegistrationQuestionAnswers { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistrationQuestionAnswer>? RegistrationQuestionAnswers { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventRegistrationQuestionAnswer> RegistrationQuestionAnswers { get; set; }
+        public List<ApiSdk.Models.VirtualEventRegistrationQuestionAnswer> RegistrationQuestionAnswers { get; set; }
 #endif
         /// <summary>The sessions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VirtualEventSession>? Sessions { get; set; }
+        public List<ApiSdk.Models.VirtualEventSession>? Sessions { get; set; }
 #nullable restore
 #else
-        public List<VirtualEventSession> Sessions { get; set; }
+        public List<ApiSdk.Models.VirtualEventSession> Sessions { get; set; }
 #endif
         /// <summary>Registration status of the registrant. Read-only.</summary>
-        public VirtualEventAttendeeRegistrationStatus? Status { get; set; }
+        public ApiSdk.Models.VirtualEventAttendeeRegistrationStatus? Status { get; set; }
         /// <summary>The registrant&apos;s ID in Microsoft Entra ID. Only appears when the registrant is registered in Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VirtualEventRegistration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VirtualEventRegistration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new VirtualEventRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.VirtualEventRegistration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new VirtualEventRegistration();
+            return new ApiSdk.Models.VirtualEventRegistration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,9 +105,9 @@ namespace ApiSdk.Models
                 { "preferredLanguage", n => { PreferredLanguage = n.GetStringValue(); } },
                 { "preferredTimezone", n => { PreferredTimezone = n.GetStringValue(); } },
                 { "registrationDateTime", n => { RegistrationDateTime = n.GetDateTimeOffsetValue(); } },
-                { "registrationQuestionAnswers", n => { RegistrationQuestionAnswers = n.GetCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>(VirtualEventRegistrationQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<VirtualEventSession>(VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<VirtualEventAttendeeRegistrationStatus>(); } },
+                { "registrationQuestionAnswers", n => { RegistrationQuestionAnswers = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistrationQuestionAnswer>(ApiSdk.Models.VirtualEventRegistrationQuestionAnswer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "sessions", n => { Sessions = n.GetCollectionOfObjectValues<ApiSdk.Models.VirtualEventSession>(ApiSdk.Models.VirtualEventSession.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.VirtualEventAttendeeRegistrationStatus>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -126,9 +126,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("preferredLanguage", PreferredLanguage);
             writer.WriteStringValue("preferredTimezone", PreferredTimezone);
             writer.WriteDateTimeOffsetValue("registrationDateTime", RegistrationDateTime);
-            writer.WriteCollectionOfObjectValues<VirtualEventRegistrationQuestionAnswer>("registrationQuestionAnswers", RegistrationQuestionAnswers);
-            writer.WriteCollectionOfObjectValues<VirtualEventSession>("sessions", Sessions);
-            writer.WriteEnumValue<VirtualEventAttendeeRegistrationStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventRegistrationQuestionAnswer>("registrationQuestionAnswers", RegistrationQuestionAnswers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VirtualEventSession>("sessions", Sessions);
+            writer.WriteEnumValue<ApiSdk.Models.VirtualEventAttendeeRegistrationStatus>("status", Status);
             writer.WriteStringValue("userId", UserId);
         }
     }

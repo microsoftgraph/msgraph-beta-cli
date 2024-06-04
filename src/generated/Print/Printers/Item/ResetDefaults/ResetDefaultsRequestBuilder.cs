@@ -50,14 +50,14 @@ namespace ApiSdk.Print.Printers.Item.ResetDefaults
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetDefaultsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.ResetDefaults.ResetDefaultsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResetDefaultsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printers/{printer%2Did}/resetDefaults", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResetDefaultsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.Printers.Item.ResetDefaults.ResetDefaultsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResetDefaultsRequestBuilder(string rawUrl) : base("{+baseurl}/print/printers/{printer%2Did}/resetDefaults", rawUrl)

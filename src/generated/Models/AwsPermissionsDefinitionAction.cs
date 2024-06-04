@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsPermissionsDefinitionAction : PermissionsDefinitionAction, IParsable
+    public class AwsPermissionsDefinitionAction : ApiSdk.Models.PermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="AwsPermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsPermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public AwsPermissionsDefinitionAction() : base()
         {
@@ -20,17 +20,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsPermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsPermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.awsActionsPermissionsDefinitionAction" => new AwsActionsPermissionsDefinitionAction(),
-                "#microsoft.graph.awsPolicyPermissionsDefinitionAction" => new AwsPolicyPermissionsDefinitionAction(),
-                _ => new AwsPermissionsDefinitionAction(),
+                "#microsoft.graph.awsActionsPermissionsDefinitionAction" => new ApiSdk.Models.AwsActionsPermissionsDefinitionAction(),
+                "#microsoft.graph.awsPolicyPermissionsDefinitionAction" => new ApiSdk.Models.AwsPolicyPermissionsDefinitionAction(),
+                _ => new ApiSdk.Models.AwsPermissionsDefinitionAction(),
             };
         }
         /// <summary>

@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The appliesTo property</summary>
-        public EducationUserRole? AppliesTo { get; set; }
+        public ApiSdk.Models.EducationUserRole? AppliesTo { get; set; }
         /// <summary>Represents the domain for the user account.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationIdentityDomain"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationIdentityDomain"/> and sets the default values.
         /// </summary>
         public EducationIdentityDomain()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationIdentityDomain"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationIdentityDomain"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationIdentityDomain CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationIdentityDomain CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationIdentityDomain();
+            return new ApiSdk.Models.EducationIdentityDomain();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appliesTo", n => { AppliesTo = n.GetEnumValue<EducationUserRole>(); } },
+                { "appliesTo", n => { AppliesTo = n.GetEnumValue<ApiSdk.Models.EducationUserRole>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<EducationUserRole>("appliesTo", AppliesTo);
+            writer.WriteEnumValue<ApiSdk.Models.EducationUserRole>("appliesTo", AppliesTo);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

@@ -38,7 +38,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("data-connectors");
             command.Description = "Provides operations to manage the dataConnectors property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new DataConnectorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.DataConnectors.DataConnectorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -111,7 +111,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("inbound-flows");
             command.Description = "Provides operations to manage the inboundFlows property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new InboundFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.InboundFlows.InboundFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -138,7 +138,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new OperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Operations.OperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -165,7 +165,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("outbound-provisioning-flow-sets");
             command.Description = "Provides operations to manage the outboundProvisioningFlowSets property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new OutboundProvisioningFlowSetsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.OutboundProvisioningFlowSets.OutboundProvisioningFlowSetsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -192,7 +192,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("reference-definitions");
             command.Description = "Provides operations to manage the referenceDefinitions property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new ReferenceDefinitionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.ReferenceDefinitions.ReferenceDefinitionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -219,7 +219,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("role-groups");
             command.Description = "Provides operations to manage the roleGroups property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new RoleGroupsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.RoleGroups.RoleGroupsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -246,7 +246,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("runs");
             command.Description = "Provides operations to manage the runs property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new RunsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Runs.RunsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -273,7 +273,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("source-systems");
             command.Description = "Provides operations to manage the sourceSystems property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new SourceSystemsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.SourceSystems.SourceSystemsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -300,7 +300,7 @@ namespace ApiSdk.External.IndustryData
         {
             var command = new Command("years");
             command.Description = "Provides operations to manage the years property of the microsoft.graph.industryData.industryDataRoot entity.";
-            var builder = new YearsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Years.YearsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -320,14 +320,14 @@ namespace ApiSdk.External.IndustryData
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.IndustryDataRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public IndustryDataRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="IndustryDataRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.IndustryDataRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public IndustryDataRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData{?%24expand,%24select}", rawUrl)
@@ -340,11 +340,11 @@ namespace ApiSdk.External.IndustryData
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IndustryDataRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.IndustryDataRequestBuilder.IndustryDataRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IndustryDataRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.IndustryDataRequestBuilder.IndustryDataRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

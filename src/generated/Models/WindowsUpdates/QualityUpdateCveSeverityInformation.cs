@@ -15,15 +15,15 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The exploitedCves property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CveInformation>? ExploitedCves { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.CveInformation>? ExploitedCves { get; set; }
 #nullable restore
 #else
-        public List<CveInformation> ExploitedCves { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.CveInformation> ExploitedCves { get; set; }
 #endif
         /// <summary>Highest base score that occurs of any CVE addressed by the quality update. Read-only.</summary>
         public double? MaxBaseScore { get; set; }
         /// <summary>The maxSeverity property</summary>
-        public CveSeverityLevel? MaxSeverity { get; set; }
+        public ApiSdk.Models.WindowsUpdates.CveSeverityLevel? MaxSeverity { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -33,7 +33,7 @@ namespace ApiSdk.Models.WindowsUpdates
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="QualityUpdateCveSeverityInformation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsUpdates.QualityUpdateCveSeverityInformation"/> and sets the default values.
         /// </summary>
         public QualityUpdateCveSeverityInformation()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="QualityUpdateCveSeverityInformation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.QualityUpdateCveSeverityInformation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static QualityUpdateCveSeverityInformation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsUpdates.QualityUpdateCveSeverityInformation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new QualityUpdateCveSeverityInformation();
+            return new ApiSdk.Models.WindowsUpdates.QualityUpdateCveSeverityInformation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,9 +57,9 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "exploitedCves", n => { ExploitedCves = n.GetCollectionOfObjectValues<CveInformation>(CveInformation.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "exploitedCves", n => { ExploitedCves = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.CveInformation>(ApiSdk.Models.WindowsUpdates.CveInformation.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "maxBaseScore", n => { MaxBaseScore = n.GetDoubleValue(); } },
-                { "maxSeverity", n => { MaxSeverity = n.GetEnumValue<CveSeverityLevel>(); } },
+                { "maxSeverity", n => { MaxSeverity = n.GetEnumValue<ApiSdk.Models.WindowsUpdates.CveSeverityLevel>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -70,9 +70,9 @@ namespace ApiSdk.Models.WindowsUpdates
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<CveInformation>("exploitedCves", ExploitedCves);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.CveInformation>("exploitedCves", ExploitedCves);
             writer.WriteDoubleValue("maxBaseScore", MaxBaseScore);
-            writer.WriteEnumValue<CveSeverityLevel>("maxSeverity", MaxSeverity);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsUpdates.CveSeverityLevel>("maxSeverity", MaxSeverity);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

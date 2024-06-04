@@ -33,13 +33,13 @@ namespace ApiSdk.Models.Security
         /// <summary>The healthIssues property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HealthIssue>? HealthIssues { get; set; }
+        public List<ApiSdk.Models.Security.HealthIssue>? HealthIssues { get; set; }
 #nullable restore
 #else
-        public List<HealthIssue> HealthIssues { get; set; }
+        public List<ApiSdk.Models.Security.HealthIssue> HealthIssues { get; set; }
 #endif
         /// <summary>The healthStatus property</summary>
-        public SensorHealthStatus? HealthStatus { get; set; }
+        public ApiSdk.Models.Security.SensorHealthStatus? HealthStatus { get; set; }
         /// <summary>The openHealthIssuesCount property</summary>
         public long? OpenHealthIssuesCount { get; set; }
         /// <summary>The sensorType property</summary>
@@ -47,10 +47,10 @@ namespace ApiSdk.Models.Security
         /// <summary>The settings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SensorSettings? Settings { get; set; }
+        public ApiSdk.Models.Security.SensorSettings? Settings { get; set; }
 #nullable restore
 #else
-        public SensorSettings Settings { get; set; }
+        public ApiSdk.Models.Security.SensorSettings Settings { get; set; }
 #endif
         /// <summary>The version property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,12 +63,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Sensor"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.Sensor"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Sensor CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.Sensor CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Sensor();
+            return new ApiSdk.Models.Security.Sensor();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -79,14 +79,14 @@ namespace ApiSdk.Models.Security
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "deploymentStatus", n => { DeploymentStatus = n.GetEnumValue<DeploymentStatus>(); } },
+                { "deploymentStatus", n => { DeploymentStatus = n.GetEnumValue<ApiSdk.Models.Security.DeploymentStatus>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "domainName", n => { DomainName = n.GetStringValue(); } },
-                { "healthIssues", n => { HealthIssues = n.GetCollectionOfObjectValues<HealthIssue>(HealthIssue.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "healthStatus", n => { HealthStatus = n.GetEnumValue<SensorHealthStatus>(); } },
+                { "healthIssues", n => { HealthIssues = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.HealthIssue>(ApiSdk.Models.Security.HealthIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "healthStatus", n => { HealthStatus = n.GetEnumValue<ApiSdk.Models.Security.SensorHealthStatus>(); } },
                 { "openHealthIssuesCount", n => { OpenHealthIssuesCount = n.GetLongValue(); } },
-                { "sensorType", n => { SensorType = n.GetEnumValue<SensorType>(); } },
-                { "settings", n => { Settings = n.GetObjectValue<SensorSettings>(SensorSettings.CreateFromDiscriminatorValue); } },
+                { "sensorType", n => { SensorType = n.GetEnumValue<ApiSdk.Models.Security.SensorType>(); } },
+                { "settings", n => { Settings = n.GetObjectValue<ApiSdk.Models.Security.SensorSettings>(ApiSdk.Models.Security.SensorSettings.CreateFromDiscriminatorValue); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -99,14 +99,14 @@ namespace ApiSdk.Models.Security
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteEnumValue<DeploymentStatus>("deploymentStatus", DeploymentStatus);
+            writer.WriteEnumValue<ApiSdk.Models.Security.DeploymentStatus>("deploymentStatus", DeploymentStatus);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("domainName", DomainName);
-            writer.WriteCollectionOfObjectValues<HealthIssue>("healthIssues", HealthIssues);
-            writer.WriteEnumValue<SensorHealthStatus>("healthStatus", HealthStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.HealthIssue>("healthIssues", HealthIssues);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SensorHealthStatus>("healthStatus", HealthStatus);
             writer.WriteLongValue("openHealthIssuesCount", OpenHealthIssuesCount);
-            writer.WriteEnumValue<SensorType>("sensorType", SensorType);
-            writer.WriteObjectValue<SensorSettings>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.Security.SensorType>("sensorType", SensorType);
+            writer.WriteObjectValue<ApiSdk.Models.Security.SensorSettings>("settings", Settings);
             writer.WriteStringValue("version", Version);
         }
     }

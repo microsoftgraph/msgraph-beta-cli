@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a custom question of the business.
     /// </summary>
-    public class BookingCustomQuestion : Entity, IParsable
+    public class BookingCustomQuestion : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The expected answer type. The possible values are: text, radioButton, unknownFutureValue.</summary>
         public ApiSdk.Models.AnswerInputType? AnswerInputType { get; set; }
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingCustomQuestion"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingCustomQuestion"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingCustomQuestion CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingCustomQuestion CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BookingCustomQuestion();
+            return new ApiSdk.Models.BookingCustomQuestion();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "answerInputType", n => { AnswerInputType = n.GetEnumValue<AnswerInputType>(); } },
+                { "answerInputType", n => { AnswerInputType = n.GetEnumValue<ApiSdk.Models.AnswerInputType>(); } },
                 { "answerOptions", n => { AnswerOptions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -66,7 +66,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AnswerInputType>("answerInputType", AnswerInputType);
+            writer.WriteEnumValue<ApiSdk.Models.AnswerInputType>("answerInputType", AnswerInputType);
             writer.WriteCollectionOfPrimitiveValues<string>("answerOptions", AnswerOptions);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("displayName", DisplayName);

@@ -54,14 +54,14 @@ namespace ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Disconnect
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisconnectRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Disconnect.DisconnectRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DisconnectRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/chromeOSOnboardingSettings/disconnect", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DisconnectRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ChromeOSOnboardingSettings.Disconnect.DisconnectRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DisconnectRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/chromeOSOnboardingSettings/disconnect", rawUrl)

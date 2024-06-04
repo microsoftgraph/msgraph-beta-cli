@@ -13,20 +13,20 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The different attribute choices for the users to be provisioned. The possible values are: userGradeLevel, userNumber, unknownFutureValue.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AdditionalUserAttributes?>? AdditionalAttributes { get; set; }
+        public List<ApiSdk.Models.IndustryData.AdditionalUserAttributes?>? AdditionalAttributes { get; set; }
 #nullable restore
 #else
-        public List<AdditionalUserAttributes?> AdditionalAttributes { get; set; }
+        public List<ApiSdk.Models.IndustryData.AdditionalUserAttributes?> AdditionalAttributes { get; set; }
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The additionalOptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdditionalUserOptions? AdditionalOptions { get; set; }
+        public ApiSdk.Models.IndustryData.AdditionalUserOptions? AdditionalOptions { get; set; }
 #nullable restore
 #else
-        public AdditionalUserOptions AdditionalOptions { get; set; }
+        public ApiSdk.Models.IndustryData.AdditionalUserOptions AdditionalOptions { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UserManagementOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.UserManagementOptions"/> and sets the default values.
         /// </summary>
         public UserManagementOptions()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserManagementOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.UserManagementOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserManagementOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.UserManagementOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserManagementOptions();
+            return new ApiSdk.Models.IndustryData.UserManagementOptions();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,8 +61,8 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<AdditionalUserAttributes>()?.ToList(); } },
-                { "additionalOptions", n => { AdditionalOptions = n.GetObjectValue<AdditionalUserOptions>(AdditionalUserOptions.CreateFromDiscriminatorValue); } },
+                { "additionalAttributes", n => { AdditionalAttributes = n.GetCollectionOfEnumValues<ApiSdk.Models.IndustryData.AdditionalUserAttributes>()?.ToList(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetObjectValue<ApiSdk.Models.IndustryData.AdditionalUserOptions>(ApiSdk.Models.IndustryData.AdditionalUserOptions.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -73,8 +73,8 @@ namespace ApiSdk.Models.IndustryData
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfEnumValues<AdditionalUserAttributes>("additionalAttributes", AdditionalAttributes);
-            writer.WriteObjectValue<AdditionalUserOptions>("additionalOptions", AdditionalOptions);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.IndustryData.AdditionalUserAttributes>("additionalAttributes", AdditionalAttributes);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.AdditionalUserOptions>("additionalOptions", AdditionalOptions);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -60,14 +60,14 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByI
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveMyRequestByIdWithIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByIdWithId.RetrieveMyRequestByIdWithIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveMyRequestByIdWithIdRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveMyRequestById(id='{id}')", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveMyRequestByIdWithIdRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByIdWithId.RetrieveMyRequestByIdWithIdRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveMyRequestByIdWithIdRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveMyRequestById(id='{id}')", rawUrl)

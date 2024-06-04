@@ -47,7 +47,7 @@ namespace ApiSdk.GroupLifecyclePolicies.RenewGroup
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<RenewGroupPostRequestBody>(RenewGroupPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupPostRequestBody>(ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -67,14 +67,14 @@ namespace ApiSdk.GroupLifecyclePolicies.RenewGroup
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RenewGroupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RenewGroupRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/groupLifecyclePolicies/renewGroup", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RenewGroupRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RenewGroupRequestBuilder(string rawUrl) : base("{+baseurl}/groupLifecyclePolicies/renewGroup", rawUrl)
@@ -88,11 +88,11 @@ namespace ApiSdk.GroupLifecyclePolicies.RenewGroup
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(RenewGroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(RenewGroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.GroupLifecyclePolicies.RenewGroup.RenewGroupPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

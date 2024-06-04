@@ -57,7 +57,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDis
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveCrossRegionDisasterRecoveryReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport.RetrieveCrossRegionDisasterRecoveryReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public RetrieveCrossRegionDisasterRecoveryReportPostRequestBody()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDis
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RetrieveCrossRegionDisasterRecoveryReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport.RetrieveCrossRegionDisasterRecoveryReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RetrieveCrossRegionDisasterRecoveryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport.RetrieveCrossRegionDisasterRecoveryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RetrieveCrossRegionDisasterRecoveryReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.RetrieveCrossRegionDisasterRecoveryReport.RetrieveCrossRegionDisasterRecoveryReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

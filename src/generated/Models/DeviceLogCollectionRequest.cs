@@ -30,9 +30,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Enum for the template type used for collecting logs</summary>
-        public DeviceLogCollectionTemplateType? TemplateType { get; set; }
+        public ApiSdk.Models.DeviceLogCollectionTemplateType? TemplateType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceLogCollectionRequest"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceLogCollectionRequest"/> and sets the default values.
         /// </summary>
         public DeviceLogCollectionRequest()
         {
@@ -41,12 +41,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceLogCollectionRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceLogCollectionRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceLogCollectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceLogCollectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceLogCollectionRequest();
+            return new ApiSdk.Models.DeviceLogCollectionRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "templateType", n => { TemplateType = n.GetEnumValue<DeviceLogCollectionTemplateType>(); } },
+                { "templateType", n => { TemplateType = n.GetEnumValue<ApiSdk.Models.DeviceLogCollectionTemplateType>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceLogCollectionTemplateType>("templateType", TemplateType);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceLogCollectionTemplateType>("templateType", TemplateType);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

@@ -15,18 +15,18 @@ namespace ApiSdk.Models
         /// <summary>The appsAndServices property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminAppsAndServices? AppsAndServices { get; set; }
+        public ApiSdk.Models.AdminAppsAndServices? AppsAndServices { get; set; }
 #nullable restore
 #else
-        public AdminAppsAndServices AppsAndServices { get; set; }
+        public ApiSdk.Models.AdminAppsAndServices AppsAndServices { get; set; }
 #endif
         /// <summary>The dynamics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminDynamics? Dynamics { get; set; }
+        public ApiSdk.Models.AdminDynamics? Dynamics { get; set; }
 #nullable restore
 #else
-        public AdminDynamics Dynamics { get; set; }
+        public ApiSdk.Models.AdminDynamics Dynamics { get; set; }
 #endif
         /// <summary>A container for Microsoft Edge resources. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,18 +39,18 @@ namespace ApiSdk.Models
         /// <summary>The forms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminForms? Forms { get; set; }
+        public ApiSdk.Models.AdminForms? Forms { get; set; }
 #nullable restore
 #else
-        public AdminForms Forms { get; set; }
+        public ApiSdk.Models.AdminForms Forms { get; set; }
 #endif
         /// <summary>A container for the Microsoft 365 apps admin functionality.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminMicrosoft365Apps? Microsoft365Apps { get; set; }
+        public ApiSdk.Models.AdminMicrosoft365Apps? Microsoft365Apps { get; set; }
 #nullable restore
 #else
-        public AdminMicrosoft365Apps Microsoft365Apps { get; set; }
+        public ApiSdk.Models.AdminMicrosoft365Apps Microsoft365Apps { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,18 +63,18 @@ namespace ApiSdk.Models
         /// <summary>Represents a setting to control people-related admin settings in the tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PeopleAdminSettings? People { get; set; }
+        public ApiSdk.Models.PeopleAdminSettings? People { get; set; }
 #nullable restore
 #else
-        public PeopleAdminSettings People { get; set; }
+        public ApiSdk.Models.PeopleAdminSettings People { get; set; }
 #endif
         /// <summary>A container for administrative resources to manage reports.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminReportSettings? ReportSettings { get; set; }
+        public ApiSdk.Models.AdminReportSettings? ReportSettings { get; set; }
 #nullable restore
 #else
-        public AdminReportSettings ReportSettings { get; set; }
+        public ApiSdk.Models.AdminReportSettings ReportSettings { get; set; }
 #endif
         /// <summary>A container for service communications resources. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,21 +95,21 @@ namespace ApiSdk.Models
         /// <summary>The todo property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminTodo? Todo { get; set; }
+        public ApiSdk.Models.AdminTodo? Todo { get; set; }
 #nullable restore
 #else
-        public AdminTodo Todo { get; set; }
+        public ApiSdk.Models.AdminTodo Todo { get; set; }
 #endif
         /// <summary>A container for all Windows administrator functionalities. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdminWindows? Windows { get; set; }
+        public ApiSdk.Models.AdminWindows? Windows { get; set; }
 #nullable restore
 #else
-        public AdminWindows Windows { get; set; }
+        public ApiSdk.Models.AdminWindows Windows { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Admin"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Admin"/> and sets the default values.
         /// </summary>
         public Admin()
         {
@@ -118,12 +118,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Admin"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Admin"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Admin CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Admin CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Admin();
+            return new ApiSdk.Models.Admin();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,18 +133,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appsAndServices", n => { AppsAndServices = n.GetObjectValue<AdminAppsAndServices>(AdminAppsAndServices.CreateFromDiscriminatorValue); } },
-                { "dynamics", n => { Dynamics = n.GetObjectValue<AdminDynamics>(AdminDynamics.CreateFromDiscriminatorValue); } },
+                { "appsAndServices", n => { AppsAndServices = n.GetObjectValue<ApiSdk.Models.AdminAppsAndServices>(ApiSdk.Models.AdminAppsAndServices.CreateFromDiscriminatorValue); } },
+                { "dynamics", n => { Dynamics = n.GetObjectValue<ApiSdk.Models.AdminDynamics>(ApiSdk.Models.AdminDynamics.CreateFromDiscriminatorValue); } },
                 { "edge", n => { Edge = n.GetObjectValue<ApiSdk.Models.Edge>(ApiSdk.Models.Edge.CreateFromDiscriminatorValue); } },
-                { "forms", n => { Forms = n.GetObjectValue<AdminForms>(AdminForms.CreateFromDiscriminatorValue); } },
-                { "microsoft365Apps", n => { Microsoft365Apps = n.GetObjectValue<AdminMicrosoft365Apps>(AdminMicrosoft365Apps.CreateFromDiscriminatorValue); } },
+                { "forms", n => { Forms = n.GetObjectValue<ApiSdk.Models.AdminForms>(ApiSdk.Models.AdminForms.CreateFromDiscriminatorValue); } },
+                { "microsoft365Apps", n => { Microsoft365Apps = n.GetObjectValue<ApiSdk.Models.AdminMicrosoft365Apps>(ApiSdk.Models.AdminMicrosoft365Apps.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "people", n => { People = n.GetObjectValue<PeopleAdminSettings>(PeopleAdminSettings.CreateFromDiscriminatorValue); } },
-                { "reportSettings", n => { ReportSettings = n.GetObjectValue<AdminReportSettings>(AdminReportSettings.CreateFromDiscriminatorValue); } },
+                { "people", n => { People = n.GetObjectValue<ApiSdk.Models.PeopleAdminSettings>(ApiSdk.Models.PeopleAdminSettings.CreateFromDiscriminatorValue); } },
+                { "reportSettings", n => { ReportSettings = n.GetObjectValue<ApiSdk.Models.AdminReportSettings>(ApiSdk.Models.AdminReportSettings.CreateFromDiscriminatorValue); } },
                 { "serviceAnnouncement", n => { ServiceAnnouncement = n.GetObjectValue<ApiSdk.Models.ServiceAnnouncement>(ApiSdk.Models.ServiceAnnouncement.CreateFromDiscriminatorValue); } },
                 { "sharepoint", n => { Sharepoint = n.GetObjectValue<ApiSdk.Models.Sharepoint>(ApiSdk.Models.Sharepoint.CreateFromDiscriminatorValue); } },
-                { "todo", n => { Todo = n.GetObjectValue<AdminTodo>(AdminTodo.CreateFromDiscriminatorValue); } },
-                { "windows", n => { Windows = n.GetObjectValue<AdminWindows>(AdminWindows.CreateFromDiscriminatorValue); } },
+                { "todo", n => { Todo = n.GetObjectValue<ApiSdk.Models.AdminTodo>(ApiSdk.Models.AdminTodo.CreateFromDiscriminatorValue); } },
+                { "windows", n => { Windows = n.GetObjectValue<ApiSdk.Models.AdminWindows>(ApiSdk.Models.AdminWindows.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -154,18 +154,18 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<AdminAppsAndServices>("appsAndServices", AppsAndServices);
-            writer.WriteObjectValue<AdminDynamics>("dynamics", Dynamics);
+            writer.WriteObjectValue<ApiSdk.Models.AdminAppsAndServices>("appsAndServices", AppsAndServices);
+            writer.WriteObjectValue<ApiSdk.Models.AdminDynamics>("dynamics", Dynamics);
             writer.WriteObjectValue<ApiSdk.Models.Edge>("edge", Edge);
-            writer.WriteObjectValue<AdminForms>("forms", Forms);
-            writer.WriteObjectValue<AdminMicrosoft365Apps>("microsoft365Apps", Microsoft365Apps);
+            writer.WriteObjectValue<ApiSdk.Models.AdminForms>("forms", Forms);
+            writer.WriteObjectValue<ApiSdk.Models.AdminMicrosoft365Apps>("microsoft365Apps", Microsoft365Apps);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<PeopleAdminSettings>("people", People);
-            writer.WriteObjectValue<AdminReportSettings>("reportSettings", ReportSettings);
+            writer.WriteObjectValue<ApiSdk.Models.PeopleAdminSettings>("people", People);
+            writer.WriteObjectValue<ApiSdk.Models.AdminReportSettings>("reportSettings", ReportSettings);
             writer.WriteObjectValue<ApiSdk.Models.ServiceAnnouncement>("serviceAnnouncement", ServiceAnnouncement);
             writer.WriteObjectValue<ApiSdk.Models.Sharepoint>("sharepoint", Sharepoint);
-            writer.WriteObjectValue<AdminTodo>("todo", Todo);
-            writer.WriteObjectValue<AdminWindows>("windows", Windows);
+            writer.WriteObjectValue<ApiSdk.Models.AdminTodo>("todo", Todo);
+            writer.WriteObjectValue<ApiSdk.Models.AdminWindows>("windows", Windows);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

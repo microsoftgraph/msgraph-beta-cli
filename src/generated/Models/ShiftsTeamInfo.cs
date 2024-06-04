@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string TeamId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ShiftsTeamInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ShiftsTeamInfo"/> and sets the default values.
         /// </summary>
         public ShiftsTeamInfo()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ShiftsTeamInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ShiftsTeamInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ShiftsTeamInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ShiftsTeamInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ShiftsTeamInfo();
+            return new ApiSdk.Models.ShiftsTeamInfo();
         }
         /// <summary>
         /// The deserialization information for the current model

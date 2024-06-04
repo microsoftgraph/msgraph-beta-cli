@@ -15,7 +15,7 @@ namespace ApiSdk.PrivilegedSignupStatus.CanSignUp
         /// <summary>The value property</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CanSignUpGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpGetResponse"/> and sets the default values.
         /// </summary>
         public CanSignUpGetResponse()
         {
@@ -24,12 +24,12 @@ namespace ApiSdk.PrivilegedSignupStatus.CanSignUp
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CanSignUpGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CanSignUpGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CanSignUpGetResponse();
+            return new ApiSdk.PrivilegedSignupStatus.CanSignUp.CanSignUpGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

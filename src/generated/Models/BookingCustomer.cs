@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents a customer of the business.
     /// </summary>
-    public class BookingCustomer : BookingPerson, IParsable
+    public class BookingCustomer : ApiSdk.Models.BookingPerson, IParsable
     {
         /// <summary>Addresses associated with the customer, including home, business and other addresses.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PhysicalAddress>? Addresses { get; set; }
+        public List<ApiSdk.Models.PhysicalAddress>? Addresses { get; set; }
 #nullable restore
 #else
-        public List<PhysicalAddress> Addresses { get; set; }
+        public List<ApiSdk.Models.PhysicalAddress> Addresses { get; set; }
 #endif
         /// <summary>The date, time and timezone when the customer was created.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -26,20 +26,20 @@ namespace ApiSdk.Models
         /// <summary>Phone numbers associated with the customer, including home, business and mobile numbers.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Phone>? Phones { get; set; }
+        public List<ApiSdk.Models.Phone>? Phones { get; set; }
 #nullable restore
 #else
-        public List<Phone> Phones { get; set; }
+        public List<ApiSdk.Models.Phone> Phones { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BookingCustomer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.BookingCustomer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BookingCustomer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.BookingCustomer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BookingCustomer();
+            return new ApiSdk.Models.BookingCustomer();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,10 +49,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<PhysicalAddress>(PhysicalAddress.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "addresses", n => { Addresses = n.GetCollectionOfObjectValues<ApiSdk.Models.PhysicalAddress>(ApiSdk.Models.PhysicalAddress.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastUpdatedDateTime", n => { LastUpdatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "phones", n => { Phones = n.GetCollectionOfObjectValues<Phone>(Phone.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "phones", n => { Phones = n.GetCollectionOfObjectValues<ApiSdk.Models.Phone>(ApiSdk.Models.Phone.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -63,10 +63,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<PhysicalAddress>("addresses", Addresses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PhysicalAddress>("addresses", Addresses);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastUpdatedDateTime", LastUpdatedDateTime);
-            writer.WriteCollectionOfObjectValues<Phone>("phones", Phones);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Phone>("phones", Phones);
         }
     }
 }

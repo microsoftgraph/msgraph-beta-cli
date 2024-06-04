@@ -61,14 +61,14 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphM
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsOffboardTenant.MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/microsoft.graph.managedTenants.offboardTenant", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.Tenants.Item.MicrosoftGraphManagedTenantsOffboardTenant.MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphManagedTenantsOffboardTenantRequestBuilder(string rawUrl) : base("{+baseurl}/tenantRelationships/managedTenants/tenants/{tenant%2Did}/microsoft.graph.managedTenants.offboardTenant", rawUrl)

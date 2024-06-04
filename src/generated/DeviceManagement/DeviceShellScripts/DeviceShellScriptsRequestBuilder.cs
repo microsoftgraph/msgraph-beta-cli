@@ -31,7 +31,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new DeviceShellScriptItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Item.DeviceShellScriptItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAssignmentsNavCommand());
             commands.Add(builder.BuildAssignNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -51,7 +51,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceShellScripts.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -86,7 +86,7 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceShellScript>(DeviceShellScript.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceShellScript>(ApiSdk.Models.DeviceShellScript.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -202,14 +202,14 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceShellScriptsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.DeviceShellScriptsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceShellScriptsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceShellScripts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceShellScriptsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceShellScripts.DeviceShellScriptsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceShellScriptsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceShellScripts{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -222,11 +222,11 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceShellScriptsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceShellScripts.DeviceShellScriptsRequestBuilder.DeviceShellScriptsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceShellScriptsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceShellScripts.DeviceShellScriptsRequestBuilder.DeviceShellScriptsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -242,11 +242,11 @@ namespace ApiSdk.DeviceManagement.DeviceShellScripts
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.DeviceShellScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

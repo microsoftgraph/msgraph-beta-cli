@@ -9,17 +9,17 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics battery health device performance entity contains device level battery information.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthDevicePerformance : Entity, IParsable
+    public class UserExperienceAnalyticsBatteryHealthDevicePerformance : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Estimated battery age. Unit in days. Valid values 0 to 2147483647</summary>
         public int? BatteryAgeInDays { get; set; }
         /// <summary>Properties (maxCapacity and cycleCount) related to all batteries of the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserExperienceAnalyticsDeviceBatteryDetail>? DeviceBatteriesDetails { get; set; }
+        public List<ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail>? DeviceBatteriesDetails { get; set; }
 #nullable restore
 #else
-        public List<UserExperienceAnalyticsDeviceBatteryDetail> DeviceBatteriesDetails { get; set; }
+        public List<ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail> DeviceBatteriesDetails { get; set; }
 #endif
         /// <summary>Number of batteries in a user device. Valid values 0 to 2147483647</summary>
         public int? DeviceBatteryCount { get; set; }
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         /// <summary>Number of times the battery has been discharged an amount that equals 100% of its capacity, but not necessarily by discharging it from 100% to 0%. Valid values 0 to 2147483647</summary>
         public int? FullBatteryDrainCount { get; set; }
         /// <summary>The healthStatus property</summary>
-        public UserExperienceAnalyticsHealthState? HealthStatus { get; set; }
+        public ApiSdk.Models.UserExperienceAnalyticsHealthState? HealthStatus { get; set; }
         /// <summary>The manufacturer name of the device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsBatteryHealthDevicePerformance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDevicePerformance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsBatteryHealthDevicePerformance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDevicePerformance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsBatteryHealthDevicePerformance();
+            return new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDevicePerformance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -92,7 +92,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "batteryAgeInDays", n => { BatteryAgeInDays = n.GetIntValue(); } },
-                { "deviceBatteriesDetails", n => { DeviceBatteriesDetails = n.GetCollectionOfObjectValues<UserExperienceAnalyticsDeviceBatteryDetail>(UserExperienceAnalyticsDeviceBatteryDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceBatteriesDetails", n => { DeviceBatteriesDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail>(ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deviceBatteryCount", n => { DeviceBatteryCount = n.GetIntValue(); } },
                 { "deviceBatteryHealthScore", n => { DeviceBatteryHealthScore = n.GetIntValue(); } },
                 { "deviceBatteryTags", n => { DeviceBatteryTags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -100,7 +100,7 @@ namespace ApiSdk.Models
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "estimatedRuntimeInMinutes", n => { EstimatedRuntimeInMinutes = n.GetIntValue(); } },
                 { "fullBatteryDrainCount", n => { FullBatteryDrainCount = n.GetIntValue(); } },
-                { "healthStatus", n => { HealthStatus = n.GetEnumValue<UserExperienceAnalyticsHealthState>(); } },
+                { "healthStatus", n => { HealthStatus = n.GetEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
                 { "maxCapacityPercentage", n => { MaxCapacityPercentage = n.GetIntValue(); } },
                 { "model", n => { Model = n.GetStringValue(); } },
@@ -115,7 +115,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("batteryAgeInDays", BatteryAgeInDays);
-            writer.WriteCollectionOfObjectValues<UserExperienceAnalyticsDeviceBatteryDetail>("deviceBatteriesDetails", DeviceBatteriesDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UserExperienceAnalyticsDeviceBatteryDetail>("deviceBatteriesDetails", DeviceBatteriesDetails);
             writer.WriteIntValue("deviceBatteryCount", DeviceBatteryCount);
             writer.WriteIntValue("deviceBatteryHealthScore", DeviceBatteryHealthScore);
             writer.WriteCollectionOfPrimitiveValues<string>("deviceBatteryTags", DeviceBatteryTags);
@@ -123,7 +123,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteIntValue("estimatedRuntimeInMinutes", EstimatedRuntimeInMinutes);
             writer.WriteIntValue("fullBatteryDrainCount", FullBatteryDrainCount);
-            writer.WriteEnumValue<UserExperienceAnalyticsHealthState>("healthStatus", HealthStatus);
+            writer.WriteEnumValue<ApiSdk.Models.UserExperienceAnalyticsHealthState>("healthStatus", HealthStatus);
             writer.WriteStringValue("manufacturer", Manufacturer);
             writer.WriteIntValue("maxCapacityPercentage", MaxCapacityPercentage);
             writer.WriteStringValue("model", Model);

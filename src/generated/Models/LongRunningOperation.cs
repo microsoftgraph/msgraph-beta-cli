@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class LongRunningOperation : Entity, IParsable
+    public class LongRunningOperation : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The start time of the operation. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -24,7 +24,7 @@ namespace ApiSdk.Models
         public string ResourceLocation { get; set; }
 #endif
         /// <summary>The status of the operation. The possible values are: notStarted, running, succeeded, failed, skipped, unknownFutureValue.</summary>
-        public LongRunningOperationStatus? Status { get; set; }
+        public ApiSdk.Models.LongRunningOperationStatus? Status { get; set; }
         /// <summary>Details about the status of the operation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -36,21 +36,21 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LongRunningOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LongRunningOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new LongRunningOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.LongRunningOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.attackSimulationOperation" => new AttackSimulationOperation(),
-                "#microsoft.graph.engagementAsyncOperation" => new EngagementAsyncOperation(),
-                "#microsoft.graph.goalsExportJob" => new GoalsExportJob(),
-                "#microsoft.graph.industryData.fileValidateOperation" => new FileValidateOperation(),
-                "#microsoft.graph.industryData.validateOperation" => new ValidateOperation(),
-                "#microsoft.graph.richLongRunningOperation" => new RichLongRunningOperation(),
-                _ => new LongRunningOperation(),
+                "#microsoft.graph.attackSimulationOperation" => new ApiSdk.Models.AttackSimulationOperation(),
+                "#microsoft.graph.engagementAsyncOperation" => new ApiSdk.Models.EngagementAsyncOperation(),
+                "#microsoft.graph.goalsExportJob" => new ApiSdk.Models.GoalsExportJob(),
+                "#microsoft.graph.industryData.fileValidateOperation" => new ApiSdk.Models.IndustryData.FileValidateOperation(),
+                "#microsoft.graph.industryData.validateOperation" => new ApiSdk.Models.IndustryData.ValidateOperation(),
+                "#microsoft.graph.richLongRunningOperation" => new ApiSdk.Models.RichLongRunningOperation(),
+                _ => new ApiSdk.Models.LongRunningOperation(),
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastActionDateTime", n => { LastActionDateTime = n.GetDateTimeOffsetValue(); } },
                 { "resourceLocation", n => { ResourceLocation = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<LongRunningOperationStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.LongRunningOperationStatus>(); } },
                 { "statusDetail", n => { StatusDetail = n.GetStringValue(); } },
             };
         }
@@ -79,7 +79,7 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("lastActionDateTime", LastActionDateTime);
             writer.WriteStringValue("resourceLocation", ResourceLocation);
-            writer.WriteEnumValue<LongRunningOperationStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.LongRunningOperationStatus>("status", Status);
             writer.WriteStringValue("statusDetail", StatusDetail);
         }
     }

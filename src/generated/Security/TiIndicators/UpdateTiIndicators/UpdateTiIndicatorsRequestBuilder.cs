@@ -52,7 +52,7 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UpdateTiIndicatorsPostRequestBody>(UpdateTiIndicatorsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody>(ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -81,14 +81,14 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateTiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UpdateTiIndicatorsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/tiIndicators/updateTiIndicators", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateTiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UpdateTiIndicatorsRequestBuilder(string rawUrl) : base("{+baseurl}/security/tiIndicators/updateTiIndicators", rawUrl)
@@ -103,11 +103,11 @@ namespace ApiSdk.Security.TiIndicators.UpdateTiIndicators
         [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UpdateTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UpdateTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

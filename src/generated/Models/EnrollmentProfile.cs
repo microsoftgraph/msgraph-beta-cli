@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The enrollmentProfile resource represents a collection of configurations which must be provided pre-enrollment to enable enrolling certain devices whose identities have been pre-staged. Pre-staged device identities are assigned to this type of profile to apply the profile&apos;s configurations at enrollment of the corresponding device.
     /// </summary>
-    public class EnrollmentProfile : Entity, IParsable
+    public class EnrollmentProfile : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Configuration endpoint url to use for Enrollment</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,19 +44,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnrollmentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EnrollmentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EnrollmentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.depEnrollmentBaseProfile" => new DepEnrollmentBaseProfile(),
-                "#microsoft.graph.depEnrollmentProfile" => new DepEnrollmentProfile(),
-                "#microsoft.graph.depIOSEnrollmentProfile" => new DepIOSEnrollmentProfile(),
-                "#microsoft.graph.depMacOSEnrollmentProfile" => new DepMacOSEnrollmentProfile(),
-                _ => new EnrollmentProfile(),
+                "#microsoft.graph.depEnrollmentBaseProfile" => new ApiSdk.Models.DepEnrollmentBaseProfile(),
+                "#microsoft.graph.depEnrollmentProfile" => new ApiSdk.Models.DepEnrollmentProfile(),
+                "#microsoft.graph.depIOSEnrollmentProfile" => new ApiSdk.Models.DepIOSEnrollmentProfile(),
+                "#microsoft.graph.depMacOSEnrollmentProfile" => new ApiSdk.Models.DepMacOSEnrollmentProfile(),
+                _ => new ApiSdk.Models.EnrollmentProfile(),
             };
         }
         /// <summary>

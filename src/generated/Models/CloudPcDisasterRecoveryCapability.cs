@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The capabilityType property</summary>
-        public CloudPcDisasterRecoveryCapabilityType? CapabilityType { get; set; }
+        public ApiSdk.Models.CloudPcDisasterRecoveryCapabilityType? CapabilityType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string SecondaryRegion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcDisasterRecoveryCapability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcDisasterRecoveryCapability"/> and sets the default values.
         /// </summary>
         public CloudPcDisasterRecoveryCapability()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcDisasterRecoveryCapability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcDisasterRecoveryCapability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcDisasterRecoveryCapability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcDisasterRecoveryCapability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcDisasterRecoveryCapability();
+            return new ApiSdk.Models.CloudPcDisasterRecoveryCapability();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "capabilityType", n => { CapabilityType = n.GetEnumValue<CloudPcDisasterRecoveryCapabilityType>(); } },
+                { "capabilityType", n => { CapabilityType = n.GetEnumValue<ApiSdk.Models.CloudPcDisasterRecoveryCapabilityType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "primaryRegion", n => { PrimaryRegion = n.GetStringValue(); } },
                 { "secondaryRegion", n => { SecondaryRegion = n.GetStringValue(); } },
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<CloudPcDisasterRecoveryCapabilityType>("capabilityType", CapabilityType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcDisasterRecoveryCapabilityType>("capabilityType", CapabilityType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("primaryRegion", PrimaryRegion);
             writer.WriteStringValue("secondaryRegion", SecondaryRegion);

@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ServiceProvisioningResourceErrorDetail"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ServiceProvisioningResourceErrorDetail"/> and sets the default values.
         /// </summary>
         public ServiceProvisioningResourceErrorDetail()
         {
@@ -54,16 +54,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ServiceProvisioningResourceErrorDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ServiceProvisioningResourceErrorDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ServiceProvisioningResourceErrorDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ServiceProvisioningResourceErrorDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.serviceProvisioningLinkedResourceErrorDetail" => new ServiceProvisioningLinkedResourceErrorDetail(),
-                _ => new ServiceProvisioningResourceErrorDetail(),
+                "#microsoft.graph.serviceProvisioningLinkedResourceErrorDetail" => new ApiSdk.Models.ServiceProvisioningLinkedResourceErrorDetail(),
+                _ => new ApiSdk.Models.ServiceProvisioningResourceErrorDetail(),
             };
         }
         /// <summary>

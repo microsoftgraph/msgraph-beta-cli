@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AdminReportSettings : Entity, IParsable
+    public class AdminReportSettings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.</summary>
@@ -15,12 +15,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdminReportSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AdminReportSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AdminReportSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AdminReportSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdminReportSettings();
+            return new ApiSdk.Models.AdminReportSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class InformationProtection : Entity, IParsable
+    public class InformationProtection : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The bitlocker property</summary>
@@ -21,26 +21,26 @@ namespace ApiSdk.Models
         /// <summary>The dataLossPreventionPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DataLossPreventionPolicy>? DataLossPreventionPolicies { get; set; }
+        public List<ApiSdk.Models.DataLossPreventionPolicy>? DataLossPreventionPolicies { get; set; }
 #nullable restore
 #else
-        public List<DataLossPreventionPolicy> DataLossPreventionPolicies { get; set; }
+        public List<ApiSdk.Models.DataLossPreventionPolicy> DataLossPreventionPolicies { get; set; }
 #endif
         /// <summary>The policy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public InformationProtectionPolicy? Policy { get; set; }
+        public ApiSdk.Models.InformationProtectionPolicy? Policy { get; set; }
 #nullable restore
 #else
-        public InformationProtectionPolicy Policy { get; set; }
+        public ApiSdk.Models.InformationProtectionPolicy Policy { get; set; }
 #endif
         /// <summary>The sensitivityLabels property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SensitivityLabel>? SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel>? SensitivityLabels { get; set; }
 #nullable restore
 #else
-        public List<SensitivityLabel> SensitivityLabels { get; set; }
+        public List<ApiSdk.Models.SensitivityLabel> SensitivityLabels { get; set; }
 #endif
         /// <summary>The sensitivityPolicySettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,20 +53,20 @@ namespace ApiSdk.Models
         /// <summary>The threatAssessmentRequests property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ThreatAssessmentRequest>? ThreatAssessmentRequests { get; set; }
+        public List<ApiSdk.Models.ThreatAssessmentRequest>? ThreatAssessmentRequests { get; set; }
 #nullable restore
 #else
-        public List<ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
+        public List<ApiSdk.Models.ThreatAssessmentRequest> ThreatAssessmentRequests { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InformationProtection"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InformationProtection"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.InformationProtection CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InformationProtection();
+            return new ApiSdk.Models.InformationProtection();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "bitlocker", n => { Bitlocker = n.GetObjectValue<ApiSdk.Models.Bitlocker>(ApiSdk.Models.Bitlocker.CreateFromDiscriminatorValue); } },
-                { "dataLossPreventionPolicies", n => { DataLossPreventionPolicies = n.GetCollectionOfObjectValues<DataLossPreventionPolicy>(DataLossPreventionPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "policy", n => { Policy = n.GetObjectValue<InformationProtectionPolicy>(InformationProtectionPolicy.CreateFromDiscriminatorValue); } },
-                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<SensitivityLabel>(SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dataLossPreventionPolicies", n => { DataLossPreventionPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.DataLossPreventionPolicy>(ApiSdk.Models.DataLossPreventionPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.InformationProtectionPolicy>(ApiSdk.Models.InformationProtectionPolicy.CreateFromDiscriminatorValue); } },
+                { "sensitivityLabels", n => { SensitivityLabels = n.GetCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>(ApiSdk.Models.SensitivityLabel.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "sensitivityPolicySettings", n => { SensitivityPolicySettings = n.GetObjectValue<ApiSdk.Models.SensitivityPolicySettings>(ApiSdk.Models.SensitivityPolicySettings.CreateFromDiscriminatorValue); } },
-                { "threatAssessmentRequests", n => { ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "threatAssessmentRequests", n => { ThreatAssessmentRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.ThreatAssessmentRequest>(ApiSdk.Models.ThreatAssessmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -93,11 +93,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.Bitlocker>("bitlocker", Bitlocker);
-            writer.WriteCollectionOfObjectValues<DataLossPreventionPolicy>("dataLossPreventionPolicies", DataLossPreventionPolicies);
-            writer.WriteObjectValue<InformationProtectionPolicy>("policy", Policy);
-            writer.WriteCollectionOfObjectValues<SensitivityLabel>("sensitivityLabels", SensitivityLabels);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DataLossPreventionPolicy>("dataLossPreventionPolicies", DataLossPreventionPolicies);
+            writer.WriteObjectValue<ApiSdk.Models.InformationProtectionPolicy>("policy", Policy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SensitivityLabel>("sensitivityLabels", SensitivityLabels);
             writer.WriteObjectValue<ApiSdk.Models.SensitivityPolicySettings>("sensitivityPolicySettings", SensitivityPolicySettings);
-            writer.WriteCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", ThreatAssessmentRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ThreatAssessmentRequest>("threatAssessmentRequests", ThreatAssessmentRequests);
         }
     }
 }

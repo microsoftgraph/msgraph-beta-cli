@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class ForceUserPasswordResetResponseAction : ResponseAction, IParsable
+    public class ForceUserPasswordResetResponseAction : ApiSdk.Models.Security.ResponseAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The identifier property</summary>
-        public ForceUserPasswordResetEntityIdentifier? Identifier { get; set; }
+        public ApiSdk.Models.Security.ForceUserPasswordResetEntityIdentifier? Identifier { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ForceUserPasswordResetResponseAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.ForceUserPasswordResetResponseAction"/> and sets the default values.
         /// </summary>
         public ForceUserPasswordResetResponseAction() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ForceUserPasswordResetResponseAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.ForceUserPasswordResetResponseAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ForceUserPasswordResetResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.ForceUserPasswordResetResponseAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ForceUserPasswordResetResponseAction();
+            return new ApiSdk.Models.Security.ForceUserPasswordResetResponseAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "identifier", n => { Identifier = n.GetEnumValue<ForceUserPasswordResetEntityIdentifier>(); } },
+                { "identifier", n => { Identifier = n.GetEnumValue<ApiSdk.Models.Security.ForceUserPasswordResetEntityIdentifier>(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ForceUserPasswordResetEntityIdentifier>("identifier", Identifier);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ForceUserPasswordResetEntityIdentifier>("identifier", Identifier);
         }
     }
 }

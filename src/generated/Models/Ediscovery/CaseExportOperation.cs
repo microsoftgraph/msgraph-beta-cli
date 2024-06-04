@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Ediscovery
 {
     #pragma warning disable CS1591
-    public class CaseExportOperation : CaseOperation, IParsable
+    public class CaseExportOperation : ApiSdk.Models.Ediscovery.CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.</summary>
@@ -37,7 +37,7 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>The options provided for the export. For more information, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.</summary>
         public ApiSdk.Models.Ediscovery.ExportOptions? ExportOptions { get; set; }
         /// <summary>The options provided specify the structure of the export. For more information, see reviewSet: export. Possible values are: none, directory, pst.</summary>
-        public ExportFileStructure? ExportStructure { get; set; }
+        public ApiSdk.Models.Ediscovery.ExportFileStructure? ExportStructure { get; set; }
         /// <summary>The output folder ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,12 +65,12 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CaseExportOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.CaseExportOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CaseExportOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.CaseExportOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CaseExportOperation();
+            return new ApiSdk.Models.Ediscovery.CaseExportOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -83,8 +83,8 @@ namespace ApiSdk.Models.Ediscovery
                 { "azureBlobContainer", n => { AzureBlobContainer = n.GetStringValue(); } },
                 { "azureBlobToken", n => { AzureBlobToken = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "exportOptions", n => { ExportOptions = n.GetEnumValue<ExportOptions>(); } },
-                { "exportStructure", n => { ExportStructure = n.GetEnumValue<ExportFileStructure>(); } },
+                { "exportOptions", n => { ExportOptions = n.GetEnumValue<ApiSdk.Models.Ediscovery.ExportOptions>(); } },
+                { "exportStructure", n => { ExportStructure = n.GetEnumValue<ApiSdk.Models.Ediscovery.ExportFileStructure>(); } },
                 { "outputFolderId", n => { OutputFolderId = n.GetStringValue(); } },
                 { "outputName", n => { OutputName = n.GetStringValue(); } },
                 { "reviewSet", n => { ReviewSet = n.GetObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>(ApiSdk.Models.Ediscovery.ReviewSet.CreateFromDiscriminatorValue); } },
@@ -101,8 +101,8 @@ namespace ApiSdk.Models.Ediscovery
             writer.WriteStringValue("azureBlobContainer", AzureBlobContainer);
             writer.WriteStringValue("azureBlobToken", AzureBlobToken);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<ExportOptions>("exportOptions", ExportOptions);
-            writer.WriteEnumValue<ExportFileStructure>("exportStructure", ExportStructure);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.ExportOptions>("exportOptions", ExportOptions);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.ExportFileStructure>("exportStructure", ExportStructure);
             writer.WriteStringValue("outputFolderId", OutputFolderId);
             writer.WriteStringValue("outputName", OutputName);
             writer.WriteObjectValue<ApiSdk.Models.Ediscovery.ReviewSet>("reviewSet", ReviewSet);

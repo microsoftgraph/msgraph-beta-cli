@@ -21,7 +21,7 @@ namespace ApiSdk.Users.ValidatePassword
         public string Password { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ValidatePasswordPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.ValidatePassword.ValidatePasswordPostRequestBody"/> and sets the default values.
         /// </summary>
         public ValidatePasswordPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Users.ValidatePassword
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ValidatePasswordPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.ValidatePassword.ValidatePasswordPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ValidatePasswordPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.ValidatePassword.ValidatePasswordPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ValidatePasswordPostRequestBody();
+            return new ApiSdk.Users.ValidatePassword.ValidatePasswordPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

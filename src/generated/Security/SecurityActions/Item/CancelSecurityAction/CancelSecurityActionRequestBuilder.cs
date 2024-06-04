@@ -51,14 +51,14 @@ namespace ApiSdk.Security.SecurityActions.Item.CancelSecurityAction
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelSecurityActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.SecurityActions.Item.CancelSecurityAction.CancelSecurityActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CancelSecurityActionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/securityActions/{securityAction%2Did}/cancelSecurityAction", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CancelSecurityActionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.SecurityActions.Item.CancelSecurityAction.CancelSecurityActionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CancelSecurityActionRequestBuilder(string rawUrl) : base("{+baseurl}/security/securityActions/{securityAction%2Did}/cancelSecurityAction", rawUrl)

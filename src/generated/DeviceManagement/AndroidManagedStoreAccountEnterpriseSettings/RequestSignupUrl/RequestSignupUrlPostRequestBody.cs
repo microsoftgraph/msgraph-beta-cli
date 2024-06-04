@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.R
         public string HostName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RequestSignupUrlPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody"/> and sets the default values.
         /// </summary>
         public RequestSignupUrlPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.R
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RequestSignupUrlPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RequestSignupUrlPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RequestSignupUrlPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.RequestSignupUrl.RequestSignupUrlPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

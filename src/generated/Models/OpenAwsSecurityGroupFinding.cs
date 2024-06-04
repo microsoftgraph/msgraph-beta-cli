@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OpenAwsSecurityGroupFinding : Finding, IParsable
+    public class OpenAwsSecurityGroupFinding : ApiSdk.Models.Finding, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>A set of AWS EC2 compute instances related to this open security group.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AssignedComputeInstanceDetails>? AssignedComputeInstancesDetails { get; set; }
+        public List<ApiSdk.Models.AssignedComputeInstanceDetails>? AssignedComputeInstancesDetails { get; set; }
 #nullable restore
 #else
-        public List<AssignedComputeInstanceDetails> AssignedComputeInstancesDetails { get; set; }
+        public List<ApiSdk.Models.AssignedComputeInstanceDetails> AssignedComputeInstancesDetails { get; set; }
 #endif
         /// <summary>The inboundPorts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,22 +29,22 @@ namespace ApiSdk.Models
         /// <summary>The securityGroup property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsAuthorizationSystemResource? SecurityGroup { get; set; }
+        public ApiSdk.Models.AwsAuthorizationSystemResource? SecurityGroup { get; set; }
 #nullable restore
 #else
-        public AwsAuthorizationSystemResource SecurityGroup { get; set; }
+        public ApiSdk.Models.AwsAuthorizationSystemResource SecurityGroup { get; set; }
 #endif
         /// <summary>The number of storage buckets accessed by the assigned compute instances.</summary>
         public int? TotalStorageBucketCount { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OpenAwsSecurityGroupFinding"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OpenAwsSecurityGroupFinding"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OpenAwsSecurityGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OpenAwsSecurityGroupFinding CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OpenAwsSecurityGroupFinding();
+            return new ApiSdk.Models.OpenAwsSecurityGroupFinding();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,9 +54,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignedComputeInstancesDetails", n => { AssignedComputeInstancesDetails = n.GetCollectionOfObjectValues<AssignedComputeInstanceDetails>(AssignedComputeInstanceDetails.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedComputeInstancesDetails", n => { AssignedComputeInstancesDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.AssignedComputeInstanceDetails>(ApiSdk.Models.AssignedComputeInstanceDetails.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "inboundPorts", n => { InboundPorts = n.GetObjectValue<ApiSdk.Models.InboundPorts>(ApiSdk.Models.InboundPorts.CreateFromDiscriminatorValue); } },
-                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<AwsAuthorizationSystemResource>(AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "securityGroup", n => { SecurityGroup = n.GetObjectValue<ApiSdk.Models.AwsAuthorizationSystemResource>(ApiSdk.Models.AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
                 { "totalStorageBucketCount", n => { TotalStorageBucketCount = n.GetIntValue(); } },
             };
         }
@@ -68,9 +68,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AssignedComputeInstanceDetails>("assignedComputeInstancesDetails", AssignedComputeInstancesDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AssignedComputeInstanceDetails>("assignedComputeInstancesDetails", AssignedComputeInstancesDetails);
             writer.WriteObjectValue<ApiSdk.Models.InboundPorts>("inboundPorts", InboundPorts);
-            writer.WriteObjectValue<AwsAuthorizationSystemResource>("securityGroup", SecurityGroup);
+            writer.WriteObjectValue<ApiSdk.Models.AwsAuthorizationSystemResource>("securityGroup", SecurityGroup);
             writer.WriteIntValue("totalStorageBucketCount", TotalStorageBucketCount);
         }
     }

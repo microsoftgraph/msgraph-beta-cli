@@ -50,14 +50,14 @@ namespace ApiSdk.AccessReviews.Item.Stop
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.Stop.StopRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public StopRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/accessReviews/{accessReview%2Did}/stop", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="StopRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.AccessReviews.Item.Stop.StopRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public StopRequestBuilder(string rawUrl) : base("{+baseurl}/accessReviews/{accessReview%2Did}/stop", rawUrl)

@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptParameter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptParameter"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptParameter()
         {
@@ -51,18 +51,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptParameter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptParameter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceHealthScriptParameter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceHealthScriptParameter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.deviceHealthScriptBooleanParameter" => new DeviceHealthScriptBooleanParameter(),
-                "#microsoft.graph.deviceHealthScriptIntegerParameter" => new DeviceHealthScriptIntegerParameter(),
-                "#microsoft.graph.deviceHealthScriptStringParameter" => new DeviceHealthScriptStringParameter(),
-                _ => new DeviceHealthScriptParameter(),
+                "#microsoft.graph.deviceHealthScriptBooleanParameter" => new ApiSdk.Models.DeviceHealthScriptBooleanParameter(),
+                "#microsoft.graph.deviceHealthScriptIntegerParameter" => new ApiSdk.Models.DeviceHealthScriptIntegerParameter(),
+                "#microsoft.graph.deviceHealthScriptStringParameter" => new ApiSdk.Models.DeviceHealthScriptStringParameter(),
+                _ => new ApiSdk.Models.DeviceHealthScriptParameter(),
             };
         }
         /// <summary>

@@ -31,7 +31,7 @@ namespace ApiSdk.Print.PrinterShares
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new PrinterShareItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Item.PrinterShareItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildAllowedGroupsNavCommand());
             commands.Add(builder.BuildAllowedUsersNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -49,7 +49,7 @@ namespace ApiSdk.Print.PrinterShares
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Print.PrinterShares.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -85,7 +85,7 @@ namespace ApiSdk.Print.PrinterShares
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PrinterShare>(ApiSdk.Models.PrinterShare.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -202,14 +202,14 @@ namespace ApiSdk.Print.PrinterShares
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterSharesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.PrinterSharesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrinterSharesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/print/printerShares{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrinterSharesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Print.PrinterShares.PrinterSharesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrinterSharesRequestBuilder(string rawUrl) : base("{+baseurl}/print/printerShares{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -223,11 +223,11 @@ namespace ApiSdk.Print.PrinterShares
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterSharesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.PrinterSharesRequestBuilder.PrinterSharesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrinterSharesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Print.PrinterShares.PrinterSharesRequestBuilder.PrinterSharesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -244,11 +244,11 @@ namespace ApiSdk.Print.PrinterShares
         [Obsolete("The printerShares navigation property is deprecated and will stop returning data on July 31, 2023. Please use the shares navigation property instead of this. as of 2023-06/Tasks_And_Plans")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.PrinterShare body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

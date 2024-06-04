@@ -29,9 +29,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Describes a list of the validation result for the Cloud PC resize action. The possible values are: success, cloudPcNotFound, operationCnflict, operationNotSupported, targetLicenseHasAssigned, internalServerError, and unknownFutureValue.</summary>
-        public CloudPcResizeValidationCode? ValidationResult { get; set; }
+        public ApiSdk.Models.CloudPcResizeValidationCode? ValidationResult { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcResizeValidationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcResizeValidationResult"/> and sets the default values.
         /// </summary>
         public CloudPcResizeValidationResult()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcResizeValidationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcResizeValidationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcResizeValidationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcResizeValidationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcResizeValidationResult();
+            return new ApiSdk.Models.CloudPcResizeValidationResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
             {
                 { "cloudPcId", n => { CloudPcId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "validationResult", n => { ValidationResult = n.GetEnumValue<CloudPcResizeValidationCode>(); } },
+                { "validationResult", n => { ValidationResult = n.GetEnumValue<ApiSdk.Models.CloudPcResizeValidationCode>(); } },
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("cloudPcId", CloudPcId);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<CloudPcResizeValidationCode>("validationResult", ValidationResult);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcResizeValidationCode>("validationResult", ValidationResult);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

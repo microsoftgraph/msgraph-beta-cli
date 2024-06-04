@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod
 {
     #pragma warning disable CS1591
-    public class GetOffice365ActiveUserDetailWithPeriodGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetOffice365ActiveUserDetailWithPeriodGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Office365ActiveUserDetail>? Value { get; set; }
+        public List<ApiSdk.Models.Office365ActiveUserDetail>? Value { get; set; }
 #nullable restore
 #else
-        public List<Office365ActiveUserDetail> Value { get; set; }
+        public List<ApiSdk.Models.Office365ActiveUserDetail> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetOffice365ActiveUserDetailWithPeriodGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod.GetOffice365ActiveUserDetailWithPeriodGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetOffice365ActiveUserDetailWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod.GetOffice365ActiveUserDetailWithPeriodGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetOffice365ActiveUserDetailWithPeriodGetResponse();
+            return new ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod.GetOffice365ActiveUserDetailWithPeriodGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<Office365ActiveUserDetail>(Office365ActiveUserDetail.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.Office365ActiveUserDetail>(ApiSdk.Models.Office365ActiveUserDetail.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.Reports.GetOffice365ActiveUserDetailWithPeriod
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Office365ActiveUserDetail>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Office365ActiveUserDetail>("value", Value);
         }
     }
 }

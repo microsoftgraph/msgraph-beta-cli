@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// A new entity to represent driver inventories.
     /// </summary>
-    public class WindowsDriverUpdateInventory : Entity, IParsable
+    public class WindowsDriverUpdateInventory : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The number of devices for which this driver is applicable.</summary>
         public int? ApplicableDeviceCount { get; set; }
         /// <summary>An enum type to represent approval status of a driver.</summary>
-        public DriverApprovalStatus? ApprovalStatus { get; set; }
+        public ApiSdk.Models.DriverApprovalStatus? ApprovalStatus { get; set; }
         /// <summary>An enum type to represent which category a driver belongs to.</summary>
-        public DriverCategory? Category { get; set; }
+        public ApiSdk.Models.DriverCategory? Category { get; set; }
         /// <summary>The date time when a driver should be deployed if approvalStatus is approved.</summary>
         public DateTimeOffset? DeployDateTime { get; set; }
         /// <summary>The class of the driver.</summary>
@@ -56,12 +56,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDriverUpdateInventory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDriverUpdateInventory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsDriverUpdateInventory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsDriverUpdateInventory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDriverUpdateInventory();
+            return new ApiSdk.Models.WindowsDriverUpdateInventory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,8 +72,8 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "applicableDeviceCount", n => { ApplicableDeviceCount = n.GetIntValue(); } },
-                { "approvalStatus", n => { ApprovalStatus = n.GetEnumValue<DriverApprovalStatus>(); } },
-                { "category", n => { Category = n.GetEnumValue<DriverCategory>(); } },
+                { "approvalStatus", n => { ApprovalStatus = n.GetEnumValue<ApiSdk.Models.DriverApprovalStatus>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.DriverCategory>(); } },
                 { "deployDateTime", n => { DeployDateTime = n.GetDateTimeOffsetValue(); } },
                 { "driverClass", n => { DriverClass = n.GetStringValue(); } },
                 { "manufacturer", n => { Manufacturer = n.GetStringValue(); } },
@@ -91,8 +91,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteIntValue("applicableDeviceCount", ApplicableDeviceCount);
-            writer.WriteEnumValue<DriverApprovalStatus>("approvalStatus", ApprovalStatus);
-            writer.WriteEnumValue<DriverCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.DriverApprovalStatus>("approvalStatus", ApprovalStatus);
+            writer.WriteEnumValue<ApiSdk.Models.DriverCategory>("category", Category);
             writer.WriteDateTimeOffsetValue("deployDateTime", DeployDateTime);
             writer.WriteStringValue("driverClass", DriverClass);
             writer.WriteStringValue("manufacturer", Manufacturer);

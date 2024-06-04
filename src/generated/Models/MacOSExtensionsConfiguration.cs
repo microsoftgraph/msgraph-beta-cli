@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS extensions configuration profile.
     /// </summary>
-    public class MacOSExtensionsConfiguration : DeviceConfiguration, IParsable
+    public class MacOSExtensionsConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>All kernel extensions validly signed by the team identifiers in this list will be allowed to load.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,18 +24,18 @@ namespace ApiSdk.Models
         /// <summary>A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSKernelExtension>? KernelExtensionsAllowed { get; set; }
+        public List<ApiSdk.Models.MacOSKernelExtension>? KernelExtensionsAllowed { get; set; }
 #nullable restore
 #else
-        public List<MacOSKernelExtension> KernelExtensionsAllowed { get; set; }
+        public List<ApiSdk.Models.MacOSKernelExtension> KernelExtensionsAllowed { get; set; }
 #endif
         /// <summary>Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSSystemExtension>? SystemExtensionsAllowed { get; set; }
+        public List<ApiSdk.Models.MacOSSystemExtension>? SystemExtensionsAllowed { get; set; }
 #nullable restore
 #else
-        public List<MacOSSystemExtension> SystemExtensionsAllowed { get; set; }
+        public List<ApiSdk.Models.MacOSSystemExtension> SystemExtensionsAllowed { get; set; }
 #endif
         /// <summary>Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -48,15 +48,15 @@ namespace ApiSdk.Models
         /// <summary>Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSSystemExtensionTypeMapping>? SystemExtensionsAllowedTypes { get; set; }
+        public List<ApiSdk.Models.MacOSSystemExtensionTypeMapping>? SystemExtensionsAllowedTypes { get; set; }
 #nullable restore
 #else
-        public List<MacOSSystemExtensionTypeMapping> SystemExtensionsAllowedTypes { get; set; }
+        public List<ApiSdk.Models.MacOSSystemExtensionTypeMapping> SystemExtensionsAllowedTypes { get; set; }
 #endif
         /// <summary>Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.</summary>
         public bool? SystemExtensionsBlockOverride { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSExtensionsConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSExtensionsConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSExtensionsConfiguration() : base()
         {
@@ -65,12 +65,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSExtensionsConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSExtensionsConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSExtensionsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSExtensionsConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSExtensionsConfiguration();
+            return new ApiSdk.Models.MacOSExtensionsConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,10 +82,10 @@ namespace ApiSdk.Models
             {
                 { "kernelExtensionAllowedTeamIdentifiers", n => { KernelExtensionAllowedTeamIdentifiers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "kernelExtensionOverridesAllowed", n => { KernelExtensionOverridesAllowed = n.GetBoolValue(); } },
-                { "kernelExtensionsAllowed", n => { KernelExtensionsAllowed = n.GetCollectionOfObjectValues<MacOSKernelExtension>(MacOSKernelExtension.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "systemExtensionsAllowed", n => { SystemExtensionsAllowed = n.GetCollectionOfObjectValues<MacOSSystemExtension>(MacOSSystemExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "kernelExtensionsAllowed", n => { KernelExtensionsAllowed = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSKernelExtension>(ApiSdk.Models.MacOSKernelExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "systemExtensionsAllowed", n => { SystemExtensionsAllowed = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSSystemExtension>(ApiSdk.Models.MacOSSystemExtension.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "systemExtensionsAllowedTeamIdentifiers", n => { SystemExtensionsAllowedTeamIdentifiers = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "systemExtensionsAllowedTypes", n => { SystemExtensionsAllowedTypes = n.GetCollectionOfObjectValues<MacOSSystemExtensionTypeMapping>(MacOSSystemExtensionTypeMapping.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "systemExtensionsAllowedTypes", n => { SystemExtensionsAllowedTypes = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSSystemExtensionTypeMapping>(ApiSdk.Models.MacOSSystemExtensionTypeMapping.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "systemExtensionsBlockOverride", n => { SystemExtensionsBlockOverride = n.GetBoolValue(); } },
             };
         }
@@ -99,10 +99,10 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("kernelExtensionAllowedTeamIdentifiers", KernelExtensionAllowedTeamIdentifiers);
             writer.WriteBoolValue("kernelExtensionOverridesAllowed", KernelExtensionOverridesAllowed);
-            writer.WriteCollectionOfObjectValues<MacOSKernelExtension>("kernelExtensionsAllowed", KernelExtensionsAllowed);
-            writer.WriteCollectionOfObjectValues<MacOSSystemExtension>("systemExtensionsAllowed", SystemExtensionsAllowed);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSKernelExtension>("kernelExtensionsAllowed", KernelExtensionsAllowed);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSSystemExtension>("systemExtensionsAllowed", SystemExtensionsAllowed);
             writer.WriteCollectionOfPrimitiveValues<string>("systemExtensionsAllowedTeamIdentifiers", SystemExtensionsAllowedTeamIdentifiers);
-            writer.WriteCollectionOfObjectValues<MacOSSystemExtensionTypeMapping>("systemExtensionsAllowedTypes", SystemExtensionsAllowedTypes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSSystemExtensionTypeMapping>("systemExtensionsAllowedTypes", SystemExtensionsAllowedTypes);
             writer.WriteBoolValue("systemExtensionsBlockOverride", SystemExtensionsBlockOverride);
         }
     }

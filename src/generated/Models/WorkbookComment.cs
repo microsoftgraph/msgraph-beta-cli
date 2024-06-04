@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WorkbookComment : Entity, IParsable
+    public class WorkbookComment : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content of the comment.</summary>
@@ -29,28 +29,28 @@ namespace ApiSdk.Models
         /// <summary>The replies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<WorkbookCommentReply>? Replies { get; set; }
+        public List<ApiSdk.Models.WorkbookCommentReply>? Replies { get; set; }
 #nullable restore
 #else
-        public List<WorkbookCommentReply> Replies { get; set; }
+        public List<ApiSdk.Models.WorkbookCommentReply> Replies { get; set; }
 #endif
         /// <summary>The task associated with the comment. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookDocumentTask? Task { get; set; }
+        public ApiSdk.Models.WorkbookDocumentTask? Task { get; set; }
 #nullable restore
 #else
-        public WorkbookDocumentTask Task { get; set; }
+        public ApiSdk.Models.WorkbookDocumentTask Task { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkbookComment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkbookComment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkbookComment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WorkbookComment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkbookComment();
+            return new ApiSdk.Models.WorkbookComment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,8 +62,8 @@ namespace ApiSdk.Models
             {
                 { "content", n => { Content = n.GetStringValue(); } },
                 { "contentType", n => { ContentType = n.GetStringValue(); } },
-                { "replies", n => { Replies = n.GetCollectionOfObjectValues<WorkbookCommentReply>(WorkbookCommentReply.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "task", n => { Task = n.GetObjectValue<WorkbookDocumentTask>(WorkbookDocumentTask.CreateFromDiscriminatorValue); } },
+                { "replies", n => { Replies = n.GetCollectionOfObjectValues<ApiSdk.Models.WorkbookCommentReply>(ApiSdk.Models.WorkbookCommentReply.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "task", n => { Task = n.GetObjectValue<ApiSdk.Models.WorkbookDocumentTask>(ApiSdk.Models.WorkbookDocumentTask.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -76,8 +76,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("content", Content);
             writer.WriteStringValue("contentType", ContentType);
-            writer.WriteCollectionOfObjectValues<WorkbookCommentReply>("replies", Replies);
-            writer.WriteObjectValue<WorkbookDocumentTask>("task", Task);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WorkbookCommentReply>("replies", Replies);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookDocumentTask>("task", Task);
         }
     }
 }

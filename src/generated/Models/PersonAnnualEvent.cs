@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PersonAnnualEvent : ItemFacet, IParsable
+    public class PersonAnnualEvent : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date property</summary>
@@ -22,9 +22,9 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public PersonAnnualEventType? Type { get; set; }
+        public ApiSdk.Models.PersonAnnualEventType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PersonAnnualEvent"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonAnnualEvent"/> and sets the default values.
         /// </summary>
         public PersonAnnualEvent() : base()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonAnnualEvent"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonAnnualEvent"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PersonAnnualEvent CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PersonAnnualEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonAnnualEvent();
+            return new ApiSdk.Models.PersonAnnualEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
             {
                 { "date", n => { Date = n.GetDateValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetEnumValue<PersonAnnualEventType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.PersonAnnualEventType>(); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateValue("date", Date);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<PersonAnnualEventType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.PersonAnnualEventType>("type", Type);
         }
     }
 }

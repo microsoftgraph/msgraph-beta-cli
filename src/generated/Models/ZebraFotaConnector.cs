@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The Zebra FOTA connector entity that represents the tenant&apos;s authorization status for Intune to call Zebra Update Services.
     /// </summary>
-    public class ZebraFotaConnector : Entity, IParsable
+    public class ZebraFotaConnector : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Complete account enrollment authorization URL. This corresponds to verificationuricomplete in the Zebra API documentations.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>Date and time when the account was last synched with Zebra</summary>
         public DateTimeOffset? LastSyncDateTime { get; set; }
         /// <summary>Represents various states for Zebra FOTA connector.</summary>
-        public ZebraFotaConnectorState? State { get; set; }
+        public ApiSdk.Models.ZebraFotaConnectorState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ZebraFotaConnector"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ZebraFotaConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ZebraFotaConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ZebraFotaConnector CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ZebraFotaConnector();
+            return new ApiSdk.Models.ZebraFotaConnector();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
                 { "enrollmentToken", n => { EnrollmentToken = n.GetStringValue(); } },
                 { "fotaAppsApproved", n => { FotaAppsApproved = n.GetBoolValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                { "state", n => { State = n.GetEnumValue<ZebraFotaConnectorState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ZebraFotaConnectorState>(); } },
             };
         }
         /// <summary>
@@ -70,7 +70,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("enrollmentToken", EnrollmentToken);
             writer.WriteBoolValue("fotaAppsApproved", FotaAppsApproved);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
-            writer.WriteEnumValue<ZebraFotaConnectorState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ZebraFotaConnectorState>("state", State);
         }
     }
 }

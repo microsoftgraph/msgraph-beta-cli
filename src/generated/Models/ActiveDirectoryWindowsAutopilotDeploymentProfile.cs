@@ -9,20 +9,20 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Autopilot Deployment Profile
     /// </summary>
-    public class ActiveDirectoryWindowsAutopilotDeploymentProfile : WindowsAutopilotDeploymentProfile, IParsable
+    public class ActiveDirectoryWindowsAutopilotDeploymentProfile : ApiSdk.Models.WindowsAutopilotDeploymentProfile, IParsable
     {
         /// <summary>Configuration to join Active Directory domain</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WindowsDomainJoinConfiguration? DomainJoinConfiguration { get; set; }
+        public ApiSdk.Models.WindowsDomainJoinConfiguration? DomainJoinConfiguration { get; set; }
 #nullable restore
 #else
-        public WindowsDomainJoinConfiguration DomainJoinConfiguration { get; set; }
+        public ApiSdk.Models.WindowsDomainJoinConfiguration DomainJoinConfiguration { get; set; }
 #endif
         /// <summary>The Autopilot Hybrid Azure AD join flow will continue even if it does not establish domain controller connectivity during OOBE.</summary>
         public bool? HybridAzureADJoinSkipConnectivityCheck { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ActiveDirectoryWindowsAutopilotDeploymentProfile"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ActiveDirectoryWindowsAutopilotDeploymentProfile"/> and sets the default values.
         /// </summary>
         public ActiveDirectoryWindowsAutopilotDeploymentProfile() : base()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ActiveDirectoryWindowsAutopilotDeploymentProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ActiveDirectoryWindowsAutopilotDeploymentProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ActiveDirectoryWindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ActiveDirectoryWindowsAutopilotDeploymentProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ActiveDirectoryWindowsAutopilotDeploymentProfile();
+            return new ApiSdk.Models.ActiveDirectoryWindowsAutopilotDeploymentProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "domainJoinConfiguration", n => { DomainJoinConfiguration = n.GetObjectValue<WindowsDomainJoinConfiguration>(WindowsDomainJoinConfiguration.CreateFromDiscriminatorValue); } },
+                { "domainJoinConfiguration", n => { DomainJoinConfiguration = n.GetObjectValue<ApiSdk.Models.WindowsDomainJoinConfiguration>(ApiSdk.Models.WindowsDomainJoinConfiguration.CreateFromDiscriminatorValue); } },
                 { "hybridAzureADJoinSkipConnectivityCheck", n => { HybridAzureADJoinSkipConnectivityCheck = n.GetBoolValue(); } },
             };
         }
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<WindowsDomainJoinConfiguration>("domainJoinConfiguration", DomainJoinConfiguration);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsDomainJoinConfiguration>("domainJoinConfiguration", DomainJoinConfiguration);
             writer.WriteBoolValue("hybridAzureADJoinSkipConnectivityCheck", HybridAzureADJoinSkipConnectivityCheck);
         }
     }

@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// A setting instance representing a collection of values
     /// </summary>
-    public class DeviceManagementCollectionSettingInstance : DeviceManagementSettingInstance, IParsable
+    public class DeviceManagementCollectionSettingInstance : ApiSdk.Models.DeviceManagementSettingInstance, IParsable
     {
         /// <summary>The collection of values</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementSettingInstance>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementSettingInstance> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementSettingInstance> Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementCollectionSettingInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementCollectionSettingInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementCollectionSettingInstance() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementCollectionSettingInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementCollectionSettingInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementCollectionSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementCollectionSettingInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementCollectionSettingInstance();
+            return new ApiSdk.Models.DeviceManagementCollectionSettingInstance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementSettingInstance>(DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>(ApiSdk.Models.DeviceManagementSettingInstance.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementSettingInstance>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementSettingInstance>("value", Value);
         }
     }
 }

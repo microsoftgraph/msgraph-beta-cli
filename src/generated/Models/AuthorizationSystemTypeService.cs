@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AuthorizationSystemTypeService : Entity, IParsable
+    public class AuthorizationSystemTypeService : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of actions for the service in an authorization system that is onboarded to Permissions Management.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthorizationSystemTypeAction>? Actions { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeAction>? Actions { get; set; }
 #nullable restore
 #else
-        public List<AuthorizationSystemTypeAction> Actions { get; set; }
+        public List<ApiSdk.Models.AuthorizationSystemTypeAction> Actions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthorizationSystemTypeService"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthorizationSystemTypeService"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuthorizationSystemTypeService CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AuthorizationSystemTypeService CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthorizationSystemTypeService();
+            return new ApiSdk.Models.AuthorizationSystemTypeService();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "actions", n => { Actions = n.GetCollectionOfObjectValues<AuthorizationSystemTypeAction>(AuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "actions", n => { Actions = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeAction>(ApiSdk.Models.AuthorizationSystemTypeAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AuthorizationSystemTypeAction>("actions", Actions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthorizationSystemTypeAction>("actions", Actions);
         }
     }
 }

@@ -55,7 +55,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
         public string TenantId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ChangeDeploymentStatusPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus.ChangeDeploymentStatusPostRequestBody"/> and sets the default values.
         /// </summary>
         public ChangeDeploymentStatusPostRequestBody()
         {
@@ -64,12 +64,12 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploy
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ChangeDeploymentStatusPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus.ChangeDeploymentStatusPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ChangeDeploymentStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus.ChangeDeploymentStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ChangeDeploymentStatusPostRequestBody();
+            return new ApiSdk.TenantRelationships.ManagedTenants.ManagementActionTenantDeploymentStatuses.MicrosoftGraphManagedTenantsChangeDeploymentStatus.ChangeDeploymentStatusPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

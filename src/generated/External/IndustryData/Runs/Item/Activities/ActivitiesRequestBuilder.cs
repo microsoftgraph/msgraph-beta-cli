@@ -31,7 +31,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item.Activities
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new IndustryDataRunActivityItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Runs.Item.Activities.Item.IndustryDataRunActivityItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildActivityNavCommand());
             executables.Add(builder.BuildGetCommand());
             return new(executables, commands);
@@ -44,7 +44,7 @@ namespace ApiSdk.External.IndustryData.Runs.Item.Activities
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.Runs.Item.Activities.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -156,14 +156,14 @@ namespace ApiSdk.External.IndustryData.Runs.Item.Activities
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ActivitiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.Activities.ActivitiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ActivitiesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}/activities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ActivitiesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.IndustryData.Runs.Item.Activities.ActivitiesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ActivitiesRequestBuilder(string rawUrl) : base("{+baseurl}/external/industryData/runs/{industryDataRun%2Did}/activities{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -176,11 +176,11 @@ namespace ApiSdk.External.IndustryData.Runs.Item.Activities
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ActivitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.Runs.Item.Activities.ActivitiesRequestBuilder.ActivitiesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ActivitiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.IndustryData.Runs.Item.Activities.ActivitiesRequestBuilder.ActivitiesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

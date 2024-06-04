@@ -40,7 +40,7 @@ namespace ApiSdk.Models
         /// <summary>Port. Valid values 0 to 65535</summary>
         public int? Port { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="VpnProxyServer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.VpnProxyServer"/> and sets the default values.
         /// </summary>
         public VpnProxyServer()
         {
@@ -49,17 +49,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="VpnProxyServer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.VpnProxyServer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windows10VpnProxyServer" => new Windows10VpnProxyServer(),
-                "#microsoft.graph.windows81VpnProxyServer" => new Windows81VpnProxyServer(),
-                _ => new VpnProxyServer(),
+                "#microsoft.graph.windows10VpnProxyServer" => new ApiSdk.Models.Windows10VpnProxyServer(),
+                "#microsoft.graph.windows81VpnProxyServer" => new ApiSdk.Models.Windows81VpnProxyServer(),
+                _ => new ApiSdk.Models.VpnProxyServer(),
             };
         }
         /// <summary>

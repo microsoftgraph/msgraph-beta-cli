@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublic
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GetEncryptionPublicKeyGetResponse"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey.GetEncryptionPublicKeyGetResponse"/> and sets the default values.
         /// </summary>
         public GetEncryptionPublicKeyGetResponse()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublic
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetEncryptionPublicKeyGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey.GetEncryptionPublicKeyGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetEncryptionPublicKeyGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey.GetEncryptionPublicKeyGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetEncryptionPublicKeyGetResponse();
+            return new ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GetEncryptionPublicKey.GetEncryptionPublicKeyGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

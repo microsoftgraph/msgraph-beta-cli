@@ -56,14 +56,14 @@ namespace ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AcceptRecommendati
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AcceptRecommendationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AcceptRecommendations.AcceptRecommendationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AcceptRecommendationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}/acceptRecommendations", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AcceptRecommendationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.PendingAccessReviewInstances.Item.AcceptRecommendations.AcceptRecommendationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AcceptRecommendationsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/pendingAccessReviewInstances/{accessReviewInstance%2Did}/acceptRecommendations", rawUrl)

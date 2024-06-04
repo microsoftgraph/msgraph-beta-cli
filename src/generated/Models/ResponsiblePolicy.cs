@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ResponsiblePolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ResponsiblePolicy"/> and sets the default values.
         /// </summary>
         public ResponsiblePolicy()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ResponsiblePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ResponsiblePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ResponsiblePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ResponsiblePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ResponsiblePolicy();
+            return new ApiSdk.Models.ResponsiblePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

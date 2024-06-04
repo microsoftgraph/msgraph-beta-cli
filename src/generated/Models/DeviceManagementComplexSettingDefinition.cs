@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Entity representing the defintion for a complex setting
     /// </summary>
-    public class DeviceManagementComplexSettingDefinition : DeviceManagementSettingDefinition, IParsable
+    public class DeviceManagementComplexSettingDefinition : ApiSdk.Models.DeviceManagementSettingDefinition, IParsable
     {
         /// <summary>The definitions of each property of the complex setting</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementComplexSettingDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementComplexSettingDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementComplexSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementComplexSettingDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementComplexSettingDefinition();
+            return new ApiSdk.Models.DeviceManagementComplexSettingDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model

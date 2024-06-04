@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UserStorage : Entity, IParsable
+    public class UserStorage : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The quota property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedStorageQuota? Quota { get; set; }
+        public ApiSdk.Models.UnifiedStorageQuota? Quota { get; set; }
 #nullable restore
 #else
-        public UnifiedStorageQuota Quota { get; set; }
+        public ApiSdk.Models.UnifiedStorageQuota Quota { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserStorage"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserStorage"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserStorage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserStorage CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserStorage();
+            return new ApiSdk.Models.UserStorage();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "quota", n => { Quota = n.GetObjectValue<UnifiedStorageQuota>(UnifiedStorageQuota.CreateFromDiscriminatorValue); } },
+                { "quota", n => { Quota = n.GetObjectValue<ApiSdk.Models.UnifiedStorageQuota>(ApiSdk.Models.UnifiedStorageQuota.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<UnifiedStorageQuota>("quota", Quota);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedStorageQuota>("quota", Quota);
         }
     }
 }

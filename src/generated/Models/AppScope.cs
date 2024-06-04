@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AppScope : Entity, IParsable
+    public class AppScope : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.</summary>
@@ -29,16 +29,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppScope"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppScope"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AppScope CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AppScope CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.customAppScope" => new CustomAppScope(),
-                _ => new AppScope(),
+                "#microsoft.graph.customAppScope" => new ApiSdk.Models.CustomAppScope(),
+                _ => new ApiSdk.Models.AppScope(),
             };
         }
         /// <summary>

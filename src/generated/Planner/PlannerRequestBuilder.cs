@@ -33,7 +33,7 @@ namespace ApiSdk.Planner
         {
             var command = new Command("buckets");
             command.Description = "Provides operations to manage the buckets property of the microsoft.graph.planner entity.";
-            var builder = new BucketsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Planner.Buckets.BucketsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -152,7 +152,7 @@ namespace ApiSdk.Planner
         {
             var command = new Command("plans");
             command.Description = "Provides operations to manage the plans property of the microsoft.graph.planner entity.";
-            var builder = new PlansRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Planner.Plans.PlansRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -180,7 +180,7 @@ namespace ApiSdk.Planner
         {
             var command = new Command("rosters");
             command.Description = "Provides operations to manage the rosters property of the microsoft.graph.planner entity.";
-            var builder = new RostersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Planner.Rosters.RostersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -207,7 +207,7 @@ namespace ApiSdk.Planner
         {
             var command = new Command("tasks");
             command.Description = "Provides operations to manage the tasks property of the microsoft.graph.planner entity.";
-            var builder = new TasksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Planner.Tasks.TasksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -228,14 +228,14 @@ namespace ApiSdk.Planner
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.PlannerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PlannerRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/planner{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Planner.PlannerRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PlannerRequestBuilder(string rawUrl) : base("{+baseurl}/planner{?%24expand,%24select}", rawUrl)
@@ -248,11 +248,11 @@ namespace ApiSdk.Planner
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Planner.PlannerRequestBuilder.PlannerRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PlannerRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Planner.PlannerRequestBuilder.PlannerRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

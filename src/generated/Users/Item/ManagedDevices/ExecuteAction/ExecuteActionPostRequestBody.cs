@@ -12,7 +12,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.ExecuteAction
     #pragma warning restore CS1591
     {
         /// <summary>The actionName property</summary>
-        public ManagedDeviceRemoteAction? ActionName { get; set; }
+        public ApiSdk.Models.ManagedDeviceRemoteAction? ActionName { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The carrierUrl property</summary>
@@ -78,7 +78,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.ExecuteAction
         /// <summary>The persistEsimDataPlan property</summary>
         public bool? PersistEsimDataPlan { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ExecuteActionPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.ExecuteAction.ExecuteActionPostRequestBody"/> and sets the default values.
         /// </summary>
         public ExecuteActionPostRequestBody()
         {
@@ -87,12 +87,12 @@ namespace ApiSdk.Users.Item.ManagedDevices.ExecuteAction
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExecuteActionPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.ManagedDevices.ExecuteAction.ExecuteActionPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExecuteActionPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.ManagedDevices.ExecuteAction.ExecuteActionPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExecuteActionPostRequestBody();
+            return new ApiSdk.Users.Item.ManagedDevices.ExecuteAction.ExecuteActionPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -102,7 +102,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.ExecuteAction
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actionName", n => { ActionName = n.GetEnumValue<ManagedDeviceRemoteAction>(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<ApiSdk.Models.ManagedDeviceRemoteAction>(); } },
                 { "carrierUrl", n => { CarrierUrl = n.GetStringValue(); } },
                 { "deprovisionReason", n => { DeprovisionReason = n.GetStringValue(); } },
                 { "deviceIds", n => { DeviceIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -122,7 +122,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.ExecuteAction
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ManagedDeviceRemoteAction>("actionName", ActionName);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedDeviceRemoteAction>("actionName", ActionName);
             writer.WriteStringValue("carrierUrl", CarrierUrl);
             writer.WriteStringValue("deprovisionReason", DeprovisionReason);
             writer.WriteCollectionOfPrimitiveValues<string>("deviceIds", DeviceIds);

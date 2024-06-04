@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// Setting instance within policy
     /// </summary>
-    public class DeviceManagementConfigurationSettingGroupInstance : DeviceManagementConfigurationSettingInstance, IParsable
+    public class DeviceManagementConfigurationSettingGroupInstance : ApiSdk.Models.DeviceManagementConfigurationSettingInstance, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationSettingGroupInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingGroupInstance"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationSettingGroupInstance() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationSettingGroupInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationSettingGroupInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationSettingGroupInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationSettingGroupInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationSettingGroupInstance();
+            return new ApiSdk.Models.DeviceManagementConfigurationSettingGroupInstance();
         }
         /// <summary>
         /// The deserialization information for the current model

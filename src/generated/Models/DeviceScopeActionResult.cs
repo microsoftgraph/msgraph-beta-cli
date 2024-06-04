@@ -46,9 +46,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the status of the attempted device scope action</summary>
-        public DeviceScopeActionStatus? Status { get; set; }
+        public ApiSdk.Models.DeviceScopeActionStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceScopeActionResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceScopeActionResult"/> and sets the default values.
         /// </summary>
         public DeviceScopeActionResult()
         {
@@ -57,12 +57,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceScopeActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceScopeActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceScopeActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceScopeActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceScopeActionResult();
+            return new ApiSdk.Models.DeviceScopeActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
                 { "deviceScopeId", n => { DeviceScopeId = n.GetStringValue(); } },
                 { "failedMessage", n => { FailedMessage = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<DeviceScopeActionStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DeviceScopeActionStatus>(); } },
             };
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceScopeId", DeviceScopeId);
             writer.WriteStringValue("failedMessage", FailedMessage);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceScopeActionStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceScopeActionStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

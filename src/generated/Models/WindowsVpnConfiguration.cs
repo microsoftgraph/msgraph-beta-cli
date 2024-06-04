@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows VPN configuration profile.
     /// </summary>
-    public class WindowsVpnConfiguration : DeviceConfiguration, IParsable
+    public class WindowsVpnConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Connection name displayed to the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,13 +30,13 @@ namespace ApiSdk.Models
         /// <summary>List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VpnServer>? Servers { get; set; }
+        public List<ApiSdk.Models.VpnServer>? Servers { get; set; }
 #nullable restore
 #else
-        public List<VpnServer> Servers { get; set; }
+        public List<ApiSdk.Models.VpnServer> Servers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="WindowsVpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsVpnConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsVpnConfiguration() : base()
         {
@@ -45,18 +45,18 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsVpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsVpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windows10VpnConfiguration" => new Windows10VpnConfiguration(),
-                "#microsoft.graph.windows81VpnConfiguration" => new Windows81VpnConfiguration(),
-                "#microsoft.graph.windowsPhone81VpnConfiguration" => new WindowsPhone81VpnConfiguration(),
-                _ => new WindowsVpnConfiguration(),
+                "#microsoft.graph.windows10VpnConfiguration" => new ApiSdk.Models.Windows10VpnConfiguration(),
+                "#microsoft.graph.windows81VpnConfiguration" => new ApiSdk.Models.Windows81VpnConfiguration(),
+                "#microsoft.graph.windowsPhone81VpnConfiguration" => new ApiSdk.Models.WindowsPhone81VpnConfiguration(),
+                _ => new ApiSdk.Models.WindowsVpnConfiguration(),
             };
         }
         /// <summary>
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             {
                 { "connectionName", n => { ConnectionName = n.GetStringValue(); } },
                 { "customXml", n => { CustomXml = n.GetByteArrayValue(); } },
-                { "servers", n => { Servers = n.GetCollectionOfObjectValues<VpnServer>(VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servers", n => { Servers = n.GetCollectionOfObjectValues<ApiSdk.Models.VpnServer>(ApiSdk.Models.VpnServer.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -82,7 +82,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("connectionName", ConnectionName);
             writer.WriteByteArrayValue("customXml", CustomXml);
-            writer.WriteCollectionOfObjectValues<VpnServer>("servers", Servers);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VpnServer>("servers", Servers);
         }
     }
 }

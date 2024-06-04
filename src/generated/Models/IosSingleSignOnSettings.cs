@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? AllowedAppsList { get; set; }
+        public List<ApiSdk.Models.AppListItem>? AllowedAppsList { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> AllowedAppsList { get; set; }
+        public List<ApiSdk.Models.AppListItem> AllowedAppsList { get; set; }
 #endif
         /// <summary>List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 or later, a wildcard characters may be used.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosSingleSignOnSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosSingleSignOnSettings"/> and sets the default values.
         /// </summary>
         public IosSingleSignOnSettings()
         {
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosSingleSignOnSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosSingleSignOnSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IosSingleSignOnSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IosSingleSignOnSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosSingleSignOnSettings();
+            return new ApiSdk.Models.IosSingleSignOnSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,7 +86,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowedAppsList", n => { AllowedAppsList = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "allowedAppsList", n => { AllowedAppsList = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "allowedUrls", n => { AllowedUrls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "kerberosPrincipalName", n => { KerberosPrincipalName = n.GetStringValue(); } },
@@ -101,7 +101,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<AppListItem>("allowedAppsList", AllowedAppsList);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("allowedAppsList", AllowedAppsList);
             writer.WriteCollectionOfPrimitiveValues<string>("allowedUrls", AllowedUrls);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("kerberosPrincipalName", KerberosPrincipalName);

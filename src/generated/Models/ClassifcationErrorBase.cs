@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The innerError property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ClassificationInnerError? InnerError { get; set; }
+        public ApiSdk.Models.ClassificationInnerError? InnerError { get; set; }
 #nullable restore
 #else
-        public ClassificationInnerError InnerError { get; set; }
+        public ApiSdk.Models.ClassificationInnerError InnerError { get; set; }
 #endif
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         public string Target { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ClassifcationErrorBase"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ClassifcationErrorBase"/> and sets the default values.
         /// </summary>
         public ClassifcationErrorBase()
         {
@@ -62,16 +62,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ClassifcationErrorBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ClassifcationErrorBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ClassifcationErrorBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ClassifcationErrorBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.classificationError" => new ClassificationError(),
-                _ => new ClassifcationErrorBase(),
+                "#microsoft.graph.classificationError" => new ApiSdk.Models.ClassificationError(),
+                _ => new ApiSdk.Models.ClassifcationErrorBase(),
             };
         }
         /// <summary>
@@ -83,7 +83,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "innerError", n => { InnerError = n.GetObjectValue<ClassificationInnerError>(ClassificationInnerError.CreateFromDiscriminatorValue); } },
+                { "innerError", n => { InnerError = n.GetObjectValue<ApiSdk.Models.ClassificationInnerError>(ApiSdk.Models.ClassificationInnerError.CreateFromDiscriminatorValue); } },
                 { "message", n => { Message = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "target", n => { Target = n.GetStringValue(); } },
@@ -97,7 +97,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteObjectValue<ClassificationInnerError>("innerError", InnerError);
+            writer.WriteObjectValue<ApiSdk.Models.ClassificationInnerError>("innerError", InnerError);
             writer.WriteStringValue("message", Message);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("target", Target);

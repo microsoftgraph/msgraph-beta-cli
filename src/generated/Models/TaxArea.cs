@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         public string TaxType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TaxArea"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TaxArea"/> and sets the default values.
         /// </summary>
         public TaxArea()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TaxArea"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TaxArea"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TaxArea CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TaxArea CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TaxArea();
+            return new ApiSdk.Models.TaxArea();
         }
         /// <summary>
         /// The deserialization information for the current model

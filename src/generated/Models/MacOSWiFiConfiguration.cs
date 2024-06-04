@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// By providing the configurations in this profile you can instruct the macOS device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
     /// </summary>
-    public class MacOSWiFiConfiguration : DeviceConfiguration, IParsable
+    public class MacOSWiFiConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.</summary>
         public bool? ConnectAutomatically { get; set; }
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         /// <summary>Port of the proxy server when manual configuration is selected.</summary>
         public int? ProxyManualPort { get; set; }
         /// <summary>Wi-Fi Proxy Settings.</summary>
-        public WiFiProxySetting? ProxySettings { get; set; }
+        public ApiSdk.Models.WiFiProxySetting? ProxySettings { get; set; }
         /// <summary>This is the name of the Wi-Fi network that is broadcast to all devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         /// <summary>Wi-Fi Security Types.</summary>
         public ApiSdk.Models.WiFiSecurityType? WiFiSecurityType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOSWiFiConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOSWiFiConfiguration"/> and sets the default values.
         /// </summary>
         public MacOSWiFiConfiguration() : base()
         {
@@ -71,16 +71,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSWiFiConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSWiFiConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSWiFiConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.macOSEnterpriseWiFiConfiguration" => new MacOSEnterpriseWiFiConfiguration(),
-                _ => new MacOSWiFiConfiguration(),
+                "#microsoft.graph.macOSEnterpriseWiFiConfiguration" => new ApiSdk.Models.MacOSEnterpriseWiFiConfiguration(),
+                _ => new ApiSdk.Models.MacOSWiFiConfiguration(),
             };
         }
         /// <summary>
@@ -98,9 +98,9 @@ namespace ApiSdk.Models
                 { "proxyAutomaticConfigurationUrl", n => { ProxyAutomaticConfigurationUrl = n.GetStringValue(); } },
                 { "proxyManualAddress", n => { ProxyManualAddress = n.GetStringValue(); } },
                 { "proxyManualPort", n => { ProxyManualPort = n.GetIntValue(); } },
-                { "proxySettings", n => { ProxySettings = n.GetEnumValue<WiFiProxySetting>(); } },
+                { "proxySettings", n => { ProxySettings = n.GetEnumValue<ApiSdk.Models.WiFiProxySetting>(); } },
                 { "ssid", n => { Ssid = n.GetStringValue(); } },
-                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<WiFiSecurityType>(); } },
+                { "wiFiSecurityType", n => { WiFiSecurityType = n.GetEnumValue<ApiSdk.Models.WiFiSecurityType>(); } },
             };
         }
         /// <summary>
@@ -118,9 +118,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("proxyAutomaticConfigurationUrl", ProxyAutomaticConfigurationUrl);
             writer.WriteStringValue("proxyManualAddress", ProxyManualAddress);
             writer.WriteIntValue("proxyManualPort", ProxyManualPort);
-            writer.WriteEnumValue<WiFiProxySetting>("proxySettings", ProxySettings);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiProxySetting>("proxySettings", ProxySettings);
             writer.WriteStringValue("ssid", Ssid);
-            writer.WriteEnumValue<WiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
+            writer.WriteEnumValue<ApiSdk.Models.WiFiSecurityType>("wiFiSecurityType", WiFiSecurityType);
         }
     }
 }

@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.EnableLegacyPcManagement
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableLegacyPcManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableLegacyPcManagement.EnableLegacyPcManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public EnableLegacyPcManagementRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/enableLegacyPcManagement", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="EnableLegacyPcManagementRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.EnableLegacyPcManagement.EnableLegacyPcManagementRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public EnableLegacyPcManagementRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/enableLegacyPcManagement", rawUrl)

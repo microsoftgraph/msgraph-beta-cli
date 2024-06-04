@@ -7,28 +7,28 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ConnectionOperation : Entity, IParsable
+    public class ConnectionOperation : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PublicError? Error { get; set; }
+        public ApiSdk.Models.PublicError? Error { get; set; }
 #nullable restore
 #else
-        public PublicError Error { get; set; }
+        public ApiSdk.Models.PublicError Error { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public ConnectionOperationStatus? Status { get; set; }
+        public ApiSdk.Models.ConnectionOperationStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConnectionOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConnectionOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ConnectionOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ConnectionOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ConnectionOperation();
+            return new ApiSdk.Models.ConnectionOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,8 +38,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "error", n => { Error = n.GetObjectValue<PublicError>(PublicError.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<ConnectionOperationStatus>(); } },
+                { "error", n => { Error = n.GetObjectValue<ApiSdk.Models.PublicError>(ApiSdk.Models.PublicError.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ConnectionOperationStatus>(); } },
             };
         }
         /// <summary>
@@ -50,8 +50,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<PublicError>("error", Error);
-            writer.WriteEnumValue<ConnectionOperationStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.PublicError>("error", Error);
+            writer.WriteEnumValue<ApiSdk.Models.ConnectionOperationStatus>("status", Status);
         }
     }
 }

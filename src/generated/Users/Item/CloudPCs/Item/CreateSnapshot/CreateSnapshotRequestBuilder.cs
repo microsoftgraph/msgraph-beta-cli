@@ -55,14 +55,14 @@ namespace ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateSnapshotRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot.CreateSnapshotRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public CreateSnapshotRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/createSnapshot", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="CreateSnapshotRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.Item.CreateSnapshot.CreateSnapshotRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public CreateSnapshotRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/cloudPCs/{cloudPC%2Did}/createSnapshot", rawUrl)

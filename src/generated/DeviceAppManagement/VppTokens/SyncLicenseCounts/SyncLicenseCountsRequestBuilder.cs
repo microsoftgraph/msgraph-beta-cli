@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceAppManagement.VppTokens.SyncLicenseCounts
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncLicenseCountsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.VppTokens.SyncLicenseCounts.SyncLicenseCountsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SyncLicenseCountsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/vppTokens/syncLicenseCounts", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SyncLicenseCountsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.VppTokens.SyncLicenseCounts.SyncLicenseCountsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SyncLicenseCountsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/vppTokens/syncLicenseCounts", rawUrl)

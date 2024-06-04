@@ -38,7 +38,7 @@ namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAle
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ChangeAlertRecordsPortalNotificationAsSentPostRequestBody>(ChangeAlertRecordsPortalNotificationAsSentPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.ChangeAlertRecordsPortalNotificationAsSentPostRequestBody>(ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.ChangeAlertRecordsPortalNotificationAsSentPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -56,14 +56,14 @@ namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAle
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/monitoring/alertRecords/microsoft.graph.deviceManagement.changeAlertRecordsPortalNotificationAsSent", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSentRequestBuilder(string rawUrl) : base("{+baseurl}/monitoring/alertRecords/microsoft.graph.deviceManagement.changeAlertRecordsPortalNotificationAsSent", rawUrl)
@@ -77,11 +77,11 @@ namespace ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAle
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(ChangeAlertRecordsPortalNotificationAsSentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.ChangeAlertRecordsPortalNotificationAsSentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(ChangeAlertRecordsPortalNotificationAsSentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Monitoring.AlertRecords.MicrosoftGraphDeviceManagementChangeAlertRecordsPortalNotificationAsSent.ChangeAlertRecordsPortalNotificationAsSentPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

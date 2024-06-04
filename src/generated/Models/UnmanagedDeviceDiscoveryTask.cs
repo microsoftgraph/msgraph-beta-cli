@@ -9,18 +9,18 @@ namespace ApiSdk.Models
     /// <summary>
     /// This task derived type represents a list of unmanaged devices discovered in the network.
     /// </summary>
-    public class UnmanagedDeviceDiscoveryTask : DeviceAppManagementTask, IParsable
+    public class UnmanagedDeviceDiscoveryTask : ApiSdk.Models.DeviceAppManagementTask, IParsable
     {
         /// <summary>Unmanaged devices discovered in the network.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnmanagedDevice>? UnmanagedDevices { get; set; }
+        public List<ApiSdk.Models.UnmanagedDevice>? UnmanagedDevices { get; set; }
 #nullable restore
 #else
-        public List<UnmanagedDevice> UnmanagedDevices { get; set; }
+        public List<ApiSdk.Models.UnmanagedDevice> UnmanagedDevices { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnmanagedDeviceDiscoveryTask"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnmanagedDeviceDiscoveryTask"/> and sets the default values.
         /// </summary>
         public UnmanagedDeviceDiscoveryTask() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnmanagedDeviceDiscoveryTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnmanagedDeviceDiscoveryTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnmanagedDeviceDiscoveryTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnmanagedDeviceDiscoveryTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnmanagedDeviceDiscoveryTask();
+            return new ApiSdk.Models.UnmanagedDeviceDiscoveryTask();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,7 +44,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "unmanagedDevices", n => { UnmanagedDevices = n.GetCollectionOfObjectValues<UnmanagedDevice>(UnmanagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "unmanagedDevices", n => { UnmanagedDevices = n.GetCollectionOfObjectValues<ApiSdk.Models.UnmanagedDevice>(ApiSdk.Models.UnmanagedDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UnmanagedDevice>("unmanagedDevices", UnmanagedDevices);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnmanagedDevice>("unmanagedDevices", UnmanagedDevices);
         }
     }
 }

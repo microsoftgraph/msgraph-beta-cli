@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetDeviceInstallStatusReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport.GetDeviceInstallStatusReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetDeviceInstallStatusReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetDeviceInstallStatusReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport.GetDeviceInstallStatusReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetDeviceInstallStatusReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport.GetDeviceInstallStatusReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetDeviceInstallStatusReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetDeviceInstallStatusReport.GetDeviceInstallStatusReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -177,7 +177,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Ite
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PolicyLink>(PolicyLink.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.PolicyLink>(ApiSdk.Models.Networkaccess.PolicyLink.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -207,7 +207,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Ite
         {
             var command = new Command("policy");
             command.Description = "Provides operations to manage the policy property of the microsoft.graph.networkaccess.policyLink entity.";
-            var builder = new PolicyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item.Policies.Item.Policy.PolicyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -217,14 +217,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Ite
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PolicyLinkItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item.Policies.Item.PolicyLinkItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PolicyLinkItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/forwardingProfiles/{forwardingProfile%2Did}/policies/{policyLink%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PolicyLinkItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item.Policies.Item.PolicyLinkItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PolicyLinkItemRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}/forwardingProfiles/{forwardingProfile%2Did}/policies/{policyLink%2Did}{?%24expand,%24select}", rawUrl)
@@ -258,11 +258,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Ite
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PolicyLinkItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item.Policies.Item.PolicyLinkItemRequestBuilder.PolicyLinkItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PolicyLinkItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Item.Policies.Item.PolicyLinkItemRequestBuilder.PolicyLinkItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -279,11 +279,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.Ite
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PolicyLink body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.PolicyLink body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PolicyLink body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.PolicyLink body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

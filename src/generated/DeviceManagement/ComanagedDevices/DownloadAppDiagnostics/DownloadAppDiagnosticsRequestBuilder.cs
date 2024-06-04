@@ -41,7 +41,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DownloadAppDiagnosticsPostRequestBody>(DownloadAppDiagnosticsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody>(ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -68,14 +68,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DownloadAppDiagnosticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DownloadAppDiagnosticsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/downloadAppDiagnostics", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DownloadAppDiagnosticsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DownloadAppDiagnosticsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/downloadAppDiagnostics", rawUrl)
@@ -89,11 +89,11 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(DownloadAppDiagnosticsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(DownloadAppDiagnosticsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

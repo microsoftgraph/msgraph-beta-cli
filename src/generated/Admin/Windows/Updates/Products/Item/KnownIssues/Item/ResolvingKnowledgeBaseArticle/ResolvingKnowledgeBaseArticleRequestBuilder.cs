@@ -178,14 +178,14 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingK
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResolvingKnowledgeBaseArticleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle.ResolvingKnowledgeBaseArticleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ResolvingKnowledgeBaseArticleRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues/{knownIssue%2Did}/resolvingKnowledgeBaseArticle{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ResolvingKnowledgeBaseArticleRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle.ResolvingKnowledgeBaseArticleRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ResolvingKnowledgeBaseArticleRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/products/{product%2Did}/knownIssues/{knownIssue%2Did}/resolvingKnowledgeBaseArticle{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingK
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ResolvingKnowledgeBaseArticleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle.ResolvingKnowledgeBaseArticleRequestBuilder.ResolvingKnowledgeBaseArticleRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ResolvingKnowledgeBaseArticleRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Admin.Windows.Updates.Products.Item.KnownIssues.Item.ResolvingKnowledgeBaseArticle.ResolvingKnowledgeBaseArticleRequestBuilder.ResolvingKnowledgeBaseArticleRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

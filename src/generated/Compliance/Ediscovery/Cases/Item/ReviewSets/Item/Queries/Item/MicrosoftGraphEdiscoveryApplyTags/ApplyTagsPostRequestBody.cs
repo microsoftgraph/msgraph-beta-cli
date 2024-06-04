@@ -16,21 +16,21 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.M
         /// <summary>The tagsToAdd property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Tag>? TagsToAdd { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag>? TagsToAdd { get; set; }
 #nullable restore
 #else
-        public List<Tag> TagsToAdd { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag> TagsToAdd { get; set; }
 #endif
         /// <summary>The tagsToRemove property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Tag>? TagsToRemove { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag>? TagsToRemove { get; set; }
 #nullable restore
 #else
-        public List<Tag> TagsToRemove { get; set; }
+        public List<ApiSdk.Models.Ediscovery.Tag> TagsToRemove { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ApplyTagsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags.ApplyTagsPostRequestBody"/> and sets the default values.
         /// </summary>
         public ApplyTagsPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.M
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApplyTagsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags.ApplyTagsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApplyTagsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags.ApplyTagsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApplyTagsPostRequestBody();
+            return new ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.MicrosoftGraphEdiscoveryApplyTags.ApplyTagsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,8 +54,8 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.M
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "tagsToAdd", n => { TagsToAdd = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tagsToRemove", n => { TagsToRemove = n.GetCollectionOfObjectValues<Tag>(Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tagsToAdd", n => { TagsToAdd = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>(ApiSdk.Models.Ediscovery.Tag.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tagsToRemove", n => { TagsToRemove = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>(ApiSdk.Models.Ediscovery.Tag.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace ApiSdk.Compliance.Ediscovery.Cases.Item.ReviewSets.Item.Queries.Item.M
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<Tag>("tagsToAdd", TagsToAdd);
-            writer.WriteCollectionOfObjectValues<Tag>("tagsToRemove", TagsToRemove);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>("tagsToAdd", TagsToAdd);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.Tag>("tagsToRemove", TagsToRemove);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

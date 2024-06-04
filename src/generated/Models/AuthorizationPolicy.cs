@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AuthorizationPolicy : PolicyBase, IParsable
+    public class AuthorizationPolicy : ApiSdk.Models.PolicyBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Indicates whether users can sign up for email based subscriptions.</summary>
@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The defaultUserRoleOverrides property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DefaultUserRoleOverride>? DefaultUserRoleOverrides { get; set; }
+        public List<ApiSdk.Models.DefaultUserRoleOverride>? DefaultUserRoleOverrides { get; set; }
 #nullable restore
 #else
-        public List<DefaultUserRoleOverride> DefaultUserRoleOverrides { get; set; }
+        public List<ApiSdk.Models.DefaultUserRoleOverride> DefaultUserRoleOverrides { get; set; }
 #endif
         /// <summary>The defaultUserRolePermissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,7 +57,7 @@ namespace ApiSdk.Models
         public List<string> PermissionGrantPolicyIdsAssignedToDefaultUserRole { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuthorizationPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuthorizationPolicy"/> and sets the default values.
         /// </summary>
         public AuthorizationPolicy() : base()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuthorizationPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuthorizationPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AuthorizationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AuthorizationPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuthorizationPolicy();
+            return new ApiSdk.Models.AuthorizationPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -82,12 +82,12 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "allowEmailVerifiedUsersToJoinOrganization", n => { AllowEmailVerifiedUsersToJoinOrganization = n.GetBoolValue(); } },
-                { "allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<AllowInvitesFrom>(); } },
+                { "allowInvitesFrom", n => { AllowInvitesFrom = n.GetEnumValue<ApiSdk.Models.AllowInvitesFrom>(); } },
                 { "allowUserConsentForRiskyApps", n => { AllowUserConsentForRiskyApps = n.GetBoolValue(); } },
                 { "allowedToSignUpEmailBasedSubscriptions", n => { AllowedToSignUpEmailBasedSubscriptions = n.GetBoolValue(); } },
                 { "allowedToUseSSPR", n => { AllowedToUseSSPR = n.GetBoolValue(); } },
                 { "blockMsolPowerShell", n => { BlockMsolPowerShell = n.GetBoolValue(); } },
-                { "defaultUserRoleOverrides", n => { DefaultUserRoleOverrides = n.GetCollectionOfObjectValues<DefaultUserRoleOverride>(DefaultUserRoleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultUserRoleOverrides", n => { DefaultUserRoleOverrides = n.GetCollectionOfObjectValues<ApiSdk.Models.DefaultUserRoleOverride>(ApiSdk.Models.DefaultUserRoleOverride.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "defaultUserRolePermissions", n => { DefaultUserRolePermissions = n.GetObjectValue<ApiSdk.Models.DefaultUserRolePermissions>(ApiSdk.Models.DefaultUserRolePermissions.CreateFromDiscriminatorValue); } },
                 { "enabledPreviewFeatures", n => { EnabledPreviewFeatures = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "guestUserRoleId", n => { GuestUserRoleId = n.GetGuidValue(); } },
@@ -105,10 +105,10 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("allowedToSignUpEmailBasedSubscriptions", AllowedToSignUpEmailBasedSubscriptions);
             writer.WriteBoolValue("allowedToUseSSPR", AllowedToUseSSPR);
             writer.WriteBoolValue("allowEmailVerifiedUsersToJoinOrganization", AllowEmailVerifiedUsersToJoinOrganization);
-            writer.WriteEnumValue<AllowInvitesFrom>("allowInvitesFrom", AllowInvitesFrom);
+            writer.WriteEnumValue<ApiSdk.Models.AllowInvitesFrom>("allowInvitesFrom", AllowInvitesFrom);
             writer.WriteBoolValue("allowUserConsentForRiskyApps", AllowUserConsentForRiskyApps);
             writer.WriteBoolValue("blockMsolPowerShell", BlockMsolPowerShell);
-            writer.WriteCollectionOfObjectValues<DefaultUserRoleOverride>("defaultUserRoleOverrides", DefaultUserRoleOverrides);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DefaultUserRoleOverride>("defaultUserRoleOverrides", DefaultUserRoleOverrides);
             writer.WriteObjectValue<ApiSdk.Models.DefaultUserRolePermissions>("defaultUserRolePermissions", DefaultUserRolePermissions);
             writer.WriteCollectionOfPrimitiveValues<string>("enabledPreviewFeatures", EnabledPreviewFeatures);
             writer.WriteGuidValue("guestUserRoleId", GuestUserRoleId);

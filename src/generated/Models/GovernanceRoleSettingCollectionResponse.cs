@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GovernanceRoleSettingCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GovernanceRoleSettingCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleSetting>? Value { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting>? Value { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleSetting> Value { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernanceRoleSettingCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernanceRoleSettingCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GovernanceRoleSettingCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GovernanceRoleSettingCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernanceRoleSettingCollectionResponse();
+            return new ApiSdk.Models.GovernanceRoleSettingCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>(ApiSdk.Models.GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleSetting>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>("value", Value);
         }
     }
 }

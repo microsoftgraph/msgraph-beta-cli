@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class SecurityGroupProvisioningFlow : ProvisioningFlow, IParsable
+    public class SecurityGroupProvisioningFlow : ApiSdk.Models.IndustryData.ProvisioningFlow, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The creationOptions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityGroupCreationOptions? CreationOptions { get; set; }
+        public ApiSdk.Models.IndustryData.SecurityGroupCreationOptions? CreationOptions { get; set; }
 #nullable restore
 #else
-        public SecurityGroupCreationOptions CreationOptions { get; set; }
+        public ApiSdk.Models.IndustryData.SecurityGroupCreationOptions CreationOptions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityGroupProvisioningFlow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.SecurityGroupProvisioningFlow"/> and sets the default values.
         /// </summary>
         public SecurityGroupProvisioningFlow() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityGroupProvisioningFlow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.SecurityGroupProvisioningFlow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityGroupProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.SecurityGroupProvisioningFlow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityGroupProvisioningFlow();
+            return new ApiSdk.Models.IndustryData.SecurityGroupProvisioningFlow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "creationOptions", n => { CreationOptions = n.GetObjectValue<SecurityGroupCreationOptions>(SecurityGroupCreationOptions.CreateFromDiscriminatorValue); } },
+                { "creationOptions", n => { CreationOptions = n.GetObjectValue<ApiSdk.Models.IndustryData.SecurityGroupCreationOptions>(ApiSdk.Models.IndustryData.SecurityGroupCreationOptions.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<SecurityGroupCreationOptions>("creationOptions", CreationOptions);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.SecurityGroupCreationOptions>("creationOptions", CreationOptions);
         }
     }
 }

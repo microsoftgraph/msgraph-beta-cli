@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
     /// </summary>
-    public class MacOsVppApp : MobileApp, IParsable
+    public class MacOsVppApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The store URL.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,10 +22,10 @@ namespace ApiSdk.Models
         /// <summary>The licenses assigned to this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOsVppAppAssignedLicense>? AssignedLicenses { get; set; }
+        public List<ApiSdk.Models.MacOsVppAppAssignedLicense>? AssignedLicenses { get; set; }
 #nullable restore
 #else
-        public List<MacOsVppAppAssignedLicense> AssignedLicenses { get; set; }
+        public List<ApiSdk.Models.MacOsVppAppAssignedLicense> AssignedLicenses { get; set; }
 #endif
         /// <summary>The Identity Name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,20 +38,20 @@ namespace ApiSdk.Models
         /// <summary>The supported License Type.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public VppLicensingType? LicensingType { get; set; }
+        public ApiSdk.Models.VppLicensingType? LicensingType { get; set; }
 #nullable restore
 #else
-        public VppLicensingType LicensingType { get; set; }
+        public ApiSdk.Models.VppLicensingType LicensingType { get; set; }
 #endif
         /// <summary>The VPP application release date and time.</summary>
         public DateTimeOffset? ReleaseDateTime { get; set; }
         /// <summary>Results of revoke license actions on this app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOsVppAppRevokeLicensesActionResult>? RevokeLicenseActionResults { get; set; }
+        public List<ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult>? RevokeLicenseActionResults { get; set; }
 #nullable restore
 #else
-        public List<MacOsVppAppRevokeLicensesActionResult> RevokeLicenseActionResults { get; set; }
+        public List<ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult> RevokeLicenseActionResults { get; set; }
 #endif
         /// <summary>The total number of VPP licenses.</summary>
         public int? TotalLicenseCount { get; set; }
@@ -84,7 +84,7 @@ namespace ApiSdk.Models
         public string VppTokenOrganizationName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="MacOsVppApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOsVppApp"/> and sets the default values.
         /// </summary>
         public MacOsVppApp() : base()
         {
@@ -93,12 +93,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOsVppApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOsVppApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOsVppApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOsVppApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOsVppApp();
+            return new ApiSdk.Models.MacOsVppApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -109,14 +109,14 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "appStoreUrl", n => { AppStoreUrl = n.GetStringValue(); } },
-                { "assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<MacOsVppAppAssignedLicense>(MacOsVppAppAssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignedLicenses", n => { AssignedLicenses = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOsVppAppAssignedLicense>(ApiSdk.Models.MacOsVppAppAssignedLicense.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "bundleId", n => { BundleId = n.GetStringValue(); } },
-                { "licensingType", n => { LicensingType = n.GetObjectValue<VppLicensingType>(VppLicensingType.CreateFromDiscriminatorValue); } },
+                { "licensingType", n => { LicensingType = n.GetObjectValue<ApiSdk.Models.VppLicensingType>(ApiSdk.Models.VppLicensingType.CreateFromDiscriminatorValue); } },
                 { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
-                { "revokeLicenseActionResults", n => { RevokeLicenseActionResults = n.GetCollectionOfObjectValues<MacOsVppAppRevokeLicensesActionResult>(MacOsVppAppRevokeLicensesActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "revokeLicenseActionResults", n => { RevokeLicenseActionResults = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult>(ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "totalLicenseCount", n => { TotalLicenseCount = n.GetIntValue(); } },
                 { "usedLicenseCount", n => { UsedLicenseCount = n.GetIntValue(); } },
-                { "vppTokenAccountType", n => { VppTokenAccountType = n.GetEnumValue<VppTokenAccountType>(); } },
+                { "vppTokenAccountType", n => { VppTokenAccountType = n.GetEnumValue<ApiSdk.Models.VppTokenAccountType>(); } },
                 { "vppTokenAppleId", n => { VppTokenAppleId = n.GetStringValue(); } },
                 { "vppTokenId", n => { VppTokenId = n.GetStringValue(); } },
                 { "vppTokenOrganizationName", n => { VppTokenOrganizationName = n.GetStringValue(); } },
@@ -131,14 +131,14 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("appStoreUrl", AppStoreUrl);
-            writer.WriteCollectionOfObjectValues<MacOsVppAppAssignedLicense>("assignedLicenses", AssignedLicenses);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOsVppAppAssignedLicense>("assignedLicenses", AssignedLicenses);
             writer.WriteStringValue("bundleId", BundleId);
-            writer.WriteObjectValue<VppLicensingType>("licensingType", LicensingType);
+            writer.WriteObjectValue<ApiSdk.Models.VppLicensingType>("licensingType", LicensingType);
             writer.WriteDateTimeOffsetValue("releaseDateTime", ReleaseDateTime);
-            writer.WriteCollectionOfObjectValues<MacOsVppAppRevokeLicensesActionResult>("revokeLicenseActionResults", RevokeLicenseActionResults);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOsVppAppRevokeLicensesActionResult>("revokeLicenseActionResults", RevokeLicenseActionResults);
             writer.WriteIntValue("totalLicenseCount", TotalLicenseCount);
             writer.WriteIntValue("usedLicenseCount", UsedLicenseCount);
-            writer.WriteEnumValue<VppTokenAccountType>("vppTokenAccountType", VppTokenAccountType);
+            writer.WriteEnumValue<ApiSdk.Models.VppTokenAccountType>("vppTokenAccountType", VppTokenAccountType);
             writer.WriteStringValue("vppTokenAppleId", VppTokenAppleId);
             writer.WriteStringValue("vppTokenId", VppTokenId);
             writer.WriteStringValue("vppTokenOrganizationName", VppTokenOrganizationName);

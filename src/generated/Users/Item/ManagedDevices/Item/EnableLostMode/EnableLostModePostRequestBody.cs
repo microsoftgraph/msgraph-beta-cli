@@ -37,7 +37,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode
         public string PhoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EnableLostModePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode.EnableLostModePostRequestBody"/> and sets the default values.
         /// </summary>
         public EnableLostModePostRequestBody()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EnableLostModePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode.EnableLostModePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EnableLostModePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode.EnableLostModePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EnableLostModePostRequestBody();
+            return new ApiSdk.Users.Item.ManagedDevices.Item.EnableLostMode.EnableLostModePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

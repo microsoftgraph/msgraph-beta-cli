@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class DetectionRule : ProtectionRule, IParsable
+    public class DetectionRule : ApiSdk.Models.Security.ProtectionRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Complex type representing the actions taken when a detection is made by this rule.</summary>
@@ -29,10 +29,10 @@ namespace ApiSdk.Models.Security
         /// <summary>Complex type holding details about the last run of this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RunDetails? LastRunDetails { get; set; }
+        public ApiSdk.Models.Security.RunDetails? LastRunDetails { get; set; }
 #nullable restore
 #else
-        public RunDetails LastRunDetails { get; set; }
+        public ApiSdk.Models.Security.RunDetails LastRunDetails { get; set; }
 #endif
         /// <summary>Complex type holding data about the advanced hunting query of this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,13 +45,13 @@ namespace ApiSdk.Models.Security
         /// <summary>Complex type holding data about the triggering schedule of this rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RuleSchedule? Schedule { get; set; }
+        public ApiSdk.Models.Security.RuleSchedule? Schedule { get; set; }
 #nullable restore
 #else
-        public RuleSchedule Schedule { get; set; }
+        public ApiSdk.Models.Security.RuleSchedule Schedule { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DetectionRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.DetectionRule"/> and sets the default values.
         /// </summary>
         public DetectionRule() : base()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetectionRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.DetectionRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DetectionRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.DetectionRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DetectionRule();
+            return new ApiSdk.Models.Security.DetectionRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,9 +77,9 @@ namespace ApiSdk.Models.Security
             {
                 { "detectionAction", n => { DetectionAction = n.GetObjectValue<ApiSdk.Models.Security.DetectionAction>(ApiSdk.Models.Security.DetectionAction.CreateFromDiscriminatorValue); } },
                 { "detectorId", n => { DetectorId = n.GetStringValue(); } },
-                { "lastRunDetails", n => { LastRunDetails = n.GetObjectValue<RunDetails>(RunDetails.CreateFromDiscriminatorValue); } },
+                { "lastRunDetails", n => { LastRunDetails = n.GetObjectValue<ApiSdk.Models.Security.RunDetails>(ApiSdk.Models.Security.RunDetails.CreateFromDiscriminatorValue); } },
                 { "queryCondition", n => { QueryCondition = n.GetObjectValue<ApiSdk.Models.Security.QueryCondition>(ApiSdk.Models.Security.QueryCondition.CreateFromDiscriminatorValue); } },
-                { "schedule", n => { Schedule = n.GetObjectValue<RuleSchedule>(RuleSchedule.CreateFromDiscriminatorValue); } },
+                { "schedule", n => { Schedule = n.GetObjectValue<ApiSdk.Models.Security.RuleSchedule>(ApiSdk.Models.Security.RuleSchedule.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -92,9 +92,9 @@ namespace ApiSdk.Models.Security
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.Security.DetectionAction>("detectionAction", DetectionAction);
             writer.WriteStringValue("detectorId", DetectorId);
-            writer.WriteObjectValue<RunDetails>("lastRunDetails", LastRunDetails);
+            writer.WriteObjectValue<ApiSdk.Models.Security.RunDetails>("lastRunDetails", LastRunDetails);
             writer.WriteObjectValue<ApiSdk.Models.Security.QueryCondition>("queryCondition", QueryCondition);
-            writer.WriteObjectValue<RuleSchedule>("schedule", Schedule);
+            writer.WriteObjectValue<ApiSdk.Models.Security.RuleSchedule>("schedule", Schedule);
         }
     }
 }

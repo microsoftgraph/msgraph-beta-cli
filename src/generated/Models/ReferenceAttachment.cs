@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ReferenceAttachment : Attachment, IParsable
+    public class ReferenceAttachment : ApiSdk.Models.Attachment, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.</summary>
         public bool? IsFolder { get; set; }
         /// <summary>Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.</summary>
-        public ReferenceAttachmentPermission? Permission { get; set; }
+        public ApiSdk.Models.ReferenceAttachmentPermission? Permission { get; set; }
         /// <summary>Applies to only a reference attachment of an image - URL to get a preview image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string PreviewUrl { get; set; }
 #endif
         /// <summary>The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.</summary>
-        public ReferenceAttachmentProvider? ProviderType { get; set; }
+        public ApiSdk.Models.ReferenceAttachmentProvider? ProviderType { get; set; }
         /// <summary>URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -41,7 +41,7 @@ namespace ApiSdk.Models
         public string ThumbnailUrl { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ReferenceAttachment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ReferenceAttachment"/> and sets the default values.
         /// </summary>
         public ReferenceAttachment() : base()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReferenceAttachment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ReferenceAttachment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ReferenceAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ReferenceAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReferenceAttachment();
+            return new ApiSdk.Models.ReferenceAttachment();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -66,9 +66,9 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "isFolder", n => { IsFolder = n.GetBoolValue(); } },
-                { "permission", n => { Permission = n.GetEnumValue<ReferenceAttachmentPermission>(); } },
+                { "permission", n => { Permission = n.GetEnumValue<ApiSdk.Models.ReferenceAttachmentPermission>(); } },
                 { "previewUrl", n => { PreviewUrl = n.GetStringValue(); } },
-                { "providerType", n => { ProviderType = n.GetEnumValue<ReferenceAttachmentProvider>(); } },
+                { "providerType", n => { ProviderType = n.GetEnumValue<ApiSdk.Models.ReferenceAttachmentProvider>(); } },
                 { "sourceUrl", n => { SourceUrl = n.GetStringValue(); } },
                 { "thumbnailUrl", n => { ThumbnailUrl = n.GetStringValue(); } },
             };
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("isFolder", IsFolder);
-            writer.WriteEnumValue<ReferenceAttachmentPermission>("permission", Permission);
+            writer.WriteEnumValue<ApiSdk.Models.ReferenceAttachmentPermission>("permission", Permission);
             writer.WriteStringValue("previewUrl", PreviewUrl);
-            writer.WriteEnumValue<ReferenceAttachmentProvider>("providerType", ProviderType);
+            writer.WriteEnumValue<ApiSdk.Models.ReferenceAttachmentProvider>("providerType", ProviderType);
             writer.WriteStringValue("sourceUrl", SourceUrl);
             writer.WriteStringValue("thumbnailUrl", ThumbnailUrl);
         }

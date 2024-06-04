@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsIdentity : AuthorizationSystemIdentity, IParsable
+    public class AwsIdentity : ApiSdk.Models.AuthorizationSystemIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="AwsIdentity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsIdentity"/> and sets the default values.
         /// </summary>
         public AwsIdentity() : base()
         {
@@ -20,21 +20,21 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.awsAccessKey" => new AwsAccessKey(),
-                "#microsoft.graph.awsEc2Instance" => new AwsEc2Instance(),
-                "#microsoft.graph.awsGroup" => new AwsGroup(),
-                "#microsoft.graph.awsLambda" => new AwsLambda(),
-                "#microsoft.graph.awsRole" => new AwsRole(),
-                "#microsoft.graph.awsUser" => new AwsUser(),
-                _ => new AwsIdentity(),
+                "#microsoft.graph.awsAccessKey" => new ApiSdk.Models.AwsAccessKey(),
+                "#microsoft.graph.awsEc2Instance" => new ApiSdk.Models.AwsEc2Instance(),
+                "#microsoft.graph.awsGroup" => new ApiSdk.Models.AwsGroup(),
+                "#microsoft.graph.awsLambda" => new ApiSdk.Models.AwsLambda(),
+                "#microsoft.graph.awsRole" => new ApiSdk.Models.AwsRole(),
+                "#microsoft.graph.awsUser" => new ApiSdk.Models.AwsUser(),
+                _ => new ApiSdk.Models.AwsIdentity(),
             };
         }
         /// <summary>

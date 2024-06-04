@@ -30,7 +30,7 @@ namespace ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval
         public ApiSdk.Models.DowngradeJustification DowngradeJustification { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluateRemovalPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval.EvaluateRemovalPostRequestBody"/> and sets the default values.
         /// </summary>
         public EvaluateRemovalPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateRemovalPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval.EvaluateRemovalPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluateRemovalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval.EvaluateRemovalPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateRemovalPostRequestBody();
+            return new ApiSdk.Sites.Item.InformationProtection.Policy.Labels.EvaluateRemoval.EvaluateRemovalPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

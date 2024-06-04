@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsActionsPermissionsDefinitionAction : AwsPermissionsDefinitionAction, IParsable
+    public class AwsActionsPermissionsDefinitionAction : ApiSdk.Models.AwsPermissionsDefinitionAction, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Defines AWS statements.</summary>
@@ -21,13 +21,13 @@ namespace ApiSdk.Models
         /// <summary>The statements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AwsStatement>? Statements { get; set; }
+        public List<ApiSdk.Models.AwsStatement>? Statements { get; set; }
 #nullable restore
 #else
-        public List<AwsStatement> Statements { get; set; }
+        public List<ApiSdk.Models.AwsStatement> Statements { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsActionsPermissionsDefinitionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsActionsPermissionsDefinitionAction"/> and sets the default values.
         /// </summary>
         public AwsActionsPermissionsDefinitionAction() : base()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsActionsPermissionsDefinitionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsActionsPermissionsDefinitionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsActionsPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsActionsPermissionsDefinitionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsActionsPermissionsDefinitionAction();
+            return new ApiSdk.Models.AwsActionsPermissionsDefinitionAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignToRoleId", n => { AssignToRoleId = n.GetStringValue(); } },
-                { "statements", n => { Statements = n.GetCollectionOfObjectValues<AwsStatement>(AwsStatement.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "statements", n => { Statements = n.GetCollectionOfObjectValues<ApiSdk.Models.AwsStatement>(ApiSdk.Models.AwsStatement.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("assignToRoleId", AssignToRoleId);
-            writer.WriteCollectionOfObjectValues<AwsStatement>("statements", Statements);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AwsStatement>("statements", Statements);
         }
     }
 }

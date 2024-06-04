@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class ImpactedResource : Entity, IParsable
+    public class ImpactedResource : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The date and time when the impactedResource object was initially associated with the recommendation.</summary>
@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>Additional information unique to the impactedResource to help contextualize the recommendation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValue>? AdditionalDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue>? AdditionalDetails { get; set; }
 #nullable restore
 #else
-        public List<KeyValue> AdditionalDetails { get; set; }
+        public List<ApiSdk.Models.KeyValue> AdditionalDetails { get; set; }
 #endif
         /// <summary>The URL link to the corresponding Microsoft Entra resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -89,7 +89,7 @@ namespace ApiSdk.Models
         public string ResourceType { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public RecommendationStatus? Status { get; set; }
+        public ApiSdk.Models.RecommendationStatus? Status { get; set; }
         /// <summary>The related unique identifier, depending on the resourceType. For example, this property is set to the applicationId if the resourceType is an application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -101,12 +101,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImpactedResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ImpactedResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ImpactedResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ImpactedResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ImpactedResource();
+            return new ApiSdk.Models.ImpactedResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,7 +117,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "addedDateTime", n => { AddedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<KeyValue>(KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalDetails", n => { AdditionalDetails = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValue>(ApiSdk.Models.KeyValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "apiUrl", n => { ApiUrl = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetStringValue(); } },
@@ -128,7 +128,7 @@ namespace ApiSdk.Models
                 { "rank", n => { Rank = n.GetIntValue(); } },
                 { "recommendationId", n => { RecommendationId = n.GetStringValue(); } },
                 { "resourceType", n => { ResourceType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<RecommendationStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.RecommendationStatus>(); } },
                 { "subjectId", n => { SubjectId = n.GetStringValue(); } },
             };
         }
@@ -141,7 +141,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("addedDateTime", AddedDateTime);
-            writer.WriteCollectionOfObjectValues<KeyValue>("additionalDetails", AdditionalDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValue>("additionalDetails", AdditionalDetails);
             writer.WriteStringValue("apiUrl", ApiUrl);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("lastModifiedBy", LastModifiedBy);
@@ -152,7 +152,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("rank", Rank);
             writer.WriteStringValue("recommendationId", RecommendationId);
             writer.WriteStringValue("resourceType", ResourceType);
-            writer.WriteEnumValue<RecommendationStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.RecommendationStatus>("status", Status);
             writer.WriteStringValue("subjectId", SubjectId);
         }
     }

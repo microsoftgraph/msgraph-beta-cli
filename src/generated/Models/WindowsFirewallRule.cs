@@ -12,7 +12,7 @@ namespace ApiSdk.Models
     public class WindowsFirewallRule : IAdditionalDataHolder, IParsable
     {
         /// <summary>State Management Setting.</summary>
-        public StateManagementSetting? Action { get; set; }
+        public ApiSdk.Models.StateManagementSetting? Action { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The description of the rule.</summary>
@@ -32,7 +32,7 @@ namespace ApiSdk.Models
         public string DisplayName { get; set; }
 #endif
         /// <summary>State Management Setting.</summary>
-        public StateManagementSetting? EdgeTraversal { get; set; }
+        public ApiSdk.Models.StateManagementSetting? EdgeTraversal { get; set; }
         /// <summary>The full file path of an app that&apos;s affected by the firewall rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         public string FilePath { get; set; }
 #endif
         /// <summary>Flags representing firewall rule interface types.</summary>
-        public WindowsFirewallRuleInterfaceTypes? InterfaceTypes { get; set; }
+        public ApiSdk.Models.WindowsFirewallRuleInterfaceTypes? InterfaceTypes { get; set; }
         /// <summary>List of local addresses covered by the rule. Default is any address. Valid tokens include:&apos;&apos; indicates any local address. If present, this must be the only token included.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of &apos;start address - end address&apos; with no spaces included.An IPv6 address range in the format of &apos;start address - end address&apos; with no spaces included.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -84,7 +84,7 @@ namespace ApiSdk.Models
         public string PackageFamilyName { get; set; }
 #endif
         /// <summary>Flags representing which network profile types apply to a firewall rule.</summary>
-        public WindowsFirewallRuleNetworkProfileTypes? ProfileTypes { get; set; }
+        public ApiSdk.Models.WindowsFirewallRuleNetworkProfileTypes? ProfileTypes { get; set; }
         /// <summary>0-255 number representing the IP protocol (TCP = 6, UDP = 17). If not specified, the default is All. Valid values 0 to 255</summary>
         public int? Protocol { get; set; }
         /// <summary>List of tokens specifying the remote addresses covered by the rule. Tokens are case insensitive. Default is any address. Valid tokens include:&apos;&apos; indicates any remote address. If present, this must be the only token included.&apos;Defaultgateway&apos;&apos;DHCP&apos;&apos;DNS&apos;&apos;WINS&apos;&apos;Intranet&apos; (supported on Windows versions 1809+)&apos;RmtIntranet&apos; (supported on Windows versions 1809+)&apos;Internet&apos; (supported on Windows versions 1809+)&apos;Ply2Renders&apos; (supported on Windows versions 1809+)&apos;LocalSubnet&apos; indicates any local address on the local subnet.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of &apos;start address - end address&apos; with no spaces included.An IPv6 address range in the format of &apos;start address - end address&apos; with no spaces included.</summary>
@@ -112,9 +112,9 @@ namespace ApiSdk.Models
         public string ServiceName { get; set; }
 #endif
         /// <summary>Firewall rule traffic directions.</summary>
-        public WindowsFirewallRuleTrafficDirectionType? TrafficDirection { get; set; }
+        public ApiSdk.Models.WindowsFirewallRuleTrafficDirectionType? TrafficDirection { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsFirewallRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsFirewallRule"/> and sets the default values.
         /// </summary>
         public WindowsFirewallRule()
         {
@@ -123,12 +123,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsFirewallRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsFirewallRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static WindowsFirewallRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.WindowsFirewallRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsFirewallRule();
+            return new ApiSdk.Models.WindowsFirewallRule();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -138,23 +138,23 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "action", n => { Action = n.GetEnumValue<StateManagementSetting>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.StateManagementSetting>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "edgeTraversal", n => { EdgeTraversal = n.GetEnumValue<StateManagementSetting>(); } },
+                { "edgeTraversal", n => { EdgeTraversal = n.GetEnumValue<ApiSdk.Models.StateManagementSetting>(); } },
                 { "filePath", n => { FilePath = n.GetStringValue(); } },
-                { "interfaceTypes", n => { InterfaceTypes = n.GetEnumValue<WindowsFirewallRuleInterfaceTypes>(); } },
+                { "interfaceTypes", n => { InterfaceTypes = n.GetEnumValue<ApiSdk.Models.WindowsFirewallRuleInterfaceTypes>(); } },
                 { "localAddressRanges", n => { LocalAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "localPortRanges", n => { LocalPortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "localUserAuthorizations", n => { LocalUserAuthorizations = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "packageFamilyName", n => { PackageFamilyName = n.GetStringValue(); } },
-                { "profileTypes", n => { ProfileTypes = n.GetEnumValue<WindowsFirewallRuleNetworkProfileTypes>(); } },
+                { "profileTypes", n => { ProfileTypes = n.GetEnumValue<ApiSdk.Models.WindowsFirewallRuleNetworkProfileTypes>(); } },
                 { "protocol", n => { Protocol = n.GetIntValue(); } },
                 { "remoteAddressRanges", n => { RemoteAddressRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "remotePortRanges", n => { RemotePortRanges = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "serviceName", n => { ServiceName = n.GetStringValue(); } },
-                { "trafficDirection", n => { TrafficDirection = n.GetEnumValue<WindowsFirewallRuleTrafficDirectionType>(); } },
+                { "trafficDirection", n => { TrafficDirection = n.GetEnumValue<ApiSdk.Models.WindowsFirewallRuleTrafficDirectionType>(); } },
             };
         }
         /// <summary>
@@ -164,23 +164,23 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<StateManagementSetting>("action", Action);
+            writer.WriteEnumValue<ApiSdk.Models.StateManagementSetting>("action", Action);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<StateManagementSetting>("edgeTraversal", EdgeTraversal);
+            writer.WriteEnumValue<ApiSdk.Models.StateManagementSetting>("edgeTraversal", EdgeTraversal);
             writer.WriteStringValue("filePath", FilePath);
-            writer.WriteEnumValue<WindowsFirewallRuleInterfaceTypes>("interfaceTypes", InterfaceTypes);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsFirewallRuleInterfaceTypes>("interfaceTypes", InterfaceTypes);
             writer.WriteCollectionOfPrimitiveValues<string>("localAddressRanges", LocalAddressRanges);
             writer.WriteCollectionOfPrimitiveValues<string>("localPortRanges", LocalPortRanges);
             writer.WriteStringValue("localUserAuthorizations", LocalUserAuthorizations);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("packageFamilyName", PackageFamilyName);
-            writer.WriteEnumValue<WindowsFirewallRuleNetworkProfileTypes>("profileTypes", ProfileTypes);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsFirewallRuleNetworkProfileTypes>("profileTypes", ProfileTypes);
             writer.WriteIntValue("protocol", Protocol);
             writer.WriteCollectionOfPrimitiveValues<string>("remoteAddressRanges", RemoteAddressRanges);
             writer.WriteCollectionOfPrimitiveValues<string>("remotePortRanges", RemotePortRanges);
             writer.WriteStringValue("serviceName", ServiceName);
-            writer.WriteEnumValue<WindowsFirewallRuleTrafficDirectionType>("trafficDirection", TrafficDirection);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsFirewallRuleTrafficDirectionType>("trafficDirection", TrafficDirection);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

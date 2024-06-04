@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         /// <summary>The end time of the health check item. Read-only.</summary>
         public DateTimeOffset? EndDateTime { get; set; }
         /// <summary>The type of error that occurred during this health check.</summary>
-        public CloudPcOnPremisesConnectionHealthCheckErrorType? ErrorType { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheckErrorType? ErrorType { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -67,9 +67,9 @@ namespace ApiSdk.Models
         /// <summary>The start time of the health check item. Read-only.</summary>
         public DateTimeOffset? StartDateTime { get; set; }
         /// <summary>The status property</summary>
-        public CloudPcOnPremisesConnectionStatus? Status { get; set; }
+        public ApiSdk.Models.CloudPcOnPremisesConnectionStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcOnPremisesConnectionHealthCheck"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck"/> and sets the default values.
         /// </summary>
         public CloudPcOnPremisesConnectionHealthCheck()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcOnPremisesConnectionHealthCheck"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcOnPremisesConnectionHealthCheck CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcOnPremisesConnectionHealthCheck();
+            return new ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheck();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -98,11 +98,11 @@ namespace ApiSdk.Models
                 { "correlationId", n => { CorrelationId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "endDateTime", n => { EndDateTime = n.GetDateTimeOffsetValue(); } },
-                { "errorType", n => { ErrorType = n.GetEnumValue<CloudPcOnPremisesConnectionHealthCheckErrorType>(); } },
+                { "errorType", n => { ErrorType = n.GetEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheckErrorType>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "recommendedAction", n => { RecommendedAction = n.GetStringValue(); } },
                 { "startDateTime", n => { StartDateTime = n.GetDateTimeOffsetValue(); } },
-                { "status", n => { Status = n.GetEnumValue<CloudPcOnPremisesConnectionStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatus>(); } },
             };
         }
         /// <summary>
@@ -117,11 +117,11 @@ namespace ApiSdk.Models
             writer.WriteStringValue("correlationId", CorrelationId);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("endDateTime", EndDateTime);
-            writer.WriteEnumValue<CloudPcOnPremisesConnectionHealthCheckErrorType>("errorType", ErrorType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionHealthCheckErrorType>("errorType", ErrorType);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("recommendedAction", RecommendedAction);
             writer.WriteDateTimeOffsetValue("startDateTime", StartDateTime);
-            writer.WriteEnumValue<CloudPcOnPremisesConnectionStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOnPremisesConnectionStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

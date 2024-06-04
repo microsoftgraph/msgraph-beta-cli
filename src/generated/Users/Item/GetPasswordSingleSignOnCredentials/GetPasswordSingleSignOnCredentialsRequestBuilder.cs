@@ -73,14 +73,14 @@ namespace ApiSdk.Users.Item.GetPasswordSingleSignOnCredentials
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPasswordSingleSignOnCredentialsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.GetPasswordSingleSignOnCredentials.GetPasswordSingleSignOnCredentialsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GetPasswordSingleSignOnCredentialsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/getPasswordSingleSignOnCredentials", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GetPasswordSingleSignOnCredentialsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.GetPasswordSingleSignOnCredentials.GetPasswordSingleSignOnCredentialsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GetPasswordSingleSignOnCredentialsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/getPasswordSingleSignOnCredentials", rawUrl)

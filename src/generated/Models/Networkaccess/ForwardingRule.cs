@@ -7,23 +7,23 @@ using System;
 namespace ApiSdk.Models.Networkaccess
 {
     #pragma warning disable CS1591
-    public class ForwardingRule : PolicyRule, IParsable
+    public class ForwardingRule : ApiSdk.Models.Networkaccess.PolicyRule, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The action property</summary>
-        public ForwardingRuleAction? Action { get; set; }
+        public ApiSdk.Models.Networkaccess.ForwardingRuleAction? Action { get; set; }
         /// <summary>Destinations maintain a list of potential destinations and destination types that the user may access within the context of a network filtering policy. This includes IP addresses and fully qualified domain names (FQDNs)/URLs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<RuleDestination>? Destinations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RuleDestination>? Destinations { get; set; }
 #nullable restore
 #else
-        public List<RuleDestination> Destinations { get; set; }
+        public List<ApiSdk.Models.Networkaccess.RuleDestination> Destinations { get; set; }
 #endif
         /// <summary>The ruleType property</summary>
-        public NetworkDestinationType? RuleType { get; set; }
+        public ApiSdk.Models.Networkaccess.NetworkDestinationType? RuleType { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ForwardingRule"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.ForwardingRule"/> and sets the default values.
         /// </summary>
         public ForwardingRule() : base()
         {
@@ -32,18 +32,18 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ForwardingRule"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.ForwardingRule"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Networkaccess.ForwardingRule CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.internetAccessForwardingRule" => new InternetAccessForwardingRule(),
-                "#microsoft.graph.networkaccess.m365ForwardingRule" => new M365ForwardingRule(),
-                "#microsoft.graph.networkaccess.privateAccessForwardingRule" => new PrivateAccessForwardingRule(),
-                _ => new ForwardingRule(),
+                "#microsoft.graph.networkaccess.internetAccessForwardingRule" => new ApiSdk.Models.Networkaccess.InternetAccessForwardingRule(),
+                "#microsoft.graph.networkaccess.m365ForwardingRule" => new ApiSdk.Models.Networkaccess.M365ForwardingRule(),
+                "#microsoft.graph.networkaccess.privateAccessForwardingRule" => new ApiSdk.Models.Networkaccess.PrivateAccessForwardingRule(),
+                _ => new ApiSdk.Models.Networkaccess.ForwardingRule(),
             };
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "action", n => { Action = n.GetEnumValue<ForwardingRuleAction>(); } },
-                { "destinations", n => { Destinations = n.GetCollectionOfObjectValues<RuleDestination>(RuleDestination.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "ruleType", n => { RuleType = n.GetEnumValue<NetworkDestinationType>(); } },
+                { "action", n => { Action = n.GetEnumValue<ApiSdk.Models.Networkaccess.ForwardingRuleAction>(); } },
+                { "destinations", n => { Destinations = n.GetCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RuleDestination>(ApiSdk.Models.Networkaccess.RuleDestination.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "ruleType", n => { RuleType = n.GetEnumValue<ApiSdk.Models.Networkaccess.NetworkDestinationType>(); } },
             };
         }
         /// <summary>
@@ -67,9 +67,9 @@ namespace ApiSdk.Models.Networkaccess
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<ForwardingRuleAction>("action", Action);
-            writer.WriteCollectionOfObjectValues<RuleDestination>("destinations", Destinations);
-            writer.WriteEnumValue<NetworkDestinationType>("ruleType", RuleType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.ForwardingRuleAction>("action", Action);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Networkaccess.RuleDestination>("destinations", Destinations);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.NetworkDestinationType>("ruleType", RuleType);
         }
     }
 }

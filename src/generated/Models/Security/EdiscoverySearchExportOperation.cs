@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models.Security
 {
     #pragma warning disable CS1591
-    public class EdiscoverySearchExportOperation : CaseOperation, IParsable
+    public class EdiscoverySearchExportOperation : ApiSdk.Models.Security.CaseOperation, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue.</summary>
@@ -47,20 +47,20 @@ namespace ApiSdk.Models.Security
         /// <summary>The eDiscovery searches under each case.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EdiscoverySearch? Search { get; set; }
+        public ApiSdk.Models.Security.EdiscoverySearch? Search { get; set; }
 #nullable restore
 #else
-        public EdiscoverySearch Search { get; set; }
+        public ApiSdk.Models.Security.EdiscoverySearch Search { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EdiscoverySearchExportOperation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.EdiscoverySearchExportOperation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EdiscoverySearchExportOperation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Security.EdiscoverySearchExportOperation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EdiscoverySearchExportOperation();
+            return new ApiSdk.Models.Security.EdiscoverySearchExportOperation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,15 +70,15 @@ namespace ApiSdk.Models.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<ApiSdk.Models.Security.AdditionalOptions>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
+                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ApiSdk.Models.Security.ExportCriteria>(); } },
                 { "exportFileMetadata", n => { ExportFileMetadata = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>(ApiSdk.Models.Security.ExportFileMetadata.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
-                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
+                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ApiSdk.Models.Security.ExportFormat>(); } },
+                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ApiSdk.Models.Security.ExportLocation>(); } },
                 { "exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
-                { "search", n => { Search = n.GetObjectValue<EdiscoverySearch>(EdiscoverySearch.CreateFromDiscriminatorValue); } },
+                { "search", n => { Search = n.GetObjectValue<ApiSdk.Models.Security.EdiscoverySearch>(ApiSdk.Models.Security.EdiscoverySearch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -89,15 +89,15 @@ namespace ApiSdk.Models.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<AdditionalOptions>("additionalOptions", AdditionalOptions);
+            writer.WriteEnumValue<ApiSdk.Models.Security.AdditionalOptions>("additionalOptions", AdditionalOptions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<ExportCriteria>("exportCriteria", ExportCriteria);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportCriteria>("exportCriteria", ExportCriteria);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.ExportFileMetadata>("exportFileMetadata", ExportFileMetadata);
-            writer.WriteEnumValue<ExportFormat>("exportFormat", ExportFormat);
-            writer.WriteEnumValue<ExportLocation>("exportLocation", ExportLocation);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportFormat>("exportFormat", ExportFormat);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportLocation>("exportLocation", ExportLocation);
             writer.WriteBoolValue("exportSingleItems", ExportSingleItems);
-            writer.WriteObjectValue<EdiscoverySearch>("search", Search);
+            writer.WriteObjectValue<ApiSdk.Models.Security.EdiscoverySearch>("search", Search);
         }
     }
 }

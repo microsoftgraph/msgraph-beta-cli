@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Status of the approval. The possible values are: requested, approved, rejected, cancelled, unknownFutureValue. Read-only.</summary>
-        public PlannerApprovalStatus? Status { get; set; }
+        public ApiSdk.Models.PlannerApprovalStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PlannerBaseApprovalAttachment"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerBaseApprovalAttachment"/> and sets the default values.
         /// </summary>
         public PlannerBaseApprovalAttachment()
         {
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerBaseApprovalAttachment"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerBaseApprovalAttachment"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerBaseApprovalAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerBaseApprovalAttachment CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.plannerBasicApprovalAttachment" => new PlannerBasicApprovalAttachment(),
-                _ => new PlannerBaseApprovalAttachment(),
+                "#microsoft.graph.plannerBasicApprovalAttachment" => new ApiSdk.Models.PlannerBasicApprovalAttachment(),
+                _ => new ApiSdk.Models.PlannerBaseApprovalAttachment(),
             };
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<PlannerApprovalStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.PlannerApprovalStatus>(); } },
             };
         }
         /// <summary>
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<PlannerApprovalStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerApprovalStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

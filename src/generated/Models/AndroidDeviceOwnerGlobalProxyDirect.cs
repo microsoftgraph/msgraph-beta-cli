@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Android Device Owner Global Proxy Direct.
     /// </summary>
-    public class AndroidDeviceOwnerGlobalProxyDirect : AndroidDeviceOwnerGlobalProxy, IParsable
+    public class AndroidDeviceOwnerGlobalProxyDirect : ApiSdk.Models.AndroidDeviceOwnerGlobalProxy, IParsable
     {
         /// <summary>The excluded hosts</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         /// <summary>The port</summary>
         public int? Port { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerGlobalProxyDirect"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerGlobalProxyDirect"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerGlobalProxyDirect() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerGlobalProxyDirect"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerGlobalProxyDirect"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerGlobalProxyDirect CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerGlobalProxyDirect CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerGlobalProxyDirect();
+            return new ApiSdk.Models.AndroidDeviceOwnerGlobalProxyDirect();
         }
         /// <summary>
         /// The deserialization information for the current model

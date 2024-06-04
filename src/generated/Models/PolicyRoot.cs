@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PolicyRoot : Entity, IParsable
+    public class PolicyRoot : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The policy that contains directory-level access review settings.</summary>
@@ -21,10 +21,10 @@ namespace ApiSdk.Models
         /// <summary>The policy that controls the idle time-out for web sessions for applications.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ActivityBasedTimeoutPolicy>? ActivityBasedTimeoutPolicies { get; set; }
+        public List<ApiSdk.Models.ActivityBasedTimeoutPolicy>? ActivityBasedTimeoutPolicies { get; set; }
 #nullable restore
 #else
-        public List<ActivityBasedTimeoutPolicy> ActivityBasedTimeoutPolicies { get; set; }
+        public List<ApiSdk.Models.ActivityBasedTimeoutPolicy> ActivityBasedTimeoutPolicies { get; set; }
 #endif
         /// <summary>The policy by which consent requests are created and managed for the entire tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,10 +37,10 @@ namespace ApiSdk.Models
         /// <summary>The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppManagementPolicy>? AppManagementPolicies { get; set; }
+        public List<ApiSdk.Models.AppManagementPolicy>? AppManagementPolicies { get; set; }
 #nullable restore
 #else
-        public List<AppManagementPolicy> AppManagementPolicies { get; set; }
+        public List<ApiSdk.Models.AppManagementPolicy> AppManagementPolicies { get; set; }
 #endif
         /// <summary>The policy configuration of the self-service sign-up experience of guests.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         /// <summary>The authentication method combinations that are to be used in scenarios defined by Microsoft Entra Conditional Access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationStrengthPolicy>? AuthenticationStrengthPolicies { get; set; }
+        public List<ApiSdk.Models.AuthenticationStrengthPolicy>? AuthenticationStrengthPolicies { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationStrengthPolicy> AuthenticationStrengthPolicies { get; set; }
+        public List<ApiSdk.Models.AuthenticationStrengthPolicy> AuthenticationStrengthPolicies { get; set; }
 #endif
         /// <summary>The policy that controls Microsoft Entra authorization settings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -85,18 +85,18 @@ namespace ApiSdk.Models
         /// <summary>The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ClaimsMappingPolicy>? ClaimsMappingPolicies { get; set; }
+        public List<ApiSdk.Models.ClaimsMappingPolicy>? ClaimsMappingPolicies { get; set; }
 #nullable restore
 #else
-        public List<ClaimsMappingPolicy> ClaimsMappingPolicies { get; set; }
+        public List<ApiSdk.Models.ClaimsMappingPolicy> ClaimsMappingPolicies { get; set; }
 #endif
         /// <summary>The custom rules that define an access scenario.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessPolicy>? ConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessPolicy>? ConditionalAccessPolicies { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessPolicy> ConditionalAccessPolicies { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessPolicy> ConditionalAccessPolicies { get; set; }
 #endif
         /// <summary>The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -109,10 +109,10 @@ namespace ApiSdk.Models
         /// <summary>The tenant-wide policy that enforces app management restrictions for all applications and service principals.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TenantAppManagementPolicy? DefaultAppManagementPolicy { get; set; }
+        public ApiSdk.Models.TenantAppManagementPolicy? DefaultAppManagementPolicy { get; set; }
 #nullable restore
 #else
-        public TenantAppManagementPolicy DefaultAppManagementPolicy { get; set; }
+        public ApiSdk.Models.TenantAppManagementPolicy DefaultAppManagementPolicy { get; set; }
 #endif
         /// <summary>The deviceRegistrationPolicy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -141,10 +141,10 @@ namespace ApiSdk.Models
         /// <summary>The feature rollout policy associated with a directory object.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<FeatureRolloutPolicy>? FeatureRolloutPolicies { get; set; }
+        public List<ApiSdk.Models.FeatureRolloutPolicy>? FeatureRolloutPolicies { get; set; }
 #nullable restore
 #else
-        public List<FeatureRolloutPolicy> FeatureRolloutPolicies { get; set; }
+        public List<ApiSdk.Models.FeatureRolloutPolicy> FeatureRolloutPolicies { get; set; }
 #endif
         /// <summary>Represents a policy to control enabling or disabling validation of federation authentication tokens.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -157,10 +157,10 @@ namespace ApiSdk.Models
         /// <summary>The policy to control Microsoft Entra authentication behavior for federated users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<HomeRealmDiscoveryPolicy>? HomeRealmDiscoveryPolicies { get; set; }
+        public List<ApiSdk.Models.HomeRealmDiscoveryPolicy>? HomeRealmDiscoveryPolicies { get; set; }
 #nullable restore
 #else
-        public List<HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
+        public List<ApiSdk.Models.HomeRealmDiscoveryPolicy> HomeRealmDiscoveryPolicies { get; set; }
 #endif
         /// <summary>The policy that represents the security defaults that protect against common attacks.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,76 +173,76 @@ namespace ApiSdk.Models
         /// <summary>The policy that defines autoenrollment configuration for a mobility management (MDM or MAM) application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobilityManagementPolicy>? MobileAppManagementPolicies { get; set; }
+        public List<ApiSdk.Models.MobilityManagementPolicy>? MobileAppManagementPolicies { get; set; }
 #nullable restore
 #else
-        public List<MobilityManagementPolicy> MobileAppManagementPolicies { get; set; }
+        public List<ApiSdk.Models.MobilityManagementPolicy> MobileAppManagementPolicies { get; set; }
 #endif
         /// <summary>The mobileDeviceManagementPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobilityManagementPolicy>? MobileDeviceManagementPolicies { get; set; }
+        public List<ApiSdk.Models.MobilityManagementPolicy>? MobileDeviceManagementPolicies { get; set; }
 #nullable restore
 #else
-        public List<MobilityManagementPolicy> MobileDeviceManagementPolicies { get; set; }
+        public List<ApiSdk.Models.MobilityManagementPolicy> MobileDeviceManagementPolicies { get; set; }
 #endif
         /// <summary>The policy that specifies the conditions under which consent can be granted.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PermissionGrantPolicy>? PermissionGrantPolicies { get; set; }
+        public List<ApiSdk.Models.PermissionGrantPolicy>? PermissionGrantPolicies { get; set; }
 #nullable restore
 #else
-        public List<PermissionGrantPolicy> PermissionGrantPolicies { get; set; }
+        public List<ApiSdk.Models.PermissionGrantPolicy> PermissionGrantPolicies { get; set; }
 #endif
         /// <summary>Represents the role management policies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleManagementPolicy>? RoleManagementPolicies { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementPolicy>? RoleManagementPolicies { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleManagementPolicy> RoleManagementPolicies { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementPolicy> RoleManagementPolicies { get; set; }
 #endif
         /// <summary>Represents the role management policy assignments.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleManagementPolicyAssignment>? RoleManagementPolicyAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementPolicyAssignment>? RoleManagementPolicyAssignments { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleManagementPolicyAssignment> RoleManagementPolicyAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleManagementPolicyAssignment> RoleManagementPolicyAssignments { get; set; }
 #endif
         /// <summary>The servicePrincipalCreationPolicies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ServicePrincipalCreationPolicy>? ServicePrincipalCreationPolicies { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationPolicy>? ServicePrincipalCreationPolicies { get; set; }
 #nullable restore
 #else
-        public List<ServicePrincipalCreationPolicy> ServicePrincipalCreationPolicies { get; set; }
+        public List<ApiSdk.Models.ServicePrincipalCreationPolicy> ServicePrincipalCreationPolicies { get; set; }
 #endif
         /// <summary>The policy that specifies the characteristics of SAML tokens issued by Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TokenIssuancePolicy>? TokenIssuancePolicies { get; set; }
+        public List<ApiSdk.Models.TokenIssuancePolicy>? TokenIssuancePolicies { get; set; }
 #nullable restore
 #else
-        public List<TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
+        public List<ApiSdk.Models.TokenIssuancePolicy> TokenIssuancePolicies { get; set; }
 #endif
         /// <summary>The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Microsoft Entra ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TokenLifetimePolicy>? TokenLifetimePolicies { get; set; }
+        public List<ApiSdk.Models.TokenLifetimePolicy>? TokenLifetimePolicies { get; set; }
 #nullable restore
 #else
-        public List<TokenLifetimePolicy> TokenLifetimePolicies { get; set; }
+        public List<ApiSdk.Models.TokenLifetimePolicy> TokenLifetimePolicies { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PolicyRoot"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PolicyRoot"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PolicyRoot CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PolicyRoot CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PolicyRoot();
+            return new ApiSdk.Models.PolicyRoot();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -253,33 +253,33 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "accessReviewPolicy", n => { AccessReviewPolicy = n.GetObjectValue<ApiSdk.Models.AccessReviewPolicy>(ApiSdk.Models.AccessReviewPolicy.CreateFromDiscriminatorValue); } },
-                { "activityBasedTimeoutPolicies", n => { ActivityBasedTimeoutPolicies = n.GetCollectionOfObjectValues<ActivityBasedTimeoutPolicy>(ActivityBasedTimeoutPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activityBasedTimeoutPolicies", n => { ActivityBasedTimeoutPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.ActivityBasedTimeoutPolicy>(ApiSdk.Models.ActivityBasedTimeoutPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "adminConsentRequestPolicy", n => { AdminConsentRequestPolicy = n.GetObjectValue<ApiSdk.Models.AdminConsentRequestPolicy>(ApiSdk.Models.AdminConsentRequestPolicy.CreateFromDiscriminatorValue); } },
-                { "appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<AppManagementPolicy>(AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appManagementPolicies", n => { AppManagementPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.AppManagementPolicy>(ApiSdk.Models.AppManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "authenticationFlowsPolicy", n => { AuthenticationFlowsPolicy = n.GetObjectValue<ApiSdk.Models.AuthenticationFlowsPolicy>(ApiSdk.Models.AuthenticationFlowsPolicy.CreateFromDiscriminatorValue); } },
                 { "authenticationMethodsPolicy", n => { AuthenticationMethodsPolicy = n.GetObjectValue<ApiSdk.Models.AuthenticationMethodsPolicy>(ApiSdk.Models.AuthenticationMethodsPolicy.CreateFromDiscriminatorValue); } },
-                { "authenticationStrengthPolicies", n => { AuthenticationStrengthPolicies = n.GetCollectionOfObjectValues<AuthenticationStrengthPolicy>(AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationStrengthPolicies", n => { AuthenticationStrengthPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationStrengthPolicy>(ApiSdk.Models.AuthenticationStrengthPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "authorizationPolicy", n => { AuthorizationPolicy = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthorizationPolicy>(ApiSdk.Models.AuthorizationPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "b2cAuthenticationMethodsPolicy", n => { B2cAuthenticationMethodsPolicy = n.GetObjectValue<ApiSdk.Models.B2cAuthenticationMethodsPolicy>(ApiSdk.Models.B2cAuthenticationMethodsPolicy.CreateFromDiscriminatorValue); } },
-                { "claimsMappingPolicies", n => { ClaimsMappingPolicies = n.GetCollectionOfObjectValues<ClaimsMappingPolicy>(ClaimsMappingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "claimsMappingPolicies", n => { ClaimsMappingPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.ClaimsMappingPolicy>(ApiSdk.Models.ClaimsMappingPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccessPolicies", n => { ConditionalAccessPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessPolicy>(ApiSdk.Models.ConditionalAccessPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "crossTenantAccessPolicy", n => { CrossTenantAccessPolicy = n.GetObjectValue<ApiSdk.Models.CrossTenantAccessPolicy>(ApiSdk.Models.CrossTenantAccessPolicy.CreateFromDiscriminatorValue); } },
-                { "defaultAppManagementPolicy", n => { DefaultAppManagementPolicy = n.GetObjectValue<TenantAppManagementPolicy>(TenantAppManagementPolicy.CreateFromDiscriminatorValue); } },
+                { "defaultAppManagementPolicy", n => { DefaultAppManagementPolicy = n.GetObjectValue<ApiSdk.Models.TenantAppManagementPolicy>(ApiSdk.Models.TenantAppManagementPolicy.CreateFromDiscriminatorValue); } },
                 { "deviceRegistrationPolicy", n => { DeviceRegistrationPolicy = n.GetObjectValue<ApiSdk.Models.DeviceRegistrationPolicy>(ApiSdk.Models.DeviceRegistrationPolicy.CreateFromDiscriminatorValue); } },
                 { "directoryRoleAccessReviewPolicy", n => { DirectoryRoleAccessReviewPolicy = n.GetObjectValue<ApiSdk.Models.DirectoryRoleAccessReviewPolicy>(ApiSdk.Models.DirectoryRoleAccessReviewPolicy.CreateFromDiscriminatorValue); } },
                 { "externalIdentitiesPolicy", n => { ExternalIdentitiesPolicy = n.GetObjectValue<ApiSdk.Models.ExternalIdentitiesPolicy>(ApiSdk.Models.ExternalIdentitiesPolicy.CreateFromDiscriminatorValue); } },
-                { "featureRolloutPolicies", n => { FeatureRolloutPolicies = n.GetCollectionOfObjectValues<FeatureRolloutPolicy>(FeatureRolloutPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "featureRolloutPolicies", n => { FeatureRolloutPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.FeatureRolloutPolicy>(ApiSdk.Models.FeatureRolloutPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "federatedTokenValidationPolicy", n => { FederatedTokenValidationPolicy = n.GetObjectValue<ApiSdk.Models.FederatedTokenValidationPolicy>(ApiSdk.Models.FederatedTokenValidationPolicy.CreateFromDiscriminatorValue); } },
-                { "homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<HomeRealmDiscoveryPolicy>(HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "homeRealmDiscoveryPolicies", n => { HomeRealmDiscoveryPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.HomeRealmDiscoveryPolicy>(ApiSdk.Models.HomeRealmDiscoveryPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "identitySecurityDefaultsEnforcementPolicy", n => { IdentitySecurityDefaultsEnforcementPolicy = n.GetObjectValue<ApiSdk.Models.IdentitySecurityDefaultsEnforcementPolicy>(ApiSdk.Models.IdentitySecurityDefaultsEnforcementPolicy.CreateFromDiscriminatorValue); } },
-                { "mobileAppManagementPolicies", n => { MobileAppManagementPolicies = n.GetCollectionOfObjectValues<MobilityManagementPolicy>(MobilityManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "mobileDeviceManagementPolicies", n => { MobileDeviceManagementPolicies = n.GetCollectionOfObjectValues<MobilityManagementPolicy>(MobilityManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "permissionGrantPolicies", n => { PermissionGrantPolicies = n.GetCollectionOfObjectValues<PermissionGrantPolicy>(PermissionGrantPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleManagementPolicies", n => { RoleManagementPolicies = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicy>(UnifiedRoleManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleManagementPolicyAssignments", n => { RoleManagementPolicyAssignments = n.GetCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>(UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "servicePrincipalCreationPolicies", n => { ServicePrincipalCreationPolicies = n.GetCollectionOfObjectValues<ServicePrincipalCreationPolicy>(ServicePrincipalCreationPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<TokenIssuancePolicy>(TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<TokenLifetimePolicy>(TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mobileAppManagementPolicies", n => { MobileAppManagementPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.MobilityManagementPolicy>(ApiSdk.Models.MobilityManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "mobileDeviceManagementPolicies", n => { MobileDeviceManagementPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.MobilityManagementPolicy>(ApiSdk.Models.MobilityManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "permissionGrantPolicies", n => { PermissionGrantPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.PermissionGrantPolicy>(ApiSdk.Models.PermissionGrantPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleManagementPolicies", n => { RoleManagementPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementPolicy>(ApiSdk.Models.UnifiedRoleManagementPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleManagementPolicyAssignments", n => { RoleManagementPolicyAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementPolicyAssignment>(ApiSdk.Models.UnifiedRoleManagementPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "servicePrincipalCreationPolicies", n => { ServicePrincipalCreationPolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationPolicy>(ApiSdk.Models.ServicePrincipalCreationPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tokenIssuancePolicies", n => { TokenIssuancePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.TokenIssuancePolicy>(ApiSdk.Models.TokenIssuancePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "tokenLifetimePolicies", n => { TokenLifetimePolicies = n.GetCollectionOfObjectValues<ApiSdk.Models.TokenLifetimePolicy>(ApiSdk.Models.TokenLifetimePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -291,33 +291,33 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.AccessReviewPolicy>("accessReviewPolicy", AccessReviewPolicy);
-            writer.WriteCollectionOfObjectValues<ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", ActivityBasedTimeoutPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ActivityBasedTimeoutPolicy>("activityBasedTimeoutPolicies", ActivityBasedTimeoutPolicies);
             writer.WriteObjectValue<ApiSdk.Models.AdminConsentRequestPolicy>("adminConsentRequestPolicy", AdminConsentRequestPolicy);
-            writer.WriteCollectionOfObjectValues<AppManagementPolicy>("appManagementPolicies", AppManagementPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppManagementPolicy>("appManagementPolicies", AppManagementPolicies);
             writer.WriteObjectValue<ApiSdk.Models.AuthenticationFlowsPolicy>("authenticationFlowsPolicy", AuthenticationFlowsPolicy);
             writer.WriteObjectValue<ApiSdk.Models.AuthenticationMethodsPolicy>("authenticationMethodsPolicy", AuthenticationMethodsPolicy);
-            writer.WriteCollectionOfObjectValues<AuthenticationStrengthPolicy>("authenticationStrengthPolicies", AuthenticationStrengthPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationStrengthPolicy>("authenticationStrengthPolicies", AuthenticationStrengthPolicies);
             writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthorizationPolicy>("authorizationPolicy", AuthorizationPolicy);
             writer.WriteObjectValue<ApiSdk.Models.B2cAuthenticationMethodsPolicy>("b2cAuthenticationMethodsPolicy", B2cAuthenticationMethodsPolicy);
-            writer.WriteCollectionOfObjectValues<ClaimsMappingPolicy>("claimsMappingPolicies", ClaimsMappingPolicies);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ClaimsMappingPolicy>("claimsMappingPolicies", ClaimsMappingPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessPolicy>("conditionalAccessPolicies", ConditionalAccessPolicies);
             writer.WriteObjectValue<ApiSdk.Models.CrossTenantAccessPolicy>("crossTenantAccessPolicy", CrossTenantAccessPolicy);
-            writer.WriteObjectValue<TenantAppManagementPolicy>("defaultAppManagementPolicy", DefaultAppManagementPolicy);
+            writer.WriteObjectValue<ApiSdk.Models.TenantAppManagementPolicy>("defaultAppManagementPolicy", DefaultAppManagementPolicy);
             writer.WriteObjectValue<ApiSdk.Models.DeviceRegistrationPolicy>("deviceRegistrationPolicy", DeviceRegistrationPolicy);
             writer.WriteObjectValue<ApiSdk.Models.DirectoryRoleAccessReviewPolicy>("directoryRoleAccessReviewPolicy", DirectoryRoleAccessReviewPolicy);
             writer.WriteObjectValue<ApiSdk.Models.ExternalIdentitiesPolicy>("externalIdentitiesPolicy", ExternalIdentitiesPolicy);
-            writer.WriteCollectionOfObjectValues<FeatureRolloutPolicy>("featureRolloutPolicies", FeatureRolloutPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.FeatureRolloutPolicy>("featureRolloutPolicies", FeatureRolloutPolicies);
             writer.WriteObjectValue<ApiSdk.Models.FederatedTokenValidationPolicy>("federatedTokenValidationPolicy", FederatedTokenValidationPolicy);
-            writer.WriteCollectionOfObjectValues<HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.HomeRealmDiscoveryPolicy>("homeRealmDiscoveryPolicies", HomeRealmDiscoveryPolicies);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySecurityDefaultsEnforcementPolicy>("identitySecurityDefaultsEnforcementPolicy", IdentitySecurityDefaultsEnforcementPolicy);
-            writer.WriteCollectionOfObjectValues<MobilityManagementPolicy>("mobileAppManagementPolicies", MobileAppManagementPolicies);
-            writer.WriteCollectionOfObjectValues<MobilityManagementPolicy>("mobileDeviceManagementPolicies", MobileDeviceManagementPolicies);
-            writer.WriteCollectionOfObjectValues<PermissionGrantPolicy>("permissionGrantPolicies", PermissionGrantPolicies);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleManagementPolicy>("roleManagementPolicies", RoleManagementPolicies);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", RoleManagementPolicyAssignments);
-            writer.WriteCollectionOfObjectValues<ServicePrincipalCreationPolicy>("servicePrincipalCreationPolicies", ServicePrincipalCreationPolicies);
-            writer.WriteCollectionOfObjectValues<TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
-            writer.WriteCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobilityManagementPolicy>("mobileAppManagementPolicies", MobileAppManagementPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobilityManagementPolicy>("mobileDeviceManagementPolicies", MobileDeviceManagementPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PermissionGrantPolicy>("permissionGrantPolicies", PermissionGrantPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementPolicy>("roleManagementPolicies", RoleManagementPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleManagementPolicyAssignment>("roleManagementPolicyAssignments", RoleManagementPolicyAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ServicePrincipalCreationPolicy>("servicePrincipalCreationPolicies", ServicePrincipalCreationPolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TokenIssuancePolicy>("tokenIssuancePolicies", TokenIssuancePolicies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TokenLifetimePolicy>("tokenLifetimePolicies", TokenLifetimePolicies);
         }
     }
 }

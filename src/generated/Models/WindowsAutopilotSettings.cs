@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// The windowsAutopilotSettings resource represents a Windows Autopilot Account to sync data with Windows device data sync service.
     /// </summary>
-    public class WindowsAutopilotSettings : Entity, IParsable
+    public class WindowsAutopilotSettings : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Last data sync date time with DDS service.</summary>
         public DateTimeOffset? LastManualSyncTriggerDateTime { get; set; }
         /// <summary>Last data sync date time with DDS service.</summary>
         public DateTimeOffset? LastSyncDateTime { get; set; }
         /// <summary>The syncStatus property</summary>
-        public WindowsAutopilotSyncStatus? SyncStatus { get; set; }
+        public ApiSdk.Models.WindowsAutopilotSyncStatus? SyncStatus { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsAutopilotSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsAutopilotSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsAutopilotSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsAutopilotSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsAutopilotSettings();
+            return new ApiSdk.Models.WindowsAutopilotSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
             {
                 { "lastManualSyncTriggerDateTime", n => { LastManualSyncTriggerDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
-                { "syncStatus", n => { SyncStatus = n.GetEnumValue<WindowsAutopilotSyncStatus>(); } },
+                { "syncStatus", n => { SyncStatus = n.GetEnumValue<ApiSdk.Models.WindowsAutopilotSyncStatus>(); } },
             };
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("lastManualSyncTriggerDateTime", LastManualSyncTriggerDateTime);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
-            writer.WriteEnumValue<WindowsAutopilotSyncStatus>("syncStatus", SyncStatus);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsAutopilotSyncStatus>("syncStatus", SyncStatus);
         }
     }
 }

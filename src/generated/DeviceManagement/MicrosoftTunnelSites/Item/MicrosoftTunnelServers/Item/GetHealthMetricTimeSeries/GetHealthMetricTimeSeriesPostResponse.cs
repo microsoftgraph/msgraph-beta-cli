@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries
 {
     #pragma warning disable CS1591
-    public class GetHealthMetricTimeSeriesPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetHealthMetricTimeSeriesPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MetricTimeSeriesDataPoint>? Value { get; set; }
+        public List<ApiSdk.Models.MetricTimeSeriesDataPoint>? Value { get; set; }
 #nullable restore
 #else
-        public List<MetricTimeSeriesDataPoint> Value { get; set; }
+        public List<ApiSdk.Models.MetricTimeSeriesDataPoint> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetHealthMetricTimeSeriesPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries.GetHealthMetricTimeSeriesPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetHealthMetricTimeSeriesPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries.GetHealthMetricTimeSeriesPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetHealthMetricTimeSeriesPostResponse();
+            return new ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServers.Item.GetHealthMetricTimeSeries.GetHealthMetricTimeSeriesPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServe
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<MetricTimeSeriesDataPoint>(MetricTimeSeriesDataPoint.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.MetricTimeSeriesDataPoint>(ApiSdk.Models.MetricTimeSeriesDataPoint.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.MicrosoftTunnelSites.Item.MicrosoftTunnelServe
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<MetricTimeSeriesDataPoint>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MetricTimeSeriesDataPoint>("value", Value);
         }
     }
 }

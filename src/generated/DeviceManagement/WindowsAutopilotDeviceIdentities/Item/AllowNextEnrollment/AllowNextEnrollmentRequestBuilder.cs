@@ -49,14 +49,14 @@ namespace ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AllowNex
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowNextEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AllowNextEnrollment.AllowNextEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AllowNextEnrollmentRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}/allowNextEnrollment", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AllowNextEnrollmentRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.WindowsAutopilotDeviceIdentities.Item.AllowNextEnrollment.AllowNextEnrollmentRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AllowNextEnrollmentRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity%2Did}/allowNextEnrollment", rawUrl)

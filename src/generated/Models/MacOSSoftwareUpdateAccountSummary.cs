@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// MacOS software update account summary report for a device and user
     /// </summary>
-    public class MacOSSoftwareUpdateAccountSummary : Entity, IParsable
+    public class MacOSSoftwareUpdateAccountSummary : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Summary of the updates by category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MacOSSoftwareUpdateCategorySummary>? CategorySummaries { get; set; }
+        public List<ApiSdk.Models.MacOSSoftwareUpdateCategorySummary>? CategorySummaries { get; set; }
 #nullable restore
 #else
-        public List<MacOSSoftwareUpdateCategorySummary> CategorySummaries { get; set; }
+        public List<ApiSdk.Models.MacOSSoftwareUpdateCategorySummary> CategorySummaries { get; set; }
 #endif
         /// <summary>The device ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOSSoftwareUpdateAccountSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOSSoftwareUpdateAccountSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOSSoftwareUpdateAccountSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOSSoftwareUpdateAccountSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOSSoftwareUpdateAccountSummary();
+            return new ApiSdk.Models.MacOSSoftwareUpdateAccountSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,7 +93,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "categorySummaries", n => { CategorySummaries = n.GetCollectionOfObjectValues<MacOSSoftwareUpdateCategorySummary>(MacOSSoftwareUpdateCategorySummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categorySummaries", n => { CategorySummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.MacOSSoftwareUpdateCategorySummary>(ApiSdk.Models.MacOSSoftwareUpdateCategorySummary.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -114,7 +114,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<MacOSSoftwareUpdateCategorySummary>("categorySummaries", CategorySummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MacOSSoftwareUpdateCategorySummary>("categorySummaries", CategorySummaries);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteStringValue("displayName", DisplayName);

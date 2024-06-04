@@ -14,7 +14,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Setting comparison result type</summary>
-        public DeviceManagementComparisonResult? ComparisonResult { get; set; }
+        public ApiSdk.Models.DeviceManagementComparisonResult? ComparisonResult { get; set; }
         /// <summary>JSON representation of current intent (or) template setting&apos;s value</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingComparison"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingComparison"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingComparison()
         {
@@ -73,12 +73,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingComparison"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingComparison"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementSettingComparison CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementSettingComparison CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingComparison();
+            return new ApiSdk.Models.DeviceManagementSettingComparison();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "comparisonResult", n => { ComparisonResult = n.GetEnumValue<DeviceManagementComparisonResult>(); } },
+                { "comparisonResult", n => { ComparisonResult = n.GetEnumValue<ApiSdk.Models.DeviceManagementComparisonResult>(); } },
                 { "currentValueJson", n => { CurrentValueJson = n.GetStringValue(); } },
                 { "definitionId", n => { DefinitionId = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -104,7 +104,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DeviceManagementComparisonResult>("comparisonResult", ComparisonResult);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementComparisonResult>("comparisonResult", ComparisonResult);
             writer.WriteStringValue("currentValueJson", CurrentValueJson);
             writer.WriteStringValue("definitionId", DefinitionId);
             writer.WriteStringValue("displayName", DisplayName);

@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Users.GetManagedAppBlockedUsers
 {
     #pragma warning disable CS1591
-    public class GetManagedAppBlockedUsersGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetManagedAppBlockedUsersGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.Users.GetManagedAppBlockedUsers
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetManagedAppBlockedUsersGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.GetManagedAppBlockedUsers.GetManagedAppBlockedUsersGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetManagedAppBlockedUsersGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Users.GetManagedAppBlockedUsers.GetManagedAppBlockedUsersGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetManagedAppBlockedUsersGetResponse();
+            return new ApiSdk.Users.GetManagedAppBlockedUsers.GetManagedAppBlockedUsersGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

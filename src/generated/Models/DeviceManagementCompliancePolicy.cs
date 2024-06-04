@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Management Compliance Policy
     /// </summary>
-    public class DeviceManagementCompliancePolicy : Entity, IParsable
+    public class DeviceManagementCompliancePolicy : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Policy assignments</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationPolicyAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationPolicyAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment> Assignments { get; set; }
 #endif
         /// <summary>Policy creation date and time. This property is read-only.</summary>
         public DateTimeOffset? CreatedDateTime { get; private set; }
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         public string Name { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DeviceManagementConfigurationPlatforms? Platforms { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPlatforms? Platforms { get; set; }
         /// <summary>List of Scope Tags for this Entity instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -62,32 +62,32 @@ namespace ApiSdk.Models
         /// <summary>The list of scheduled action for this rule</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementComplianceScheduledActionForRule>? ScheduledActionsForRule { get; set; }
+        public List<ApiSdk.Models.DeviceManagementComplianceScheduledActionForRule>? ScheduledActionsForRule { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementComplianceScheduledActionForRule> ScheduledActionsForRule { get; set; }
+        public List<ApiSdk.Models.DeviceManagementComplianceScheduledActionForRule> ScheduledActionsForRule { get; set; }
 #endif
         /// <summary>Number of settings. This property is read-only.</summary>
         public int? SettingCount { get; private set; }
         /// <summary>Policy settings</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSetting>? Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSetting>? Settings { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSetting> Settings { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSetting> Settings { get; set; }
 #endif
         /// <summary>Describes which technology this setting can be deployed with</summary>
-        public DeviceManagementConfigurationTechnologies? Technologies { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTechnologies? Technologies { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementCompliancePolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementCompliancePolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementCompliancePolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementCompliancePolicy();
+            return new ApiSdk.Models.DeviceManagementCompliancePolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -97,19 +97,19 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>(DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>(ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "creationSource", n => { CreationSource = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "isAssigned", n => { IsAssigned = n.GetBoolValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
+                { "platforms", n => { Platforms = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>(); } },
                 { "roleScopeTagIds", n => { RoleScopeTagIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "scheduledActionsForRule", n => { ScheduledActionsForRule = n.GetCollectionOfObjectValues<DeviceManagementComplianceScheduledActionForRule>(DeviceManagementComplianceScheduledActionForRule.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "scheduledActionsForRule", n => { ScheduledActionsForRule = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementComplianceScheduledActionForRule>(ApiSdk.Models.DeviceManagementComplianceScheduledActionForRule.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "settingCount", n => { SettingCount = n.GetIntValue(); } },
-                { "settings", n => { Settings = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSetting>(DeviceManagementConfigurationSetting.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
+                { "settings", n => { Settings = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSetting>(ApiSdk.Models.DeviceManagementConfigurationSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>(); } },
             };
         }
         /// <summary>
@@ -120,15 +120,15 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationPolicyAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationPolicyAssignment>("assignments", Assignments);
             writer.WriteStringValue("creationSource", CreationSource);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<DeviceManagementConfigurationPlatforms>("platforms", Platforms);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>("platforms", Platforms);
             writer.WriteCollectionOfPrimitiveValues<string>("roleScopeTagIds", RoleScopeTagIds);
-            writer.WriteCollectionOfObjectValues<DeviceManagementComplianceScheduledActionForRule>("scheduledActionsForRule", ScheduledActionsForRule);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSetting>("settings", Settings);
-            writer.WriteEnumValue<DeviceManagementConfigurationTechnologies>("technologies", Technologies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementComplianceScheduledActionForRule>("scheduledActionsForRule", ScheduledActionsForRule);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSetting>("settings", Settings);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>("technologies", Technologies);
         }
     }
 }

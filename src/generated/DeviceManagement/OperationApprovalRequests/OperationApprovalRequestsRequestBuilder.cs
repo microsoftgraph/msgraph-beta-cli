@@ -35,7 +35,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var command = new Command("cancel-my-request");
             command.Description = "Provides operations to call the cancelMyRequest method.";
-            var builder = new CancelMyRequestRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.CancelMyRequest.CancelMyRequestRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -52,7 +52,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new OperationApprovalRequestItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.Item.OperationApprovalRequestItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildApproveNavCommand());
             commands.Add(builder.BuildCancelApprovalNavCommand());
             executables.Add(builder.BuildDeleteCommand());
@@ -69,7 +69,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -104,7 +104,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<OperationApprovalRequest>(OperationApprovalRequest.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.OperationApprovalRequest>(ApiSdk.Models.OperationApprovalRequest.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -227,7 +227,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var command = new Command("retrieve-my-request-by-id-with-id");
             command.Description = "Provides operations to call the retrieveMyRequestById method.";
-            var builder = new RetrieveMyRequestByIdWithIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequestByIdWithId.RetrieveMyRequestByIdWithIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -244,7 +244,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var command = new Command("retrieve-my-requests");
             command.Description = "Provides operations to call the retrieveMyRequests method.";
-            var builder = new RetrieveMyRequestsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -261,7 +261,7 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         {
             var command = new Command("retrieve-request-status");
             command.Description = "Provides operations to call the retrieveRequestStatus method.";
-            var builder = new RetrieveRequestStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveRequestStatus.RetrieveRequestStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -271,14 +271,14 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="OperationApprovalRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.OperationApprovalRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public OperationApprovalRequestsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/operationApprovalRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="OperationApprovalRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.OperationApprovalRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public OperationApprovalRequestsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/operationApprovalRequests{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -291,11 +291,11 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationApprovalRequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalRequests.OperationApprovalRequestsRequestBuilder.OperationApprovalRequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<OperationApprovalRequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalRequests.OperationApprovalRequestsRequestBuilder.OperationApprovalRequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -311,11 +311,11 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(OperationApprovalRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.OperationApprovalRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(OperationApprovalRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.OperationApprovalRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

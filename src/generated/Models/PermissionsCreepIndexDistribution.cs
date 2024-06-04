@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PermissionsCreepIndexDistribution : Entity, IParsable
+    public class PermissionsCreepIndexDistribution : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The authorizationSystem property</summary>
@@ -23,36 +23,36 @@ namespace ApiSdk.Models
         /// <summary>The highRiskProfile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RiskProfile? HighRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile? HighRiskProfile { get; set; }
 #nullable restore
 #else
-        public RiskProfile HighRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile HighRiskProfile { get; set; }
 #endif
         /// <summary>The lowRiskProfile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RiskProfile? LowRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile? LowRiskProfile { get; set; }
 #nullable restore
 #else
-        public RiskProfile LowRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile LowRiskProfile { get; set; }
 #endif
         /// <summary>The mediumRiskProfile property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RiskProfile? MediumRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile? MediumRiskProfile { get; set; }
 #nullable restore
 #else
-        public RiskProfile MediumRiskProfile { get; set; }
+        public ApiSdk.Models.RiskProfile MediumRiskProfile { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PermissionsCreepIndexDistribution"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PermissionsCreepIndexDistribution"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PermissionsCreepIndexDistribution CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PermissionsCreepIndexDistribution CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PermissionsCreepIndexDistribution();
+            return new ApiSdk.Models.PermissionsCreepIndexDistribution();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,9 +64,9 @@ namespace ApiSdk.Models
             {
                 { "authorizationSystem", n => { AuthorizationSystem = n.GetObjectValue<ApiSdk.Models.AuthorizationSystem>(ApiSdk.Models.AuthorizationSystem.CreateFromDiscriminatorValue); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "highRiskProfile", n => { HighRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
-                { "lowRiskProfile", n => { LowRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
-                { "mediumRiskProfile", n => { MediumRiskProfile = n.GetObjectValue<RiskProfile>(RiskProfile.CreateFromDiscriminatorValue); } },
+                { "highRiskProfile", n => { HighRiskProfile = n.GetObjectValue<ApiSdk.Models.RiskProfile>(ApiSdk.Models.RiskProfile.CreateFromDiscriminatorValue); } },
+                { "lowRiskProfile", n => { LowRiskProfile = n.GetObjectValue<ApiSdk.Models.RiskProfile>(ApiSdk.Models.RiskProfile.CreateFromDiscriminatorValue); } },
+                { "mediumRiskProfile", n => { MediumRiskProfile = n.GetObjectValue<ApiSdk.Models.RiskProfile>(ApiSdk.Models.RiskProfile.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,9 +79,9 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.AuthorizationSystem>("authorizationSystem", AuthorizationSystem);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<RiskProfile>("highRiskProfile", HighRiskProfile);
-            writer.WriteObjectValue<RiskProfile>("lowRiskProfile", LowRiskProfile);
-            writer.WriteObjectValue<RiskProfile>("mediumRiskProfile", MediumRiskProfile);
+            writer.WriteObjectValue<ApiSdk.Models.RiskProfile>("highRiskProfile", HighRiskProfile);
+            writer.WriteObjectValue<ApiSdk.Models.RiskProfile>("lowRiskProfile", LowRiskProfile);
+            writer.WriteObjectValue<ApiSdk.Models.RiskProfile>("mediumRiskProfile", MediumRiskProfile);
         }
     }
 }

@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Drive : BaseItem, IParsable
+    public class Drive : ApiSdk.Models.BaseItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The list of recent activities that took place under this drive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ItemActivityOLD>? Activities { get; set; }
+        public List<ApiSdk.Models.ItemActivityOLD>? Activities { get; set; }
 #nullable restore
 #else
-        public List<ItemActivityOLD> Activities { get; set; }
+        public List<ApiSdk.Models.ItemActivityOLD> Activities { get; set; }
 #endif
         /// <summary>Collection of bundles (albums and multi-select-shared sets of items). Only in personal OneDrive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DriveItem>? Bundles { get; set; }
+        public List<ApiSdk.Models.DriveItem>? Bundles { get; set; }
 #nullable restore
 #else
-        public List<DriveItem> Bundles { get; set; }
+        public List<ApiSdk.Models.DriveItem> Bundles { get; set; }
 #endif
         /// <summary>Describes the type of drive represented by this resource. OneDrive personal drives return personal. OneDrive for Business returns business. SharePoint document libraries return documentLibrary. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,18 +37,18 @@ namespace ApiSdk.Models
         /// <summary>The list of items the user is following. Only in OneDrive for Business.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DriveItem>? Following { get; set; }
+        public List<ApiSdk.Models.DriveItem>? Following { get; set; }
 #nullable restore
 #else
-        public List<DriveItem> Following { get; set; }
+        public List<ApiSdk.Models.DriveItem> Following { get; set; }
 #endif
         /// <summary>All items contained in the drive. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DriveItem>? Items { get; set; }
+        public List<ApiSdk.Models.DriveItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<DriveItem> Items { get; set; }
+        public List<ApiSdk.Models.DriveItem> Items { get; set; }
 #endif
         /// <summary>For drives in SharePoint, the underlying document library list. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,10 +61,10 @@ namespace ApiSdk.Models
         /// <summary>Optional. The user account that owns the drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? Owner { get; set; }
+        public ApiSdk.Models.IdentitySet? Owner { get; set; }
 #nullable restore
 #else
-        public IdentitySet Owner { get; set; }
+        public ApiSdk.Models.IdentitySet Owner { get; set; }
 #endif
         /// <summary>Optional. Information about the drive&apos;s storage space quota. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         /// <summary>The root folder of the drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DriveItem? Root { get; set; }
+        public ApiSdk.Models.DriveItem? Root { get; set; }
 #nullable restore
 #else
-        public DriveItem Root { get; set; }
+        public ApiSdk.Models.DriveItem Root { get; set; }
 #endif
         /// <summary>The sharePointIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -93,21 +93,21 @@ namespace ApiSdk.Models
         /// <summary>Collection of common folders available in OneDrive. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DriveItem>? Special { get; set; }
+        public List<ApiSdk.Models.DriveItem>? Special { get; set; }
 #nullable restore
 #else
-        public List<DriveItem> Special { get; set; }
+        public List<ApiSdk.Models.DriveItem> Special { get; set; }
 #endif
         /// <summary>If present, indicates that this is a system-managed drive. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SystemFacet? System { get; set; }
+        public ApiSdk.Models.SystemFacet? System { get; set; }
 #nullable restore
 #else
-        public SystemFacet System { get; set; }
+        public ApiSdk.Models.SystemFacet System { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Drive"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Drive"/> and sets the default values.
         /// </summary>
         public Drive() : base()
         {
@@ -116,12 +116,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Drive"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Drive"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Drive CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Drive CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Drive();
+            return new ApiSdk.Models.Drive();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -131,18 +131,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "activities", n => { Activities = n.GetCollectionOfObjectValues<ItemActivityOLD>(ItemActivityOLD.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "bundles", n => { Bundles = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activities", n => { Activities = n.GetCollectionOfObjectValues<ApiSdk.Models.ItemActivityOLD>(ApiSdk.Models.ItemActivityOLD.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "bundles", n => { Bundles = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "driveType", n => { DriveType = n.GetStringValue(); } },
-                { "following", n => { Following = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "following", n => { Following = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "list", n => { List = n.GetObjectValue<ApiSdk.Models.List>(ApiSdk.Models.List.CreateFromDiscriminatorValue); } },
-                { "owner", n => { Owner = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "owner", n => { Owner = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "quota", n => { Quota = n.GetObjectValue<ApiSdk.Models.Quota>(ApiSdk.Models.Quota.CreateFromDiscriminatorValue); } },
-                { "root", n => { Root = n.GetObjectValue<DriveItem>(DriveItem.CreateFromDiscriminatorValue); } },
+                { "root", n => { Root = n.GetObjectValue<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue); } },
                 { "sharePointIds", n => { SharePointIds = n.GetObjectValue<ApiSdk.Models.SharepointIds>(ApiSdk.Models.SharepointIds.CreateFromDiscriminatorValue); } },
-                { "special", n => { Special = n.GetCollectionOfObjectValues<DriveItem>(DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "system", n => { System = n.GetObjectValue<SystemFacet>(SystemFacet.CreateFromDiscriminatorValue); } },
+                { "special", n => { Special = n.GetCollectionOfObjectValues<ApiSdk.Models.DriveItem>(ApiSdk.Models.DriveItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "system", n => { System = n.GetObjectValue<ApiSdk.Models.SystemFacet>(ApiSdk.Models.SystemFacet.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -153,18 +153,18 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ItemActivityOLD>("activities", Activities);
-            writer.WriteCollectionOfObjectValues<DriveItem>("bundles", Bundles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ItemActivityOLD>("activities", Activities);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DriveItem>("bundles", Bundles);
             writer.WriteStringValue("driveType", DriveType);
-            writer.WriteCollectionOfObjectValues<DriveItem>("following", Following);
-            writer.WriteCollectionOfObjectValues<DriveItem>("items", Items);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DriveItem>("following", Following);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DriveItem>("items", Items);
             writer.WriteObjectValue<ApiSdk.Models.List>("list", List);
-            writer.WriteObjectValue<IdentitySet>("owner", Owner);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("owner", Owner);
             writer.WriteObjectValue<ApiSdk.Models.Quota>("quota", Quota);
-            writer.WriteObjectValue<DriveItem>("root", Root);
+            writer.WriteObjectValue<ApiSdk.Models.DriveItem>("root", Root);
             writer.WriteObjectValue<ApiSdk.Models.SharepointIds>("sharePointIds", SharePointIds);
-            writer.WriteCollectionOfObjectValues<DriveItem>("special", Special);
-            writer.WriteObjectValue<SystemFacet>("system", System);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DriveItem>("special", Special);
+            writer.WriteObjectValue<ApiSdk.Models.SystemFacet>("system", System);
         }
     }
 }

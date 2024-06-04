@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// A device app management task.
     /// </summary>
-    public class DeviceAppManagementTask : Entity, IParsable
+    public class DeviceAppManagementTask : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The name or email of the admin this task is assigned to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         public string AssignedTo { get; set; }
 #endif
         /// <summary>Device app management task category.</summary>
-        public DeviceAppManagementTaskCategory? Category { get; set; }
+        public ApiSdk.Models.DeviceAppManagementTaskCategory? Category { get; set; }
         /// <summary>The created date.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The email address of the creator.</summary>
@@ -58,24 +58,24 @@ namespace ApiSdk.Models
         /// <summary>The due date.</summary>
         public DateTimeOffset? DueDateTime { get; set; }
         /// <summary>Device app management task priority.</summary>
-        public DeviceAppManagementTaskPriority? Priority { get; set; }
+        public ApiSdk.Models.DeviceAppManagementTaskPriority? Priority { get; set; }
         /// <summary>Device app management task status.</summary>
-        public DeviceAppManagementTaskStatus? Status { get; set; }
+        public ApiSdk.Models.DeviceAppManagementTaskStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceAppManagementTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceAppManagementTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceAppManagementTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceAppManagementTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.appVulnerabilityTask" => new AppVulnerabilityTask(),
-                "#microsoft.graph.securityConfigurationTask" => new SecurityConfigurationTask(),
-                "#microsoft.graph.unmanagedDeviceDiscoveryTask" => new UnmanagedDeviceDiscoveryTask(),
-                _ => new DeviceAppManagementTask(),
+                "#microsoft.graph.appVulnerabilityTask" => new ApiSdk.Models.AppVulnerabilityTask(),
+                "#microsoft.graph.securityConfigurationTask" => new ApiSdk.Models.SecurityConfigurationTask(),
+                "#microsoft.graph.unmanagedDeviceDiscoveryTask" => new ApiSdk.Models.UnmanagedDeviceDiscoveryTask(),
+                _ => new ApiSdk.Models.DeviceAppManagementTask(),
             };
         }
         /// <summary>
@@ -87,15 +87,15 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignedTo", n => { AssignedTo = n.GetStringValue(); } },
-                { "category", n => { Category = n.GetEnumValue<DeviceAppManagementTaskCategory>(); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.DeviceAppManagementTaskCategory>(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "creator", n => { Creator = n.GetStringValue(); } },
                 { "creatorNotes", n => { CreatorNotes = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
-                { "priority", n => { Priority = n.GetEnumValue<DeviceAppManagementTaskPriority>(); } },
-                { "status", n => { Status = n.GetEnumValue<DeviceAppManagementTaskStatus>(); } },
+                { "priority", n => { Priority = n.GetEnumValue<ApiSdk.Models.DeviceAppManagementTaskPriority>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DeviceAppManagementTaskStatus>(); } },
             };
         }
         /// <summary>
@@ -107,15 +107,15 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("assignedTo", AssignedTo);
-            writer.WriteEnumValue<DeviceAppManagementTaskCategory>("category", Category);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAppManagementTaskCategory>("category", Category);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("creator", Creator);
             writer.WriteStringValue("creatorNotes", CreatorNotes);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("dueDateTime", DueDateTime);
-            writer.WriteEnumValue<DeviceAppManagementTaskPriority>("priority", Priority);
-            writer.WriteEnumValue<DeviceAppManagementTaskStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAppManagementTaskPriority>("priority", Priority);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAppManagementTaskStatus>("status", Status);
         }
     }
 }

@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceManagementResourceAccessProfileBaseCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class DeviceManagementResourceAccessProfileBaseCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementResourceAccessProfileBase>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementResourceAccessProfileBase>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementResourceAccessProfileBase> Value { get; set; }
+        public List<ApiSdk.Models.DeviceManagementResourceAccessProfileBase> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementResourceAccessProfileBaseCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementResourceAccessProfileBaseCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementResourceAccessProfileBaseCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementResourceAccessProfileBaseCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementResourceAccessProfileBaseCollectionResponse();
+            return new ApiSdk.Models.DeviceManagementResourceAccessProfileBaseCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileBase>(DeviceManagementResourceAccessProfileBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementResourceAccessProfileBase>(ApiSdk.Models.DeviceManagementResourceAccessProfileBase.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementResourceAccessProfileBase>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementResourceAccessProfileBase>("value", Value);
         }
     }
 }

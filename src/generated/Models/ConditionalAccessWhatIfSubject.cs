@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ConditionalAccessWhatIfSubject"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ConditionalAccessWhatIfSubject"/> and sets the default values.
         /// </summary>
         public ConditionalAccessWhatIfSubject()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ConditionalAccessWhatIfSubject"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ConditionalAccessWhatIfSubject"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ConditionalAccessWhatIfSubject CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ConditionalAccessWhatIfSubject CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.servicePrincipalSubject" => new ServicePrincipalSubject(),
-                "#microsoft.graph.userSubject" => new UserSubject(),
-                _ => new ConditionalAccessWhatIfSubject(),
+                "#microsoft.graph.servicePrincipalSubject" => new ApiSdk.Models.ServicePrincipalSubject(),
+                "#microsoft.graph.userSubject" => new ApiSdk.Models.UserSubject(),
+                _ => new ApiSdk.Models.ConditionalAccessWhatIfSubject(),
             };
         }
         /// <summary>

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The depOnboardingSetting represents an instance of the Apple DEP service being onboarded to Intune. The onboarded service instance manages an Apple Token used to synchronize data between Apple and Intune.
     /// </summary>
-    public class DepOnboardingSetting : Entity, IParsable
+    public class DepOnboardingSetting : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The Apple ID used to obtain the current token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,34 +24,34 @@ namespace ApiSdk.Models
         /// <summary>Default iOS Enrollment Profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DepIOSEnrollmentProfile? DefaultIosEnrollmentProfile { get; set; }
+        public ApiSdk.Models.DepIOSEnrollmentProfile? DefaultIosEnrollmentProfile { get; set; }
 #nullable restore
 #else
-        public DepIOSEnrollmentProfile DefaultIosEnrollmentProfile { get; set; }
+        public ApiSdk.Models.DepIOSEnrollmentProfile DefaultIosEnrollmentProfile { get; set; }
 #endif
         /// <summary>Default MacOs Enrollment Profile</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DepMacOSEnrollmentProfile? DefaultMacOsEnrollmentProfile { get; set; }
+        public ApiSdk.Models.DepMacOSEnrollmentProfile? DefaultMacOsEnrollmentProfile { get; set; }
 #nullable restore
 #else
-        public DepMacOSEnrollmentProfile DefaultMacOsEnrollmentProfile { get; set; }
+        public ApiSdk.Models.DepMacOSEnrollmentProfile DefaultMacOsEnrollmentProfile { get; set; }
 #endif
         /// <summary>The enrollment profiles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<EnrollmentProfile>? EnrollmentProfiles { get; set; }
+        public List<ApiSdk.Models.EnrollmentProfile>? EnrollmentProfiles { get; set; }
 #nullable restore
 #else
-        public List<EnrollmentProfile> EnrollmentProfiles { get; set; }
+        public List<ApiSdk.Models.EnrollmentProfile> EnrollmentProfiles { get; set; }
 #endif
         /// <summary>The imported Apple device identities.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ImportedAppleDeviceIdentity>? ImportedAppleDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedAppleDeviceIdentity>? ImportedAppleDeviceIdentities { get; set; }
 #nullable restore
 #else
-        public List<ImportedAppleDeviceIdentity> ImportedAppleDeviceIdentities { get; set; }
+        public List<ApiSdk.Models.ImportedAppleDeviceIdentity> ImportedAppleDeviceIdentities { get; set; }
 #endif
         /// <summary>When the service was onboarded.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
@@ -84,16 +84,16 @@ namespace ApiSdk.Models
         public string TokenName { get; set; }
 #endif
         /// <summary>The tokenType property</summary>
-        public DepTokenType? TokenType { get; set; }
+        public ApiSdk.Models.DepTokenType? TokenType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DepOnboardingSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DepOnboardingSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DepOnboardingSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DepOnboardingSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DepOnboardingSetting();
+            return new ApiSdk.Models.DepOnboardingSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -105,10 +105,10 @@ namespace ApiSdk.Models
             {
                 { "appleIdentifier", n => { AppleIdentifier = n.GetStringValue(); } },
                 { "dataSharingConsentGranted", n => { DataSharingConsentGranted = n.GetBoolValue(); } },
-                { "defaultIosEnrollmentProfile", n => { DefaultIosEnrollmentProfile = n.GetObjectValue<DepIOSEnrollmentProfile>(DepIOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
-                { "defaultMacOsEnrollmentProfile", n => { DefaultMacOsEnrollmentProfile = n.GetObjectValue<DepMacOSEnrollmentProfile>(DepMacOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
-                { "enrollmentProfiles", n => { EnrollmentProfiles = n.GetCollectionOfObjectValues<EnrollmentProfile>(EnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ImportedAppleDeviceIdentity>(ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultIosEnrollmentProfile", n => { DefaultIosEnrollmentProfile = n.GetObjectValue<ApiSdk.Models.DepIOSEnrollmentProfile>(ApiSdk.Models.DepIOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
+                { "defaultMacOsEnrollmentProfile", n => { DefaultMacOsEnrollmentProfile = n.GetObjectValue<ApiSdk.Models.DepMacOSEnrollmentProfile>(ApiSdk.Models.DepMacOSEnrollmentProfile.CreateFromDiscriminatorValue); } },
+                { "enrollmentProfiles", n => { EnrollmentProfiles = n.GetCollectionOfObjectValues<ApiSdk.Models.EnrollmentProfile>(ApiSdk.Models.EnrollmentProfile.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "importedAppleDeviceIdentities", n => { ImportedAppleDeviceIdentities = n.GetCollectionOfObjectValues<ApiSdk.Models.ImportedAppleDeviceIdentity>(ApiSdk.Models.ImportedAppleDeviceIdentity.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSuccessfulSyncDateTime", n => { LastSuccessfulSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSyncErrorCode", n => { LastSyncErrorCode = n.GetIntValue(); } },
@@ -118,7 +118,7 @@ namespace ApiSdk.Models
                 { "syncedDeviceCount", n => { SyncedDeviceCount = n.GetIntValue(); } },
                 { "tokenExpirationDateTime", n => { TokenExpirationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "tokenName", n => { TokenName = n.GetStringValue(); } },
-                { "tokenType", n => { TokenType = n.GetEnumValue<DepTokenType>(); } },
+                { "tokenType", n => { TokenType = n.GetEnumValue<ApiSdk.Models.DepTokenType>(); } },
             };
         }
         /// <summary>
@@ -131,10 +131,10 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("appleIdentifier", AppleIdentifier);
             writer.WriteBoolValue("dataSharingConsentGranted", DataSharingConsentGranted);
-            writer.WriteObjectValue<DepIOSEnrollmentProfile>("defaultIosEnrollmentProfile", DefaultIosEnrollmentProfile);
-            writer.WriteObjectValue<DepMacOSEnrollmentProfile>("defaultMacOsEnrollmentProfile", DefaultMacOsEnrollmentProfile);
-            writer.WriteCollectionOfObjectValues<EnrollmentProfile>("enrollmentProfiles", EnrollmentProfiles);
-            writer.WriteCollectionOfObjectValues<ImportedAppleDeviceIdentity>("importedAppleDeviceIdentities", ImportedAppleDeviceIdentities);
+            writer.WriteObjectValue<ApiSdk.Models.DepIOSEnrollmentProfile>("defaultIosEnrollmentProfile", DefaultIosEnrollmentProfile);
+            writer.WriteObjectValue<ApiSdk.Models.DepMacOSEnrollmentProfile>("defaultMacOsEnrollmentProfile", DefaultMacOsEnrollmentProfile);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.EnrollmentProfile>("enrollmentProfiles", EnrollmentProfiles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ImportedAppleDeviceIdentity>("importedAppleDeviceIdentities", ImportedAppleDeviceIdentities);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteDateTimeOffsetValue("lastSuccessfulSyncDateTime", LastSuccessfulSyncDateTime);
             writer.WriteIntValue("lastSyncErrorCode", LastSyncErrorCode);
@@ -144,7 +144,7 @@ namespace ApiSdk.Models
             writer.WriteIntValue("syncedDeviceCount", SyncedDeviceCount);
             writer.WriteDateTimeOffsetValue("tokenExpirationDateTime", TokenExpirationDateTime);
             writer.WriteStringValue("tokenName", TokenName);
-            writer.WriteEnumValue<DepTokenType>("tokenType", TokenType);
+            writer.WriteEnumValue<ApiSdk.Models.DepTokenType>("tokenType", TokenType);
         }
     }
 }

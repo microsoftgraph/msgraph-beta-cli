@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class B2cAuthenticationMethodsPolicy : Entity, IParsable
+    public class B2cAuthenticationMethodsPolicy : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The tenant admin can configure local accounts using email if the email and password authentication method is enabled.</summary>
@@ -19,12 +19,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="B2cAuthenticationMethodsPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.B2cAuthenticationMethodsPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new B2cAuthenticationMethodsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.B2cAuthenticationMethodsPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new B2cAuthenticationMethodsPolicy();
+            return new ApiSdk.Models.B2cAuthenticationMethodsPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model

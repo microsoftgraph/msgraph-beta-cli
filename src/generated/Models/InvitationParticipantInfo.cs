@@ -19,10 +19,10 @@ namespace ApiSdk.Models
         /// <summary>The identity property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? Identity { get; set; }
+        public ApiSdk.Models.IdentitySet? Identity { get; set; }
 #nullable restore
 #else
-        public IdentitySet Identity { get; set; }
+        public ApiSdk.Models.IdentitySet Identity { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,7 +51,7 @@ namespace ApiSdk.Models
         public string ReplacesCallId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="InvitationParticipantInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.InvitationParticipantInfo"/> and sets the default values.
         /// </summary>
         public InvitationParticipantInfo()
         {
@@ -60,12 +60,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="InvitationParticipantInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.InvitationParticipantInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static InvitationParticipantInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.InvitationParticipantInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new InvitationParticipantInfo();
+            return new ApiSdk.Models.InvitationParticipantInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,9 +75,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "endpointType", n => { EndpointType = n.GetEnumValue<EndpointType>(); } },
+                { "endpointType", n => { EndpointType = n.GetEnumValue<ApiSdk.Models.EndpointType>(); } },
                 { "hidden", n => { Hidden = n.GetBoolValue(); } },
-                { "identity", n => { Identity = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
+                { "identity", n => { Identity = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "participantId", n => { ParticipantId = n.GetStringValue(); } },
                 { "removeFromDefaultAudioRoutingGroup", n => { RemoveFromDefaultAudioRoutingGroup = n.GetBoolValue(); } },
@@ -91,9 +91,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<EndpointType>("endpointType", EndpointType);
+            writer.WriteEnumValue<ApiSdk.Models.EndpointType>("endpointType", EndpointType);
             writer.WriteBoolValue("hidden", Hidden);
-            writer.WriteObjectValue<IdentitySet>("identity", Identity);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("identity", Identity);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("participantId", ParticipantId);
             writer.WriteBoolValue("removeFromDefaultAudioRoutingGroup", RemoveFromDefaultAudioRoutingGroup);

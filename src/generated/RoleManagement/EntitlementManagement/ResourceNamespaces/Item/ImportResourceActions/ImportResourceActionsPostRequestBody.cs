@@ -31,7 +31,7 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.Im
         public string Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ImportResourceActionsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ImportResourceActions.ImportResourceActionsPostRequestBody"/> and sets the default values.
         /// </summary>
         public ImportResourceActionsPostRequestBody()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.Im
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImportResourceActionsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ImportResourceActions.ImportResourceActionsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ImportResourceActionsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ImportResourceActions.ImportResourceActionsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ImportResourceActionsPostRequestBody();
+            return new ApiSdk.RoleManagement.EntitlementManagement.ResourceNamespaces.Item.ImportResourceActions.ImportResourceActionsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

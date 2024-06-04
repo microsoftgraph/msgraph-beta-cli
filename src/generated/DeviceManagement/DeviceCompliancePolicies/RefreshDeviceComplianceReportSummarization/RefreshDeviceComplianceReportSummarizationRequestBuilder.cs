@@ -43,14 +43,14 @@ namespace ApiSdk.DeviceManagement.DeviceCompliancePolicies.RefreshDeviceComplian
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefreshDeviceComplianceReportSummarizationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.RefreshDeviceComplianceReportSummarization.RefreshDeviceComplianceReportSummarizationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RefreshDeviceComplianceReportSummarizationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/refreshDeviceComplianceReportSummarization", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RefreshDeviceComplianceReportSummarizationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceCompliancePolicies.RefreshDeviceComplianceReportSummarization.RefreshDeviceComplianceReportSummarizationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RefreshDeviceComplianceReportSummarizationRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceCompliancePolicies/refreshDeviceComplianceReportSummarization", rawUrl)

@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class SensitivityPolicySettings : Entity, IParsable
+    public class SensitivityPolicySettings : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The applicableTo property</summary>
-        public SensitivityLabelTarget? ApplicableTo { get; set; }
+        public ApiSdk.Models.SensitivityLabelTarget? ApplicableTo { get; set; }
         /// <summary>The downgradeSensitivityRequiresJustification property</summary>
         public bool? DowngradeSensitivityRequiresJustification { get; set; }
         /// <summary>The helpWebUrl property</summary>
@@ -27,12 +27,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SensitivityPolicySettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SensitivityPolicySettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SensitivityPolicySettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SensitivityPolicySettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SensitivityPolicySettings();
+            return new ApiSdk.Models.SensitivityPolicySettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -42,7 +42,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<SensitivityLabelTarget>(); } },
+                { "applicableTo", n => { ApplicableTo = n.GetEnumValue<ApiSdk.Models.SensitivityLabelTarget>(); } },
                 { "downgradeSensitivityRequiresJustification", n => { DowngradeSensitivityRequiresJustification = n.GetBoolValue(); } },
                 { "helpWebUrl", n => { HelpWebUrl = n.GetStringValue(); } },
                 { "isMandatory", n => { IsMandatory = n.GetBoolValue(); } },
@@ -56,7 +56,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<SensitivityLabelTarget>("applicableTo", ApplicableTo);
+            writer.WriteEnumValue<ApiSdk.Models.SensitivityLabelTarget>("applicableTo", ApplicableTo);
             writer.WriteBoolValue("downgradeSensitivityRequiresJustification", DowngradeSensitivityRequiresJustification);
             writer.WriteStringValue("helpWebUrl", HelpWebUrl);
             writer.WriteBoolValue("isMandatory", IsMandatory);

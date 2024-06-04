@@ -9,10 +9,10 @@ namespace ApiSdk.Models
     /// <summary>
     /// A class containing the properties used for device compliance policy PolicySetItem.
     /// </summary>
-    public class DeviceCompliancePolicyPolicySetItem : PolicySetItem, IParsable
+    public class DeviceCompliancePolicyPolicySetItem : ApiSdk.Models.PolicySetItem, IParsable
     {
         /// <summary>
-        /// Instantiates a new <see cref="DeviceCompliancePolicyPolicySetItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceCompliancePolicyPolicySetItem"/> and sets the default values.
         /// </summary>
         public DeviceCompliancePolicyPolicySetItem() : base()
         {
@@ -21,12 +21,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceCompliancePolicyPolicySetItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceCompliancePolicyPolicySetItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceCompliancePolicyPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceCompliancePolicyPolicySetItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceCompliancePolicyPolicySetItem();
+            return new ApiSdk.Models.DeviceCompliancePolicyPolicySetItem();
         }
         /// <summary>
         /// The deserialization information for the current model

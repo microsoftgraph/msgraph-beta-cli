@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DataCollectionInfo : Entity, IParsable
+    public class DataCollectionInfo : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The entitlements property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EntitlementsDataCollectionInfo? Entitlements { get; set; }
+        public ApiSdk.Models.EntitlementsDataCollectionInfo? Entitlements { get; set; }
 #nullable restore
 #else
-        public EntitlementsDataCollectionInfo Entitlements { get; set; }
+        public ApiSdk.Models.EntitlementsDataCollectionInfo Entitlements { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DataCollectionInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DataCollectionInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DataCollectionInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DataCollectionInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DataCollectionInfo();
+            return new ApiSdk.Models.DataCollectionInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "entitlements", n => { Entitlements = n.GetObjectValue<EntitlementsDataCollectionInfo>(EntitlementsDataCollectionInfo.CreateFromDiscriminatorValue); } },
+                { "entitlements", n => { Entitlements = n.GetObjectValue<ApiSdk.Models.EntitlementsDataCollectionInfo>(ApiSdk.Models.EntitlementsDataCollectionInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<EntitlementsDataCollectionInfo>("entitlements", Entitlements);
+            writer.WriteObjectValue<ApiSdk.Models.EntitlementsDataCollectionInfo>("entitlements", Entitlements);
         }
     }
 }

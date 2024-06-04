@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The localized display values shown to the requestor and approvers. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccessPackageLocalizedContent? DisplayValue { get; set; }
+        public ApiSdk.Models.AccessPackageLocalizedContent? DisplayValue { get; set; }
 #nullable restore
 #else
-        public AccessPackageLocalizedContent DisplayValue { get; set; }
+        public ApiSdk.Models.AccessPackageLocalizedContent DisplayValue { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AccessPackageAnswerChoice"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AccessPackageAnswerChoice"/> and sets the default values.
         /// </summary>
         public AccessPackageAnswerChoice()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageAnswerChoice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageAnswerChoice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AccessPackageAnswerChoice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AccessPackageAnswerChoice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageAnswerChoice();
+            return new ApiSdk.Models.AccessPackageAnswerChoice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "actualValue", n => { ActualValue = n.GetStringValue(); } },
-                { "displayValue", n => { DisplayValue = n.GetObjectValue<AccessPackageLocalizedContent>(AccessPackageLocalizedContent.CreateFromDiscriminatorValue); } },
+                { "displayValue", n => { DisplayValue = n.GetObjectValue<ApiSdk.Models.AccessPackageLocalizedContent>(ApiSdk.Models.AccessPackageLocalizedContent.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("actualValue", ActualValue);
-            writer.WriteObjectValue<AccessPackageLocalizedContent>("displayValue", DisplayValue);
+            writer.WriteObjectValue<ApiSdk.Models.AccessPackageLocalizedContent>("displayValue", DisplayValue);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

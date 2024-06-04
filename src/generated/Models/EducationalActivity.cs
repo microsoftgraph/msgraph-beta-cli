@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class EducationalActivity : ItemFacet, IParsable
+    public class EducationalActivity : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The month and year the user graduated or completed the activity.</summary>
@@ -18,23 +18,23 @@ namespace ApiSdk.Models
         /// <summary>The institution property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public InstitutionData? Institution { get; set; }
+        public ApiSdk.Models.InstitutionData? Institution { get; set; }
 #nullable restore
 #else
-        public InstitutionData Institution { get; set; }
+        public ApiSdk.Models.InstitutionData Institution { get; set; }
 #endif
         /// <summary>The program property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public EducationalActivityDetail? Program { get; set; }
+        public ApiSdk.Models.EducationalActivityDetail? Program { get; set; }
 #nullable restore
 #else
-        public EducationalActivityDetail Program { get; set; }
+        public ApiSdk.Models.EducationalActivityDetail Program { get; set; }
 #endif
         /// <summary>The month and year the user commenced the activity referenced.</summary>
         public Date? StartMonthYear { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EducationalActivity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationalActivity"/> and sets the default values.
         /// </summary>
         public EducationalActivity() : base()
         {
@@ -43,12 +43,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationalActivity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationalActivity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EducationalActivity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EducationalActivity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EducationalActivity();
+            return new ApiSdk.Models.EducationalActivity();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,8 +60,8 @@ namespace ApiSdk.Models
             {
                 { "completionMonthYear", n => { CompletionMonthYear = n.GetDateValue(); } },
                 { "endMonthYear", n => { EndMonthYear = n.GetDateValue(); } },
-                { "institution", n => { Institution = n.GetObjectValue<InstitutionData>(InstitutionData.CreateFromDiscriminatorValue); } },
-                { "program", n => { Program = n.GetObjectValue<EducationalActivityDetail>(EducationalActivityDetail.CreateFromDiscriminatorValue); } },
+                { "institution", n => { Institution = n.GetObjectValue<ApiSdk.Models.InstitutionData>(ApiSdk.Models.InstitutionData.CreateFromDiscriminatorValue); } },
+                { "program", n => { Program = n.GetObjectValue<ApiSdk.Models.EducationalActivityDetail>(ApiSdk.Models.EducationalActivityDetail.CreateFromDiscriminatorValue); } },
                 { "startMonthYear", n => { StartMonthYear = n.GetDateValue(); } },
             };
         }
@@ -75,8 +75,8 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateValue("completionMonthYear", CompletionMonthYear);
             writer.WriteDateValue("endMonthYear", EndMonthYear);
-            writer.WriteObjectValue<InstitutionData>("institution", Institution);
-            writer.WriteObjectValue<EducationalActivityDetail>("program", Program);
+            writer.WriteObjectValue<ApiSdk.Models.InstitutionData>("institution", Institution);
+            writer.WriteObjectValue<ApiSdk.Models.EducationalActivityDetail>("program", Program);
             writer.WriteDateValue("startMonthYear", StartMonthYear);
         }
     }

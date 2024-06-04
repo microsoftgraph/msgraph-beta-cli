@@ -39,13 +39,13 @@ namespace ApiSdk.Models.Security
         /// <summary>Actions taken on impacted assets as set in the custom detection rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ResponseAction>? ResponseActions { get; set; }
+        public List<ApiSdk.Models.Security.ResponseAction>? ResponseActions { get; set; }
 #nullable restore
 #else
-        public List<ResponseAction> ResponseActions { get; set; }
+        public List<ApiSdk.Models.Security.ResponseAction> ResponseActions { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DetectionAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Security.DetectionAction"/> and sets the default values.
         /// </summary>
         public DetectionAction()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DetectionAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Security.DetectionAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DetectionAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Security.DetectionAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DetectionAction();
+            return new ApiSdk.Models.Security.DetectionAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,7 +72,7 @@ namespace ApiSdk.Models.Security
                 { "alertTemplate", n => { AlertTemplate = n.GetObjectValue<ApiSdk.Models.Security.AlertTemplate>(ApiSdk.Models.Security.AlertTemplate.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "organizationalScope", n => { OrganizationalScope = n.GetObjectValue<ApiSdk.Models.Security.OrganizationalScope>(ApiSdk.Models.Security.OrganizationalScope.CreateFromDiscriminatorValue); } },
-                { "responseActions", n => { ResponseActions = n.GetCollectionOfObjectValues<ResponseAction>(ResponseAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "responseActions", n => { ResponseActions = n.GetCollectionOfObjectValues<ApiSdk.Models.Security.ResponseAction>(ApiSdk.Models.Security.ResponseAction.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -85,7 +85,7 @@ namespace ApiSdk.Models.Security
             writer.WriteObjectValue<ApiSdk.Models.Security.AlertTemplate>("alertTemplate", AlertTemplate);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ApiSdk.Models.Security.OrganizationalScope>("organizationalScope", OrganizationalScope);
-            writer.WriteCollectionOfObjectValues<ResponseAction>("responseActions", ResponseActions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Security.ResponseAction>("responseActions", ResponseActions);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

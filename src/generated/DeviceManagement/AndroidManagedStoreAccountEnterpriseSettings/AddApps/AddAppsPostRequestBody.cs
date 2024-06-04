@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.A
         public List<string> ProductIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AddAppsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps.AddAppsPostRequestBody"/> and sets the default values.
         /// </summary>
         public AddAppsPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.A
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AddAppsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps.AddAppsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AddAppsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps.AddAppsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AddAppsPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps.AddAppsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

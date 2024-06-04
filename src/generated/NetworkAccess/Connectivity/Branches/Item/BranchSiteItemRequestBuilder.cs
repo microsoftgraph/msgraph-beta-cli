@@ -32,7 +32,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
         {
             var command = new Command("connectivity-configuration");
             command.Description = "Provides operations to manage the connectivityConfiguration property of the microsoft.graph.networkaccess.branchSite entity.";
-            var builder = new ConnectivityConfigurationRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.Item.ConnectivityConfiguration.ConnectivityConfigurationRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
@@ -94,7 +94,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
         {
             var command = new Command("device-links");
             command.Description = "Provides operations to manage the deviceLinks property of the microsoft.graph.networkaccess.branchSite entity.";
-            var builder = new DeviceLinksRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.Item.DeviceLinks.DeviceLinksRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -121,7 +121,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
         {
             var command = new Command("forwarding-profiles");
             command.Description = "Provides operations to manage the forwardingProfiles property of the microsoft.graph.networkaccess.branchSite entity.";
-            var builder = new ForwardingProfilesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Connectivity.Branches.Item.ForwardingProfiles.ForwardingProfilesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -227,7 +227,7 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<BranchSite>(BranchSite.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Networkaccess.BranchSite>(ApiSdk.Models.Networkaccess.BranchSite.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -248,14 +248,14 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="BranchSiteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.BranchSiteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public BranchSiteItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="BranchSiteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Connectivity.Branches.Item.BranchSiteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public BranchSiteItemRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/connectivity/branches/{branchSite%2Did}{?%24expand,%24select}", rawUrl)
@@ -289,11 +289,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BranchSiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.BranchSiteItemRequestBuilder.BranchSiteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<BranchSiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Connectivity.Branches.Item.BranchSiteItemRequestBuilder.BranchSiteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -310,11 +310,11 @@ namespace ApiSdk.NetworkAccess.Connectivity.Branches.Item
         [Obsolete("The Branches API is deprecated and will stop returning data on March 20, 2024. Please use the new Remote Network API. as of 2022-06/PrivatePreview:NetworkAccess")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(BranchSite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.BranchSite body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(BranchSite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Networkaccess.BranchSite body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

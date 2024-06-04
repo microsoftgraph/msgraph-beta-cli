@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPcUserSetting : Entity, IParsable
+    public class CloudPcUserSetting : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the set of Microsoft 365 groups and security groups in Microsoft Entra ID that have cloudPCUserSetting assigned. Returned only on $expand. For an example, see Get cloudPcUserSettingample.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcUserSettingAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.CloudPcUserSettingAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<CloudPcUserSettingAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.CloudPcUserSettingAssignment> Assignments { get; set; }
 #endif
         /// <summary>The date and time the setting was created. The timestamp type represents the date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 looks like this: &apos;2014-01-01T00:00:00Z&apos;.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
         /// <summary>The crossRegionDisasterRecoverySetting property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcCrossRegionDisasterRecoverySetting? CrossRegionDisasterRecoverySetting { get; set; }
+        public ApiSdk.Models.CloudPcCrossRegionDisasterRecoverySetting? CrossRegionDisasterRecoverySetting { get; set; }
 #nullable restore
 #else
-        public CloudPcCrossRegionDisasterRecoverySetting CrossRegionDisasterRecoverySetting { get; set; }
+        public ApiSdk.Models.CloudPcCrossRegionDisasterRecoverySetting CrossRegionDisasterRecoverySetting { get; set; }
 #endif
         /// <summary>The setting name displayed in the user interface.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,22 +45,22 @@ namespace ApiSdk.Models
         /// <summary>Defines how frequently a restore point is created that is, a snapshot is taken) for users&apos; provisioned Cloud PCs (default is 12 hours), and whether the user is allowed to restore their own Cloud PCs to a backup made at a specific point in time.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcRestorePointSetting? RestorePointSetting { get; set; }
+        public ApiSdk.Models.CloudPcRestorePointSetting? RestorePointSetting { get; set; }
 #nullable restore
 #else
-        public CloudPcRestorePointSetting RestorePointSetting { get; set; }
+        public ApiSdk.Models.CloudPcRestorePointSetting RestorePointSetting { get; set; }
 #endif
         /// <summary>Indicates whether the self-service option is enabled. Default value is false. To enable the self-service option, change the setting to true. If the self-service option is enabled, the end user is allowed to perform some self-service operations, such as upgrading the Cloud PC through the end user portal. The selfServiceEnabled property is deprecated and will stop returning data on December 1, 2023.</summary>
         public bool? SelfServiceEnabled { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcUserSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcUserSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcUserSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPcUserSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcUserSetting();
+            return new ApiSdk.Models.CloudPcUserSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,14 +70,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<CloudPcUserSettingAssignment>(CloudPcUserSettingAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcUserSettingAssignment>(ApiSdk.Models.CloudPcUserSettingAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "crossRegionDisasterRecoverySetting", n => { CrossRegionDisasterRecoverySetting = n.GetObjectValue<CloudPcCrossRegionDisasterRecoverySetting>(CloudPcCrossRegionDisasterRecoverySetting.CreateFromDiscriminatorValue); } },
+                { "crossRegionDisasterRecoverySetting", n => { CrossRegionDisasterRecoverySetting = n.GetObjectValue<ApiSdk.Models.CloudPcCrossRegionDisasterRecoverySetting>(ApiSdk.Models.CloudPcCrossRegionDisasterRecoverySetting.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "localAdminEnabled", n => { LocalAdminEnabled = n.GetBoolValue(); } },
                 { "resetEnabled", n => { ResetEnabled = n.GetBoolValue(); } },
-                { "restorePointSetting", n => { RestorePointSetting = n.GetObjectValue<CloudPcRestorePointSetting>(CloudPcRestorePointSetting.CreateFromDiscriminatorValue); } },
+                { "restorePointSetting", n => { RestorePointSetting = n.GetObjectValue<ApiSdk.Models.CloudPcRestorePointSetting>(ApiSdk.Models.CloudPcRestorePointSetting.CreateFromDiscriminatorValue); } },
                 { "selfServiceEnabled", n => { SelfServiceEnabled = n.GetBoolValue(); } },
             };
         }
@@ -89,14 +89,14 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CloudPcUserSettingAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcUserSettingAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
-            writer.WriteObjectValue<CloudPcCrossRegionDisasterRecoverySetting>("crossRegionDisasterRecoverySetting", CrossRegionDisasterRecoverySetting);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcCrossRegionDisasterRecoverySetting>("crossRegionDisasterRecoverySetting", CrossRegionDisasterRecoverySetting);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteBoolValue("localAdminEnabled", LocalAdminEnabled);
             writer.WriteBoolValue("resetEnabled", ResetEnabled);
-            writer.WriteObjectValue<CloudPcRestorePointSetting>("restorePointSetting", RestorePointSetting);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcRestorePointSetting>("restorePointSetting", RestorePointSetting);
             writer.WriteBoolValue("selfServiceEnabled", SelfServiceEnabled);
         }
     }

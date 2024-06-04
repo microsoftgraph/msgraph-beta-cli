@@ -30,7 +30,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfiguration
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new UserConfigurationItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.Item.UserConfigurationItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildGetCommand());
             return new(executables, new(0));
         }
@@ -42,7 +42,7 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfiguration
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -153,14 +153,14 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfiguration
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserConfigurationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.UserConfigurationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public UserConfigurationsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/userConfigurations{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="UserConfigurationsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.UserConfigurationsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public UserConfigurationsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/mailFolders/{mailFolder%2Did}/childFolders/{mailFolder%2Did1}/userConfigurations{?%24count,%24filter,%24orderby,%24select,%24skip,%24top}", rawUrl)
@@ -173,11 +173,11 @@ namespace ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfiguration
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UserConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.UserConfigurationsRequestBuilder.UserConfigurationsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<UserConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.MailFolders.Item.ChildFolders.Item.UserConfigurations.UserConfigurationsRequestBuilder.UserConfigurationsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

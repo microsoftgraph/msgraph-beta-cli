@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OnPremisesAgentGroup : Entity, IParsable
+    public class OnPremisesAgentGroup : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OnPremisesAgent>? Agents { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgent>? Agents { get; set; }
 #nullable restore
 #else
-        public List<OnPremisesAgent> Agents { get; set; }
+        public List<ApiSdk.Models.OnPremisesAgent> Agents { get; set; }
 #endif
         /// <summary>Display name of the onPremisesAgentGroup.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,22 +31,22 @@ namespace ApiSdk.Models
         /// <summary>List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PublishedResource>? PublishedResources { get; set; }
+        public List<ApiSdk.Models.PublishedResource>? PublishedResources { get; set; }
 #nullable restore
 #else
-        public List<PublishedResource> PublishedResources { get; set; }
+        public List<ApiSdk.Models.PublishedResource> PublishedResources { get; set; }
 #endif
         /// <summary>The publishingType property</summary>
-        public OnPremisesPublishingType? PublishingType { get; set; }
+        public ApiSdk.Models.OnPremisesPublishingType? PublishingType { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OnPremisesAgentGroup"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OnPremisesAgentGroup"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OnPremisesAgentGroup CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OnPremisesAgentGroup CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OnPremisesAgentGroup();
+            return new ApiSdk.Models.OnPremisesAgentGroup();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -56,11 +56,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "agents", n => { Agents = n.GetCollectionOfObjectValues<OnPremisesAgent>(OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "agents", n => { Agents = n.GetCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgent>(ApiSdk.Models.OnPremisesAgent.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<PublishedResource>(PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "publishingType", n => { PublishingType = n.GetEnumValue<OnPremisesPublishingType>(); } },
+                { "publishedResources", n => { PublishedResources = n.GetCollectionOfObjectValues<ApiSdk.Models.PublishedResource>(ApiSdk.Models.PublishedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "publishingType", n => { PublishingType = n.GetEnumValue<ApiSdk.Models.OnPremisesPublishingType>(); } },
             };
         }
         /// <summary>
@@ -71,11 +71,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<OnPremisesAgent>("agents", Agents);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.OnPremisesAgent>("agents", Agents);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isDefault", IsDefault);
-            writer.WriteCollectionOfObjectValues<PublishedResource>("publishedResources", PublishedResources);
-            writer.WriteEnumValue<OnPremisesPublishingType>("publishingType", PublishingType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PublishedResource>("publishedResources", PublishedResources);
+            writer.WriteEnumValue<ApiSdk.Models.OnPremisesPublishingType>("publishingType", PublishingType);
         }
     }
 }

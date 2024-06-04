@@ -9,34 +9,34 @@ namespace ApiSdk.Models
     /// <summary>
     /// The security baseline template of the account
     /// </summary>
-    public class SecurityBaselineTemplate : DeviceManagementTemplate, IParsable
+    public class SecurityBaselineTemplate : ApiSdk.Models.DeviceManagementTemplate, IParsable
     {
         /// <summary>The security baseline per category device state summary</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SecurityBaselineCategoryStateSummary>? CategoryDeviceStateSummaries { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineCategoryStateSummary>? CategoryDeviceStateSummaries { get; set; }
 #nullable restore
 #else
-        public List<SecurityBaselineCategoryStateSummary> CategoryDeviceStateSummaries { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineCategoryStateSummary> CategoryDeviceStateSummaries { get; set; }
 #endif
         /// <summary>The security baseline device states</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SecurityBaselineDeviceState>? DeviceStates { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineDeviceState>? DeviceStates { get; set; }
 #nullable restore
 #else
-        public List<SecurityBaselineDeviceState> DeviceStates { get; set; }
+        public List<ApiSdk.Models.SecurityBaselineDeviceState> DeviceStates { get; set; }
 #endif
         /// <summary>The security baseline device state summary</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityBaselineStateSummary? DeviceStateSummary { get; set; }
+        public ApiSdk.Models.SecurityBaselineStateSummary? DeviceStateSummary { get; set; }
 #nullable restore
 #else
-        public SecurityBaselineStateSummary DeviceStateSummary { get; set; }
+        public ApiSdk.Models.SecurityBaselineStateSummary DeviceStateSummary { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="SecurityBaselineTemplate"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.SecurityBaselineTemplate"/> and sets the default values.
         /// </summary>
         public SecurityBaselineTemplate() : base()
         {
@@ -45,12 +45,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="SecurityBaselineTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.SecurityBaselineTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new SecurityBaselineTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.SecurityBaselineTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new SecurityBaselineTemplate();
+            return new ApiSdk.Models.SecurityBaselineTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,9 +60,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "categoryDeviceStateSummaries", n => { CategoryDeviceStateSummaries = n.GetCollectionOfObjectValues<SecurityBaselineCategoryStateSummary>(SecurityBaselineCategoryStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<SecurityBaselineStateSummary>(SecurityBaselineStateSummary.CreateFromDiscriminatorValue); } },
-                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<SecurityBaselineDeviceState>(SecurityBaselineDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "categoryDeviceStateSummaries", n => { CategoryDeviceStateSummaries = n.GetCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineCategoryStateSummary>(ApiSdk.Models.SecurityBaselineCategoryStateSummary.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deviceStateSummary", n => { DeviceStateSummary = n.GetObjectValue<ApiSdk.Models.SecurityBaselineStateSummary>(ApiSdk.Models.SecurityBaselineStateSummary.CreateFromDiscriminatorValue); } },
+                { "deviceStates", n => { DeviceStates = n.GetCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineDeviceState>(ApiSdk.Models.SecurityBaselineDeviceState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<SecurityBaselineCategoryStateSummary>("categoryDeviceStateSummaries", CategoryDeviceStateSummaries);
-            writer.WriteCollectionOfObjectValues<SecurityBaselineDeviceState>("deviceStates", DeviceStates);
-            writer.WriteObjectValue<SecurityBaselineStateSummary>("deviceStateSummary", DeviceStateSummary);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineCategoryStateSummary>("categoryDeviceStateSummaries", CategoryDeviceStateSummaries);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SecurityBaselineDeviceState>("deviceStates", DeviceStates);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityBaselineStateSummary>("deviceStateSummary", DeviceStateSummary);
         }
     }
 }

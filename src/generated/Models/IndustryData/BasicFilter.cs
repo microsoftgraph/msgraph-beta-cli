@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models.IndustryData
 {
     #pragma warning disable CS1591
-    public class BasicFilter : Filter, IParsable
+    public class BasicFilter : ApiSdk.Models.IndustryData.Filter, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The attribute property</summary>
-        public FilterOptions? Attribute { get; set; }
+        public ApiSdk.Models.IndustryData.FilterOptions? Attribute { get; set; }
         /// <summary>The condition to filter with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,7 +21,7 @@ namespace ApiSdk.Models.IndustryData
         public List<string> In { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BasicFilter"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.BasicFilter"/> and sets the default values.
         /// </summary>
         public BasicFilter() : base()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BasicFilter"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.BasicFilter"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new BasicFilter CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.BasicFilter CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BasicFilter();
+            return new ApiSdk.Models.IndustryData.BasicFilter();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -45,7 +45,7 @@ namespace ApiSdk.Models.IndustryData
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "attribute", n => { Attribute = n.GetEnumValue<FilterOptions>(); } },
+                { "attribute", n => { Attribute = n.GetEnumValue<ApiSdk.Models.IndustryData.FilterOptions>(); } },
                 { "in", n => { In = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace ApiSdk.Models.IndustryData
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<FilterOptions>("attribute", Attribute);
+            writer.WriteEnumValue<ApiSdk.Models.IndustryData.FilterOptions>("attribute", Attribute);
             writer.WriteCollectionOfPrimitiveValues<string>("in", In);
         }
     }

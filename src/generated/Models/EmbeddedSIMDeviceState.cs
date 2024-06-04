@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Describes the embedded SIM activation code deployment state in relation to a device.
     /// </summary>
-    public class EmbeddedSIMDeviceState : Entity, IParsable
+    public class EmbeddedSIMDeviceState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The time the embedded SIM device status was created. Generated service side.</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>The time the embedded SIM device status was last modified. Updated service side.</summary>
         public DateTimeOffset? ModifiedDateTime { get; set; }
         /// <summary>Describes the various states for an embedded SIM activation code.</summary>
-        public EmbeddedSIMDeviceStateValue? State { get; set; }
+        public ApiSdk.Models.EmbeddedSIMDeviceStateValue? State { get; set; }
         /// <summary>String description of the provisioning state.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EmbeddedSIMDeviceState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EmbeddedSIMDeviceState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new EmbeddedSIMDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.EmbeddedSIMDeviceState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EmbeddedSIMDeviceState();
+            return new ApiSdk.Models.EmbeddedSIMDeviceState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "lastSyncDateTime", n => { LastSyncDateTime = n.GetDateTimeOffsetValue(); } },
                 { "modifiedDateTime", n => { ModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "state", n => { State = n.GetEnumValue<EmbeddedSIMDeviceStateValue>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.EmbeddedSIMDeviceStateValue>(); } },
                 { "stateDetails", n => { StateDetails = n.GetStringValue(); } },
                 { "universalIntegratedCircuitCardIdentifier", n => { UniversalIntegratedCircuitCardIdentifier = n.GetStringValue(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteDateTimeOffsetValue("lastSyncDateTime", LastSyncDateTime);
             writer.WriteDateTimeOffsetValue("modifiedDateTime", ModifiedDateTime);
-            writer.WriteEnumValue<EmbeddedSIMDeviceStateValue>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.EmbeddedSIMDeviceStateValue>("state", State);
             writer.WriteStringValue("stateDetails", StateDetails);
             writer.WriteStringValue("universalIntegratedCircuitCardIdentifier", UniversalIntegratedCircuitCardIdentifier);
             writer.WriteStringValue("userName", UserName);

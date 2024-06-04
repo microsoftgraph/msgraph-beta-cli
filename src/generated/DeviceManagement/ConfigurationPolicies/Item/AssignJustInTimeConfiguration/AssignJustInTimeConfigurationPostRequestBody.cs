@@ -16,13 +16,13 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeCon
         /// <summary>The justInTimeAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeviceManagementConfigurationJustInTimeAssignmentPolicy? JustInTimeAssignments { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationJustInTimeAssignmentPolicy? JustInTimeAssignments { get; set; }
 #nullable restore
 #else
-        public DeviceManagementConfigurationJustInTimeAssignmentPolicy JustInTimeAssignments { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationJustInTimeAssignmentPolicy JustInTimeAssignments { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignJustInTimeConfigurationPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignJustInTimeConfigurationPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeCon
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignJustInTimeConfigurationPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignJustInTimeConfigurationPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignJustInTimeConfigurationPostRequestBody();
+            return new ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeConfiguration.AssignJustInTimeConfigurationPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeCon
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "justInTimeAssignments", n => { JustInTimeAssignments = n.GetObjectValue<DeviceManagementConfigurationJustInTimeAssignmentPolicy>(DeviceManagementConfigurationJustInTimeAssignmentPolicy.CreateFromDiscriminatorValue); } },
+                { "justInTimeAssignments", n => { JustInTimeAssignments = n.GetObjectValue<ApiSdk.Models.DeviceManagementConfigurationJustInTimeAssignmentPolicy>(ApiSdk.Models.DeviceManagementConfigurationJustInTimeAssignmentPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.DeviceManagement.ConfigurationPolicies.Item.AssignJustInTimeCon
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<DeviceManagementConfigurationJustInTimeAssignmentPolicy>("justInTimeAssignments", JustInTimeAssignments);
+            writer.WriteObjectValue<ApiSdk.Models.DeviceManagementConfigurationJustInTimeAssignmentPolicy>("justInTimeAssignments", JustInTimeAssignments);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

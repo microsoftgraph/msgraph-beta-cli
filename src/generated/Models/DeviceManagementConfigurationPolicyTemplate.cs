@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Management Configuration Policy Template
     /// </summary>
-    public class DeviceManagementConfigurationPolicyTemplate : Entity, IParsable
+    public class DeviceManagementConfigurationPolicyTemplate : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Allow unmanaged setting templates</summary>
         public bool? AllowUnmanagedSettings { get; set; }
@@ -46,34 +46,34 @@ namespace ApiSdk.Models
         public string DisplayVersion { get; set; }
 #endif
         /// <summary>Describes current lifecycle state of a template</summary>
-        public DeviceManagementTemplateLifecycleState? LifecycleState { get; set; }
+        public ApiSdk.Models.DeviceManagementTemplateLifecycleState? LifecycleState { get; set; }
         /// <summary>Supported platform types.</summary>
-        public DeviceManagementConfigurationPlatforms? Platforms { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPlatforms? Platforms { get; set; }
         /// <summary>Number of setting templates. Valid values 0 to 2147483647. This property is read-only.</summary>
         public int? SettingTemplateCount { get; private set; }
         /// <summary>Setting templates</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementConfigurationSettingTemplate>? SettingTemplates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingTemplate>? SettingTemplates { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementConfigurationSettingTemplate> SettingTemplates { get; set; }
+        public List<ApiSdk.Models.DeviceManagementConfigurationSettingTemplate> SettingTemplates { get; set; }
 #endif
         /// <summary>Describes which technology this setting can be deployed with</summary>
-        public DeviceManagementConfigurationTechnologies? Technologies { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTechnologies? Technologies { get; set; }
         /// <summary>Describes the TemplateFamily for the Template entity</summary>
-        public DeviceManagementConfigurationTemplateFamily? TemplateFamily { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTemplateFamily? TemplateFamily { get; set; }
         /// <summary>Template version. Valid values 1 to 2147483647. This property is read-only.</summary>
         public int? Version { get; private set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationPolicyTemplate"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationPolicyTemplate"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationPolicyTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationPolicyTemplate CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationPolicyTemplate();
+            return new ApiSdk.Models.DeviceManagementConfigurationPolicyTemplate();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -88,12 +88,12 @@ namespace ApiSdk.Models
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "displayVersion", n => { DisplayVersion = n.GetStringValue(); } },
-                { "lifecycleState", n => { LifecycleState = n.GetEnumValue<DeviceManagementTemplateLifecycleState>(); } },
-                { "platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
+                { "lifecycleState", n => { LifecycleState = n.GetEnumValue<ApiSdk.Models.DeviceManagementTemplateLifecycleState>(); } },
+                { "platforms", n => { Platforms = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>(); } },
                 { "settingTemplateCount", n => { SettingTemplateCount = n.GetIntValue(); } },
-                { "settingTemplates", n => { SettingTemplates = n.GetCollectionOfObjectValues<DeviceManagementConfigurationSettingTemplate>(DeviceManagementConfigurationSettingTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
-                { "templateFamily", n => { TemplateFamily = n.GetEnumValue<DeviceManagementConfigurationTemplateFamily>(); } },
+                { "settingTemplates", n => { SettingTemplates = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingTemplate>(ApiSdk.Models.DeviceManagementConfigurationSettingTemplate.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>(); } },
+                { "templateFamily", n => { TemplateFamily = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTemplateFamily>(); } },
                 { "version", n => { Version = n.GetIntValue(); } },
             };
         }
@@ -110,11 +110,11 @@ namespace ApiSdk.Models
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("displayVersion", DisplayVersion);
-            writer.WriteEnumValue<DeviceManagementTemplateLifecycleState>("lifecycleState", LifecycleState);
-            writer.WriteEnumValue<DeviceManagementConfigurationPlatforms>("platforms", Platforms);
-            writer.WriteCollectionOfObjectValues<DeviceManagementConfigurationSettingTemplate>("settingTemplates", SettingTemplates);
-            writer.WriteEnumValue<DeviceManagementConfigurationTechnologies>("technologies", Technologies);
-            writer.WriteEnumValue<DeviceManagementConfigurationTemplateFamily>("templateFamily", TemplateFamily);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementTemplateLifecycleState>("lifecycleState", LifecycleState);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>("platforms", Platforms);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementConfigurationSettingTemplate>("settingTemplates", SettingTemplates);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>("technologies", Technologies);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTemplateFamily>("templateFamily", TemplateFamily);
         }
     }
 }

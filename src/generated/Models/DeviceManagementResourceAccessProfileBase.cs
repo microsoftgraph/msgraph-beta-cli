@@ -9,15 +9,15 @@ namespace ApiSdk.Models
     /// <summary>
     /// Base Profile Type for Resource Access
     /// </summary>
-    public class DeviceManagementResourceAccessProfileBase : Entity, IParsable
+    public class DeviceManagementResourceAccessProfileBase : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The list of assignments for the device configuration profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceManagementResourceAccessProfileAssignment>? Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementResourceAccessProfileAssignment>? Assignments { get; set; }
 #nullable restore
 #else
-        public List<DeviceManagementResourceAccessProfileAssignment> Assignments { get; set; }
+        public List<ApiSdk.Models.DeviceManagementResourceAccessProfileAssignment> Assignments { get; set; }
 #endif
         /// <summary>DateTime profile was created</summary>
         public DateTimeOffset? CreationDateTime { get; set; }
@@ -52,20 +52,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementResourceAccessProfileBase"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementResourceAccessProfileBase"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementResourceAccessProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementResourceAccessProfileBase CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windows10XCertificateProfile" => new Windows10XCertificateProfile(),
-                "#microsoft.graph.windows10XSCEPCertificateProfile" => new Windows10XSCEPCertificateProfile(),
-                "#microsoft.graph.windows10XTrustedRootCertificate" => new Windows10XTrustedRootCertificate(),
-                "#microsoft.graph.windows10XVpnConfiguration" => new Windows10XVpnConfiguration(),
-                "#microsoft.graph.windows10XWifiConfiguration" => new Windows10XWifiConfiguration(),
-                _ => new DeviceManagementResourceAccessProfileBase(),
+                "#microsoft.graph.windows10XCertificateProfile" => new ApiSdk.Models.Windows10XCertificateProfile(),
+                "#microsoft.graph.windows10XSCEPCertificateProfile" => new ApiSdk.Models.Windows10XSCEPCertificateProfile(),
+                "#microsoft.graph.windows10XTrustedRootCertificate" => new ApiSdk.Models.Windows10XTrustedRootCertificate(),
+                "#microsoft.graph.windows10XVpnConfiguration" => new ApiSdk.Models.Windows10XVpnConfiguration(),
+                "#microsoft.graph.windows10XWifiConfiguration" => new ApiSdk.Models.Windows10XWifiConfiguration(),
+                _ => new ApiSdk.Models.DeviceManagementResourceAccessProfileBase(),
             };
         }
         /// <summary>
@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<DeviceManagementResourceAccessProfileAssignment>(DeviceManagementResourceAccessProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "assignments", n => { Assignments = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceManagementResourceAccessProfileAssignment>(ApiSdk.Models.DeviceManagementResourceAccessProfileAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "creationDateTime", n => { CreationDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
@@ -93,7 +93,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceManagementResourceAccessProfileAssignment>("assignments", Assignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceManagementResourceAccessProfileAssignment>("assignments", Assignments);
             writer.WriteDateTimeOffsetValue("creationDateTime", CreationDateTime);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);

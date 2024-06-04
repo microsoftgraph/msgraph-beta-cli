@@ -32,7 +32,7 @@ namespace ApiSdk.External
         {
             var command = new Command("authorization-systems");
             command.Description = "Provides operations to manage the authorizationSystems property of the microsoft.graph.externalConnectors.external entity.";
-            var builder = new AuthorizationSystemsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.AuthorizationSystems.AuthorizationSystemsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -59,7 +59,7 @@ namespace ApiSdk.External
         {
             var command = new Command("connections");
             command.Description = "Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.";
-            var builder = new ConnectionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.Connections.ConnectionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -132,7 +132,7 @@ namespace ApiSdk.External
         {
             var command = new Command("industry-data");
             command.Description = "Provides operations to manage the industryData property of the microsoft.graph.externalConnectors.external entity.";
-            var builder = new IndustryDataRequestBuilder(PathParameters);
+            var builder = new ApiSdk.External.IndustryData.IndustryDataRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildDataConnectorsNavCommand());
@@ -201,14 +201,14 @@ namespace ApiSdk.External
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExternalRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.ExternalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ExternalRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/external{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ExternalRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.External.ExternalRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ExternalRequestBuilder(string rawUrl) : base("{+baseurl}/external{?%24expand,%24select}", rawUrl)
@@ -221,11 +221,11 @@ namespace ApiSdk.External
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.ExternalRequestBuilder.ExternalRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ExternalRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.External.ExternalRequestBuilder.ExternalRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

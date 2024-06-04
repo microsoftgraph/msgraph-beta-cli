@@ -34,7 +34,7 @@ namespace ApiSdk.Security.TiIndicators
         public Tuple<List<Command>, List<Command>> BuildCommand()
         {
             var executables = new List<Command>();
-            var builder = new TiIndicatorItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.Item.TiIndicatorItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             executables.Add(builder.BuildPatchCommand());
@@ -48,7 +48,7 @@ namespace ApiSdk.Security.TiIndicators
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -85,7 +85,7 @@ namespace ApiSdk.Security.TiIndicators
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<TiIndicator>(TiIndicator.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.TiIndicator>(ApiSdk.Models.TiIndicator.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -112,7 +112,7 @@ namespace ApiSdk.Security.TiIndicators
         {
             var command = new Command("delete-ti-indicators-by-external-id");
             command.Description = "Provides operations to call the deleteTiIndicatorsByExternalId method.";
-            var builder = new DeleteTiIndicatorsByExternalIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.DeleteTiIndicatorsByExternalId.DeleteTiIndicatorsByExternalIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -129,7 +129,7 @@ namespace ApiSdk.Security.TiIndicators
         {
             var command = new Command("delete-ti-indicators");
             command.Description = "Provides operations to call the deleteTiIndicators method.";
-            var builder = new DeleteTiIndicatorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.DeleteTiIndicators.DeleteTiIndicatorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -244,7 +244,7 @@ namespace ApiSdk.Security.TiIndicators
         {
             var command = new Command("submit-ti-indicators");
             command.Description = "Provides operations to call the submitTiIndicators method.";
-            var builder = new SubmitTiIndicatorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.SubmitTiIndicators.SubmitTiIndicatorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -261,7 +261,7 @@ namespace ApiSdk.Security.TiIndicators
         {
             var command = new Command("update-ti-indicators");
             command.Description = "Provides operations to call the updateTiIndicators method.";
-            var builder = new UpdateTiIndicatorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Security.TiIndicators.UpdateTiIndicators.UpdateTiIndicatorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -271,14 +271,14 @@ namespace ApiSdk.Security.TiIndicators
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="TiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.TiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public TiIndicatorsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/security/tiIndicators{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="TiIndicatorsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.TiIndicators.TiIndicatorsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public TiIndicatorsRequestBuilder(string rawUrl) : base("{+baseurl}/security/tiIndicators{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -292,11 +292,11 @@ namespace ApiSdk.Security.TiIndicators
         [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TiIndicatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Security.TiIndicators.TiIndicatorsRequestBuilder.TiIndicatorsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<TiIndicatorsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Security.TiIndicators.TiIndicatorsRequestBuilder.TiIndicatorsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -313,11 +313,11 @@ namespace ApiSdk.Security.TiIndicators
         [Obsolete("The legacy Graph Security API is deprecated and will stop returning data on January 31, 2025. Please use the new Graph Security API. as of 2024-01/Deprecation")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(TiIndicator body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.TiIndicator body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(TiIndicator body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.TiIndicator body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

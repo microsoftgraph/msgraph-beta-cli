@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The approved location of the timeClock.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GeoCoordinates? ApprovedLocation { get; set; }
+        public ApiSdk.Models.GeoCoordinates? ApprovedLocation { get; set; }
 #nullable restore
 #else
-        public GeoCoordinates ApprovedLocation { get; set; }
+        public ApiSdk.Models.GeoCoordinates ApprovedLocation { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -29,7 +29,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TimeClockSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TimeClockSettings"/> and sets the default values.
         /// </summary>
         public TimeClockSettings()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TimeClockSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TimeClockSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TimeClockSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TimeClockSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TimeClockSettings();
+            return new ApiSdk.Models.TimeClockSettings();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -53,7 +53,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approvedLocation", n => { ApprovedLocation = n.GetObjectValue<GeoCoordinates>(GeoCoordinates.CreateFromDiscriminatorValue); } },
+                { "approvedLocation", n => { ApprovedLocation = n.GetObjectValue<ApiSdk.Models.GeoCoordinates>(ApiSdk.Models.GeoCoordinates.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<GeoCoordinates>("approvedLocation", ApprovedLocation);
+            writer.WriteObjectValue<ApiSdk.Models.GeoCoordinates>("approvedLocation", ApprovedLocation);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

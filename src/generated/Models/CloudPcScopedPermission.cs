@@ -37,7 +37,7 @@ namespace ApiSdk.Models
         public List<string> ScopeIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcScopedPermission"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcScopedPermission"/> and sets the default values.
         /// </summary>
         public CloudPcScopedPermission()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcScopedPermission"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcScopedPermission"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcScopedPermission CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcScopedPermission CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcScopedPermission();
+            return new ApiSdk.Models.CloudPcScopedPermission();
         }
         /// <summary>
         /// The deserialization information for the current model

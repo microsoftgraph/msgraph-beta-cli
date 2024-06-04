@@ -25,21 +25,21 @@ namespace ApiSdk.Models
         /// <summary>The identity of the user who started the comment thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IdentitySet? ParentAuthor { get; set; }
+        public ApiSdk.Models.IdentitySet? ParentAuthor { get; set; }
 #nullable restore
 #else
-        public IdentitySet ParentAuthor { get; set; }
+        public ApiSdk.Models.IdentitySet ParentAuthor { get; set; }
 #endif
         /// <summary>The identities of the users participating in this comment thread.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IdentitySet>? Participants { get; set; }
+        public List<ApiSdk.Models.IdentitySet>? Participants { get; set; }
 #nullable restore
 #else
-        public List<IdentitySet> Participants { get; set; }
+        public List<ApiSdk.Models.IdentitySet> Participants { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CommentAction"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CommentAction"/> and sets the default values.
         /// </summary>
         public CommentAction()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CommentAction"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CommentAction"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CommentAction CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CommentAction CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CommentAction();
+            return new ApiSdk.Models.CommentAction();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,8 +65,8 @@ namespace ApiSdk.Models
             {
                 { "isReply", n => { IsReply = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "parentAuthor", n => { ParentAuthor = n.GetObjectValue<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue); } },
-                { "participants", n => { Participants = n.GetCollectionOfObjectValues<IdentitySet>(IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "parentAuthor", n => { ParentAuthor = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
+                { "participants", n => { Participants = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -78,8 +78,8 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("isReply", IsReply);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<IdentitySet>("parentAuthor", ParentAuthor);
-            writer.WriteCollectionOfObjectValues<IdentitySet>("participants", Participants);
+            writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("parentAuthor", ParentAuthor);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentitySet>("participants", Participants);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

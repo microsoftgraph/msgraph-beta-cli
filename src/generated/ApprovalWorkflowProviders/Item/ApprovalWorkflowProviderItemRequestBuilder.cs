@@ -32,7 +32,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
         {
             var command = new Command("business-flows");
             command.Description = "Provides operations to manage the businessFlows property of the microsoft.graph.approvalWorkflowProvider entity.";
-            var builder = new BusinessFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlows.BusinessFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -59,7 +59,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
         {
             var command = new Command("business-flows-with-requests-awaiting-my-decision");
             command.Description = "Provides operations to manage the businessFlowsWithRequestsAwaitingMyDecision property of the microsoft.graph.approvalWorkflowProvider entity.";
-            var builder = new BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ApprovalWorkflowProviders.Item.BusinessFlowsWithRequestsAwaitingMyDecision.BusinessFlowsWithRequestsAwaitingMyDecisionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -196,7 +196,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<ApprovalWorkflowProvider>(ApprovalWorkflowProvider.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.ApprovalWorkflowProvider>(ApiSdk.Models.ApprovalWorkflowProvider.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -224,7 +224,7 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
         {
             var command = new Command("policy-templates");
             command.Description = "Provides operations to manage the policyTemplates property of the microsoft.graph.approvalWorkflowProvider entity.";
-            var builder = new PolicyTemplatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.ApprovalWorkflowProviders.Item.PolicyTemplates.PolicyTemplatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -244,14 +244,14 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApprovalWorkflowProviderItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.ApprovalWorkflowProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ApprovalWorkflowProviderItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApprovalWorkflowProviderItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ApprovalWorkflowProviders.Item.ApprovalWorkflowProviderItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ApprovalWorkflowProviderItemRequestBuilder(string rawUrl) : base("{+baseurl}/approvalWorkflowProviders/{approvalWorkflowProvider%2Did}{?%24expand,%24select}", rawUrl)
@@ -283,11 +283,11 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApprovalWorkflowProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ApprovalWorkflowProviders.Item.ApprovalWorkflowProviderItemRequestBuilder.ApprovalWorkflowProviderItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApprovalWorkflowProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.ApprovalWorkflowProviders.Item.ApprovalWorkflowProviderItemRequestBuilder.ApprovalWorkflowProviderItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -303,11 +303,11 @@ namespace ApiSdk.ApprovalWorkflowProviders.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(ApprovalWorkflowProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ApprovalWorkflowProvider body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(ApprovalWorkflowProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.ApprovalWorkflowProvider body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

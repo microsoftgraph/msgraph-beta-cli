@@ -22,9 +22,9 @@ namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus
         public string Note { get; set; }
 #endif
         /// <summary>Device app management task status.</summary>
-        public DeviceAppManagementTaskStatus? Status { get; set; }
+        public ApiSdk.Models.DeviceAppManagementTaskStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UpdateStatusPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus.UpdateStatusPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdateStatusPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdateStatusPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus.UpdateStatusPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdateStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus.UpdateStatusPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdateStatusPostRequestBody();
+            return new ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus.UpdateStatusPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +49,7 @@ namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "note", n => { Note = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<DeviceAppManagementTaskStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.DeviceAppManagementTaskStatus>(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceAppManagement.DeviceAppManagementTasks.Item.UpdateStatus
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("note", Note);
-            writer.WriteEnumValue<DeviceAppManagementTaskStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAppManagementTaskStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

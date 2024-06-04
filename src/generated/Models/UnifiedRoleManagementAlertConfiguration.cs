@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRoleManagementAlertConfiguration : Entity, IParsable
+    public class UnifiedRoleManagementAlertConfiguration : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The definition of the alert that contains its description, impact, and measures to mitigate or prevent it. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public UnifiedRoleManagementAlertDefinition? AlertDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertDefinition? AlertDefinition { get; set; }
 #nullable restore
 #else
-        public UnifiedRoleManagementAlertDefinition AlertDefinition { get; set; }
+        public ApiSdk.Models.UnifiedRoleManagementAlertDefinition AlertDefinition { get; set; }
 #endif
         /// <summary>The identifier of an alert definition. Supports $filter (eq, ne).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,22 +47,22 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRoleManagementAlertConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRoleManagementAlertConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRoleManagementAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRoleManagementAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.invalidLicenseAlertConfiguration" => new InvalidLicenseAlertConfiguration(),
-                "#microsoft.graph.noMfaOnRoleActivationAlertConfiguration" => new NoMfaOnRoleActivationAlertConfiguration(),
-                "#microsoft.graph.redundantAssignmentAlertConfiguration" => new RedundantAssignmentAlertConfiguration(),
-                "#microsoft.graph.rolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration" => new RolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration(),
-                "#microsoft.graph.sequentialActivationRenewalsAlertConfiguration" => new SequentialActivationRenewalsAlertConfiguration(),
-                "#microsoft.graph.staleSignInAlertConfiguration" => new StaleSignInAlertConfiguration(),
-                "#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration" => new TooManyGlobalAdminsAssignedToTenantAlertConfiguration(),
-                _ => new UnifiedRoleManagementAlertConfiguration(),
+                "#microsoft.graph.invalidLicenseAlertConfiguration" => new ApiSdk.Models.InvalidLicenseAlertConfiguration(),
+                "#microsoft.graph.noMfaOnRoleActivationAlertConfiguration" => new ApiSdk.Models.NoMfaOnRoleActivationAlertConfiguration(),
+                "#microsoft.graph.redundantAssignmentAlertConfiguration" => new ApiSdk.Models.RedundantAssignmentAlertConfiguration(),
+                "#microsoft.graph.rolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration" => new ApiSdk.Models.RolesAssignedOutsidePrivilegedIdentityManagementAlertConfiguration(),
+                "#microsoft.graph.sequentialActivationRenewalsAlertConfiguration" => new ApiSdk.Models.SequentialActivationRenewalsAlertConfiguration(),
+                "#microsoft.graph.staleSignInAlertConfiguration" => new ApiSdk.Models.StaleSignInAlertConfiguration(),
+                "#microsoft.graph.tooManyGlobalAdminsAssignedToTenantAlertConfiguration" => new ApiSdk.Models.TooManyGlobalAdminsAssignedToTenantAlertConfiguration(),
+                _ => new ApiSdk.Models.UnifiedRoleManagementAlertConfiguration(),
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "alertDefinition", n => { AlertDefinition = n.GetObjectValue<UnifiedRoleManagementAlertDefinition>(UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
+                { "alertDefinition", n => { AlertDefinition = n.GetObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertDefinition>(ApiSdk.Models.UnifiedRoleManagementAlertDefinition.CreateFromDiscriminatorValue); } },
                 { "alertDefinitionId", n => { AlertDefinitionId = n.GetStringValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "scopeId", n => { ScopeId = n.GetStringValue(); } },
@@ -88,7 +88,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<UnifiedRoleManagementAlertDefinition>("alertDefinition", AlertDefinition);
+            writer.WriteObjectValue<ApiSdk.Models.UnifiedRoleManagementAlertDefinition>("alertDefinition", AlertDefinition);
             writer.WriteStringValue("alertDefinitionId", AlertDefinitionId);
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteStringValue("scopeId", ScopeId);

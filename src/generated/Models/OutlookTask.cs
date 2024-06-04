@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class OutlookTask : OutlookItem, IParsable
+    public class OutlookTask : ApiSdk.Models.OutlookItem, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The name of the person who has been assigned the task in Outlook. Read-only.</summary>
@@ -21,34 +21,34 @@ namespace ApiSdk.Models
         /// <summary>The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the task.  Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Attachment>? Attachments { get; set; }
+        public List<ApiSdk.Models.Attachment>? Attachments { get; set; }
 #nullable restore
 #else
-        public List<Attachment> Attachments { get; set; }
+        public List<ApiSdk.Models.Attachment> Attachments { get; set; }
 #endif
         /// <summary>The task body that typically contains information about the task. Note that only HTML type is supported.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ItemBody? Body { get; set; }
+        public ApiSdk.Models.ItemBody? Body { get; set; }
 #nullable restore
 #else
-        public ItemBody Body { get; set; }
+        public ApiSdk.Models.ItemBody Body { get; set; }
 #endif
         /// <summary>The date in the specified time zone that the task was finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? CompletedDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? CompletedDateTime { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone CompletedDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone CompletedDateTime { get; set; }
 #endif
         /// <summary>The date in the specified time zone that the task is to be finished.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? DueDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? DueDateTime { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone DueDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone DueDateTime { get; set; }
 #endif
         /// <summary>Set to true if the task has attachments.</summary>
         public bool? HasAttachments { get; set; }
@@ -59,10 +59,10 @@ namespace ApiSdk.Models
         /// <summary>The collection of multi-value extended properties defined for the task. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.MultiValueLegacyExtendedProperty>? MultiValueExtendedProperties { get; set; }
 #nullable restore
 #else
-        public List<MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.MultiValueLegacyExtendedProperty> MultiValueExtendedProperties { get; set; }
 #endif
         /// <summary>The name of the person who created the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,39 +83,39 @@ namespace ApiSdk.Models
         /// <summary>The recurrence pattern for the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PatternedRecurrence? Recurrence { get; set; }
+        public ApiSdk.Models.PatternedRecurrence? Recurrence { get; set; }
 #nullable restore
 #else
-        public PatternedRecurrence Recurrence { get; set; }
+        public ApiSdk.Models.PatternedRecurrence Recurrence { get; set; }
 #endif
         /// <summary>The date and time for a reminder alert of the task to occur.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? ReminderDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? ReminderDateTime { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone ReminderDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone ReminderDateTime { get; set; }
 #endif
         /// <summary>Indicates the level of privacy for the task. Possible values are: normal, personal, private, confidential.</summary>
         public ApiSdk.Models.Sensitivity? Sensitivity { get; set; }
         /// <summary>The collection of single-value extended properties defined for the task. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.SingleValueLegacyExtendedProperty>? SingleValueExtendedProperties { get; set; }
 #nullable restore
 #else
-        public List<SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
+        public List<ApiSdk.Models.SingleValueLegacyExtendedProperty> SingleValueExtendedProperties { get; set; }
 #endif
         /// <summary>The date in the specified time zone when the task is to begin.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DateTimeTimeZone? StartDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone? StartDateTime { get; set; }
 #nullable restore
 #else
-        public DateTimeTimeZone StartDateTime { get; set; }
+        public ApiSdk.Models.DateTimeTimeZone StartDateTime { get; set; }
 #endif
         /// <summary>Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.</summary>
-        public TaskStatus? Status { get; set; }
+        public ApiSdk.Models.TaskStatus? Status { get; set; }
         /// <summary>A brief description or title of the task.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -125,7 +125,7 @@ namespace ApiSdk.Models
         public string Subject { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="OutlookTask"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OutlookTask"/> and sets the default values.
         /// </summary>
         public OutlookTask() : base()
         {
@@ -134,12 +134,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OutlookTask"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OutlookTask"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OutlookTask CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OutlookTask CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OutlookTask();
+            return new ApiSdk.Models.OutlookTask();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -150,22 +150,22 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignedTo", n => { AssignedTo = n.GetStringValue(); } },
-                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<Attachment>(Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "body", n => { Body = n.GetObjectValue<ItemBody>(ItemBody.CreateFromDiscriminatorValue); } },
-                { "completedDateTime", n => { CompletedDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                { "dueDateTime", n => { DueDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "attachments", n => { Attachments = n.GetCollectionOfObjectValues<ApiSdk.Models.Attachment>(ApiSdk.Models.Attachment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "body", n => { Body = n.GetObjectValue<ApiSdk.Models.ItemBody>(ApiSdk.Models.ItemBody.CreateFromDiscriminatorValue); } },
+                { "completedDateTime", n => { CompletedDateTime = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "dueDateTime", n => { DueDateTime = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
                 { "hasAttachments", n => { HasAttachments = n.GetBoolValue(); } },
-                { "importance", n => { Importance = n.GetEnumValue<Importance>(); } },
+                { "importance", n => { Importance = n.GetEnumValue<ApiSdk.Models.Importance>(); } },
                 { "isReminderOn", n => { IsReminderOn = n.GetBoolValue(); } },
-                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "multiValueExtendedProperties", n => { MultiValueExtendedProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.MultiValueLegacyExtendedProperty>(ApiSdk.Models.MultiValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "owner", n => { Owner = n.GetStringValue(); } },
                 { "parentFolderId", n => { ParentFolderId = n.GetStringValue(); } },
-                { "recurrence", n => { Recurrence = n.GetObjectValue<PatternedRecurrence>(PatternedRecurrence.CreateFromDiscriminatorValue); } },
-                { "reminderDateTime", n => { ReminderDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                { "sensitivity", n => { Sensitivity = n.GetEnumValue<Sensitivity>(); } },
-                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "startDateTime", n => { StartDateTime = n.GetObjectValue<DateTimeTimeZone>(DateTimeTimeZone.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<TaskStatus>(); } },
+                { "recurrence", n => { Recurrence = n.GetObjectValue<ApiSdk.Models.PatternedRecurrence>(ApiSdk.Models.PatternedRecurrence.CreateFromDiscriminatorValue); } },
+                { "reminderDateTime", n => { ReminderDateTime = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "sensitivity", n => { Sensitivity = n.GetEnumValue<ApiSdk.Models.Sensitivity>(); } },
+                { "singleValueExtendedProperties", n => { SingleValueExtendedProperties = n.GetCollectionOfObjectValues<ApiSdk.Models.SingleValueLegacyExtendedProperty>(ApiSdk.Models.SingleValueLegacyExtendedProperty.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "startDateTime", n => { StartDateTime = n.GetObjectValue<ApiSdk.Models.DateTimeTimeZone>(ApiSdk.Models.DateTimeTimeZone.CreateFromDiscriminatorValue); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.TaskStatus>(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
             };
         }
@@ -178,22 +178,22 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("assignedTo", AssignedTo);
-            writer.WriteCollectionOfObjectValues<Attachment>("attachments", Attachments);
-            writer.WriteObjectValue<ItemBody>("body", Body);
-            writer.WriteObjectValue<DateTimeTimeZone>("completedDateTime", CompletedDateTime);
-            writer.WriteObjectValue<DateTimeTimeZone>("dueDateTime", DueDateTime);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Attachment>("attachments", Attachments);
+            writer.WriteObjectValue<ApiSdk.Models.ItemBody>("body", Body);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("completedDateTime", CompletedDateTime);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("dueDateTime", DueDateTime);
             writer.WriteBoolValue("hasAttachments", HasAttachments);
-            writer.WriteEnumValue<Importance>("importance", Importance);
+            writer.WriteEnumValue<ApiSdk.Models.Importance>("importance", Importance);
             writer.WriteBoolValue("isReminderOn", IsReminderOn);
-            writer.WriteCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", MultiValueExtendedProperties);
             writer.WriteStringValue("owner", Owner);
             writer.WriteStringValue("parentFolderId", ParentFolderId);
-            writer.WriteObjectValue<PatternedRecurrence>("recurrence", Recurrence);
-            writer.WriteObjectValue<DateTimeTimeZone>("reminderDateTime", ReminderDateTime);
-            writer.WriteEnumValue<Sensitivity>("sensitivity", Sensitivity);
-            writer.WriteCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", SingleValueExtendedProperties);
-            writer.WriteObjectValue<DateTimeTimeZone>("startDateTime", StartDateTime);
-            writer.WriteEnumValue<TaskStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.PatternedRecurrence>("recurrence", Recurrence);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("reminderDateTime", ReminderDateTime);
+            writer.WriteEnumValue<ApiSdk.Models.Sensitivity>("sensitivity", Sensitivity);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", SingleValueExtendedProperties);
+            writer.WriteObjectValue<ApiSdk.Models.DateTimeTimeZone>("startDateTime", StartDateTime);
+            writer.WriteEnumValue<ApiSdk.Models.TaskStatus>("status", Status);
             writer.WriteStringValue("subject", Subject);
         }
     }

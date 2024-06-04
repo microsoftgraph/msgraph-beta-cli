@@ -13,20 +13,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateCollection>? Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>? Value { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateCollection> Value { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementTemplateCollectionCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementTemplateCollectionCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementTemplateCollectionCollectionResponse();
+            return new ApiSdk.Models.ManagedTenants.ManagementTemplateCollectionCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<ManagementTemplateCollection>(ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>(ApiSdk.Models.ManagedTenants.ManagementTemplateCollection.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateCollection>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateCollection>("value", Value);
         }
     }
 }

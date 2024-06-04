@@ -22,9 +22,9 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         public List<string> CloudPcIds { get; set; }
 #endif
         /// <summary>The policySettings property</summary>
-        public CloudPcPolicySettingType? PolicySettings { get; set; }
+        public ApiSdk.Models.CloudPcPolicySettingType? PolicySettings { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ApplyConfigPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig.ApplyConfigPostRequestBody"/> and sets the default values.
         /// </summary>
         public ApplyConfigPostRequestBody()
         {
@@ -33,12 +33,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApplyConfigPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig.ApplyConfigPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApplyConfigPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig.ApplyConfigPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApplyConfigPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConfig.ApplyConfigPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,7 +49,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "cloudPcIds", n => { CloudPcIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "policySettings", n => { PolicySettings = n.GetEnumValue<CloudPcPolicySettingType>(); } },
+                { "policySettings", n => { PolicySettings = n.GetEnumValue<ApiSdk.Models.CloudPcPolicySettingType>(); } },
             };
         }
         /// <summary>
@@ -60,7 +60,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.ProvisioningPolicies.ApplyConf
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("cloudPcIds", CloudPcIds);
-            writer.WriteEnumValue<CloudPcPolicySettingType>("policySettings", PolicySettings);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcPolicySettingType>("policySettings", PolicySettings);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

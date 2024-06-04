@@ -7,18 +7,18 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class MessageRecipient : Entity, IParsable
+    public class MessageRecipient : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The deliveryStatus property</summary>
-        public MessageStatus? DeliveryStatus { get; set; }
+        public ApiSdk.Models.MessageStatus? DeliveryStatus { get; set; }
         /// <summary>The events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MessageEvent>? Events { get; set; }
+        public List<ApiSdk.Models.MessageEvent>? Events { get; set; }
 #nullable restore
 #else
-        public List<MessageEvent> Events { get; set; }
+        public List<ApiSdk.Models.MessageEvent> Events { get; set; }
 #endif
         /// <summary>The recipientEmail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,12 +31,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MessageRecipient"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MessageRecipient"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MessageRecipient CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MessageRecipient CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MessageRecipient();
+            return new ApiSdk.Models.MessageRecipient();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,8 +46,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "deliveryStatus", n => { DeliveryStatus = n.GetEnumValue<MessageStatus>(); } },
-                { "events", n => { Events = n.GetCollectionOfObjectValues<MessageEvent>(MessageEvent.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "deliveryStatus", n => { DeliveryStatus = n.GetEnumValue<ApiSdk.Models.MessageStatus>(); } },
+                { "events", n => { Events = n.GetCollectionOfObjectValues<ApiSdk.Models.MessageEvent>(ApiSdk.Models.MessageEvent.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "recipientEmail", n => { RecipientEmail = n.GetStringValue(); } },
             };
         }
@@ -59,8 +59,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteEnumValue<MessageStatus>("deliveryStatus", DeliveryStatus);
-            writer.WriteCollectionOfObjectValues<MessageEvent>("events", Events);
+            writer.WriteEnumValue<ApiSdk.Models.MessageStatus>("deliveryStatus", DeliveryStatus);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MessageEvent>("events", Events);
             writer.WriteStringValue("recipientEmail", RecipientEmail);
         }
     }

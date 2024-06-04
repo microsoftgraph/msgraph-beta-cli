@@ -21,25 +21,25 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The sourceSystem property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SourceSystemDefinition? SourceSystem { get; set; }
+        public ApiSdk.Models.IndustryData.SourceSystemDefinition? SourceSystem { get; set; }
 #nullable restore
 #else
-        public SourceSystemDefinition SourceSystem { get; set; }
+        public ApiSdk.Models.IndustryData.SourceSystemDefinition SourceSystem { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IndustryDataConnector"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.IndustryDataConnector"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IndustryDataConnector CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IndustryData.IndustryDataConnector CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.azureDataLakeConnector" => new AzureDataLakeConnector(),
-                "#microsoft.graph.industryData.fileDataConnector" => new FileDataConnector(),
-                _ => new IndustryDataConnector(),
+                "#microsoft.graph.industryData.azureDataLakeConnector" => new ApiSdk.Models.IndustryData.AzureDataLakeConnector(),
+                "#microsoft.graph.industryData.fileDataConnector" => new ApiSdk.Models.IndustryData.FileDataConnector(),
+                _ => new ApiSdk.Models.IndustryData.IndustryDataConnector(),
             };
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace ApiSdk.Models.IndustryData
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "sourceSystem", n => { SourceSystem = n.GetObjectValue<SourceSystemDefinition>(SourceSystemDefinition.CreateFromDiscriminatorValue); } },
+                { "sourceSystem", n => { SourceSystem = n.GetObjectValue<ApiSdk.Models.IndustryData.SourceSystemDefinition>(ApiSdk.Models.IndustryData.SourceSystemDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -63,7 +63,7 @@ namespace ApiSdk.Models.IndustryData
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteObjectValue<SourceSystemDefinition>("sourceSystem", SourceSystem);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.SourceSystemDefinition>("sourceSystem", SourceSystem);
         }
     }
 }

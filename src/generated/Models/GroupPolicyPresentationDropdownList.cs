@@ -9,28 +9,28 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an ADMX dropdownList element and an ADMX enum element.
     /// </summary>
-    public class GroupPolicyPresentationDropdownList : GroupPolicyUploadedPresentation, IParsable
+    public class GroupPolicyPresentationDropdownList : ApiSdk.Models.GroupPolicyUploadedPresentation, IParsable
     {
         /// <summary>Localized string value identifying the default choice of the list of items.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GroupPolicyPresentationDropdownListItem? DefaultItem { get; set; }
+        public ApiSdk.Models.GroupPolicyPresentationDropdownListItem? DefaultItem { get; set; }
 #nullable restore
 #else
-        public GroupPolicyPresentationDropdownListItem DefaultItem { get; set; }
+        public ApiSdk.Models.GroupPolicyPresentationDropdownListItem DefaultItem { get; set; }
 #endif
         /// <summary>Represents a set of localized display names and their associated values.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GroupPolicyPresentationDropdownListItem>? Items { get; set; }
+        public List<ApiSdk.Models.GroupPolicyPresentationDropdownListItem>? Items { get; set; }
 #nullable restore
 #else
-        public List<GroupPolicyPresentationDropdownListItem> Items { get; set; }
+        public List<ApiSdk.Models.GroupPolicyPresentationDropdownListItem> Items { get; set; }
 #endif
         /// <summary>Requirement to enter a value in the parameter box. The default value is false.</summary>
         public bool? Required { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GroupPolicyPresentationDropdownList"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GroupPolicyPresentationDropdownList"/> and sets the default values.
         /// </summary>
         public GroupPolicyPresentationDropdownList() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationDropdownList"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationDropdownList"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationDropdownList CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationDropdownList CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationDropdownList();
+            return new ApiSdk.Models.GroupPolicyPresentationDropdownList();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,8 +54,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "defaultItem", n => { DefaultItem = n.GetObjectValue<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue); } },
-                { "items", n => { Items = n.GetCollectionOfObjectValues<GroupPolicyPresentationDropdownListItem>(GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "defaultItem", n => { DefaultItem = n.GetObjectValue<ApiSdk.Models.GroupPolicyPresentationDropdownListItem>(ApiSdk.Models.GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue); } },
+                { "items", n => { Items = n.GetCollectionOfObjectValues<ApiSdk.Models.GroupPolicyPresentationDropdownListItem>(ApiSdk.Models.GroupPolicyPresentationDropdownListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "required", n => { Required = n.GetBoolValue(); } },
             };
         }
@@ -67,8 +67,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<GroupPolicyPresentationDropdownListItem>("defaultItem", DefaultItem);
-            writer.WriteCollectionOfObjectValues<GroupPolicyPresentationDropdownListItem>("items", Items);
+            writer.WriteObjectValue<ApiSdk.Models.GroupPolicyPresentationDropdownListItem>("defaultItem", DefaultItem);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GroupPolicyPresentationDropdownListItem>("items", Items);
             writer.WriteBoolValue("required", Required);
         }
     }

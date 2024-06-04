@@ -117,14 +117,14 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveMyRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RetrieveMyRequestsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveMyRequests(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RetrieveMyRequestsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RetrieveMyRequestsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/operationApprovalRequests/retrieveMyRequests(){?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -137,11 +137,11 @@ namespace ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RetrieveMyRequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsRequestBuilder.RetrieveMyRequestsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RetrieveMyRequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.OperationApprovalRequests.RetrieveMyRequests.RetrieveMyRequestsRequestBuilder.RetrieveMyRequestsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

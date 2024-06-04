@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates the state of the supported action capability to perform a Cloud PC remote action. Possible values are: enabled, disabled. Default value is enabled.</summary>
         public ApiSdk.Models.ActionCapability? ActionCapability { get; set; }
         /// <summary>The name of the supported Cloud PC remote action. Possible values are: unknown, restart, rename, restore, resize, reprovision, troubleShoot, changeUserAccountType, placeUnderReview. Default value is unknown.</summary>
-        public CloudPcRemoteActionName? ActionName { get; set; }
+        public ApiSdk.Models.CloudPcRemoteActionName? ActionName { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The OdataType property</summary>
@@ -25,7 +25,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CloudPcRemoteActionCapability"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CloudPcRemoteActionCapability"/> and sets the default values.
         /// </summary>
         public CloudPcRemoteActionCapability()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcRemoteActionCapability"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPcRemoteActionCapability"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CloudPcRemoteActionCapability CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CloudPcRemoteActionCapability CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcRemoteActionCapability();
+            return new ApiSdk.Models.CloudPcRemoteActionCapability();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -49,8 +49,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actionCapability", n => { ActionCapability = n.GetEnumValue<ActionCapability>(); } },
-                { "actionName", n => { ActionName = n.GetEnumValue<CloudPcRemoteActionName>(); } },
+                { "actionCapability", n => { ActionCapability = n.GetEnumValue<ApiSdk.Models.ActionCapability>(); } },
+                { "actionName", n => { ActionName = n.GetEnumValue<ApiSdk.Models.CloudPcRemoteActionName>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -61,8 +61,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ActionCapability>("actionCapability", ActionCapability);
-            writer.WriteEnumValue<CloudPcRemoteActionName>("actionName", ActionName);
+            writer.WriteEnumValue<ApiSdk.Models.ActionCapability>("actionCapability", ActionCapability);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcRemoteActionName>("actionName", ActionName);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -9,12 +9,12 @@ namespace ApiSdk.Models
     /// <summary>
     /// Constraint the enforces a particular boolean value
     /// </summary>
-    public class DeviceManagementSettingBooleanConstraint : DeviceManagementConstraint, IParsable
+    public class DeviceManagementSettingBooleanConstraint : ApiSdk.Models.DeviceManagementConstraint, IParsable
     {
         /// <summary>The boolean value to compare against</summary>
         public bool? Value { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementSettingBooleanConstraint"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementSettingBooleanConstraint"/> and sets the default values.
         /// </summary>
         public DeviceManagementSettingBooleanConstraint() : base()
         {
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementSettingBooleanConstraint"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementSettingBooleanConstraint"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementSettingBooleanConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementSettingBooleanConstraint CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementSettingBooleanConstraint();
+            return new ApiSdk.Models.DeviceManagementSettingBooleanConstraint();
         }
         /// <summary>
         /// The deserialization information for the current model

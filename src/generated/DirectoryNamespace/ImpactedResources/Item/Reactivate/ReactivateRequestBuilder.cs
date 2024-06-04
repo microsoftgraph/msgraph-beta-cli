@@ -61,14 +61,14 @@ namespace ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReactivateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate.ReactivateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ReactivateRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directory/impactedResources/{impactedResource%2Did}/reactivate", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ReactivateRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.ImpactedResources.Item.Reactivate.ReactivateRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ReactivateRequestBuilder(string rawUrl) : base("{+baseurl}/directory/impactedResources/{impactedResource%2Did}/reactivate", rawUrl)

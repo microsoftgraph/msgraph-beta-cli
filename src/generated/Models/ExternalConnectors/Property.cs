@@ -33,10 +33,10 @@ namespace ApiSdk.Models.ExternalConnectors
         /// <summary>Specifies one or more well-known tags added against a property. Labels help Microsoft Search understand the semantics of the data in the connection. Adding appropriate labels would result in an enhanced search experience (for example, better relevance). Optional.The possible values are: title, url, createdBy, lastModifiedBy, authors, createdDateTime, lastModifiedDateTime, fileName, fileExtension, unknownFutureValue, containerName, containerUrl, iconUrl. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: containerName, containerUrl, iconUrl.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Label?>? Labels { get; set; }
+        public List<ApiSdk.Models.ExternalConnectors.Label?>? Labels { get; set; }
 #nullable restore
 #else
-        public List<Label?> Labels { get; set; }
+        public List<ApiSdk.Models.ExternalConnectors.Label?> Labels { get; set; }
 #endif
         /// <summary>The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, the property name may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, &apos;, &apos;, &lt;, &gt;, `, ^.  Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,9 +63,9 @@ namespace ApiSdk.Models.ExternalConnectors
         public ApiSdk.Models.ExternalConnectors.RankingHint RankingHint { get; set; }
 #endif
         /// <summary>The type property</summary>
-        public PropertyType? Type { get; set; }
+        public ApiSdk.Models.ExternalConnectors.PropertyType? Type { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Property"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ExternalConnectors.Property"/> and sets the default values.
         /// </summary>
         public Property()
         {
@@ -74,12 +74,12 @@ namespace ApiSdk.Models.ExternalConnectors
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Property"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ExternalConnectors.Property"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Property CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ExternalConnectors.Property CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Property();
+            return new ApiSdk.Models.ExternalConnectors.Property();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,11 +95,11 @@ namespace ApiSdk.Models.ExternalConnectors
                 { "isRefinable", n => { IsRefinable = n.GetBoolValue(); } },
                 { "isRetrievable", n => { IsRetrievable = n.GetBoolValue(); } },
                 { "isSearchable", n => { IsSearchable = n.GetBoolValue(); } },
-                { "labels", n => { Labels = n.GetCollectionOfEnumValues<Label>()?.ToList(); } },
+                { "labels", n => { Labels = n.GetCollectionOfEnumValues<ApiSdk.Models.ExternalConnectors.Label>()?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "rankingHint", n => { RankingHint = n.GetObjectValue<ApiSdk.Models.ExternalConnectors.RankingHint>(ApiSdk.Models.ExternalConnectors.RankingHint.CreateFromDiscriminatorValue); } },
-                { "type", n => { Type = n.GetEnumValue<PropertyType>(); } },
+                { "type", n => { Type = n.GetEnumValue<ApiSdk.Models.ExternalConnectors.PropertyType>(); } },
             };
         }
         /// <summary>
@@ -115,11 +115,11 @@ namespace ApiSdk.Models.ExternalConnectors
             writer.WriteBoolValue("isRefinable", IsRefinable);
             writer.WriteBoolValue("isRetrievable", IsRetrievable);
             writer.WriteBoolValue("isSearchable", IsSearchable);
-            writer.WriteCollectionOfEnumValues<Label>("labels", Labels);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.ExternalConnectors.Label>("labels", Labels);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteObjectValue<ApiSdk.Models.ExternalConnectors.RankingHint>("rankingHint", RankingHint);
-            writer.WriteEnumValue<PropertyType>("type", Type);
+            writer.WriteEnumValue<ApiSdk.Models.ExternalConnectors.PropertyType>("type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

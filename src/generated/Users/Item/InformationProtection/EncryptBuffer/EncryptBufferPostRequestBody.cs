@@ -23,7 +23,7 @@ namespace ApiSdk.Users.Item.InformationProtection.EncryptBuffer
         /// <summary>The labelId property</summary>
         public Guid? LabelId { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EncryptBufferPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.InformationProtection.EncryptBuffer.EncryptBufferPostRequestBody"/> and sets the default values.
         /// </summary>
         public EncryptBufferPostRequestBody()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.Users.Item.InformationProtection.EncryptBuffer
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EncryptBufferPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.InformationProtection.EncryptBuffer.EncryptBufferPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EncryptBufferPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.InformationProtection.EncryptBuffer.EncryptBufferPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EncryptBufferPostRequestBody();
+            return new ApiSdk.Users.Item.InformationProtection.EncryptBuffer.EncryptBufferPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

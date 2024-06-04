@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The attribute property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CustomClaimAttributeBase? Attribute { get; set; }
+        public ApiSdk.Models.CustomClaimAttributeBase? Attribute { get; set; }
 #nullable restore
 #else
-        public CustomClaimAttributeBase Attribute { get; set; }
+        public ApiSdk.Models.CustomClaimAttributeBase Attribute { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,7 +31,7 @@ namespace ApiSdk.Models
         /// <summary>This flag is only relevant in the case where the attribute is multivalued. By default, transformations are only applied to the first element in a multi-valued claim, however setting this flag to true ensures the transformation is applied to all values, resulting in a multivalued output.</summary>
         public bool? TreatAsMultiValue { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="TransformationAttribute"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TransformationAttribute"/> and sets the default values.
         /// </summary>
         public TransformationAttribute()
         {
@@ -40,12 +40,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TransformationAttribute"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TransformationAttribute"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TransformationAttribute CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TransformationAttribute CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TransformationAttribute();
+            return new ApiSdk.Models.TransformationAttribute();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attribute", n => { Attribute = n.GetObjectValue<CustomClaimAttributeBase>(CustomClaimAttributeBase.CreateFromDiscriminatorValue); } },
+                { "attribute", n => { Attribute = n.GetObjectValue<ApiSdk.Models.CustomClaimAttributeBase>(ApiSdk.Models.CustomClaimAttributeBase.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "treatAsMultiValue", n => { TreatAsMultiValue = n.GetBoolValue(); } },
             };
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<CustomClaimAttributeBase>("attribute", Attribute);
+            writer.WriteObjectValue<ApiSdk.Models.CustomClaimAttributeBase>("attribute", Attribute);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteBoolValue("treatAsMultiValue", TreatAsMultiValue);
             writer.WriteAdditionalData(AdditionalData);

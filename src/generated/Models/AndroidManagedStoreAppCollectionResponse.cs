@@ -7,26 +7,26 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AndroidManagedStoreAppCollectionResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class AndroidManagedStoreAppCollectionResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidManagedStoreApp>? Value { get; set; }
+        public List<ApiSdk.Models.AndroidManagedStoreApp>? Value { get; set; }
 #nullable restore
 #else
-        public List<AndroidManagedStoreApp> Value { get; set; }
+        public List<ApiSdk.Models.AndroidManagedStoreApp> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreAppCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreAppCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedStoreAppCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedStoreAppCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedStoreAppCollectionResponse();
+            return new ApiSdk.Models.AndroidManagedStoreAppCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<AndroidManagedStoreApp>(AndroidManagedStoreApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidManagedStoreApp>(ApiSdk.Models.AndroidManagedStoreApp.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AndroidManagedStoreApp>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidManagedStoreApp>("value", Value);
         }
     }
 }

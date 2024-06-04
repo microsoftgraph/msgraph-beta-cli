@@ -118,7 +118,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection
         {
             var command = new Command("label-policy-settings");
             command.Description = "Provides operations to manage the labelPolicySettings property of the microsoft.graph.security.informationProtection entity.";
-            var builder = new LabelPolicySettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Security.InformationProtection.LabelPolicySettings.LabelPolicySettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -188,7 +188,7 @@ namespace ApiSdk.Users.Item.Security.InformationProtection
         {
             var command = new Command("sensitivity-labels");
             command.Description = "Provides operations to manage the sensitivityLabels property of the microsoft.graph.security.informationProtection entity.";
-            var builder = new SensitivityLabelsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Security.InformationProtection.SensitivityLabels.SensitivityLabelsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -212,14 +212,14 @@ namespace ApiSdk.Users.Item.Security.InformationProtection
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="InformationProtectionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Security.InformationProtection.InformationProtectionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public InformationProtectionRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/security/informationProtection{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="InformationProtectionRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Security.InformationProtection.InformationProtectionRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public InformationProtectionRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/security/informationProtection{?%24expand,%24select}", rawUrl)
@@ -251,11 +251,11 @@ namespace ApiSdk.Users.Item.Security.InformationProtection
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InformationProtectionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Security.InformationProtection.InformationProtectionRequestBuilder.InformationProtectionRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<InformationProtectionRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Security.InformationProtection.InformationProtectionRequestBuilder.InformationProtectionRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

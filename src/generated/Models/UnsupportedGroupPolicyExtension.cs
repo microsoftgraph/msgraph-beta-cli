@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Unsupported Group Policy Extension.
     /// </summary>
-    public class UnsupportedGroupPolicyExtension : Entity, IParsable
+    public class UnsupportedGroupPolicyExtension : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>ExtensionType of the unsupported extension.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -36,16 +36,16 @@ namespace ApiSdk.Models
         public string NodeName { get; set; }
 #endif
         /// <summary>Scope of the group policy setting.</summary>
-        public GroupPolicySettingScope? SettingScope { get; set; }
+        public ApiSdk.Models.GroupPolicySettingScope? SettingScope { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnsupportedGroupPolicyExtension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnsupportedGroupPolicyExtension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnsupportedGroupPolicyExtension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnsupportedGroupPolicyExtension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnsupportedGroupPolicyExtension();
+            return new ApiSdk.Models.UnsupportedGroupPolicyExtension();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -58,7 +58,7 @@ namespace ApiSdk.Models
                 { "extensionType", n => { ExtensionType = n.GetStringValue(); } },
                 { "namespaceUrl", n => { NamespaceUrl = n.GetStringValue(); } },
                 { "nodeName", n => { NodeName = n.GetStringValue(); } },
-                { "settingScope", n => { SettingScope = n.GetEnumValue<GroupPolicySettingScope>(); } },
+                { "settingScope", n => { SettingScope = n.GetEnumValue<ApiSdk.Models.GroupPolicySettingScope>(); } },
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("extensionType", ExtensionType);
             writer.WriteStringValue("namespaceUrl", NamespaceUrl);
             writer.WriteStringValue("nodeName", NodeName);
-            writer.WriteEnumValue<GroupPolicySettingScope>("settingScope", SettingScope);
+            writer.WriteEnumValue<ApiSdk.Models.GroupPolicySettingScope>("settingScope", SettingScope);
         }
     }
 }

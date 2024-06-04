@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessPackageResource : Entity, IParsable
+    public class AccessPackageResource : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Contains the environment information for the resource. This environment can be set using either the @odata.bind annotation or the environment&apos;s originId. Supports $expand.</summary>
@@ -21,18 +21,18 @@ namespace ApiSdk.Models
         /// <summary>Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceRole>? AccessPackageResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRole>? AccessPackageResourceRoles { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceRole> AccessPackageResourceRoles { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceRole> AccessPackageResourceRoles { get; set; }
 #endif
         /// <summary>Read-only. Nullable. Supports $expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceScope>? AccessPackageResourceScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceScope>? AccessPackageResourceScopes { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceScope> AccessPackageResourceScopes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceScope> AccessPackageResourceScopes { get; set; }
 #endif
         /// <summary>The name of the user or application that first added this resource. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -47,10 +47,10 @@ namespace ApiSdk.Models
         /// <summary>Contains information about the attributes to be collected from the requestor and sent to the resource application.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessPackageResourceAttribute>? Attributes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceAttribute>? Attributes { get; set; }
 #nullable restore
 #else
-        public List<AccessPackageResourceAttribute> Attributes { get; set; }
+        public List<ApiSdk.Models.AccessPackageResourceAttribute> Attributes { get; set; }
 #endif
         /// <summary>A description for the resource.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -105,12 +105,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessPackageResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessPackageResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessPackageResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessPackageResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessPackageResource();
+            return new ApiSdk.Models.AccessPackageResource();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -121,11 +121,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "accessPackageResourceEnvironment", n => { AccessPackageResourceEnvironment = n.GetObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>(ApiSdk.Models.AccessPackageResourceEnvironment.CreateFromDiscriminatorValue); } },
-                { "accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<AccessPackageResourceRole>(AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<AccessPackageResourceScope>(AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceRoles", n => { AccessPackageResourceRoles = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRole>(ApiSdk.Models.AccessPackageResourceRole.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "accessPackageResourceScopes", n => { AccessPackageResourceScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceScope>(ApiSdk.Models.AccessPackageResourceScope.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "addedBy", n => { AddedBy = n.GetStringValue(); } },
                 { "addedOn", n => { AddedOn = n.GetDateTimeOffsetValue(); } },
-                { "attributes", n => { Attributes = n.GetCollectionOfObjectValues<AccessPackageResourceAttribute>(AccessPackageResourceAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "attributes", n => { Attributes = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceAttribute>(ApiSdk.Models.AccessPackageResourceAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "isPendingOnboarding", n => { IsPendingOnboarding = n.GetBoolValue(); } },
@@ -144,11 +144,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteObjectValue<ApiSdk.Models.AccessPackageResourceEnvironment>("accessPackageResourceEnvironment", AccessPackageResourceEnvironment);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceRole>("accessPackageResourceRoles", AccessPackageResourceRoles);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceScope>("accessPackageResourceScopes", AccessPackageResourceScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceRole>("accessPackageResourceRoles", AccessPackageResourceRoles);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceScope>("accessPackageResourceScopes", AccessPackageResourceScopes);
             writer.WriteStringValue("addedBy", AddedBy);
             writer.WriteDateTimeOffsetValue("addedOn", AddedOn);
-            writer.WriteCollectionOfObjectValues<AccessPackageResourceAttribute>("attributes", Attributes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessPackageResourceAttribute>("attributes", Attributes);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteBoolValue("isPendingOnboarding", IsPendingOnboarding);

@@ -77,7 +77,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("email-methods");
             command.Description = "Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.";
-            var builder = new EmailMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.EmailMethods.EmailMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -104,7 +104,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("fido2-methods");
             command.Description = "Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.";
-            var builder = new Fido2MethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.Fido2Methods.Fido2MethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -182,7 +182,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("methods");
             command.Description = "Provides operations to manage the methods property of the microsoft.graph.authentication entity.";
-            var builder = new MethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.Methods.MethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -209,7 +209,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("microsoft-authenticator-methods");
             command.Description = "Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.";
-            var builder = new MicrosoftAuthenticatorMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.MicrosoftAuthenticatorMethods.MicrosoftAuthenticatorMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -235,7 +235,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("operations");
             command.Description = "Provides operations to manage the operations property of the microsoft.graph.authentication entity.";
-            var builder = new OperationsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.Operations.OperationsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -262,7 +262,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("passwordless-microsoft-authenticator-methods");
             command.Description = "Provides operations to manage the passwordlessMicrosoftAuthenticatorMethods property of the microsoft.graph.authentication entity.";
-            var builder = new PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.PasswordlessMicrosoftAuthenticatorMethods.PasswordlessMicrosoftAuthenticatorMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -288,7 +288,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("password-methods");
             command.Description = "Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.";
-            var builder = new PasswordMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.PasswordMethods.PasswordMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -366,7 +366,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("phone-methods");
             command.Description = "Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.";
-            var builder = new PhoneMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.PhoneMethods.PhoneMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -393,7 +393,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("platform-credential-methods");
             command.Description = "Provides operations to manage the platformCredentialMethods property of the microsoft.graph.authentication entity.";
-            var builder = new PlatformCredentialMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.PlatformCredentialMethods.PlatformCredentialMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -419,7 +419,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("sign-in-preferences");
             command.Description = "The signInPreferences property";
-            var builder = new SignInPreferencesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.SignInPreferences.SignInPreferencesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             execCommands.Add(builder.BuildPatchCommand());
@@ -437,7 +437,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("software-oath-methods");
             command.Description = "Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.";
-            var builder = new SoftwareOathMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.SoftwareOathMethods.SoftwareOathMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -463,7 +463,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("temporary-access-pass-methods");
             command.Description = "Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.";
-            var builder = new TemporaryAccessPassMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.TemporaryAccessPassMethods.TemporaryAccessPassMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -490,7 +490,7 @@ namespace ApiSdk.Users.Item.Authentication
         {
             var command = new Command("windows-hello-for-business-methods");
             command.Description = "Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.";
-            var builder = new WindowsHelloForBusinessMethodsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.Authentication.WindowsHelloForBusinessMethods.WindowsHelloForBusinessMethodsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -509,14 +509,14 @@ namespace ApiSdk.Users.Item.Authentication
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Authentication.AuthenticationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AuthenticationRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/authentication{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AuthenticationRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.Authentication.AuthenticationRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AuthenticationRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/authentication{?%24expand,%24select}", rawUrl)
@@ -548,11 +548,11 @@ namespace ApiSdk.Users.Item.Authentication
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Authentication.AuthenticationRequestBuilder.AuthenticationRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AuthenticationRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.Authentication.AuthenticationRequestBuilder.AuthenticationRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

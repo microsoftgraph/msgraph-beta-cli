@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomerVoiceSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomerVoiceSettings"/> and sets the default values.
         /// </summary>
         public CustomerVoiceSettings()
         {
@@ -36,12 +36,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomerVoiceSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomerVoiceSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomerVoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomerVoiceSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomerVoiceSettings();
+            return new ApiSdk.Models.CustomerVoiceSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

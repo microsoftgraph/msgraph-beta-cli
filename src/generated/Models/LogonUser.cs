@@ -27,7 +27,7 @@ namespace ApiSdk.Models
         public string AccountName { get; set; }
 #endif
         /// <summary>User Account type, per Windows definition. Possible values are: unknown, standard, power, administrator.</summary>
-        public UserAccountSecurityType? AccountType { get; set; }
+        public ApiSdk.Models.UserAccountSecurityType? AccountType { get; set; }
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>DateTime at which the earliest logon by this user account occurred (provider-determined period). The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
@@ -45,10 +45,10 @@ namespace ApiSdk.Models
         /// <summary>Collection of the logon types observed for the logged on user from when first to last seen. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<LogonType?>? LogonTypes { get; set; }
+        public List<ApiSdk.Models.LogonType?>? LogonTypes { get; set; }
 #nullable restore
 #else
-        public List<LogonType?> LogonTypes { get; set; }
+        public List<ApiSdk.Models.LogonType?> LogonTypes { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -59,7 +59,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="LogonUser"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.LogonUser"/> and sets the default values.
         /// </summary>
         public LogonUser()
         {
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LogonUser"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.LogonUser"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static LogonUser CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.LogonUser CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LogonUser();
+            return new ApiSdk.Models.LogonUser();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -85,11 +85,11 @@ namespace ApiSdk.Models
             {
                 { "accountDomain", n => { AccountDomain = n.GetStringValue(); } },
                 { "accountName", n => { AccountName = n.GetStringValue(); } },
-                { "accountType", n => { AccountType = n.GetEnumValue<UserAccountSecurityType>(); } },
+                { "accountType", n => { AccountType = n.GetEnumValue<ApiSdk.Models.UserAccountSecurityType>(); } },
                 { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
                 { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
                 { "logonId", n => { LogonId = n.GetStringValue(); } },
-                { "logonTypes", n => { LogonTypes = n.GetCollectionOfEnumValues<LogonType>()?.ToList(); } },
+                { "logonTypes", n => { LogonTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.LogonType>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -102,11 +102,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("accountDomain", AccountDomain);
             writer.WriteStringValue("accountName", AccountName);
-            writer.WriteEnumValue<UserAccountSecurityType>("accountType", AccountType);
+            writer.WriteEnumValue<ApiSdk.Models.UserAccountSecurityType>("accountType", AccountType);
             writer.WriteDateTimeOffsetValue("firstSeenDateTime", FirstSeenDateTime);
             writer.WriteDateTimeOffsetValue("lastSeenDateTime", LastSeenDateTime);
             writer.WriteStringValue("logonId", LogonId);
-            writer.WriteCollectionOfEnumValues<LogonType>("logonTypes", LogonTypes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.LogonType>("logonTypes", LogonTypes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

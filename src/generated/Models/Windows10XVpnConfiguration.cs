@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows X VPN configuration profile
     /// </summary>
-    public class Windows10XVpnConfiguration : DeviceManagementResourceAccessProfileBase, IParsable
+    public class Windows10XVpnConfiguration : ApiSdk.Models.DeviceManagementResourceAccessProfileBase, IParsable
     {
         /// <summary>ID to the Authentication Certificate</summary>
         public Guid? AuthenticationCertificateId { get; set; }
@@ -30,7 +30,7 @@ namespace ApiSdk.Models
         public string CustomXmlFileName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Windows10XVpnConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows10XVpnConfiguration"/> and sets the default values.
         /// </summary>
         public Windows10XVpnConfiguration() : base()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows10XVpnConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows10XVpnConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows10XVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows10XVpnConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows10XVpnConfiguration();
+            return new ApiSdk.Models.Windows10XVpnConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

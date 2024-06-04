@@ -9,23 +9,23 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for the installation status for a user. This will be deprecated starting May, 2023 (Intune Release 2305).
     /// </summary>
-    public class UserAppInstallStatus : Entity, IParsable
+    public class UserAppInstallStatus : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The navigation link to the mobile app.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public MobileApp? App { get; set; }
+        public ApiSdk.Models.MobileApp? App { get; set; }
 #nullable restore
 #else
-        public MobileApp App { get; set; }
+        public ApiSdk.Models.MobileApp App { get; set; }
 #endif
         /// <summary>The install state of the app on devices.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileAppInstallStatus>? DeviceStatuses { get; set; }
+        public List<ApiSdk.Models.MobileAppInstallStatus>? DeviceStatuses { get; set; }
 #nullable restore
 #else
-        public List<MobileAppInstallStatus> DeviceStatuses { get; set; }
+        public List<ApiSdk.Models.MobileAppInstallStatus> DeviceStatuses { get; set; }
 #endif
         /// <summary>Failed Device Count.</summary>
         public int? FailedDeviceCount { get; set; }
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserAppInstallStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserAppInstallStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserAppInstallStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserAppInstallStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserAppInstallStatus();
+            return new ApiSdk.Models.UserAppInstallStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -67,8 +67,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "app", n => { App = n.GetObjectValue<MobileApp>(MobileApp.CreateFromDiscriminatorValue); } },
-                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<MobileAppInstallStatus>(MobileAppInstallStatus.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "app", n => { App = n.GetObjectValue<ApiSdk.Models.MobileApp>(ApiSdk.Models.MobileApp.CreateFromDiscriminatorValue); } },
+                { "deviceStatuses", n => { DeviceStatuses = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileAppInstallStatus>(ApiSdk.Models.MobileAppInstallStatus.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "failedDeviceCount", n => { FailedDeviceCount = n.GetIntValue(); } },
                 { "installedDeviceCount", n => { InstalledDeviceCount = n.GetIntValue(); } },
                 { "notInstalledDeviceCount", n => { NotInstalledDeviceCount = n.GetIntValue(); } },
@@ -84,8 +84,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<MobileApp>("app", App);
-            writer.WriteCollectionOfObjectValues<MobileAppInstallStatus>("deviceStatuses", DeviceStatuses);
+            writer.WriteObjectValue<ApiSdk.Models.MobileApp>("app", App);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileAppInstallStatus>("deviceStatuses", DeviceStatuses);
             writer.WriteIntValue("failedDeviceCount", FailedDeviceCount);
             writer.WriteIntValue("installedDeviceCount", InstalledDeviceCount);
             writer.WriteIntValue("notInstalledDeviceCount", NotInstalledDeviceCount);

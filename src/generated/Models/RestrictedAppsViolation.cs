@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Violation of restricted apps configuration profile per device per user
     /// </summary>
-    public class RestrictedAppsViolation : Entity, IParsable
+    public class RestrictedAppsViolation : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Device configuration profile unique identifier, must be Guid</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -44,14 +44,14 @@ namespace ApiSdk.Models
         public string ManagedDeviceId { get; set; }
 #endif
         /// <summary>Supported platform types for policies.</summary>
-        public PolicyPlatformType? PlatformType { get; set; }
+        public ApiSdk.Models.PolicyPlatformType? PlatformType { get; set; }
         /// <summary>List of violated restricted apps</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedDeviceReportedApp>? RestrictedApps { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceReportedApp>? RestrictedApps { get; set; }
 #nullable restore
 #else
-        public List<ManagedDeviceReportedApp> RestrictedApps { get; set; }
+        public List<ApiSdk.Models.ManagedDeviceReportedApp> RestrictedApps { get; set; }
 #endif
         /// <summary>Restricted apps state</summary>
         public ApiSdk.Models.RestrictedAppsState? RestrictedAppsState { get; set; }
@@ -74,12 +74,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RestrictedAppsViolation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RestrictedAppsViolation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RestrictedAppsViolation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RestrictedAppsViolation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RestrictedAppsViolation();
+            return new ApiSdk.Models.RestrictedAppsViolation();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,9 +93,9 @@ namespace ApiSdk.Models
                 { "deviceConfigurationName", n => { DeviceConfigurationName = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
-                { "platformType", n => { PlatformType = n.GetEnumValue<PolicyPlatformType>(); } },
-                { "restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<ManagedDeviceReportedApp>(ManagedDeviceReportedApp.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "restrictedAppsState", n => { RestrictedAppsState = n.GetEnumValue<RestrictedAppsState>(); } },
+                { "platformType", n => { PlatformType = n.GetEnumValue<ApiSdk.Models.PolicyPlatformType>(); } },
+                { "restrictedApps", n => { RestrictedApps = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceReportedApp>(ApiSdk.Models.ManagedDeviceReportedApp.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "restrictedAppsState", n => { RestrictedAppsState = n.GetEnumValue<ApiSdk.Models.RestrictedAppsState>(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
             };
@@ -112,9 +112,9 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceConfigurationName", DeviceConfigurationName);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
-            writer.WriteEnumValue<PolicyPlatformType>("platformType", PlatformType);
-            writer.WriteCollectionOfObjectValues<ManagedDeviceReportedApp>("restrictedApps", RestrictedApps);
-            writer.WriteEnumValue<RestrictedAppsState>("restrictedAppsState", RestrictedAppsState);
+            writer.WriteEnumValue<ApiSdk.Models.PolicyPlatformType>("platformType", PlatformType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedDeviceReportedApp>("restrictedApps", RestrictedApps);
+            writer.WriteEnumValue<ApiSdk.Models.RestrictedAppsState>("restrictedAppsState", RestrictedAppsState);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userName", UserName);
         }

@@ -34,7 +34,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         {
             var command = new Command("complete");
             command.Description = "Provides operations to call the complete method.";
-            var builder = new CompleteRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.Recommendations.Item.Complete.CompleteRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -86,7 +86,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         {
             var command = new Command("dismiss");
             command.Description = "Provides operations to call the dismiss method.";
-            var builder = new DismissRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.Recommendations.Item.Dismiss.DismissRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -156,7 +156,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         {
             var command = new Command("impacted-resources");
             command.Description = "Provides operations to manage the impactedResources property of the microsoft.graph.recommendationBase entity.";
-            var builder = new ImpactedResourcesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.Recommendations.Item.ImpactedResources.ImpactedResourcesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -206,7 +206,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<Recommendation>(Recommendation.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.Recommendation>(ApiSdk.Models.Recommendation.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -234,7 +234,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         {
             var command = new Command("postpone");
             command.Description = "Provides operations to call the postpone method.";
-            var builder = new PostponeRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.Recommendations.Item.Postpone.PostponeRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -251,7 +251,7 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         {
             var command = new Command("reactivate");
             command.Description = "Provides operations to call the reactivate method.";
-            var builder = new ReactivateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DirectoryNamespace.Recommendations.Item.Reactivate.ReactivateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -261,14 +261,14 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RecommendationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.Recommendations.Item.RecommendationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RecommendationItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/directory/recommendations/{recommendation%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RecommendationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DirectoryNamespace.Recommendations.Item.RecommendationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RecommendationItemRequestBuilder(string rawUrl) : base("{+baseurl}/directory/recommendations/{recommendation%2Did}{?%24expand,%24select}", rawUrl)
@@ -300,11 +300,11 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RecommendationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DirectoryNamespace.Recommendations.Item.RecommendationItemRequestBuilder.RecommendationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<RecommendationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DirectoryNamespace.Recommendations.Item.RecommendationItemRequestBuilder.RecommendationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -320,11 +320,11 @@ namespace ApiSdk.DirectoryNamespace.Recommendations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(Recommendation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Recommendation body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(Recommendation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.Recommendation body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

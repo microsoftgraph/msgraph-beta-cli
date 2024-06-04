@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetConfigurationSettingDetailsReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport.GetConfigurationSettingDetailsReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetConfigurationSettingDetailsReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetConfigurationSettingDetailsReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport.GetConfigurationSettingDetailsReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetConfigurationSettingDetailsReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport.GetConfigurationSettingDetailsReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetConfigurationSettingDetailsReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetConfigurationSettingDetailsReport.GetConfigurationSettingDetailsReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

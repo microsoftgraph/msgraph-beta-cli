@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties for User state of the hardware configuration
     /// </summary>
-    public class HardwareConfigurationUserState : Entity, IParsable
+    public class HardwareConfigurationUserState : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Error device count for specific user.</summary>
         public int? ErrorDeviceCount { get; set; }
@@ -52,12 +52,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="HardwareConfigurationUserState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.HardwareConfigurationUserState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new HardwareConfigurationUserState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.HardwareConfigurationUserState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new HardwareConfigurationUserState();
+            return new ApiSdk.Models.HardwareConfigurationUserState();
         }
         /// <summary>
         /// The deserialization information for the current model

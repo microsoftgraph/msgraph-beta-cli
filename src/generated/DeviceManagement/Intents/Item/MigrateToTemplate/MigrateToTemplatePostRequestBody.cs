@@ -23,7 +23,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
         /// <summary>The preserveCustomValues property</summary>
         public bool? PreserveCustomValues { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MigrateToTemplatePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody"/> and sets the default values.
         /// </summary>
         public MigrateToTemplatePostRequestBody()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MigrateToTemplatePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MigrateToTemplatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MigrateToTemplatePostRequestBody();
+            return new ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplatePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

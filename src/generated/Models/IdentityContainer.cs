@@ -15,50 +15,50 @@ namespace ApiSdk.Models
         /// <summary>Represents entry point for API connectors.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IdentityApiConnector>? ApiConnectors { get; set; }
+        public List<ApiSdk.Models.IdentityApiConnector>? ApiConnectors { get; set; }
 #nullable restore
 #else
-        public List<IdentityApiConnector> ApiConnectors { get; set; }
+        public List<ApiSdk.Models.IdentityApiConnector> ApiConnectors { get; set; }
 #endif
         /// <summary>The authenticationEventListeners property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationEventListener>? AuthenticationEventListeners { get; set; }
+        public List<ApiSdk.Models.AuthenticationEventListener>? AuthenticationEventListeners { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationEventListener> AuthenticationEventListeners { get; set; }
+        public List<ApiSdk.Models.AuthenticationEventListener> AuthenticationEventListeners { get; set; }
 #endif
         /// <summary>Represents the entry point for self-service sign-up and sign-in user flows in both Microsoft Entra workforce and external tenants.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AuthenticationEventsFlow>? AuthenticationEventsFlows { get; set; }
+        public List<ApiSdk.Models.AuthenticationEventsFlow>? AuthenticationEventsFlows { get; set; }
 #nullable restore
 #else
-        public List<AuthenticationEventsFlow> AuthenticationEventsFlows { get; set; }
+        public List<ApiSdk.Models.AuthenticationEventsFlow> AuthenticationEventsFlows { get; set; }
 #endif
         /// <summary>Represents entry point for B2C identity userflows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<B2cIdentityUserFlow>? B2cUserFlows { get; set; }
+        public List<ApiSdk.Models.B2cIdentityUserFlow>? B2cUserFlows { get; set; }
 #nullable restore
 #else
-        public List<B2cIdentityUserFlow> B2cUserFlows { get; set; }
+        public List<ApiSdk.Models.B2cIdentityUserFlow> B2cUserFlows { get; set; }
 #endif
         /// <summary>Represents entry point for B2X and self-service sign-up identity userflows.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<B2xIdentityUserFlow>? B2xUserFlows { get; set; }
+        public List<ApiSdk.Models.B2xIdentityUserFlow>? B2xUserFlows { get; set; }
 #nullable restore
 #else
-        public List<B2xIdentityUserFlow> B2xUserFlows { get; set; }
+        public List<ApiSdk.Models.B2xIdentityUserFlow> B2xUserFlows { get; set; }
 #endif
         /// <summary>the entry point for the Conditional Access (CA) object model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ConditionalAccessRoot? ConditionalAccess { get; set; }
+        public ApiSdk.Models.ConditionalAccessRoot? ConditionalAccess { get; set; }
 #nullable restore
 #else
-        public ConditionalAccessRoot ConditionalAccess { get; set; }
+        public ApiSdk.Models.ConditionalAccessRoot ConditionalAccess { get; set; }
 #endif
         /// <summary>Represents entry point for continuous access evaluation policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,18 +71,18 @@ namespace ApiSdk.Models
         /// <summary>The customAuthenticationExtensions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomAuthenticationExtension>? CustomAuthenticationExtensions { get; set; }
+        public List<ApiSdk.Models.CustomAuthenticationExtension>? CustomAuthenticationExtensions { get; set; }
 #nullable restore
 #else
-        public List<CustomAuthenticationExtension> CustomAuthenticationExtensions { get; set; }
+        public List<ApiSdk.Models.CustomAuthenticationExtension> CustomAuthenticationExtensions { get; set; }
 #endif
         /// <summary>Represents entry point for identity provider base.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IdentityProviderBase>? IdentityProviders { get; set; }
+        public List<ApiSdk.Models.IdentityProviderBase>? IdentityProviders { get; set; }
 #nullable restore
 #else
-        public List<IdentityProviderBase> IdentityProviders { get; set; }
+        public List<ApiSdk.Models.IdentityProviderBase> IdentityProviders { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -95,21 +95,21 @@ namespace ApiSdk.Models
         /// <summary>Represents entry point for identity userflow attributes.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IdentityUserFlowAttribute>? UserFlowAttributes { get; set; }
+        public List<ApiSdk.Models.IdentityUserFlowAttribute>? UserFlowAttributes { get; set; }
 #nullable restore
 #else
-        public List<IdentityUserFlowAttribute> UserFlowAttributes { get; set; }
+        public List<ApiSdk.Models.IdentityUserFlowAttribute> UserFlowAttributes { get; set; }
 #endif
         /// <summary>The userFlows property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IdentityUserFlow>? UserFlows { get; set; }
+        public List<ApiSdk.Models.IdentityUserFlow>? UserFlows { get; set; }
 #nullable restore
 #else
-        public List<IdentityUserFlow> UserFlows { get; set; }
+        public List<ApiSdk.Models.IdentityUserFlow> UserFlows { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IdentityContainer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IdentityContainer"/> and sets the default values.
         /// </summary>
         public IdentityContainer()
         {
@@ -118,12 +118,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IdentityContainer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IdentityContainer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static IdentityContainer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IdentityContainer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IdentityContainer();
+            return new ApiSdk.Models.IdentityContainer();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -133,18 +133,18 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apiConnectors", n => { ApiConnectors = n.GetCollectionOfObjectValues<IdentityApiConnector>(IdentityApiConnector.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationEventListeners", n => { AuthenticationEventListeners = n.GetCollectionOfObjectValues<AuthenticationEventListener>(AuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "authenticationEventsFlows", n => { AuthenticationEventsFlows = n.GetCollectionOfObjectValues<AuthenticationEventsFlow>(AuthenticationEventsFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "b2cUserFlows", n => { B2cUserFlows = n.GetCollectionOfObjectValues<B2cIdentityUserFlow>(B2cIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "b2xUserFlows", n => { B2xUserFlows = n.GetCollectionOfObjectValues<B2xIdentityUserFlow>(B2xIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ConditionalAccessRoot>(ConditionalAccessRoot.CreateFromDiscriminatorValue); } },
+                { "apiConnectors", n => { ApiConnectors = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentityApiConnector>(ApiSdk.Models.IdentityApiConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationEventListeners", n => { AuthenticationEventListeners = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationEventListener>(ApiSdk.Models.AuthenticationEventListener.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "authenticationEventsFlows", n => { AuthenticationEventsFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.AuthenticationEventsFlow>(ApiSdk.Models.AuthenticationEventsFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "b2cUserFlows", n => { B2cUserFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.B2cIdentityUserFlow>(ApiSdk.Models.B2cIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "b2xUserFlows", n => { B2xUserFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.B2xIdentityUserFlow>(ApiSdk.Models.B2xIdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "conditionalAccess", n => { ConditionalAccess = n.GetObjectValue<ApiSdk.Models.ConditionalAccessRoot>(ApiSdk.Models.ConditionalAccessRoot.CreateFromDiscriminatorValue); } },
                 { "continuousAccessEvaluationPolicy", n => { ContinuousAccessEvaluationPolicy = n.GetObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>(ApiSdk.Models.ContinuousAccessEvaluationPolicy.CreateFromDiscriminatorValue); } },
-                { "customAuthenticationExtensions", n => { CustomAuthenticationExtensions = n.GetCollectionOfObjectValues<CustomAuthenticationExtension>(CustomAuthenticationExtension.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customAuthenticationExtensions", n => { CustomAuthenticationExtensions = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomAuthenticationExtension>(ApiSdk.Models.CustomAuthenticationExtension.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "identityProviders", n => { IdentityProviders = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentityProviderBase>(ApiSdk.Models.IdentityProviderBase.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "userFlowAttributes", n => { UserFlowAttributes = n.GetCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "userFlows", n => { UserFlows = n.GetCollectionOfObjectValues<IdentityUserFlow>(IdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userFlowAttributes", n => { UserFlowAttributes = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentityUserFlowAttribute>(ApiSdk.Models.IdentityUserFlowAttribute.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userFlows", n => { UserFlows = n.GetCollectionOfObjectValues<ApiSdk.Models.IdentityUserFlow>(ApiSdk.Models.IdentityUserFlow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -154,18 +154,18 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<IdentityApiConnector>("apiConnectors", ApiConnectors);
-            writer.WriteCollectionOfObjectValues<AuthenticationEventListener>("authenticationEventListeners", AuthenticationEventListeners);
-            writer.WriteCollectionOfObjectValues<AuthenticationEventsFlow>("authenticationEventsFlows", AuthenticationEventsFlows);
-            writer.WriteCollectionOfObjectValues<B2cIdentityUserFlow>("b2cUserFlows", B2cUserFlows);
-            writer.WriteCollectionOfObjectValues<B2xIdentityUserFlow>("b2xUserFlows", B2xUserFlows);
-            writer.WriteObjectValue<ConditionalAccessRoot>("conditionalAccess", ConditionalAccess);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentityApiConnector>("apiConnectors", ApiConnectors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationEventListener>("authenticationEventListeners", AuthenticationEventListeners);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AuthenticationEventsFlow>("authenticationEventsFlows", AuthenticationEventsFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.B2cIdentityUserFlow>("b2cUserFlows", B2cUserFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.B2xIdentityUserFlow>("b2xUserFlows", B2xUserFlows);
+            writer.WriteObjectValue<ApiSdk.Models.ConditionalAccessRoot>("conditionalAccess", ConditionalAccess);
             writer.WriteObjectValue<ApiSdk.Models.ContinuousAccessEvaluationPolicy>("continuousAccessEvaluationPolicy", ContinuousAccessEvaluationPolicy);
-            writer.WriteCollectionOfObjectValues<CustomAuthenticationExtension>("customAuthenticationExtensions", CustomAuthenticationExtensions);
-            writer.WriteCollectionOfObjectValues<IdentityProviderBase>("identityProviders", IdentityProviders);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomAuthenticationExtension>("customAuthenticationExtensions", CustomAuthenticationExtensions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentityProviderBase>("identityProviders", IdentityProviders);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", UserFlowAttributes);
-            writer.WriteCollectionOfObjectValues<IdentityUserFlow>("userFlows", UserFlows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentityUserFlowAttribute>("userFlowAttributes", UserFlowAttributes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IdentityUserFlow>("userFlows", UserFlows);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

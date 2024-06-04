@@ -49,7 +49,7 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.I
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AddMembersPostRequestBody>(AddMembersPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.AddMembersPostRequestBody>(ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.AddMembersPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -69,14 +69,14 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.I
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/exclusions/{updatableAsset%2Did}/microsoft.graph.windowsUpdates.addMembers", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphWindowsUpdatesAddMembersRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/updatePolicies/{updatePolicy%2Did}/audience/exclusions/{updatableAsset%2Did}/microsoft.graph.windowsUpdates.addMembers", rawUrl)
@@ -90,11 +90,11 @@ namespace ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.I
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(AddMembersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.AddMembersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(AddMembersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.UpdatePolicies.Item.Audience.Exclusions.Item.MicrosoftGraphWindowsUpdatesAddMembers.AddMembersPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

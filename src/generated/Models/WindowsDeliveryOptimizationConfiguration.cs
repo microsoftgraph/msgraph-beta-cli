@@ -9,17 +9,17 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows Delivery Optimization configuration
     /// </summary>
-    public class WindowsDeliveryOptimizationConfiguration : DeviceConfiguration, IParsable
+    public class WindowsDeliveryOptimizationConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295</summary>
         public long? BackgroundDownloadFromHttpDelayInSeconds { get; set; }
         /// <summary>Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeliveryOptimizationBandwidth? BandwidthMode { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationBandwidth? BandwidthMode { get; set; }
 #nullable restore
 #else
-        public DeliveryOptimizationBandwidth BandwidthMode { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationBandwidth BandwidthMode { get; set; }
 #endif
         /// <summary>Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.</summary>
         public int? CacheServerBackgroundDownloadFallbackToHttpDelayInSeconds { get; set; }
@@ -34,26 +34,26 @@ namespace ApiSdk.Models
         public List<string> CacheServerHostNames { get; set; }
 #endif
         /// <summary>Delivery optimization mode for peer distribution</summary>
-        public WindowsDeliveryOptimizationMode? DeliveryOptimizationMode { get; set; }
+        public ApiSdk.Models.WindowsDeliveryOptimizationMode? DeliveryOptimizationMode { get; set; }
         /// <summary>Specifies number of seconds to delay an HTTP source in a foreground download that is allowed to use peer-to-peer (0-86400). Valid values 0 to 86400</summary>
         public long? ForegroundDownloadFromHttpDelayInSeconds { get; set; }
         /// <summary>Specifies to restrict peer selection to a specfic source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeliveryOptimizationGroupIdSource? GroupIdSource { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationGroupIdSource? GroupIdSource { get; set; }
 #nullable restore
 #else
-        public DeliveryOptimizationGroupIdSource GroupIdSource { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationGroupIdSource GroupIdSource { get; set; }
 #endif
         /// <summary>Specifies the maximum time in days that each file is held in the Delivery Optimization cache after downloading successfully (0-3650). Valid values 0 to 3650</summary>
         public int? MaximumCacheAgeInDays { get; set; }
         /// <summary>Specifies the maximum cache size that Delivery Optimization either as a percentage or in GB.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public DeliveryOptimizationMaxCacheSize? MaximumCacheSize { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationMaxCacheSize? MaximumCacheSize { get; set; }
 #nullable restore
 #else
-        public DeliveryOptimizationMaxCacheSize MaximumCacheSize { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationMaxCacheSize MaximumCacheSize { get; set; }
 #endif
         /// <summary>Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100</summary>
         public int? MinimumBatteryPercentageAllowedToUpload { get; set; }
@@ -72,11 +72,11 @@ namespace ApiSdk.Models
         public string ModifyCacheLocation { get; set; }
 #endif
         /// <summary>Values to restrict peer selection by.</summary>
-        public DeliveryOptimizationRestrictPeerSelectionByOptions? RestrictPeerSelectionBy { get; set; }
+        public ApiSdk.Models.DeliveryOptimizationRestrictPeerSelectionByOptions? RestrictPeerSelectionBy { get; set; }
         /// <summary>Possible values of a property</summary>
-        public Enablement? VpnPeerCaching { get; set; }
+        public ApiSdk.Models.Enablement? VpnPeerCaching { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="WindowsDeliveryOptimizationConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.WindowsDeliveryOptimizationConfiguration"/> and sets the default values.
         /// </summary>
         public WindowsDeliveryOptimizationConfiguration() : base()
         {
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsDeliveryOptimizationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsDeliveryOptimizationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsDeliveryOptimizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsDeliveryOptimizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WindowsDeliveryOptimizationConfiguration();
+            return new ApiSdk.Models.WindowsDeliveryOptimizationConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,22 +101,22 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "backgroundDownloadFromHttpDelayInSeconds", n => { BackgroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
-                { "bandwidthMode", n => { BandwidthMode = n.GetObjectValue<DeliveryOptimizationBandwidth>(DeliveryOptimizationBandwidth.CreateFromDiscriminatorValue); } },
+                { "bandwidthMode", n => { BandwidthMode = n.GetObjectValue<ApiSdk.Models.DeliveryOptimizationBandwidth>(ApiSdk.Models.DeliveryOptimizationBandwidth.CreateFromDiscriminatorValue); } },
                 { "cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerBackgroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
                 { "cacheServerForegroundDownloadFallbackToHttpDelayInSeconds", n => { CacheServerForegroundDownloadFallbackToHttpDelayInSeconds = n.GetIntValue(); } },
                 { "cacheServerHostNames", n => { CacheServerHostNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "deliveryOptimizationMode", n => { DeliveryOptimizationMode = n.GetEnumValue<WindowsDeliveryOptimizationMode>(); } },
+                { "deliveryOptimizationMode", n => { DeliveryOptimizationMode = n.GetEnumValue<ApiSdk.Models.WindowsDeliveryOptimizationMode>(); } },
                 { "foregroundDownloadFromHttpDelayInSeconds", n => { ForegroundDownloadFromHttpDelayInSeconds = n.GetLongValue(); } },
-                { "groupIdSource", n => { GroupIdSource = n.GetObjectValue<DeliveryOptimizationGroupIdSource>(DeliveryOptimizationGroupIdSource.CreateFromDiscriminatorValue); } },
+                { "groupIdSource", n => { GroupIdSource = n.GetObjectValue<ApiSdk.Models.DeliveryOptimizationGroupIdSource>(ApiSdk.Models.DeliveryOptimizationGroupIdSource.CreateFromDiscriminatorValue); } },
                 { "maximumCacheAgeInDays", n => { MaximumCacheAgeInDays = n.GetIntValue(); } },
-                { "maximumCacheSize", n => { MaximumCacheSize = n.GetObjectValue<DeliveryOptimizationMaxCacheSize>(DeliveryOptimizationMaxCacheSize.CreateFromDiscriminatorValue); } },
+                { "maximumCacheSize", n => { MaximumCacheSize = n.GetObjectValue<ApiSdk.Models.DeliveryOptimizationMaxCacheSize>(ApiSdk.Models.DeliveryOptimizationMaxCacheSize.CreateFromDiscriminatorValue); } },
                 { "minimumBatteryPercentageAllowedToUpload", n => { MinimumBatteryPercentageAllowedToUpload = n.GetIntValue(); } },
                 { "minimumDiskSizeAllowedToPeerInGigabytes", n => { MinimumDiskSizeAllowedToPeerInGigabytes = n.GetIntValue(); } },
                 { "minimumFileSizeToCacheInMegabytes", n => { MinimumFileSizeToCacheInMegabytes = n.GetIntValue(); } },
                 { "minimumRamAllowedToPeerInGigabytes", n => { MinimumRamAllowedToPeerInGigabytes = n.GetIntValue(); } },
                 { "modifyCacheLocation", n => { ModifyCacheLocation = n.GetStringValue(); } },
-                { "restrictPeerSelectionBy", n => { RestrictPeerSelectionBy = n.GetEnumValue<DeliveryOptimizationRestrictPeerSelectionByOptions>(); } },
-                { "vpnPeerCaching", n => { VpnPeerCaching = n.GetEnumValue<Enablement>(); } },
+                { "restrictPeerSelectionBy", n => { RestrictPeerSelectionBy = n.GetEnumValue<ApiSdk.Models.DeliveryOptimizationRestrictPeerSelectionByOptions>(); } },
+                { "vpnPeerCaching", n => { VpnPeerCaching = n.GetEnumValue<ApiSdk.Models.Enablement>(); } },
             };
         }
         /// <summary>
@@ -128,22 +128,22 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteLongValue("backgroundDownloadFromHttpDelayInSeconds", BackgroundDownloadFromHttpDelayInSeconds);
-            writer.WriteObjectValue<DeliveryOptimizationBandwidth>("bandwidthMode", BandwidthMode);
+            writer.WriteObjectValue<ApiSdk.Models.DeliveryOptimizationBandwidth>("bandwidthMode", BandwidthMode);
             writer.WriteIntValue("cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds", CacheServerBackgroundDownloadFallbackToHttpDelayInSeconds);
             writer.WriteIntValue("cacheServerForegroundDownloadFallbackToHttpDelayInSeconds", CacheServerForegroundDownloadFallbackToHttpDelayInSeconds);
             writer.WriteCollectionOfPrimitiveValues<string>("cacheServerHostNames", CacheServerHostNames);
-            writer.WriteEnumValue<WindowsDeliveryOptimizationMode>("deliveryOptimizationMode", DeliveryOptimizationMode);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsDeliveryOptimizationMode>("deliveryOptimizationMode", DeliveryOptimizationMode);
             writer.WriteLongValue("foregroundDownloadFromHttpDelayInSeconds", ForegroundDownloadFromHttpDelayInSeconds);
-            writer.WriteObjectValue<DeliveryOptimizationGroupIdSource>("groupIdSource", GroupIdSource);
+            writer.WriteObjectValue<ApiSdk.Models.DeliveryOptimizationGroupIdSource>("groupIdSource", GroupIdSource);
             writer.WriteIntValue("maximumCacheAgeInDays", MaximumCacheAgeInDays);
-            writer.WriteObjectValue<DeliveryOptimizationMaxCacheSize>("maximumCacheSize", MaximumCacheSize);
+            writer.WriteObjectValue<ApiSdk.Models.DeliveryOptimizationMaxCacheSize>("maximumCacheSize", MaximumCacheSize);
             writer.WriteIntValue("minimumBatteryPercentageAllowedToUpload", MinimumBatteryPercentageAllowedToUpload);
             writer.WriteIntValue("minimumDiskSizeAllowedToPeerInGigabytes", MinimumDiskSizeAllowedToPeerInGigabytes);
             writer.WriteIntValue("minimumFileSizeToCacheInMegabytes", MinimumFileSizeToCacheInMegabytes);
             writer.WriteIntValue("minimumRamAllowedToPeerInGigabytes", MinimumRamAllowedToPeerInGigabytes);
             writer.WriteStringValue("modifyCacheLocation", ModifyCacheLocation);
-            writer.WriteEnumValue<DeliveryOptimizationRestrictPeerSelectionByOptions>("restrictPeerSelectionBy", RestrictPeerSelectionBy);
-            writer.WriteEnumValue<Enablement>("vpnPeerCaching", VpnPeerCaching);
+            writer.WriteEnumValue<ApiSdk.Models.DeliveryOptimizationRestrictPeerSelectionByOptions>("restrictPeerSelectionBy", RestrictPeerSelectionBy);
+            writer.WriteEnumValue<ApiSdk.Models.Enablement>("vpnPeerCaching", VpnPeerCaching);
         }
     }
 }

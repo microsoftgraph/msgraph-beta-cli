@@ -59,14 +59,14 @@ namespace ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GenerateEncryptionP
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateEncryptionPublicKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GenerateEncryptionPublicKey.GenerateEncryptionPublicKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GenerateEncryptionPublicKeyRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/generateEncryptionPublicKey", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GenerateEncryptionPublicKeyRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DepOnboardingSettings.Item.GenerateEncryptionPublicKey.GenerateEncryptionPublicKeyRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GenerateEncryptionPublicKeyRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/depOnboardingSettings/{depOnboardingSetting%2Did}/generateEncryptionPublicKey", rawUrl)

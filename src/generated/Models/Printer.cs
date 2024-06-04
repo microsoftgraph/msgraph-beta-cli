@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Printer : PrinterBase, IParsable
+    public class Printer : ApiSdk.Models.PrinterBase, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The acceptingJobs property</summary>
@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The connectors that are associated with the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintConnector>? Connectors { get; set; }
+        public List<ApiSdk.Models.PrintConnector>? Connectors { get; set; }
 #nullable restore
 #else
-        public List<PrintConnector> Connectors { get; set; }
+        public List<ApiSdk.Models.PrintConnector> Connectors { get; set; }
 #endif
         /// <summary>True if the printer has a physical device for printing. Read-only.</summary>
         public bool? HasPhysicalDevice { get; set; }
@@ -31,29 +31,29 @@ namespace ApiSdk.Models
         /// <summary>The share property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PrinterShare? Share { get; set; }
+        public ApiSdk.Models.PrinterShare? Share { get; set; }
 #nullable restore
 #else
-        public PrinterShare Share { get; set; }
+        public ApiSdk.Models.PrinterShare Share { get; set; }
 #endif
         /// <summary>The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrinterShare>? Shares { get; set; }
+        public List<ApiSdk.Models.PrinterShare>? Shares { get; set; }
 #nullable restore
 #else
-        public List<PrinterShare> Shares { get; set; }
+        public List<ApiSdk.Models.PrinterShare> Shares { get; set; }
 #endif
         /// <summary>A list of task triggers that are associated with the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintTaskTrigger>? TaskTriggers { get; set; }
+        public List<ApiSdk.Models.PrintTaskTrigger>? TaskTriggers { get; set; }
 #nullable restore
 #else
-        public List<PrintTaskTrigger> TaskTriggers { get; set; }
+        public List<ApiSdk.Models.PrintTaskTrigger> TaskTriggers { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Printer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Printer"/> and sets the default values.
         /// </summary>
         public Printer() : base()
         {
@@ -62,12 +62,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Printer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Printer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Printer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Printer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Printer();
+            return new ApiSdk.Models.Printer();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,14 +78,14 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "acceptingJobs", n => { AcceptingJobs = n.GetBoolValue(); } },
-                { "connectors", n => { Connectors = n.GetCollectionOfObjectValues<PrintConnector>(PrintConnector.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "connectors", n => { Connectors = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintConnector>(ApiSdk.Models.PrintConnector.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "hasPhysicalDevice", n => { HasPhysicalDevice = n.GetBoolValue(); } },
                 { "isShared", n => { IsShared = n.GetBoolValue(); } },
                 { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
                 { "registeredDateTime", n => { RegisteredDateTime = n.GetDateTimeOffsetValue(); } },
-                { "share", n => { Share = n.GetObjectValue<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue); } },
-                { "shares", n => { Shares = n.GetCollectionOfObjectValues<PrinterShare>(PrinterShare.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "taskTriggers", n => { TaskTriggers = n.GetCollectionOfObjectValues<PrintTaskTrigger>(PrintTaskTrigger.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "share", n => { Share = n.GetObjectValue<ApiSdk.Models.PrinterShare>(ApiSdk.Models.PrinterShare.CreateFromDiscriminatorValue); } },
+                { "shares", n => { Shares = n.GetCollectionOfObjectValues<ApiSdk.Models.PrinterShare>(ApiSdk.Models.PrinterShare.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "taskTriggers", n => { TaskTriggers = n.GetCollectionOfObjectValues<ApiSdk.Models.PrintTaskTrigger>(ApiSdk.Models.PrintTaskTrigger.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -97,14 +97,14 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("acceptingJobs", AcceptingJobs);
-            writer.WriteCollectionOfObjectValues<PrintConnector>("connectors", Connectors);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintConnector>("connectors", Connectors);
             writer.WriteBoolValue("hasPhysicalDevice", HasPhysicalDevice);
             writer.WriteBoolValue("isShared", IsShared);
             writer.WriteDateTimeOffsetValue("lastSeenDateTime", LastSeenDateTime);
             writer.WriteDateTimeOffsetValue("registeredDateTime", RegisteredDateTime);
-            writer.WriteObjectValue<PrinterShare>("share", Share);
-            writer.WriteCollectionOfObjectValues<PrinterShare>("shares", Shares);
-            writer.WriteCollectionOfObjectValues<PrintTaskTrigger>("taskTriggers", TaskTriggers);
+            writer.WriteObjectValue<ApiSdk.Models.PrinterShare>("share", Share);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrinterShare>("shares", Shares);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PrintTaskTrigger>("taskTriggers", TaskTriggers);
         }
     }
 }

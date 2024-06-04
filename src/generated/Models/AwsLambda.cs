@@ -7,19 +7,19 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsLambda : AwsIdentity, IParsable
+    public class AwsLambda : ApiSdk.Models.AwsIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents the resources in an authorization system..</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AwsAuthorizationSystemResource? Resource { get; set; }
+        public ApiSdk.Models.AwsAuthorizationSystemResource? Resource { get; set; }
 #nullable restore
 #else
-        public AwsAuthorizationSystemResource Resource { get; set; }
+        public ApiSdk.Models.AwsAuthorizationSystemResource Resource { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsLambda"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsLambda"/> and sets the default values.
         /// </summary>
         public AwsLambda() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsLambda"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsLambda"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsLambda CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsLambda CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsLambda();
+            return new ApiSdk.Models.AwsLambda();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -43,7 +43,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "resource", n => { Resource = n.GetObjectValue<AwsAuthorizationSystemResource>(AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<ApiSdk.Models.AwsAuthorizationSystemResource>(ApiSdk.Models.AwsAuthorizationSystemResource.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<AwsAuthorizationSystemResource>("resource", Resource);
+            writer.WriteObjectValue<ApiSdk.Models.AwsAuthorizationSystemResource>("resource", Resource);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityRe
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetConnectionQualityReportsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports.GetConnectionQualityReportsPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetConnectionQualityReportsPostRequestBody()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityRe
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetConnectionQualityReportsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports.GetConnectionQualityReportsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetConnectionQualityReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports.GetConnectionQualityReportsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetConnectionQualityReportsPostRequestBody();
+            return new ApiSdk.DeviceManagement.VirtualEndpoint.Reports.GetConnectionQualityReports.GetConnectionQualityReportsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

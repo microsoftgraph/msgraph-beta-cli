@@ -76,7 +76,7 @@ namespace ApiSdk.Models
         public string PeriodLengthFilter { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AgedAccountsReceivable"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AgedAccountsReceivable"/> and sets the default values.
         /// </summary>
         public AgedAccountsReceivable()
         {
@@ -85,12 +85,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AgedAccountsReceivable"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AgedAccountsReceivable"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AgedAccountsReceivable CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AgedAccountsReceivable CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AgedAccountsReceivable();
+            return new ApiSdk.Models.AgedAccountsReceivable();
         }
         /// <summary>
         /// The deserialization information for the current model

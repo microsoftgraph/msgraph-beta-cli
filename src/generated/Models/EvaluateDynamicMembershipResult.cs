@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>Provides a detailed analysis of the membership evaluation result.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ExpressionEvaluationDetails? MembershipRuleEvaluationDetails { get; set; }
+        public ApiSdk.Models.ExpressionEvaluationDetails? MembershipRuleEvaluationDetails { get; set; }
 #nullable restore
 #else
-        public ExpressionEvaluationDetails MembershipRuleEvaluationDetails { get; set; }
+        public ApiSdk.Models.ExpressionEvaluationDetails MembershipRuleEvaluationDetails { get; set; }
 #endif
         /// <summary>The value is true if the user or device is a member of the group. The value can also be true if a membership rule was provided and the user or device passes the rule evaluation; otherwise false.</summary>
         public bool? MembershipRuleEvaluationResult { get; set; }
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EvaluateDynamicMembershipResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EvaluateDynamicMembershipResult"/> and sets the default values.
         /// </summary>
         public EvaluateDynamicMembershipResult()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EvaluateDynamicMembershipResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EvaluateDynamicMembershipResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EvaluateDynamicMembershipResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EvaluateDynamicMembershipResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EvaluateDynamicMembershipResult();
+            return new ApiSdk.Models.EvaluateDynamicMembershipResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,7 +64,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "membershipRule", n => { MembershipRule = n.GetStringValue(); } },
-                { "membershipRuleEvaluationDetails", n => { MembershipRuleEvaluationDetails = n.GetObjectValue<ExpressionEvaluationDetails>(ExpressionEvaluationDetails.CreateFromDiscriminatorValue); } },
+                { "membershipRuleEvaluationDetails", n => { MembershipRuleEvaluationDetails = n.GetObjectValue<ApiSdk.Models.ExpressionEvaluationDetails>(ApiSdk.Models.ExpressionEvaluationDetails.CreateFromDiscriminatorValue); } },
                 { "membershipRuleEvaluationResult", n => { MembershipRuleEvaluationResult = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
@@ -77,7 +77,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("membershipRule", MembershipRule);
-            writer.WriteObjectValue<ExpressionEvaluationDetails>("membershipRuleEvaluationDetails", MembershipRuleEvaluationDetails);
+            writer.WriteObjectValue<ApiSdk.Models.ExpressionEvaluationDetails>("membershipRuleEvaluationDetails", MembershipRuleEvaluationDetails);
             writer.WriteBoolValue("membershipRuleEvaluationResult", MembershipRuleEvaluationResult);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);

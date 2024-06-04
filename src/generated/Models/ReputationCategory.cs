@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string Vendor { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ReputationCategory"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ReputationCategory"/> and sets the default values.
         /// </summary>
         public ReputationCategory()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReputationCategory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ReputationCategory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ReputationCategory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ReputationCategory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ReputationCategory();
+            return new ApiSdk.Models.ReputationCategory();
         }
         /// <summary>
         /// The deserialization information for the current model

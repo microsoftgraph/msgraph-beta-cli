@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string Text { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementTroubleshootingErrorResource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementTroubleshootingErrorResource"/> and sets the default values.
         /// </summary>
         public DeviceManagementTroubleshootingErrorResource()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementTroubleshootingErrorResource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementTroubleshootingErrorResource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementTroubleshootingErrorResource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementTroubleshootingErrorResource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementTroubleshootingErrorResource();
+            return new ApiSdk.Models.DeviceManagementTroubleshootingErrorResource();
         }
         /// <summary>
         /// The deserialization information for the current model

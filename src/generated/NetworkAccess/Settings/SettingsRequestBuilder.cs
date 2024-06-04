@@ -33,7 +33,7 @@ namespace ApiSdk.NetworkAccess.Settings
         {
             var command = new Command("conditional-access");
             command.Description = "Provides operations to manage the conditionalAccess property of the microsoft.graph.networkaccess.settings entity.";
-            var builder = new ConditionalAccessRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Settings.ConditionalAccess.ConditionalAccessRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -52,7 +52,7 @@ namespace ApiSdk.NetworkAccess.Settings
         {
             var command = new Command("cross-tenant-access");
             command.Description = "Provides operations to manage the crossTenantAccess property of the microsoft.graph.networkaccess.settings entity.";
-            var builder = new CrossTenantAccessRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Settings.CrossTenantAccess.CrossTenantAccessRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -100,7 +100,7 @@ namespace ApiSdk.NetworkAccess.Settings
         {
             var command = new Command("enriched-audit-logs");
             command.Description = "Provides operations to manage the enrichedAuditLogs property of the microsoft.graph.networkaccess.settings entity.";
-            var builder = new EnrichedAuditLogsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Settings.EnrichedAuditLogs.EnrichedAuditLogsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -119,7 +119,7 @@ namespace ApiSdk.NetworkAccess.Settings
         {
             var command = new Command("forwarding-options");
             command.Description = "Provides operations to manage the forwardingOptions property of the microsoft.graph.networkaccess.settings entity.";
-            var builder = new ForwardingOptionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.NetworkAccess.Settings.ForwardingOptions.ForwardingOptionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -222,14 +222,14 @@ namespace ApiSdk.NetworkAccess.Settings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Settings.SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/networkAccess/settings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.NetworkAccess.Settings.SettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SettingsRequestBuilder(string rawUrl) : base("{+baseurl}/networkAccess/settings{?%24expand,%24select}", rawUrl)
@@ -261,11 +261,11 @@ namespace ApiSdk.NetworkAccess.Settings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Settings.SettingsRequestBuilder.SettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.NetworkAccess.Settings.SettingsRequestBuilder.SettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

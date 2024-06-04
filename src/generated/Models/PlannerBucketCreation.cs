@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Specifies what kind of creation source the bucket is created with. The possible values are: external, publication and unknownFutureValue.</summary>
-        public PlannerCreationSourceKind? CreationSourceKind { get; set; }
+        public ApiSdk.Models.PlannerCreationSourceKind? CreationSourceKind { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,7 +23,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerBucketCreation"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerBucketCreation"/> and sets the default values.
         /// </summary>
         public PlannerBucketCreation()
         {
@@ -32,16 +32,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerBucketCreation"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerBucketCreation"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerBucketCreation CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerBucketCreation CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.plannerExternalBucketSource" => new PlannerExternalBucketSource(),
-                _ => new PlannerBucketCreation(),
+                "#microsoft.graph.plannerExternalBucketSource" => new ApiSdk.Models.PlannerExternalBucketSource(),
+                _ => new ApiSdk.Models.PlannerBucketCreation(),
             };
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<PlannerCreationSourceKind>(); } },
+                { "creationSourceKind", n => { CreationSourceKind = n.GetEnumValue<ApiSdk.Models.PlannerCreationSourceKind>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -63,7 +63,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<PlannerCreationSourceKind>("creationSourceKind", CreationSourceKind);
+            writer.WriteEnumValue<ApiSdk.Models.PlannerCreationSourceKind>("creationSourceKind", CreationSourceKind);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class TextClassificationRequest : Entity, IParsable
+    public class TextClassificationRequest : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The contentMetaData property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ClassificationRequestContentMetaData? ContentMetaData { get; set; }
+        public ApiSdk.Models.ClassificationRequestContentMetaData? ContentMetaData { get; set; }
 #nullable restore
 #else
-        public ClassificationRequestContentMetaData ContentMetaData { get; set; }
+        public ApiSdk.Models.ClassificationRequestContentMetaData ContentMetaData { get; set; }
 #endif
         /// <summary>The fileExtension property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -27,9 +27,9 @@ namespace ApiSdk.Models
         public string FileExtension { get; set; }
 #endif
         /// <summary>The matchTolerancesToInclude property</summary>
-        public MlClassificationMatchTolerance? MatchTolerancesToInclude { get; set; }
+        public ApiSdk.Models.MlClassificationMatchTolerance? MatchTolerancesToInclude { get; set; }
         /// <summary>The scopesToRun property</summary>
-        public SensitiveTypeScope? ScopesToRun { get; set; }
+        public ApiSdk.Models.SensitiveTypeScope? ScopesToRun { get; set; }
         /// <summary>The sensitiveTypeIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TextClassificationRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TextClassificationRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new TextClassificationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.TextClassificationRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TextClassificationRequest();
+            return new ApiSdk.Models.TextClassificationRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,10 +64,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "contentMetaData", n => { ContentMetaData = n.GetObjectValue<ClassificationRequestContentMetaData>(ClassificationRequestContentMetaData.CreateFromDiscriminatorValue); } },
+                { "contentMetaData", n => { ContentMetaData = n.GetObjectValue<ApiSdk.Models.ClassificationRequestContentMetaData>(ApiSdk.Models.ClassificationRequestContentMetaData.CreateFromDiscriminatorValue); } },
                 { "fileExtension", n => { FileExtension = n.GetStringValue(); } },
-                { "matchTolerancesToInclude", n => { MatchTolerancesToInclude = n.GetEnumValue<MlClassificationMatchTolerance>(); } },
-                { "scopesToRun", n => { ScopesToRun = n.GetEnumValue<SensitiveTypeScope>(); } },
+                { "matchTolerancesToInclude", n => { MatchTolerancesToInclude = n.GetEnumValue<ApiSdk.Models.MlClassificationMatchTolerance>(); } },
+                { "scopesToRun", n => { ScopesToRun = n.GetEnumValue<ApiSdk.Models.SensitiveTypeScope>(); } },
                 { "sensitiveTypeIds", n => { SensitiveTypeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
             };
@@ -80,10 +80,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ClassificationRequestContentMetaData>("contentMetaData", ContentMetaData);
+            writer.WriteObjectValue<ApiSdk.Models.ClassificationRequestContentMetaData>("contentMetaData", ContentMetaData);
             writer.WriteStringValue("fileExtension", FileExtension);
-            writer.WriteEnumValue<MlClassificationMatchTolerance>("matchTolerancesToInclude", MatchTolerancesToInclude);
-            writer.WriteEnumValue<SensitiveTypeScope>("scopesToRun", ScopesToRun);
+            writer.WriteEnumValue<ApiSdk.Models.MlClassificationMatchTolerance>("matchTolerancesToInclude", MatchTolerancesToInclude);
+            writer.WriteEnumValue<ApiSdk.Models.SensitiveTypeScope>("scopesToRun", ScopesToRun);
             writer.WriteCollectionOfPrimitiveValues<string>("sensitiveTypeIds", SensitiveTypeIds);
             writer.WriteStringValue("text", Text);
         }

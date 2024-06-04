@@ -21,7 +21,7 @@ namespace ApiSdk.Models.Networkaccess
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="RuleDestination"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.RuleDestination"/> and sets the default values.
         /// </summary>
         public RuleDestination()
         {
@@ -30,21 +30,21 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RuleDestination"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.RuleDestination"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static RuleDestination CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.RuleDestination CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.networkaccess.fqdn" => new Fqdn(),
-                "#microsoft.graph.networkaccess.ipAddress" => new IpAddress(),
-                "#microsoft.graph.networkaccess.ipRange" => new IpRange(),
-                "#microsoft.graph.networkaccess.ipSubnet" => new IpSubnet(),
-                "#microsoft.graph.networkaccess.url" => new Url(),
-                "#microsoft.graph.networkaccess.webCategory" => new WebCategory(),
-                _ => new RuleDestination(),
+                "#microsoft.graph.networkaccess.fqdn" => new ApiSdk.Models.Networkaccess.Fqdn(),
+                "#microsoft.graph.networkaccess.ipAddress" => new ApiSdk.Models.Networkaccess.IpAddress(),
+                "#microsoft.graph.networkaccess.ipRange" => new ApiSdk.Models.Networkaccess.IpRange(),
+                "#microsoft.graph.networkaccess.ipSubnet" => new ApiSdk.Models.Networkaccess.IpSubnet(),
+                "#microsoft.graph.networkaccess.url" => new ApiSdk.Models.Networkaccess.Url(),
+                "#microsoft.graph.networkaccess.webCategory" => new ApiSdk.Models.Networkaccess.WebCategory(),
+                _ => new ApiSdk.Models.Networkaccess.RuleDestination(),
             };
         }
         /// <summary>

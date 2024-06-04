@@ -7,58 +7,58 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class UnifiedRbacApplication : Entity, IParsable
+    public class UnifiedRbacApplication : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Workload-specific scope object that represents the resources for which the principal has been granted access.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomAppScope>? CustomAppScopes { get; set; }
+        public List<ApiSdk.Models.CustomAppScope>? CustomAppScopes { get; set; }
 #nullable restore
 #else
-        public List<CustomAppScope> CustomAppScopes { get; set; }
+        public List<ApiSdk.Models.CustomAppScope> CustomAppScopes { get; set; }
 #endif
         /// <summary>Resource that represents a collection of related actions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRbacResourceNamespace>? ResourceNamespaces { get; set; }
+        public List<ApiSdk.Models.UnifiedRbacResourceNamespace>? ResourceNamespaces { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRbacResourceNamespace> ResourceNamespaces { get; set; }
+        public List<ApiSdk.Models.UnifiedRbacResourceNamespace> ResourceNamespaces { get; set; }
 #endif
         /// <summary>Resource to grant access to users or groups.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleAssignment>? RoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignment>? RoleAssignments { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleAssignment> RoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignment> RoleAssignments { get; set; }
 #endif
         /// <summary>The roles allowed by RBAC providers and the permissions assigned to the roles.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleDefinition>? RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition>? RoleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleDefinition> RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleDefinition> RoleDefinitions { get; set; }
 #endif
         /// <summary>Resource to grant access to users or groups that are transitive.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedRoleAssignment>? TransitiveRoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignment>? TransitiveRoleAssignments { get; set; }
 #nullable restore
 #else
-        public List<UnifiedRoleAssignment> TransitiveRoleAssignments { get; set; }
+        public List<ApiSdk.Models.UnifiedRoleAssignment> TransitiveRoleAssignments { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnifiedRbacApplication"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnifiedRbacApplication"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UnifiedRbacApplication CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UnifiedRbacApplication CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnifiedRbacApplication();
+            return new ApiSdk.Models.UnifiedRbacApplication();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,11 +68,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "customAppScopes", n => { CustomAppScopes = n.GetCollectionOfObjectValues<CustomAppScope>(CustomAppScope.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "resourceNamespaces", n => { ResourceNamespaces = n.GetCollectionOfObjectValues<UnifiedRbacResourceNamespace>(UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<UnifiedRoleAssignment>(UnifiedRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "transitiveRoleAssignments", n => { TransitiveRoleAssignments = n.GetCollectionOfObjectValues<UnifiedRoleAssignment>(UnifiedRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customAppScopes", n => { CustomAppScopes = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomAppScope>(ApiSdk.Models.CustomAppScope.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resourceNamespaces", n => { ResourceNamespaces = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRbacResourceNamespace>(ApiSdk.Models.UnifiedRbacResourceNamespace.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignment>(ApiSdk.Models.UnifiedRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>(ApiSdk.Models.UnifiedRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "transitiveRoleAssignments", n => { TransitiveRoleAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignment>(ApiSdk.Models.UnifiedRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -83,11 +83,11 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<CustomAppScope>("customAppScopes", CustomAppScopes);
-            writer.WriteCollectionOfObjectValues<UnifiedRbacResourceNamespace>("resourceNamespaces", ResourceNamespaces);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", RoleAssignments);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", RoleDefinitions);
-            writer.WriteCollectionOfObjectValues<UnifiedRoleAssignment>("transitiveRoleAssignments", TransitiveRoleAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomAppScope>("customAppScopes", CustomAppScopes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRbacResourceNamespace>("resourceNamespaces", ResourceNamespaces);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignment>("roleAssignments", RoleAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleDefinition>("roleDefinitions", RoleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.UnifiedRoleAssignment>("transitiveRoleAssignments", TransitiveRoleAssignments);
         }
     }
 }

@@ -13,26 +13,26 @@ namespace ApiSdk.Models.Partner.Security
         /// <summary>Represents the activity by a partner and includes details of state transitions, who performed them, and when they occurred.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ActivityLog>? ActivityLogs { get; set; }
+        public List<ApiSdk.Models.Partner.Security.ActivityLog>? ActivityLogs { get; set; }
 #nullable restore
 #else
-        public List<ActivityLog> ActivityLogs { get; set; }
+        public List<ApiSdk.Models.Partner.Security.ActivityLog> ActivityLogs { get; set; }
 #endif
         /// <summary>A bag of name-value pairs that contain more details about an alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AdditionalDataDictionary? AdditionalDetails { get; set; }
+        public ApiSdk.Models.Partner.Security.AdditionalDataDictionary? AdditionalDetails { get; set; }
 #nullable restore
 #else
-        public AdditionalDataDictionary AdditionalDetails { get; set; }
+        public ApiSdk.Models.Partner.Security.AdditionalDataDictionary AdditionalDetails { get; set; }
 #endif
         /// <summary>Contains details of the resources affected by the security alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AffectedResource>? AffectedResources { get; set; }
+        public List<ApiSdk.Models.Partner.Security.AffectedResource>? AffectedResources { get; set; }
 #nullable restore
 #else
-        public List<AffectedResource> AffectedResources { get; set; }
+        public List<ApiSdk.Models.Partner.Security.AffectedResource> AffectedResources { get; set; }
 #endif
         /// <summary>The type of vulnerability that impacts the customer due to this alert. For more information, see Security alerts reference guide.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,7 +51,7 @@ namespace ApiSdk.Models.Partner.Security
         public string CatalogOfferId { get; set; }
 #endif
         /// <summary>The confidenceLevel property</summary>
-        public SecurityAlertConfidence? ConfidenceLevel { get; set; }
+        public ApiSdk.Models.Partner.Security.SecurityAlertConfidence? ConfidenceLevel { get; set; }
         /// <summary>The impacted customer tenant associated with the alert.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -95,11 +95,11 @@ namespace ApiSdk.Models.Partner.Security
         /// <summary>Time when the alert was resolved. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? ResolvedOnDateTime { get; set; }
         /// <summary>The reason provided by the partner for addressing the alert. The possible values are: legitimate, ignore, fraud, unknownFutureValue.</summary>
-        public SecurityAlertResolvedReason? ResolvedReason { get; set; }
+        public ApiSdk.Models.Partner.Security.SecurityAlertResolvedReason? ResolvedReason { get; set; }
         /// <summary>The severity property</summary>
-        public SecurityAlertSeverity? Severity { get; set; }
+        public ApiSdk.Models.Partner.Security.SecurityAlertSeverity? Severity { get; set; }
         /// <summary>The status property</summary>
-        public SecurityAlertStatus? Status { get; set; }
+        public ApiSdk.Models.Partner.Security.SecurityAlertStatus? Status { get; set; }
         /// <summary>The subscription associated with the alert for the customer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -119,12 +119,12 @@ namespace ApiSdk.Models.Partner.Security
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PartnerSecurityAlert"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Partner.Security.PartnerSecurityAlert"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PartnerSecurityAlert CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Partner.Security.PartnerSecurityAlert CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PartnerSecurityAlert();
+            return new ApiSdk.Models.Partner.Security.PartnerSecurityAlert();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -134,12 +134,12 @@ namespace ApiSdk.Models.Partner.Security
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "activityLogs", n => { ActivityLogs = n.GetCollectionOfObjectValues<ActivityLog>(ActivityLog.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "additionalDetails", n => { AdditionalDetails = n.GetObjectValue<AdditionalDataDictionary>(AdditionalDataDictionary.CreateFromDiscriminatorValue); } },
-                { "affectedResources", n => { AffectedResources = n.GetCollectionOfObjectValues<AffectedResource>(AffectedResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "activityLogs", n => { ActivityLogs = n.GetCollectionOfObjectValues<ApiSdk.Models.Partner.Security.ActivityLog>(ApiSdk.Models.Partner.Security.ActivityLog.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "additionalDetails", n => { AdditionalDetails = n.GetObjectValue<ApiSdk.Models.Partner.Security.AdditionalDataDictionary>(ApiSdk.Models.Partner.Security.AdditionalDataDictionary.CreateFromDiscriminatorValue); } },
+                { "affectedResources", n => { AffectedResources = n.GetCollectionOfObjectValues<ApiSdk.Models.Partner.Security.AffectedResource>(ApiSdk.Models.Partner.Security.AffectedResource.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "alertType", n => { AlertType = n.GetStringValue(); } },
                 { "catalogOfferId", n => { CatalogOfferId = n.GetStringValue(); } },
-                { "confidenceLevel", n => { ConfidenceLevel = n.GetEnumValue<SecurityAlertConfidence>(); } },
+                { "confidenceLevel", n => { ConfidenceLevel = n.GetEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertConfidence>(); } },
                 { "customerTenantId", n => { CustomerTenantId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "detectedDateTime", n => { DetectedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -149,9 +149,9 @@ namespace ApiSdk.Models.Partner.Security
                 { "lastObservedDateTime", n => { LastObservedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "resolvedBy", n => { ResolvedBy = n.GetStringValue(); } },
                 { "resolvedOnDateTime", n => { ResolvedOnDateTime = n.GetDateTimeOffsetValue(); } },
-                { "resolvedReason", n => { ResolvedReason = n.GetEnumValue<SecurityAlertResolvedReason>(); } },
-                { "severity", n => { Severity = n.GetEnumValue<SecurityAlertSeverity>(); } },
-                { "status", n => { Status = n.GetEnumValue<SecurityAlertStatus>(); } },
+                { "resolvedReason", n => { ResolvedReason = n.GetEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertResolvedReason>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertSeverity>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertStatus>(); } },
                 { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
                 { "valueAddedResellerTenantId", n => { ValueAddedResellerTenantId = n.GetStringValue(); } },
             };
@@ -164,12 +164,12 @@ namespace ApiSdk.Models.Partner.Security
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<ActivityLog>("activityLogs", ActivityLogs);
-            writer.WriteObjectValue<AdditionalDataDictionary>("additionalDetails", AdditionalDetails);
-            writer.WriteCollectionOfObjectValues<AffectedResource>("affectedResources", AffectedResources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Partner.Security.ActivityLog>("activityLogs", ActivityLogs);
+            writer.WriteObjectValue<ApiSdk.Models.Partner.Security.AdditionalDataDictionary>("additionalDetails", AdditionalDetails);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Partner.Security.AffectedResource>("affectedResources", AffectedResources);
             writer.WriteStringValue("alertType", AlertType);
             writer.WriteStringValue("catalogOfferId", CatalogOfferId);
-            writer.WriteEnumValue<SecurityAlertConfidence>("confidenceLevel", ConfidenceLevel);
+            writer.WriteEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertConfidence>("confidenceLevel", ConfidenceLevel);
             writer.WriteStringValue("customerTenantId", CustomerTenantId);
             writer.WriteStringValue("description", Description);
             writer.WriteDateTimeOffsetValue("detectedDateTime", DetectedDateTime);
@@ -179,9 +179,9 @@ namespace ApiSdk.Models.Partner.Security
             writer.WriteDateTimeOffsetValue("lastObservedDateTime", LastObservedDateTime);
             writer.WriteStringValue("resolvedBy", ResolvedBy);
             writer.WriteDateTimeOffsetValue("resolvedOnDateTime", ResolvedOnDateTime);
-            writer.WriteEnumValue<SecurityAlertResolvedReason>("resolvedReason", ResolvedReason);
-            writer.WriteEnumValue<SecurityAlertSeverity>("severity", Severity);
-            writer.WriteEnumValue<SecurityAlertStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertResolvedReason>("resolvedReason", ResolvedReason);
+            writer.WriteEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertSeverity>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.Partner.Security.SecurityAlertStatus>("status", Status);
             writer.WriteStringValue("subscriptionId", SubscriptionId);
             writer.WriteStringValue("valueAddedResellerTenantId", ValueAddedResellerTenantId);
         }

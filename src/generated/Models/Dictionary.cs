@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Dictionary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Dictionary"/> and sets the default values.
         /// </summary>
         public Dictionary()
         {
@@ -31,20 +31,20 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Dictionary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Dictionary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Dictionary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Dictionary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.customAppScopeAttributesDictionary" => new CustomAppScopeAttributesDictionary(),
-                "#microsoft.graph.fileStorageContainerCustomPropertyDictionary" => new FileStorageContainerCustomPropertyDictionary(),
-                "#microsoft.graph.partner.security.additionalDataDictionary" => new AdditionalDataDictionary(),
-                "#microsoft.graph.plannerFormsDictionary" => new PlannerFormsDictionary(),
-                "#microsoft.graph.resultTemplateDictionary" => new ResultTemplateDictionary(),
-                _ => new Dictionary(),
+                "#microsoft.graph.customAppScopeAttributesDictionary" => new ApiSdk.Models.CustomAppScopeAttributesDictionary(),
+                "#microsoft.graph.fileStorageContainerCustomPropertyDictionary" => new ApiSdk.Models.FileStorageContainerCustomPropertyDictionary(),
+                "#microsoft.graph.partner.security.additionalDataDictionary" => new ApiSdk.Models.Partner.Security.AdditionalDataDictionary(),
+                "#microsoft.graph.plannerFormsDictionary" => new ApiSdk.Models.PlannerFormsDictionary(),
+                "#microsoft.graph.resultTemplateDictionary" => new ApiSdk.Models.ResultTemplateDictionary(),
+                _ => new ApiSdk.Models.Dictionary(),
             };
         }
         /// <summary>

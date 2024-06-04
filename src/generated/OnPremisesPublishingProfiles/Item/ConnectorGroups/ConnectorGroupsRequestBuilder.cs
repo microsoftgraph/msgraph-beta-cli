@@ -31,7 +31,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new ConnectorGroupItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Item.ConnectorGroupItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildApplicationsNavCommand());
             commands.Add(builder.BuildApplicationsWithAppIdRbCommand());
             commands.Add(builder.BuildApplicationsWithUniqueNameRbCommand());
@@ -49,7 +49,7 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -212,14 +212,14 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorGroupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.ConnectorGroupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ConnectorGroupsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ConnectorGroupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.ConnectorGroupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ConnectorGroupsRequestBuilder(string rawUrl) : base("{+baseurl}/onPremisesPublishingProfiles/{onPremisesPublishingProfile%2Did}/connectorGroups{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -232,11 +232,11 @@ namespace ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectorGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.ConnectorGroupsRequestBuilder.ConnectorGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ConnectorGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.OnPremisesPublishingProfiles.Item.ConnectorGroups.ConnectorGroupsRequestBuilder.ConnectorGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

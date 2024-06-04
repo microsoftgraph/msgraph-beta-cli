@@ -36,7 +36,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.deviceHealthScript entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -63,7 +63,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -115,7 +115,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("device-run-states");
             command.Description = "Provides operations to manage the deviceRunStates property of the microsoft.graph.deviceHealthScript entity.";
-            var builder = new DeviceRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceRunStates.DeviceRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -194,7 +194,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("get-global-script-highest-available-version");
             command.Description = "Provides operations to call the getGlobalScriptHighestAvailableVersion method.";
-            var builder = new GetGlobalScriptHighestAvailableVersionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetGlobalScriptHighestAvailableVersion.GetGlobalScriptHighestAvailableVersionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -211,7 +211,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("get-remediation-history");
             command.Description = "Provides operations to call the getRemediationHistory method.";
-            var builder = new GetRemediationHistoryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.GetRemediationHistory.GetRemediationHistoryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -251,7 +251,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceHealthScript>(DeviceHealthScript.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceHealthScript>(ApiSdk.Models.DeviceHealthScript.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -279,7 +279,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("run-summary");
             command.Description = "Provides operations to manage the runSummary property of the microsoft.graph.deviceHealthScript entity.";
-            var builder = new RunSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.RunSummary.RunSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -298,7 +298,7 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         {
             var command = new Command("update-global-script");
             command.Description = "Provides operations to call the updateGlobalScript method.";
-            var builder = new UpdateGlobalScriptRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.DeviceHealthScripts.Item.UpdateGlobalScript.UpdateGlobalScriptRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -308,14 +308,14 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceHealthScriptItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceHealthScriptItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceHealthScriptItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceHealthScriptItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/deviceHealthScripts/{deviceHealthScript%2Did}{?%24expand,%24select}", rawUrl)
@@ -347,11 +347,11 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceHealthScriptItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceHealthScriptItemRequestBuilder.DeviceHealthScriptItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceHealthScriptItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.DeviceHealthScripts.Item.DeviceHealthScriptItemRequestBuilder.DeviceHealthScriptItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -367,11 +367,11 @@ namespace ApiSdk.DeviceManagement.DeviceHealthScripts.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceHealthScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceHealthScript body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceHealthScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceHealthScript body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

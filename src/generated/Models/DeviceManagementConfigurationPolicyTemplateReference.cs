@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string TemplateDisplayVersion { get; private set; }
 #endif
         /// <summary>Describes the TemplateFamily for the Template entity</summary>
-        public DeviceManagementConfigurationTemplateFamily? TemplateFamily { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTemplateFamily? TemplateFamily { get; set; }
         /// <summary>Template id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -48,7 +48,7 @@ namespace ApiSdk.Models
         public string TemplateId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementConfigurationPolicyTemplateReference"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference"/> and sets the default values.
         /// </summary>
         public DeviceManagementConfigurationPolicyTemplateReference()
         {
@@ -57,12 +57,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationPolicyTemplateReference"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceManagementConfigurationPolicyTemplateReference CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationPolicyTemplateReference();
+            return new ApiSdk.Models.DeviceManagementConfigurationPolicyTemplateReference();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,7 +75,7 @@ namespace ApiSdk.Models
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "templateDisplayName", n => { TemplateDisplayName = n.GetStringValue(); } },
                 { "templateDisplayVersion", n => { TemplateDisplayVersion = n.GetStringValue(); } },
-                { "templateFamily", n => { TemplateFamily = n.GetEnumValue<DeviceManagementConfigurationTemplateFamily>(); } },
+                { "templateFamily", n => { TemplateFamily = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTemplateFamily>(); } },
                 { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
@@ -87,7 +87,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<DeviceManagementConfigurationTemplateFamily>("templateFamily", TemplateFamily);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTemplateFamily>("templateFamily", TemplateFamily);
             writer.WriteStringValue("templateId", TemplateId);
             writer.WriteAdditionalData(AdditionalData);
         }

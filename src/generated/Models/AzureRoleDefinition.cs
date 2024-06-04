@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AzureRoleDefinition : Entity, IParsable
+    public class AzureRoleDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Scopes at which the Azure role can be assigned. For more information about common patterns, see Understand Azure role definitions: AssignableScopes. Supports $filter (eq).</summary>
@@ -39,12 +39,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AzureRoleDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AzureRoleDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AzureRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AzureRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AzureRoleDefinition();
+            return new ApiSdk.Models.AzureRoleDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "assignableScopes", n => { AssignableScopes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "azureRoleDefinitionType", n => { AzureRoleDefinitionType = n.GetEnumValue<AzureRoleDefinitionType>(); } },
+                { "azureRoleDefinitionType", n => { AzureRoleDefinitionType = n.GetEnumValue<ApiSdk.Models.AzureRoleDefinitionType>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
             };
@@ -69,7 +69,7 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteCollectionOfPrimitiveValues<string>("assignableScopes", AssignableScopes);
-            writer.WriteEnumValue<AzureRoleDefinitionType>("azureRoleDefinitionType", AzureRoleDefinitionType);
+            writer.WriteEnumValue<ApiSdk.Models.AzureRoleDefinitionType>("azureRoleDefinitionType", AzureRoleDefinitionType);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
         }

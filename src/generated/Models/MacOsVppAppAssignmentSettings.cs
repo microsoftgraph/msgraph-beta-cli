@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties used to assign an Mac VPP mobile app to a group.
     /// </summary>
-    public class MacOsVppAppAssignmentSettings : MobileAppAssignmentSettings, IParsable
+    public class MacOsVppAppAssignmentSettings : ApiSdk.Models.MobileAppAssignmentSettings, IParsable
     {
         /// <summary>When TRUE, indicates that the app should not be automatically updated with the latest version from Apple app store. When FALSE, indicates that the app may be auto updated. By default, this property is set to null which internally is treated as FALSE.</summary>
         public bool? PreventAutoAppUpdate { get; set; }
@@ -20,7 +20,7 @@ namespace ApiSdk.Models
         /// <summary>Whether or not to use device licensing.</summary>
         public bool? UseDeviceLicensing { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MacOsVppAppAssignmentSettings"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MacOsVppAppAssignmentSettings"/> and sets the default values.
         /// </summary>
         public MacOsVppAppAssignmentSettings() : base()
         {
@@ -29,12 +29,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MacOsVppAppAssignmentSettings"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MacOsVppAppAssignmentSettings"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new MacOsVppAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.MacOsVppAppAssignmentSettings CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MacOsVppAppAssignmentSettings();
+            return new ApiSdk.Models.MacOsVppAppAssignmentSettings();
         }
         /// <summary>
         /// The deserialization information for the current model

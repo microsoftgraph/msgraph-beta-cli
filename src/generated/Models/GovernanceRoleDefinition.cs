@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GovernanceRoleDefinition : Entity, IParsable
+    public class GovernanceRoleDefinition : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the role definition.</summary>
@@ -29,10 +29,10 @@ namespace ApiSdk.Models
         /// <summary>Read-only. The associated resource for the role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernanceResource? Resource { get; set; }
+        public ApiSdk.Models.GovernanceResource? Resource { get; set; }
 #nullable restore
 #else
-        public GovernanceResource Resource { get; set; }
+        public ApiSdk.Models.GovernanceResource Resource { get; set; }
 #endif
         /// <summary>Required. The ID of the resource associated with the role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,10 +45,10 @@ namespace ApiSdk.Models
         /// <summary>The associated role setting for the role definition.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public GovernanceRoleSetting? RoleSetting { get; set; }
+        public ApiSdk.Models.GovernanceRoleSetting? RoleSetting { get; set; }
 #nullable restore
 #else
-        public GovernanceRoleSetting RoleSetting { get; set; }
+        public ApiSdk.Models.GovernanceRoleSetting RoleSetting { get; set; }
 #endif
         /// <summary>The unique identifier for the template.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,12 +61,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GovernanceRoleDefinition"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GovernanceRoleDefinition"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GovernanceRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GovernanceRoleDefinition CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GovernanceRoleDefinition();
+            return new ApiSdk.Models.GovernanceRoleDefinition();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -78,9 +78,9 @@ namespace ApiSdk.Models
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "externalId", n => { ExternalId = n.GetStringValue(); } },
-                { "resource", n => { Resource = n.GetObjectValue<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue); } },
+                { "resource", n => { Resource = n.GetObjectValue<ApiSdk.Models.GovernanceResource>(ApiSdk.Models.GovernanceResource.CreateFromDiscriminatorValue); } },
                 { "resourceId", n => { ResourceId = n.GetStringValue(); } },
-                { "roleSetting", n => { RoleSetting = n.GetObjectValue<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue); } },
+                { "roleSetting", n => { RoleSetting = n.GetObjectValue<ApiSdk.Models.GovernanceRoleSetting>(ApiSdk.Models.GovernanceRoleSetting.CreateFromDiscriminatorValue); } },
                 { "templateId", n => { TemplateId = n.GetStringValue(); } },
             };
         }
@@ -94,9 +94,9 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteStringValue("externalId", ExternalId);
-            writer.WriteObjectValue<GovernanceResource>("resource", Resource);
+            writer.WriteObjectValue<ApiSdk.Models.GovernanceResource>("resource", Resource);
             writer.WriteStringValue("resourceId", ResourceId);
-            writer.WriteObjectValue<GovernanceRoleSetting>("roleSetting", RoleSetting);
+            writer.WriteObjectValue<ApiSdk.Models.GovernanceRoleSetting>("roleSetting", RoleSetting);
             writer.WriteStringValue("templateId", TemplateId);
         }
     }

@@ -40,7 +40,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("api-connectors");
             command.Description = "Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.";
-            var builder = new ApiConnectorsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ApiConnectors.ApiConnectorsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -67,7 +67,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("authentication-event-listeners");
             command.Description = "Provides operations to manage the authenticationEventListeners property of the microsoft.graph.identityContainer entity.";
-            var builder = new AuthenticationEventListenersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.AuthenticationEventListeners.AuthenticationEventListenersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -94,7 +94,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("authentication-events-flows");
             command.Description = "Provides operations to manage the authenticationEventsFlows property of the microsoft.graph.identityContainer entity.";
-            var builder = new AuthenticationEventsFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.AuthenticationEventsFlows.AuthenticationEventsFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -122,7 +122,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("b2c-user-flows");
             command.Description = "Provides operations to manage the b2cUserFlows property of the microsoft.graph.identityContainer entity.";
-            var builder = new B2cUserFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.B2cUserFlows.B2cUserFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -149,7 +149,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("b2x-user-flows");
             command.Description = "Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.";
-            var builder = new B2xUserFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.B2xUserFlows.B2xUserFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -176,7 +176,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("conditional-access");
             command.Description = "The conditionalAccess property";
-            var builder = new ConditionalAccessRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ConditionalAccess.ConditionalAccessRequestBuilder(PathParameters);
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAuthenticationContextClassReferencesNavCommand());
             nonExecCommands.Add(builder.BuildAuthenticationStrengthNavCommand());
@@ -199,7 +199,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("continuous-access-evaluation-policy");
             command.Description = "Provides operations to manage the continuousAccessEvaluationPolicy property of the microsoft.graph.identityContainer entity.";
-            var builder = new ContinuousAccessEvaluationPolicyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.ContinuousAccessEvaluationPolicy.ContinuousAccessEvaluationPolicyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -218,7 +218,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("custom-authentication-extensions");
             command.Description = "Provides operations to manage the customAuthenticationExtensions property of the microsoft.graph.identityContainer entity.";
-            var builder = new CustomAuthenticationExtensionsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.CustomAuthenticationExtensions.CustomAuthenticationExtensionsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -292,7 +292,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("identity-providers");
             command.Description = "Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.";
-            var builder = new IdentityProvidersRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.IdentityProviders.IdentityProvidersRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAvailableProviderTypesNavCommand());
@@ -338,7 +338,7 @@ namespace ApiSdk.Identity
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<IdentityContainer>(IdentityContainer.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.IdentityContainer>(ApiSdk.Models.IdentityContainer.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -365,7 +365,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("user-flow-attributes");
             command.Description = "Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.";
-            var builder = new UserFlowAttributesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.UserFlowAttributes.UserFlowAttributesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -392,7 +392,7 @@ namespace ApiSdk.Identity
         {
             var command = new Command("user-flows");
             command.Description = "Provides operations to manage the userFlows property of the microsoft.graph.identityContainer entity.";
-            var builder = new UserFlowsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Identity.UserFlows.UserFlowsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -412,14 +412,14 @@ namespace ApiSdk.Identity
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="IdentityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.IdentityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public IdentityRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/identity{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="IdentityRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Identity.IdentityRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public IdentityRequestBuilder(string rawUrl) : base("{+baseurl}/identity{?%24expand,%24select}", rawUrl)
@@ -432,11 +432,11 @@ namespace ApiSdk.Identity
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Identity.IdentityRequestBuilder.IdentityRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<IdentityRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Identity.IdentityRequestBuilder.IdentityRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -452,11 +452,11 @@ namespace ApiSdk.Identity
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(IdentityContainer body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityContainer body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(IdentityContainer body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.IdentityContainer body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

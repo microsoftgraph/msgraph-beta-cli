@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Revoke Apple Vpp licenses action result
     /// </summary>
-    public class RevokeAppleVppLicensesActionResult : DeviceActionResult, IParsable
+    public class RevokeAppleVppLicensesActionResult : ApiSdk.Models.DeviceActionResult, IParsable
     {
         /// <summary>Total number of Apple Vpp licenses that failed to revoke</summary>
         public int? FailedLicensesCount { get; set; }
@@ -18,12 +18,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RevokeAppleVppLicensesActionResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RevokeAppleVppLicensesActionResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RevokeAppleVppLicensesActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RevokeAppleVppLicensesActionResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RevokeAppleVppLicensesActionResult();
+            return new ApiSdk.Models.RevokeAppleVppLicensesActionResult();
         }
         /// <summary>
         /// The deserialization information for the current model

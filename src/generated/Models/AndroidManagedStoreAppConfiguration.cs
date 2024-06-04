@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
     /// </summary>
-    public class AndroidManagedStoreAppConfiguration : ManagedDeviceMobileAppConfiguration, IParsable
+    public class AndroidManagedStoreAppConfiguration : ApiSdk.Models.ManagedDeviceMobileAppConfiguration, IParsable
     {
         /// <summary>Whether or not this AppConfig is an OEMConfig policy. This property is read-only.</summary>
         public bool? AppSupportsOemConfig { get; private set; }
@@ -34,15 +34,15 @@ namespace ApiSdk.Models
         /// <summary>List of Android app permissions and corresponding permission actions.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidPermissionAction>? PermissionActions { get; set; }
+        public List<ApiSdk.Models.AndroidPermissionAction>? PermissionActions { get; set; }
 #nullable restore
 #else
-        public List<AndroidPermissionAction> PermissionActions { get; set; }
+        public List<ApiSdk.Models.AndroidPermissionAction> PermissionActions { get; set; }
 #endif
         /// <summary>Android profile applicability</summary>
-        public AndroidProfileApplicability? ProfileApplicability { get; set; }
+        public ApiSdk.Models.AndroidProfileApplicability? ProfileApplicability { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreAppConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidManagedStoreAppConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidManagedStoreAppConfiguration() : base()
         {
@@ -51,12 +51,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidManagedStoreAppConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidManagedStoreAppConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidManagedStoreAppConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidManagedStoreAppConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidManagedStoreAppConfiguration();
+            return new ApiSdk.Models.AndroidManagedStoreAppConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -70,8 +70,8 @@ namespace ApiSdk.Models
                 { "connectedAppsEnabled", n => { ConnectedAppsEnabled = n.GetBoolValue(); } },
                 { "packageId", n => { PackageId = n.GetStringValue(); } },
                 { "payloadJson", n => { PayloadJson = n.GetStringValue(); } },
-                { "permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<AndroidPermissionAction>(AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "profileApplicability", n => { ProfileApplicability = n.GetEnumValue<AndroidProfileApplicability>(); } },
+                { "permissionActions", n => { PermissionActions = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidPermissionAction>(ApiSdk.Models.AndroidPermissionAction.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "profileApplicability", n => { ProfileApplicability = n.GetEnumValue<ApiSdk.Models.AndroidProfileApplicability>(); } },
             };
         }
         /// <summary>
@@ -85,8 +85,8 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("connectedAppsEnabled", ConnectedAppsEnabled);
             writer.WriteStringValue("packageId", PackageId);
             writer.WriteStringValue("payloadJson", PayloadJson);
-            writer.WriteCollectionOfObjectValues<AndroidPermissionAction>("permissionActions", PermissionActions);
-            writer.WriteEnumValue<AndroidProfileApplicability>("profileApplicability", ProfileApplicability);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidPermissionAction>("permissionActions", PermissionActions);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidProfileApplicability>("profileApplicability", ProfileApplicability);
         }
     }
 }

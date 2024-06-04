@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Device Management Configuration Policy
     /// </summary>
-    public class DeviceManagementConfigurationCategory : Entity, IParsable
+    public class DeviceManagementConfigurationCategory : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Description of the category header in policy summary.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,7 +68,7 @@ namespace ApiSdk.Models
         public string ParentCategoryId { get; set; }
 #endif
         /// <summary>Supported platform types.</summary>
-        public DeviceManagementConfigurationPlatforms? Platforms { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationPlatforms? Platforms { get; set; }
         /// <summary>Root id of the category.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,18 +78,18 @@ namespace ApiSdk.Models
         public string RootCategoryId { get; set; }
 #endif
         /// <summary>Supported setting types</summary>
-        public DeviceManagementConfigurationSettingUsage? SettingUsage { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationSettingUsage? SettingUsage { get; set; }
         /// <summary>Describes which technology this setting can be deployed with</summary>
-        public DeviceManagementConfigurationTechnologies? Technologies { get; set; }
+        public ApiSdk.Models.DeviceManagementConfigurationTechnologies? Technologies { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceManagementConfigurationCategory"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagementConfigurationCategory"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceManagementConfigurationCategory CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceManagementConfigurationCategory CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceManagementConfigurationCategory();
+            return new ApiSdk.Models.DeviceManagementConfigurationCategory();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -106,10 +106,10 @@ namespace ApiSdk.Models
                 { "helpText", n => { HelpText = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "parentCategoryId", n => { ParentCategoryId = n.GetStringValue(); } },
-                { "platforms", n => { Platforms = n.GetEnumValue<DeviceManagementConfigurationPlatforms>(); } },
+                { "platforms", n => { Platforms = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>(); } },
                 { "rootCategoryId", n => { RootCategoryId = n.GetStringValue(); } },
-                { "settingUsage", n => { SettingUsage = n.GetEnumValue<DeviceManagementConfigurationSettingUsage>(); } },
-                { "technologies", n => { Technologies = n.GetEnumValue<DeviceManagementConfigurationTechnologies>(); } },
+                { "settingUsage", n => { SettingUsage = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingUsage>(); } },
+                { "technologies", n => { Technologies = n.GetEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>(); } },
             };
         }
         /// <summary>
@@ -127,10 +127,10 @@ namespace ApiSdk.Models
             writer.WriteStringValue("helpText", HelpText);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("parentCategoryId", ParentCategoryId);
-            writer.WriteEnumValue<DeviceManagementConfigurationPlatforms>("platforms", Platforms);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationPlatforms>("platforms", Platforms);
             writer.WriteStringValue("rootCategoryId", RootCategoryId);
-            writer.WriteEnumValue<DeviceManagementConfigurationSettingUsage>("settingUsage", SettingUsage);
-            writer.WriteEnumValue<DeviceManagementConfigurationTechnologies>("technologies", Technologies);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationSettingUsage>("settingUsage", SettingUsage);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagementConfigurationTechnologies>("technologies", Technologies);
         }
     }
 }

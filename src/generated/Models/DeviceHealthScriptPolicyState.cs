@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public List<string> AssignmentFilterIds { get; set; }
 #endif
         /// <summary>Indicates the type of execution status of the device management script.</summary>
-        public RunState? DetectionState { get; set; }
+        public ApiSdk.Models.RunState? DetectionState { get; set; }
         /// <summary>The Intune device Id</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -136,7 +136,7 @@ namespace ApiSdk.Models
         public string UserName { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DeviceHealthScriptPolicyState"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceHealthScriptPolicyState"/> and sets the default values.
         /// </summary>
         public DeviceHealthScriptPolicyState()
         {
@@ -145,12 +145,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceHealthScriptPolicyState"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceHealthScriptPolicyState"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DeviceHealthScriptPolicyState CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceHealthScriptPolicyState CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceHealthScriptPolicyState();
+            return new ApiSdk.Models.DeviceHealthScriptPolicyState();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -161,7 +161,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "assignmentFilterIds", n => { AssignmentFilterIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "detectionState", n => { DetectionState = n.GetEnumValue<RunState>(); } },
+                { "detectionState", n => { DetectionState = n.GetEnumValue<ApiSdk.Models.RunState>(); } },
                 { "deviceId", n => { DeviceId = n.GetStringValue(); } },
                 { "deviceName", n => { DeviceName = n.GetStringValue(); } },
                 { "expectedStateUpdateDateTime", n => { ExpectedStateUpdateDateTime = n.GetDateTimeOffsetValue(); } },
@@ -177,7 +177,7 @@ namespace ApiSdk.Models
                 { "preRemediationDetectionScriptError", n => { PreRemediationDetectionScriptError = n.GetStringValue(); } },
                 { "preRemediationDetectionScriptOutput", n => { PreRemediationDetectionScriptOutput = n.GetStringValue(); } },
                 { "remediationScriptError", n => { RemediationScriptError = n.GetStringValue(); } },
-                { "remediationState", n => { RemediationState = n.GetEnumValue<RemediationState>(); } },
+                { "remediationState", n => { RemediationState = n.GetEnumValue<ApiSdk.Models.RemediationState>(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
             };
         }
@@ -189,7 +189,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("assignmentFilterIds", AssignmentFilterIds);
-            writer.WriteEnumValue<RunState>("detectionState", DetectionState);
+            writer.WriteEnumValue<ApiSdk.Models.RunState>("detectionState", DetectionState);
             writer.WriteStringValue("deviceId", DeviceId);
             writer.WriteStringValue("deviceName", DeviceName);
             writer.WriteDateTimeOffsetValue("expectedStateUpdateDateTime", ExpectedStateUpdateDateTime);
@@ -205,7 +205,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("preRemediationDetectionScriptError", PreRemediationDetectionScriptError);
             writer.WriteStringValue("preRemediationDetectionScriptOutput", PreRemediationDetectionScriptOutput);
             writer.WriteStringValue("remediationScriptError", RemediationScriptError);
-            writer.WriteEnumValue<RemediationState>("remediationState", RemediationState);
+            writer.WriteEnumValue<ApiSdk.Models.RemediationState>("remediationState", RemediationState);
             writer.WriteStringValue("userName", UserName);
             writer.WriteAdditionalData(AdditionalData);
         }

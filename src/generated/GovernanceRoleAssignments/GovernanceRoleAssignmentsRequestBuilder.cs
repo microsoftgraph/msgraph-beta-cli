@@ -32,7 +32,7 @@ namespace ApiSdk.GovernanceRoleAssignments
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new GovernanceRoleAssignmentItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceRoleAssignments.Item.GovernanceRoleAssignmentItemRequestBuilder(PathParameters);
             executables.Add(builder.BuildDeleteCommand());
             executables.Add(builder.BuildGetCommand());
             commands.Add(builder.BuildLinkedEligibleRoleAssignmentNavCommand());
@@ -50,7 +50,7 @@ namespace ApiSdk.GovernanceRoleAssignments
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceRoleAssignments.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -85,7 +85,7 @@ namespace ApiSdk.GovernanceRoleAssignments
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GovernanceRoleAssignment>(GovernanceRoleAssignment.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GovernanceRoleAssignment>(ApiSdk.Models.GovernanceRoleAssignment.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -112,7 +112,7 @@ namespace ApiSdk.GovernanceRoleAssignments
         {
             var command = new Command("export");
             command.Description = "Provides operations to call the export method.";
-            var builder = new ExportRequestBuilder(PathParameters);
+            var builder = new ApiSdk.GovernanceRoleAssignments.Export.ExportRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -218,14 +218,14 @@ namespace ApiSdk.GovernanceRoleAssignments
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceRoleAssignmentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceRoleAssignments.GovernanceRoleAssignmentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GovernanceRoleAssignmentsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/governanceRoleAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GovernanceRoleAssignmentsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.GovernanceRoleAssignments.GovernanceRoleAssignmentsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GovernanceRoleAssignmentsRequestBuilder(string rawUrl) : base("{+baseurl}/governanceRoleAssignments{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -238,11 +238,11 @@ namespace ApiSdk.GovernanceRoleAssignments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GovernanceRoleAssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceRoleAssignments.GovernanceRoleAssignmentsRequestBuilder.GovernanceRoleAssignmentsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GovernanceRoleAssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.GovernanceRoleAssignments.GovernanceRoleAssignmentsRequestBuilder.GovernanceRoleAssignmentsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -258,11 +258,11 @@ namespace ApiSdk.GovernanceRoleAssignments
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Models.GovernanceRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

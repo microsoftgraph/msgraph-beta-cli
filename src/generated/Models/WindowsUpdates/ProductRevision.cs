@@ -37,10 +37,10 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The osBuild property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public BuildVersionDetails? OsBuild { get; set; }
+        public ApiSdk.Models.WindowsUpdates.BuildVersionDetails? OsBuild { get; set; }
 #nullable restore
 #else
-        public BuildVersionDetails OsBuild { get; set; }
+        public ApiSdk.Models.WindowsUpdates.BuildVersionDetails OsBuild { get; set; }
 #endif
         /// <summary>The product of the revision. Possible values are: Windows 10, Windows 11. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,12 +63,12 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ProductRevision"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.ProductRevision"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ProductRevision CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.ProductRevision CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ProductRevision();
+            return new ApiSdk.Models.WindowsUpdates.ProductRevision();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -81,7 +81,7 @@ namespace ApiSdk.Models.WindowsUpdates
                 { "catalogEntry", n => { CatalogEntry = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>(ApiSdk.Models.WindowsUpdates.CatalogEntry.CreateFromDiscriminatorValue); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "knowledgeBaseArticle", n => { KnowledgeBaseArticle = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>(ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle.CreateFromDiscriminatorValue); } },
-                { "osBuild", n => { OsBuild = n.GetObjectValue<BuildVersionDetails>(BuildVersionDetails.CreateFromDiscriminatorValue); } },
+                { "osBuild", n => { OsBuild = n.GetObjectValue<ApiSdk.Models.WindowsUpdates.BuildVersionDetails>(ApiSdk.Models.WindowsUpdates.BuildVersionDetails.CreateFromDiscriminatorValue); } },
                 { "product", n => { Product = n.GetStringValue(); } },
                 { "releaseDateTime", n => { ReleaseDateTime = n.GetDateTimeOffsetValue(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
@@ -98,7 +98,7 @@ namespace ApiSdk.Models.WindowsUpdates
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.CatalogEntry>("catalogEntry", CatalogEntry);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.KnowledgeBaseArticle>("knowledgeBaseArticle", KnowledgeBaseArticle);
-            writer.WriteObjectValue<BuildVersionDetails>("osBuild", OsBuild);
+            writer.WriteObjectValue<ApiSdk.Models.WindowsUpdates.BuildVersionDetails>("osBuild", OsBuild);
             writer.WriteStringValue("product", Product);
             writer.WriteDateTimeOffsetValue("releaseDateTime", ReleaseDateTime);
             writer.WriteStringValue("version", Version);

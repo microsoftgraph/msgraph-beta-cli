@@ -117,7 +117,7 @@ namespace ApiSdk.Monitoring.AlertRecords.Item
         {
             var command = new Command("microsoft-graph-device-management-set-portal-notification-as-sent");
             command.Description = "Provides operations to call the setPortalNotificationAsSent method.";
-            var builder = new MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Monitoring.AlertRecords.Item.MicrosoftGraphDeviceManagementSetPortalNotificationAsSent.MicrosoftGraphDeviceManagementSetPortalNotificationAsSentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -157,7 +157,7 @@ namespace ApiSdk.Monitoring.AlertRecords.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<AlertRecord>(AlertRecord.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagement.AlertRecord>(ApiSdk.Models.DeviceManagement.AlertRecord.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -178,14 +178,14 @@ namespace ApiSdk.Monitoring.AlertRecords.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlertRecordItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.Item.AlertRecordItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AlertRecordItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/monitoring/alertRecords/{alertRecord%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AlertRecordItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Monitoring.AlertRecords.Item.AlertRecordItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AlertRecordItemRequestBuilder(string rawUrl) : base("{+baseurl}/monitoring/alertRecords/{alertRecord%2Did}{?%24expand,%24select}", rawUrl)
@@ -217,11 +217,11 @@ namespace ApiSdk.Monitoring.AlertRecords.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertRecordItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Monitoring.AlertRecords.Item.AlertRecordItemRequestBuilder.AlertRecordItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AlertRecordItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Monitoring.AlertRecords.Item.AlertRecordItemRequestBuilder.AlertRecordItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -237,11 +237,11 @@ namespace ApiSdk.Monitoring.AlertRecords.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(AlertRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagement.AlertRecord body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(AlertRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagement.AlertRecord body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

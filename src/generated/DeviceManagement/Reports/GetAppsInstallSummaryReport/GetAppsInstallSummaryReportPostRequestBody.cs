@@ -73,7 +73,7 @@ namespace ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport
         /// <summary>The top property</summary>
         public int? Top { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="GetAppsInstallSummaryReportPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport.GetAppsInstallSummaryReportPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetAppsInstallSummaryReportPostRequestBody()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetAppsInstallSummaryReportPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport.GetAppsInstallSummaryReportPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetAppsInstallSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport.GetAppsInstallSummaryReportPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetAppsInstallSummaryReportPostRequestBody();
+            return new ApiSdk.DeviceManagement.Reports.GetAppsInstallSummaryReport.GetAppsInstallSummaryReportPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

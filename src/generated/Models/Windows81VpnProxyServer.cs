@@ -9,14 +9,14 @@ namespace ApiSdk.Models
     /// <summary>
     /// VPN Proxy Server.
     /// </summary>
-    public class Windows81VpnProxyServer : VpnProxyServer, IParsable
+    public class Windows81VpnProxyServer : ApiSdk.Models.VpnProxyServer, IParsable
     {
         /// <summary>Automatically detect proxy settings.</summary>
         public bool? AutomaticallyDetectProxySettings { get; set; }
         /// <summary>Bypass proxy server for local address.</summary>
         public bool? BypassProxyServerForLocalAddress { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="Windows81VpnProxyServer"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Windows81VpnProxyServer"/> and sets the default values.
         /// </summary>
         public Windows81VpnProxyServer() : base()
         {
@@ -25,12 +25,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Windows81VpnProxyServer"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Windows81VpnProxyServer"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Windows81VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Windows81VpnProxyServer CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Windows81VpnProxyServer();
+            return new ApiSdk.Models.Windows81VpnProxyServer();
         }
         /// <summary>
         /// The deserialization information for the current model

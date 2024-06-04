@@ -9,26 +9,26 @@ using System;
 namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime
 {
     #pragma warning disable CS1591
-    public class GetSmsLogWithFromDateTimeWithToDateTimeGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetSmsLogWithFromDateTimeWithToDateTimeGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SmsLogRow>? Value { get; set; }
+        public List<ApiSdk.Models.CallRecords.SmsLogRow>? Value { get; set; }
 #nullable restore
 #else
-        public List<SmsLogRow> Value { get; set; }
+        public List<ApiSdk.Models.CallRecords.SmsLogRow> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetSmsLogWithFromDateTimeWithToDateTimeGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime.GetSmsLogWithFromDateTimeWithToDateTimeGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetSmsLogWithFromDateTimeWithToDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime.GetSmsLogWithFromDateTimeWithToDateTimeGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetSmsLogWithFromDateTimeWithToDateTimeGetResponse();
+            return new ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWithFromDateTimeWithToDateTime.GetSmsLogWithFromDateTimeWithToDateTimeGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +38,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<SmsLogRow>(SmsLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.CallRecords.SmsLogRow>(ApiSdk.Models.CallRecords.SmsLogRow.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace ApiSdk.Communications.CallRecords.MicrosoftGraphCallRecordsGetSmsLogWi
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<SmsLogRow>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CallRecords.SmsLogRow>("value", Value);
         }
     }
 }

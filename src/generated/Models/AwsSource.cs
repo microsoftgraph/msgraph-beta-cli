@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AwsSource : AuthorizationSystemIdentitySource, IParsable
+    public class AwsSource : ApiSdk.Models.AuthorizationSystemIdentitySource, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>AWS account ID.</summary>
@@ -19,7 +19,7 @@ namespace ApiSdk.Models
         public string AccountId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AwsSource"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AwsSource"/> and sets the default values.
         /// </summary>
         public AwsSource() : base()
         {
@@ -28,12 +28,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AwsSource"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AwsSource"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AwsSource CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AwsSource CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AwsSource();
+            return new ApiSdk.Models.AwsSource();
         }
         /// <summary>
         /// The deserialization information for the current model

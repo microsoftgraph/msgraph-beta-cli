@@ -39,7 +39,7 @@ namespace ApiSdk.Models.CallRecords
         public string RemediationId { get; set; }
 #endif
         /// <summary>Indicates whether the user is blocked or unblocked from making PSTN calls in Microsoft Teams. The possible values are: blocked, unblocked, unknownFutureValue.</summary>
-        public PstnUserBlockMode? UserBlockMode { get; set; }
+        public ApiSdk.Models.CallRecords.PstnUserBlockMode? UserBlockMode { get; set; }
         /// <summary>Display name of the user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,7 +73,7 @@ namespace ApiSdk.Models.CallRecords
         public string UserTelephoneNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PstnBlockedUsersLogRow"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow"/> and sets the default values.
         /// </summary>
         public PstnBlockedUsersLogRow()
         {
@@ -82,12 +82,12 @@ namespace ApiSdk.Models.CallRecords
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PstnBlockedUsersLogRow"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PstnBlockedUsersLogRow CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PstnBlockedUsersLogRow();
+            return new ApiSdk.Models.CallRecords.PstnBlockedUsersLogRow();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -101,7 +101,7 @@ namespace ApiSdk.Models.CallRecords
                 { "blockReason", n => { BlockReason = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
                 { "remediationId", n => { RemediationId = n.GetStringValue(); } },
-                { "userBlockMode", n => { UserBlockMode = n.GetEnumValue<PstnUserBlockMode>(); } },
+                { "userBlockMode", n => { UserBlockMode = n.GetEnumValue<ApiSdk.Models.CallRecords.PstnUserBlockMode>(); } },
                 { "userDisplayName", n => { UserDisplayName = n.GetStringValue(); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
@@ -119,7 +119,7 @@ namespace ApiSdk.Models.CallRecords
             writer.WriteStringValue("blockReason", BlockReason);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteStringValue("remediationId", RemediationId);
-            writer.WriteEnumValue<PstnUserBlockMode>("userBlockMode", UserBlockMode);
+            writer.WriteEnumValue<ApiSdk.Models.CallRecords.PstnUserBlockMode>("userBlockMode", UserBlockMode);
             writer.WriteStringValue("userDisplayName", UserDisplayName);
             writer.WriteStringValue("userId", UserId);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);

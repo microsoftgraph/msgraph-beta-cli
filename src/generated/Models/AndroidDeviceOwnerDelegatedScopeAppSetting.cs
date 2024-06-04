@@ -16,18 +16,18 @@ namespace ApiSdk.Models
         /// <summary>Represents an app in the list of managed applications</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AppListItem? AppDetail { get; set; }
+        public ApiSdk.Models.AppListItem? AppDetail { get; set; }
 #nullable restore
 #else
-        public AppListItem AppDetail { get; set; }
+        public ApiSdk.Models.AppListItem AppDetail { get; set; }
 #endif
         /// <summary>List of scopes an app has been assigned.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerDelegatedAppScopeType?>? AppScopes { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerDelegatedAppScopeType?>? AppScopes { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerDelegatedAppScopeType?> AppScopes { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerDelegatedAppScopeType?> AppScopes { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerDelegatedScopeAppSetting"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerDelegatedScopeAppSetting()
         {
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerDelegatedScopeAppSetting"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AndroidDeviceOwnerDelegatedScopeAppSetting CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerDelegatedScopeAppSetting();
+            return new ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,8 +62,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appDetail", n => { AppDetail = n.GetObjectValue<AppListItem>(AppListItem.CreateFromDiscriminatorValue); } },
-                { "appScopes", n => { AppScopes = n.GetCollectionOfEnumValues<AndroidDeviceOwnerDelegatedAppScopeType>()?.ToList(); } },
+                { "appDetail", n => { AppDetail = n.GetObjectValue<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue); } },
+                { "appScopes", n => { AppScopes = n.GetCollectionOfEnumValues<ApiSdk.Models.AndroidDeviceOwnerDelegatedAppScopeType>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -74,8 +74,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<AppListItem>("appDetail", AppDetail);
-            writer.WriteCollectionOfEnumValues<AndroidDeviceOwnerDelegatedAppScopeType>("appScopes", AppScopes);
+            writer.WriteObjectValue<ApiSdk.Models.AppListItem>("appDetail", AppDetail);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.AndroidDeviceOwnerDelegatedAppScopeType>("appScopes", AppScopes);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -14,9 +14,9 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>Represents type of the assignment filter.</summary>
-        public DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
+        public ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType? AssignmentFilterType { get; set; }
         /// <summary>Supported evaluation results for filter.</summary>
-        public AssignmentFilterEvaluationResult? EvaluationResult { get; set; }
+        public ApiSdk.Models.AssignmentFilterEvaluationResult? EvaluationResult { get; set; }
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -26,7 +26,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignmentFilterTypeAndEvaluationResult"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult"/> and sets the default values.
         /// </summary>
         public AssignmentFilterTypeAndEvaluationResult()
         {
@@ -35,12 +35,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignmentFilterTypeAndEvaluationResult"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignmentFilterTypeAndEvaluationResult CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignmentFilterTypeAndEvaluationResult();
+            return new ApiSdk.Models.AssignmentFilterTypeAndEvaluationResult();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -50,8 +50,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<DeviceAndAppManagementAssignmentFilterType>(); } },
-                { "evaluationResult", n => { EvaluationResult = n.GetEnumValue<AssignmentFilterEvaluationResult>(); } },
+                { "assignmentFilterType", n => { AssignmentFilterType = n.GetEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>(); } },
+                { "evaluationResult", n => { EvaluationResult = n.GetEnumValue<ApiSdk.Models.AssignmentFilterEvaluationResult>(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -62,8 +62,8 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
-            writer.WriteEnumValue<AssignmentFilterEvaluationResult>("evaluationResult", EvaluationResult);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceAndAppManagementAssignmentFilterType>("assignmentFilterType", AssignmentFilterType);
+            writer.WriteEnumValue<ApiSdk.Models.AssignmentFilterEvaluationResult>("evaluationResult", EvaluationResult);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

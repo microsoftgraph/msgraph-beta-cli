@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The user experience analytics battery health device app impact entity contains battery usage related information at an app level for a given device.
     /// </summary>
-    public class UserExperienceAnalyticsBatteryHealthDeviceAppImpact : Entity, IParsable
+    public class UserExperienceAnalyticsBatteryHealthDeviceAppImpact : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>User friendly display name for the app. Eg: Outlook</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserExperienceAnalyticsBatteryHealthDeviceAppImpact"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceAppImpact"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UserExperienceAnalyticsBatteryHealthDeviceAppImpact CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceAppImpact CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserExperienceAnalyticsBatteryHealthDeviceAppImpact();
+            return new ApiSdk.Models.UserExperienceAnalyticsBatteryHealthDeviceAppImpact();
         }
         /// <summary>
         /// The deserialization information for the current model

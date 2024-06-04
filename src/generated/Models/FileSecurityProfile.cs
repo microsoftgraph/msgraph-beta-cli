@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class FileSecurityProfile : Entity, IParsable
+    public class FileSecurityProfile : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The activityGroupNames property</summary>
@@ -63,20 +63,20 @@ namespace ApiSdk.Models
         /// <summary>The hashes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<FileHash>? Hashes { get; set; }
+        public List<ApiSdk.Models.FileHash>? Hashes { get; set; }
 #nullable restore
 #else
-        public List<FileHash> Hashes { get; set; }
+        public List<ApiSdk.Models.FileHash> Hashes { get; set; }
 #endif
         /// <summary>The lastSeenDateTime property</summary>
         public DateTimeOffset? LastSeenDateTime { get; set; }
         /// <summary>The malwareStates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MalwareState>? MalwareStates { get; set; }
+        public List<ApiSdk.Models.MalwareState>? MalwareStates { get; set; }
 #nullable restore
 #else
-        public List<MalwareState> MalwareStates { get; set; }
+        public List<ApiSdk.Models.MalwareState> MalwareStates { get; set; }
 #endif
         /// <summary>The names property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -107,28 +107,28 @@ namespace ApiSdk.Models
         /// <summary>The vendorInformation property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public SecurityVendorInformation? VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation? VendorInformation { get; set; }
 #nullable restore
 #else
-        public SecurityVendorInformation VendorInformation { get; set; }
+        public ApiSdk.Models.SecurityVendorInformation VendorInformation { get; set; }
 #endif
         /// <summary>The vulnerabilityStates property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<VulnerabilityState>? VulnerabilityStates { get; set; }
+        public List<ApiSdk.Models.VulnerabilityState>? VulnerabilityStates { get; set; }
 #nullable restore
 #else
-        public List<VulnerabilityState> VulnerabilityStates { get; set; }
+        public List<ApiSdk.Models.VulnerabilityState> VulnerabilityStates { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="FileSecurityProfile"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.FileSecurityProfile"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new FileSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.FileSecurityProfile CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new FileSecurityProfile();
+            return new ApiSdk.Models.FileSecurityProfile();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -145,15 +145,15 @@ namespace ApiSdk.Models
                 { "extensions", n => { Extensions = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "fileType", n => { FileType = n.GetStringValue(); } },
                 { "firstSeenDateTime", n => { FirstSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                { "hashes", n => { Hashes = n.GetCollectionOfObjectValues<FileHash>(FileHash.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "hashes", n => { Hashes = n.GetCollectionOfObjectValues<ApiSdk.Models.FileHash>(ApiSdk.Models.FileHash.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "lastSeenDateTime", n => { LastSeenDateTime = n.GetDateTimeOffsetValue(); } },
-                { "malwareStates", n => { MalwareStates = n.GetCollectionOfObjectValues<MalwareState>(MalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "malwareStates", n => { MalwareStates = n.GetCollectionOfObjectValues<ApiSdk.Models.MalwareState>(ApiSdk.Models.MalwareState.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "names", n => { Names = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "riskScore", n => { RiskScore = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetLongValue(); } },
                 { "tags", n => { Tags = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<SecurityVendorInformation>(SecurityVendorInformation.CreateFromDiscriminatorValue); } },
-                { "vulnerabilityStates", n => { VulnerabilityStates = n.GetCollectionOfObjectValues<VulnerabilityState>(VulnerabilityState.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "vendorInformation", n => { VendorInformation = n.GetObjectValue<ApiSdk.Models.SecurityVendorInformation>(ApiSdk.Models.SecurityVendorInformation.CreateFromDiscriminatorValue); } },
+                { "vulnerabilityStates", n => { VulnerabilityStates = n.GetCollectionOfObjectValues<ApiSdk.Models.VulnerabilityState>(ApiSdk.Models.VulnerabilityState.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -171,15 +171,15 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("extensions", Extensions);
             writer.WriteStringValue("fileType", FileType);
             writer.WriteDateTimeOffsetValue("firstSeenDateTime", FirstSeenDateTime);
-            writer.WriteCollectionOfObjectValues<FileHash>("hashes", Hashes);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.FileHash>("hashes", Hashes);
             writer.WriteDateTimeOffsetValue("lastSeenDateTime", LastSeenDateTime);
-            writer.WriteCollectionOfObjectValues<MalwareState>("malwareStates", MalwareStates);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MalwareState>("malwareStates", MalwareStates);
             writer.WriteCollectionOfPrimitiveValues<string>("names", Names);
             writer.WriteStringValue("riskScore", RiskScore);
             writer.WriteLongValue("size", Size);
             writer.WriteCollectionOfPrimitiveValues<string>("tags", Tags);
-            writer.WriteObjectValue<SecurityVendorInformation>("vendorInformation", VendorInformation);
-            writer.WriteCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", VulnerabilityStates);
+            writer.WriteObjectValue<ApiSdk.Models.SecurityVendorInformation>("vendorInformation", VendorInformation);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.VulnerabilityState>("vulnerabilityStates", VulnerabilityStates);
         }
     }
 }

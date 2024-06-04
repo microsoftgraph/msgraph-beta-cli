@@ -65,9 +65,9 @@ namespace ApiSdk.Models.DeviceManagement
         public string OdataType { get; set; }
 #endif
         /// <summary>The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.</summary>
-        public RuleSeverityType? Severity { get; set; }
+        public ApiSdk.Models.DeviceManagement.RuleSeverityType? Severity { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="PortalNotification"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.DeviceManagement.PortalNotification"/> and sets the default values.
         /// </summary>
         public PortalNotification()
         {
@@ -76,12 +76,12 @@ namespace ApiSdk.Models.DeviceManagement
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PortalNotification"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceManagement.PortalNotification"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PortalNotification CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.DeviceManagement.PortalNotification CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PortalNotification();
+            return new ApiSdk.Models.DeviceManagement.PortalNotification();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,11 +95,11 @@ namespace ApiSdk.Models.DeviceManagement
                 { "alertRecordId", n => { AlertRecordId = n.GetStringValue(); } },
                 { "alertRuleId", n => { AlertRuleId = n.GetStringValue(); } },
                 { "alertRuleName", n => { AlertRuleName = n.GetStringValue(); } },
-                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<AlertRuleTemplate>(); } },
+                { "alertRuleTemplate", n => { AlertRuleTemplate = n.GetEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "isPortalNotificationSent", n => { IsPortalNotificationSent = n.GetBoolValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "severity", n => { Severity = n.GetEnumValue<RuleSeverityType>(); } },
+                { "severity", n => { Severity = n.GetEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>(); } },
             };
         }
         /// <summary>
@@ -113,11 +113,11 @@ namespace ApiSdk.Models.DeviceManagement
             writer.WriteStringValue("alertRecordId", AlertRecordId);
             writer.WriteStringValue("alertRuleId", AlertRuleId);
             writer.WriteStringValue("alertRuleName", AlertRuleName);
-            writer.WriteEnumValue<AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.AlertRuleTemplate>("alertRuleTemplate", AlertRuleTemplate);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("isPortalNotificationSent", IsPortalNotificationSent);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<RuleSeverityType>("severity", Severity);
+            writer.WriteEnumValue<ApiSdk.Models.DeviceManagement.RuleSeverityType>("severity", Severity);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

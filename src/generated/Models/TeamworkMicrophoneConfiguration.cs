@@ -15,20 +15,20 @@ namespace ApiSdk.Models
         /// <summary>The defaultMicrophone property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public TeamworkPeripheral? DefaultMicrophone { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral? DefaultMicrophone { get; set; }
 #nullable restore
 #else
-        public TeamworkPeripheral DefaultMicrophone { get; set; }
+        public ApiSdk.Models.TeamworkPeripheral DefaultMicrophone { get; set; }
 #endif
         /// <summary>True if the configured microphone is optional. False if the microphone is not optional and the health state of the device should be computed.</summary>
         public bool? IsMicrophoneOptional { get; set; }
         /// <summary>The microphones property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TeamworkPeripheral>? Microphones { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheral>? Microphones { get; set; }
 #nullable restore
 #else
-        public List<TeamworkPeripheral> Microphones { get; set; }
+        public List<ApiSdk.Models.TeamworkPeripheral> Microphones { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,7 +39,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkMicrophoneConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkMicrophoneConfiguration"/> and sets the default values.
         /// </summary>
         public TeamworkMicrophoneConfiguration()
         {
@@ -48,12 +48,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkMicrophoneConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkMicrophoneConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkMicrophoneConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkMicrophoneConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkMicrophoneConfiguration();
+            return new ApiSdk.Models.TeamworkMicrophoneConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -63,9 +63,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "defaultMicrophone", n => { DefaultMicrophone = n.GetObjectValue<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue); } },
+                { "defaultMicrophone", n => { DefaultMicrophone = n.GetObjectValue<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue); } },
                 { "isMicrophoneOptional", n => { IsMicrophoneOptional = n.GetBoolValue(); } },
-                { "microphones", n => { Microphones = n.GetCollectionOfObjectValues<TeamworkPeripheral>(TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "microphones", n => { Microphones = n.GetCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheral>(ApiSdk.Models.TeamworkPeripheral.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -76,9 +76,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<TeamworkPeripheral>("defaultMicrophone", DefaultMicrophone);
+            writer.WriteObjectValue<ApiSdk.Models.TeamworkPeripheral>("defaultMicrophone", DefaultMicrophone);
             writer.WriteBoolValue("isMicrophoneOptional", IsMicrophoneOptional);
-            writer.WriteCollectionOfObjectValues<TeamworkPeripheral>("microphones", Microphones);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TeamworkPeripheral>("microphones", Microphones);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

@@ -15,26 +15,26 @@ namespace ApiSdk.Models
         /// <summary>Information about the requirements of an approval.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerApprovalRequirement? ApprovalRequirement { get; set; }
+        public ApiSdk.Models.PlannerApprovalRequirement? ApprovalRequirement { get; set; }
 #nullable restore
 #else
-        public PlannerApprovalRequirement ApprovalRequirement { get; set; }
+        public ApiSdk.Models.PlannerApprovalRequirement ApprovalRequirement { get; set; }
 #endif
         /// <summary>Information about the requirements for completing the checklist.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerChecklistRequirement? ChecklistRequirement { get; set; }
+        public ApiSdk.Models.PlannerChecklistRequirement? ChecklistRequirement { get; set; }
 #nullable restore
 #else
-        public PlannerChecklistRequirement ChecklistRequirement { get; set; }
+        public ApiSdk.Models.PlannerChecklistRequirement ChecklistRequirement { get; set; }
 #endif
         /// <summary>Information about the requirements for completing the forms.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PlannerFormsRequirement? FormsRequirement { get; set; }
+        public ApiSdk.Models.PlannerFormsRequirement? FormsRequirement { get; set; }
 #nullable restore
 #else
-        public PlannerFormsRequirement FormsRequirement { get; set; }
+        public ApiSdk.Models.PlannerFormsRequirement FormsRequirement { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -45,7 +45,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PlannerTaskCompletionRequirementDetails"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PlannerTaskCompletionRequirementDetails"/> and sets the default values.
         /// </summary>
         public PlannerTaskCompletionRequirementDetails()
         {
@@ -54,12 +54,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PlannerTaskCompletionRequirementDetails"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PlannerTaskCompletionRequirementDetails"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PlannerTaskCompletionRequirementDetails CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PlannerTaskCompletionRequirementDetails CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PlannerTaskCompletionRequirementDetails();
+            return new ApiSdk.Models.PlannerTaskCompletionRequirementDetails();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -69,9 +69,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "approvalRequirement", n => { ApprovalRequirement = n.GetObjectValue<PlannerApprovalRequirement>(PlannerApprovalRequirement.CreateFromDiscriminatorValue); } },
-                { "checklistRequirement", n => { ChecklistRequirement = n.GetObjectValue<PlannerChecklistRequirement>(PlannerChecklistRequirement.CreateFromDiscriminatorValue); } },
-                { "formsRequirement", n => { FormsRequirement = n.GetObjectValue<PlannerFormsRequirement>(PlannerFormsRequirement.CreateFromDiscriminatorValue); } },
+                { "approvalRequirement", n => { ApprovalRequirement = n.GetObjectValue<ApiSdk.Models.PlannerApprovalRequirement>(ApiSdk.Models.PlannerApprovalRequirement.CreateFromDiscriminatorValue); } },
+                { "checklistRequirement", n => { ChecklistRequirement = n.GetObjectValue<ApiSdk.Models.PlannerChecklistRequirement>(ApiSdk.Models.PlannerChecklistRequirement.CreateFromDiscriminatorValue); } },
+                { "formsRequirement", n => { FormsRequirement = n.GetObjectValue<ApiSdk.Models.PlannerFormsRequirement>(ApiSdk.Models.PlannerFormsRequirement.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
             };
         }
@@ -82,9 +82,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PlannerApprovalRequirement>("approvalRequirement", ApprovalRequirement);
-            writer.WriteObjectValue<PlannerChecklistRequirement>("checklistRequirement", ChecklistRequirement);
-            writer.WriteObjectValue<PlannerFormsRequirement>("formsRequirement", FormsRequirement);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerApprovalRequirement>("approvalRequirement", ApprovalRequirement);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerChecklistRequirement>("checklistRequirement", ChecklistRequirement);
+            writer.WriteObjectValue<ApiSdk.Models.PlannerFormsRequirement>("formsRequirement", FormsRequirement);
             writer.WriteStringValue("@odata.type", OdataType);
             writer.WriteAdditionalData(AdditionalData);
         }

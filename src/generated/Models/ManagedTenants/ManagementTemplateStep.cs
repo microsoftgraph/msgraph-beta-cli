@@ -13,13 +13,13 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The acceptedVersion property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ManagementTemplateStepVersion? AcceptedVersion { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion? AcceptedVersion { get; set; }
 #nullable restore
 #else
-        public ManagementTemplateStepVersion AcceptedVersion { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion AcceptedVersion { get; set; }
 #endif
         /// <summary>The category property</summary>
-        public ManagementCategory? Category { get; set; }
+        public ApiSdk.Models.ManagedTenants.ManagementCategory? Category { get; set; }
         /// <summary>The createdByUserId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -93,20 +93,20 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>The versions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagementTemplateStepVersion>? Versions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>? Versions { get; set; }
 #nullable restore
 #else
-        public List<ManagementTemplateStepVersion> Versions { get; set; }
+        public List<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion> Versions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagementTemplateStep"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.ManagementTemplateStep"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagementTemplateStep CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.ManagementTemplateStep CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagementTemplateStep();
+            return new ApiSdk.Models.ManagedTenants.ManagementTemplateStep();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,8 +116,8 @@ namespace ApiSdk.Models.ManagedTenants
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "acceptedVersion", n => { AcceptedVersion = n.GetObjectValue<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
-                { "category", n => { Category = n.GetEnumValue<ManagementCategory>(); } },
+                { "acceptedVersion", n => { AcceptedVersion = n.GetObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion.CreateFromDiscriminatorValue); } },
+                { "category", n => { Category = n.GetEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>(); } },
                 { "createdByUserId", n => { CreatedByUserId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
@@ -129,7 +129,7 @@ namespace ApiSdk.Models.ManagedTenants
                 { "portalLink", n => { PortalLink = n.GetObjectValue<ApiSdk.Models.ActionUrl>(ApiSdk.Models.ActionUrl.CreateFromDiscriminatorValue); } },
                 { "priority", n => { Priority = n.GetIntValue(); } },
                 { "userImpact", n => { UserImpact = n.GetStringValue(); } },
-                { "versions", n => { Versions = n.GetCollectionOfObjectValues<ManagementTemplateStepVersion>(ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "versions", n => { Versions = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>(ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -140,8 +140,8 @@ namespace ApiSdk.Models.ManagedTenants
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ManagementTemplateStepVersion>("acceptedVersion", AcceptedVersion);
-            writer.WriteEnumValue<ManagementCategory>("category", Category);
+            writer.WriteObjectValue<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>("acceptedVersion", AcceptedVersion);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedTenants.ManagementCategory>("category", Category);
             writer.WriteStringValue("createdByUserId", CreatedByUserId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
@@ -153,7 +153,7 @@ namespace ApiSdk.Models.ManagedTenants
             writer.WriteObjectValue<ApiSdk.Models.ActionUrl>("portalLink", PortalLink);
             writer.WriteIntValue("priority", Priority);
             writer.WriteStringValue("userImpact", UserImpact);
-            writer.WriteCollectionOfObjectValues<ManagementTemplateStepVersion>("versions", Versions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedTenants.ManagementTemplateStepVersion>("versions", Versions);
         }
     }
 }

@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UnitOfMeasure"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UnitOfMeasure"/> and sets the default values.
         /// </summary>
         public UnitOfMeasure()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UnitOfMeasure"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UnitOfMeasure"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UnitOfMeasure CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UnitOfMeasure CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UnitOfMeasure();
+            return new ApiSdk.Models.UnitOfMeasure();
         }
         /// <summary>
         /// The deserialization information for the current model

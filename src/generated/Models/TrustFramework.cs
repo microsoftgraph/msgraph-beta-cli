@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>The keySets property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TrustFrameworkKeySet>? KeySets { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKeySet>? KeySets { get; set; }
 #nullable restore
 #else
-        public List<TrustFrameworkKeySet> KeySets { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkKeySet> KeySets { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>The policies property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<TrustFrameworkPolicy>? Policies { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkPolicy>? Policies { get; set; }
 #nullable restore
 #else
-        public List<TrustFrameworkPolicy> Policies { get; set; }
+        public List<ApiSdk.Models.TrustFrameworkPolicy> Policies { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TrustFramework"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TrustFramework"/> and sets the default values.
         /// </summary>
         public TrustFramework()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TrustFramework"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TrustFramework"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TrustFramework CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TrustFramework CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TrustFramework();
+            return new ApiSdk.Models.TrustFramework();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "keySets", n => { KeySets = n.GetCollectionOfObjectValues<TrustFrameworkKeySet>(TrustFrameworkKeySet.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "keySets", n => { KeySets = n.GetCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKeySet>(ApiSdk.Models.TrustFrameworkKeySet.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "policies", n => { Policies = n.GetCollectionOfObjectValues<TrustFrameworkPolicy>(TrustFrameworkPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkPolicy>(ApiSdk.Models.TrustFrameworkPolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<TrustFrameworkKeySet>("keySets", KeySets);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkKeySet>("keySets", KeySets);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfObjectValues<TrustFrameworkPolicy>("policies", Policies);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.TrustFrameworkPolicy>("policies", Policies);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

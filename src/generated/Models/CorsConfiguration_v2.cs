@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CorsConfiguration_v2 : Entity, IParsable
+    public class CorsConfiguration_v2 : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The request headers that the origin domain may specify on the CORS request. The wildcard character * indicates that any header beginning with the specified prefix is allowed.</summary>
@@ -47,12 +47,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CorsConfiguration_v2"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CorsConfiguration_v2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CorsConfiguration_v2 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CorsConfiguration_v2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CorsConfiguration_v2();
+            return new ApiSdk.Models.CorsConfiguration_v2();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Contains properties and inherited properties for the Office365 Suite App.
     /// </summary>
-    public class OfficeSuiteApp : MobileApp, IParsable
+    public class OfficeSuiteApp : ApiSdk.Models.MobileApp, IParsable
     {
         /// <summary>The value to accept the EULA automatically on the enduser&apos;s device.</summary>
         public bool? AutoAcceptEula { get; set; }
@@ -22,7 +22,7 @@ namespace ApiSdk.Models
         public ApiSdk.Models.ExcludedApps ExcludedApps { get; set; }
 #endif
         /// <summary>The Enum to specify the level of display for the Installation Progress Setup UI on the Device.</summary>
-        public OfficeSuiteInstallProgressDisplayLevel? InstallProgressDisplayLevel { get; set; }
+        public ApiSdk.Models.OfficeSuiteInstallProgressDisplayLevel? InstallProgressDisplayLevel { get; set; }
         /// <summary>The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,16 +40,16 @@ namespace ApiSdk.Models
         public byte[] OfficeConfigurationXml { get; set; }
 #endif
         /// <summary>Contains properties for Windows architecture.</summary>
-        public WindowsArchitecture? OfficePlatformArchitecture { get; set; }
+        public ApiSdk.Models.WindowsArchitecture? OfficePlatformArchitecture { get; set; }
         /// <summary>Describes the OfficeSuiteApp file format types that can be selected.</summary>
-        public OfficeSuiteDefaultFileFormatType? OfficeSuiteAppDefaultFileFormat { get; set; }
+        public ApiSdk.Models.OfficeSuiteDefaultFileFormatType? OfficeSuiteAppDefaultFileFormat { get; set; }
         /// <summary>The Product Ids that represent the Office365 Suite SKU.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<OfficeProductId?>? ProductIds { get; set; }
+        public List<ApiSdk.Models.OfficeProductId?>? ProductIds { get; set; }
 #nullable restore
 #else
-        public List<OfficeProductId?> ProductIds { get; set; }
+        public List<ApiSdk.Models.OfficeProductId?> ProductIds { get; set; }
 #endif
         /// <summary>The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.</summary>
         public bool? ShouldUninstallOlderVersionsOfOffice { get; set; }
@@ -62,7 +62,7 @@ namespace ApiSdk.Models
         public string TargetVersion { get; set; }
 #endif
         /// <summary>The Enum to specify the Office365 Updates Channel.</summary>
-        public OfficeUpdateChannel? UpdateChannel { get; set; }
+        public ApiSdk.Models.OfficeUpdateChannel? UpdateChannel { get; set; }
         /// <summary>The property to represent the update version in which the specific target version is available for the Office365 app suite.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
         /// <summary>The property to represent that whether the shared computer activation is used not for Office365 app suite.</summary>
         public bool? UseSharedComputerActivation { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="OfficeSuiteApp"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.OfficeSuiteApp"/> and sets the default values.
         /// </summary>
         public OfficeSuiteApp() : base()
         {
@@ -83,12 +83,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="OfficeSuiteApp"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.OfficeSuiteApp"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new OfficeSuiteApp CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.OfficeSuiteApp CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new OfficeSuiteApp();
+            return new ApiSdk.Models.OfficeSuiteApp();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -100,15 +100,15 @@ namespace ApiSdk.Models
             {
                 { "autoAcceptEula", n => { AutoAcceptEula = n.GetBoolValue(); } },
                 { "excludedApps", n => { ExcludedApps = n.GetObjectValue<ApiSdk.Models.ExcludedApps>(ApiSdk.Models.ExcludedApps.CreateFromDiscriminatorValue); } },
-                { "installProgressDisplayLevel", n => { InstallProgressDisplayLevel = n.GetEnumValue<OfficeSuiteInstallProgressDisplayLevel>(); } },
+                { "installProgressDisplayLevel", n => { InstallProgressDisplayLevel = n.GetEnumValue<ApiSdk.Models.OfficeSuiteInstallProgressDisplayLevel>(); } },
                 { "localesToInstall", n => { LocalesToInstall = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "officeConfigurationXml", n => { OfficeConfigurationXml = n.GetByteArrayValue(); } },
-                { "officePlatformArchitecture", n => { OfficePlatformArchitecture = n.GetEnumValue<WindowsArchitecture>(); } },
-                { "officeSuiteAppDefaultFileFormat", n => { OfficeSuiteAppDefaultFileFormat = n.GetEnumValue<OfficeSuiteDefaultFileFormatType>(); } },
-                { "productIds", n => { ProductIds = n.GetCollectionOfEnumValues<OfficeProductId>()?.ToList(); } },
+                { "officePlatformArchitecture", n => { OfficePlatformArchitecture = n.GetEnumValue<ApiSdk.Models.WindowsArchitecture>(); } },
+                { "officeSuiteAppDefaultFileFormat", n => { OfficeSuiteAppDefaultFileFormat = n.GetEnumValue<ApiSdk.Models.OfficeSuiteDefaultFileFormatType>(); } },
+                { "productIds", n => { ProductIds = n.GetCollectionOfEnumValues<ApiSdk.Models.OfficeProductId>()?.ToList(); } },
                 { "shouldUninstallOlderVersionsOfOffice", n => { ShouldUninstallOlderVersionsOfOffice = n.GetBoolValue(); } },
                 { "targetVersion", n => { TargetVersion = n.GetStringValue(); } },
-                { "updateChannel", n => { UpdateChannel = n.GetEnumValue<OfficeUpdateChannel>(); } },
+                { "updateChannel", n => { UpdateChannel = n.GetEnumValue<ApiSdk.Models.OfficeUpdateChannel>(); } },
                 { "updateVersion", n => { UpdateVersion = n.GetStringValue(); } },
                 { "useSharedComputerActivation", n => { UseSharedComputerActivation = n.GetBoolValue(); } },
             };
@@ -123,15 +123,15 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteBoolValue("autoAcceptEula", AutoAcceptEula);
             writer.WriteObjectValue<ApiSdk.Models.ExcludedApps>("excludedApps", ExcludedApps);
-            writer.WriteEnumValue<OfficeSuiteInstallProgressDisplayLevel>("installProgressDisplayLevel", InstallProgressDisplayLevel);
+            writer.WriteEnumValue<ApiSdk.Models.OfficeSuiteInstallProgressDisplayLevel>("installProgressDisplayLevel", InstallProgressDisplayLevel);
             writer.WriteCollectionOfPrimitiveValues<string>("localesToInstall", LocalesToInstall);
             writer.WriteByteArrayValue("officeConfigurationXml", OfficeConfigurationXml);
-            writer.WriteEnumValue<WindowsArchitecture>("officePlatformArchitecture", OfficePlatformArchitecture);
-            writer.WriteEnumValue<OfficeSuiteDefaultFileFormatType>("officeSuiteAppDefaultFileFormat", OfficeSuiteAppDefaultFileFormat);
-            writer.WriteCollectionOfEnumValues<OfficeProductId>("productIds", ProductIds);
+            writer.WriteEnumValue<ApiSdk.Models.WindowsArchitecture>("officePlatformArchitecture", OfficePlatformArchitecture);
+            writer.WriteEnumValue<ApiSdk.Models.OfficeSuiteDefaultFileFormatType>("officeSuiteAppDefaultFileFormat", OfficeSuiteAppDefaultFileFormat);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.OfficeProductId>("productIds", ProductIds);
             writer.WriteBoolValue("shouldUninstallOlderVersionsOfOffice", ShouldUninstallOlderVersionsOfOffice);
             writer.WriteStringValue("targetVersion", TargetVersion);
-            writer.WriteEnumValue<OfficeUpdateChannel>("updateChannel", UpdateChannel);
+            writer.WriteEnumValue<ApiSdk.Models.OfficeUpdateChannel>("updateChannel", UpdateChannel);
             writer.WriteStringValue("updateVersion", UpdateVersion);
             writer.WriteBoolValue("useSharedComputerActivation", UseSharedComputerActivation);
         }

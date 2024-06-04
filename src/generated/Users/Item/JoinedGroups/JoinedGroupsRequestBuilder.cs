@@ -31,7 +31,7 @@ namespace ApiSdk.Users.Item.JoinedGroups
         {
             var command = new Command("delta");
             command.Description = "Provides operations to call the delta method.";
-            var builder = new DeltaRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.JoinedGroups.Delta.DeltaRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -48,7 +48,7 @@ namespace ApiSdk.Users.Item.JoinedGroups
         {
             var command = new Command("evaluate-dynamic-membership");
             command.Description = "Provides operations to call the evaluateDynamicMembership method.";
-            var builder = new EvaluateDynamicMembershipRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Users.Item.JoinedGroups.EvaluateDynamicMembership.EvaluateDynamicMembershipRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -153,14 +153,14 @@ namespace ApiSdk.Users.Item.JoinedGroups
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="JoinedGroupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.JoinedGroups.JoinedGroupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public JoinedGroupsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/joinedGroups{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="JoinedGroupsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.JoinedGroups.JoinedGroupsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public JoinedGroupsRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/joinedGroups{?%24count,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -173,11 +173,11 @@ namespace ApiSdk.Users.Item.JoinedGroups
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<JoinedGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.JoinedGroups.JoinedGroupsRequestBuilder.JoinedGroupsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<JoinedGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Users.Item.JoinedGroups.JoinedGroupsRequestBuilder.JoinedGroupsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

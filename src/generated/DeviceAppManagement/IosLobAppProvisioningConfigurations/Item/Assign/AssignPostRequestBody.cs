@@ -16,21 +16,21 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
         /// <summary>The appProvisioningConfigurationGroupAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<MobileAppProvisioningConfigGroupAssignment>? AppProvisioningConfigurationGroupAssignments { get; set; }
+        public List<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>? AppProvisioningConfigurationGroupAssignments { get; set; }
 #nullable restore
 #else
-        public List<MobileAppProvisioningConfigGroupAssignment> AppProvisioningConfigurationGroupAssignments { get; set; }
+        public List<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment> AppProvisioningConfigurationGroupAssignments { get; set; }
 #endif
         /// <summary>The iOSLobAppProvisioningConfigAssignments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosLobAppProvisioningConfigurationAssignment>? IOSLobAppProvisioningConfigAssignments { get; set; }
+        public List<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>? IOSLobAppProvisioningConfigAssignments { get; set; }
 #nullable restore
 #else
-        public List<IosLobAppProvisioningConfigurationAssignment> IOSLobAppProvisioningConfigAssignments { get; set; }
+        public List<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment> IOSLobAppProvisioningConfigAssignments { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assign.AssignPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assign.AssignPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assign.AssignPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignPostRequestBody();
+            return new ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.Assign.AssignPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,8 +54,8 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "appProvisioningConfigurationGroupAssignments", n => { AppProvisioningConfigurationGroupAssignments = n.GetCollectionOfObjectValues<MobileAppProvisioningConfigGroupAssignment>(MobileAppProvisioningConfigGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "iOSLobAppProvisioningConfigAssignments", n => { IOSLobAppProvisioningConfigAssignments = n.GetCollectionOfObjectValues<IosLobAppProvisioningConfigurationAssignment>(IosLobAppProvisioningConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "appProvisioningConfigurationGroupAssignments", n => { AppProvisioningConfigurationGroupAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>(ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "iOSLobAppProvisioningConfigAssignments", n => { IOSLobAppProvisioningConfigAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>(ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -65,8 +65,8 @@ namespace ApiSdk.DeviceAppManagement.IosLobAppProvisioningConfigurations.Item.As
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<MobileAppProvisioningConfigGroupAssignment>("appProvisioningConfigurationGroupAssignments", AppProvisioningConfigurationGroupAssignments);
-            writer.WriteCollectionOfObjectValues<IosLobAppProvisioningConfigurationAssignment>("iOSLobAppProvisioningConfigAssignments", IOSLobAppProvisioningConfigAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.MobileAppProvisioningConfigGroupAssignment>("appProvisioningConfigurationGroupAssignments", AppProvisioningConfigurationGroupAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosLobAppProvisioningConfigurationAssignment>("iOSLobAppProvisioningConfigAssignments", IOSLobAppProvisioningConfigAssignments);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

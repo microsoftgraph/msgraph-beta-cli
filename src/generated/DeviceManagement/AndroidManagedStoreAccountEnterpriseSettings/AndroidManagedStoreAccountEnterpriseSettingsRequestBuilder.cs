@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("add-apps");
             command.Description = "Provides operations to call the addApps method.";
-            var builder = new AddAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AddApps.AddAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -54,7 +54,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("approve-apps");
             command.Description = "Provides operations to call the approveApps method.";
-            var builder = new ApproveAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps.ApproveAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -71,7 +71,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("complete-signup");
             command.Description = "Provides operations to call the completeSignup method.";
-            var builder = new CompleteSignupRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CompleteSignup.CompleteSignupRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -88,7 +88,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("create-google-play-web-token");
             command.Description = "Provides operations to call the createGooglePlayWebToken method.";
-            var builder = new CreateGooglePlayWebTokenRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.CreateGooglePlayWebToken.CreateGooglePlayWebTokenRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -225,7 +225,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("request-signup-url");
             command.Description = "Provides operations to call the requestSignupUrl method.";
-            var builder = new RequestSignupUrlRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.RequestSignupUrl.RequestSignupUrlRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -242,7 +242,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("set-android-device-owner-fully-managed-enrollment-state");
             command.Description = "Provides operations to call the setAndroidDeviceOwnerFullyManagedEnrollmentState method.";
-            var builder = new SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SetAndroidDeviceOwnerFullyManagedEnrollmentState.SetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -259,7 +259,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("sync-apps");
             command.Description = "Provides operations to call the syncApps method.";
-            var builder = new SyncAppsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.SyncApps.SyncAppsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -276,7 +276,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         {
             var command = new Command("unbind");
             command.Description = "Provides operations to call the unbind method.";
-            var builder = new UnbindRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.Unbind.UnbindRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -286,14 +286,14 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/androidManagedStoreAccountEnterpriseSettings{?%24expand,%24select}", rawUrl)
@@ -325,11 +325,11 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilder.AndroidManagedStoreAccountEnterpriseSettingsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

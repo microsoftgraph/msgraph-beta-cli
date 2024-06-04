@@ -13,20 +13,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UpdatePolicy>? Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatePolicy>? Value { get; set; }
 #nullable restore
 #else
-        public List<UpdatePolicy> Value { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.UpdatePolicy> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatePolicyCollectionResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.UpdatePolicyCollectionResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new UpdatePolicyCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.UpdatePolicyCollectionResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdatePolicyCollectionResponse();
+            return new ApiSdk.Models.WindowsUpdates.UpdatePolicyCollectionResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -36,7 +36,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<UpdatePolicy>(UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>(ApiSdk.Models.WindowsUpdates.UpdatePolicy.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<UpdatePolicy>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.UpdatePolicy>("value", Value);
         }
     }
 }

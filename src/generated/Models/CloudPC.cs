@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class CloudPC : Entity, IParsable
+    public class CloudPC : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The Microsoft Entra device ID of the Cloud PC.</summary>
@@ -29,29 +29,29 @@ namespace ApiSdk.Models
         /// <summary>The connectionSettings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcConnectionSettings? ConnectionSettings { get; set; }
+        public ApiSdk.Models.CloudPcConnectionSettings? ConnectionSettings { get; set; }
 #nullable restore
 #else
-        public CloudPcConnectionSettings ConnectionSettings { get; set; }
+        public ApiSdk.Models.CloudPcConnectionSettings ConnectionSettings { get; set; }
 #endif
         /// <summary>The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcConnectivityResult? ConnectivityResult { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityResult? ConnectivityResult { get; set; }
 #nullable restore
 #else
-        public CloudPcConnectivityResult ConnectivityResult { get; set; }
+        public ApiSdk.Models.CloudPcConnectivityResult ConnectivityResult { get; set; }
 #endif
         /// <summary>The disasterRecoveryCapability property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcDisasterRecoveryCapability? DisasterRecoveryCapability { get; set; }
+        public ApiSdk.Models.CloudPcDisasterRecoveryCapability? DisasterRecoveryCapability { get; set; }
 #nullable restore
 #else
-        public CloudPcDisasterRecoveryCapability DisasterRecoveryCapability { get; set; }
+        public ApiSdk.Models.CloudPcDisasterRecoveryCapability DisasterRecoveryCapability { get; set; }
 #endif
         /// <summary>The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.</summary>
-        public CloudPcDiskEncryptionState? DiskEncryptionState { get; set; }
+        public ApiSdk.Models.CloudPcDiskEncryptionState? DiskEncryptionState { get; set; }
         /// <summary>The display name of the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,20 +73,20 @@ namespace ApiSdk.Models
         /// <summary>The last login result of the Cloud PC. For example, { &apos;time&apos;: &apos;2014-01-01T00:00:00Z&apos;}.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcLoginResult? LastLoginResult { get; set; }
+        public ApiSdk.Models.CloudPcLoginResult? LastLoginResult { get; set; }
 #nullable restore
 #else
-        public CloudPcLoginResult LastLoginResult { get; set; }
+        public ApiSdk.Models.CloudPcLoginResult LastLoginResult { get; set; }
 #endif
         /// <summary>The last modified date and time of the Cloud PC. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014, is 2014-01-01T00:00:00Z.</summary>
         public DateTimeOffset? LastModifiedDateTime { get; set; }
         /// <summary>The last remote action result of the enterprise Cloud PCs. The supported remote actions are: Reboot, Rename, Reprovision, Restore, Troubleshoot.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcRemoteActionResult? LastRemoteActionResult { get; set; }
+        public ApiSdk.Models.CloudPcRemoteActionResult? LastRemoteActionResult { get; set; }
 #nullable restore
 #else
-        public CloudPcRemoteActionResult LastRemoteActionResult { get; set; }
+        public ApiSdk.Models.CloudPcRemoteActionResult LastRemoteActionResult { get; set; }
 #endif
         /// <summary>The Intune device ID of the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -113,17 +113,17 @@ namespace ApiSdk.Models
         public string OnPremisesConnectionName { get; set; }
 #endif
         /// <summary>The version of the operating system (OS) to provision on Cloud PCs. Possible values are: windows10, windows11, unknownFutureValue.</summary>
-        public CloudPcOperatingSystem? OsVersion { get; set; }
+        public ApiSdk.Models.CloudPcOperatingSystem? OsVersion { get; set; }
         /// <summary>The results of every partner agent&apos;s installation status on Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CloudPcPartnerAgentInstallResult>? PartnerAgentInstallResults { get; set; }
+        public List<ApiSdk.Models.CloudPcPartnerAgentInstallResult>? PartnerAgentInstallResults { get; set; }
 #nullable restore
 #else
-        public List<CloudPcPartnerAgentInstallResult> PartnerAgentInstallResults { get; set; }
+        public List<ApiSdk.Models.CloudPcPartnerAgentInstallResult> PartnerAgentInstallResults { get; set; }
 #endif
         /// <summary>The power state of a Cloud PC. The possible values are: running, poweredOff, unknown. This property only supports shift work Cloud PCs.</summary>
-        public CloudPcPowerState? PowerState { get; set; }
+        public ApiSdk.Models.CloudPcPowerState? PowerState { get; set; }
         /// <summary>The provisioning policy ID of the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -141,7 +141,7 @@ namespace ApiSdk.Models
         public string ProvisioningPolicyName { get; set; }
 #endif
         /// <summary>The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue,sharedByUser, sharedByUser. You must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: sharedByUser, sharedByEntraGroup. The default value is dedicated. CAUTION: The shared member is deprecated and will stop returning on April 30, 2027； in the future, use the sharedByUser member.</summary>
-        public CloudPcProvisioningType? ProvisioningType { get; set; }
+        public ApiSdk.Models.CloudPcProvisioningType? ProvisioningType { get; set; }
         /// <summary>The scopeIds property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -167,19 +167,19 @@ namespace ApiSdk.Models
         public string ServicePlanName { get; set; }
 #endif
         /// <summary>The service plan type of the Cloud PC.</summary>
-        public CloudPcServicePlanType? ServicePlanType { get; set; }
+        public ApiSdk.Models.CloudPcServicePlanType? ServicePlanType { get; set; }
         /// <summary>The status property</summary>
-        public CloudPcStatus? Status { get; set; }
+        public ApiSdk.Models.CloudPcStatus? Status { get; set; }
         /// <summary>The details of the Cloud PC status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public CloudPcStatusDetails? StatusDetails { get; set; }
+        public ApiSdk.Models.CloudPcStatusDetails? StatusDetails { get; set; }
 #nullable restore
 #else
-        public CloudPcStatusDetails StatusDetails { get; set; }
+        public ApiSdk.Models.CloudPcStatusDetails StatusDetails { get; set; }
 #endif
         /// <summary>The account type of the user on provisioned Cloud PCs. Possible values are: standardUser, administrator, unknownFutureValue.</summary>
-        public CloudPcUserAccountType? UserAccountType { get; set; }
+        public ApiSdk.Models.CloudPcUserAccountType? UserAccountType { get; set; }
         /// <summary>The user principal name (UPN) of the user assigned to the Cloud PC.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -191,12 +191,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPC"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CloudPC"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPC CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.CloudPC CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPC();
+            return new ApiSdk.Models.CloudPC();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -208,32 +208,32 @@ namespace ApiSdk.Models
             {
                 { "aadDeviceId", n => { AadDeviceId = n.GetStringValue(); } },
                 { "allotmentDisplayName", n => { AllotmentDisplayName = n.GetStringValue(); } },
-                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<CloudPcConnectionSettings>(CloudPcConnectionSettings.CreateFromDiscriminatorValue); } },
-                { "connectivityResult", n => { ConnectivityResult = n.GetObjectValue<CloudPcConnectivityResult>(CloudPcConnectivityResult.CreateFromDiscriminatorValue); } },
-                { "disasterRecoveryCapability", n => { DisasterRecoveryCapability = n.GetObjectValue<CloudPcDisasterRecoveryCapability>(CloudPcDisasterRecoveryCapability.CreateFromDiscriminatorValue); } },
-                { "diskEncryptionState", n => { DiskEncryptionState = n.GetEnumValue<CloudPcDiskEncryptionState>(); } },
+                { "connectionSettings", n => { ConnectionSettings = n.GetObjectValue<ApiSdk.Models.CloudPcConnectionSettings>(ApiSdk.Models.CloudPcConnectionSettings.CreateFromDiscriminatorValue); } },
+                { "connectivityResult", n => { ConnectivityResult = n.GetObjectValue<ApiSdk.Models.CloudPcConnectivityResult>(ApiSdk.Models.CloudPcConnectivityResult.CreateFromDiscriminatorValue); } },
+                { "disasterRecoveryCapability", n => { DisasterRecoveryCapability = n.GetObjectValue<ApiSdk.Models.CloudPcDisasterRecoveryCapability>(ApiSdk.Models.CloudPcDisasterRecoveryCapability.CreateFromDiscriminatorValue); } },
+                { "diskEncryptionState", n => { DiskEncryptionState = n.GetEnumValue<ApiSdk.Models.CloudPcDiskEncryptionState>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "gracePeriodEndDateTime", n => { GracePeriodEndDateTime = n.GetDateTimeOffsetValue(); } },
                 { "imageDisplayName", n => { ImageDisplayName = n.GetStringValue(); } },
-                { "lastLoginResult", n => { LastLoginResult = n.GetObjectValue<CloudPcLoginResult>(CloudPcLoginResult.CreateFromDiscriminatorValue); } },
+                { "lastLoginResult", n => { LastLoginResult = n.GetObjectValue<ApiSdk.Models.CloudPcLoginResult>(ApiSdk.Models.CloudPcLoginResult.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "lastRemoteActionResult", n => { LastRemoteActionResult = n.GetObjectValue<CloudPcRemoteActionResult>(CloudPcRemoteActionResult.CreateFromDiscriminatorValue); } },
+                { "lastRemoteActionResult", n => { LastRemoteActionResult = n.GetObjectValue<ApiSdk.Models.CloudPcRemoteActionResult>(ApiSdk.Models.CloudPcRemoteActionResult.CreateFromDiscriminatorValue); } },
                 { "managedDeviceId", n => { ManagedDeviceId = n.GetStringValue(); } },
                 { "managedDeviceName", n => { ManagedDeviceName = n.GetStringValue(); } },
                 { "onPremisesConnectionName", n => { OnPremisesConnectionName = n.GetStringValue(); } },
-                { "osVersion", n => { OsVersion = n.GetEnumValue<CloudPcOperatingSystem>(); } },
-                { "partnerAgentInstallResults", n => { PartnerAgentInstallResults = n.GetCollectionOfObjectValues<CloudPcPartnerAgentInstallResult>(CloudPcPartnerAgentInstallResult.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "powerState", n => { PowerState = n.GetEnumValue<CloudPcPowerState>(); } },
+                { "osVersion", n => { OsVersion = n.GetEnumValue<ApiSdk.Models.CloudPcOperatingSystem>(); } },
+                { "partnerAgentInstallResults", n => { PartnerAgentInstallResults = n.GetCollectionOfObjectValues<ApiSdk.Models.CloudPcPartnerAgentInstallResult>(ApiSdk.Models.CloudPcPartnerAgentInstallResult.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "powerState", n => { PowerState = n.GetEnumValue<ApiSdk.Models.CloudPcPowerState>(); } },
                 { "provisioningPolicyId", n => { ProvisioningPolicyId = n.GetStringValue(); } },
                 { "provisioningPolicyName", n => { ProvisioningPolicyName = n.GetStringValue(); } },
-                { "provisioningType", n => { ProvisioningType = n.GetEnumValue<CloudPcProvisioningType>(); } },
+                { "provisioningType", n => { ProvisioningType = n.GetEnumValue<ApiSdk.Models.CloudPcProvisioningType>(); } },
                 { "scopeIds", n => { ScopeIds = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "servicePlanId", n => { ServicePlanId = n.GetStringValue(); } },
                 { "servicePlanName", n => { ServicePlanName = n.GetStringValue(); } },
-                { "servicePlanType", n => { ServicePlanType = n.GetEnumValue<CloudPcServicePlanType>(); } },
-                { "status", n => { Status = n.GetEnumValue<CloudPcStatus>(); } },
-                { "statusDetails", n => { StatusDetails = n.GetObjectValue<CloudPcStatusDetails>(CloudPcStatusDetails.CreateFromDiscriminatorValue); } },
-                { "userAccountType", n => { UserAccountType = n.GetEnumValue<CloudPcUserAccountType>(); } },
+                { "servicePlanType", n => { ServicePlanType = n.GetEnumValue<ApiSdk.Models.CloudPcServicePlanType>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.CloudPcStatus>(); } },
+                { "statusDetails", n => { StatusDetails = n.GetObjectValue<ApiSdk.Models.CloudPcStatusDetails>(ApiSdk.Models.CloudPcStatusDetails.CreateFromDiscriminatorValue); } },
+                { "userAccountType", n => { UserAccountType = n.GetEnumValue<ApiSdk.Models.CloudPcUserAccountType>(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
         }
@@ -247,32 +247,32 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteStringValue("aadDeviceId", AadDeviceId);
             writer.WriteStringValue("allotmentDisplayName", AllotmentDisplayName);
-            writer.WriteObjectValue<CloudPcConnectionSettings>("connectionSettings", ConnectionSettings);
-            writer.WriteObjectValue<CloudPcConnectivityResult>("connectivityResult", ConnectivityResult);
-            writer.WriteObjectValue<CloudPcDisasterRecoveryCapability>("disasterRecoveryCapability", DisasterRecoveryCapability);
-            writer.WriteEnumValue<CloudPcDiskEncryptionState>("diskEncryptionState", DiskEncryptionState);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcConnectionSettings>("connectionSettings", ConnectionSettings);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcConnectivityResult>("connectivityResult", ConnectivityResult);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcDisasterRecoveryCapability>("disasterRecoveryCapability", DisasterRecoveryCapability);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcDiskEncryptionState>("diskEncryptionState", DiskEncryptionState);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteDateTimeOffsetValue("gracePeriodEndDateTime", GracePeriodEndDateTime);
             writer.WriteStringValue("imageDisplayName", ImageDisplayName);
-            writer.WriteObjectValue<CloudPcLoginResult>("lastLoginResult", LastLoginResult);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcLoginResult>("lastLoginResult", LastLoginResult);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteObjectValue<CloudPcRemoteActionResult>("lastRemoteActionResult", LastRemoteActionResult);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcRemoteActionResult>("lastRemoteActionResult", LastRemoteActionResult);
             writer.WriteStringValue("managedDeviceId", ManagedDeviceId);
             writer.WriteStringValue("managedDeviceName", ManagedDeviceName);
             writer.WriteStringValue("onPremisesConnectionName", OnPremisesConnectionName);
-            writer.WriteEnumValue<CloudPcOperatingSystem>("osVersion", OsVersion);
-            writer.WriteCollectionOfObjectValues<CloudPcPartnerAgentInstallResult>("partnerAgentInstallResults", PartnerAgentInstallResults);
-            writer.WriteEnumValue<CloudPcPowerState>("powerState", PowerState);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcOperatingSystem>("osVersion", OsVersion);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CloudPcPartnerAgentInstallResult>("partnerAgentInstallResults", PartnerAgentInstallResults);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcPowerState>("powerState", PowerState);
             writer.WriteStringValue("provisioningPolicyId", ProvisioningPolicyId);
             writer.WriteStringValue("provisioningPolicyName", ProvisioningPolicyName);
-            writer.WriteEnumValue<CloudPcProvisioningType>("provisioningType", ProvisioningType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcProvisioningType>("provisioningType", ProvisioningType);
             writer.WriteCollectionOfPrimitiveValues<string>("scopeIds", ScopeIds);
             writer.WriteStringValue("servicePlanId", ServicePlanId);
             writer.WriteStringValue("servicePlanName", ServicePlanName);
-            writer.WriteEnumValue<CloudPcServicePlanType>("servicePlanType", ServicePlanType);
-            writer.WriteEnumValue<CloudPcStatus>("status", Status);
-            writer.WriteObjectValue<CloudPcStatusDetails>("statusDetails", StatusDetails);
-            writer.WriteEnumValue<CloudPcUserAccountType>("userAccountType", UserAccountType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcServicePlanType>("servicePlanType", ServicePlanType);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcStatus>("status", Status);
+            writer.WriteObjectValue<ApiSdk.Models.CloudPcStatusDetails>("statusDetails", StatusDetails);
+            writer.WriteEnumValue<ApiSdk.Models.CloudPcUserAccountType>("userAccountType", UserAccountType);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }
     }

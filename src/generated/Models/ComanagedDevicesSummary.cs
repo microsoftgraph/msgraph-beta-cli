@@ -40,7 +40,7 @@ namespace ApiSdk.Models
         /// <summary>Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only.</summary>
         public int? WindowsUpdateForBusinessCount { get; private set; }
         /// <summary>
-        /// Instantiates a new <see cref="ComanagedDevicesSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ComanagedDevicesSummary"/> and sets the default values.
         /// </summary>
         public ComanagedDevicesSummary()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ComanagedDevicesSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ComanagedDevicesSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ComanagedDevicesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ComanagedDevicesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ComanagedDevicesSummary();
+            return new ApiSdk.Models.ComanagedDevicesSummary();
         }
         /// <summary>
         /// The deserialization information for the current model

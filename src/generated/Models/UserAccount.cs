@@ -55,9 +55,9 @@ namespace ApiSdk.Models
         public string SigninName { get; set; }
 #endif
         /// <summary>The status property</summary>
-        public AccountStatus? Status { get; set; }
+        public ApiSdk.Models.AccountStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="UserAccount"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.UserAccount"/> and sets the default values.
         /// </summary>
         public UserAccount()
         {
@@ -66,12 +66,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UserAccount"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.UserAccount"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UserAccount CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.UserAccount CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UserAccount();
+            return new ApiSdk.Models.UserAccount();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -87,7 +87,7 @@ namespace ApiSdk.Models
                 { "riskScore", n => { RiskScore = n.GetStringValue(); } },
                 { "service", n => { Service = n.GetStringValue(); } },
                 { "signinName", n => { SigninName = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<AccountStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.AccountStatus>(); } },
             };
         }
         /// <summary>
@@ -103,7 +103,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("riskScore", RiskScore);
             writer.WriteStringValue("service", Service);
             writer.WriteStringValue("signinName", SigninName);
-            writer.WriteEnumValue<AccountStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.AccountStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

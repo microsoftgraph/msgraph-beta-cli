@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class DeviceComplianceDeviceStatus : Entity, IParsable
+    public class DeviceComplianceDeviceStatus : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The DateTime when device compliance grace period expires</summary>
@@ -33,7 +33,7 @@ namespace ApiSdk.Models
         /// <summary>Platform of the device that is being reported</summary>
         public int? Platform { get; set; }
         /// <summary>The status property</summary>
-        public ComplianceStatus? Status { get; set; }
+        public ApiSdk.Models.ComplianceStatus? Status { get; set; }
         /// <summary>The User Name that is being reported</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -53,12 +53,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DeviceComplianceDeviceStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.DeviceComplianceDeviceStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new DeviceComplianceDeviceStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.DeviceComplianceDeviceStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DeviceComplianceDeviceStatus();
+            return new ApiSdk.Models.DeviceComplianceDeviceStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
                 { "deviceModel", n => { DeviceModel = n.GetStringValue(); } },
                 { "lastReportedDateTime", n => { LastReportedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "platform", n => { Platform = n.GetIntValue(); } },
-                { "status", n => { Status = n.GetEnumValue<ComplianceStatus>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.ComplianceStatus>(); } },
                 { "userName", n => { UserName = n.GetStringValue(); } },
                 { "userPrincipalName", n => { UserPrincipalName = n.GetStringValue(); } },
             };
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("deviceModel", DeviceModel);
             writer.WriteDateTimeOffsetValue("lastReportedDateTime", LastReportedDateTime);
             writer.WriteIntValue("platform", Platform);
-            writer.WriteEnumValue<ComplianceStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.ComplianceStatus>("status", Status);
             writer.WriteStringValue("userName", UserName);
             writer.WriteStringValue("userPrincipalName", UserPrincipalName);
         }

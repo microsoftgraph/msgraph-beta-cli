@@ -36,7 +36,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("currency");
             command.Description = "Provides operations to manage the currency property of the microsoft.graph.salesQuote entity.";
-            var builder = new CurrencyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Currency.CurrencyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -55,7 +55,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("customer");
             command.Description = "Provides operations to manage the customer property of the microsoft.graph.salesQuote entity.";
-            var builder = new CustomerRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Customer.CustomerRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCurrencyNavCommand());
@@ -142,7 +142,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("make-invoice");
             command.Description = "Provides operations to call the makeInvoice method.";
-            var builder = new MakeInvoiceRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.MakeInvoice.MakeInvoiceRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -187,7 +187,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SalesQuote>(SalesQuote.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.SalesQuote>(ApiSdk.Models.SalesQuote.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -216,7 +216,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("payment-term");
             command.Description = "Provides operations to manage the paymentTerm property of the microsoft.graph.salesQuote entity.";
-            var builder = new PaymentTermRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.PaymentTerm.PaymentTermRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -235,7 +235,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("sales-quote-lines");
             command.Description = "Provides operations to manage the salesQuoteLines property of the microsoft.graph.salesQuote entity.";
-            var builder = new SalesQuoteLinesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteLines.SalesQuoteLinesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -261,7 +261,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("send");
             command.Description = "Provides operations to call the send method.";
-            var builder = new SendRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.Send.SendRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -278,7 +278,7 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         {
             var command = new Command("shipment-method");
             command.Description = "Provides operations to manage the shipmentMethod property of the microsoft.graph.salesQuote entity.";
-            var builder = new ShipmentMethodRequestBuilder(PathParameters);
+            var builder = new ApiSdk.Financials.Companies.Item.SalesQuotes.Item.ShipmentMethod.ShipmentMethodRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -290,14 +290,14 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesQuoteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SalesQuoteItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/financials/companies/{company%2Did}/salesQuotes/{salesQuote%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SalesQuoteItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SalesQuoteItemRequestBuilder(string rawUrl) : base("{+baseurl}/financials/companies/{company%2Did}/salesQuotes/{salesQuote%2Did}{?%24expand,%24select}", rawUrl)
@@ -310,11 +310,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesQuoteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteItemRequestBuilder.SalesQuoteItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<SalesQuoteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.Financials.Companies.Item.SalesQuotes.Item.SalesQuoteItemRequestBuilder.SalesQuoteItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -330,11 +330,11 @@ namespace ApiSdk.Financials.Companies.Item.SalesQuotes.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(SalesQuote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesQuote body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(SalesQuote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.SalesQuote body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

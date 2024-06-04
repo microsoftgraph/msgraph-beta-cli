@@ -13,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>The format property</summary>
-        public ContentFormat? Format { get; set; }
+        public ApiSdk.Models.ContentFormat? Format { get; set; }
         /// <summary>Identifier used for Azure Information Protection Analytics.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>Existing Microsoft Purview Information Protection metadata is passed as key/value pairs, where the key is the MSIPLabelGUID_PropName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KeyValuePair>? Metadata { get; set; }
+        public List<ApiSdk.Models.KeyValuePair>? Metadata { get; set; }
 #nullable restore
 #else
-        public List<KeyValuePair> Metadata { get; set; }
+        public List<ApiSdk.Models.KeyValuePair> Metadata { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,9 +39,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>The state property</summary>
-        public ContentState? State { get; set; }
+        public ApiSdk.Models.ContentState? State { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ContentInfo"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.ContentInfo"/> and sets the default values.
         /// </summary>
         public ContentInfo()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ContentInfo"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ContentInfo"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ContentInfo CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.ContentInfo CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ContentInfo();
+            return new ApiSdk.Models.ContentInfo();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -65,11 +65,11 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "format", n => { Format = n.GetEnumValue<ContentFormat>(); } },
+                { "format", n => { Format = n.GetEnumValue<ApiSdk.Models.ContentFormat>(); } },
                 { "identifier", n => { Identifier = n.GetStringValue(); } },
-                { "metadata", n => { Metadata = n.GetCollectionOfObjectValues<KeyValuePair>(KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "metadata", n => { Metadata = n.GetCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>(ApiSdk.Models.KeyValuePair.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "state", n => { State = n.GetEnumValue<ContentState>(); } },
+                { "state", n => { State = n.GetEnumValue<ApiSdk.Models.ContentState>(); } },
             };
         }
         /// <summary>
@@ -79,11 +79,11 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<ContentFormat>("format", Format);
+            writer.WriteEnumValue<ApiSdk.Models.ContentFormat>("format", Format);
             writer.WriteStringValue("identifier", Identifier);
-            writer.WriteCollectionOfObjectValues<KeyValuePair>("metadata", Metadata);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.KeyValuePair>("metadata", Metadata);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<ContentState>("state", State);
+            writer.WriteEnumValue<ApiSdk.Models.ContentState>("state", State);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

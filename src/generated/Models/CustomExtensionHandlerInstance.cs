@@ -37,11 +37,11 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the stage of the request workflow when the access package custom extension runs. The possible values are: assignmentRequestCreated, assignmentRequestApproved, assignmentRequestGranted, assignmentRequestRemoved, assignmentFourteenDaysBeforeExpiration, assignmentOneDayBeforeExpiration, unknownFutureValue.</summary>
-        public AccessPackageCustomExtensionStage? Stage { get; set; }
+        public ApiSdk.Models.AccessPackageCustomExtensionStage? Stage { get; set; }
         /// <summary>Status of the request to run the access package custom extension workflow that is associated with the logic app. The possible values are: requestSent, requestReceived, unknownFutureValue.</summary>
-        public AccessPackageCustomExtensionHandlerStatus? Status { get; set; }
+        public ApiSdk.Models.AccessPackageCustomExtensionHandlerStatus? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="CustomExtensionHandlerInstance"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomExtensionHandlerInstance"/> and sets the default values.
         /// </summary>
         public CustomExtensionHandlerInstance()
         {
@@ -50,12 +50,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomExtensionHandlerInstance"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomExtensionHandlerInstance"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomExtensionHandlerInstance CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomExtensionHandlerInstance CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomExtensionHandlerInstance();
+            return new ApiSdk.Models.CustomExtensionHandlerInstance();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -68,8 +68,8 @@ namespace ApiSdk.Models
                 { "customExtensionId", n => { CustomExtensionId = n.GetStringValue(); } },
                 { "externalCorrelationId", n => { ExternalCorrelationId = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "stage", n => { Stage = n.GetEnumValue<AccessPackageCustomExtensionStage>(); } },
-                { "status", n => { Status = n.GetEnumValue<AccessPackageCustomExtensionHandlerStatus>(); } },
+                { "stage", n => { Stage = n.GetEnumValue<ApiSdk.Models.AccessPackageCustomExtensionStage>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.AccessPackageCustomExtensionHandlerStatus>(); } },
             };
         }
         /// <summary>
@@ -82,8 +82,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("customExtensionId", CustomExtensionId);
             writer.WriteStringValue("externalCorrelationId", ExternalCorrelationId);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AccessPackageCustomExtensionStage>("stage", Stage);
-            writer.WriteEnumValue<AccessPackageCustomExtensionHandlerStatus>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.AccessPackageCustomExtensionStage>("stage", Stage);
+            writer.WriteEnumValue<ApiSdk.Models.AccessPackageCustomExtensionHandlerStatus>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

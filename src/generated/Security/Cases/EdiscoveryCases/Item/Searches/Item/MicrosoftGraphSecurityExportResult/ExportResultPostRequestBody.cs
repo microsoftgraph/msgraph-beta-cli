@@ -40,7 +40,7 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         /// <summary>The exportSingleItems property</summary>
         public bool? ExportSingleItems { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="ExportResultPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult.ExportResultPostRequestBody"/> and sets the default values.
         /// </summary>
         public ExportResultPostRequestBody()
         {
@@ -49,12 +49,12 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ExportResultPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult.ExportResultPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ExportResultPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult.ExportResultPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ExportResultPostRequestBody();
+            return new ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGraphSecurityExportResult.ExportResultPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -64,12 +64,12 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<AdditionalOptions>(); } },
+                { "additionalOptions", n => { AdditionalOptions = n.GetEnumValue<ApiSdk.Models.Security.AdditionalOptions>(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ExportCriteria>(); } },
-                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ExportFormat>(); } },
-                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ExportLocation>(); } },
+                { "exportCriteria", n => { ExportCriteria = n.GetEnumValue<ApiSdk.Models.Security.ExportCriteria>(); } },
+                { "exportFormat", n => { ExportFormat = n.GetEnumValue<ApiSdk.Models.Security.ExportFormat>(); } },
+                { "exportLocation", n => { ExportLocation = n.GetEnumValue<ApiSdk.Models.Security.ExportLocation>(); } },
                 { "exportSingleItems", n => { ExportSingleItems = n.GetBoolValue(); } },
             };
         }
@@ -80,12 +80,12 @@ namespace ApiSdk.Security.Cases.EdiscoveryCases.Item.Searches.Item.MicrosoftGrap
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<AdditionalOptions>("additionalOptions", AdditionalOptions);
+            writer.WriteEnumValue<ApiSdk.Models.Security.AdditionalOptions>("additionalOptions", AdditionalOptions);
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteEnumValue<ExportCriteria>("exportCriteria", ExportCriteria);
-            writer.WriteEnumValue<ExportFormat>("exportFormat", ExportFormat);
-            writer.WriteEnumValue<ExportLocation>("exportLocation", ExportLocation);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportCriteria>("exportCriteria", ExportCriteria);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportFormat>("exportFormat", ExportFormat);
+            writer.WriteEnumValue<ApiSdk.Models.Security.ExportLocation>("exportLocation", ExportLocation);
             writer.WriteBoolValue("exportSingleItems", ExportSingleItems);
             writer.WriteAdditionalData(AdditionalData);
         }

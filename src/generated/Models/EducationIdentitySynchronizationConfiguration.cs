@@ -21,7 +21,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="EducationIdentitySynchronizationConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.EducationIdentitySynchronizationConfiguration"/> and sets the default values.
         /// </summary>
         public EducationIdentitySynchronizationConfiguration()
         {
@@ -30,17 +30,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EducationIdentitySynchronizationConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.EducationIdentitySynchronizationConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EducationIdentitySynchronizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.EducationIdentitySynchronizationConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.educationIdentityCreationConfiguration" => new EducationIdentityCreationConfiguration(),
-                "#microsoft.graph.educationIdentityMatchingConfiguration" => new EducationIdentityMatchingConfiguration(),
-                _ => new EducationIdentitySynchronizationConfiguration(),
+                "#microsoft.graph.educationIdentityCreationConfiguration" => new ApiSdk.Models.EducationIdentityCreationConfiguration(),
+                "#microsoft.graph.educationIdentityMatchingConfiguration" => new ApiSdk.Models.EducationIdentityMatchingConfiguration(),
+                _ => new ApiSdk.Models.EducationIdentitySynchronizationConfiguration(),
             };
         }
         /// <summary>

@@ -67,38 +67,38 @@ namespace ApiSdk.Models.Ediscovery
         /// <summary>Data source entity for SharePoint sites associated with the legal hold.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<SiteSource>? SiteSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.SiteSource>? SiteSources { get; set; }
 #nullable restore
 #else
-        public List<SiteSource> SiteSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.SiteSource> SiteSources { get; set; }
 #endif
         /// <summary>The status of the legal hold. Possible values are: Pending, Error, Success, UnknownFutureValue.</summary>
-        public LegalHoldStatus? Status { get; set; }
+        public ApiSdk.Models.Ediscovery.LegalHoldStatus? Status { get; set; }
         /// <summary>The unifiedGroupSources property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UnifiedGroupSource>? UnifiedGroupSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.UnifiedGroupSource>? UnifiedGroupSources { get; set; }
 #nullable restore
 #else
-        public List<UnifiedGroupSource> UnifiedGroupSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.UnifiedGroupSource> UnifiedGroupSources { get; set; }
 #endif
         /// <summary>Data source entity for a the legal hold. This is the container for a mailbox and OneDrive for Business site.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<UserSource>? UserSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.UserSource>? UserSources { get; set; }
 #nullable restore
 #else
-        public List<UserSource> UserSources { get; set; }
+        public List<ApiSdk.Models.Ediscovery.UserSource> UserSources { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="LegalHold"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Ediscovery.LegalHold"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new LegalHold CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Ediscovery.LegalHold CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new LegalHold();
+            return new ApiSdk.Models.Ediscovery.LegalHold();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -117,10 +117,10 @@ namespace ApiSdk.Models.Ediscovery
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
                 { "lastModifiedBy", n => { LastModifiedBy = n.GetObjectValue<ApiSdk.Models.IdentitySet>(ApiSdk.Models.IdentitySet.CreateFromDiscriminatorValue); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "siteSources", n => { SiteSources = n.GetCollectionOfObjectValues<SiteSource>(SiteSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "status", n => { Status = n.GetEnumValue<LegalHoldStatus>(); } },
-                { "unifiedGroupSources", n => { UnifiedGroupSources = n.GetCollectionOfObjectValues<UnifiedGroupSource>(UnifiedGroupSource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "userSources", n => { UserSources = n.GetCollectionOfObjectValues<UserSource>(UserSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "siteSources", n => { SiteSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.SiteSource>(ApiSdk.Models.Ediscovery.SiteSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.Ediscovery.LegalHoldStatus>(); } },
+                { "unifiedGroupSources", n => { UnifiedGroupSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.UnifiedGroupSource>(ApiSdk.Models.Ediscovery.UnifiedGroupSource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userSources", n => { UserSources = n.GetCollectionOfObjectValues<ApiSdk.Models.Ediscovery.UserSource>(ApiSdk.Models.Ediscovery.UserSource.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -140,10 +140,10 @@ namespace ApiSdk.Models.Ediscovery
             writer.WriteBoolValue("isEnabled", IsEnabled);
             writer.WriteObjectValue<ApiSdk.Models.IdentitySet>("lastModifiedBy", LastModifiedBy);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
-            writer.WriteCollectionOfObjectValues<SiteSource>("siteSources", SiteSources);
-            writer.WriteEnumValue<LegalHoldStatus>("status", Status);
-            writer.WriteCollectionOfObjectValues<UnifiedGroupSource>("unifiedGroupSources", UnifiedGroupSources);
-            writer.WriteCollectionOfObjectValues<UserSource>("userSources", UserSources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.SiteSource>("siteSources", SiteSources);
+            writer.WriteEnumValue<ApiSdk.Models.Ediscovery.LegalHoldStatus>("status", Status);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.UnifiedGroupSource>("unifiedGroupSources", UnifiedGroupSources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Ediscovery.UserSource>("userSources", UserSources);
         }
     }
 }

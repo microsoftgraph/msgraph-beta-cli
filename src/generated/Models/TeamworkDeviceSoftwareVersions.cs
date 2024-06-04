@@ -61,7 +61,7 @@ namespace ApiSdk.Models
         public string TeamsClientSoftwareVersion { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="TeamworkDeviceSoftwareVersions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.TeamworkDeviceSoftwareVersions"/> and sets the default values.
         /// </summary>
         public TeamworkDeviceSoftwareVersions()
         {
@@ -70,12 +70,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="TeamworkDeviceSoftwareVersions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.TeamworkDeviceSoftwareVersions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static TeamworkDeviceSoftwareVersions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.TeamworkDeviceSoftwareVersions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new TeamworkDeviceSoftwareVersions();
+            return new ApiSdk.Models.TeamworkDeviceSoftwareVersions();
         }
         /// <summary>
         /// The deserialization information for the current model

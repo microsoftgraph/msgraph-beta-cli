@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// Windows update catalog item entity
     /// </summary>
-    public class WindowsUpdateCatalogItem : Entity, IParsable
+    public class WindowsUpdateCatalogItem : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>The display name for the catalog item.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,17 +26,17 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WindowsUpdateCatalogItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdateCatalogItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WindowsUpdateCatalogItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdateCatalogItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.windowsFeatureUpdateCatalogItem" => new WindowsFeatureUpdateCatalogItem(),
-                "#microsoft.graph.windowsQualityUpdateCatalogItem" => new WindowsQualityUpdateCatalogItem(),
-                _ => new WindowsUpdateCatalogItem(),
+                "#microsoft.graph.windowsFeatureUpdateCatalogItem" => new ApiSdk.Models.WindowsFeatureUpdateCatalogItem(),
+                "#microsoft.graph.windowsQualityUpdateCatalogItem" => new ApiSdk.Models.WindowsQualityUpdateCatalogItem(),
+                _ => new ApiSdk.Models.WindowsUpdateCatalogItem(),
             };
         }
         /// <summary>

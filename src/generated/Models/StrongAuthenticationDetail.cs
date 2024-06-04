@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class StrongAuthenticationDetail : Entity, IParsable
+    public class StrongAuthenticationDetail : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The encryptedPinHashHistory property</summary>
@@ -23,12 +23,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="StrongAuthenticationDetail"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.StrongAuthenticationDetail"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new StrongAuthenticationDetail CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.StrongAuthenticationDetail CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new StrongAuthenticationDetail();
+            return new ApiSdk.Models.StrongAuthenticationDetail();
         }
         /// <summary>
         /// The deserialization information for the current model

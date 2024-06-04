@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PrivilegedAccess : Entity, IParsable
+    public class PrivilegedAccess : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The display name of the provider managed by PIM.</summary>
@@ -21,52 +21,52 @@ namespace ApiSdk.Models
         /// <summary>A collection of resources for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceResource>? Resources { get; set; }
+        public List<ApiSdk.Models.GovernanceResource>? Resources { get; set; }
 #nullable restore
 #else
-        public List<GovernanceResource> Resources { get; set; }
+        public List<ApiSdk.Models.GovernanceResource> Resources { get; set; }
 #endif
         /// <summary>A collection of role assignment requests for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleAssignmentRequest>? RoleAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignmentRequest>? RoleAssignmentRequests { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleAssignmentRequest> RoleAssignmentRequests { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignmentRequest> RoleAssignmentRequests { get; set; }
 #endif
         /// <summary>A collection of role assignments for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleAssignment>? RoleAssignments { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignment>? RoleAssignments { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleAssignment> RoleAssignments { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleAssignment> RoleAssignments { get; set; }
 #endif
         /// <summary>A collection of role definitions for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleDefinition>? RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleDefinition>? RoleDefinitions { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleDefinition> RoleDefinitions { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleDefinition> RoleDefinitions { get; set; }
 #endif
         /// <summary>A collection of role settings for the provider.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<GovernanceRoleSetting>? RoleSettings { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting>? RoleSettings { get; set; }
 #nullable restore
 #else
-        public List<GovernanceRoleSetting> RoleSettings { get; set; }
+        public List<ApiSdk.Models.GovernanceRoleSetting> RoleSettings { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrivilegedAccess"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrivilegedAccess"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PrivilegedAccess CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PrivilegedAccess CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrivilegedAccess();
+            return new ApiSdk.Models.PrivilegedAccess();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -77,11 +77,11 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
-                { "resources", n => { Resources = n.GetCollectionOfObjectValues<GovernanceResource>(GovernanceResource.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleAssignmentRequests", n => { RoleAssignmentRequests = n.GetCollectionOfObjectValues<GovernanceRoleAssignmentRequest>(GovernanceRoleAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<GovernanceRoleAssignment>(GovernanceRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<GovernanceRoleDefinition>(GovernanceRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "roleSettings", n => { RoleSettings = n.GetCollectionOfObjectValues<GovernanceRoleSetting>(GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "resources", n => { Resources = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceResource>(ApiSdk.Models.GovernanceResource.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignmentRequests", n => { RoleAssignmentRequests = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignmentRequest>(ApiSdk.Models.GovernanceRoleAssignmentRequest.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleAssignments", n => { RoleAssignments = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignment>(ApiSdk.Models.GovernanceRoleAssignment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleDefinitions", n => { RoleDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleDefinition>(ApiSdk.Models.GovernanceRoleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "roleSettings", n => { RoleSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>(ApiSdk.Models.GovernanceRoleSetting.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -93,11 +93,11 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteStringValue("displayName", DisplayName);
-            writer.WriteCollectionOfObjectValues<GovernanceResource>("resources", Resources);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleAssignmentRequest>("roleAssignmentRequests", RoleAssignmentRequests);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleAssignment>("roleAssignments", RoleAssignments);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleDefinition>("roleDefinitions", RoleDefinitions);
-            writer.WriteCollectionOfObjectValues<GovernanceRoleSetting>("roleSettings", RoleSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceResource>("resources", Resources);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignmentRequest>("roleAssignmentRequests", RoleAssignmentRequests);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleAssignment>("roleAssignments", RoleAssignments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleDefinition>("roleDefinitions", RoleDefinitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.GovernanceRoleSetting>("roleSettings", RoleSettings);
         }
     }
 }

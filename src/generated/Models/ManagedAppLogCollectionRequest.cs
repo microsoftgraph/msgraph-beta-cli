@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The Managed App log collection response
     /// </summary>
-    public class ManagedAppLogCollectionRequest : Entity, IParsable
+    public class ManagedAppLogCollectionRequest : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>DateTime of when the log upload request was completed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: &apos;2014-01-01T00:00:00Z&apos;. Returned by default. Read-only.</summary>
         public DateTimeOffset? CompletedDateTime { get; set; }
@@ -50,13 +50,13 @@ namespace ApiSdk.Models
         /// <summary>The collection of log upload results as reported by each component on the device. Such components can be the application itself, the Mobile Application Management (MAM) SDK, and other on-device components that are requested to upload diagnostic logs. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ManagedAppLogUpload>? UploadedLogs { get; set; }
+        public List<ApiSdk.Models.ManagedAppLogUpload>? UploadedLogs { get; set; }
 #nullable restore
 #else
-        public List<ManagedAppLogUpload> UploadedLogs { get; set; }
+        public List<ApiSdk.Models.ManagedAppLogUpload> UploadedLogs { get; set; }
 #endif
         /// <summary>Represents the current consent status of the associated `managedAppLogCollectionRequest`.</summary>
-        public ManagedAppLogUploadConsent? UserLogUploadConsent { get; set; }
+        public ApiSdk.Models.ManagedAppLogUploadConsent? UserLogUploadConsent { get; set; }
         /// <summary>Version of the entity.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -68,12 +68,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ManagedAppLogCollectionRequest"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedAppLogCollectionRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ManagedAppLogCollectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedAppLogCollectionRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ManagedAppLogCollectionRequest();
+            return new ApiSdk.Models.ManagedAppLogCollectionRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -89,8 +89,8 @@ namespace ApiSdk.Models
                 { "requestedByUserPrincipalName", n => { RequestedByUserPrincipalName = n.GetStringValue(); } },
                 { "requestedDateTime", n => { RequestedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
-                { "uploadedLogs", n => { UploadedLogs = n.GetCollectionOfObjectValues<ManagedAppLogUpload>(ManagedAppLogUpload.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "userLogUploadConsent", n => { UserLogUploadConsent = n.GetEnumValue<ManagedAppLogUploadConsent>(); } },
+                { "uploadedLogs", n => { UploadedLogs = n.GetCollectionOfObjectValues<ApiSdk.Models.ManagedAppLogUpload>(ApiSdk.Models.ManagedAppLogUpload.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "userLogUploadConsent", n => { UserLogUploadConsent = n.GetEnumValue<ApiSdk.Models.ManagedAppLogUploadConsent>(); } },
                 { "version", n => { Version = n.GetStringValue(); } },
             };
         }
@@ -108,8 +108,8 @@ namespace ApiSdk.Models
             writer.WriteStringValue("requestedByUserPrincipalName", RequestedByUserPrincipalName);
             writer.WriteDateTimeOffsetValue("requestedDateTime", RequestedDateTime);
             writer.WriteStringValue("status", Status);
-            writer.WriteCollectionOfObjectValues<ManagedAppLogUpload>("uploadedLogs", UploadedLogs);
-            writer.WriteEnumValue<ManagedAppLogUploadConsent>("userLogUploadConsent", UserLogUploadConsent);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ManagedAppLogUpload>("uploadedLogs", UploadedLogs);
+            writer.WriteEnumValue<ApiSdk.Models.ManagedAppLogUploadConsent>("userLogUploadConsent", UserLogUploadConsent);
             writer.WriteStringValue("version", Version);
         }
     }

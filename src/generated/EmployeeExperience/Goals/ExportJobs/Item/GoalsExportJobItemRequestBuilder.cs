@@ -30,7 +30,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
         {
             var command = new Command("content");
             command.Description = "Provides operations to manage the media for the employeeExperience entity.";
-            var builder = new ContentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.Content.ContentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -159,7 +159,7 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<GoalsExportJob>(GoalsExportJob.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.GoalsExportJob>(ApiSdk.Models.GoalsExportJob.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -180,14 +180,14 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="GoalsExportJobItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.GoalsExportJobItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public GoalsExportJobItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/employeeExperience/goals/exportJobs/{goalsExportJob%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="GoalsExportJobItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.GoalsExportJobItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public GoalsExportJobItemRequestBuilder(string rawUrl) : base("{+baseurl}/employeeExperience/goals/exportJobs/{goalsExportJob%2Did}{?%24expand,%24select}", rawUrl)
@@ -219,11 +219,11 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GoalsExportJobItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.GoalsExportJobItemRequestBuilder.GoalsExportJobItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<GoalsExportJobItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.EmployeeExperience.Goals.ExportJobs.Item.GoalsExportJobItemRequestBuilder.GoalsExportJobItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -239,11 +239,11 @@ namespace ApiSdk.EmployeeExperience.Goals.ExportJobs.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(GoalsExportJob body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GoalsExportJob body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(GoalsExportJob body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.GoalsExportJob body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

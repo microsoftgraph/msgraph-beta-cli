@@ -25,7 +25,7 @@ namespace ApiSdk.Models.IndustryData
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AdminUnitCreationOptions"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.AdminUnitCreationOptions"/> and sets the default values.
         /// </summary>
         public AdminUnitCreationOptions()
         {
@@ -34,12 +34,12 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AdminUnitCreationOptions"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.AdminUnitCreationOptions"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AdminUnitCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.AdminUnitCreationOptions CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AdminUnitCreationOptions();
+            return new ApiSdk.Models.IndustryData.AdminUnitCreationOptions();
         }
         /// <summary>
         /// The deserialization information for the current model

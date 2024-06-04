@@ -7,13 +7,13 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class RedundantAssignmentAlertConfiguration : UnifiedRoleManagementAlertConfiguration, IParsable
+    public class RedundantAssignmentAlertConfiguration : ApiSdk.Models.UnifiedRoleManagementAlertConfiguration, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The number of days without activation to look back on from current timestamp.</summary>
         public TimeSpan? Duration { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="RedundantAssignmentAlertConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.RedundantAssignmentAlertConfiguration"/> and sets the default values.
         /// </summary>
         public RedundantAssignmentAlertConfiguration() : base()
         {
@@ -22,12 +22,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="RedundantAssignmentAlertConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.RedundantAssignmentAlertConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new RedundantAssignmentAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.RedundantAssignmentAlertConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new RedundantAssignmentAlertConfiguration();
+            return new ApiSdk.Models.RedundantAssignmentAlertConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model

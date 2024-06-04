@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc
         public List<string> ManagedDeviceIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BulkReprovisionCloudPcPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc.BulkReprovisionCloudPcPostRequestBody"/> and sets the default values.
         /// </summary>
         public BulkReprovisionCloudPcPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BulkReprovisionCloudPcPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc.BulkReprovisionCloudPcPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BulkReprovisionCloudPcPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc.BulkReprovisionCloudPcPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BulkReprovisionCloudPcPostRequestBody();
+            return new ApiSdk.DeviceManagement.ManagedDevices.BulkReprovisionCloudPc.BulkReprovisionCloudPcPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -21,9 +21,9 @@ namespace ApiSdk.Models
         public ApiSdk.Models.AuthenticationStrength AuthenticationStrength { get; set; }
 #endif
         /// <summary>Refers to the conditional access policy conditions that aren&apos;t satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk . You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.</summary>
-        public ConditionalAccessConditions? ConditionsNotSatisfied { get; set; }
+        public ApiSdk.Models.ConditionalAccessConditions? ConditionsNotSatisfied { get; set; }
         /// <summary>Refers to the conditional access policy conditions that are satisfied. The possible values are: none, application, users, devicePlatform, location, clientType, signInRisk, userRisk, time, deviceState, client,ipAddressSeenByAzureAD,ipAddressSeenByResourceProvider,unknownFutureValue,servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipals,servicePrincipalRisk, authenticationFlows, insiderRisk. conditionalAccessConditions is a multi-valued enumeration and the property can contain multiple values in a comma-separated list.</summary>
-        public ConditionalAccessConditions? ConditionsSatisfied { get; set; }
+        public ApiSdk.Models.ConditionalAccessConditions? ConditionsSatisfied { get; set; }
         /// <summary>Name of the conditional access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -51,10 +51,10 @@ namespace ApiSdk.Models
         /// <summary>List of key-value pairs containing each matched exclude condition in the conditional access policy. Example: [{&apos;devicePlatform&apos; : &apos;DevicePlatform&apos;}] means the policy didn&apos;t apply, because the DevicePlatform condition was a match.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessRuleSatisfied>? ExcludeRulesSatisfied { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessRuleSatisfied>? ExcludeRulesSatisfied { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessRuleSatisfied> ExcludeRulesSatisfied { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessRuleSatisfied> ExcludeRulesSatisfied { get; set; }
 #endif
         /// <summary>Identifier of the conditional access policy.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,10 +67,10 @@ namespace ApiSdk.Models
         /// <summary>List of key-value pairs containing each matched include condition in the conditional access policy. Example: [{ &apos;application&apos; : &apos;AllApps&apos;}, {&apos;users&apos;: &apos;Group&apos;}], meaning Application condition was a match because AllApps are included and Users condition was a match because the user was part of the included Group rule.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ConditionalAccessRuleSatisfied>? IncludeRulesSatisfied { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessRuleSatisfied>? IncludeRulesSatisfied { get; set; }
 #nullable restore
 #else
-        public List<ConditionalAccessRuleSatisfied> IncludeRulesSatisfied { get; set; }
+        public List<ApiSdk.Models.ConditionalAccessRuleSatisfied> IncludeRulesSatisfied { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,7 +81,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (policy isn&apos;t applied because policy conditions weren&apos;t met), notEnabled (this is due to the policy in a disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.</summary>
-        public AppliedConditionalAccessPolicyResult? Result { get; set; }
+        public ApiSdk.Models.AppliedConditionalAccessPolicyResult? Result { get; set; }
         /// <summary>Refers to the session controls that a sign-in activity didn&apos;t satisfy. (Example: Application enforced Restrictions).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -91,7 +91,7 @@ namespace ApiSdk.Models
         public List<string> SessionControlsNotSatisfied { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AppliedConditionalAccessPolicy"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AppliedConditionalAccessPolicy"/> and sets the default values.
         /// </summary>
         public AppliedConditionalAccessPolicy()
         {
@@ -100,12 +100,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppliedConditionalAccessPolicy"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppliedConditionalAccessPolicy"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AppliedConditionalAccessPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AppliedConditionalAccessPolicy CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AppliedConditionalAccessPolicy();
+            return new ApiSdk.Models.AppliedConditionalAccessPolicy();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -116,16 +116,16 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "authenticationStrength", n => { AuthenticationStrength = n.GetObjectValue<ApiSdk.Models.AuthenticationStrength>(ApiSdk.Models.AuthenticationStrength.CreateFromDiscriminatorValue); } },
-                { "conditionsNotSatisfied", n => { ConditionsNotSatisfied = n.GetEnumValue<ConditionalAccessConditions>(); } },
-                { "conditionsSatisfied", n => { ConditionsSatisfied = n.GetEnumValue<ConditionalAccessConditions>(); } },
+                { "conditionsNotSatisfied", n => { ConditionsNotSatisfied = n.GetEnumValue<ApiSdk.Models.ConditionalAccessConditions>(); } },
+                { "conditionsSatisfied", n => { ConditionsSatisfied = n.GetEnumValue<ApiSdk.Models.ConditionalAccessConditions>(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "enforcedGrantControls", n => { EnforcedGrantControls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "enforcedSessionControls", n => { EnforcedSessionControls = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "excludeRulesSatisfied", n => { ExcludeRulesSatisfied = n.GetCollectionOfObjectValues<ConditionalAccessRuleSatisfied>(ConditionalAccessRuleSatisfied.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "excludeRulesSatisfied", n => { ExcludeRulesSatisfied = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessRuleSatisfied>(ApiSdk.Models.ConditionalAccessRuleSatisfied.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "includeRulesSatisfied", n => { IncludeRulesSatisfied = n.GetCollectionOfObjectValues<ConditionalAccessRuleSatisfied>(ConditionalAccessRuleSatisfied.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "includeRulesSatisfied", n => { IncludeRulesSatisfied = n.GetCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessRuleSatisfied>(ApiSdk.Models.ConditionalAccessRuleSatisfied.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "result", n => { Result = n.GetEnumValue<AppliedConditionalAccessPolicyResult>(); } },
+                { "result", n => { Result = n.GetEnumValue<ApiSdk.Models.AppliedConditionalAccessPolicyResult>(); } },
                 { "sessionControlsNotSatisfied", n => { SessionControlsNotSatisfied = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
             };
         }
@@ -137,16 +137,16 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<ApiSdk.Models.AuthenticationStrength>("authenticationStrength", AuthenticationStrength);
-            writer.WriteEnumValue<ConditionalAccessConditions>("conditionsNotSatisfied", ConditionsNotSatisfied);
-            writer.WriteEnumValue<ConditionalAccessConditions>("conditionsSatisfied", ConditionsSatisfied);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessConditions>("conditionsNotSatisfied", ConditionsNotSatisfied);
+            writer.WriteEnumValue<ApiSdk.Models.ConditionalAccessConditions>("conditionsSatisfied", ConditionsSatisfied);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteCollectionOfPrimitiveValues<string>("enforcedGrantControls", EnforcedGrantControls);
             writer.WriteCollectionOfPrimitiveValues<string>("enforcedSessionControls", EnforcedSessionControls);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessRuleSatisfied>("excludeRulesSatisfied", ExcludeRulesSatisfied);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessRuleSatisfied>("excludeRulesSatisfied", ExcludeRulesSatisfied);
             writer.WriteStringValue("id", Id);
-            writer.WriteCollectionOfObjectValues<ConditionalAccessRuleSatisfied>("includeRulesSatisfied", IncludeRulesSatisfied);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.ConditionalAccessRuleSatisfied>("includeRulesSatisfied", IncludeRulesSatisfied);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<AppliedConditionalAccessPolicyResult>("result", Result);
+            writer.WriteEnumValue<ApiSdk.Models.AppliedConditionalAccessPolicyResult>("result", Result);
             writer.WriteCollectionOfPrimitiveValues<string>("sessionControlsNotSatisfied", SessionControlsNotSatisfied);
             writer.WriteAdditionalData(AdditionalData);
         }

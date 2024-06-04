@@ -13,10 +13,10 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Represents an edition of a particular Windows product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Edition>? Editions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Edition>? Editions { get; set; }
 #nullable restore
 #else
-        public List<Edition> Editions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.Edition> Editions { get; set; }
 #endif
         /// <summary>The friendly names of the product. For example, Version 22H2 (OS build 22621). Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,10 +37,10 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Represents a known issue related to a Windows product.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<KnownIssue>? KnownIssues { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssue>? KnownIssues { get; set; }
 #nullable restore
 #else
-        public List<KnownIssue> KnownIssues { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.KnownIssue> KnownIssues { get; set; }
 #endif
         /// <summary>The name of the product. For example, Windows 11, version 22H2. Read-only.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -53,20 +53,20 @@ namespace ApiSdk.Models.WindowsUpdates
         /// <summary>Represents a product revision.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<ProductRevision>? Revisions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ProductRevision>? Revisions { get; set; }
 #nullable restore
 #else
-        public List<ProductRevision> Revisions { get; set; }
+        public List<ApiSdk.Models.WindowsUpdates.ProductRevision> Revisions { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Product"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WindowsUpdates.Product"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Product CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WindowsUpdates.Product CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Product();
+            return new ApiSdk.Models.WindowsUpdates.Product();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -76,12 +76,12 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "editions", n => { Editions = n.GetCollectionOfObjectValues<Edition>(Edition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "editions", n => { Editions = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Edition>(ApiSdk.Models.WindowsUpdates.Edition.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "friendlyNames", n => { FriendlyNames = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "groupName", n => { GroupName = n.GetStringValue(); } },
-                { "knownIssues", n => { KnownIssues = n.GetCollectionOfObjectValues<KnownIssue>(KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "knownIssues", n => { KnownIssues = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssue>(ApiSdk.Models.WindowsUpdates.KnownIssue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "revisions", n => { Revisions = n.GetCollectionOfObjectValues<ProductRevision>(ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "revisions", n => { Revisions = n.GetCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ProductRevision>(ApiSdk.Models.WindowsUpdates.ProductRevision.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -92,12 +92,12 @@ namespace ApiSdk.Models.WindowsUpdates
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<Edition>("editions", Editions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.Edition>("editions", Editions);
             writer.WriteCollectionOfPrimitiveValues<string>("friendlyNames", FriendlyNames);
             writer.WriteStringValue("groupName", GroupName);
-            writer.WriteCollectionOfObjectValues<KnownIssue>("knownIssues", KnownIssues);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.KnownIssue>("knownIssues", KnownIssues);
             writer.WriteStringValue("name", Name);
-            writer.WriteCollectionOfObjectValues<ProductRevision>("revisions", Revisions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.WindowsUpdates.ProductRevision>("revisions", Revisions);
         }
     }
 }

@@ -25,10 +25,10 @@ namespace ApiSdk.Models
         /// <summary>The color modes supported by the printer. Valid values are described in the following table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintColorMode?>? ColorModes { get; set; }
+        public List<ApiSdk.Models.PrintColorMode?>? ColorModes { get; set; }
 #nullable restore
 #else
-        public List<PrintColorMode?> ColorModes { get; set; }
+        public List<ApiSdk.Models.PrintColorMode?> ColorModes { get; set; }
 #endif
         /// <summary>A list of supported content (MIME) types that the printer supports. It isn&apos;t guaranteed that the Universal Print service supports printing all of these MIME types.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -41,10 +41,10 @@ namespace ApiSdk.Models
         /// <summary>The range of copies per job supported by the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IntegerRange? CopiesPerJob { get; set; }
+        public ApiSdk.Models.IntegerRange? CopiesPerJob { get; set; }
 #nullable restore
 #else
-        public IntegerRange CopiesPerJob { get; set; }
+        public ApiSdk.Models.IntegerRange CopiesPerJob { get; set; }
 #endif
         /// <summary>The list of print resolutions in DPI that are supported by the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -57,34 +57,34 @@ namespace ApiSdk.Models
         /// <summary>The list of duplex modes that are supported by the printer. Valid values are described in the following table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintDuplexMode?>? DuplexModes { get; set; }
+        public List<ApiSdk.Models.PrintDuplexMode?>? DuplexModes { get; set; }
 #nullable restore
 #else
-        public List<PrintDuplexMode?> DuplexModes { get; set; }
+        public List<ApiSdk.Models.PrintDuplexMode?> DuplexModes { get; set; }
 #endif
         /// <summary>The feedDirections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrinterFeedDirection?>? FeedDirections { get; set; }
+        public List<ApiSdk.Models.PrinterFeedDirection?>? FeedDirections { get; set; }
 #nullable restore
 #else
-        public List<PrinterFeedDirection?> FeedDirections { get; set; }
+        public List<ApiSdk.Models.PrinterFeedDirection?> FeedDirections { get; set; }
 #endif
         /// <summary>The list of feed orientations that are supported by the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrinterFeedOrientation?>? FeedOrientations { get; set; }
+        public List<ApiSdk.Models.PrinterFeedOrientation?>? FeedOrientations { get; set; }
 #nullable restore
 #else
-        public List<PrinterFeedOrientation?> FeedOrientations { get; set; }
+        public List<ApiSdk.Models.PrinterFeedOrientation?> FeedOrientations { get; set; }
 #endif
         /// <summary>Finishing processes the printer supports for a printed document.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintFinishing?>? Finishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?>? Finishings { get; set; }
 #nullable restore
 #else
-        public List<PrintFinishing?> Finishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?> Finishings { get; set; }
 #endif
         /// <summary>Supported input bins for the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -133,10 +133,10 @@ namespace ApiSdk.Models
         /// <summary>The presentation directions supported by the printer. Supported values are described in the following table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintMultipageLayout?>? MultipageLayouts { get; set; }
+        public List<ApiSdk.Models.PrintMultipageLayout?>? MultipageLayouts { get; set; }
 #nullable restore
 #else
-        public List<PrintMultipageLayout?> MultipageLayouts { get; set; }
+        public List<ApiSdk.Models.PrintMultipageLayout?> MultipageLayouts { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -149,10 +149,10 @@ namespace ApiSdk.Models
         /// <summary>The print orientations supported by the printer. Valid values are described in the following table.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintOrientation?>? Orientations { get; set; }
+        public List<ApiSdk.Models.PrintOrientation?>? Orientations { get; set; }
 #nullable restore
 #else
-        public List<PrintOrientation?> Orientations { get; set; }
+        public List<ApiSdk.Models.PrintOrientation?> Orientations { get; set; }
 #endif
         /// <summary>The printer&apos;s supported output bins (trays).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -173,10 +173,10 @@ namespace ApiSdk.Models
         /// <summary>The print qualities supported by the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintQuality?>? Qualities { get; set; }
+        public List<ApiSdk.Models.PrintQuality?>? Qualities { get; set; }
 #nullable restore
 #else
-        public List<PrintQuality?> Qualities { get; set; }
+        public List<ApiSdk.Models.PrintQuality?> Qualities { get; set; }
 #endif
         /// <summary>A list of supported right margins(in microns) for the printer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -189,26 +189,26 @@ namespace ApiSdk.Models
         /// <summary>Supported print scalings.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintScaling?>? Scalings { get; set; }
+        public List<ApiSdk.Models.PrintScaling?>? Scalings { get; set; }
 #nullable restore
 #else
-        public List<PrintScaling?> Scalings { get; set; }
+        public List<ApiSdk.Models.PrintScaling?> Scalings { get; set; }
 #endif
         /// <summary>The supportedColorConfigurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintColorConfiguration?>? SupportedColorConfigurations { get; set; }
+        public List<ApiSdk.Models.PrintColorConfiguration?>? SupportedColorConfigurations { get; set; }
 #nullable restore
 #else
-        public List<PrintColorConfiguration?> SupportedColorConfigurations { get; set; }
+        public List<ApiSdk.Models.PrintColorConfiguration?> SupportedColorConfigurations { get; set; }
 #endif
         /// <summary>The supportedCopiesPerJob property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IntegerRange? SupportedCopiesPerJob { get; set; }
+        public ApiSdk.Models.IntegerRange? SupportedCopiesPerJob { get; set; }
 #nullable restore
 #else
-        public IntegerRange SupportedCopiesPerJob { get; set; }
+        public ApiSdk.Models.IntegerRange SupportedCopiesPerJob { get; set; }
 #endif
         /// <summary>The supportedDocumentMimeTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -221,18 +221,18 @@ namespace ApiSdk.Models
         /// <summary>The supportedDuplexConfigurations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintDuplexConfiguration?>? SupportedDuplexConfigurations { get; set; }
+        public List<ApiSdk.Models.PrintDuplexConfiguration?>? SupportedDuplexConfigurations { get; set; }
 #nullable restore
 #else
-        public List<PrintDuplexConfiguration?> SupportedDuplexConfigurations { get; set; }
+        public List<ApiSdk.Models.PrintDuplexConfiguration?> SupportedDuplexConfigurations { get; set; }
 #endif
         /// <summary>The supportedFinishings property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintFinishing?>? SupportedFinishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?>? SupportedFinishings { get; set; }
 #nullable restore
 #else
-        public List<PrintFinishing?> SupportedFinishings { get; set; }
+        public List<ApiSdk.Models.PrintFinishing?> SupportedFinishings { get; set; }
 #endif
         /// <summary>The supportedMediaColors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -253,18 +253,18 @@ namespace ApiSdk.Models
         /// <summary>The supportedMediaTypes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintMediaType?>? SupportedMediaTypes { get; set; }
+        public List<ApiSdk.Models.PrintMediaType?>? SupportedMediaTypes { get; set; }
 #nullable restore
 #else
-        public List<PrintMediaType?> SupportedMediaTypes { get; set; }
+        public List<ApiSdk.Models.PrintMediaType?> SupportedMediaTypes { get; set; }
 #endif
         /// <summary>The supportedOrientations property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintOrientation?>? SupportedOrientations { get; set; }
+        public List<ApiSdk.Models.PrintOrientation?>? SupportedOrientations { get; set; }
 #nullable restore
 #else
-        public List<PrintOrientation?> SupportedOrientations { get; set; }
+        public List<ApiSdk.Models.PrintOrientation?> SupportedOrientations { get; set; }
 #endif
         /// <summary>The supportedOutputBins property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -277,26 +277,26 @@ namespace ApiSdk.Models
         /// <summary>The supportedPagesPerSheet property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public IntegerRange? SupportedPagesPerSheet { get; set; }
+        public ApiSdk.Models.IntegerRange? SupportedPagesPerSheet { get; set; }
 #nullable restore
 #else
-        public IntegerRange SupportedPagesPerSheet { get; set; }
+        public ApiSdk.Models.IntegerRange SupportedPagesPerSheet { get; set; }
 #endif
         /// <summary>The supportedPresentationDirections property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintPresentationDirection?>? SupportedPresentationDirections { get; set; }
+        public List<ApiSdk.Models.PrintPresentationDirection?>? SupportedPresentationDirections { get; set; }
 #nullable restore
 #else
-        public List<PrintPresentationDirection?> SupportedPresentationDirections { get; set; }
+        public List<ApiSdk.Models.PrintPresentationDirection?> SupportedPresentationDirections { get; set; }
 #endif
         /// <summary>The supportedPrintQualities property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PrintQuality?>? SupportedPrintQualities { get; set; }
+        public List<ApiSdk.Models.PrintQuality?>? SupportedPrintQualities { get; set; }
 #nullable restore
 #else
-        public List<PrintQuality?> SupportedPrintQualities { get; set; }
+        public List<ApiSdk.Models.PrintQuality?> SupportedPrintQualities { get; set; }
 #endif
         /// <summary>True if the printer supports scaling PDF pages to match the print media size; false otherwise.</summary>
         public bool? SupportsFitPdfToPage { get; set; }
@@ -309,7 +309,7 @@ namespace ApiSdk.Models
         public List<int?> TopMargins { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PrinterCapabilities"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PrinterCapabilities"/> and sets the default values.
         /// </summary>
         public PrinterCapabilities()
         {
@@ -318,12 +318,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PrinterCapabilities"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PrinterCapabilities"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PrinterCapabilities CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PrinterCapabilities CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PrinterCapabilities();
+            return new ApiSdk.Models.PrinterCapabilities();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -335,14 +335,14 @@ namespace ApiSdk.Models
             {
                 { "bottomMargins", n => { BottomMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
                 { "collation", n => { Collation = n.GetBoolValue(); } },
-                { "colorModes", n => { ColorModes = n.GetCollectionOfEnumValues<PrintColorMode>()?.ToList(); } },
+                { "colorModes", n => { ColorModes = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintColorMode>()?.ToList(); } },
                 { "contentTypes", n => { ContentTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "copiesPerJob", n => { CopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
+                { "copiesPerJob", n => { CopiesPerJob = n.GetObjectValue<ApiSdk.Models.IntegerRange>(ApiSdk.Models.IntegerRange.CreateFromDiscriminatorValue); } },
                 { "dpis", n => { Dpis = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                { "duplexModes", n => { DuplexModes = n.GetCollectionOfEnumValues<PrintDuplexMode>()?.ToList(); } },
-                { "feedDirections", n => { FeedDirections = n.GetCollectionOfEnumValues<PrinterFeedDirection>()?.ToList(); } },
-                { "feedOrientations", n => { FeedOrientations = n.GetCollectionOfEnumValues<PrinterFeedOrientation>()?.ToList(); } },
-                { "finishings", n => { Finishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
+                { "duplexModes", n => { DuplexModes = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintDuplexMode>()?.ToList(); } },
+                { "feedDirections", n => { FeedDirections = n.GetCollectionOfEnumValues<ApiSdk.Models.PrinterFeedDirection>()?.ToList(); } },
+                { "feedOrientations", n => { FeedOrientations = n.GetCollectionOfEnumValues<ApiSdk.Models.PrinterFeedOrientation>()?.ToList(); } },
+                { "finishings", n => { Finishings = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>()?.ToList(); } },
                 { "inputBins", n => { InputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "isColorPrintingSupported", n => { IsColorPrintingSupported = n.GetBoolValue(); } },
                 { "isPageRangeSupported", n => { IsPageRangeSupported = n.GetBoolValue(); } },
@@ -350,27 +350,27 @@ namespace ApiSdk.Models
                 { "mediaColors", n => { MediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "mediaSizes", n => { MediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "mediaTypes", n => { MediaTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "multipageLayouts", n => { MultipageLayouts = n.GetCollectionOfEnumValues<PrintMultipageLayout>()?.ToList(); } },
+                { "multipageLayouts", n => { MultipageLayouts = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintMultipageLayout>()?.ToList(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "orientations", n => { Orientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
+                { "orientations", n => { Orientations = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintOrientation>()?.ToList(); } },
                 { "outputBins", n => { OutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "pagesPerSheet", n => { PagesPerSheet = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                { "qualities", n => { Qualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
+                { "qualities", n => { Qualities = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintQuality>()?.ToList(); } },
                 { "rightMargins", n => { RightMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
-                { "scalings", n => { Scalings = n.GetCollectionOfEnumValues<PrintScaling>()?.ToList(); } },
-                { "supportedColorConfigurations", n => { SupportedColorConfigurations = n.GetCollectionOfEnumValues<PrintColorConfiguration>()?.ToList(); } },
-                { "supportedCopiesPerJob", n => { SupportedCopiesPerJob = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
+                { "scalings", n => { Scalings = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintScaling>()?.ToList(); } },
+                { "supportedColorConfigurations", n => { SupportedColorConfigurations = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintColorConfiguration>()?.ToList(); } },
+                { "supportedCopiesPerJob", n => { SupportedCopiesPerJob = n.GetObjectValue<ApiSdk.Models.IntegerRange>(ApiSdk.Models.IntegerRange.CreateFromDiscriminatorValue); } },
                 { "supportedDocumentMimeTypes", n => { SupportedDocumentMimeTypes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "supportedDuplexConfigurations", n => { SupportedDuplexConfigurations = n.GetCollectionOfEnumValues<PrintDuplexConfiguration>()?.ToList(); } },
-                { "supportedFinishings", n => { SupportedFinishings = n.GetCollectionOfEnumValues<PrintFinishing>()?.ToList(); } },
+                { "supportedDuplexConfigurations", n => { SupportedDuplexConfigurations = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintDuplexConfiguration>()?.ToList(); } },
+                { "supportedFinishings", n => { SupportedFinishings = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>()?.ToList(); } },
                 { "supportedMediaColors", n => { SupportedMediaColors = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
                 { "supportedMediaSizes", n => { SupportedMediaSizes = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "supportedMediaTypes", n => { SupportedMediaTypes = n.GetCollectionOfEnumValues<PrintMediaType>()?.ToList(); } },
-                { "supportedOrientations", n => { SupportedOrientations = n.GetCollectionOfEnumValues<PrintOrientation>()?.ToList(); } },
+                { "supportedMediaTypes", n => { SupportedMediaTypes = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintMediaType>()?.ToList(); } },
+                { "supportedOrientations", n => { SupportedOrientations = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintOrientation>()?.ToList(); } },
                 { "supportedOutputBins", n => { SupportedOutputBins = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "supportedPagesPerSheet", n => { SupportedPagesPerSheet = n.GetObjectValue<IntegerRange>(IntegerRange.CreateFromDiscriminatorValue); } },
-                { "supportedPresentationDirections", n => { SupportedPresentationDirections = n.GetCollectionOfEnumValues<PrintPresentationDirection>()?.ToList(); } },
-                { "supportedPrintQualities", n => { SupportedPrintQualities = n.GetCollectionOfEnumValues<PrintQuality>()?.ToList(); } },
+                { "supportedPagesPerSheet", n => { SupportedPagesPerSheet = n.GetObjectValue<ApiSdk.Models.IntegerRange>(ApiSdk.Models.IntegerRange.CreateFromDiscriminatorValue); } },
+                { "supportedPresentationDirections", n => { SupportedPresentationDirections = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintPresentationDirection>()?.ToList(); } },
+                { "supportedPrintQualities", n => { SupportedPrintQualities = n.GetCollectionOfEnumValues<ApiSdk.Models.PrintQuality>()?.ToList(); } },
                 { "supportsFitPdfToPage", n => { SupportsFitPdfToPage = n.GetBoolValue(); } },
                 { "topMargins", n => { TopMargins = n.GetCollectionOfPrimitiveValues<int?>()?.ToList(); } },
             };
@@ -384,14 +384,14 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<int?>("bottomMargins", BottomMargins);
             writer.WriteBoolValue("collation", Collation);
-            writer.WriteCollectionOfEnumValues<PrintColorMode>("colorModes", ColorModes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintColorMode>("colorModes", ColorModes);
             writer.WriteCollectionOfPrimitiveValues<string>("contentTypes", ContentTypes);
-            writer.WriteObjectValue<IntegerRange>("copiesPerJob", CopiesPerJob);
+            writer.WriteObjectValue<ApiSdk.Models.IntegerRange>("copiesPerJob", CopiesPerJob);
             writer.WriteCollectionOfPrimitiveValues<int?>("dpis", Dpis);
-            writer.WriteCollectionOfEnumValues<PrintDuplexMode>("duplexModes", DuplexModes);
-            writer.WriteCollectionOfEnumValues<PrinterFeedDirection>("feedDirections", FeedDirections);
-            writer.WriteCollectionOfEnumValues<PrinterFeedOrientation>("feedOrientations", FeedOrientations);
-            writer.WriteCollectionOfEnumValues<PrintFinishing>("finishings", Finishings);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintDuplexMode>("duplexModes", DuplexModes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrinterFeedDirection>("feedDirections", FeedDirections);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrinterFeedOrientation>("feedOrientations", FeedOrientations);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>("finishings", Finishings);
             writer.WriteCollectionOfPrimitiveValues<string>("inputBins", InputBins);
             writer.WriteBoolValue("isColorPrintingSupported", IsColorPrintingSupported);
             writer.WriteBoolValue("isPageRangeSupported", IsPageRangeSupported);
@@ -399,27 +399,27 @@ namespace ApiSdk.Models
             writer.WriteCollectionOfPrimitiveValues<string>("mediaColors", MediaColors);
             writer.WriteCollectionOfPrimitiveValues<string>("mediaSizes", MediaSizes);
             writer.WriteCollectionOfPrimitiveValues<string>("mediaTypes", MediaTypes);
-            writer.WriteCollectionOfEnumValues<PrintMultipageLayout>("multipageLayouts", MultipageLayouts);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintMultipageLayout>("multipageLayouts", MultipageLayouts);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteCollectionOfEnumValues<PrintOrientation>("orientations", Orientations);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintOrientation>("orientations", Orientations);
             writer.WriteCollectionOfPrimitiveValues<string>("outputBins", OutputBins);
             writer.WriteCollectionOfPrimitiveValues<int?>("pagesPerSheet", PagesPerSheet);
-            writer.WriteCollectionOfEnumValues<PrintQuality>("qualities", Qualities);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintQuality>("qualities", Qualities);
             writer.WriteCollectionOfPrimitiveValues<int?>("rightMargins", RightMargins);
-            writer.WriteCollectionOfEnumValues<PrintScaling>("scalings", Scalings);
-            writer.WriteCollectionOfEnumValues<PrintColorConfiguration>("supportedColorConfigurations", SupportedColorConfigurations);
-            writer.WriteObjectValue<IntegerRange>("supportedCopiesPerJob", SupportedCopiesPerJob);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintScaling>("scalings", Scalings);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintColorConfiguration>("supportedColorConfigurations", SupportedColorConfigurations);
+            writer.WriteObjectValue<ApiSdk.Models.IntegerRange>("supportedCopiesPerJob", SupportedCopiesPerJob);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedDocumentMimeTypes", SupportedDocumentMimeTypes);
-            writer.WriteCollectionOfEnumValues<PrintDuplexConfiguration>("supportedDuplexConfigurations", SupportedDuplexConfigurations);
-            writer.WriteCollectionOfEnumValues<PrintFinishing>("supportedFinishings", SupportedFinishings);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintDuplexConfiguration>("supportedDuplexConfigurations", SupportedDuplexConfigurations);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintFinishing>("supportedFinishings", SupportedFinishings);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedMediaColors", SupportedMediaColors);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedMediaSizes", SupportedMediaSizes);
-            writer.WriteCollectionOfEnumValues<PrintMediaType>("supportedMediaTypes", SupportedMediaTypes);
-            writer.WriteCollectionOfEnumValues<PrintOrientation>("supportedOrientations", SupportedOrientations);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintMediaType>("supportedMediaTypes", SupportedMediaTypes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintOrientation>("supportedOrientations", SupportedOrientations);
             writer.WriteCollectionOfPrimitiveValues<string>("supportedOutputBins", SupportedOutputBins);
-            writer.WriteObjectValue<IntegerRange>("supportedPagesPerSheet", SupportedPagesPerSheet);
-            writer.WriteCollectionOfEnumValues<PrintPresentationDirection>("supportedPresentationDirections", SupportedPresentationDirections);
-            writer.WriteCollectionOfEnumValues<PrintQuality>("supportedPrintQualities", SupportedPrintQualities);
+            writer.WriteObjectValue<ApiSdk.Models.IntegerRange>("supportedPagesPerSheet", SupportedPagesPerSheet);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintPresentationDirection>("supportedPresentationDirections", SupportedPresentationDirections);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.PrintQuality>("supportedPrintQualities", SupportedPrintQualities);
             writer.WriteBoolValue("supportsFitPdfToPage", SupportsFitPdfToPage);
             writer.WriteCollectionOfPrimitiveValues<int?>("topMargins", TopMargins);
             writer.WriteAdditionalData(AdditionalData);

@@ -31,13 +31,13 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ReferenceDefinition? Value { get; set; }
+        public ApiSdk.Models.IndustryData.ReferenceDefinition? Value { get; set; }
 #nullable restore
 #else
-        public ReferenceDefinition Value { get; set; }
+        public ApiSdk.Models.IndustryData.ReferenceDefinition Value { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ReferenceValue"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IndustryData.ReferenceValue"/> and sets the default values.
         /// </summary>
         public ReferenceValue()
         {
@@ -46,20 +46,20 @@ namespace ApiSdk.Models.IndustryData
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ReferenceValue"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IndustryData.ReferenceValue"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ReferenceValue CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.IndustryData.ReferenceValue CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.industryData.identifierTypeReferenceValue" => new IdentifierTypeReferenceValue(),
-                "#microsoft.graph.industryData.roleReferenceValue" => new RoleReferenceValue(),
-                "#microsoft.graph.industryData.sectionRoleReferenceValue" => new SectionRoleReferenceValue(),
-                "#microsoft.graph.industryData.userMatchTargetReferenceValue" => new UserMatchTargetReferenceValue(),
-                "#microsoft.graph.industryData.yearReferenceValue" => new YearReferenceValue(),
-                _ => new ReferenceValue(),
+                "#microsoft.graph.industryData.identifierTypeReferenceValue" => new ApiSdk.Models.IndustryData.IdentifierTypeReferenceValue(),
+                "#microsoft.graph.industryData.roleReferenceValue" => new ApiSdk.Models.IndustryData.RoleReferenceValue(),
+                "#microsoft.graph.industryData.sectionRoleReferenceValue" => new ApiSdk.Models.IndustryData.SectionRoleReferenceValue(),
+                "#microsoft.graph.industryData.userMatchTargetReferenceValue" => new ApiSdk.Models.IndustryData.UserMatchTargetReferenceValue(),
+                "#microsoft.graph.industryData.yearReferenceValue" => new ApiSdk.Models.IndustryData.YearReferenceValue(),
+                _ => new ApiSdk.Models.IndustryData.ReferenceValue(),
             };
         }
         /// <summary>
@@ -72,7 +72,7 @@ namespace ApiSdk.Models.IndustryData
             {
                 { "code", n => { Code = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "value", n => { Value = n.GetObjectValue<ReferenceDefinition>(ReferenceDefinition.CreateFromDiscriminatorValue); } },
+                { "value", n => { Value = n.GetObjectValue<ApiSdk.Models.IndustryData.ReferenceDefinition>(ApiSdk.Models.IndustryData.ReferenceDefinition.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -84,7 +84,7 @@ namespace ApiSdk.Models.IndustryData
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<ReferenceDefinition>("value", Value);
+            writer.WriteObjectValue<ApiSdk.Models.IndustryData.ReferenceDefinition>("value", Value);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

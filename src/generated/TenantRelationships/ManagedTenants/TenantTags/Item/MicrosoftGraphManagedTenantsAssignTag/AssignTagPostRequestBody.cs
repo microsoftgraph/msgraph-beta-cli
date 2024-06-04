@@ -21,7 +21,7 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGra
         public List<string> TenantIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AssignTagPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag.AssignTagPostRequestBody"/> and sets the default values.
         /// </summary>
         public AssignTagPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGra
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AssignTagPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag.AssignTagPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AssignTagPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag.AssignTagPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AssignTagPostRequestBody();
+            return new ApiSdk.TenantRelationships.ManagedTenants.TenantTags.Item.MicrosoftGraphManagedTenantsAssignTag.AssignTagPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

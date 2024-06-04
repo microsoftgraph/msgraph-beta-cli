@@ -67,12 +67,12 @@ namespace ApiSdk.Models.ManagedTenants
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CloudPcOverview"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ManagedTenants.CloudPcOverview"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new CloudPcOverview CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ManagedTenants.CloudPcOverview CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CloudPcOverview();
+            return new ApiSdk.Models.ManagedTenants.CloudPcOverview();
         }
         /// <summary>
         /// The deserialization information for the current model

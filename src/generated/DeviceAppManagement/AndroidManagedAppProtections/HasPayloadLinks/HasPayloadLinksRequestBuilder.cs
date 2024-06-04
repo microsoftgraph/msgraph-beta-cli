@@ -50,7 +50,7 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<HasPayloadLinksPostRequestBody>(HasPayloadLinksPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody>(ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -79,14 +79,14 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasPayloadLinksRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public HasPayloadLinksRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceAppManagement/androidManagedAppProtections/hasPayloadLinks", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="HasPayloadLinksRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public HasPayloadLinksRequestBuilder(string rawUrl) : base("{+baseurl}/deviceAppManagement/androidManagedAppProtections/hasPayloadLinks", rawUrl)
@@ -100,11 +100,11 @@ namespace ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLink
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(HasPayloadLinksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(HasPayloadLinksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceAppManagement.AndroidManagedAppProtections.HasPayloadLinks.HasPayloadLinksPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

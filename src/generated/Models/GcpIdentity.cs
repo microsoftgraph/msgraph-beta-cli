@@ -7,11 +7,11 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class GcpIdentity : AuthorizationSystemIdentity, IParsable
+    public class GcpIdentity : ApiSdk.Models.AuthorizationSystemIdentity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>
-        /// Instantiates a new <see cref="GcpIdentity"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.GcpIdentity"/> and sets the default values.
         /// </summary>
         public GcpIdentity() : base()
         {
@@ -20,19 +20,19 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GcpIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GcpIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GcpIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GcpIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.gcpCloudFunction" => new GcpCloudFunction(),
-                "#microsoft.graph.gcpGroup" => new GcpGroup(),
-                "#microsoft.graph.gcpServiceAccount" => new GcpServiceAccount(),
-                "#microsoft.graph.gcpUser" => new GcpUser(),
-                _ => new GcpIdentity(),
+                "#microsoft.graph.gcpCloudFunction" => new ApiSdk.Models.GcpCloudFunction(),
+                "#microsoft.graph.gcpGroup" => new ApiSdk.Models.GcpGroup(),
+                "#microsoft.graph.gcpServiceAccount" => new ApiSdk.Models.GcpServiceAccount(),
+                "#microsoft.graph.gcpUser" => new ApiSdk.Models.GcpUser(),
+                _ => new ApiSdk.Models.GcpIdentity(),
             };
         }
         /// <summary>

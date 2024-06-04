@@ -34,7 +34,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.hardwareConfiguration entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.HardwareConfigurations.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -61,7 +61,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.HardwareConfigurations.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -113,7 +113,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         {
             var command = new Command("device-run-states");
             command.Description = "Provides operations to manage the deviceRunStates property of the microsoft.graph.hardwareConfiguration entity.";
-            var builder = new DeviceRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.HardwareConfigurations.Item.DeviceRunStates.DeviceRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -215,7 +215,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<HardwareConfiguration>(HardwareConfiguration.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.HardwareConfiguration>(ApiSdk.Models.HardwareConfiguration.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -243,7 +243,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         {
             var command = new Command("run-summary");
             command.Description = "Provides operations to manage the runSummary property of the microsoft.graph.hardwareConfiguration entity.";
-            var builder = new RunSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.HardwareConfigurations.Item.RunSummary.RunSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -262,7 +262,7 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         {
             var command = new Command("user-run-states");
             command.Description = "Provides operations to manage the userRunStates property of the microsoft.graph.hardwareConfiguration entity.";
-            var builder = new UserRunStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.HardwareConfigurations.Item.UserRunStates.UserRunStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -282,14 +282,14 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="HardwareConfigurationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.HardwareConfigurations.Item.HardwareConfigurationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public HardwareConfigurationItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="HardwareConfigurationItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.HardwareConfigurations.Item.HardwareConfigurationItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public HardwareConfigurationItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/hardwareConfigurations/{hardwareConfiguration%2Did}{?%24expand,%24select}", rawUrl)
@@ -321,11 +321,11 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HardwareConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.HardwareConfigurations.Item.HardwareConfigurationItemRequestBuilder.HardwareConfigurationItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<HardwareConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.HardwareConfigurations.Item.HardwareConfigurationItemRequestBuilder.HardwareConfigurationItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -341,11 +341,11 @@ namespace ApiSdk.DeviceManagement.HardwareConfigurations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(HardwareConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.HardwareConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(HardwareConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.HardwareConfiguration body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

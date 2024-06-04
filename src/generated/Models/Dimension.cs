@@ -23,10 +23,10 @@ namespace ApiSdk.Models
         /// <summary>The dimensionValues property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DimensionValue>? DimensionValues { get; set; }
+        public List<ApiSdk.Models.DimensionValue>? DimensionValues { get; set; }
 #nullable restore
 #else
-        public List<DimensionValue> DimensionValues { get; set; }
+        public List<ApiSdk.Models.DimensionValue> DimensionValues { get; set; }
 #endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -49,7 +49,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Dimension"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Dimension"/> and sets the default values.
         /// </summary>
         public Dimension()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Dimension"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Dimension"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Dimension CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Dimension CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Dimension();
+            return new ApiSdk.Models.Dimension();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -74,7 +74,7 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "dimensionValues", n => { DimensionValues = n.GetCollectionOfObjectValues<DimensionValue>(DimensionValue.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "dimensionValues", n => { DimensionValues = n.GetCollectionOfObjectValues<ApiSdk.Models.DimensionValue>(ApiSdk.Models.DimensionValue.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -89,7 +89,7 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteCollectionOfObjectValues<DimensionValue>("dimensionValues", DimensionValues);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DimensionValue>("dimensionValues", DimensionValues);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);

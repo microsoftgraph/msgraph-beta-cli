@@ -21,7 +21,7 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetr
         public List<string> MetricNames { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="GetHealthMetricsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetrics.GetHealthMetricsPostRequestBody"/> and sets the default values.
         /// </summary>
         public GetHealthMetricsPostRequestBody()
         {
@@ -30,12 +30,12 @@ namespace ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetr
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetHealthMetricsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetrics.GetHealthMetricsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static GetHealthMetricsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetrics.GetHealthMetricsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetHealthMetricsPostRequestBody();
+            return new ApiSdk.DeviceManagement.CertificateConnectorDetails.Item.GetHealthMetrics.GetHealthMetricsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

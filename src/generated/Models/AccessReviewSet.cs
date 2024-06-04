@@ -7,50 +7,50 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class AccessReviewSet : Entity, IParsable
+    public class AccessReviewSet : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Represents a Microsoft Entra access review decision on an instance of a review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewInstanceDecisionItem>? Decisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewInstanceDecisionItem>? Decisions { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewInstanceDecisionItem> Decisions { get; set; }
+        public List<ApiSdk.Models.AccessReviewInstanceDecisionItem> Decisions { get; set; }
 #endif
         /// <summary>Represents the template and scheduling for an access review.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewScheduleDefinition>? Definitions { get; set; }
+        public List<ApiSdk.Models.AccessReviewScheduleDefinition>? Definitions { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewScheduleDefinition> Definitions { get; set; }
+        public List<ApiSdk.Models.AccessReviewScheduleDefinition> Definitions { get; set; }
 #endif
         /// <summary>Represents a collection of access review history data and the scopes used to collect that data.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AccessReviewHistoryDefinition>? HistoryDefinitions { get; set; }
+        public List<ApiSdk.Models.AccessReviewHistoryDefinition>? HistoryDefinitions { get; set; }
 #nullable restore
 #else
-        public List<AccessReviewHistoryDefinition> HistoryDefinitions { get; set; }
+        public List<ApiSdk.Models.AccessReviewHistoryDefinition> HistoryDefinitions { get; set; }
 #endif
         /// <summary>Resource that enables administrators to manage directory-level access review policies in their tenant.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AccessReviewPolicy? Policy { get; set; }
+        public ApiSdk.Models.AccessReviewPolicy? Policy { get; set; }
 #nullable restore
 #else
-        public AccessReviewPolicy Policy { get; set; }
+        public ApiSdk.Models.AccessReviewPolicy Policy { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AccessReviewSet"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AccessReviewSet"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AccessReviewSet CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AccessReviewSet CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AccessReviewSet();
+            return new ApiSdk.Models.AccessReviewSet();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,10 +60,10 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "decisions", n => { Decisions = n.GetCollectionOfObjectValues<AccessReviewInstanceDecisionItem>(AccessReviewInstanceDecisionItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<AccessReviewScheduleDefinition>(AccessReviewScheduleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "historyDefinitions", n => { HistoryDefinitions = n.GetCollectionOfObjectValues<AccessReviewHistoryDefinition>(AccessReviewHistoryDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "policy", n => { Policy = n.GetObjectValue<AccessReviewPolicy>(AccessReviewPolicy.CreateFromDiscriminatorValue); } },
+                { "decisions", n => { Decisions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewInstanceDecisionItem>(ApiSdk.Models.AccessReviewInstanceDecisionItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "definitions", n => { Definitions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewScheduleDefinition>(ApiSdk.Models.AccessReviewScheduleDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "historyDefinitions", n => { HistoryDefinitions = n.GetCollectionOfObjectValues<ApiSdk.Models.AccessReviewHistoryDefinition>(ApiSdk.Models.AccessReviewHistoryDefinition.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "policy", n => { Policy = n.GetObjectValue<ApiSdk.Models.AccessReviewPolicy>(ApiSdk.Models.AccessReviewPolicy.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -74,10 +74,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", Decisions);
-            writer.WriteCollectionOfObjectValues<AccessReviewScheduleDefinition>("definitions", Definitions);
-            writer.WriteCollectionOfObjectValues<AccessReviewHistoryDefinition>("historyDefinitions", HistoryDefinitions);
-            writer.WriteObjectValue<AccessReviewPolicy>("policy", Policy);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewInstanceDecisionItem>("decisions", Decisions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewScheduleDefinition>("definitions", Definitions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AccessReviewHistoryDefinition>("historyDefinitions", HistoryDefinitions);
+            writer.WriteObjectValue<ApiSdk.Models.AccessReviewPolicy>("policy", Policy);
         }
     }
 }

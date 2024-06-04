@@ -7,24 +7,24 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class WorkbookDocumentTaskChange : Entity, IParsable
+    public class WorkbookDocumentTaskChange : ApiSdk.Models.Entity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The user identity the task is assigned to. Only present when the type property is assign. Nullable.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookEmailIdentity? Assignee { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity? Assignee { get; set; }
 #nullable restore
 #else
-        public WorkbookEmailIdentity Assignee { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity Assignee { get; set; }
 #endif
         /// <summary>The changedBy property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public WorkbookEmailIdentity? ChangedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity? ChangedBy { get; set; }
 #nullable restore
 #else
-        public WorkbookEmailIdentity ChangedBy { get; set; }
+        public ApiSdk.Models.WorkbookEmailIdentity ChangedBy { get; set; }
 #endif
         /// <summary>The identifier of the associated comment.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,12 +71,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="WorkbookDocumentTaskChange"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.WorkbookDocumentTaskChange"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new WorkbookDocumentTaskChange CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.WorkbookDocumentTaskChange CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new WorkbookDocumentTaskChange();
+            return new ApiSdk.Models.WorkbookDocumentTaskChange();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -86,8 +86,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "assignee", n => { Assignee = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
-                { "changedBy", n => { ChangedBy = n.GetObjectValue<WorkbookEmailIdentity>(WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "assignee", n => { Assignee = n.GetObjectValue<ApiSdk.Models.WorkbookEmailIdentity>(ApiSdk.Models.WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
+                { "changedBy", n => { ChangedBy = n.GetObjectValue<ApiSdk.Models.WorkbookEmailIdentity>(ApiSdk.Models.WorkbookEmailIdentity.CreateFromDiscriminatorValue); } },
                 { "commentId", n => { CommentId = n.GetStringValue(); } },
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "dueDateTime", n => { DueDateTime = n.GetDateTimeOffsetValue(); } },
@@ -107,8 +107,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<WorkbookEmailIdentity>("assignee", Assignee);
-            writer.WriteObjectValue<WorkbookEmailIdentity>("changedBy", ChangedBy);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookEmailIdentity>("assignee", Assignee);
+            writer.WriteObjectValue<ApiSdk.Models.WorkbookEmailIdentity>("changedBy", ChangedBy);
             writer.WriteStringValue("commentId", CommentId);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteDateTimeOffsetValue("dueDateTime", DueDateTime);

@@ -54,7 +54,7 @@ namespace ApiSdk.Models
         public string Publisher { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AppListItem"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AppListItem"/> and sets the default values.
         /// </summary>
         public AppListItem()
         {
@@ -63,16 +63,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AppListItem"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AppListItem"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AppListItem CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AppListItem CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.appleAppListItem" => new AppleAppListItem(),
-                _ => new AppListItem(),
+                "#microsoft.graph.appleAppListItem" => new ApiSdk.Models.AppleAppListItem(),
+                _ => new ApiSdk.Models.AppListItem(),
             };
         }
         /// <summary>

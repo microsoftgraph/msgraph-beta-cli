@@ -9,26 +9,26 @@ namespace ApiSdk.Models
     /// <summary>
     /// Represents an iOS Web Content Filter setting type, which installs URL bookmarks into iOS built-in browser. An example scenario is in the classroom where teachers would like the students to navigate websites through browser bookmarks configured on their iOS devices, and no access to other sites.
     /// </summary>
-    public class IosWebContentFilterSpecificWebsitesAccess : IosWebContentFilterBase, IParsable
+    public class IosWebContentFilterSpecificWebsitesAccess : ApiSdk.Models.IosWebContentFilterBase, IParsable
     {
         /// <summary>URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosBookmark>? SpecificWebsitesOnly { get; set; }
+        public List<ApiSdk.Models.IosBookmark>? SpecificWebsitesOnly { get; set; }
 #nullable restore
 #else
-        public List<IosBookmark> SpecificWebsitesOnly { get; set; }
+        public List<ApiSdk.Models.IosBookmark> SpecificWebsitesOnly { get; set; }
 #endif
         /// <summary>URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<IosBookmark>? WebsiteList { get; set; }
+        public List<ApiSdk.Models.IosBookmark>? WebsiteList { get; set; }
 #nullable restore
 #else
-        public List<IosBookmark> WebsiteList { get; set; }
+        public List<ApiSdk.Models.IosBookmark> WebsiteList { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="IosWebContentFilterSpecificWebsitesAccess"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosWebContentFilterSpecificWebsitesAccess"/> and sets the default values.
         /// </summary>
         public IosWebContentFilterSpecificWebsitesAccess() : base()
         {
@@ -37,12 +37,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosWebContentFilterSpecificWebsitesAccess"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosWebContentFilterSpecificWebsitesAccess"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosWebContentFilterSpecificWebsitesAccess CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosWebContentFilterSpecificWebsitesAccess CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosWebContentFilterSpecificWebsitesAccess();
+            return new ApiSdk.Models.IosWebContentFilterSpecificWebsitesAccess();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -52,8 +52,8 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "specificWebsitesOnly", n => { SpecificWebsitesOnly = n.GetCollectionOfObjectValues<IosBookmark>(IosBookmark.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "websiteList", n => { WebsiteList = n.GetCollectionOfObjectValues<IosBookmark>(IosBookmark.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "specificWebsitesOnly", n => { SpecificWebsitesOnly = n.GetCollectionOfObjectValues<ApiSdk.Models.IosBookmark>(ApiSdk.Models.IosBookmark.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "websiteList", n => { WebsiteList = n.GetCollectionOfObjectValues<ApiSdk.Models.IosBookmark>(ApiSdk.Models.IosBookmark.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -64,8 +64,8 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<IosBookmark>("specificWebsitesOnly", SpecificWebsitesOnly);
-            writer.WriteCollectionOfObjectValues<IosBookmark>("websiteList", WebsiteList);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosBookmark>("specificWebsitesOnly", SpecificWebsitesOnly);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.IosBookmark>("websiteList", WebsiteList);
         }
     }
 }

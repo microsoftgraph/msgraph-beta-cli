@@ -7,7 +7,7 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class PersonName : ItemFacet, IParsable
+    public class PersonName : ApiSdk.Models.ItemFacet, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Provides an ordered rendering of firstName and lastName depending on the locale of the user or their device.</summary>
@@ -77,10 +77,10 @@ namespace ApiSdk.Models
         /// <summary>Guidance on how to pronounce the users name.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PersonNamePronounciation? Pronunciation { get; set; }
+        public ApiSdk.Models.PersonNamePronounciation? Pronunciation { get; set; }
 #nullable restore
 #else
-        public PersonNamePronounciation Pronunciation { get; set; }
+        public ApiSdk.Models.PersonNamePronounciation Pronunciation { get; set; }
 #endif
         /// <summary>Designators used after the users name (eg: PhD.)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -99,7 +99,7 @@ namespace ApiSdk.Models
         public string Title { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PersonName"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PersonName"/> and sets the default values.
         /// </summary>
         public PersonName() : base()
         {
@@ -108,12 +108,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PersonName"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PersonName"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new PersonName CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.PersonName CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PersonName();
+            return new ApiSdk.Models.PersonName();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -131,7 +131,7 @@ namespace ApiSdk.Models
                 { "maiden", n => { Maiden = n.GetStringValue(); } },
                 { "middle", n => { Middle = n.GetStringValue(); } },
                 { "nickname", n => { Nickname = n.GetStringValue(); } },
-                { "pronunciation", n => { Pronunciation = n.GetObjectValue<PersonNamePronounciation>(PersonNamePronounciation.CreateFromDiscriminatorValue); } },
+                { "pronunciation", n => { Pronunciation = n.GetObjectValue<ApiSdk.Models.PersonNamePronounciation>(ApiSdk.Models.PersonNamePronounciation.CreateFromDiscriminatorValue); } },
                 { "suffix", n => { Suffix = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
@@ -152,7 +152,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("maiden", Maiden);
             writer.WriteStringValue("middle", Middle);
             writer.WriteStringValue("nickname", Nickname);
-            writer.WriteObjectValue<PersonNamePronounciation>("pronunciation", Pronunciation);
+            writer.WriteObjectValue<ApiSdk.Models.PersonNamePronounciation>("pronunciation", Pronunciation);
             writer.WriteStringValue("suffix", Suffix);
             writer.WriteStringValue("title", Title);
         }

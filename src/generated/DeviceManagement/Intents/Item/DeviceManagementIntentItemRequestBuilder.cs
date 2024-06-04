@@ -43,7 +43,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("assignments");
             command.Description = "Provides operations to manage the assignments property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new AssignmentsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.Assignments.AssignmentsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -70,7 +70,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("assign");
             command.Description = "Provides operations to call the assign method.";
-            var builder = new AssignRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.Assign.AssignRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -87,7 +87,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("categories");
             command.Description = "Provides operations to manage the categories property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new CategoriesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.Categories.CategoriesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -114,7 +114,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("compare-with-template-id");
             command.Description = "Provides operations to call the compare method.";
-            var builder = new CompareWithTemplateIdRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.CompareWithTemplateId.CompareWithTemplateIdRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -131,7 +131,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("create-copy");
             command.Description = "Provides operations to call the createCopy method.";
-            var builder = new CreateCopyRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.CreateCopy.CreateCopyRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -183,7 +183,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("device-setting-state-summaries");
             command.Description = "Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new DeviceSettingStateSummariesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.DeviceSettingStateSummaries.DeviceSettingStateSummariesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -210,7 +210,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("device-states");
             command.Description = "Provides operations to manage the deviceStates property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new DeviceStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.DeviceStates.DeviceStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -237,7 +237,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("device-state-summary");
             command.Description = "Provides operations to manage the deviceStateSummary property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new DeviceStateSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.DeviceStateSummary.DeviceStateSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -308,7 +308,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("get-customized-settings");
             command.Description = "Provides operations to call the getCustomizedSettings method.";
-            var builder = new GetCustomizedSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.GetCustomizedSettings.GetCustomizedSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -325,7 +325,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("migrate-to-template");
             command.Description = "Provides operations to call the migrateToTemplate method.";
-            var builder = new MigrateToTemplateRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.MigrateToTemplate.MigrateToTemplateRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -365,7 +365,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<DeviceManagementIntent>(DeviceManagementIntent.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.DeviceManagementIntent>(ApiSdk.Models.DeviceManagementIntent.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -393,7 +393,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("settings");
             command.Description = "Provides operations to manage the settings property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new SettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.Settings.SettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -420,7 +420,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("update-settings");
             command.Description = "Provides operations to call the updateSettings method.";
-            var builder = new UpdateSettingsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.UpdateSettings.UpdateSettingsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -437,7 +437,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("user-states");
             command.Description = "Provides operations to manage the userStates property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new UserStatesRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.UserStates.UserStatesRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildCountNavCommand());
@@ -464,7 +464,7 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         {
             var command = new Command("user-state-summary");
             command.Description = "Provides operations to manage the userStateSummary property of the microsoft.graph.deviceManagementIntent entity.";
-            var builder = new UserStateSummaryRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.Intents.Item.UserStateSummary.UserStateSummaryRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildDeleteCommand());
             execCommands.Add(builder.BuildGetCommand());
@@ -476,14 +476,14 @@ namespace ApiSdk.DeviceManagement.Intents.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementIntentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.DeviceManagementIntentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public DeviceManagementIntentItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="DeviceManagementIntentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.Intents.Item.DeviceManagementIntentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public DeviceManagementIntentItemRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/intents/{deviceManagementIntent%2Did}{?%24expand,%24select}", rawUrl)
@@ -515,11 +515,11 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementIntentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Intents.Item.DeviceManagementIntentItemRequestBuilder.DeviceManagementIntentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DeviceManagementIntentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.Intents.Item.DeviceManagementIntentItemRequestBuilder.DeviceManagementIntentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -535,11 +535,11 @@ namespace ApiSdk.DeviceManagement.Intents.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(DeviceManagementIntent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementIntent body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(DeviceManagementIntent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.DeviceManagementIntent body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

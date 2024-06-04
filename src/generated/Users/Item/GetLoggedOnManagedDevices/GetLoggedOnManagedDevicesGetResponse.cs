@@ -8,7 +8,7 @@ using System;
 namespace ApiSdk.Users.Item.GetLoggedOnManagedDevices
 {
     #pragma warning disable CS1591
-    public class GetLoggedOnManagedDevicesGetResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetLoggedOnManagedDevicesGetResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
@@ -22,12 +22,12 @@ namespace ApiSdk.Users.Item.GetLoggedOnManagedDevices
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetLoggedOnManagedDevicesGetResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.GetLoggedOnManagedDevices.GetLoggedOnManagedDevicesGetResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetLoggedOnManagedDevicesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Users.Item.GetLoggedOnManagedDevices.GetLoggedOnManagedDevicesGetResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetLoggedOnManagedDevicesGetResponse();
+            return new ApiSdk.Users.Item.GetLoggedOnManagedDevices.GetLoggedOnManagedDevicesGetResponse();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -16,13 +16,13 @@ namespace ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics
         /// <summary>The request property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PowerliftDownloadRequest? Request { get; set; }
+        public ApiSdk.Models.PowerliftDownloadRequest? Request { get; set; }
 #nullable restore
 #else
-        public PowerliftDownloadRequest Request { get; set; }
+        public ApiSdk.Models.PowerliftDownloadRequest Request { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="DownloadAppDiagnosticsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody"/> and sets the default values.
         /// </summary>
         public DownloadAppDiagnosticsPostRequestBody()
         {
@@ -31,12 +31,12 @@ namespace ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="DownloadAppDiagnosticsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static DownloadAppDiagnosticsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new DownloadAppDiagnosticsPostRequestBody();
+            return new ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -46,7 +46,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "request", n => { Request = n.GetObjectValue<PowerliftDownloadRequest>(PowerliftDownloadRequest.CreateFromDiscriminatorValue); } },
+                { "request", n => { Request = n.GetObjectValue<ApiSdk.Models.PowerliftDownloadRequest>(ApiSdk.Models.PowerliftDownloadRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace ApiSdk.Users.Item.ManagedDevices.DownloadAppDiagnostics
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PowerliftDownloadRequest>("request", Request);
+            writer.WriteObjectValue<ApiSdk.Models.PowerliftDownloadRequest>("request", Request);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

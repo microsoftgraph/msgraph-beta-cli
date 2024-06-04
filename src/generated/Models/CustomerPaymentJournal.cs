@@ -41,10 +41,10 @@ namespace ApiSdk.Models
         /// <summary>The customerPayments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomerPayment>? CustomerPayments { get; set; }
+        public List<ApiSdk.Models.CustomerPayment>? CustomerPayments { get; set; }
 #nullable restore
 #else
-        public List<CustomerPayment> CustomerPayments { get; set; }
+        public List<ApiSdk.Models.CustomerPayment> CustomerPayments { get; set; }
 #endif
         /// <summary>The displayName property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -67,7 +67,7 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="CustomerPaymentJournal"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.CustomerPaymentJournal"/> and sets the default values.
         /// </summary>
         public CustomerPaymentJournal()
         {
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="CustomerPaymentJournal"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.CustomerPaymentJournal"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static CustomerPaymentJournal CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.CustomerPaymentJournal CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new CustomerPaymentJournal();
+            return new ApiSdk.Models.CustomerPaymentJournal();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -95,7 +95,7 @@ namespace ApiSdk.Models
                 { "balancingAccountId", n => { BalancingAccountId = n.GetGuidValue(); } },
                 { "balancingAccountNumber", n => { BalancingAccountNumber = n.GetStringValue(); } },
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "customerPayments", n => { CustomerPayments = n.GetCollectionOfObjectValues<CustomerPayment>(CustomerPayment.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customerPayments", n => { CustomerPayments = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomerPayment>(ApiSdk.Models.CustomerPayment.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "displayName", n => { DisplayName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
@@ -113,7 +113,7 @@ namespace ApiSdk.Models
             writer.WriteGuidValue("balancingAccountId", BalancingAccountId);
             writer.WriteStringValue("balancingAccountNumber", BalancingAccountNumber);
             writer.WriteStringValue("code", Code);
-            writer.WriteCollectionOfObjectValues<CustomerPayment>("customerPayments", CustomerPayments);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomerPayment>("customerPayments", CustomerPayments);
             writer.WriteStringValue("displayName", DisplayName);
             writer.WriteGuidValue("id", Id);
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);

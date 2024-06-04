@@ -16,10 +16,10 @@ namespace ApiSdk.Models
         /// <summary>The buyFromAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? BuyFromAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? BuyFromAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType BuyFromAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType BuyFromAddress { get; set; }
 #endif
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -70,10 +70,10 @@ namespace ApiSdk.Models
         /// <summary>The payToAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? PayToAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? PayToAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType PayToAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType PayToAddress { get; set; }
 #endif
         /// <summary>The payToContact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -106,18 +106,18 @@ namespace ApiSdk.Models
         /// <summary>The purchaseInvoiceLines property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<PurchaseInvoiceLine>? PurchaseInvoiceLines { get; set; }
+        public List<ApiSdk.Models.PurchaseInvoiceLine>? PurchaseInvoiceLines { get; set; }
 #nullable restore
 #else
-        public List<PurchaseInvoiceLine> PurchaseInvoiceLines { get; set; }
+        public List<ApiSdk.Models.PurchaseInvoiceLine> PurchaseInvoiceLines { get; set; }
 #endif
         /// <summary>The shipToAddress property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public PostalAddressType? ShipToAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType? ShipToAddress { get; set; }
 #nullable restore
 #else
-        public PostalAddressType ShipToAddress { get; set; }
+        public ApiSdk.Models.PostalAddressType ShipToAddress { get; set; }
 #endif
         /// <summary>The shipToContact property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -184,7 +184,7 @@ namespace ApiSdk.Models
         public string VendorNumber { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="PurchaseInvoice"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.PurchaseInvoice"/> and sets the default values.
         /// </summary>
         public PurchaseInvoice()
         {
@@ -193,12 +193,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="PurchaseInvoice"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.PurchaseInvoice"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static PurchaseInvoice CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.PurchaseInvoice CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new PurchaseInvoice();
+            return new ApiSdk.Models.PurchaseInvoice();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -208,7 +208,7 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "buyFromAddress", n => { BuyFromAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "buyFromAddress", n => { BuyFromAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetObjectValue<ApiSdk.Models.Currency>(ApiSdk.Models.Currency.CreateFromDiscriminatorValue); } },
                 { "currencyCode", n => { CurrencyCode = n.GetStringValue(); } },
                 { "currencyId", n => { CurrencyId = n.GetGuidValue(); } },
@@ -220,14 +220,14 @@ namespace ApiSdk.Models
                 { "lastModifiedDateTime", n => { LastModifiedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "number", n => { Number = n.GetStringValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "payToAddress", n => { PayToAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "payToAddress", n => { PayToAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "payToContact", n => { PayToContact = n.GetStringValue(); } },
                 { "payToName", n => { PayToName = n.GetStringValue(); } },
                 { "payToVendorId", n => { PayToVendorId = n.GetGuidValue(); } },
                 { "payToVendorNumber", n => { PayToVendorNumber = n.GetStringValue(); } },
                 { "pricesIncludeTax", n => { PricesIncludeTax = n.GetBoolValue(); } },
-                { "purchaseInvoiceLines", n => { PurchaseInvoiceLines = n.GetCollectionOfObjectValues<PurchaseInvoiceLine>(PurchaseInvoiceLine.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "shipToAddress", n => { ShipToAddress = n.GetObjectValue<PostalAddressType>(PostalAddressType.CreateFromDiscriminatorValue); } },
+                { "purchaseInvoiceLines", n => { PurchaseInvoiceLines = n.GetCollectionOfObjectValues<ApiSdk.Models.PurchaseInvoiceLine>(ApiSdk.Models.PurchaseInvoiceLine.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "shipToAddress", n => { ShipToAddress = n.GetObjectValue<ApiSdk.Models.PostalAddressType>(ApiSdk.Models.PostalAddressType.CreateFromDiscriminatorValue); } },
                 { "shipToContact", n => { ShipToContact = n.GetStringValue(); } },
                 { "shipToName", n => { ShipToName = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
@@ -248,7 +248,7 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<PostalAddressType>("buyFromAddress", BuyFromAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("buyFromAddress", BuyFromAddress);
             writer.WriteObjectValue<ApiSdk.Models.Currency>("currency", Currency);
             writer.WriteStringValue("currencyCode", CurrencyCode);
             writer.WriteGuidValue("currencyId", CurrencyId);
@@ -260,14 +260,14 @@ namespace ApiSdk.Models
             writer.WriteDateTimeOffsetValue("lastModifiedDateTime", LastModifiedDateTime);
             writer.WriteStringValue("number", Number);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<PostalAddressType>("payToAddress", PayToAddress);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("payToAddress", PayToAddress);
             writer.WriteStringValue("payToContact", PayToContact);
             writer.WriteStringValue("payToName", PayToName);
             writer.WriteGuidValue("payToVendorId", PayToVendorId);
             writer.WriteStringValue("payToVendorNumber", PayToVendorNumber);
             writer.WriteBoolValue("pricesIncludeTax", PricesIncludeTax);
-            writer.WriteCollectionOfObjectValues<PurchaseInvoiceLine>("purchaseInvoiceLines", PurchaseInvoiceLines);
-            writer.WriteObjectValue<PostalAddressType>("shipToAddress", ShipToAddress);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.PurchaseInvoiceLine>("purchaseInvoiceLines", PurchaseInvoiceLines);
+            writer.WriteObjectValue<ApiSdk.Models.PostalAddressType>("shipToAddress", ShipToAddress);
             writer.WriteStringValue("shipToContact", ShipToContact);
             writer.WriteStringValue("shipToName", ShipToName);
             writer.WriteStringValue("status", Status);

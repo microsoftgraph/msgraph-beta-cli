@@ -59,14 +59,14 @@ namespace ApiSdk.Users.Item.IsManagedAppUserBlocked
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="IsManagedAppUserBlockedRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.IsManagedAppUserBlocked.IsManagedAppUserBlockedRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public IsManagedAppUserBlockedRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/users/{user%2Did}/isManagedAppUserBlocked()", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="IsManagedAppUserBlockedRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.IsManagedAppUserBlocked.IsManagedAppUserBlockedRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public IsManagedAppUserBlockedRequestBuilder(string rawUrl) : base("{+baseurl}/users/{user%2Did}/isManagedAppUserBlocked()", rawUrl)

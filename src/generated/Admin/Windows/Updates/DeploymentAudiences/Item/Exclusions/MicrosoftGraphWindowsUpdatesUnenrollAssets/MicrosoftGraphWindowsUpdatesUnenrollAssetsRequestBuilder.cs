@@ -43,7 +43,7 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Micro
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<UnenrollAssetsPostRequestBody>(UnenrollAssetsPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody>(ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -62,14 +62,14 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Micro
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/exclusions/microsoft.graph.windowsUpdates.unenrollAssets", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public MicrosoftGraphWindowsUpdatesUnenrollAssetsRequestBuilder(string rawUrl) : base("{+baseurl}/admin/windows/updates/deploymentAudiences/{deploymentAudience%2Did}/exclusions/microsoft.graph.windowsUpdates.unenrollAssets", rawUrl)
@@ -83,11 +83,11 @@ namespace ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.Micro
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(UnenrollAssetsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(UnenrollAssetsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.Admin.Windows.Updates.DeploymentAudiences.Item.Exclusions.MicrosoftGraphWindowsUpdatesUnenrollAssets.UnenrollAssetsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

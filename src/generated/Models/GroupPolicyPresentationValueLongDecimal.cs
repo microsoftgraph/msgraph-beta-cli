@@ -9,19 +9,19 @@ namespace ApiSdk.Models
     /// <summary>
     /// The entity represents an unsigned long value of a long decimal text box presentation on a policy definition.
     /// </summary>
-    public class GroupPolicyPresentationValueLongDecimal : GroupPolicyPresentationValue, IParsable
+    public class GroupPolicyPresentationValueLongDecimal : ApiSdk.Models.GroupPolicyPresentationValue, IParsable
     {
         /// <summary>An unsigned long value for the associated presentation.</summary>
         public long? Value { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GroupPolicyPresentationValueLongDecimal"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.GroupPolicyPresentationValueLongDecimal"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GroupPolicyPresentationValueLongDecimal CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.GroupPolicyPresentationValueLongDecimal CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GroupPolicyPresentationValueLongDecimal();
+            return new ApiSdk.Models.GroupPolicyPresentationValueLongDecimal();
         }
         /// <summary>
         /// The deserialization information for the current model

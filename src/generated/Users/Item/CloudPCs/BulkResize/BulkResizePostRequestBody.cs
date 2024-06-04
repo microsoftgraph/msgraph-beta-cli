@@ -29,7 +29,7 @@ namespace ApiSdk.Users.Item.CloudPCs.BulkResize
         public string TargetServicePlanId { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="BulkResizePostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Users.Item.CloudPCs.BulkResize.BulkResizePostRequestBody"/> and sets the default values.
         /// </summary>
         public BulkResizePostRequestBody()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Users.Item.CloudPCs.BulkResize
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="BulkResizePostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.Users.Item.CloudPCs.BulkResize.BulkResizePostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static BulkResizePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Users.Item.CloudPCs.BulkResize.BulkResizePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new BulkResizePostRequestBody();
+            return new ApiSdk.Users.Item.CloudPCs.BulkResize.BulkResizePostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -45,7 +45,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<SetCloudPcReviewStatusPostRequestBody>(SetCloudPcReviewStatusPostRequestBody.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusPostRequestBody>(ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusPostRequestBody.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -64,14 +64,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="SetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public SetCloudPcReviewStatusRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/setCloudPcReviewStatus", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="SetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public SetCloudPcReviewStatusRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices/{managedDevice%2Did}/setCloudPcReviewStatus", rawUrl)
@@ -86,11 +86,11 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus
         [Obsolete("The setCloudPcReviewStatus API is deprecated and will stop returning data on Apr 30, 2024. Please use the new setReviewStatus API as of 2024-01/setCloudPcReviewStatus")]
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(SetCloudPcReviewStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(SetCloudPcReviewStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(ApiSdk.DeviceManagement.ComanagedDevices.Item.SetCloudPcReviewStatus.SetCloudPcReviewStatusPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

@@ -10,7 +10,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// IOS Update Configuration, allows you to configure time window within week to install iOS updates
     /// </summary>
-    public class IosUpdateConfiguration : DeviceConfiguration, IParsable
+    public class IosUpdateConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Active Hours End (active hours mean the time window when updates install should not happen)</summary>
         public Time? ActiveHoursEnd { get; set; }
@@ -19,10 +19,10 @@ namespace ApiSdk.Models
         /// <summary>If update schedule type is set to use time window scheduling, custom time windows when updates will be scheduled. This collection can contain a maximum of 20 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<CustomUpdateTimeWindow>? CustomUpdateTimeWindows { get; set; }
+        public List<ApiSdk.Models.CustomUpdateTimeWindow>? CustomUpdateTimeWindows { get; set; }
 #nullable restore
 #else
-        public List<CustomUpdateTimeWindow> CustomUpdateTimeWindows { get; set; }
+        public List<ApiSdk.Models.CustomUpdateTimeWindow> CustomUpdateTimeWindows { get; set; }
 #endif
         /// <summary>If left unspecified, devices will update to the latest version of the OS.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -39,17 +39,17 @@ namespace ApiSdk.Models
         /// <summary>Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DayOfWeekObject?>? ScheduledInstallDays { get; set; }
+        public List<ApiSdk.Models.DayOfWeekObject?>? ScheduledInstallDays { get; set; }
 #nullable restore
 #else
-        public List<DayOfWeekObject?> ScheduledInstallDays { get; set; }
+        public List<ApiSdk.Models.DayOfWeekObject?> ScheduledInstallDays { get; set; }
 #endif
         /// <summary>Update schedule type for iOS software updates.</summary>
-        public IosSoftwareUpdateScheduleType? UpdateScheduleType { get; set; }
+        public ApiSdk.Models.IosSoftwareUpdateScheduleType? UpdateScheduleType { get; set; }
         /// <summary>UTC Time Offset indicated in minutes</summary>
         public int? UtcTimeOffsetInMinutes { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="IosUpdateConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.IosUpdateConfiguration"/> and sets the default values.
         /// </summary>
         public IosUpdateConfiguration() : base()
         {
@@ -58,12 +58,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="IosUpdateConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.IosUpdateConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new IosUpdateConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.IosUpdateConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new IosUpdateConfiguration();
+            return new ApiSdk.Models.IosUpdateConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,12 +75,12 @@ namespace ApiSdk.Models
             {
                 { "activeHoursEnd", n => { ActiveHoursEnd = n.GetTimeValue(); } },
                 { "activeHoursStart", n => { ActiveHoursStart = n.GetTimeValue(); } },
-                { "customUpdateTimeWindows", n => { CustomUpdateTimeWindows = n.GetCollectionOfObjectValues<CustomUpdateTimeWindow>(CustomUpdateTimeWindow.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "customUpdateTimeWindows", n => { CustomUpdateTimeWindows = n.GetCollectionOfObjectValues<ApiSdk.Models.CustomUpdateTimeWindow>(ApiSdk.Models.CustomUpdateTimeWindow.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "desiredOsVersion", n => { DesiredOsVersion = n.GetStringValue(); } },
                 { "enforcedSoftwareUpdateDelayInDays", n => { EnforcedSoftwareUpdateDelayInDays = n.GetIntValue(); } },
                 { "isEnabled", n => { IsEnabled = n.GetBoolValue(); } },
-                { "scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfEnumValues<DayOfWeekObject>()?.ToList(); } },
-                { "updateScheduleType", n => { UpdateScheduleType = n.GetEnumValue<IosSoftwareUpdateScheduleType>(); } },
+                { "scheduledInstallDays", n => { ScheduledInstallDays = n.GetCollectionOfEnumValues<ApiSdk.Models.DayOfWeekObject>()?.ToList(); } },
+                { "updateScheduleType", n => { UpdateScheduleType = n.GetEnumValue<ApiSdk.Models.IosSoftwareUpdateScheduleType>(); } },
                 { "utcTimeOffsetInMinutes", n => { UtcTimeOffsetInMinutes = n.GetIntValue(); } },
             };
         }
@@ -94,12 +94,12 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteTimeValue("activeHoursEnd", ActiveHoursEnd);
             writer.WriteTimeValue("activeHoursStart", ActiveHoursStart);
-            writer.WriteCollectionOfObjectValues<CustomUpdateTimeWindow>("customUpdateTimeWindows", CustomUpdateTimeWindows);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.CustomUpdateTimeWindow>("customUpdateTimeWindows", CustomUpdateTimeWindows);
             writer.WriteStringValue("desiredOsVersion", DesiredOsVersion);
             writer.WriteIntValue("enforcedSoftwareUpdateDelayInDays", EnforcedSoftwareUpdateDelayInDays);
             writer.WriteBoolValue("isEnabled", IsEnabled);
-            writer.WriteCollectionOfEnumValues<DayOfWeekObject>("scheduledInstallDays", ScheduledInstallDays);
-            writer.WriteEnumValue<IosSoftwareUpdateScheduleType>("updateScheduleType", UpdateScheduleType);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.DayOfWeekObject>("scheduledInstallDays", ScheduledInstallDays);
+            writer.WriteEnumValue<ApiSdk.Models.IosSoftwareUpdateScheduleType>("updateScheduleType", UpdateScheduleType);
             writer.WriteIntValue("utcTimeOffsetInMinutes", UtcTimeOffsetInMinutes);
         }
     }

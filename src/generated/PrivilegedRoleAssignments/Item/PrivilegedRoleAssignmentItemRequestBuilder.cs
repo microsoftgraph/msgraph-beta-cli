@@ -119,7 +119,7 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
         {
             var command = new Command("make-eligible");
             command.Description = "Provides operations to call the makeEligible method.";
-            var builder = new MakeEligibleRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedRoleAssignments.Item.MakeEligible.MakeEligibleRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -136,7 +136,7 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
         {
             var command = new Command("make-permanent");
             command.Description = "Provides operations to call the makePermanent method.";
-            var builder = new MakePermanentRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedRoleAssignments.Item.MakePermanent.MakePermanentRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -176,7 +176,7 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
                 var reqAdapter = invocationContext.GetRequestAdapter();
                 using var stream = new MemoryStream(Encoding.UTF8.GetBytes(body));
                 var parseNode = ParseNodeFactoryRegistry.DefaultInstance.GetRootParseNode("application/json", stream);
-                var model = parseNode.GetObjectValue<PrivilegedRoleAssignment>(PrivilegedRoleAssignment.CreateFromDiscriminatorValue);
+                var model = parseNode.GetObjectValue<ApiSdk.Models.PrivilegedRoleAssignment>(ApiSdk.Models.PrivilegedRoleAssignment.CreateFromDiscriminatorValue);
                 if (model is null) {
                     Console.Error.WriteLine("No model data to send.");
                     return;
@@ -204,7 +204,7 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
         {
             var command = new Command("role-info");
             command.Description = "Provides operations to manage the roleInfo property of the microsoft.graph.privilegedRoleAssignment entity.";
-            var builder = new RoleInfoRequestBuilder(PathParameters);
+            var builder = new ApiSdk.PrivilegedRoleAssignments.Item.RoleInfo.RoleInfoRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             var nonExecCommands = new List<Command>();
             nonExecCommands.Add(builder.BuildAssignmentsNavCommand());
@@ -226,14 +226,14 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedRoleAssignmentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.PrivilegedRoleAssignmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public PrivilegedRoleAssignmentItemRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}{?%24expand,%24select}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="PrivilegedRoleAssignmentItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.PrivilegedRoleAssignments.Item.PrivilegedRoleAssignmentItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public PrivilegedRoleAssignmentItemRequestBuilder(string rawUrl) : base("{+baseurl}/privilegedRoleAssignments/{privilegedRoleAssignment%2Did}{?%24expand,%24select}", rawUrl)
@@ -265,11 +265,11 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedRoleAssignmentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedRoleAssignments.Item.PrivilegedRoleAssignmentItemRequestBuilder.PrivilegedRoleAssignmentItemRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<PrivilegedRoleAssignmentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.PrivilegedRoleAssignments.Item.PrivilegedRoleAssignmentItemRequestBuilder.PrivilegedRoleAssignmentItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -285,11 +285,11 @@ namespace ApiSdk.PrivilegedRoleAssignments.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(PrivilegedRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PrivilegedRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(PrivilegedRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(ApiSdk.Models.PrivilegedRoleAssignment body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));

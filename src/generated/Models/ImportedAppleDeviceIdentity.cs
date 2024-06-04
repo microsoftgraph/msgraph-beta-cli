@@ -9,7 +9,7 @@ namespace ApiSdk.Models
     /// <summary>
     /// The importedAppleDeviceIdentity resource represents the imported device identity of an Apple device .
     /// </summary>
-    public class ImportedAppleDeviceIdentity : Entity, IParsable
+    public class ImportedAppleDeviceIdentity : ApiSdk.Models.Entity, IParsable
     {
         /// <summary>Created Date Time of the device</summary>
         public DateTimeOffset? CreatedDateTime { get; set; }
@@ -54,16 +54,16 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ImportedAppleDeviceIdentity"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.ImportedAppleDeviceIdentity"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new ImportedAppleDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.ImportedAppleDeviceIdentity CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
             var mappingValue = parseNode.GetChildNode("@odata.type")?.GetStringValue();
             return mappingValue switch
             {
-                "#microsoft.graph.importedAppleDeviceIdentityResult" => new ImportedAppleDeviceIdentityResult(),
-                _ => new ImportedAppleDeviceIdentity(),
+                "#microsoft.graph.importedAppleDeviceIdentityResult" => new ApiSdk.Models.ImportedAppleDeviceIdentityResult(),
+                _ => new ApiSdk.Models.ImportedAppleDeviceIdentity(),
             };
         }
         /// <summary>
@@ -76,12 +76,12 @@ namespace ApiSdk.Models
             {
                 { "createdDateTime", n => { CreatedDateTime = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "discoverySource", n => { DiscoverySource = n.GetEnumValue<DiscoverySource>(); } },
-                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<EnrollmentState>(); } },
+                { "discoverySource", n => { DiscoverySource = n.GetEnumValue<ApiSdk.Models.DiscoverySource>(); } },
+                { "enrollmentState", n => { EnrollmentState = n.GetEnumValue<ApiSdk.Models.EnrollmentState>(); } },
                 { "isDeleted", n => { IsDeleted = n.GetBoolValue(); } },
                 { "isSupervised", n => { IsSupervised = n.GetBoolValue(); } },
                 { "lastContactedDateTime", n => { LastContactedDateTime = n.GetDateTimeOffsetValue(); } },
-                { "platform", n => { Platform = n.GetEnumValue<Platform>(); } },
+                { "platform", n => { Platform = n.GetEnumValue<ApiSdk.Models.Platform>(); } },
                 { "requestedEnrollmentProfileAssignmentDateTime", n => { RequestedEnrollmentProfileAssignmentDateTime = n.GetDateTimeOffsetValue(); } },
                 { "requestedEnrollmentProfileId", n => { RequestedEnrollmentProfileId = n.GetStringValue(); } },
                 { "serialNumber", n => { SerialNumber = n.GetStringValue(); } },
@@ -97,12 +97,12 @@ namespace ApiSdk.Models
             base.Serialize(writer);
             writer.WriteDateTimeOffsetValue("createdDateTime", CreatedDateTime);
             writer.WriteStringValue("description", Description);
-            writer.WriteEnumValue<DiscoverySource>("discoverySource", DiscoverySource);
-            writer.WriteEnumValue<EnrollmentState>("enrollmentState", EnrollmentState);
+            writer.WriteEnumValue<ApiSdk.Models.DiscoverySource>("discoverySource", DiscoverySource);
+            writer.WriteEnumValue<ApiSdk.Models.EnrollmentState>("enrollmentState", EnrollmentState);
             writer.WriteBoolValue("isDeleted", IsDeleted);
             writer.WriteBoolValue("isSupervised", IsSupervised);
             writer.WriteDateTimeOffsetValue("lastContactedDateTime", LastContactedDateTime);
-            writer.WriteEnumValue<Platform>("platform", Platform);
+            writer.WriteEnumValue<ApiSdk.Models.Platform>("platform", Platform);
             writer.WriteDateTimeOffsetValue("requestedEnrollmentProfileAssignmentDateTime", RequestedEnrollmentProfileAssignmentDateTime);
             writer.WriteStringValue("requestedEnrollmentProfileId", RequestedEnrollmentProfileId);
             writer.WriteStringValue("serialNumber", SerialNumber);

@@ -23,7 +23,7 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.A
         public List<string> PackageIds { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="ApproveAppsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps.ApproveAppsPostRequestBody"/> and sets the default values.
         /// </summary>
         public ApproveAppsPostRequestBody()
         {
@@ -32,12 +32,12 @@ namespace ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.A
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="ApproveAppsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps.ApproveAppsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static ApproveAppsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps.ApproveAppsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new ApproveAppsPostRequestBody();
+            return new ApiSdk.DeviceManagement.AndroidManagedStoreAccountEnterpriseSettings.ApproveApps.ApproveAppsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

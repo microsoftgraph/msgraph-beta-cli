@@ -31,9 +31,9 @@ namespace ApiSdk.Models
         public string OdataType { get; set; }
 #endif
         /// <summary>Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.</summary>
-        public MembershipRuleProcessingStatusDetails? Status { get; set; }
+        public ApiSdk.Models.MembershipRuleProcessingStatusDetails? Status { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="MembershipRuleProcessingStatus"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.MembershipRuleProcessingStatus"/> and sets the default values.
         /// </summary>
         public MembershipRuleProcessingStatus()
         {
@@ -42,12 +42,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="MembershipRuleProcessingStatus"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.MembershipRuleProcessingStatus"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static MembershipRuleProcessingStatus CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.MembershipRuleProcessingStatus CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new MembershipRuleProcessingStatus();
+            return new ApiSdk.Models.MembershipRuleProcessingStatus();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -60,7 +60,7 @@ namespace ApiSdk.Models
                 { "errorMessage", n => { ErrorMessage = n.GetStringValue(); } },
                 { "lastMembershipUpdated", n => { LastMembershipUpdated = n.GetDateTimeOffsetValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<MembershipRuleProcessingStatusDetails>(); } },
+                { "status", n => { Status = n.GetEnumValue<ApiSdk.Models.MembershipRuleProcessingStatusDetails>(); } },
             };
         }
         /// <summary>
@@ -73,7 +73,7 @@ namespace ApiSdk.Models
             writer.WriteStringValue("errorMessage", ErrorMessage);
             writer.WriteDateTimeOffsetValue("lastMembershipUpdated", LastMembershipUpdated);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<MembershipRuleProcessingStatusDetails>("status", Status);
+            writer.WriteEnumValue<ApiSdk.Models.MembershipRuleProcessingStatusDetails>("status", Status);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

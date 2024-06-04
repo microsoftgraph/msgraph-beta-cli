@@ -29,7 +29,7 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>The number of unique target workloads/hosts that were seen.</summary>
         public long? WorkloadCount { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="EntitiesSummary"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Networkaccess.EntitiesSummary"/> and sets the default values.
         /// </summary>
         public EntitiesSummary()
         {
@@ -38,12 +38,12 @@ namespace ApiSdk.Models.Networkaccess
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="EntitiesSummary"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Networkaccess.EntitiesSummary"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static EntitiesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.Networkaccess.EntitiesSummary CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new EntitiesSummary();
+            return new ApiSdk.Models.Networkaccess.EntitiesSummary();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,7 +55,7 @@ namespace ApiSdk.Models.Networkaccess
             {
                 { "deviceCount", n => { DeviceCount = n.GetLongValue(); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "trafficType", n => { TrafficType = n.GetEnumValue<TrafficType>(); } },
+                { "trafficType", n => { TrafficType = n.GetEnumValue<ApiSdk.Models.Networkaccess.TrafficType>(); } },
                 { "userCount", n => { UserCount = n.GetLongValue(); } },
                 { "workloadCount", n => { WorkloadCount = n.GetLongValue(); } },
             };
@@ -69,7 +69,7 @@ namespace ApiSdk.Models.Networkaccess
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteLongValue("deviceCount", DeviceCount);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteEnumValue<TrafficType>("trafficType", TrafficType);
+            writer.WriteEnumValue<ApiSdk.Models.Networkaccess.TrafficType>("trafficType", TrafficType);
             writer.WriteLongValue("userCount", UserCount);
             writer.WriteLongValue("workloadCount", WorkloadCount);
             writer.WriteAdditionalData(AdditionalData);

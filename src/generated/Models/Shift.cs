@@ -7,16 +7,16 @@ using System;
 namespace ApiSdk.Models
 {
     #pragma warning disable CS1591
-    public class Shift : ChangeTrackedEntity, IParsable
+    public class Shift : ApiSdk.Models.ChangeTrackedEntity, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they&apos;re shared, which copies the changes from the draftShift to the sharedShift property.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ShiftItem? DraftShift { get; set; }
+        public ApiSdk.Models.ShiftItem? DraftShift { get; set; }
 #nullable restore
 #else
-        public ShiftItem DraftShift { get; set; }
+        public ApiSdk.Models.ShiftItem DraftShift { get; set; }
 #endif
         /// <summary>The shift is marked for deletion, a process that is finalized when the schedule is shared.</summary>
         public bool? IsStagedForDeletion { get; set; }
@@ -39,18 +39,18 @@ namespace ApiSdk.Models
         /// <summary>The shared version of this shift that is viewable by both employees and managers. Updates to the sharedShift property send notifications to users in the Teams client.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ShiftItem? SharedShift { get; set; }
+        public ApiSdk.Models.ShiftItem? SharedShift { get; set; }
 #nullable restore
 #else
-        public ShiftItem SharedShift { get; set; }
+        public ApiSdk.Models.ShiftItem SharedShift { get; set; }
 #endif
         /// <summary>Information of the team that the shift is in.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ShiftsTeamInfo? TeamInfo { get; private set; }
+        public ApiSdk.Models.ShiftsTeamInfo? TeamInfo { get; private set; }
 #nullable restore
 #else
-        public ShiftsTeamInfo TeamInfo { get; private set; }
+        public ApiSdk.Models.ShiftsTeamInfo TeamInfo { get; private set; }
 #endif
         /// <summary>ID of the user assigned to the shift. Required.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,13 +63,13 @@ namespace ApiSdk.Models
         /// <summary>Information of the user assigned to the shift.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public ShiftsUserInfo? UserInfo { get; private set; }
+        public ApiSdk.Models.ShiftsUserInfo? UserInfo { get; private set; }
 #nullable restore
 #else
-        public ShiftsUserInfo UserInfo { get; private set; }
+        public ApiSdk.Models.ShiftsUserInfo UserInfo { get; private set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="Shift"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.Shift"/> and sets the default values.
         /// </summary>
         public Shift() : base()
         {
@@ -78,12 +78,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Shift"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.Shift"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new Shift CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.Shift CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Shift();
+            return new ApiSdk.Models.Shift();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -93,14 +93,14 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "draftShift", n => { DraftShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
+                { "draftShift", n => { DraftShift = n.GetObjectValue<ApiSdk.Models.ShiftItem>(ApiSdk.Models.ShiftItem.CreateFromDiscriminatorValue); } },
                 { "isStagedForDeletion", n => { IsStagedForDeletion = n.GetBoolValue(); } },
                 { "schedulingGroupId", n => { SchedulingGroupId = n.GetStringValue(); } },
                 { "schedulingGroupInfo", n => { SchedulingGroupInfo = n.GetObjectValue<ApiSdk.Models.SchedulingGroupInfo>(ApiSdk.Models.SchedulingGroupInfo.CreateFromDiscriminatorValue); } },
-                { "sharedShift", n => { SharedShift = n.GetObjectValue<ShiftItem>(ShiftItem.CreateFromDiscriminatorValue); } },
-                { "teamInfo", n => { TeamInfo = n.GetObjectValue<ShiftsTeamInfo>(ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
+                { "sharedShift", n => { SharedShift = n.GetObjectValue<ApiSdk.Models.ShiftItem>(ApiSdk.Models.ShiftItem.CreateFromDiscriminatorValue); } },
+                { "teamInfo", n => { TeamInfo = n.GetObjectValue<ApiSdk.Models.ShiftsTeamInfo>(ApiSdk.Models.ShiftsTeamInfo.CreateFromDiscriminatorValue); } },
                 { "userId", n => { UserId = n.GetStringValue(); } },
-                { "userInfo", n => { UserInfo = n.GetObjectValue<ShiftsUserInfo>(ShiftsUserInfo.CreateFromDiscriminatorValue); } },
+                { "userInfo", n => { UserInfo = n.GetObjectValue<ApiSdk.Models.ShiftsUserInfo>(ApiSdk.Models.ShiftsUserInfo.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -111,10 +111,10 @@ namespace ApiSdk.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteObjectValue<ShiftItem>("draftShift", DraftShift);
+            writer.WriteObjectValue<ApiSdk.Models.ShiftItem>("draftShift", DraftShift);
             writer.WriteBoolValue("isStagedForDeletion", IsStagedForDeletion);
             writer.WriteStringValue("schedulingGroupId", SchedulingGroupId);
-            writer.WriteObjectValue<ShiftItem>("sharedShift", SharedShift);
+            writer.WriteObjectValue<ApiSdk.Models.ShiftItem>("sharedShift", SharedShift);
             writer.WriteStringValue("userId", UserId);
         }
     }

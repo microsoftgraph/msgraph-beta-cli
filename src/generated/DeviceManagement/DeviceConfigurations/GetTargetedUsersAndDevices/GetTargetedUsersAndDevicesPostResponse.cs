@@ -8,26 +8,26 @@ using System;
 namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices
 {
     #pragma warning disable CS1591
-    public class GetTargetedUsersAndDevicesPostResponse : BaseCollectionPaginationCountResponse, IParsable
+    public class GetTargetedUsersAndDevicesPostResponse : ApiSdk.Models.BaseCollectionPaginationCountResponse, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<DeviceConfigurationTargetedUserAndDevice>? Value { get; set; }
+        public List<ApiSdk.Models.DeviceConfigurationTargetedUserAndDevice>? Value { get; set; }
 #nullable restore
 #else
-        public List<DeviceConfigurationTargetedUserAndDevice> Value { get; set; }
+        public List<ApiSdk.Models.DeviceConfigurationTargetedUserAndDevice> Value { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="GetTargetedUsersAndDevicesPostResponse"/></returns>
+        /// <returns>A <see cref="ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new GetTargetedUsersAndDevicesPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new GetTargetedUsersAndDevicesPostResponse();
+            return new ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevices.GetTargetedUsersAndDevicesPostResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -37,7 +37,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         {
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
-                { "value", n => { Value = n.GetCollectionOfObjectValues<DeviceConfigurationTargetedUserAndDevice>(DeviceConfigurationTargetedUserAndDevice.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "value", n => { Value = n.GetCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationTargetedUserAndDevice>(ApiSdk.Models.DeviceConfigurationTargetedUserAndDevice.CreateFromDiscriminatorValue)?.ToList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace ApiSdk.DeviceManagement.DeviceConfigurations.GetTargetedUsersAndDevice
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
-            writer.WriteCollectionOfObjectValues<DeviceConfigurationTargetedUserAndDevice>("value", Value);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.DeviceConfigurationTargetedUserAndDevice>("value", Value);
         }
     }
 }

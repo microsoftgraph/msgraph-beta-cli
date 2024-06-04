@@ -15,10 +15,10 @@ namespace ApiSdk.Models
         /// <summary>If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AppIdentity? App { get; set; }
+        public ApiSdk.Models.AppIdentity? App { get; set; }
 #nullable restore
 #else
-        public AppIdentity App { get; set; }
+        public ApiSdk.Models.AppIdentity App { get; set; }
 #endif
         /// <summary>The OdataType property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,13 +31,13 @@ namespace ApiSdk.Models
         /// <summary>If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AuditUserIdentity? User { get; set; }
+        public ApiSdk.Models.AuditUserIdentity? User { get; set; }
 #nullable restore
 #else
-        public AuditUserIdentity User { get; set; }
+        public ApiSdk.Models.AuditUserIdentity User { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="AuditActivityInitiator"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AuditActivityInitiator"/> and sets the default values.
         /// </summary>
         public AuditActivityInitiator()
         {
@@ -46,12 +46,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AuditActivityInitiator"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AuditActivityInitiator"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static AuditActivityInitiator CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.Models.AuditActivityInitiator CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AuditActivityInitiator();
+            return new ApiSdk.Models.AuditActivityInitiator();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -61,9 +61,9 @@ namespace ApiSdk.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "app", n => { App = n.GetObjectValue<AppIdentity>(AppIdentity.CreateFromDiscriminatorValue); } },
+                { "app", n => { App = n.GetObjectValue<ApiSdk.Models.AppIdentity>(ApiSdk.Models.AppIdentity.CreateFromDiscriminatorValue); } },
                 { "@odata.type", n => { OdataType = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<AuditUserIdentity>(AuditUserIdentity.CreateFromDiscriminatorValue); } },
+                { "user", n => { User = n.GetObjectValue<ApiSdk.Models.AuditUserIdentity>(ApiSdk.Models.AuditUserIdentity.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -73,9 +73,9 @@ namespace ApiSdk.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<AppIdentity>("app", App);
+            writer.WriteObjectValue<ApiSdk.Models.AppIdentity>("app", App);
             writer.WriteStringValue("@odata.type", OdataType);
-            writer.WriteObjectValue<AuditUserIdentity>("user", User);
+            writer.WriteObjectValue<ApiSdk.Models.AuditUserIdentity>("user", User);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

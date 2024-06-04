@@ -38,7 +38,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("app-diagnostics-with-upn");
             command.Description = "Provides operations to call the appDiagnostics method.";
-            var builder = new AppDiagnosticsWithUpnRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.AppDiagnosticsWithUpn.AppDiagnosticsWithUpnRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -55,7 +55,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("bulk-reprovision-cloud-pc");
             command.Description = "Provides operations to call the bulkReprovisionCloudPc method.";
-            var builder = new BulkReprovisionCloudPcRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.BulkReprovisionCloudPc.BulkReprovisionCloudPcRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -72,7 +72,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("bulk-restore-cloud-pc");
             command.Description = "Provides operations to call the bulkRestoreCloudPc method.";
-            var builder = new BulkRestoreCloudPcRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.BulkRestoreCloudPc.BulkRestoreCloudPcRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -89,7 +89,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("bulk-set-cloud-pc-review-status");
             command.Description = "Provides operations to call the bulkSetCloudPcReviewStatus method.";
-            var builder = new BulkSetCloudPcReviewStatusRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.BulkSetCloudPcReviewStatus.BulkSetCloudPcReviewStatusRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -106,7 +106,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var executables = new List<Command>();
             var commands = new List<Command>();
-            var builder = new ManagedDeviceItemRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.Item.ManagedDeviceItemRequestBuilder(PathParameters);
             commands.Add(builder.BuildActivateDeviceEsimNavCommand());
             commands.Add(builder.BuildAssignmentFilterEvaluationStatusDetailsNavCommand());
             commands.Add(builder.BuildBypassActivationLockNavCommand());
@@ -178,7 +178,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("count");
             command.Description = "Provides operations to count the resources in the collection.";
-            var builder = new CountRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.Count.CountRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildGetCommand());
             foreach (var cmd in execCommands)
@@ -240,7 +240,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("download-app-diagnostics");
             command.Description = "Provides operations to call the downloadAppDiagnostics method.";
-            var builder = new DownloadAppDiagnosticsRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.DownloadAppDiagnostics.DownloadAppDiagnosticsRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -257,7 +257,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("execute-action");
             command.Description = "Provides operations to call the executeAction method.";
-            var builder = new ExecuteActionRequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.ExecuteAction.ExecuteActionRequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -370,7 +370,7 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         {
             var command = new Command("move-devices-to-o-u");
             command.Description = "Provides operations to call the moveDevicesToOU method.";
-            var builder = new MoveDevicesToOURequestBuilder(PathParameters);
+            var builder = new ApiSdk.DeviceManagement.ComanagedDevices.MoveDevicesToOU.MoveDevicesToOURequestBuilder(PathParameters);
             var execCommands = new List<Command>();
             execCommands.Add(builder.BuildPostCommand());
             foreach (var cmd in execCommands)
@@ -380,14 +380,14 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="ComanagedDevicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.ComanagedDevicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public ComanagedDevicesRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/deviceManagement/comanagedDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ComanagedDevicesRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.DeviceManagement.ComanagedDevices.ComanagedDevicesRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public ComanagedDevicesRequestBuilder(string rawUrl) : base("{+baseurl}/deviceManagement/comanagedDevices{?%24count,%24expand,%24filter,%24orderby,%24search,%24select,%24skip,%24top}", rawUrl)
@@ -400,11 +400,11 @@ namespace ApiSdk.DeviceManagement.ComanagedDevices
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ComanagedDevicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ComanagedDevices.ComanagedDevicesRequestBuilder.ComanagedDevicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ComanagedDevicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<ApiSdk.DeviceManagement.ComanagedDevices.ComanagedDevicesRequestBuilder.ComanagedDevicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);

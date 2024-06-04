@@ -66,14 +66,14 @@ namespace ApiSdk.Storage.FileStorage.DeletedContainers.Item.Drive.Items.Item.Wor
             return command;
         }
         /// <summary>
-        /// Instantiates a new <see cref="RandRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.DeletedContainers.Item.Drive.Items.Item.Workbook.Functions.Rand.RandRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         public RandRequestBuilder(Dictionary<string, object> pathParameters) : base("{+baseurl}/storage/fileStorage/deletedContainers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}/workbook/functions/rand", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="RandRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Storage.FileStorage.DeletedContainers.Item.Drive.Items.Item.Workbook.Functions.Rand.RandRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         public RandRequestBuilder(string rawUrl) : base("{+baseurl}/storage/fileStorage/deletedContainers/{fileStorageContainer%2Did}/drive/items/{driveItem%2Did}/workbook/functions/rand", rawUrl)

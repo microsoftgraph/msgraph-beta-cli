@@ -9,33 +9,33 @@ namespace ApiSdk.Models
     /// <summary>
     /// This topic provides descriptions of the declared methods, properties and relationships exposed by the androidDeviceOwnerGeneralDeviceConfiguration resource.
     /// </summary>
-    public class AndroidDeviceOwnerGeneralDeviceConfiguration : DeviceConfiguration, IParsable
+    public class AndroidDeviceOwnerGeneralDeviceConfiguration : ApiSdk.Models.DeviceConfiguration, IParsable
     {
         /// <summary>Indicates whether or not adding or removing accounts is disabled.</summary>
         public bool? AccountsBlockModification { get; set; }
         /// <summary>Specifies the list of managed apps with app details and its associated delegated scope(s). This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerDelegatedScopeAppSetting>? AndroidDeviceOwnerDelegatedScopeAppSettings { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting>? AndroidDeviceOwnerDelegatedScopeAppSettings { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerDelegatedScopeAppSetting> AndroidDeviceOwnerDelegatedScopeAppSettings { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting> AndroidDeviceOwnerDelegatedScopeAppSettings { get; set; }
 #endif
         /// <summary>Indicates whether or not the user is allowed to enable to unknown sources setting.</summary>
         public bool? AppsAllowInstallFromUnknownSources { get; set; }
         /// <summary>Indicates the value of the app auto update policy. Possible values are: notConfigured, userChoice, never, wiFiOnly, always.</summary>
-        public AndroidDeviceOwnerAppAutoUpdatePolicyType? AppsAutoUpdatePolicy { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerAppAutoUpdatePolicyType? AppsAutoUpdatePolicy { get; set; }
         /// <summary>Indicates the permission policy for requests for runtime permissions if one is not defined for the app specifically. Possible values are: deviceDefault, prompt, autoGrant, autoDeny.</summary>
-        public AndroidDeviceOwnerDefaultAppPermissionPolicyType? AppsDefaultPermissionPolicy { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerDefaultAppPermissionPolicyType? AppsDefaultPermissionPolicy { get; set; }
         /// <summary>Whether or not to recommend all apps skip any first-time-use hints they may have added.</summary>
         public bool? AppsRecommendSkippingFirstUseHints { get; set; }
         /// <summary>A list of managed apps that will have their data cleared during a global sign-out in AAD shared device mode. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? AzureAdSharedDeviceDataClearApps { get; set; }
+        public List<ApiSdk.Models.AppListItem>? AzureAdSharedDeviceDataClearApps { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> AzureAdSharedDeviceDataClearApps { get; set; }
+        public List<ApiSdk.Models.AppListItem> AzureAdSharedDeviceDataClearApps { get; set; }
 #endif
         /// <summary>Indicates whether or not to block a user from configuring bluetooth.</summary>
         public bool? BluetoothBlockConfiguration { get; set; }
@@ -50,7 +50,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not text copied from one profile (personal or work) can be pasted in the other.</summary>
         public bool? CrossProfilePoliciesAllowCopyPaste { get; set; }
         /// <summary>Indicates whether data from one profile (personal or work) can be shared with apps in the other profile. Possible values are: notConfigured, crossProfileDataSharingBlocked, dataSharingFromWorkToPersonalBlocked, crossProfileDataSharingAllowed, unkownFutureValue.</summary>
-        public AndroidDeviceOwnerCrossProfileDataSharing? CrossProfilePoliciesAllowDataSharing { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerCrossProfileDataSharing? CrossProfilePoliciesAllowDataSharing { get; set; }
         /// <summary>Indicates whether or not contacts stored in work profile are shown in personal profile contact searches/incoming calls.</summary>
         public bool? CrossProfilePoliciesShowWorkContactsInPersonalProfile { get; set; }
         /// <summary>Indicates whether or not to block a user from data roaming.</summary>
@@ -60,23 +60,23 @@ namespace ApiSdk.Models
         /// <summary>Represents the customized detailed help text provided to users when they attempt to modify managed settings on their device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidDeviceOwnerUserFacingMessage? DetailedHelpText { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage? DetailedHelpText { get; set; }
 #nullable restore
 #else
-        public AndroidDeviceOwnerUserFacingMessage DetailedHelpText { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage DetailedHelpText { get; set; }
 #endif
         /// <summary>Indicates the location setting configuration for fully managed devices (COBO) and corporate owned devices with a work profile (COPE). Possible values are: notConfigured, disabled, unknownFutureValue.</summary>
-        public AndroidDeviceOwnerLocationMode? DeviceLocationMode { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerLocationMode? DeviceLocationMode { get; set; }
         /// <summary>Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidDeviceOwnerUserFacingMessage? DeviceOwnerLockScreenMessage { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage? DeviceOwnerLockScreenMessage { get; set; }
 #nullable restore
 #else
-        public AndroidDeviceOwnerUserFacingMessage DeviceOwnerLockScreenMessage { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage DeviceOwnerLockScreenMessage { get; set; }
 #endif
         /// <summary>Android Device Owner Enrollment Profile types.</summary>
-        public AndroidDeviceOwnerEnrollmentProfileType? EnrollmentProfile { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileType? EnrollmentProfile { get; set; }
         /// <summary>Indicates whether or not the factory reset option in settings is disabled.</summary>
         public bool? FactoryResetBlocked { get; set; }
         /// <summary>List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.</summary>
@@ -90,10 +90,10 @@ namespace ApiSdk.Models
         /// <summary>Proxy is set up directly with host, port and excluded hosts.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidDeviceOwnerGlobalProxy? GlobalProxy { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerGlobalProxy? GlobalProxy { get; set; }
 #nullable restore
 #else
-        public AndroidDeviceOwnerGlobalProxy GlobalProxy { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerGlobalProxy GlobalProxy { get; set; }
 #endif
         /// <summary>Indicates whether or not google accounts will be blocked.</summary>
         public bool? GoogleAccountsBlocked { get; set; }
@@ -102,28 +102,28 @@ namespace ApiSdk.Models
         /// <summary>Whether the power menu is shown when a user long presses the Power button of a device in Kiosk Mode.</summary>
         public bool? KioskCustomizationPowerButtonActionsBlocked { get; set; }
         /// <summary>Indicates whether system info and notifications are disabled in Kiosk Mode. Possible values are: notConfigured, notificationsAndSystemInfoEnabled, systemInfoOnly.</summary>
-        public AndroidDeviceOwnerKioskCustomizationStatusBar? KioskCustomizationStatusBar { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationStatusBar? KioskCustomizationStatusBar { get; set; }
         /// <summary>Indicates whether system error dialogs for crashed or unresponsive apps are shown in Kiosk Mode.</summary>
         public bool? KioskCustomizationSystemErrorWarnings { get; set; }
         /// <summary>Indicates which navigation features are enabled in Kiosk Mode. Possible values are: notConfigured, navigationEnabled, homeButtonOnly.</summary>
-        public AndroidDeviceOwnerKioskCustomizationSystemNavigation? KioskCustomizationSystemNavigation { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationSystemNavigation? KioskCustomizationSystemNavigation { get; set; }
         /// <summary>Whether or not to enable app ordering in Kiosk Mode.</summary>
         public bool? KioskModeAppOrderEnabled { get; set; }
         /// <summary>The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerKioskModeAppPositionItem>? KioskModeAppPositions { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeAppPositionItem>? KioskModeAppPositions { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerKioskModeAppPositionItem> KioskModeAppPositions { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeAppPositionItem> KioskModeAppPositions { get; set; }
 #endif
         /// <summary>A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? KioskModeApps { get; set; }
+        public List<ApiSdk.Models.AppListItem>? KioskModeApps { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> KioskModeApps { get; set; }
+        public List<ApiSdk.Models.AppListItem> KioskModeApps { get; set; }
 #endif
         /// <summary>Whether or not to alphabetize applications within a folder in Kiosk Mode.</summary>
         public bool? KioskModeAppsInFolderOrderedByName { get; set; }
@@ -142,22 +142,22 @@ namespace ApiSdk.Models
         /// <summary>Whether or not to allow a user to use the flashlight in Kiosk Mode.</summary>
         public bool? KioskModeFlashlightConfigurationEnabled { get; set; }
         /// <summary>Folder icon configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, darkSquare, darkCircle, lightSquare, lightCircle.</summary>
-        public AndroidDeviceOwnerKioskModeFolderIcon? KioskModeFolderIcon { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderIcon? KioskModeFolderIcon { get; set; }
         /// <summary>Number of rows for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999</summary>
         public int? KioskModeGridHeight { get; set; }
         /// <summary>Number of columns for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999</summary>
         public int? KioskModeGridWidth { get; set; }
         /// <summary>Icon size configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, smallest, small, regular, large, largest.</summary>
-        public AndroidDeviceOwnerKioskModeIconSize? KioskModeIconSize { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerKioskModeIconSize? KioskModeIconSize { get; set; }
         /// <summary>Whether or not to lock home screen to the end user in Kiosk Mode.</summary>
         public bool? KioskModeLockHomeScreen { get; set; }
         /// <summary>A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerKioskModeManagedFolder>? KioskModeManagedFolders { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder>? KioskModeManagedFolders { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerKioskModeManagedFolder> KioskModeManagedFolders { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder> KioskModeManagedFolders { get; set; }
 #endif
         /// <summary>Whether or not to automatically sign-out of MHS and Shared device mode applications after inactive for Managed Home Screen.</summary>
         public bool? KioskModeManagedHomeScreenAutoSignout { get; set; }
@@ -194,7 +194,7 @@ namespace ApiSdk.Models
         /// <summary>Whether or not to allow a user to change the media volume in Kiosk Mode.</summary>
         public bool? KioskModeMediaVolumeConfigurationEnabled { get; set; }
         /// <summary>Screen orientation configuration for managed home screen in Kiosk Mode. Possible values are: notConfigured, portrait, landscape, autoRotate.</summary>
-        public AndroidDeviceOwnerKioskModeScreenOrientation? KioskModeScreenOrientation { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerKioskModeScreenOrientation? KioskModeScreenOrientation { get; set; }
         /// <summary>Whether or not to enable screen saver mode or not in Kiosk Mode.</summary>
         public bool? KioskModeScreenSaverConfigurationEnabled { get; set; }
         /// <summary>Whether or not the device screen should show the screen saver if audio/video is playing in Kiosk Mode.</summary>
@@ -216,11 +216,11 @@ namespace ApiSdk.Models
         /// <summary>Whether or not to allow a user to access basic device information.</summary>
         public bool? KioskModeShowDeviceInfo { get; set; }
         /// <summary>Whether or not to use single app kiosk mode or multi-app kiosk mode. Possible values are: notConfigured, singleAppMode, multiAppMode.</summary>
-        public KioskModeType? KioskModeUseManagedHomeScreenApp { get; set; }
+        public ApiSdk.Models.KioskModeType? KioskModeUseManagedHomeScreenApp { get; set; }
         /// <summary>Whether or not to display a virtual home button when the device is in Kiosk Mode.</summary>
         public bool? KioskModeVirtualHomeButtonEnabled { get; set; }
         /// <summary>Indicates whether the virtual home button is a swipe up home button or a floating home button. Possible values are: notConfigured, swipeUp, floating.</summary>
-        public AndroidDeviceOwnerVirtualHomeButtonType? KioskModeVirtualHomeButtonType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerVirtualHomeButtonType? KioskModeVirtualHomeButtonType { get; set; }
         /// <summary>URL to a publicly accessible image to use for the wallpaper when the device is in Kiosk Mode.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -262,13 +262,13 @@ namespace ApiSdk.Models
         /// <summary>Indicates whether or not the user can modify the device dock configuration on the device.</summary>
         public bool? MicrosoftLauncherDockPresenceAllowUserModification { get; set; }
         /// <summary>Indicates whether or not you want to configure the device dock. Possible values are: notConfigured, show, hide, disabled.</summary>
-        public MicrosoftLauncherDockPresence? MicrosoftLauncherDockPresenceConfiguration { get; set; }
+        public ApiSdk.Models.MicrosoftLauncherDockPresence? MicrosoftLauncherDockPresenceConfiguration { get; set; }
         /// <summary>Indicates whether or not the user can modify the launcher feed on the device.</summary>
         public bool? MicrosoftLauncherFeedAllowUserModification { get; set; }
         /// <summary>Indicates whether or not you want to enable the launcher feed on the device.</summary>
         public bool? MicrosoftLauncherFeedEnabled { get; set; }
         /// <summary>Indicates the search bar placement configuration on the device. Possible values are: notConfigured, top, bottom, hide.</summary>
-        public MicrosoftLauncherSearchBarPlacement? MicrosoftLauncherSearchBarPlacementConfiguration { get; set; }
+        public ApiSdk.Models.MicrosoftLauncherSearchBarPlacement? MicrosoftLauncherSearchBarPlacementConfiguration { get; set; }
         /// <summary>Indicates whether or not the device will allow connecting to a temporary network connection at boot time.</summary>
         public bool? NetworkEscapeHatchAllowed { get; set; }
         /// <summary>Indicates whether or not to block NFC outgoing beam.</summary>
@@ -278,10 +278,10 @@ namespace ApiSdk.Models
         /// <summary>List of device keyguard features to block. This collection can contain a maximum of 11 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidKeyguardFeature?>? PasswordBlockKeyguardFeatures { get; set; }
+        public List<ApiSdk.Models.AndroidKeyguardFeature?>? PasswordBlockKeyguardFeatures { get; set; }
 #nullable restore
 #else
-        public List<AndroidKeyguardFeature?> PasswordBlockKeyguardFeatures { get; set; }
+        public List<ApiSdk.Models.AndroidKeyguardFeature?> PasswordBlockKeyguardFeatures { get; set; }
 #endif
         /// <summary>Indicates the amount of time that a password can be set for before it expires and a new password will be required. Valid values 1 to 365</summary>
         public int? PasswordExpirationDays { get; set; }
@@ -304,9 +304,9 @@ namespace ApiSdk.Models
         /// <summary>Indicates the length of password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24</summary>
         public int? PasswordPreviousPasswordCountToBlock { get; set; }
         /// <summary>Indicates the minimum password quality required on the device. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.</summary>
-        public AndroidDeviceOwnerRequiredPasswordType? PasswordRequiredType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType? PasswordRequiredType { get; set; }
         /// <summary>Indicates the timeout period after which a device must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.</summary>
-        public AndroidDeviceOwnerRequiredPasswordUnlock? PasswordRequireUnlock { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock? PasswordRequireUnlock { get; set; }
         /// <summary>Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11</summary>
         public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
         /// <summary>Indicates whether the user can install apps from unknown sources on the personal profile.</summary>
@@ -316,17 +316,17 @@ namespace ApiSdk.Models
         /// <summary>Policy applied to applications in the personal profile. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AppListItem>? PersonalProfilePersonalApplications { get; set; }
+        public List<ApiSdk.Models.AppListItem>? PersonalProfilePersonalApplications { get; set; }
 #nullable restore
 #else
-        public List<AppListItem> PersonalProfilePersonalApplications { get; set; }
+        public List<ApiSdk.Models.AppListItem> PersonalProfilePersonalApplications { get; set; }
 #endif
         /// <summary>Used together with PersonalProfilePersonalApplications to control how apps in the personal profile are allowed or blocked. Possible values are: notConfigured, blockedApps, allowedApps.</summary>
-        public PersonalProfilePersonalPlayStoreMode? PersonalProfilePlayStoreMode { get; set; }
+        public ApiSdk.Models.PersonalProfilePersonalPlayStoreMode? PersonalProfilePlayStoreMode { get; set; }
         /// <summary>Indicates whether to disable the capability to take screenshots on the personal profile.</summary>
         public bool? PersonalProfileScreenCaptureBlocked { get; set; }
         /// <summary>Indicates the Play Store mode of the device. Possible values are: notConfigured, allowList, blockList.</summary>
-        public AndroidDeviceOwnerPlayStoreMode? PlayStoreMode { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerPlayStoreMode? PlayStoreMode { get; set; }
         /// <summary>Indicates whether or not to disable the capability to take screenshots.</summary>
         public bool? ScreenCaptureBlocked { get; set; }
         /// <summary>Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.</summary>
@@ -340,20 +340,20 @@ namespace ApiSdk.Models
         /// <summary>Represents the customized short help text provided to users when they attempt to modify managed settings on their device.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public AndroidDeviceOwnerUserFacingMessage? ShortHelpText { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage? ShortHelpText { get; set; }
 #nullable restore
 #else
-        public AndroidDeviceOwnerUserFacingMessage ShortHelpText { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage ShortHelpText { get; set; }
 #endif
         /// <summary>Indicates whether or the status bar is disabled, including notifications, quick settings and other screen overlays.</summary>
         public bool? StatusBarBlocked { get; set; }
         /// <summary>List of modes in which the device&apos;s display will stay powered-on. This collection can contain a maximum of 4 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerBatteryPluggedMode?>? StayOnModes { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerBatteryPluggedMode?>? StayOnModes { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerBatteryPluggedMode?> StayOnModes { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerBatteryPluggedMode?> StayOnModes { get; set; }
 #endif
         /// <summary>Indicates whether or not to allow USB mass storage.</summary>
         public bool? StorageAllowUsb { get; set; }
@@ -364,13 +364,13 @@ namespace ApiSdk.Models
         /// <summary>Indicates the annually repeating time periods during which system updates are postponed. This collection can contain a maximum of 500 elements.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<AndroidDeviceOwnerSystemUpdateFreezePeriod>? SystemUpdateFreezePeriods { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod>? SystemUpdateFreezePeriods { get; set; }
 #nullable restore
 #else
-        public List<AndroidDeviceOwnerSystemUpdateFreezePeriod> SystemUpdateFreezePeriods { get; set; }
+        public List<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod> SystemUpdateFreezePeriods { get; set; }
 #endif
         /// <summary>The type of system update configuration. Possible values are: deviceDefault, postpone, windowed, automatic.</summary>
-        public AndroidDeviceOwnerSystemUpdateInstallType? SystemUpdateInstallType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerSystemUpdateInstallType? SystemUpdateInstallType { get; set; }
         /// <summary>Indicates the number of minutes after midnight that the system update window ends. Valid values 0 to 1440</summary>
         public int? SystemUpdateWindowEndMinutesAfterMidnight { get; set; }
         /// <summary>Indicates the number of minutes after midnight that the system update window starts. Valid values 0 to 1440</summary>
@@ -416,13 +416,13 @@ namespace ApiSdk.Models
         /// <summary>Indicates the length of the work profile password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24</summary>
         public int? WorkProfilePasswordPreviousPasswordCountToBlock { get; set; }
         /// <summary>Indicates the minimum password quality required on the work profile password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.</summary>
-        public AndroidDeviceOwnerRequiredPasswordType? WorkProfilePasswordRequiredType { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType? WorkProfilePasswordRequiredType { get; set; }
         /// <summary>Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.</summary>
-        public AndroidDeviceOwnerRequiredPasswordUnlock? WorkProfilePasswordRequireUnlock { get; set; }
+        public ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock? WorkProfilePasswordRequireUnlock { get; set; }
         /// <summary>Indicates the number of times a user can enter an incorrect work profile password before the device is wiped. Valid values 4 to 11</summary>
         public int? WorkProfilePasswordSignInFailureCountBeforeFactoryReset { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="AndroidDeviceOwnerGeneralDeviceConfiguration"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.Models.AndroidDeviceOwnerGeneralDeviceConfiguration"/> and sets the default values.
         /// </summary>
         public AndroidDeviceOwnerGeneralDeviceConfiguration() : base()
         {
@@ -431,12 +431,12 @@ namespace ApiSdk.Models
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="AndroidDeviceOwnerGeneralDeviceConfiguration"/></returns>
+        /// <returns>A <see cref="ApiSdk.Models.AndroidDeviceOwnerGeneralDeviceConfiguration"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static new AndroidDeviceOwnerGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static new ApiSdk.Models.AndroidDeviceOwnerGeneralDeviceConfiguration CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new AndroidDeviceOwnerGeneralDeviceConfiguration();
+            return new ApiSdk.Models.AndroidDeviceOwnerGeneralDeviceConfiguration();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -447,53 +447,53 @@ namespace ApiSdk.Models
             return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
             {
                 { "accountsBlockModification", n => { AccountsBlockModification = n.GetBoolValue(); } },
-                { "androidDeviceOwnerDelegatedScopeAppSettings", n => { AndroidDeviceOwnerDelegatedScopeAppSettings = n.GetCollectionOfObjectValues<AndroidDeviceOwnerDelegatedScopeAppSetting>(AndroidDeviceOwnerDelegatedScopeAppSetting.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "androidDeviceOwnerDelegatedScopeAppSettings", n => { AndroidDeviceOwnerDelegatedScopeAppSettings = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting>(ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "appsAllowInstallFromUnknownSources", n => { AppsAllowInstallFromUnknownSources = n.GetBoolValue(); } },
-                { "appsAutoUpdatePolicy", n => { AppsAutoUpdatePolicy = n.GetEnumValue<AndroidDeviceOwnerAppAutoUpdatePolicyType>(); } },
-                { "appsDefaultPermissionPolicy", n => { AppsDefaultPermissionPolicy = n.GetEnumValue<AndroidDeviceOwnerDefaultAppPermissionPolicyType>(); } },
+                { "appsAutoUpdatePolicy", n => { AppsAutoUpdatePolicy = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerAppAutoUpdatePolicyType>(); } },
+                { "appsDefaultPermissionPolicy", n => { AppsDefaultPermissionPolicy = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerDefaultAppPermissionPolicyType>(); } },
                 { "appsRecommendSkippingFirstUseHints", n => { AppsRecommendSkippingFirstUseHints = n.GetBoolValue(); } },
-                { "azureAdSharedDeviceDataClearApps", n => { AzureAdSharedDeviceDataClearApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "azureAdSharedDeviceDataClearApps", n => { AzureAdSharedDeviceDataClearApps = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "bluetoothBlockConfiguration", n => { BluetoothBlockConfiguration = n.GetBoolValue(); } },
                 { "bluetoothBlockContactSharing", n => { BluetoothBlockContactSharing = n.GetBoolValue(); } },
                 { "cameraBlocked", n => { CameraBlocked = n.GetBoolValue(); } },
                 { "cellularBlockWiFiTethering", n => { CellularBlockWiFiTethering = n.GetBoolValue(); } },
                 { "certificateCredentialConfigurationDisabled", n => { CertificateCredentialConfigurationDisabled = n.GetBoolValue(); } },
                 { "crossProfilePoliciesAllowCopyPaste", n => { CrossProfilePoliciesAllowCopyPaste = n.GetBoolValue(); } },
-                { "crossProfilePoliciesAllowDataSharing", n => { CrossProfilePoliciesAllowDataSharing = n.GetEnumValue<AndroidDeviceOwnerCrossProfileDataSharing>(); } },
+                { "crossProfilePoliciesAllowDataSharing", n => { CrossProfilePoliciesAllowDataSharing = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerCrossProfileDataSharing>(); } },
                 { "crossProfilePoliciesShowWorkContactsInPersonalProfile", n => { CrossProfilePoliciesShowWorkContactsInPersonalProfile = n.GetBoolValue(); } },
                 { "dataRoamingBlocked", n => { DataRoamingBlocked = n.GetBoolValue(); } },
                 { "dateTimeConfigurationBlocked", n => { DateTimeConfigurationBlocked = n.GetBoolValue(); } },
-                { "detailedHelpText", n => { DetailedHelpText = n.GetObjectValue<AndroidDeviceOwnerUserFacingMessage>(AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
-                { "deviceLocationMode", n => { DeviceLocationMode = n.GetEnumValue<AndroidDeviceOwnerLocationMode>(); } },
-                { "deviceOwnerLockScreenMessage", n => { DeviceOwnerLockScreenMessage = n.GetObjectValue<AndroidDeviceOwnerUserFacingMessage>(AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
-                { "enrollmentProfile", n => { EnrollmentProfile = n.GetEnumValue<AndroidDeviceOwnerEnrollmentProfileType>(); } },
+                { "detailedHelpText", n => { DetailedHelpText = n.GetObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>(ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
+                { "deviceLocationMode", n => { DeviceLocationMode = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerLocationMode>(); } },
+                { "deviceOwnerLockScreenMessage", n => { DeviceOwnerLockScreenMessage = n.GetObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>(ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
+                { "enrollmentProfile", n => { EnrollmentProfile = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileType>(); } },
                 { "factoryResetBlocked", n => { FactoryResetBlocked = n.GetBoolValue(); } },
                 { "factoryResetDeviceAdministratorEmails", n => { FactoryResetDeviceAdministratorEmails = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
-                { "globalProxy", n => { GlobalProxy = n.GetObjectValue<AndroidDeviceOwnerGlobalProxy>(AndroidDeviceOwnerGlobalProxy.CreateFromDiscriminatorValue); } },
+                { "globalProxy", n => { GlobalProxy = n.GetObjectValue<ApiSdk.Models.AndroidDeviceOwnerGlobalProxy>(ApiSdk.Models.AndroidDeviceOwnerGlobalProxy.CreateFromDiscriminatorValue); } },
                 { "googleAccountsBlocked", n => { GoogleAccountsBlocked = n.GetBoolValue(); } },
                 { "kioskCustomizationDeviceSettingsBlocked", n => { KioskCustomizationDeviceSettingsBlocked = n.GetBoolValue(); } },
                 { "kioskCustomizationPowerButtonActionsBlocked", n => { KioskCustomizationPowerButtonActionsBlocked = n.GetBoolValue(); } },
-                { "kioskCustomizationStatusBar", n => { KioskCustomizationStatusBar = n.GetEnumValue<AndroidDeviceOwnerKioskCustomizationStatusBar>(); } },
+                { "kioskCustomizationStatusBar", n => { KioskCustomizationStatusBar = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationStatusBar>(); } },
                 { "kioskCustomizationSystemErrorWarnings", n => { KioskCustomizationSystemErrorWarnings = n.GetBoolValue(); } },
-                { "kioskCustomizationSystemNavigation", n => { KioskCustomizationSystemNavigation = n.GetEnumValue<AndroidDeviceOwnerKioskCustomizationSystemNavigation>(); } },
+                { "kioskCustomizationSystemNavigation", n => { KioskCustomizationSystemNavigation = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationSystemNavigation>(); } },
                 { "kioskModeAppOrderEnabled", n => { KioskModeAppOrderEnabled = n.GetBoolValue(); } },
-                { "kioskModeAppPositions", n => { KioskModeAppPositions = n.GetCollectionOfObjectValues<AndroidDeviceOwnerKioskModeAppPositionItem>(AndroidDeviceOwnerKioskModeAppPositionItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "kioskModeApps", n => { KioskModeApps = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "kioskModeAppPositions", n => { KioskModeAppPositions = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeAppPositionItem>(ApiSdk.Models.AndroidDeviceOwnerKioskModeAppPositionItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "kioskModeApps", n => { KioskModeApps = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "kioskModeAppsInFolderOrderedByName", n => { KioskModeAppsInFolderOrderedByName = n.GetBoolValue(); } },
                 { "kioskModeBluetoothConfigurationEnabled", n => { KioskModeBluetoothConfigurationEnabled = n.GetBoolValue(); } },
                 { "kioskModeDebugMenuEasyAccessEnabled", n => { KioskModeDebugMenuEasyAccessEnabled = n.GetBoolValue(); } },
                 { "kioskModeExitCode", n => { KioskModeExitCode = n.GetStringValue(); } },
                 { "kioskModeFlashlightConfigurationEnabled", n => { KioskModeFlashlightConfigurationEnabled = n.GetBoolValue(); } },
-                { "kioskModeFolderIcon", n => { KioskModeFolderIcon = n.GetEnumValue<AndroidDeviceOwnerKioskModeFolderIcon>(); } },
+                { "kioskModeFolderIcon", n => { KioskModeFolderIcon = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderIcon>(); } },
                 { "kioskModeGridHeight", n => { KioskModeGridHeight = n.GetIntValue(); } },
                 { "kioskModeGridWidth", n => { KioskModeGridWidth = n.GetIntValue(); } },
-                { "kioskModeIconSize", n => { KioskModeIconSize = n.GetEnumValue<AndroidDeviceOwnerKioskModeIconSize>(); } },
+                { "kioskModeIconSize", n => { KioskModeIconSize = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeIconSize>(); } },
                 { "kioskModeLockHomeScreen", n => { KioskModeLockHomeScreen = n.GetBoolValue(); } },
-                { "kioskModeManagedFolders", n => { KioskModeManagedFolders = n.GetCollectionOfObjectValues<AndroidDeviceOwnerKioskModeManagedFolder>(AndroidDeviceOwnerKioskModeManagedFolder.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "kioskModeManagedFolders", n => { KioskModeManagedFolders = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder>(ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "kioskModeManagedHomeScreenAutoSignout", n => { KioskModeManagedHomeScreenAutoSignout = n.GetBoolValue(); } },
                 { "kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds", n => { KioskModeManagedHomeScreenInactiveSignOutDelayInSeconds = n.GetIntValue(); } },
                 { "kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds", n => { KioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds = n.GetIntValue(); } },
-                { "kioskModeManagedHomeScreenPinComplexity", n => { KioskModeManagedHomeScreenPinComplexity = n.GetEnumValue<KioskModeManagedHomeScreenPinComplexity>(); } },
+                { "kioskModeManagedHomeScreenPinComplexity", n => { KioskModeManagedHomeScreenPinComplexity = n.GetEnumValue<ApiSdk.Models.KioskModeManagedHomeScreenPinComplexity>(); } },
                 { "kioskModeManagedHomeScreenPinRequired", n => { KioskModeManagedHomeScreenPinRequired = n.GetBoolValue(); } },
                 { "kioskModeManagedHomeScreenPinRequiredToResume", n => { KioskModeManagedHomeScreenPinRequiredToResume = n.GetBoolValue(); } },
                 { "kioskModeManagedHomeScreenSignInBackground", n => { KioskModeManagedHomeScreenSignInBackground = n.GetStringValue(); } },
@@ -501,7 +501,7 @@ namespace ApiSdk.Models
                 { "kioskModeManagedHomeScreenSignInEnabled", n => { KioskModeManagedHomeScreenSignInEnabled = n.GetBoolValue(); } },
                 { "kioskModeManagedSettingsEntryDisabled", n => { KioskModeManagedSettingsEntryDisabled = n.GetBoolValue(); } },
                 { "kioskModeMediaVolumeConfigurationEnabled", n => { KioskModeMediaVolumeConfigurationEnabled = n.GetBoolValue(); } },
-                { "kioskModeScreenOrientation", n => { KioskModeScreenOrientation = n.GetEnumValue<AndroidDeviceOwnerKioskModeScreenOrientation>(); } },
+                { "kioskModeScreenOrientation", n => { KioskModeScreenOrientation = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeScreenOrientation>(); } },
                 { "kioskModeScreenSaverConfigurationEnabled", n => { KioskModeScreenSaverConfigurationEnabled = n.GetBoolValue(); } },
                 { "kioskModeScreenSaverDetectMediaDisabled", n => { KioskModeScreenSaverDetectMediaDisabled = n.GetBoolValue(); } },
                 { "kioskModeScreenSaverDisplayTimeInSeconds", n => { KioskModeScreenSaverDisplayTimeInSeconds = n.GetIntValue(); } },
@@ -509,9 +509,9 @@ namespace ApiSdk.Models
                 { "kioskModeScreenSaverStartDelayInSeconds", n => { KioskModeScreenSaverStartDelayInSeconds = n.GetIntValue(); } },
                 { "kioskModeShowAppNotificationBadge", n => { KioskModeShowAppNotificationBadge = n.GetBoolValue(); } },
                 { "kioskModeShowDeviceInfo", n => { KioskModeShowDeviceInfo = n.GetBoolValue(); } },
-                { "kioskModeUseManagedHomeScreenApp", n => { KioskModeUseManagedHomeScreenApp = n.GetEnumValue<KioskModeType>(); } },
+                { "kioskModeUseManagedHomeScreenApp", n => { KioskModeUseManagedHomeScreenApp = n.GetEnumValue<ApiSdk.Models.KioskModeType>(); } },
                 { "kioskModeVirtualHomeButtonEnabled", n => { KioskModeVirtualHomeButtonEnabled = n.GetBoolValue(); } },
-                { "kioskModeVirtualHomeButtonType", n => { KioskModeVirtualHomeButtonType = n.GetEnumValue<AndroidDeviceOwnerVirtualHomeButtonType>(); } },
+                { "kioskModeVirtualHomeButtonType", n => { KioskModeVirtualHomeButtonType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerVirtualHomeButtonType>(); } },
                 { "kioskModeWallpaperUrl", n => { KioskModeWallpaperUrl = n.GetStringValue(); } },
                 { "kioskModeWiFiConfigurationEnabled", n => { KioskModeWiFiConfigurationEnabled = n.GetBoolValue(); } },
                 { "kioskModeWifiAllowedSsids", n => { KioskModeWifiAllowedSsids = n.GetCollectionOfPrimitiveValues<string>()?.ToList(); } },
@@ -523,14 +523,14 @@ namespace ApiSdk.Models
                 { "microsoftLauncherCustomWallpaperEnabled", n => { MicrosoftLauncherCustomWallpaperEnabled = n.GetBoolValue(); } },
                 { "microsoftLauncherCustomWallpaperImageUrl", n => { MicrosoftLauncherCustomWallpaperImageUrl = n.GetStringValue(); } },
                 { "microsoftLauncherDockPresenceAllowUserModification", n => { MicrosoftLauncherDockPresenceAllowUserModification = n.GetBoolValue(); } },
-                { "microsoftLauncherDockPresenceConfiguration", n => { MicrosoftLauncherDockPresenceConfiguration = n.GetEnumValue<MicrosoftLauncherDockPresence>(); } },
+                { "microsoftLauncherDockPresenceConfiguration", n => { MicrosoftLauncherDockPresenceConfiguration = n.GetEnumValue<ApiSdk.Models.MicrosoftLauncherDockPresence>(); } },
                 { "microsoftLauncherFeedAllowUserModification", n => { MicrosoftLauncherFeedAllowUserModification = n.GetBoolValue(); } },
                 { "microsoftLauncherFeedEnabled", n => { MicrosoftLauncherFeedEnabled = n.GetBoolValue(); } },
-                { "microsoftLauncherSearchBarPlacementConfiguration", n => { MicrosoftLauncherSearchBarPlacementConfiguration = n.GetEnumValue<MicrosoftLauncherSearchBarPlacement>(); } },
+                { "microsoftLauncherSearchBarPlacementConfiguration", n => { MicrosoftLauncherSearchBarPlacementConfiguration = n.GetEnumValue<ApiSdk.Models.MicrosoftLauncherSearchBarPlacement>(); } },
                 { "networkEscapeHatchAllowed", n => { NetworkEscapeHatchAllowed = n.GetBoolValue(); } },
                 { "nfcBlockOutgoingBeam", n => { NfcBlockOutgoingBeam = n.GetBoolValue(); } },
                 { "passwordBlockKeyguard", n => { PasswordBlockKeyguard = n.GetBoolValue(); } },
-                { "passwordBlockKeyguardFeatures", n => { PasswordBlockKeyguardFeatures = n.GetCollectionOfEnumValues<AndroidKeyguardFeature>()?.ToList(); } },
+                { "passwordBlockKeyguardFeatures", n => { PasswordBlockKeyguardFeatures = n.GetCollectionOfEnumValues<ApiSdk.Models.AndroidKeyguardFeature>()?.ToList(); } },
                 { "passwordExpirationDays", n => { PasswordExpirationDays = n.GetIntValue(); } },
                 { "passwordMinimumLength", n => { PasswordMinimumLength = n.GetIntValue(); } },
                 { "passwordMinimumLetterCharacters", n => { PasswordMinimumLetterCharacters = n.GetIntValue(); } },
@@ -541,28 +541,28 @@ namespace ApiSdk.Models
                 { "passwordMinimumUpperCaseCharacters", n => { PasswordMinimumUpperCaseCharacters = n.GetIntValue(); } },
                 { "passwordMinutesOfInactivityBeforeScreenTimeout", n => { PasswordMinutesOfInactivityBeforeScreenTimeout = n.GetIntValue(); } },
                 { "passwordPreviousPasswordCountToBlock", n => { PasswordPreviousPasswordCountToBlock = n.GetIntValue(); } },
-                { "passwordRequireUnlock", n => { PasswordRequireUnlock = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordUnlock>(); } },
-                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordType>(); } },
+                { "passwordRequireUnlock", n => { PasswordRequireUnlock = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock>(); } },
+                { "passwordRequiredType", n => { PasswordRequiredType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType>(); } },
                 { "passwordSignInFailureCountBeforeFactoryReset", n => { PasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
                 { "personalProfileAppsAllowInstallFromUnknownSources", n => { PersonalProfileAppsAllowInstallFromUnknownSources = n.GetBoolValue(); } },
                 { "personalProfileCameraBlocked", n => { PersonalProfileCameraBlocked = n.GetBoolValue(); } },
-                { "personalProfilePersonalApplications", n => { PersonalProfilePersonalApplications = n.GetCollectionOfObjectValues<AppListItem>(AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "personalProfilePlayStoreMode", n => { PersonalProfilePlayStoreMode = n.GetEnumValue<PersonalProfilePersonalPlayStoreMode>(); } },
+                { "personalProfilePersonalApplications", n => { PersonalProfilePersonalApplications = n.GetCollectionOfObjectValues<ApiSdk.Models.AppListItem>(ApiSdk.Models.AppListItem.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "personalProfilePlayStoreMode", n => { PersonalProfilePlayStoreMode = n.GetEnumValue<ApiSdk.Models.PersonalProfilePersonalPlayStoreMode>(); } },
                 { "personalProfileScreenCaptureBlocked", n => { PersonalProfileScreenCaptureBlocked = n.GetBoolValue(); } },
-                { "playStoreMode", n => { PlayStoreMode = n.GetEnumValue<AndroidDeviceOwnerPlayStoreMode>(); } },
+                { "playStoreMode", n => { PlayStoreMode = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerPlayStoreMode>(); } },
                 { "screenCaptureBlocked", n => { ScreenCaptureBlocked = n.GetBoolValue(); } },
                 { "securityCommonCriteriaModeEnabled", n => { SecurityCommonCriteriaModeEnabled = n.GetBoolValue(); } },
                 { "securityDeveloperSettingsEnabled", n => { SecurityDeveloperSettingsEnabled = n.GetBoolValue(); } },
                 { "securityRequireVerifyApps", n => { SecurityRequireVerifyApps = n.GetBoolValue(); } },
                 { "shareDeviceLocationDisabled", n => { ShareDeviceLocationDisabled = n.GetBoolValue(); } },
-                { "shortHelpText", n => { ShortHelpText = n.GetObjectValue<AndroidDeviceOwnerUserFacingMessage>(AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
+                { "shortHelpText", n => { ShortHelpText = n.GetObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>(ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage.CreateFromDiscriminatorValue); } },
                 { "statusBarBlocked", n => { StatusBarBlocked = n.GetBoolValue(); } },
-                { "stayOnModes", n => { StayOnModes = n.GetCollectionOfEnumValues<AndroidDeviceOwnerBatteryPluggedMode>()?.ToList(); } },
+                { "stayOnModes", n => { StayOnModes = n.GetCollectionOfEnumValues<ApiSdk.Models.AndroidDeviceOwnerBatteryPluggedMode>()?.ToList(); } },
                 { "storageAllowUsb", n => { StorageAllowUsb = n.GetBoolValue(); } },
                 { "storageBlockExternalMedia", n => { StorageBlockExternalMedia = n.GetBoolValue(); } },
                 { "storageBlockUsbFileTransfer", n => { StorageBlockUsbFileTransfer = n.GetBoolValue(); } },
-                { "systemUpdateFreezePeriods", n => { SystemUpdateFreezePeriods = n.GetCollectionOfObjectValues<AndroidDeviceOwnerSystemUpdateFreezePeriod>(AndroidDeviceOwnerSystemUpdateFreezePeriod.CreateFromDiscriminatorValue)?.ToList(); } },
-                { "systemUpdateInstallType", n => { SystemUpdateInstallType = n.GetEnumValue<AndroidDeviceOwnerSystemUpdateInstallType>(); } },
+                { "systemUpdateFreezePeriods", n => { SystemUpdateFreezePeriods = n.GetCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod>(ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "systemUpdateInstallType", n => { SystemUpdateInstallType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateInstallType>(); } },
                 { "systemUpdateWindowEndMinutesAfterMidnight", n => { SystemUpdateWindowEndMinutesAfterMidnight = n.GetIntValue(); } },
                 { "systemUpdateWindowStartMinutesAfterMidnight", n => { SystemUpdateWindowStartMinutesAfterMidnight = n.GetIntValue(); } },
                 { "systemWindowsBlocked", n => { SystemWindowsBlocked = n.GetBoolValue(); } },
@@ -582,8 +582,8 @@ namespace ApiSdk.Models
                 { "workProfilePasswordMinimumSymbolCharacters", n => { WorkProfilePasswordMinimumSymbolCharacters = n.GetIntValue(); } },
                 { "workProfilePasswordMinimumUpperCaseCharacters", n => { WorkProfilePasswordMinimumUpperCaseCharacters = n.GetIntValue(); } },
                 { "workProfilePasswordPreviousPasswordCountToBlock", n => { WorkProfilePasswordPreviousPasswordCountToBlock = n.GetIntValue(); } },
-                { "workProfilePasswordRequireUnlock", n => { WorkProfilePasswordRequireUnlock = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordUnlock>(); } },
-                { "workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<AndroidDeviceOwnerRequiredPasswordType>(); } },
+                { "workProfilePasswordRequireUnlock", n => { WorkProfilePasswordRequireUnlock = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock>(); } },
+                { "workProfilePasswordRequiredType", n => { WorkProfilePasswordRequiredType = n.GetEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType>(); } },
                 { "workProfilePasswordSignInFailureCountBeforeFactoryReset", n => { WorkProfilePasswordSignInFailureCountBeforeFactoryReset = n.GetIntValue(); } },
             };
         }
@@ -596,53 +596,53 @@ namespace ApiSdk.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             base.Serialize(writer);
             writer.WriteBoolValue("accountsBlockModification", AccountsBlockModification);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerDelegatedScopeAppSetting>("androidDeviceOwnerDelegatedScopeAppSettings", AndroidDeviceOwnerDelegatedScopeAppSettings);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerDelegatedScopeAppSetting>("androidDeviceOwnerDelegatedScopeAppSettings", AndroidDeviceOwnerDelegatedScopeAppSettings);
             writer.WriteBoolValue("appsAllowInstallFromUnknownSources", AppsAllowInstallFromUnknownSources);
-            writer.WriteEnumValue<AndroidDeviceOwnerAppAutoUpdatePolicyType>("appsAutoUpdatePolicy", AppsAutoUpdatePolicy);
-            writer.WriteEnumValue<AndroidDeviceOwnerDefaultAppPermissionPolicyType>("appsDefaultPermissionPolicy", AppsDefaultPermissionPolicy);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerAppAutoUpdatePolicyType>("appsAutoUpdatePolicy", AppsAutoUpdatePolicy);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerDefaultAppPermissionPolicyType>("appsDefaultPermissionPolicy", AppsDefaultPermissionPolicy);
             writer.WriteBoolValue("appsRecommendSkippingFirstUseHints", AppsRecommendSkippingFirstUseHints);
-            writer.WriteCollectionOfObjectValues<AppListItem>("azureAdSharedDeviceDataClearApps", AzureAdSharedDeviceDataClearApps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("azureAdSharedDeviceDataClearApps", AzureAdSharedDeviceDataClearApps);
             writer.WriteBoolValue("bluetoothBlockConfiguration", BluetoothBlockConfiguration);
             writer.WriteBoolValue("bluetoothBlockContactSharing", BluetoothBlockContactSharing);
             writer.WriteBoolValue("cameraBlocked", CameraBlocked);
             writer.WriteBoolValue("cellularBlockWiFiTethering", CellularBlockWiFiTethering);
             writer.WriteBoolValue("certificateCredentialConfigurationDisabled", CertificateCredentialConfigurationDisabled);
             writer.WriteBoolValue("crossProfilePoliciesAllowCopyPaste", CrossProfilePoliciesAllowCopyPaste);
-            writer.WriteEnumValue<AndroidDeviceOwnerCrossProfileDataSharing>("crossProfilePoliciesAllowDataSharing", CrossProfilePoliciesAllowDataSharing);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerCrossProfileDataSharing>("crossProfilePoliciesAllowDataSharing", CrossProfilePoliciesAllowDataSharing);
             writer.WriteBoolValue("crossProfilePoliciesShowWorkContactsInPersonalProfile", CrossProfilePoliciesShowWorkContactsInPersonalProfile);
             writer.WriteBoolValue("dataRoamingBlocked", DataRoamingBlocked);
             writer.WriteBoolValue("dateTimeConfigurationBlocked", DateTimeConfigurationBlocked);
-            writer.WriteObjectValue<AndroidDeviceOwnerUserFacingMessage>("detailedHelpText", DetailedHelpText);
-            writer.WriteEnumValue<AndroidDeviceOwnerLocationMode>("deviceLocationMode", DeviceLocationMode);
-            writer.WriteObjectValue<AndroidDeviceOwnerUserFacingMessage>("deviceOwnerLockScreenMessage", DeviceOwnerLockScreenMessage);
-            writer.WriteEnumValue<AndroidDeviceOwnerEnrollmentProfileType>("enrollmentProfile", EnrollmentProfile);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>("detailedHelpText", DetailedHelpText);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerLocationMode>("deviceLocationMode", DeviceLocationMode);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>("deviceOwnerLockScreenMessage", DeviceOwnerLockScreenMessage);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerEnrollmentProfileType>("enrollmentProfile", EnrollmentProfile);
             writer.WriteBoolValue("factoryResetBlocked", FactoryResetBlocked);
             writer.WriteCollectionOfPrimitiveValues<string>("factoryResetDeviceAdministratorEmails", FactoryResetDeviceAdministratorEmails);
-            writer.WriteObjectValue<AndroidDeviceOwnerGlobalProxy>("globalProxy", GlobalProxy);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidDeviceOwnerGlobalProxy>("globalProxy", GlobalProxy);
             writer.WriteBoolValue("googleAccountsBlocked", GoogleAccountsBlocked);
             writer.WriteBoolValue("kioskCustomizationDeviceSettingsBlocked", KioskCustomizationDeviceSettingsBlocked);
             writer.WriteBoolValue("kioskCustomizationPowerButtonActionsBlocked", KioskCustomizationPowerButtonActionsBlocked);
-            writer.WriteEnumValue<AndroidDeviceOwnerKioskCustomizationStatusBar>("kioskCustomizationStatusBar", KioskCustomizationStatusBar);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationStatusBar>("kioskCustomizationStatusBar", KioskCustomizationStatusBar);
             writer.WriteBoolValue("kioskCustomizationSystemErrorWarnings", KioskCustomizationSystemErrorWarnings);
-            writer.WriteEnumValue<AndroidDeviceOwnerKioskCustomizationSystemNavigation>("kioskCustomizationSystemNavigation", KioskCustomizationSystemNavigation);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskCustomizationSystemNavigation>("kioskCustomizationSystemNavigation", KioskCustomizationSystemNavigation);
             writer.WriteBoolValue("kioskModeAppOrderEnabled", KioskModeAppOrderEnabled);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerKioskModeAppPositionItem>("kioskModeAppPositions", KioskModeAppPositions);
-            writer.WriteCollectionOfObjectValues<AppListItem>("kioskModeApps", KioskModeApps);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeAppPositionItem>("kioskModeAppPositions", KioskModeAppPositions);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("kioskModeApps", KioskModeApps);
             writer.WriteBoolValue("kioskModeAppsInFolderOrderedByName", KioskModeAppsInFolderOrderedByName);
             writer.WriteBoolValue("kioskModeBluetoothConfigurationEnabled", KioskModeBluetoothConfigurationEnabled);
             writer.WriteBoolValue("kioskModeDebugMenuEasyAccessEnabled", KioskModeDebugMenuEasyAccessEnabled);
             writer.WriteStringValue("kioskModeExitCode", KioskModeExitCode);
             writer.WriteBoolValue("kioskModeFlashlightConfigurationEnabled", KioskModeFlashlightConfigurationEnabled);
-            writer.WriteEnumValue<AndroidDeviceOwnerKioskModeFolderIcon>("kioskModeFolderIcon", KioskModeFolderIcon);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeFolderIcon>("kioskModeFolderIcon", KioskModeFolderIcon);
             writer.WriteIntValue("kioskModeGridHeight", KioskModeGridHeight);
             writer.WriteIntValue("kioskModeGridWidth", KioskModeGridWidth);
-            writer.WriteEnumValue<AndroidDeviceOwnerKioskModeIconSize>("kioskModeIconSize", KioskModeIconSize);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeIconSize>("kioskModeIconSize", KioskModeIconSize);
             writer.WriteBoolValue("kioskModeLockHomeScreen", KioskModeLockHomeScreen);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerKioskModeManagedFolder>("kioskModeManagedFolders", KioskModeManagedFolders);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerKioskModeManagedFolder>("kioskModeManagedFolders", KioskModeManagedFolders);
             writer.WriteBoolValue("kioskModeManagedHomeScreenAutoSignout", KioskModeManagedHomeScreenAutoSignout);
             writer.WriteIntValue("kioskModeManagedHomeScreenInactiveSignOutDelayInSeconds", KioskModeManagedHomeScreenInactiveSignOutDelayInSeconds);
             writer.WriteIntValue("kioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds", KioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds);
-            writer.WriteEnumValue<KioskModeManagedHomeScreenPinComplexity>("kioskModeManagedHomeScreenPinComplexity", KioskModeManagedHomeScreenPinComplexity);
+            writer.WriteEnumValue<ApiSdk.Models.KioskModeManagedHomeScreenPinComplexity>("kioskModeManagedHomeScreenPinComplexity", KioskModeManagedHomeScreenPinComplexity);
             writer.WriteBoolValue("kioskModeManagedHomeScreenPinRequired", KioskModeManagedHomeScreenPinRequired);
             writer.WriteBoolValue("kioskModeManagedHomeScreenPinRequiredToResume", KioskModeManagedHomeScreenPinRequiredToResume);
             writer.WriteStringValue("kioskModeManagedHomeScreenSignInBackground", KioskModeManagedHomeScreenSignInBackground);
@@ -650,7 +650,7 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("kioskModeManagedHomeScreenSignInEnabled", KioskModeManagedHomeScreenSignInEnabled);
             writer.WriteBoolValue("kioskModeManagedSettingsEntryDisabled", KioskModeManagedSettingsEntryDisabled);
             writer.WriteBoolValue("kioskModeMediaVolumeConfigurationEnabled", KioskModeMediaVolumeConfigurationEnabled);
-            writer.WriteEnumValue<AndroidDeviceOwnerKioskModeScreenOrientation>("kioskModeScreenOrientation", KioskModeScreenOrientation);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerKioskModeScreenOrientation>("kioskModeScreenOrientation", KioskModeScreenOrientation);
             writer.WriteBoolValue("kioskModeScreenSaverConfigurationEnabled", KioskModeScreenSaverConfigurationEnabled);
             writer.WriteBoolValue("kioskModeScreenSaverDetectMediaDisabled", KioskModeScreenSaverDetectMediaDisabled);
             writer.WriteIntValue("kioskModeScreenSaverDisplayTimeInSeconds", KioskModeScreenSaverDisplayTimeInSeconds);
@@ -658,9 +658,9 @@ namespace ApiSdk.Models
             writer.WriteIntValue("kioskModeScreenSaverStartDelayInSeconds", KioskModeScreenSaverStartDelayInSeconds);
             writer.WriteBoolValue("kioskModeShowAppNotificationBadge", KioskModeShowAppNotificationBadge);
             writer.WriteBoolValue("kioskModeShowDeviceInfo", KioskModeShowDeviceInfo);
-            writer.WriteEnumValue<KioskModeType>("kioskModeUseManagedHomeScreenApp", KioskModeUseManagedHomeScreenApp);
+            writer.WriteEnumValue<ApiSdk.Models.KioskModeType>("kioskModeUseManagedHomeScreenApp", KioskModeUseManagedHomeScreenApp);
             writer.WriteBoolValue("kioskModeVirtualHomeButtonEnabled", KioskModeVirtualHomeButtonEnabled);
-            writer.WriteEnumValue<AndroidDeviceOwnerVirtualHomeButtonType>("kioskModeVirtualHomeButtonType", KioskModeVirtualHomeButtonType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerVirtualHomeButtonType>("kioskModeVirtualHomeButtonType", KioskModeVirtualHomeButtonType);
             writer.WriteStringValue("kioskModeWallpaperUrl", KioskModeWallpaperUrl);
             writer.WriteCollectionOfPrimitiveValues<string>("kioskModeWifiAllowedSsids", KioskModeWifiAllowedSsids);
             writer.WriteBoolValue("kioskModeWiFiConfigurationEnabled", KioskModeWiFiConfigurationEnabled);
@@ -672,14 +672,14 @@ namespace ApiSdk.Models
             writer.WriteBoolValue("microsoftLauncherCustomWallpaperEnabled", MicrosoftLauncherCustomWallpaperEnabled);
             writer.WriteStringValue("microsoftLauncherCustomWallpaperImageUrl", MicrosoftLauncherCustomWallpaperImageUrl);
             writer.WriteBoolValue("microsoftLauncherDockPresenceAllowUserModification", MicrosoftLauncherDockPresenceAllowUserModification);
-            writer.WriteEnumValue<MicrosoftLauncherDockPresence>("microsoftLauncherDockPresenceConfiguration", MicrosoftLauncherDockPresenceConfiguration);
+            writer.WriteEnumValue<ApiSdk.Models.MicrosoftLauncherDockPresence>("microsoftLauncherDockPresenceConfiguration", MicrosoftLauncherDockPresenceConfiguration);
             writer.WriteBoolValue("microsoftLauncherFeedAllowUserModification", MicrosoftLauncherFeedAllowUserModification);
             writer.WriteBoolValue("microsoftLauncherFeedEnabled", MicrosoftLauncherFeedEnabled);
-            writer.WriteEnumValue<MicrosoftLauncherSearchBarPlacement>("microsoftLauncherSearchBarPlacementConfiguration", MicrosoftLauncherSearchBarPlacementConfiguration);
+            writer.WriteEnumValue<ApiSdk.Models.MicrosoftLauncherSearchBarPlacement>("microsoftLauncherSearchBarPlacementConfiguration", MicrosoftLauncherSearchBarPlacementConfiguration);
             writer.WriteBoolValue("networkEscapeHatchAllowed", NetworkEscapeHatchAllowed);
             writer.WriteBoolValue("nfcBlockOutgoingBeam", NfcBlockOutgoingBeam);
             writer.WriteBoolValue("passwordBlockKeyguard", PasswordBlockKeyguard);
-            writer.WriteCollectionOfEnumValues<AndroidKeyguardFeature>("passwordBlockKeyguardFeatures", PasswordBlockKeyguardFeatures);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.AndroidKeyguardFeature>("passwordBlockKeyguardFeatures", PasswordBlockKeyguardFeatures);
             writer.WriteIntValue("passwordExpirationDays", PasswordExpirationDays);
             writer.WriteIntValue("passwordMinimumLength", PasswordMinimumLength);
             writer.WriteIntValue("passwordMinimumLetterCharacters", PasswordMinimumLetterCharacters);
@@ -690,28 +690,28 @@ namespace ApiSdk.Models
             writer.WriteIntValue("passwordMinimumUpperCaseCharacters", PasswordMinimumUpperCaseCharacters);
             writer.WriteIntValue("passwordMinutesOfInactivityBeforeScreenTimeout", PasswordMinutesOfInactivityBeforeScreenTimeout);
             writer.WriteIntValue("passwordPreviousPasswordCountToBlock", PasswordPreviousPasswordCountToBlock);
-            writer.WriteEnumValue<AndroidDeviceOwnerRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
-            writer.WriteEnumValue<AndroidDeviceOwnerRequiredPasswordUnlock>("passwordRequireUnlock", PasswordRequireUnlock);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType>("passwordRequiredType", PasswordRequiredType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock>("passwordRequireUnlock", PasswordRequireUnlock);
             writer.WriteIntValue("passwordSignInFailureCountBeforeFactoryReset", PasswordSignInFailureCountBeforeFactoryReset);
             writer.WriteBoolValue("personalProfileAppsAllowInstallFromUnknownSources", PersonalProfileAppsAllowInstallFromUnknownSources);
             writer.WriteBoolValue("personalProfileCameraBlocked", PersonalProfileCameraBlocked);
-            writer.WriteCollectionOfObjectValues<AppListItem>("personalProfilePersonalApplications", PersonalProfilePersonalApplications);
-            writer.WriteEnumValue<PersonalProfilePersonalPlayStoreMode>("personalProfilePlayStoreMode", PersonalProfilePlayStoreMode);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AppListItem>("personalProfilePersonalApplications", PersonalProfilePersonalApplications);
+            writer.WriteEnumValue<ApiSdk.Models.PersonalProfilePersonalPlayStoreMode>("personalProfilePlayStoreMode", PersonalProfilePlayStoreMode);
             writer.WriteBoolValue("personalProfileScreenCaptureBlocked", PersonalProfileScreenCaptureBlocked);
-            writer.WriteEnumValue<AndroidDeviceOwnerPlayStoreMode>("playStoreMode", PlayStoreMode);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerPlayStoreMode>("playStoreMode", PlayStoreMode);
             writer.WriteBoolValue("screenCaptureBlocked", ScreenCaptureBlocked);
             writer.WriteBoolValue("securityCommonCriteriaModeEnabled", SecurityCommonCriteriaModeEnabled);
             writer.WriteBoolValue("securityDeveloperSettingsEnabled", SecurityDeveloperSettingsEnabled);
             writer.WriteBoolValue("securityRequireVerifyApps", SecurityRequireVerifyApps);
             writer.WriteBoolValue("shareDeviceLocationDisabled", ShareDeviceLocationDisabled);
-            writer.WriteObjectValue<AndroidDeviceOwnerUserFacingMessage>("shortHelpText", ShortHelpText);
+            writer.WriteObjectValue<ApiSdk.Models.AndroidDeviceOwnerUserFacingMessage>("shortHelpText", ShortHelpText);
             writer.WriteBoolValue("statusBarBlocked", StatusBarBlocked);
-            writer.WriteCollectionOfEnumValues<AndroidDeviceOwnerBatteryPluggedMode>("stayOnModes", StayOnModes);
+            writer.WriteCollectionOfEnumValues<ApiSdk.Models.AndroidDeviceOwnerBatteryPluggedMode>("stayOnModes", StayOnModes);
             writer.WriteBoolValue("storageAllowUsb", StorageAllowUsb);
             writer.WriteBoolValue("storageBlockExternalMedia", StorageBlockExternalMedia);
             writer.WriteBoolValue("storageBlockUsbFileTransfer", StorageBlockUsbFileTransfer);
-            writer.WriteCollectionOfObjectValues<AndroidDeviceOwnerSystemUpdateFreezePeriod>("systemUpdateFreezePeriods", SystemUpdateFreezePeriods);
-            writer.WriteEnumValue<AndroidDeviceOwnerSystemUpdateInstallType>("systemUpdateInstallType", SystemUpdateInstallType);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateFreezePeriod>("systemUpdateFreezePeriods", SystemUpdateFreezePeriods);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerSystemUpdateInstallType>("systemUpdateInstallType", SystemUpdateInstallType);
             writer.WriteIntValue("systemUpdateWindowEndMinutesAfterMidnight", SystemUpdateWindowEndMinutesAfterMidnight);
             writer.WriteIntValue("systemUpdateWindowStartMinutesAfterMidnight", SystemUpdateWindowStartMinutesAfterMidnight);
             writer.WriteBoolValue("systemWindowsBlocked", SystemWindowsBlocked);
@@ -731,8 +731,8 @@ namespace ApiSdk.Models
             writer.WriteIntValue("workProfilePasswordMinimumSymbolCharacters", WorkProfilePasswordMinimumSymbolCharacters);
             writer.WriteIntValue("workProfilePasswordMinimumUpperCaseCharacters", WorkProfilePasswordMinimumUpperCaseCharacters);
             writer.WriteIntValue("workProfilePasswordPreviousPasswordCountToBlock", WorkProfilePasswordPreviousPasswordCountToBlock);
-            writer.WriteEnumValue<AndroidDeviceOwnerRequiredPasswordType>("workProfilePasswordRequiredType", WorkProfilePasswordRequiredType);
-            writer.WriteEnumValue<AndroidDeviceOwnerRequiredPasswordUnlock>("workProfilePasswordRequireUnlock", WorkProfilePasswordRequireUnlock);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordType>("workProfilePasswordRequiredType", WorkProfilePasswordRequiredType);
+            writer.WriteEnumValue<ApiSdk.Models.AndroidDeviceOwnerRequiredPasswordUnlock>("workProfilePasswordRequireUnlock", WorkProfilePasswordRequireUnlock);
             writer.WriteIntValue("workProfilePasswordSignInFailureCountBeforeFactoryReset", WorkProfilePasswordSignInFailureCountBeforeFactoryReset);
         }
     }

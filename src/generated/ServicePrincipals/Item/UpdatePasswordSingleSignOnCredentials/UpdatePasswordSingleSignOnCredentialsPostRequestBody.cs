@@ -16,10 +16,10 @@ namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
         /// <summary>The credentials property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<Credential>? Credentials { get; set; }
+        public List<ApiSdk.Models.Credential>? Credentials { get; set; }
 #nullable restore
 #else
-        public List<Credential> Credentials { get; set; }
+        public List<ApiSdk.Models.Credential> Credentials { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,7 +30,7 @@ namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
         public string Id { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="UpdatePasswordSingleSignOnCredentialsPostRequestBody"/> and sets the default values.
+        /// Instantiates a new <see cref="ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials.UpdatePasswordSingleSignOnCredentialsPostRequestBody"/> and sets the default values.
         /// </summary>
         public UpdatePasswordSingleSignOnCredentialsPostRequestBody()
         {
@@ -39,12 +39,12 @@ namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="UpdatePasswordSingleSignOnCredentialsPostRequestBody"/></returns>
+        /// <returns>A <see cref="ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials.UpdatePasswordSingleSignOnCredentialsPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static UpdatePasswordSingleSignOnCredentialsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials.UpdatePasswordSingleSignOnCredentialsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new UpdatePasswordSingleSignOnCredentialsPostRequestBody();
+            return new ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials.UpdatePasswordSingleSignOnCredentialsPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,7 +54,7 @@ namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<Credential>(Credential.CreateFromDiscriminatorValue)?.ToList(); } },
+                { "credentials", n => { Credentials = n.GetCollectionOfObjectValues<ApiSdk.Models.Credential>(ApiSdk.Models.Credential.CreateFromDiscriminatorValue)?.ToList(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
             };
         }
@@ -65,7 +65,7 @@ namespace ApiSdk.ServicePrincipals.Item.UpdatePasswordSingleSignOnCredentials
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<Credential>("credentials", Credentials);
+            writer.WriteCollectionOfObjectValues<ApiSdk.Models.Credential>("credentials", Credentials);
             writer.WriteStringValue("id", Id);
             writer.WriteAdditionalData(AdditionalData);
         }

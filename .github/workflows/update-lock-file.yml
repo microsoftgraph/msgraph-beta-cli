@@ -1,0 +1,38 @@
+name: Update NuGet lock file on dependabot updates
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-lock-file:
+    runs-on: ubuntu-latest
+
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+    - name: Dependabot metadata
+      id: metadata
+      uses: dependabot/fetch-metadata@v2.2.0
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: actions/checkout@v4
+      if: ${{steps.metadata.outputs.package-ecosystem == 'nuget'}}
+      with:
+        ref: ${{ github.head_ref }}
+    - name: Setup .NET
+      if: ${{steps.metadata.outputs.package-ecosystem == 'nuget'}}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      if: ${{steps.metadata.outputs.package-ecosystem == 'nuget'}}
+      run: dotnet restore
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "chore: update NugGet lock file"
+        file_pattern: src/packages.lock.json
+

@@ -3,7 +3,8 @@ name: Update NuGet lock file on dependabot updates
 on:
   pull_request:
     branches: [ main ]
-  workflow_dispatch:
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
@@ -12,7 +13,7 @@ jobs:
   update-lock-file:
     runs-on: ubuntu-latest
 
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' || (github.event.issue.pull_request && github.event.comment == 'ci:update-lockfile') }}
     steps:
     - name: Dependabot metadata
       id: metadata

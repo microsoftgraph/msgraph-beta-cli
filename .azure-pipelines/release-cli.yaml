@@ -609,7 +609,12 @@ extends:
                       displayName: 'ESRP CodeSigning (Notarize)'
                       inputs:
                         # Pipeline validation can't expand service name from matrix variables
-                        ConnectedServiceName: "microsoftgraph ESRP CodeSign DLL and NuGet (AKV)"
+                        ConnectedServiceName: 'Federated DevX ESRP Managed Identity Connection'
+                        AppRegistrationClientId: '65035b7f-7357-4f29-bf25-c5ee5c3949f8'
+                        AppRegistrationTenantId: 'cdc5aeea-15c5-4db6-b079-fcadd2505dc2'
+                        AuthAKVName: 'akv-prod-eastus'
+                        AuthCertName: 'ReferenceLibraryPrivateCert'
+                        AuthSignCertName: 'ReferencePackagePublisherCertificate'
                         FolderPath: $(SIGN_PATH)
                         signConfigType: inlineSignParams
                         UseMinimatch: true

@@ -188,7 +188,7 @@ parameters:
         jobName: MacOS-x64
 
       - name: Azure Pipelines
-        image: macOS-12
+        image: macOS-latest
         os: macOS
         rid: osx-arm64
         label: macOSArm64

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Subject Name Format Options for Apple devices.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AppleSubjectNameFormat
     {
         /// <summary>Common name.</summary>

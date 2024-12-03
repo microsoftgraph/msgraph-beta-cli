@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Describes current lifecycle state of a template</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceManagementTemplateLifecycleState
     {
         /// <summary>Invalid</summary>

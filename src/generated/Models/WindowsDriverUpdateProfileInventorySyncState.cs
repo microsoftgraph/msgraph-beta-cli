@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Windows DnF update inventory sync state.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WindowsDriverUpdateProfileInventorySyncState
     {
         /// <summary>Pending sync.</summary>

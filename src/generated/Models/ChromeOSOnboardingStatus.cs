@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The onboarding status of the tenant.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ChromeOSOnboardingStatus
     {
         /// <summary>Unknown</summary>

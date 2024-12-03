@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>MacOS Software Update State</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSSoftwareUpdateState
     {
         /// <summary>The software update successfully installed</summary>

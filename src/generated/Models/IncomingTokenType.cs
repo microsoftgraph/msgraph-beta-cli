@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Flags]
     #pragma warning disable CS1591
     public enum IncomingTokenType
@@ -31,6 +32,10 @@ namespace ApiSdk.Models
         [EnumMember(Value = "remoteDesktopToken")]
         #pragma warning disable CS1591
         RemoteDesktopToken = 32,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "refreshToken")]
+        #pragma warning disable CS1591
+        RefreshToken = 64,
         #pragma warning restore CS1591
     }
 }

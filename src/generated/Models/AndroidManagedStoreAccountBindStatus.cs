@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Bind status of the tenant with the Google EMM API</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidManagedStoreAccountBindStatus
     {
         [EnumMember(Value = "notBound")]

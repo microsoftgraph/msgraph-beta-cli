@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum CloudPcReportName
     #pragma warning restore CS1591
@@ -51,6 +52,10 @@ namespace ApiSdk.Models
         #pragma warning disable CS1591
         InaccessibleCloudPcReports,
         #pragma warning restore CS1591
+        [EnumMember(Value = "actionStatusReport")]
+        #pragma warning disable CS1591
+        ActionStatusReport,
+        #pragma warning restore CS1591
         [EnumMember(Value = "rawRemoteConnectionReports")]
         #pragma warning disable CS1591
         RawRemoteConnectionReports,
@@ -70,6 +75,30 @@ namespace ApiSdk.Models
         [EnumMember(Value = "inaccessibleCloudPcTrendReport")]
         #pragma warning disable CS1591
         InaccessibleCloudPcTrendReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "regionalConnectionQualityTrendReport")]
+        #pragma warning disable CS1591
+        RegionalConnectionQualityTrendReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "regionalConnectionQualityInsightsReport")]
+        #pragma warning disable CS1591
+        RegionalConnectionQualityInsightsReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "remoteConnectionQualityReport")]
+        #pragma warning disable CS1591
+        RemoteConnectionQualityReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineLicenseHourlyUsageReport")]
+        #pragma warning disable CS1591
+        FrontlineLicenseHourlyUsageReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineRealtimeUserConnectionsReport")]
+        #pragma warning disable CS1591
+        FrontlineRealtimeUserConnectionsReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bulkActionStatusReport")]
+        #pragma warning disable CS1591
+        BulkActionStatusReport,
         #pragma warning restore CS1591
     }
 }

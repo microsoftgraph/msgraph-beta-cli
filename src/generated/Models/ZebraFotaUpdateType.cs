@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Represents various update types for Zebra FOTA deployment.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ZebraFotaUpdateType
     {
         /// <summary>Custom update where the user selects specific BSP, OS version, and patch number to update to.</summary>

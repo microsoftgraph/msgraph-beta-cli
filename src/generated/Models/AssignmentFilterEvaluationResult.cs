@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Supported evaluation results for filter.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AssignmentFilterEvaluationResult
     {
         /// <summary>Unknown.</summary>

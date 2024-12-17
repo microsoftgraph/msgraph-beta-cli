@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Security Baseline Compliance State</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SecurityBaselineComplianceState
     {
         /// <summary>Unknown state</summary>

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Flags representing firewall rule interface types.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Flags]
     public enum WindowsFirewallRuleInterfaceTypes
     {

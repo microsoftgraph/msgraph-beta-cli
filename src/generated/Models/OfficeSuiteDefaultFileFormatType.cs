@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Describes the OfficeSuiteApp file format types that can be selected.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum OfficeSuiteDefaultFileFormatType
     {
         /// <summary>No file format selected</summary>

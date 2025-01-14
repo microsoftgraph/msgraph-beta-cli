@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Wired Network Authentication Type Settings.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WiredNetworkAuthenticationType
     {
         /// <summary>None</summary>

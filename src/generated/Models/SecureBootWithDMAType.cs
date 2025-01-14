@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Possible values of Secure Boot with DMA</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum SecureBootWithDMAType
     {
         /// <summary>Not configured, no operation</summary>

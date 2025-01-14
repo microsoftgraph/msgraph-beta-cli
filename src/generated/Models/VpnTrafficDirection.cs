@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Specify whether the rule applies to inbound traffic or outbound traffic.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnTrafficDirection
     {
         /// <summary>The rule applies to all outbound traffic.</summary>

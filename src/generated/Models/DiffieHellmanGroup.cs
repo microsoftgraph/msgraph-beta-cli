@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Diffie Hellman Group values for Windows10 VPN policies with IKEv2 connection type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DiffieHellmanGroup
     {
         /// <summary>Group1</summary>

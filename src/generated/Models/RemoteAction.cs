@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Remote actions Intune supports.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum RemoteAction
     {
         /// <summary>Indicate user initiates an unknown action.</summary>
@@ -118,8 +119,8 @@ namespace ApiSdk.Models
         [EnumMember(Value = "initiateDeviceAttestation")]
         InitiateDeviceAttestation,
         /// <summary>Indicates remote device action to override assignments for a Device.</summary>
-        [EnumMember(Value = "changeAssignment")]
-        ChangeAssignment,
+        [EnumMember(Value = "changeAssignments")]
+        ChangeAssignments,
         /// <summary>Indicates remote device action to delete a device from Intune portal.</summary>
         [EnumMember(Value = "delete")]
         Delete,

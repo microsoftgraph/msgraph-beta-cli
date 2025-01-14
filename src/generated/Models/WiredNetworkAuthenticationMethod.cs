@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Wired Network authentication method.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WiredNetworkAuthenticationMethod
     {
         /// <summary>Use an identity certificate for authentication.</summary>

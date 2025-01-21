@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Indicates the status of the attempted device scope action</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceScopeActionStatus
     {
         /// <summary>Indicates the device scope action failed to trigger.</summary>

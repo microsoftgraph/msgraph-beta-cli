@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Possible values for LocalSecurityOptionsInformationDisplayedOnLockScreen</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum LocalSecurityOptionsInformationDisplayedOnLockScreenType
     {
         /// <summary>Not Configured</summary>

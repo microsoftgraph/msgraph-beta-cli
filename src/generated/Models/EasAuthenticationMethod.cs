@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Exchange Active Sync authentication method.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EasAuthenticationMethod
     {
         /// <summary>Authenticate with a username and password.</summary>

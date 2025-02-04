@@ -3,14 +3,11 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.Networkaccess
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum ThreatSeverity
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "informational")]
-        #pragma warning disable CS1591
-        Informational,
-        #pragma warning restore CS1591
         [EnumMember(Value = "low")]
         #pragma warning disable CS1591
         Low,

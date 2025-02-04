@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Describes the TemplateFamily for the Template entity</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceEnrollmentConfigurationType
     {
         /// <summary>Default. Set to unknown if the configuration type cannot be determined.</summary>

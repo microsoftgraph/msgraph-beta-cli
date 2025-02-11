@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Represents various network types for Zebra FOTA deployment.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ZebraFotaNetworkType
     {
         /// <summary>The device will install the update regardless of current network type.</summary>

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Microsoft Launcher Search Bar Placement selection.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MicrosoftLauncherSearchBarPlacement
     {
         /// <summary>Not configured; this value is ignored.</summary>

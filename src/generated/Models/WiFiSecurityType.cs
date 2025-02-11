@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Wi-Fi Security Types.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WiFiSecurityType
     {
         /// <summary>Open (No Authentication).</summary>

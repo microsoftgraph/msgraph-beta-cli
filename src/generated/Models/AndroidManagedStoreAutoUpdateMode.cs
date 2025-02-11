@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Prioritization for automatic updates of Android Managed Store apps set on assignment.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidManagedStoreAutoUpdateMode
     {
         /// <summary>Default update behavior (device must be connected to Wifi, charging and not actively used).</summary>

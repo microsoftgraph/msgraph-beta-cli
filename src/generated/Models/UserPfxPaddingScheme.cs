@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Supported values for the padding scheme used by encryption provider.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UserPfxPaddingScheme
     {
         /// <summary>Unknown padding Scheme.</summary>

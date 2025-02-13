@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android for Work device management targeting type for the account</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidManagedStoreAccountEnrollmentTarget
     {
         [EnumMember(Value = "none")]

@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum CloudPcRegionGroup
     #pragma warning restore CS1591
@@ -90,6 +91,14 @@ namespace ApiSdk.Models
         [EnumMember(Value = "southKorea")]
         #pragma warning disable CS1591
         SouthKorea,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "middleEast")]
+        #pragma warning disable CS1591
+        MiddleEast,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "mexico")]
+        #pragma warning disable CS1591
+        Mexico,
         #pragma warning restore CS1591
     }
 }

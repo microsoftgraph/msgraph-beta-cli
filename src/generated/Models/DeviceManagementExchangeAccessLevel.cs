@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Access Level in Exchange.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceManagementExchangeAccessLevel
     {
         /// <summary>No device access rule has been configured in Exchange.</summary>

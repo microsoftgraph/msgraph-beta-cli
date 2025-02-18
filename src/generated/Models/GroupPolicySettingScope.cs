@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Scope of the group policy setting.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GroupPolicySettingScope
     {
         /// <summary>Device scope unknown</summary>

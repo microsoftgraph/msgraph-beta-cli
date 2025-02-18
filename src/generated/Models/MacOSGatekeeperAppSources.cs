@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>App source options for macOS Gatekeeper.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSGatekeeperAppSources
     {
         /// <summary>Device default value, no intent.</summary>

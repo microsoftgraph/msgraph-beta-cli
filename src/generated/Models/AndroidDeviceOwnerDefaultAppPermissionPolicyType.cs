@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android Device Owner default app permission policy type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerDefaultAppPermissionPolicyType
     {
         /// <summary>Device default value, no intent.</summary>

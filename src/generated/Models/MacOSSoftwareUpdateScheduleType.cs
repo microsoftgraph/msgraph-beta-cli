@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Update schedule type for macOS software updates.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSSoftwareUpdateScheduleType
     {
         /// <summary>Always update.</summary>

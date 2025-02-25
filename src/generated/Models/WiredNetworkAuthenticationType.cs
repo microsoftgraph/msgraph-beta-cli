@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Wired Network Authentication Type Settings.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WiredNetworkAuthenticationType
     {
         /// <summary>None</summary>
@@ -21,7 +22,7 @@ namespace ApiSdk.Models
         /// <summary>Guest Authentication</summary>
         [EnumMember(Value = "guest")]
         Guest,
-        /// <summary>Sentinel member for cases where the client cannot handle the new enum values.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

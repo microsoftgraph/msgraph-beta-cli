@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum CloudPcDeviceImageErrorCode
     #pragma warning restore CS1591
@@ -46,6 +47,14 @@ namespace ApiSdk.Models
         [EnumMember(Value = "sourceImageSizeExceedsLimitation")]
         #pragma warning disable CS1591
         SourceImageSizeExceedsLimitation,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sourceImageWithDataDiskNotSupported")]
+        #pragma warning disable CS1591
+        SourceImageWithDataDiskNotSupported,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "sourceImageWithDiskEncryptionSetNotSupported")]
+        #pragma warning disable CS1591
+        SourceImageWithDiskEncryptionSetNotSupported,
         #pragma warning restore CS1591
     }
 }

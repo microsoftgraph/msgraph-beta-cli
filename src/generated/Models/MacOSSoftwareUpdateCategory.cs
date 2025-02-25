@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>MacOS Software Update Category</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSSoftwareUpdateCategory
     {
         /// <summary>A critical update</summary>

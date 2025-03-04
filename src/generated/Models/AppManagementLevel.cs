@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Management levels for apps</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Flags]
     public enum AppManagementLevel
     {
@@ -28,7 +29,7 @@ namespace ApiSdk.Models
         /// <summary>Android Open Source Project (AOSP) userless devices</summary>
         [EnumMember(Value = "androidOpenSourceProjectUserless")]
         AndroidOpenSourceProjectUserless = 64,
-        /// <summary>Place holder for evolvable enum</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue = 128,
     }

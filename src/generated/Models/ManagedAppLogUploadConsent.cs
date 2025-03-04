@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Represents the current consent status of the associated `managedAppLogCollectionRequest`.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ManagedAppLogUploadConsent
     {
         /// <summary>Default. Indicates app log consent state is &apos;Unknown&apos;. This state is automatically assigned at request creation time and is updated when the log collection completes.</summary>

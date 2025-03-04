@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Certificate Issuance State Options.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum CertificateIssuanceStates
     {
         [EnumMember(Value = "unknown")]

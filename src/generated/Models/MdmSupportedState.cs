@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Mdm Support Status of the setting.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MdmSupportedState
     {
         /// <summary>Mdm support status of the setting is not known.</summary>

@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.Networkaccess
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum AlertType
     #pragma warning restore CS1591
@@ -42,6 +43,14 @@ namespace ApiSdk.Models.Networkaccess
         [EnumMember(Value = "malware")]
         #pragma warning disable CS1591
         Malware,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "patientZero")]
+        #pragma warning disable CS1591
+        PatientZero,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "dlp")]
+        #pragma warning disable CS1591
+        Dlp,
         #pragma warning restore CS1591
     }
 }

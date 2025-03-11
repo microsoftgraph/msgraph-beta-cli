@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Indicates the category of the anomaly. Eg: anomaly type can be device, application, stop error, driver or other.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum UserExperienceAnalyticsAnomalyType
     {
         /// <summary>Indicates the detected anomaly is due to certain devices.</summary>

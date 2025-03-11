@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Category Ingestion source</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum IngestionSource
     {
         /// <summary>Indicates unknown category</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates the category is ingested through system ingestion process</summary>
         [EnumMember(Value = "builtIn")]
         BuiltIn,
-        /// <summary>Unknown future enum value</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The current status of the Ndes Connector.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NdesConnectorState
     {
         /// <summary>State not available yet for this connector.</summary>

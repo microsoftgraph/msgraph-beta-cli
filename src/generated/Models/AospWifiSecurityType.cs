@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>This enum represents Wi-Fi Security Types for Android Device Owner AOSP Scenarios.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AospWifiSecurityType
     {
         /// <summary>No security type.</summary>

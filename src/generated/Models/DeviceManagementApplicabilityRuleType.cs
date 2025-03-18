@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Supported Applicability rule types for Device Configuration</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceManagementApplicabilityRuleType
     {
         /// <summary>Include</summary>

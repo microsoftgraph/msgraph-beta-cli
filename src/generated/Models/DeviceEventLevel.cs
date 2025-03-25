@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Indicates device event level. Possible values are: None, Verbose, Information, Warning, Error, Critical</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceEventLevel
     {
         /// <summary>Indicates that the device event level is none.</summary>
@@ -24,7 +25,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates that the device event level is critical.</summary>
         [EnumMember(Value = "critical")]
         Critical,
-        /// <summary>Placeholder value for future expansion.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

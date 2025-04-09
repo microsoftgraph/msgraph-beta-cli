@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The endpoint security configuration applicable platform.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EndpointSecurityConfigurationApplicablePlatform
     {
         /// <summary>Unknown.</summary>

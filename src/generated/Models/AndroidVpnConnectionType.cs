@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android VPN connection type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidVpnConnectionType
     {
         /// <summary>Cisco AnyConnect.</summary>

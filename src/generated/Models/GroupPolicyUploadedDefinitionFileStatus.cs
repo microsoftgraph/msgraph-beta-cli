@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Type of Group Policy uploaded definition file status.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GroupPolicyUploadedDefinitionFileStatus
     {
         /// <summary>Group Policy uploaded definition file invalid upload status.</summary>

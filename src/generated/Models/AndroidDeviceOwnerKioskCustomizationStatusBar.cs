@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>An enum representing possible values for kiosk customization system navigation.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerKioskCustomizationStatusBar
     {
         /// <summary>Not configured; this value defaults to STATUS_BAR_UNSPECIFIED.</summary>

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Metered Connection Limit Settings.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MeteredConnectionLimitType
     {
         /// <summary>Unrestricted</summary>

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The VPN action to take for a specific service.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnServiceExceptionAction
     {
         /// <summary>Make all traffic from that service go through the VPN</summary>

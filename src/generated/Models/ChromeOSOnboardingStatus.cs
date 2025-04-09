@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The onboarding status of the tenant.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ChromeOSOnboardingStatus
     {
         /// <summary>Unknown</summary>
@@ -21,7 +22,7 @@ namespace ApiSdk.Models
         /// <summary>Offboarding</summary>
         [EnumMember(Value = "offboarding")]
         Offboarding,
-        /// <summary>UnknownFutureValue</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

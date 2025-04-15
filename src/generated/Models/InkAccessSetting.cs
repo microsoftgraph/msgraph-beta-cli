@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Values for the InkWorkspaceAccess setting.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum InkAccessSetting
     {
         /// <summary>Not configured.</summary>

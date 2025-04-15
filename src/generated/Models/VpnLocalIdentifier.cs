@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The type of VPN local identifier</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnLocalIdentifier
     {
         /// <summary>Device Fully Qualified Domain Name</summary>

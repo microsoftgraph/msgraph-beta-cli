@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>An enum representing possible values for cross profile data sharing.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerCertificateAccessType
     {
         /// <summary>Require user approval for all apps</summary>
@@ -12,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Pre-grant certificate access for specific apps (require user approval for other apps).</summary>
         [EnumMember(Value = "specificApps")]
         SpecificApps,
-        /// <summary>Unknown future value for evolvable enum patterns.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

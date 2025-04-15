@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Indicates if the Group Policy Object file is covered and ready for Intune migration.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GroupPolicyMigrationReadiness
     {
         /// <summary>No Intune coverage</summary>

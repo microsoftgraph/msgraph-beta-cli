@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Values to restrict peer selection by.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeliveryOptimizationRestrictPeerSelectionByOptions
     {
         /// <summary>Not configured.</summary>

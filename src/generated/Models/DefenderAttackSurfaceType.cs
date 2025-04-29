@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Possible values of Defender Attack Surface Reduction Rules</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DefenderAttackSurfaceType
     {
         /// <summary>Default, which disables attack surface reduction rule.</summary>

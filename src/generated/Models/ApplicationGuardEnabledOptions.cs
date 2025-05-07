@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Possible values for ApplicationGuardEnabledOptions</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ApplicationGuardEnabledOptions
     {
         /// <summary>Not Configured</summary>

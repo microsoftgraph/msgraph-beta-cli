@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Process identifier types for MacOS Privacy Preferences</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSProcessIdentifierType
     {
         /// <summary>Indicates an app with a bundle ID.</summary>

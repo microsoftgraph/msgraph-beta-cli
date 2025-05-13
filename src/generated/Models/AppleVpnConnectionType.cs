@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Apple VPN connection type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AppleVpnConnectionType
     {
         /// <summary>Cisco AnyConnect.</summary>

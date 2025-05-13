@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>VPN Authentication Method.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnAuthenticationMethod
     {
         /// <summary>Authenticate with a certificate.</summary>

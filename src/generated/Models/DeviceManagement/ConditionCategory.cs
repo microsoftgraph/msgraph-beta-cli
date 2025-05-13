@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.DeviceManagement
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum ConditionCategory
     #pragma warning restore CS1591
@@ -42,6 +43,14 @@ namespace ApiSdk.Models.DeviceManagement
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591
         UnknownFutureValue,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineBufferUsageDuration")]
+        #pragma warning disable CS1591
+        FrontlineBufferUsageDuration,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineBufferUsageThreshold")]
+        #pragma warning disable CS1591
+        FrontlineBufferUsageThreshold,
         #pragma warning restore CS1591
     }
 }

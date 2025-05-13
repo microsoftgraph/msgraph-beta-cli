@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Non-EAP methods for authentication.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum NonEapAuthenticationMethodForEapTtlsType
     {
         /// <summary>Unencrypted password (PAP).</summary>

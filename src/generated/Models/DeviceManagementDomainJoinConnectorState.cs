@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The ODJ request states.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceManagementDomainJoinConnectorState
     {
         /// <summary>Connector is actively pinging Intune.</summary>

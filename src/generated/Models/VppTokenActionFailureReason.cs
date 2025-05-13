@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Possible types of reasons for an Apple Volume Purchase Program token action failure.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VppTokenActionFailureReason
     {
         /// <summary>None.</summary>

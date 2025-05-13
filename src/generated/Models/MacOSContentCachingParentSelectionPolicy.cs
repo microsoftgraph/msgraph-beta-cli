@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Determines how content caches select a parent cache.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum MacOSContentCachingParentSelectionPolicy
     {
         /// <summary>Defaults to round-robin strategy.</summary>

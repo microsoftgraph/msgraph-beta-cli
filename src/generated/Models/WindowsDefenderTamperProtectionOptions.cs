@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Defender TamperProtection setting options</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WindowsDefenderTamperProtectionOptions
     {
         /// <summary>Not Configured</summary>

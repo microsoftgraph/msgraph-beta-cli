@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Wi-Fi authentication method.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WiFiAuthenticationMethod
     {
         /// <summary>Use an identity certificate for authentication.</summary>

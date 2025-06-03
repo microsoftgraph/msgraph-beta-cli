@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>This enum represents associated assignment payload type</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AssociatedAssignmentPayloadType
     {
         /// <summary>Invalid payload type</summary>

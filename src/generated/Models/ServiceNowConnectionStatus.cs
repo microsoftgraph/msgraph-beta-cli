@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Status of ServiceNow Connection</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ServiceNowConnectionStatus
     {
         /// <summary>Tenant has disabled the connection</summary>
@@ -12,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Tenant has enabled the connection</summary>
         [EnumMember(Value = "enabled")]
         Enabled,
-        /// <summary>Future authentication method to be added here.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

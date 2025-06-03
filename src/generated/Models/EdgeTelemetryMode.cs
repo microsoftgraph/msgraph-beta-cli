@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Type of browsing data sent to Microsoft 365 analytics</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EdgeTelemetryMode
     {
         /// <summary>Default – No telemetry data collected or sent</summary>

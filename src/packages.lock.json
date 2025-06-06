@@ -58,13 +58,13 @@
       },
       "System.CommandLine.Hosting": {
         "type": "Direct",
-        "requested": "[0.4.0-alpha.22272.1, )",
-        "resolved": "0.4.0-alpha.22272.1",
-        "contentHash": "x9JhHxBLxlKyCIZADFYC8q16L9yGHdTakrLFjHabwR7Tk0761aTexiGgMTIS744HGuhc8pk9MoLUzsr/TlRfMQ==",
+        "requested": "[0.4.0-alpha.25277.114, )",
+        "resolved": "0.4.0-alpha.25277.114",
+        "contentHash": "MQMSNPi0Invl6tf8tHunZVF1r1jNm31aATwlH449up3NVXe1IkoTHuJRISRBotgbaGS6AgSCz+p2YnUmx585BA==",
         "dependencies": {
           "Microsoft.Extensions.Hosting": "6.0.0",
-          "System.CommandLine": "2.0.0-beta4.22272.1",
-          "System.CommandLine.NamingConventionBinder": "2.0.0-beta4.22272.1"
+          "System.CommandLine": "2.0.0-beta5.25277.114",
+          "System.CommandLine.NamingConventionBinder": "2.0.0-beta5.25277.114"
         }
       },
       "Azure.Core": {
@@ -802,15 +802,15 @@
       },
       "System.CommandLine": {
         "type": "Transitive",
-        "resolved": "2.0.0-beta4.22272.1",
-        "contentHash": "1uqED/q2H0kKoLJ4+hI2iPSBSEdTuhfCYADeJrAqERmiGQ2NNacYKRNEQ+gFbU4glgVyK8rxI+ZOe1onEtr/Pg=="
+        "resolved": "2.0.0-beta5.25277.114",
+        "contentHash": "pu+t5hvOfne5ZoKCqFS3jM2ciCyMWb5mKvgFBdgVVHsztoK3nwoQ4P/KI3TAAU44cGc6qvqZTcGoXuQbwCJHqg=="
       },
       "System.CommandLine.NamingConventionBinder": {
         "type": "Transitive",
-        "resolved": "2.0.0-beta4.22272.1",
-        "contentHash": "ux2eUA/syF+JtlpMDc/Lsd6PBIBuwjH3AvHnestoh5uD0WKT5b+wkQxDWVCqp9qgVjMBTLNhX19ZYFtenunt9A==",
+        "resolved": "2.0.0-beta5.25277.114",
+        "contentHash": "QCMwKtMjAz1gdVEFLAUZfRWrvDc80Uk1CKJiXj76JBlidmPO6OSH+20DE8jCF5BDjlCpz1fobU98eMq58NJMhQ==",
         "dependencies": {
-          "System.CommandLine": "2.0.0-beta4.22272.1"
+          "System.CommandLine": "2.0.0-beta5.25277.114"
         }
       },
       "System.Console": {

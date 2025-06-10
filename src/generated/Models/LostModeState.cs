@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>State of lost mode, indicating if lost mode is enabled or disabled</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum LostModeState
     {
         /// <summary>Lost mode is disabled.</summary>

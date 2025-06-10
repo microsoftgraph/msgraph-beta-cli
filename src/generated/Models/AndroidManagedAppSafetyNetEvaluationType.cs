@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>An admin enforced Android SafetyNet evaluation type requirement on a managed app.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidManagedAppSafetyNetEvaluationType
     {
         /// <summary>Require basic evaluation</summary>

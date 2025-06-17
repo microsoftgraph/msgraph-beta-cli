@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Type of Group Policy operation status.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum GroupPolicyOperationStatus
     {
         /// <summary>Group Policy unknown operation status.</summary>

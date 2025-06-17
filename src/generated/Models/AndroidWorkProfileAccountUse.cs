@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>An enum representing possible values for account use in work profile.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidWorkProfileAccountUse
     {
         /// <summary>Allow additon of all accounts except Google accounts in Android Work Profile.</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models
         /// <summary>Allow addition of all accounts (including Google accounts) in Android Work Profile.</summary>
         [EnumMember(Value = "allowAll")]
         AllowAll,
-        /// <summary>Unknown future value for evolvable enum patterns.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>An enum representing possible values for kiosk customization system navigation.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerKioskCustomizationSystemNavigation
     {
         /// <summary>Not configured; this value defaults to NAVIGATION_DISABLED.</summary>
@@ -12,7 +13,7 @@ namespace ApiSdk.Models
         /// <summary>Home and overview buttons are enabled.</summary>
         [EnumMember(Value = "navigationEnabled")]
         NavigationEnabled,
-        /// <summary>Only the home button is enabled.</summary>
+        /// <summary> Only the home button is enabled.</summary>
         [EnumMember(Value = "homeButtonOnly")]
         HomeButtonOnly,
     }

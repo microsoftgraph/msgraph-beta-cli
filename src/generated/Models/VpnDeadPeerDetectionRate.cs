@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Determines how often to check if a peer connection is still alive</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnDeadPeerDetectionRate
     {
         /// <summary>Medium</summary>

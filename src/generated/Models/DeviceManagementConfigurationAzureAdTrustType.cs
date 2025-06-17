@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Required AAD Trust Type</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceManagementConfigurationAzureAdTrustType
     {
         /// <summary>No AAD Trust Type specified</summary>

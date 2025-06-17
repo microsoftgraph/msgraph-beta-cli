@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Windows 10 Device Mode type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum Windows10DeviceModeType
     {
         /// <summary>Standard Configuration</summary>

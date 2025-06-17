@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Data type for a configuration item inside an Android application&apos;s custom configuration schema</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidManagedStoreAppConfigurationSchemaItemDataType
     {
         [EnumMember(Value = "bool")]

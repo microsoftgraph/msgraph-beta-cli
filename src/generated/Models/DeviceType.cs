@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Device type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceType
     {
         /// <summary>Desktop.</summary>
@@ -75,6 +76,12 @@ namespace ApiSdk.Models
         /// <summary>Linux device.</summary>
         [EnumMember(Value = "linux")]
         Linux,
+        /// <summary>Indicates managed device is running on visionOS operating system.</summary>
+        [EnumMember(Value = "visionOS")]
+        VisionOS,
+        /// <summary>Indicates managed device is running on tvOS operating system.</summary>
+        [EnumMember(Value = "tvOS")]
+        TvOS,
         /// <summary>Blackberry.</summary>
         [EnumMember(Value = "blackberry")]
         Blackberry,

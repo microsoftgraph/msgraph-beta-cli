@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Firewall rule traffic directions.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WindowsFirewallRuleTrafficDirectionType
     {
         /// <summary>Not configured.</summary>

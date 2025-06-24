@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Supported certificate sources for email signing and encryption.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EmailCertificateType
     {
         /// <summary>Do not use a certificate as a source.</summary>

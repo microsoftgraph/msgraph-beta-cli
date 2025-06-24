@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The type of tunnels that will be present to the VPN client for configuration</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnTunnelConfigurationType
     {
         /// <summary>WiFi and Cellular Tunnels</summary>

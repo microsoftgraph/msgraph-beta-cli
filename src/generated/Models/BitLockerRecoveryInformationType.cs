@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>BitLockerRecoveryInformationType types</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum BitLockerRecoveryInformationType
     {
         /// <summary>Store recovery passwords and key packages.</summary>

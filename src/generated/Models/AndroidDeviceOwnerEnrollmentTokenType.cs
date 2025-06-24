@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The enrollment token type for an enrollment profile.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerEnrollmentTokenType
     {
         /// <summary>Default token type.</summary>

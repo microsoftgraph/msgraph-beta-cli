@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Deployment states for Autopilot devices</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WindowsAutopilotDeploymentState
     {
         /// <summary>The deployment state is unknown.</summary>

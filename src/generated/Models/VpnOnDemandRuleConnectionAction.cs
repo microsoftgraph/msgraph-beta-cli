@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>VPN On-Demand Rule Connection Action.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnOnDemandRuleConnectionAction
     {
         /// <summary>Connect.</summary>

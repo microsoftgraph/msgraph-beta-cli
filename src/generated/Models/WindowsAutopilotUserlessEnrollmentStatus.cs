@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Userless enrollment block status, indicating whether the next device enrollment will be blocked.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum WindowsAutopilotUserlessEnrollmentStatus
     {
         /// <summary>Unknown userless enrollment block status. Next userless enrollment may fail. This is the default value.</summary>

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Branding Options for the Message Template. Branding is defined in the Intune Admin Console.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     [Flags]
     public enum EnrollmentNotificationBrandingOptions
     {
@@ -25,7 +26,7 @@ namespace ApiSdk.Models
         /// <summary>Indicates that the DeviceDetails is included in the notification.</summary>
         [EnumMember(Value = "includeDeviceDetails")]
         IncludeDeviceDetails = 32,
-        /// <summary>unknownFutureValue for evolvable enums pattern.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue = 64,
     }

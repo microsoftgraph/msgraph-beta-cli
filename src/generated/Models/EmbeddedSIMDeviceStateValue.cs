@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Describes the various states for an embedded SIM activation code.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum EmbeddedSIMDeviceStateValue
     {
         /// <summary>Designates that the embedded SIM activation code is free and available to be assigned to a device.</summary>

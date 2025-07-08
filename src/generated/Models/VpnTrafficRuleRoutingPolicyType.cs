@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Specifies the routing policy for a VPN traffic rule.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum VpnTrafficRuleRoutingPolicyType
     {
         /// <summary>No routing policy specified.</summary>

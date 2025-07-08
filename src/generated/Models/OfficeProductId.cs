@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>The Enum to specify the Office365 ProductIds that represent the Office365 Suite SKUs.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum OfficeProductId
     {
         [EnumMember(Value = "o365ProPlusRetail")]

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Represents the expected type for a macOS custom attribute script value.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum DeviceCustomAttributeValueType
     {
         /// <summary>Indicates the value for a custom attribute script is an integer.</summary>

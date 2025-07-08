@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum CloudPcOnPremisesConnectionHealthCheckErrorType
     #pragma warning restore CS1591
@@ -82,6 +83,10 @@ namespace ApiSdk.Models
         [EnumMember(Value = "endpointConnectivityCheckLocaleUrlNotAllowListed")]
         #pragma warning disable CS1591
         EndpointConnectivityCheckLocaleUrlNotAllowListed,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "endpointConnectivityCheckVMAgentEndPointCommunicationError")]
+        #pragma warning disable CS1591
+        EndpointConnectivityCheckVMAgentEndPointCommunicationError,
         #pragma warning restore CS1591
         [EnumMember(Value = "endpointConnectivityCheckUnknownError")]
         #pragma warning disable CS1591
@@ -194,6 +199,10 @@ namespace ApiSdk.Models
         [EnumMember(Value = "resourceAvailabilityCheckDeploymentQuotaLimitReached")]
         #pragma warning disable CS1591
         ResourceAvailabilityCheckDeploymentQuotaLimitReached,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "resourceAvailabilityCheckMissingRegistrationForLocation")]
+        #pragma warning disable CS1591
+        ResourceAvailabilityCheckMissingRegistrationForLocation,
         #pragma warning restore CS1591
         [EnumMember(Value = "resourceAvailabilityCheckTransientServiceError")]
         #pragma warning disable CS1591

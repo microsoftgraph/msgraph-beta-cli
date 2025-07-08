@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models.Networkaccess
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum DeviceVendor
     #pragma warning restore CS1591
@@ -66,6 +67,10 @@ namespace ApiSdk.Models.Networkaccess
         [EnumMember(Value = "other")]
         #pragma warning disable CS1591
         Other,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ciscoCatalyst")]
+        #pragma warning disable CS1591
+        CiscoCatalyst,
         #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591

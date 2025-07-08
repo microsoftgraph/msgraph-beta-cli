@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Indicates the type of elevated process</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum PrivilegeManagementProcessType
     {
         /// <summary>Default. If the type was unknown on the client for some reasons</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models
         /// <summary>The elevated process is a child process</summary>
         [EnumMember(Value = "child")]
         Child,
-        /// <summary>Evolvable emuneration sentinel value. Do not use</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

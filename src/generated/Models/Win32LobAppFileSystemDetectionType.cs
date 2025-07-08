@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Contains all supported file system detection type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum Win32LobAppFileSystemDetectionType
     {
         /// <summary>Not configured.</summary>

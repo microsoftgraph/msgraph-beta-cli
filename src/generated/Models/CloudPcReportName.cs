@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace ApiSdk.Models
 {
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
     public enum CloudPcReportName
     #pragma warning restore CS1591
@@ -18,14 +19,6 @@ namespace ApiSdk.Models
         [EnumMember(Value = "totalAggregatedRemoteConnectionReports")]
         #pragma warning disable CS1591
         TotalAggregatedRemoteConnectionReports,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "sharedUseLicenseUsageReport")]
-        #pragma warning disable CS1591
-        SharedUseLicenseUsageReport,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "sharedUseLicenseUsageRealTimeReport")]
-        #pragma warning disable CS1591
-        SharedUseLicenseUsageRealTimeReport,
         #pragma warning restore CS1591
         [EnumMember(Value = "unknownFutureValue")]
         #pragma warning disable CS1591
@@ -51,6 +44,10 @@ namespace ApiSdk.Models
         #pragma warning disable CS1591
         InaccessibleCloudPcReports,
         #pragma warning restore CS1591
+        [EnumMember(Value = "actionStatusReport")]
+        #pragma warning disable CS1591
+        ActionStatusReport,
+        #pragma warning restore CS1591
         [EnumMember(Value = "rawRemoteConnectionReports")]
         #pragma warning disable CS1591
         RawRemoteConnectionReports,
@@ -70,6 +67,54 @@ namespace ApiSdk.Models
         [EnumMember(Value = "inaccessibleCloudPcTrendReport")]
         #pragma warning disable CS1591
         InaccessibleCloudPcTrendReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "regionalConnectionQualityTrendReport")]
+        #pragma warning disable CS1591
+        RegionalConnectionQualityTrendReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "regionalConnectionQualityInsightsReport")]
+        #pragma warning disable CS1591
+        RegionalConnectionQualityInsightsReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "remoteConnectionQualityReport")]
+        #pragma warning disable CS1591
+        RemoteConnectionQualityReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineLicenseHourlyUsageReport")]
+        #pragma warning disable CS1591
+        FrontlineLicenseHourlyUsageReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "frontlineRealtimeUserConnectionsReport")]
+        #pragma warning disable CS1591
+        FrontlineRealtimeUserConnectionsReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "bulkActionStatusReport")]
+        #pragma warning disable CS1591
+        BulkActionStatusReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "troubleshootDetailsReport")]
+        #pragma warning disable CS1591
+        TroubleshootDetailsReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "troubleshootTrendCountReport")]
+        #pragma warning disable CS1591
+        TroubleshootTrendCountReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "troubleshootRegionalReport")]
+        #pragma warning disable CS1591
+        TroubleshootRegionalReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "troubleshootIssueCountReport")]
+        #pragma warning disable CS1591
+        TroubleshootIssueCountReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "cloudPcInsightReport")]
+        #pragma warning disable CS1591
+        CloudPcInsightReport,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "regionalInaccessibleCloudPcTrendReport")]
+        #pragma warning disable CS1591
+        RegionalInaccessibleCloudPcTrendReport,
         #pragma warning restore CS1591
     }
 }

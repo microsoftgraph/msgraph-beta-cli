@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Describes the OfficeSuiteApp file format types that can be selected.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum OfficeSuiteDefaultFileFormatType
     {
         /// <summary>No file format selected</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models
         /// <summary>Office Open Document Format selected</summary>
         [EnumMember(Value = "officeOpenDocumentFormat")]
         OfficeOpenDocumentFormat,
-        /// <summary>Placeholder for evolvable enum.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

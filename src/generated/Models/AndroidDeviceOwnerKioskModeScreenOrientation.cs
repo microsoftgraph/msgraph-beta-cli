@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android Device Owner Kiosk Mode managed home screen orientation.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerKioskModeScreenOrientation
     {
         /// <summary>Not configured; this value is ignored.</summary>

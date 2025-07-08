@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android Device Owner Kiosk Mode folder icon type.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidDeviceOwnerKioskModeFolderIcon
     {
         /// <summary>Not configured; this value is ignored.</summary>

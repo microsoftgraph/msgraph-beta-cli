@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Represents various update types for Zebra FOTA deployment.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum ZebraFotaUpdateType
     {
         /// <summary>Custom update where the user selects specific BSP, OS version, and patch number to update to.</summary>
@@ -15,7 +16,7 @@ namespace ApiSdk.Models
         /// <summary>The device always looks for the latest package available in the repo and tries to update whenever a new package is available. This continues until the admin cancels the auto update.</summary>
         [EnumMember(Value = "auto")]
         Auto,
-        /// <summary>Unknown future enum value.</summary>
+        /// <summary>Evolvable enumeration sentinel value. Do not use.</summary>
         [EnumMember(Value = "unknownFutureValue")]
         UnknownFutureValue,
     }

@@ -4,6 +4,7 @@ using System;
 namespace ApiSdk.Models
 {
     /// <summary>Android action taken when an app requests a dangerous permission.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum AndroidPermissionActionType
     {
         [EnumMember(Value = "prompt")]
